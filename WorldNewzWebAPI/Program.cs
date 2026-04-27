@@ -101,6 +101,9 @@ Console.WriteLine($"✓ Environment: {builder.Environment.EnvironmentName}");
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5005";
 app.Urls.Add($"http://*:{port}");
 
+// ✅ CORS MUST be first (before routing, headers, etc.)
+app.UseCors("AllowFrontend");
+
 // Global exception handling middleware
 app.Use(async (context, next) =>
 {
@@ -129,15 +132,12 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseHttpsRedirection();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worldnewz API v1");
+    });
 }
-
-app.UseCors("AllowFrontend");
-
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worldnewz API v1");
-});
 
 app.UseAuthorization();
 app.MapControllers();
