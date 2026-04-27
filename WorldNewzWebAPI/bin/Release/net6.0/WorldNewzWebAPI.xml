@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorldNewzWebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WorldNewzWebAPI.Controllers.BingNewsController.GetBingNews(System.String)">
+            <summary>
+            Fetches news articles from Bing News Search API.
+            </summary>
+            <param name="query">Search term (default: latest news).</param>
+            <returns>JSON response containing Bing news results.</returns>
+        </member>
+    </members>
+</doc>

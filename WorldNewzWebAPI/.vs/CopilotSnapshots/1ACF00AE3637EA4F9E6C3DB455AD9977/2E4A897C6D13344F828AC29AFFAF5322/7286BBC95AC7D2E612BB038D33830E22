@@ -1,0 +1,31 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/money")]
+public class MoneyController : ControllerBase
+{
+    private readonly IConfiguration _config;
+    private readonly HttpClient _httpClient;
+
+    public MoneyController(IConfiguration config, HttpClient httpClient)
+    {
+        _config = config;
+        _httpClient = httpClient;
+    }
+
+    [HttpGet("stocks")]
+    public async Task<IActionResult> GetStockData()
+    {
+        try
+        {
+            var response = await _httpClient.GetStringAsync(
+                "https://saurav.tech/NewsAPI/top-headlines/category/business/in.json"
+            );
+            return Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Error fetching business/money news", error = ex.Message });
+        }
+    }
+}

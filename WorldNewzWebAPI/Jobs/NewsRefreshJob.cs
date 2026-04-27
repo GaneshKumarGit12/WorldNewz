@@ -1,0 +1,39 @@
+using Quartz;
+using WorldNewzWebAPI.Services;
+
+namespace WorldNewzWebAPI.Jobs
+{
+    public class NewsRefreshJob : IJob
+    {
+        private readonly NewsService _newsService;
+
+        public NewsRefreshJob(NewsService newsService)
+        {
+            _newsService = newsService;
+        }
+
+        public async Task Execute(IJobExecutionContext context)
+        {
+            try
+            {
+                Console.WriteLine($"[Quartz] Refreshing news at {DateTime.Now}");
+                var categories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping" };
+                foreach (var category in categories)
+                {
+                    try
+                    {
+                        await _newsService.FetchAndCacheNews(category.ToLower());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"[Quartz] Error fetching news for category '{category}': {ex.Message}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Quartz] NewsRefreshJob failed: {ex.Message}");
+            }
+        }
+    }
+}

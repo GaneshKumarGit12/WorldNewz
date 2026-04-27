@@ -1,0 +1,29 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using WorldNewzWebAPI.Data;
+
+namespace WorldNewzWebAPI.Controllers
+{
+    [ApiController]
+    [Route("api/news")]
+    public class NewsController : ControllerBase
+    {
+        private readonly IConfiguration _config;
+        private readonly HttpClient _httpClient;
+
+        public NewsController(IConfiguration config, HttpClient httpClient)
+        {
+            _config = config;
+            _httpClient = httpClient;
+        }
+
+        [HttpGet("discover")]
+        public async Task<IActionResult> GetDiscoverNews()
+        {
+            var apiKey = _config["NEWS_API_KEY"]; // read from .env
+            var response = await _httpClient.GetStringAsync(
+                $"https://newsapi.org/v2/top-headlines?country=in&apiKey={apiKey}"
+            );
+            return Ok(response);
+        }
+    }
+}

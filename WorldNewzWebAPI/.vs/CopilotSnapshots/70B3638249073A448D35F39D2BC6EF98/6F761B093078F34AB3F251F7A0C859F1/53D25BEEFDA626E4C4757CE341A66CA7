@@ -1,0 +1,59 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WorldNewzWebAPI.Data;
+using WorldNewzWebAPI.Services;
+using Quartz;
+using WorldNewzWebAPI.Jobs;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Load environment variables
+builder.Configuration.AddEnvironmentVariables();
+
+// Add DbContext
+builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//Add Quartz services
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+    var jobKey = new JobKey("NewsRefreshJob");
+    q.AddJob<NewsRefreshJob>(opts => opts.WithIdentity(jobKey));
+    q.AddTrigger(t => t
+        .ForJob(jobKey)
+        .WithSimpleSchedule(x => x.WithIntervalInMinutes(10).RepeatForever()));
+});
+// Configure the Quartz hosted service. WaitForJobsToComplete ensures
+// running jobs are allowed to finish on shutdown. AwaitApplicationStarted
+// makes the scheduler start after the application has fully started.
+builder.Services.AddQuartzHostedService(options =>
+{
+    options.WaitForJobsToComplete = true;
+    options.AwaitApplicationStarted = true;
+});
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Load environment variables
+builder.Configuration.AddEnvironmentVariables();
+
+var app = builder.Build();
+
+// Register services used by jobs
+builder.Services.AddScoped<NewsService>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

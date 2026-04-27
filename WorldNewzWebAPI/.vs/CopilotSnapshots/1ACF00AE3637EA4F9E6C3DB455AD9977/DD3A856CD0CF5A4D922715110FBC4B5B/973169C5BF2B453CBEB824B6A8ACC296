@@ -1,0 +1,24 @@
+﻿using System.Net.Http;
+using System.Text.Json;
+
+namespace WorldNewzWebAPI.Services
+{
+    public class WeatherService
+    {
+        private readonly HttpClient _httpClient;
+        private readonly string _apiKey;
+
+        public WeatherService(IConfiguration config)
+        {
+            _httpClient = new HttpClient();
+            _apiKey = config["WEATHER_API_KEY"];
+        }
+
+        public async Task<object?> GetWeather(string city)
+        {
+            var url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={_apiKey}&units=metric";
+            var response = await _httpClient.GetStringAsync(url);
+            return JsonSerializer.Deserialize<object>(response);
+        }
+    }
+}

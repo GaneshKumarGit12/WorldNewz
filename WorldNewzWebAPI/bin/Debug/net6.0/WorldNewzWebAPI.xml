@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorldNewzWebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WorldNewzWebAPI.Controllers.BingNewsController.GetBingNews(System.String)">
+            <summary>
+            Fetches news articles from Bing News Search API.
+            </summary>
+            <param name="query">Search term (default: latest news).</param>
+            <returns>JSON response containing Bing news results.</returns>
+        </member>
+        <member name="P:WorldNewzWebAPI.Models.NewsQueryContext.Source">
+            <summary>
+            Source specification (e.g. "duckduckgo", "news", "all").
+            Only used by Search.
+            </summary>
+        </member>
+        <member name="M:NewsController.Search(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Search news articles. Now seamlessly maps DDG usage to the working Active API provider.
+            Returns { results: [...] } matching the UI's SearchPage expectation.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,6 @@
+@WorldNewzWebAPI_HostAddress = http://localhost:5005
+
+GET {{WorldNewzWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

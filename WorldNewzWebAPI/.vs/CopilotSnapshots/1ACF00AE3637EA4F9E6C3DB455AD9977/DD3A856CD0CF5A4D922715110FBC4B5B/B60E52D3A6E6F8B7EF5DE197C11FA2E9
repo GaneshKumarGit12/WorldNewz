@@ -1,0 +1,41 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using WorldNewzWebAPI.Data;
+
+namespace WorldNewzWebAPI.Controllers
+{
+    /// <summary>
+    /// Controller for managing news-related operations
+    /// </summary>
+    [ApiController]
+    [Route("api/news")]
+    public class NewsController : ControllerBase
+    {
+        private readonly IConfiguration _config;
+        private readonly HttpClient _httpClient;
+
+        /// <summary>
+        /// Initializes a new instance of the NewsController
+        /// </summary>
+        public NewsController(IConfiguration config, HttpClient httpClient)
+        {
+            _config = config;
+            _httpClient = httpClient;
+        }
+
+        /// <summary>
+        /// Gets the latest news headlines from India
+        /// </summary>
+        /// <returns>Top news headlines</returns>
+        /// <response code="200">Successfully retrieved news</response>
+        /// <response code="400">Invalid request</response>
+        [HttpGet("discover")]
+        public async Task<IActionResult> GetDiscoverNews()
+        {
+            var apiKey = _config["NEWS_API_KEY"]; // read from .env
+            var response = await _httpClient.GetStringAsync(
+                $"https://newsapi.org/v2/top-headlines?country=in&apiKey={apiKey}"
+            );
+            return Ok(response);
+        }
+    }
+}
