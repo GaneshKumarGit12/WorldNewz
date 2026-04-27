@@ -7,7 +7,15 @@ using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
-Env.Load(builder.Environment.ContentRootPath + "/.env");
+// Try to load local .env file (safe for production if missing)
+try
+{
+    Env.Load(builder.Environment.ContentRootPath + "/.env");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"⚠️ No .env file found: {ex.Message}");
+}
 
 // Add environment variables into configuration
 builder.Configuration.AddEnvironmentVariables();
@@ -23,8 +31,9 @@ builder.Services.AddDbContext<WorldNewsDbContext>(options =>
 });
 
 // Get CORS allowed origins from environment or default
-var corsOrigins = (Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS") ?? "http://localhost:5173,http://localhost:5174")
-    .Split(',', System.StringSplitOptions.RemoveEmptyEntries)
+var corsOrigins = (Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS")
+                   ?? "http://localhost:5173,http://localhost:5174")
+    .Split(',', StringSplitOptions.RemoveEmptyEntries)
     .Select(o => o.Trim())
     .ToArray();
 
@@ -79,7 +88,7 @@ foreach (var envVar in requiredEnvVars)
 
 if (missingVars.Count > 0)
 {
-    var message = $"Missing required environment variables: {string.Join(", ", missingVars)}. Please set them in your .env file.";
+    var message = $"Missing required environment variables: {string.Join(", ", missingVars)}. Please set them in your Render environment.";
     Console.WriteLine($"❌ ERROR: {message}");
     throw new InvalidOperationException(message);
 }
@@ -88,9 +97,11 @@ Console.WriteLine($"✓ Database: {dbPath}");
 Console.WriteLine($"✓ CORS Origins: {string.Join(", ", corsOrigins)}");
 Console.WriteLine($"✓ Environment: {builder.Environment.EnvironmentName}");
 
-app.UseCors("AllowFrontend");
+// Bind to Render's dynamic port
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5005";
+app.Urls.Add($"http://*:{port}");
 
-// Add global exception handling middleware
+// Global exception handling middleware
 app.Use(async (context, next) =>
 {
     try
@@ -118,15 +129,23 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseHttpsRedirection();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worldnewz API v1");
-    });
 }
+
+app.UseCors("AllowFrontend");
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worldnewz API v1");
+});
 
 app.UseAuthorization();
 app.MapControllers();
-app.MapGet("/health", () => "API is running");
+
+// Root route for Render
+app.MapGet("/", () => "WorldNewz API is running. Use /api/... endpoints.");
+
+// Health check route
+app.MapGet("/health", () => Results.Ok("API is running"));
 
 app.Run();
