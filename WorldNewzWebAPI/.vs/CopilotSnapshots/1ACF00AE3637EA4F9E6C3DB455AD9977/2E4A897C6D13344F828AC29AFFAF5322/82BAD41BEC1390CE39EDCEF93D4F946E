@@ -1,0 +1,46 @@
+﻿using System.Net.Http;
+using System.Text.Json;
+
+namespace WorldNewzWebAPI.Services
+{
+    public class WeatherService
+    {
+        private readonly HttpClient _httpClient;
+        private readonly string _apiKey;
+
+        public WeatherService(IConfiguration config)
+        {
+            _httpClient = new HttpClient();
+            _apiKey = config["WEATHER_API_KEY"];
+        }
+
+        public async Task<object?> GetWeather(string city)
+        {
+            try
+            {
+                // Using Open-Meteo API (no API key required)
+                var url = $"https://geocoding-api.open-meteo.com/v1/search?name={city}&count=1&language=en&format=json";
+                var geoResponse = await _httpClient.GetStringAsync(url);
+                var geoData = JsonSerializer.Deserialize<JsonElement>(geoResponse);
+
+                if (geoData.TryGetProperty("results", out var results) && results.GetArrayLength() > 0)
+                {
+                    var location = results[0];
+                    var latitude = location.GetProperty("latitude").GetDouble();
+                    var longitude = location.GetProperty("longitude").GetDouble();
+
+                    // Get weather data from Open-Meteo
+                    var weatherUrl = $"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto";
+                    var weatherResponse = await _httpClient.GetStringAsync(weatherUrl);
+                    return JsonSerializer.Deserialize<object>(weatherResponse);
+                }
+
+                return new { error = "City not found" };
+            }
+            catch (Exception ex)
+            {
+                return new { error = $"Error fetching weather: {ex.Message}" };
+            }
+        }
+    }
+}

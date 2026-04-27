@@ -1,0 +1,32 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+[ApiController]
+[Route("api/news")]
+public class SportsController : ControllerBase
+{
+    private readonly HttpClient _httpClient;
+    private readonly IConfiguration _config;
+
+    public SportsController(IHttpClientFactory httpClientFactory, IConfiguration config)
+    {
+        _httpClient = httpClientFactory.CreateClient();
+        _config = config;
+    }
+
+    [HttpGet("sports")]
+    public async Task<IActionResult> GetSports()
+    {
+        try
+        {
+            var url = "https://saurav.tech/NewsAPI/top-headlines/category/sports/in.json";
+            var response = await _httpClient.GetStringAsync(url);
+            return Content(response, "application/json");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { message = "Error fetching sports news", error = ex.Message });
+        }
+    }
+}

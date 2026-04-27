@@ -1,0 +1,82 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WorldNewzWebAPI.Data;
+using WorldNewzWebAPI.Services;
+using Quartz;
+using WorldNewzWebAPI.Jobs;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Load environment variables
+builder.Configuration.AddEnvironmentVariables();
+
+// Add DbContext
+builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add Quartz services
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+    var jobKey = new JobKey("NewsRefreshJob");
+    q.AddJob<NewsRefreshJob>(opts => opts.WithIdentity(jobKey));
+    q.AddTrigger(t => t
+        .ForJob(jobKey)
+        .WithSimpleSchedule(x => x.WithIntervalInMinutes(10).RepeatForever()));
+});
+
+// Configure the Quartz hosted service. WaitForJobsToComplete ensures
+// running jobs are allowed to finish on shutdown. AwaitApplicationStarted
+// makes the scheduler start after the application has fully started.
+builder.Services.AddQuartzHostedService(options =>
+{
+    options.WaitForJobsToComplete = true;
+    options.AwaitApplicationStarted = true;
+});
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
+// Register services used by jobs
+builder.Services.AddScoped<NewsService>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+try
+{
+    // Use CORS
+    app.UseCors("AllowFrontend");
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.MapControllers();
+
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogInformation("Application starting on http://localhost:5005");
+
+    app.Run();
+}
+catch (Exception ex)
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "Application terminated unexpectedly");
+    throw;
+}

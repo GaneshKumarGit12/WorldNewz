@@ -1,0 +1,25 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/money")]
+public class MoneyController : ControllerBase
+{
+    private readonly IConfiguration _config;
+    private readonly HttpClient _httpClient;
+
+    public MoneyController(IConfiguration config, HttpClient httpClient)
+    {
+        _config = config;
+        _httpClient = httpClient;
+    }
+
+    [HttpGet("stocks")]
+    public async Task<IActionResult> GetStockData()
+    {
+        var apiKey = _config["MONEY_API_KEY"];
+        var response = await _httpClient.GetStringAsync(
+            $"https://yfapi.net/v6/finance/quote?symbols=AAPL,TSLA&apikey={apiKey}"
+        );
+        return Ok(response);
+    }
+}

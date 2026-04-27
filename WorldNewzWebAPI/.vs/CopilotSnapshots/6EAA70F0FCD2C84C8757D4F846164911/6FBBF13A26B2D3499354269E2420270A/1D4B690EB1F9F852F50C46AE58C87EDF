@@ -1,0 +1,132 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WorldNewzWebAPI.Data;
+using WorldNewzWebAPI.Services;
+using Quartz;
+using WorldNewzWebAPI.Jobs;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Load .env file if it exists
+var envPath = string.Empty;
+
+// Search for .env file: start from base directory and traverse up
+var currentDir = new DirectoryInfo(AppContext.BaseDirectory);
+while (currentDir != null)
+{
+    var potentialPath = Path.Combine(currentDir.FullName, ".env");
+    if (File.Exists(potentialPath))
+    {
+        envPath = potentialPath;
+        break;
+    }
+    currentDir = currentDir.Parent;
+}
+
+if (!string.IsNullOrEmpty(envPath) && File.Exists(envPath))
+{
+    var lines = File.ReadAllLines(envPath);
+    foreach (var line in lines)
+    {
+        if (!string.IsNullOrWhiteSpace(line) && !line.StartsWith("#"))
+        {
+            var parts = line.Split('=', 2);
+            if (parts.Length == 2)
+            {
+                Environment.SetEnvironmentVariable(parts[0].Trim(), parts[1].Trim());
+            }
+        }
+    }
+}
+
+// Load environment variables
+builder.Configuration.AddEnvironmentVariables();
+
+// Add DbContext - using SQLite for development
+builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+{
+    var dbPath = Path.Combine(AppContext.BaseDirectory, "worldnews.db");
+    options.UseSqlite($"Data Source={dbPath}");
+});
+
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173", "http://localhost:5174")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
+// Add HttpClient for making external API calls
+builder.Services.AddHttpClient();
+
+// Register services used by jobs
+builder.Services.AddScoped<NewsService>();
+builder.Services.AddScoped<WeatherService>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    var xmlFilename = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+    if (File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath);
+    }
+});
+
+var app = builder.Build();
+
+// ✅ Verify required environment variables at startup
+var newsApiKey = Environment.GetEnvironmentVariable("NEWS_API_KEY");
+var weatherApiKey = Environment.GetEnvironmentVariable("WEATHER_API_KEY");
+
+if (string.IsNullOrEmpty(newsApiKey))
+{
+    throw new InvalidOperationException("Missing NEWS_API_KEY. Please set it in your .env file.");
+}
+
+if (string.IsNullOrEmpty(weatherApiKey))
+{
+    Console.WriteLine("⚠️ WEATHER_API_KEY not found. Weather endpoints may fail.");
+}
+else
+{
+    Console.WriteLine($"WEATHER_API_KEY loaded: {weatherApiKey.Substring(0, 5)}...");
+}
+Console.WriteLine($"NEWS_API_KEY loaded: {newsApiKey.Substring(0, 5)}...");
+
+// Configure middleware
+app.UseCors("AllowFrontend");
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worldnewz API v1");
+        c.RoutePrefix = string.Empty; // Swagger at root URL
+    });
+}
+else
+{
+    app.UseHttpsRedirection();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worldnewz API v1");
+        // In production, keep Swagger at /swagger
+    });
+}
+
+app.UseAuthorization();
+app.MapControllers();
+
+// ✅ Health check endpoint
+app.MapGet("/health", () => "API is running");
+
+app.Run();

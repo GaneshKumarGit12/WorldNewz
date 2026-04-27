@@ -1,0 +1,469 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\WorldNewz\\WorldNewzWebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\unifiedsearchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\unifiedsearchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\moneycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\moneycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\models\\newsapimodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:models\\newsapimodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\data\\worldnewsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:data\\worldnewsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\bingnewscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\bingnewscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\models\\ads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:models\\ads.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\models\\newsarticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:models\\newsarticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\shoppingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\shoppingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\sportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\sportscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\jobs\\newsrefreshjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:jobs\\newsrefreshjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\api_update_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:api_update_summary.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\endpoints_reference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:endpoints_reference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\quickstart.sh||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:quickstart.sh||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\complete_update_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:complete_update_guide.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\quick_reference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:quick_reference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\code_changes_detailed.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:code_changes_detailed.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\start_here.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:start_here.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\completion_report.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:completion_report.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\ready_to_go.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:ready_to_go.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnifiedSearchController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\UnifiedSearchController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UnifiedSearchController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\UnifiedSearchController.cs",
+              "RelativeToolTip": "Controllers\\UnifiedSearchController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAwwDYAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T12:30:34.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T16:21:01.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NewsApiModels.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\NewsApiModels.cs",
+              "RelativeDocumentMoniker": "Models\\NewsApiModels.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\NewsApiModels.cs",
+              "RelativeToolTip": "Models\\NewsApiModels.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAqwC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T16:44:15.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Ads.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\Ads.cs",
+              "RelativeDocumentMoniker": "Models\\Ads.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\Ads.cs",
+              "RelativeToolTip": "Models\\Ads.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T12:24:04.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\Category.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\Category.cs",
+              "RelativeToolTip": "Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T12:21:03.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NewsController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "Controllers\\NewsController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAACEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T12:59:25.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswA0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-19T18:41:26.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MoneyController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\MoneyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MoneyController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\MoneyController.cs",
+              "RelativeToolTip": "Controllers\\MoneyController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowEMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:21:31.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BingNewsController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\BingNewsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BingNewsController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\BingNewsController.cs",
+              "RelativeToolTip": "Controllers\\BingNewsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T12:26:45.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T12:39:51.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WorldNewsDbContext.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Data\\WorldNewsDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\WorldNewsDbContext.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Data\\WorldNewsDbContext.cs",
+              "RelativeToolTip": "Data\\WorldNewsDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAewAoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T12:26:08.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WeatherController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\WeatherController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\WeatherController.cs",
+              "RelativeToolTip": "Controllers\\WeatherController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:22:03.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "NewsArticle.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\NewsArticle.cs",
+              "RelativeDocumentMoniker": "Models\\NewsArticle.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\NewsArticle.cs",
+              "RelativeToolTip": "Models\\NewsArticle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T12:22:59.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ShoppingController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\ShoppingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ShoppingController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\ShoppingController.cs",
+              "RelativeToolTip": "Controllers\\ShoppingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:22:18.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SportsController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\SportsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SportsController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\SportsController.cs",
+              "RelativeToolTip": "Controllers\\SportsController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwDAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T17:21:08.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-19T12:29:42.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "API_UPDATE_SUMMARY.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\API_UPDATE_SUMMARY.md",
+              "RelativeDocumentMoniker": "API_UPDATE_SUMMARY.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\API_UPDATE_SUMMARY.md",
+              "RelativeToolTip": "API_UPDATE_SUMMARY.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:07:22.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ENDPOINTS_REFERENCE.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\ENDPOINTS_REFERENCE.md",
+              "RelativeDocumentMoniker": "ENDPOINTS_REFERENCE.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\ENDPOINTS_REFERENCE.md",
+              "RelativeToolTip": "ENDPOINTS_REFERENCE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:07:30.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "QUICKSTART.sh",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\QUICKSTART.sh",
+              "RelativeDocumentMoniker": "QUICKSTART.sh",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\QUICKSTART.sh",
+              "RelativeToolTip": "QUICKSTART.sh",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
+              "WhenOpened": "2026-03-21T11:07:41.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "READY_TO_GO.txt",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\READY_TO_GO.txt",
+              "RelativeDocumentMoniker": "READY_TO_GO.txt",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\READY_TO_GO.txt",
+              "RelativeToolTip": "READY_TO_GO.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-03-21T11:09:48.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "COMPLETION_REPORT.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\COMPLETION_REPORT.md",
+              "RelativeDocumentMoniker": "COMPLETION_REPORT.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\COMPLETION_REPORT.md",
+              "RelativeToolTip": "COMPLETION_REPORT.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:09:31.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "START_HERE.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\START_HERE.md",
+              "RelativeDocumentMoniker": "START_HERE.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\START_HERE.md",
+              "RelativeToolTip": "START_HERE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:08:58.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CODE_CHANGES_DETAILED.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\CODE_CHANGES_DETAILED.md",
+              "RelativeDocumentMoniker": "CODE_CHANGES_DETAILED.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\CODE_CHANGES_DETAILED.md",
+              "RelativeToolTip": "CODE_CHANGES_DETAILED.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:08:31.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "QUICK_REFERENCE.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\QUICK_REFERENCE.md",
+              "RelativeDocumentMoniker": "QUICK_REFERENCE.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\QUICK_REFERENCE.md",
+              "RelativeToolTip": "QUICK_REFERENCE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAO8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:08:13.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "COMPLETE_UPDATE_GUIDE.md",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\COMPLETE_UPDATE_GUIDE.md",
+              "RelativeDocumentMoniker": "COMPLETE_UPDATE_GUIDE.md",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\COMPLETE_UPDATE_GUIDE.md",
+              "RelativeToolTip": "COMPLETE_UPDATE_GUIDE.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-03-21T11:07:59.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NewsService.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Services\\NewsService.cs",
+              "RelativeDocumentMoniker": "Services\\NewsService.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Services\\NewsService.cs",
+              "RelativeToolTip": "Services\\NewsService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAUwAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T13:15:01.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NewsRefreshJob.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Jobs\\NewsRefreshJob.cs",
+              "RelativeDocumentMoniker": "Jobs\\NewsRefreshJob.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Jobs\\NewsRefreshJob.cs",
+              "RelativeToolTip": "Jobs\\NewsRefreshJob.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T10:36:08.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "WeatherService.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Services\\WeatherService.cs",
+              "RelativeDocumentMoniker": "Services\\WeatherService.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Services\\WeatherService.cs",
+              "RelativeToolTip": "Services\\WeatherService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAIBZwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T13:17:45.359Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

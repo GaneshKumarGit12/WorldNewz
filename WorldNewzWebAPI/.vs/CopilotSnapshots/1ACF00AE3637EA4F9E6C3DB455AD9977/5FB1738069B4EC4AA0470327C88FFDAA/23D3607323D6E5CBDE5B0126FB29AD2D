@@ -1,0 +1,27 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+[ApiController]
+[Route("api/news")]
+public class SportsController : ControllerBase
+{
+    private readonly HttpClient _httpClient;
+    private readonly IConfiguration _config;
+
+    public SportsController(IHttpClientFactory httpClientFactory, IConfiguration config)
+    {
+        _httpClient = httpClientFactory.CreateClient();
+        _config = config;
+    }
+
+    [HttpGet("sports")]
+    public async Task<IActionResult> GetSports()
+    {
+        var apiKey = _config["SPORTS_API_KEY"];
+        var url = $"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={apiKey}";
+
+        var response = await _httpClient.GetStringAsync(url);
+        return Content(response, "application/json");
+    }
+}
