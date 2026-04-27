@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.git/
+**/node_modules/
+**/dist/
+**/out/
+**/*.user
+**/*.suo
+**/*.vsix
+**/*.cache
+README.md
+*.md
