@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: worldnewz-webapi
+    env: dotnet
+    plan: free
+    region: singapore
+    buildCommand: "dotnet publish -c Release -o out"
+    startCommand: "dotnet out/WorldNewzWebAPI.dll"
+    envVars:
+      - key: NEWS_API_KEY
+        value: "2b2c7c27461247758ffb22ebf9206134"
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://ganeshkumargit12.github.io,http://localhost:5173,http://localhost:5174"
+      - key: DATABASE_PATH
+        value: "worldnews.db"
+    healthCheckPath: "/health"
