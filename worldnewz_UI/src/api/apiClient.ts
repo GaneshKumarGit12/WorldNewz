@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL ?? "https://worldnewz.onrender.com/api",
 });
 
 apiClient.interceptors.response.use(
