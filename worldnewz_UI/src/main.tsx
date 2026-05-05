@@ -12,11 +12,12 @@ import Shopping from "./pages/Shopping";
 import Search from "./pages/Search";
 import Bookmarks from "./pages/Bookmarks";
 import ResultPage from "./pages/ResultPage";
+import CommentHistory from "./pages/CommentHistory";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AppThemeProvider>
-      <BrowserRouter>
+       <BrowserRouter basename="/WorldNewz">
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Discover />} />
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route path="shopping" element={<Shopping />} />
             <Route path="search" element={<Search />} />
             <Route path="bookmarks" element={<Bookmarks />} />
+            <Route path="comments" element={<CommentHistory />} />
             <Route path="article/:id" element={<ResultPage />} />
           </Route>
         </Routes>

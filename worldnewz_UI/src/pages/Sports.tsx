@@ -8,12 +8,22 @@ import Box from "@mui/material/Box";
 import NewsCard from "../components/NewsCard";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
 
 const Sports: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
 
   useEffect(() => {
     fetchSports()
@@ -63,6 +73,13 @@ const Sports: React.FC = () => {
                 onBookmark={addBookmark}
                 onRemoveBookmark={removeBookmark}
                 isBookmarked={a.url ? isBookmarked(a.url) : false}
+                onLike={toggleLike}
+                onDislike={toggleDislike}
+                onAddComment={(url, text, author) => addComment(url, text, author)}
+                onDeleteComment={deleteComment}
+                onLikeComment={likeComment}
+                onDislikeComment={dislikeComment}
+                engagement={a.url ? getEngagement(a.url) : undefined}
               />
             </Grid>
           ))}

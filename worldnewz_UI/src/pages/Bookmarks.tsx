@@ -1,4 +1,5 @@
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -14,6 +15,15 @@ import { useState, useEffect } from "react";
 
 const Bookmarks: React.FC = () => {
   const { bookmarks, removeBookmark, isBookmarked, clearAll } = useBookmarks();
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -58,6 +68,13 @@ const Bookmarks: React.FC = () => {
                   article={article}
                   isBookmarked={article.url ? isBookmarked(article.url) : false}
                   onRemoveBookmark={removeBookmark}
+                  onLike={toggleLike}
+                  onDislike={toggleDislike}
+                  onAddComment={(url, text, author) => addComment(url, text, author)}
+                  onDeleteComment={deleteComment}
+                  onLikeComment={likeComment}
+                  onDislikeComment={dislikeComment}
+                  engagement={article.url ? getEngagement(article.url) : undefined}
                 />
               </Grid>
             ))}

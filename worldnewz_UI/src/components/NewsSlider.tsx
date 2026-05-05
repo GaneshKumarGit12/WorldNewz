@@ -10,9 +10,28 @@ interface Props {
     onBookmark: (article: Article) => void;
     onRemoveBookmark: (url: string) => void;
     isBookmarked: (url: string) => boolean;
+    onLike?: (articleUrl: string) => void;
+    onDislike?: (articleUrl: string) => void;
+    onAddComment?: (articleUrl: string, text: string, author: string) => void;
+    onDeleteComment?: (articleUrl: string, commentId: string) => void;
+    onLikeComment?: (articleUrl: string, commentId: string) => void;
+    onDislikeComment?: (articleUrl: string, commentId: string) => void;
+    getEngagement?: (articleUrl: string) => any;
 }
 
-const NewsSlider: React.FC<Props> = ({ articles, onBookmark, onRemoveBookmark, isBookmarked }) => {
+const NewsSlider: React.FC<Props> = ({ 
+    articles, 
+    onBookmark, 
+    onRemoveBookmark, 
+    isBookmarked,
+    onLike,
+    onDislike,
+    onAddComment,
+    onDeleteComment,
+    onLikeComment,
+    onDislikeComment,
+    getEngagement,
+}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [slidesToShow, setSlidesToShow] = useState(3);
 
@@ -33,8 +52,16 @@ const NewsSlider: React.FC<Props> = ({ articles, onBookmark, onRemoveBookmark, i
     }, []);
 
     useEffect(() => {
+        const maxIndex = Math.max(0, articles.length - slidesToShow);
+        if (currentIndex > maxIndex) {
+            setCurrentIndex(maxIndex);
+        }
+    }, [articles.length, slidesToShow, currentIndex]);
+
+    useEffect(() => {
+        const maxIndex = Math.max(0, articles.length - slidesToShow);
         const timer = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % Math.max(1, articles.length - slidesToShow + 1));
+            setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
         }, 5000);
         return () => clearInterval(timer);
     }, [articles.length, slidesToShow]);
@@ -88,6 +115,13 @@ const NewsSlider: React.FC<Props> = ({ articles, onBookmark, onRemoveBookmark, i
                             onBookmark={onBookmark}
                             onRemoveBookmark={onRemoveBookmark}
                             isBookmarked={article.url ? isBookmarked(article.url) : false}
+                            onLike={onLike}
+                            onDislike={onDislike}
+                            onAddComment={onAddComment}
+                            onDeleteComment={onDeleteComment}
+                            onLikeComment={onLikeComment}
+                            onDislikeComment={onDislikeComment}
+                            engagement={article.url && getEngagement ? getEngagement(article.url) : undefined}
                         />
                     </Box>
                 ))}

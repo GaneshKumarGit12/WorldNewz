@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import NewsCard from "../components/NewsCard";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
 
 const Search: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -17,6 +18,15 @@ const Search: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
 
   useEffect(() => {
     if (!query && !category) {
@@ -99,6 +109,13 @@ const Search: React.FC = () => {
                   onBookmark={addBookmark}
                   onRemoveBookmark={removeBookmark}
                   isBookmarked={article.url ? isBookmarked(article.url) : false}
+                  onLike={toggleLike}
+                  onDislike={toggleDislike}
+                  onAddComment={(url, text, author) => addComment(url, text, author)}
+                  onDeleteComment={deleteComment}
+                  onLikeComment={likeComment}
+                  onDislikeComment={dislikeComment}
+                  engagement={article.url ? getEngagement(article.url) : undefined}
                 />
               </Grid>
             ))}

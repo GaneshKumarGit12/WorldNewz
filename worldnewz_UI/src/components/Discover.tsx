@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import NewsCard from "../components/NewsCard";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
 import NewsSlider from "../components/NewsSlider";
 
 
@@ -19,6 +20,15 @@ const Discover: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks(); // ✅ now URL-based
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
 
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
@@ -84,6 +94,13 @@ const Discover: React.FC = () => {
               onBookmark={addBookmark}
               onRemoveBookmark={removeBookmark}
               isBookmarked={isBookmarked}
+              onLike={toggleLike}
+              onDislike={toggleDislike}
+              onAddComment={(url, text, author) => addComment(url, text, author)}
+              onDeleteComment={deleteComment}
+              onLikeComment={likeComment}
+              onDislikeComment={dislikeComment}
+              getEngagement={getEngagement}
             />
           </Box>
         )}
@@ -106,6 +123,13 @@ const Discover: React.FC = () => {
                     onBookmark={(article) => addBookmark(article)} // ✅ fixed: passes Article object
                     onRemoveBookmark={(url) => removeBookmark(url)} // ✅ still URL-based
                     isBookmarked={article.url ? isBookmarked(article.url) : false}
+                    onLike={toggleLike}
+                    onDislike={toggleDislike}
+                    onAddComment={(url, text, author) => addComment(url, text, author)}
+                    onDeleteComment={deleteComment}
+                    onLikeComment={likeComment}
+                    onDislikeComment={dislikeComment}
+                    engagement={article.url ? getEngagement(article.url) : undefined}
                   />
 
                 </Grid>

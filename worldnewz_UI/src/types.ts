@@ -1,3 +1,22 @@
+export interface Comment {
+  id: string;
+  articleUrl: string;
+  author: string;
+  text: string;
+  timestamp: string;
+  likes: number;
+  dislikes: number;
+}
+
+export interface ArticleEngagement {
+  url: string;
+  likes: number;
+  dislikes: number;
+  comments: Comment[];
+  userLiked?: boolean;
+  userDisliked?: boolean;
+}
+
 export interface Article {
   title: string;
   description?: string;
@@ -8,4 +27,5 @@ export interface Article {
   publishedAt?: string;   // optional, guard in UI
   source?: { name: string } | string;
   featured?: boolean;
+  engagement?: ArticleEngagement;
 }

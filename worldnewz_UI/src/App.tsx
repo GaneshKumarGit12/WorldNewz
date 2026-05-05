@@ -15,6 +15,7 @@ import SmartToyIcon from "@mui/icons-material/SmartToy";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Fab from "@mui/material/Fab";
 import Badge from "@mui/material/Badge";
@@ -29,6 +30,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Chip from "@mui/material/Chip";
 import { useColorMode } from "./context/ThemeContext";
 import { useBookmarks } from "./hooks/useBookmarks";
+import { useComments } from "./hooks/useComments";
 
 const navLinks = [
   { label: "Discover", path: "/" },
@@ -49,6 +51,8 @@ const App: React.FC = () => {
   const [searchParams] = useSearchParams();
   const { mode, toggleMode } = useColorMode();
   const { bookmarks } = useBookmarks();
+  const { getAllComments } = useComments();
+  const totalComments = getAllComments().length;
 
   useEffect(() => {
     const query = searchParams.get("q") ?? "";
@@ -147,6 +151,19 @@ const App: React.FC = () => {
               </Button>
             ))}
 
+            {/* Comments button */}
+            <Tooltip title="Comments">
+              <IconButton
+                component={Link}
+                to="/comments"
+                sx={{ color: location.pathname === "/comments" ? "#4caf50" : "white", ml: 1 }}
+              >
+                <Badge badgeContent={totalComments} color="success" max={999}>
+                  <ChatBubbleIcon />
+                </Badge>
+              </IconButton>
+            </Tooltip>
+
             {/* Bookmarks button */}
             <Tooltip title="Bookmarks">
               <IconButton
@@ -170,6 +187,11 @@ const App: React.FC = () => {
 
           {/* Mobile: bookmark + theme + hamburger */}
           <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
+            <IconButton component={Link} to="/comments" sx={{ color: "white" }}>
+              <Badge badgeContent={totalComments} color="success" max={999}>
+                <ChatBubbleIcon />
+              </Badge>
+            </IconButton>
             <IconButton component={Link} to="/bookmarks" sx={{ color: "white" }}>
               <Badge badgeContent={bookmarks.length} color="warning" max={99}>
                 <BookmarkIcon />
@@ -193,7 +215,7 @@ const App: React.FC = () => {
         PaperProps={{ sx: { backgroundColor: isDark ? "#161b22" : "#0a0a0a", color: "white" } }}
       >
         <List sx={{ width: 250 }}>
-          {[...navLinks, { label: "Bookmarks", path: "/bookmarks" }].map((link) => (
+          {[...navLinks, { label: "Comments", path: "/comments" }, { label: "Bookmarks", path: "/bookmarks" }].map((link) => (
             <ListItem key={link.path} disablePadding>
               <ListItemButton
                 component={Link}

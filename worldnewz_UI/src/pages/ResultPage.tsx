@@ -7,13 +7,29 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useEffect, useState } from "react";
 import type { Article } from "../types";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
+import { fetchDiscover } from "../api/apiClient";
+import SectionStatus from "../components/SectionStatus";
+import NewsSlider from "../components/NewsSlider";
 
 const ResultPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
+  const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
+  const [relatedLoading, setRelatedLoading] = useState(true);
+  const [relatedError, setRelatedError] = useState<string | null>(null);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
 
   useEffect(() => {
     const state = location.state as { article?: Article };
@@ -24,6 +40,37 @@ const ResultPage: React.FC = () => {
       setLoading(false);
     }
   }, [location]);
+
+  useEffect(() => {
+    if (!article) {
+      setRelatedArticles([]);
+      setRelatedLoading(false);
+      return;
+    }
+
+    setRelatedLoading(true);
+    setRelatedError(null);
+
+    fetchDiscover()
+      .then((res) => {
+        const data = Array.isArray(res.data?.articles) ? res.data.articles : [];
+        const related = data
+          .map((a: any) => ({
+            ...a,
+            imageUrl: a.urlToImage || a.image || a.imageUrl,
+            category: a.source?.name || "News",
+          }))
+          .filter((item: Article) => item.url && item.url !== article.url)
+          .slice(0, 10);
+
+        setRelatedArticles(related);
+      })
+      .catch((err: any) => {
+        const apiError = err.response?.data?.error || err.message || "Unable to load related stories.";
+        setRelatedError(apiError);
+      })
+      .finally(() => setRelatedLoading(false));
+  }, [article]);
 
   if (loading) {
     return (
@@ -209,6 +256,32 @@ const ResultPage: React.FC = () => {
           )}
         </Box>
       </Card>
+
+      <Box sx={{ mt: 6 }}>
+        <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+          Related Stories
+        </Typography>
+        <SectionStatus
+          loading={relatedLoading}
+          error={relatedError}
+          hasData={relatedArticles.length > 0}
+          emptyText="No related stories available right now."
+        >
+          <NewsSlider
+            articles={relatedArticles}
+            onBookmark={addBookmark}
+            onRemoveBookmark={removeBookmark}
+            isBookmarked={isBookmarked}
+            onLike={toggleLike}
+            onDislike={toggleDislike}
+            onAddComment={(url, text, author) => addComment(url, text, author)}
+            onDeleteComment={deleteComment}
+            onLikeComment={likeComment}
+            onDislikeComment={dislikeComment}
+            getEngagement={getEngagement}
+          />
+        </SectionStatus>
+      </Box>
 
       {/* Back to Top Button */}
       <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
