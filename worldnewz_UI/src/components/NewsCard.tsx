@@ -49,7 +49,6 @@ const formatTimeAgo = (dateString?: string) => {
 
 const NewsCard: React.FC<NewsCardProps> = ({
   article,
-  featured = false,
   onBookmark,
   onRemoveBookmark,
   isBookmarked = false,
@@ -120,55 +119,87 @@ const NewsCard: React.FC<NewsCardProps> = ({
           display: "flex",
           flexDirection: "column",
           height: "100%",
-          minHeight: featured ? 420 : 280,
-          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          bgcolor: "background.paper", // Let theme handle it, but typically #212121 or #18181b in dark mode
+          backgroundImage: "none", // Remove MUI default overlay
+          boxShadow: "none",
+          borderRadius: 2,
+          overflow: "hidden",
+          transition: "transform 0.2s ease",
           cursor: "pointer",
           "&:hover": {
             transform: "scale(1.02)",
-            boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
           },
         }}
       >
-        <CardMedia
-          component="img"
-          height={featured ? "280" : "130"}
-          image={article.urlToImage || article.imageUrl}
-          alt={article.title}
-          sx={{ objectFit: "cover" }}
-          onError={(e: any) => {
-            e.target.src = "https://via.placeholder.com/300x200?text=No+Image";
-          }}
-        />
+        <Box sx={{ position: "relative", paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
+          <CardMedia
+            component="img"
+            image={article.urlToImage || article.imageUrl}
+            alt={article.title}
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            onError={(e: any) => {
+              e.target.src = "https://via.placeholder.com/320x180?text=No+Image";
+            }}
+          />
+        </Box>
 
-        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 2, pb: 1 }}>
-          <Box sx={{ display: "flex", alignItems: "center", mb: 1, gap: 1 }}>
-            <Avatar sx={{ width: 20, height: 20, fontSize: '0.7rem' }}>
+        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 1.5, pb: 0 }}>
+          <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
+            <Avatar 
+              sx={{ 
+                width: 24, 
+                height: 24, 
+                fontSize: '0.75rem', 
+                bgcolor: 'primary.main',
+                mt: 0.5
+              }}
+            >
               {((typeof article.source === 'string' ? article.source : article.source?.name)?.[0] || 'N').toUpperCase()}
             </Avatar>
-            <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center' }}>
-              {(typeof article.source === 'string' ? article.source : article.source?.name) || 'News'}
-              {article.publishedAt && (
-                <>
-                  <Box component="span" sx={{ mx: 0.5 }}>•</Box>
-                  {formatTimeAgo(article.publishedAt)}
-                </>
-              )}
-            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+              <Typography 
+                variant="subtitle2" 
+                sx={{ 
+                  fontWeight: 600, 
+                  display: "-webkit-box", 
+                  WebkitLineClamp: 2, 
+                  WebkitBoxOrient: "vertical", 
+                  overflow: "hidden", 
+                  lineHeight: 1.3,
+                  mb: 0.5
+                }}
+              >
+                {article.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', fontSize: '0.75rem' }}>
+                {(typeof article.source === 'string' ? article.source : article.source?.name) || 'News'}
+                {article.publishedAt && (
+                  <>
+                    <Box component="span" sx={{ mx: 0.5 }}>•</Box>
+                    {formatTimeAgo(article.publishedAt)}
+                  </>
+                )}
+              </Typography>
+            </Box>
           </Box>
-
-          <Typography variant={featured ? "h6" : "subtitle2"} fontWeight="bold" sx={{ mb: 1, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", lineHeight: 1.3 }}>
-            {article.title}
-          </Typography>
         </CardContent>
 
-        {/* Actions */}
+        {/* Actions - perfectly aligned to the left like YouTube */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            px: 2,
-            pb: 2,
+            px: 1.5,
+            pb: 1.5,
+            pl: 5.5, // Indent to align with text (avatar width 24 + gap 12)
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -177,11 +208,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
               <IconButton
                 size="small"
                 onClick={handleLikeClick}
-                sx={{ p: 0, color: articleEngagement.userLiked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+                sx={{ p: 0.5, color: articleEngagement.userLiked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
               >
                 {articleEngagement.userLiked ? <ThumbUpIcon fontSize="small" /> : <ThumbUpOutlinedIcon fontSize="small" />}
               </IconButton>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
                 {articleEngagement.likes > 0 ? articleEngagement.likes : ''}
               </Typography>
             </Box>
@@ -191,7 +222,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               <IconButton
                 size="small"
                 onClick={handleDislikeClick}
-                sx={{ p: 0, color: articleEngagement.userDisliked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+                sx={{ p: 0.5, color: articleEngagement.userDisliked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
               >
                 {articleEngagement.userDisliked ? <ThumbDownIcon fontSize="small" /> : <ThumbDownOutlinedIcon fontSize="small" />}
               </IconButton>
@@ -202,20 +233,20 @@ const NewsCard: React.FC<NewsCardProps> = ({
               <IconButton
                 size="small"
                 onClick={handleCommentClick}
-                sx={{ p: 0, color: "text.secondary", '&:hover': { color: 'primary.main' } }}
+                sx={{ p: 0.5, color: "text.secondary", '&:hover': { color: 'primary.main' } }}
               >
                 <ChatBubbleOutlineIcon fontSize="small" />
               </IconButton>
             </Box>
           </Box>
 
-          {/* Bookmark */}
+          {/* Bookmark (Optional) */}
           <Box>
             <IconButton
               aria-label={isBookmarked ? "remove bookmark" : "add bookmark"}
               onClick={handleBookmarkClick}
               size="small"
-              sx={{ p: 0, color: isBookmarked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+              sx={{ p: 0.5, color: isBookmarked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
             >
               {isBookmarked ? <BookmarkIcon fontSize="small" /> : <BookmarkBorderIcon fontSize="small" />}
             </IconButton>
