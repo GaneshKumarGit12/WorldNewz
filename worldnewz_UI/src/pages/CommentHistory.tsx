@@ -9,12 +9,12 @@ import {
   MenuItem,
   Chip,
 } from '@mui/material';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
+import type { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
 import { useComments } from '../hooks/useComments';
-import type { Comment } from '../types';
 
 const CommentHistory: React.FC = () => {
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ const CommentHistory: React.FC = () => {
       field: 'author',
       headerName: 'Author',
       width: 150,
-      renderCell: (params) => (
+      renderCell: (params: GridRenderCellParams) => (
         <Chip
           label={params.value}
           size="small"
@@ -80,7 +80,7 @@ const CommentHistory: React.FC = () => {
       headerName: 'Comment',
       flex: 1,
       minWidth: 300,
-      renderCell: (params) => (
+      renderCell: (params: GridRenderCellParams) => (
         <Typography
           variant="body2"
           sx={{
@@ -97,14 +97,14 @@ const CommentHistory: React.FC = () => {
       field: 'timestamp',
       headerName: 'Date',
       width: 200,
-      renderCell: (params) => formatDate(params.value),
+      renderCell: (params: GridRenderCellParams) => formatDate(params.value),
     },
     {
       field: 'likes',
       headerName: 'Likes',
       width: 80,
       align: 'center',
-      renderCell: (params) => (
+      renderCell: (params: GridRenderCellParams) => (
         <Chip
           icon={<span>👍</span>}
           label={params.value}
@@ -119,7 +119,7 @@ const CommentHistory: React.FC = () => {
       headerName: 'Dislikes',
       width: 100,
       align: 'center',
-      renderCell: (params) => (
+      renderCell: (params: GridRenderCellParams) => (
         <Chip
           icon={<span>👎</span>}
           label={params.value}
@@ -133,7 +133,7 @@ const CommentHistory: React.FC = () => {
       field: 'articleUrl',
       headerName: 'Article',
       width: 200,
-      renderCell: (params) => (
+      renderCell: (params: GridRenderCellParams) => (
         <Typography
           variant="caption"
           sx={{
@@ -155,7 +155,7 @@ const CommentHistory: React.FC = () => {
       width: 100,
       align: 'center',
       sortable: false,
-      renderCell: (params) => (
+      renderCell: (params: GridRenderCellParams) => (
         <Button
           size="small"
           color="error"
@@ -249,7 +249,7 @@ const CommentHistory: React.FC = () => {
                 },
               },
             }}
-            disableSelectionOnClick
+            disableRowSelectionOnClick
             sx={{
               '& .MuiDataGrid-cell': {
                 display: 'flex',
