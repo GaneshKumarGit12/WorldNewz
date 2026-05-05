@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, CardMedia, CardContent, Typography, IconButton, Box } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar } from "@mui/material";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -8,7 +8,6 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 
@@ -26,6 +25,27 @@ interface NewsCardProps {
   onDislikeComment?: (articleUrl: string, commentId: string) => void;
   engagement?: any;
 }
+
+const formatTimeAgo = (dateString?: string) => {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return '';
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  
+  if (diffInSeconds < 60) return `${diffInSeconds}s`;
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes}m`;
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours}h`;
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 7) return `${diffInDays}d`;
+  const diffInWeeks = Math.floor(diffInDays / 7);
+  if (diffInWeeks < 4) return `${diffInWeeks}w`;
+  const diffInMonths = Math.floor(diffInDays / 30);
+  if (diffInMonths < 12) return `${diffInMonths}mo`;
+  return `${Math.floor(diffInDays / 365)}y`;
+};
 
 const NewsCard: React.FC<NewsCardProps> = ({
   article,
@@ -99,11 +119,12 @@ const NewsCard: React.FC<NewsCardProps> = ({
         sx={{
           display: "flex",
           flexDirection: "column",
-          height: featured ? 420 : 220,
+          height: "100%",
+          minHeight: featured ? 420 : 280,
           transition: "transform 0.3s ease, box-shadow 0.3s ease",
           cursor: "pointer",
           "&:hover": {
-            transform: "scale(1.05)",
+            transform: "scale(1.02)",
             boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
           },
         }}
@@ -119,113 +140,85 @@ const NewsCard: React.FC<NewsCardProps> = ({
           }}
         />
 
-        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", pb: 1 }}>
-          <Typography variant={featured ? "h5" : "subtitle1"} fontWeight="bold" sx={{ mb: 1, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 2, pb: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1, gap: 1 }}>
+            <Avatar sx={{ width: 20, height: 20, fontSize: '0.7rem' }}>
+              {((typeof article.source === 'string' ? article.source : article.source?.name)?.[0] || 'N').toUpperCase()}
+            </Avatar>
+            <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center' }}>
+              {(typeof article.source === 'string' ? article.source : article.source?.name) || 'News'}
+              {article.publishedAt && (
+                <>
+                  <Box component="span" sx={{ mx: 0.5 }}>•</Box>
+                  {formatTimeAgo(article.publishedAt)}
+                </>
+              )}
+            </Typography>
+          </Box>
+
+          <Typography variant={featured ? "h6" : "subtitle2"} fontWeight="bold" sx={{ mb: 1, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", lineHeight: 1.3 }}>
             {article.title}
           </Typography>
-
-          {article.description && (
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                flexGrow: 1,
-                display: "-webkit-box",
-                WebkitLineClamp: 1,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
-            >
-              {article.description}
-            </Typography>
-          )}
         </CardContent>
 
-        {/* Category and Bookmark */}
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", px: 1, pb: 1 }}>
-          <Typography variant="caption" color="text.secondary">
-            {article.category || "News"}
-          </Typography>
-          <IconButton
-            aria-label={isBookmarked ? "remove bookmark" : "add bookmark"}
-            onClick={handleBookmarkClick}
-            size="small"
-          >
-            {isBookmarked ? (
-              <BookmarkIcon color="warning" fontSize="small" />
-            ) : (
-              <BookmarkBorderIcon color="action" fontSize="small" />
-            )}
-          </IconButton>
-        </Box>
-
-        {/* Engagement Buttons */}
+        {/* Actions */}
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
             alignItems: "center",
-            borderTop: "1px solid #e0e0e0",
-            px: 1,
-            py: 0.5,
-            gap: 1,
+            px: 2,
+            pb: 2,
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton
-              size="small"
-              onClick={handleLikeClick}
-              sx={{ 
-                p: 0.5,
-                color: articleEngagement.userLiked ? "#1976d2" : "inherit" 
-              }}
-            >
-              {articleEngagement.userLiked ? (
-                <ThumbUpIcon fontSize="small" />
-              ) : (
-                <ThumbUpOutlinedIcon fontSize="small" />
-              )}
-            </IconButton>
-            <Typography variant="caption" sx={{ minWidth: "20px" }}>
-              {articleEngagement.likes}
-            </Typography>
-          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            {/* Like */}
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <IconButton
+                size="small"
+                onClick={handleLikeClick}
+                sx={{ p: 0, color: articleEngagement.userLiked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+              >
+                {articleEngagement.userLiked ? <ThumbUpIcon fontSize="small" /> : <ThumbUpOutlinedIcon fontSize="small" />}
+              </IconButton>
+              <Typography variant="caption" color="text.secondary">
+                {articleEngagement.likes > 0 ? articleEngagement.likes : ''}
+              </Typography>
+            </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton
-              size="small"
-              onClick={handleDislikeClick}
-              sx={{ 
-                p: 0.5,
-                color: articleEngagement.userDisliked ? "#f44336" : "inherit" 
-              }}
-            >
-              {articleEngagement.userDisliked ? (
-                <ThumbDownIcon fontSize="small" />
-              ) : (
-                <ThumbDownOutlinedIcon fontSize="small" />
-              )}
-            </IconButton>
-            <Typography variant="caption" sx={{ minWidth: "20px" }}>
-              {articleEngagement.dislikes}
-            </Typography>
-          </Box>
+            {/* Dislike */}
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <IconButton
+                size="small"
+                onClick={handleDislikeClick}
+                sx={{ p: 0, color: articleEngagement.userDisliked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+              >
+                {articleEngagement.userDisliked ? <ThumbDownIcon fontSize="small" /> : <ThumbDownOutlinedIcon fontSize="small" />}
+              </IconButton>
+            </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton
-              size="small"
-              onClick={handleCommentClick}
-              sx={{ p: 0.5 }}
-            >
-              {articleEngagement.comments?.length > 0 ? (
-                <ChatBubbleIcon fontSize="small" />
-              ) : (
+            {/* Comment */}
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <IconButton
+                size="small"
+                onClick={handleCommentClick}
+                sx={{ p: 0, color: "text.secondary", '&:hover': { color: 'primary.main' } }}
+              >
                 <ChatBubbleOutlineIcon fontSize="small" />
-              )}
+              </IconButton>
+            </Box>
+          </Box>
+
+          {/* Bookmark */}
+          <Box>
+            <IconButton
+              aria-label={isBookmarked ? "remove bookmark" : "add bookmark"}
+              onClick={handleBookmarkClick}
+              size="small"
+              sx={{ p: 0, color: isBookmarked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+            >
+              {isBookmarked ? <BookmarkIcon fontSize="small" /> : <BookmarkBorderIcon fontSize="small" />}
             </IconButton>
-            <Typography variant="caption" sx={{ minWidth: "20px" }}>
-              {articleEngagement.comments?.length || 0}
-            </Typography>
           </Box>
         </Box>
       </Card>
