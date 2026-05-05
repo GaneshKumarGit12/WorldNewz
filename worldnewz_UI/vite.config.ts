@@ -4,9 +4,9 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/WorldNewz/',   // 👈 required for GitHub Pages
+  base: '/',   // 👈 required for Vercel/Custom domains (changed from GitHub Pages)
   build: {
-    chunkSizeWarningLimit: 600,
+    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
         manualChunks(id) {
