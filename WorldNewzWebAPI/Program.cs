@@ -30,21 +30,15 @@ builder.Services.AddDbContext<WorldNewsDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}");
 });
 
-// Get CORS allowed origins from environment or default
-var corsOrigins = (Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS")
-                   ?? "http://localhost:5173,http://localhost:5174")
-    .Split(',', StringSplitOptions.RemoveEmptyEntries)
-    .Select(o => o.Trim())
-    .ToArray();
-
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins(corsOrigins)
+        policy.SetIsOriginAllowed(origin => true) // Allow any origin (Vercel, Localhost, etc.)
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials(); // Optional: allows cookies/auth if needed later
     });
 });
 
@@ -94,7 +88,7 @@ if (missingVars.Count > 0)
 }
 
 Console.WriteLine($"✓ Database: {dbPath}");
-Console.WriteLine($"✓ CORS Origins: {string.Join(", ", corsOrigins)}");
+Console.WriteLine($"✓ CORS Origins: Allowed for ALL (Vercel, Localhost, etc.)");
 Console.WriteLine($"✓ Environment: {builder.Environment.EnvironmentName}");
 
 // Bind to Render's dynamic port
