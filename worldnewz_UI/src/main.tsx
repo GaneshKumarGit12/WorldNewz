@@ -17,7 +17,7 @@ import CommentHistory from "./pages/CommentHistory";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AppThemeProvider>
-       <BrowserRouter basename="/WorldNewz">
+       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Discover />} />
