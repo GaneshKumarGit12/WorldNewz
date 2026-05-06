@@ -34,9 +34,9 @@ interface SearchParams {
   language?: string;
 }
 
-export const fetchDiscover = () => apiClient.get("/news/discover");
-export const fetchSports = () => apiClient.get("/news/sports");
-export const fetchMoney = () => apiClient.get("/news/money");
-export const fetchShopping = () => apiClient.get("/news/shopping");
-export const fetchWeather = () => apiClient.get("/news/weather");
+export const fetchDiscover = (params?: SearchParams) => apiClient.get("/news/discover", { params });
+export const fetchSports = (params?: SearchParams) => apiClient.get("/news/sports", { params });
+export const fetchMoney = (params?: SearchParams) => apiClient.get("/news/money", { params });
+export const fetchShopping = (params?: SearchParams) => apiClient.get("/news/shopping", { params });
+export const fetchWeather = (params?: SearchParams) => apiClient.get("/news/weather", { params });
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });

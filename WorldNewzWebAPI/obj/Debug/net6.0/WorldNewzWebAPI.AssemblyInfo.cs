@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorldNewzWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53add17a6c7ed3a43ddd1f3ba923b875471f56b0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4105ce9120504c4c1787857f2ef7fc636b60e2ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorldNewzWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorldNewzWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

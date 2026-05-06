@@ -21,7 +21,10 @@ public class ShoppingController : ControllerBase
     }
 
     [HttpGet("shopping")]
-    public async Task<IActionResult> GetShopping([FromQuery] string? country = "us")
+    public async Task<IActionResult> GetShopping(
+        [FromQuery] string? country = "us",
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         var shoppingKey = Environment.GetEnvironmentVariable("SHOPPING_API_KEY");
         var algoliaAppId = Environment.GetEnvironmentVariable("ALGOLIA_APP_ID");
@@ -65,8 +68,8 @@ public class ShoppingController : ControllerBase
             Country = country,
             Query = "shopping",
             IsTopHeadlines = false,
-            Page = 1,
-            PageSize = 20
+            Page = page,
+            PageSize = pageSize
         };
 
         var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);

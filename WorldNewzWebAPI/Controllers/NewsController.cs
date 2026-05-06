@@ -19,16 +19,21 @@ public class NewsController : ControllerBase
     }
 
     [HttpGet("discover")]
-    public async Task<IActionResult> GetDiscover([FromQuery] string? country = "us")
+    public async Task<IActionResult> GetDiscover(
+        [FromQuery] string? query = null,
+        [FromQuery] string? country = "us",
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         country ??= "us";
         var context = new NewsQueryContext
         {
+            Query = query,
             Country = country,
             Category = "general",
-            IsTopHeadlines = true,
-            Page = 1,
-            PageSize = 20
+            IsTopHeadlines = string.IsNullOrEmpty(query), // use top headlines only if there is no query
+            Page = page,
+            PageSize = pageSize
         };
 
         var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);

@@ -21,7 +21,10 @@ public class SportsController : ControllerBase
     }
 
     [HttpGet("sports")]
-    public async Task<IActionResult> GetSports([FromQuery] string? country = "us")
+    public async Task<IActionResult> GetSports(
+        [FromQuery] string? country = "us",
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         var apiKey = Environment.GetEnvironmentVariable("SPORTS_API_KEY");
         var articles = new List<object>();
@@ -62,8 +65,8 @@ public class SportsController : ControllerBase
             Country = country,
             Category = "sports",
             IsTopHeadlines = true,
-            Page = 1,
-            PageSize = 20
+            Page = page,
+            PageSize = pageSize
         };
 
         var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);

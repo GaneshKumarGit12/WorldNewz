@@ -11,6 +11,9 @@ import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import NewsSlider from "../components/NewsSlider";
+import { useSEO } from "../hooks/useSEO";
+import { getDailyKeyword } from "../utils/dailyKeyword";
+import CircularProgress from "@mui/material/CircularProgress";
 
 
 const Discover: React.FC = () => {
@@ -31,6 +34,17 @@ const Discover: React.FC = () => {
   } = useComments();
 
 
+  const dailyKeyword = getDailyKeyword();
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  useSEO({
+    title: "Discover News",
+    description: `Stay updated with the latest news on ${dailyKeyword} and more.`,
+    keywords: `discover, news, ${dailyKeyword}`,
+  });
+
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   const filteredArticles = normalizedSearchTerm
     ? articles.filter((article) => {
@@ -39,24 +53,65 @@ const Discover: React.FC = () => {
     })
     : articles;
 
-  useEffect(() => {
-    fetchDiscover()
+  const loadData = (currentPage: number) => {
+    if (currentPage === 1) setLoading(true);
+    else setIsFetchingMore(true);
+
+    const query = normalizedSearchTerm || dailyKeyword;
+
+    fetchDiscover({ query, page: currentPage, pageSize: 20 })
       .then((res) => {
         const data = Array.isArray(res.data?.articles) ? res.data.articles : [];
-        setArticles(
-          data.map((a: any) => ({
-            ...a,
-            imageUrl: a.urlToImage || a.image,
-            category: a.source?.name || "News",
-          }))
-        );
+        const formattedData = data.map((a: any) => ({
+          ...a,
+          imageUrl: a.urlToImage || a.image,
+          category: a.source?.name || "News",
+        }));
+
+        if (formattedData.length === 0) {
+          setHasMore(false);
+        } else {
+          setArticles((prev) => currentPage === 1 ? formattedData : [...prev, ...formattedData]);
+        }
       })
       .catch((err) => {
         const apiError = axios.isAxiosError(err) ? err.response?.data?.error : null;
         setError(apiError || "Failed to load discover news");
       })
-      .finally(() => setLoading(false));
-  }, []);
+      .finally(() => {
+        setLoading(false);
+        setIsFetchingMore(false);
+      });
+  };
+
+  useEffect(() => {
+    setArticles([]);
+    setPage(1);
+    setHasMore(true);
+    loadData(1);
+  }, [searchTerm]); // Re-fetch from page 1 when search term changes
+
+  useEffect(() => {
+    if (page > 1) {
+      loadData(page);
+    }
+  }, [page]);
+
+  // Infinite Scroll logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 100 >=
+        document.documentElement.offsetHeight
+      ) {
+        if (!isFetchingMore && hasMore && !loading) {
+          setPage((prev) => prev + 1);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isFetchingMore, hasMore, loading]);
 
   const sliderArticles = filteredArticles.slice(0, 10);
   const remainingArticles = filteredArticles.slice(10);
@@ -136,6 +191,12 @@ const Discover: React.FC = () => {
               ))}
             </Grid>
           </>
+        )}
+
+        {isFetchingMore && (
+          <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
+            <CircularProgress />
+          </Box>
         )}
       </SectionStatus>
     </Box>

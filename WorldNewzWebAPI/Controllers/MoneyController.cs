@@ -21,7 +21,10 @@ public class MoneyController : ControllerBase
     }
 
     [HttpGet("money")]
-    public async Task<IActionResult> GetMoney([FromQuery] string? country = "us")
+    public async Task<IActionResult> GetMoney(
+        [FromQuery] string? country = "us",
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
     {
         var apiKey = Environment.GetEnvironmentVariable("MONEY_API_KEY");
         var articles = new List<object>();
@@ -74,8 +77,8 @@ public class MoneyController : ControllerBase
             Country = country,
             Category = "business",
             IsTopHeadlines = true,
-            Page = 1,
-            PageSize = 20
+            Page = page,
+            PageSize = pageSize
         };
 
         var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);

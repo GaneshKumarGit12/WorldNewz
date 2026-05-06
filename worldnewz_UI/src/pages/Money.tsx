@@ -9,6 +9,8 @@ import NewsCard from "../components/NewsCard";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
+import { useSEO } from "../hooks/useSEO";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Money: React.FC = () => {
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
@@ -34,15 +36,62 @@ const Money: React.FC = () => {
       )
     : articles;
 
-  useEffect(() => {
-    fetchMoney()
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  useSEO({
+    title: "Money News",
+    description: "Latest financial, business, and stock market news.",
+    keywords: "money, finance, business, stocks, economy, latest news",
+  });
+
+  const loadData = (currentPage: number) => {
+    if (currentPage === 1) setLoading(true);
+    else setIsFetchingMore(true);
+
+    fetchMoney({ page: currentPage, pageSize: 20 })
       .then((res) => {
         const data = Array.isArray(res.data?.articles) ? res.data.articles : [];
-        setArticles(data.map((a: any) => ({ ...a, imageUrl: a.urlToImage || a.image || a.imageUrl })));
+        const formattedData = data.map((a: any) => ({ ...a, imageUrl: a.urlToImage || a.image || a.imageUrl }));
+        
+        if (formattedData.length === 0) {
+          setHasMore(false);
+        } else {
+          setArticles((prev) => currentPage === 1 ? formattedData : [...prev, ...formattedData]);
+        }
       })
       .catch(() => setError("Failed to load money news"))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        setIsFetchingMore(false);
+      });
+  };
+
+  useEffect(() => {
+    loadData(1);
   }, []);
+
+  useEffect(() => {
+    if (page > 1) {
+      loadData(page);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 100 >=
+        document.documentElement.offsetHeight
+      ) {
+        if (!isFetchingMore && hasMore && !loading) {
+          setPage((prev) => prev + 1);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isFetchingMore, hasMore, loading]);
 
   return (
     <Box sx={{ p: 2 }}>
@@ -68,6 +117,11 @@ const Money: React.FC = () => {
             </Grid>
           ))}
         </Grid>
+        {isFetchingMore && (
+          <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
+            <CircularProgress />
+          </Box>
+        )}
       </SectionStatus>
     </Box>
   );
