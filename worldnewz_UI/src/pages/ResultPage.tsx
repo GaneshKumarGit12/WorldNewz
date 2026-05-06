@@ -11,6 +11,14 @@ import { useComments } from "../hooks/useComments";
 import { fetchDiscover } from "../api/apiClient";
 import SectionStatus from "../components/SectionStatus";
 import NewsSlider from "../components/NewsSlider";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import CommentDialog from "../components/CommentDialog";
+import CircularProgress from "@mui/material/CircularProgress";
+import IconButton from "@mui/material/IconButton";
 
 const ResultPage: React.FC = () => {
   const navigate = useNavigate();
@@ -20,6 +28,7 @@ const ResultPage: React.FC = () => {
   const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
   const [relatedLoading, setRelatedLoading] = useState(true);
   const [relatedError, setRelatedError] = useState<string | null>(null);
+  const [commentDialogOpen, setCommentDialogOpen] = useState(false);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
     getEngagement, 
@@ -74,8 +83,8 @@ const ResultPage: React.FC = () => {
 
   if (loading) {
     return (
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Typography>Loading...</Typography>
+      <Container maxWidth="md" sx={{ py: 4, display: "flex", justifyContent: "center", mt: 10 }}>
+        <CircularProgress size={60} />
       </Container>
     );
   }
@@ -99,6 +108,20 @@ const ResultPage: React.FC = () => {
       removeBookmark(article.url);
     } else {
       addBookmark(article);
+    }
+  };
+
+  const articleEngagement = article.url ? getEngagement(article.url) : {
+    likes: 0,
+    dislikes: 0,
+    comments: [],
+    userLiked: false,
+    userDisliked: false,
+  };
+
+  const handleAddComment = (text: string, author: string) => {
+    if (article.url && addComment) {
+      addComment(article.url, text, author);
     }
   };
 
@@ -205,26 +228,66 @@ const ResultPage: React.FC = () => {
 
           <Divider sx={{ my: 2 }} />
 
-          {/* Bookmark & Open Button */}
-          <Box sx={{ display: "flex", gap: 1, mb: 3 }}>
-            <Button
-              startIcon={bookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
-              variant={bookmarked ? "contained" : "outlined"}
-              color={bookmarked ? "warning" : "inherit"}
-              onClick={handleBookmarkClick}
-            >
-              {bookmarked ? "Bookmarked" : "Bookmark"}
-            </Button>
+          {/* Bookmark, Engage & Open Button */}
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 3, alignItems: "center", justifyContent: "space-between" }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              {/* Like */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <IconButton
+                  onClick={() => article.url && toggleLike(article.url)}
+                  sx={{ color: articleEngagement.userLiked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+                >
+                  {articleEngagement.userLiked ? <ThumbUpIcon /> : <ThumbUpOutlinedIcon />}
+                </IconButton>
+                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
+                  {articleEngagement.likes > 0 ? articleEngagement.likes : ''}
+                </Typography>
+              </Box>
 
-            {article.url && (
+              {/* Dislike */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <IconButton
+                  onClick={() => article.url && toggleDislike(article.url)}
+                  sx={{ color: articleEngagement.userDisliked ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+                >
+                  {articleEngagement.userDisliked ? <ThumbDownIcon /> : <ThumbDownOutlinedIcon />}
+                </IconButton>
+              </Box>
+
+              {/* Comment */}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                <IconButton
+                  onClick={() => setCommentDialogOpen(true)}
+                  sx={{ color: "text.secondary", '&:hover': { color: 'primary.main' } }}
+                >
+                  <ChatBubbleOutlineIcon />
+                </IconButton>
+                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
+                  {articleEngagement.comments.length > 0 ? articleEngagement.comments.length : ''}
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box sx={{ display: 'flex', gap: 1 }}>
               <Button
-                endIcon={<OpenInNewIcon />}
-                variant="outlined"
-                onClick={() => window.open(article.url, "_blank")}
+                startIcon={bookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
+                variant={bookmarked ? "contained" : "outlined"}
+                color={bookmarked ? "warning" : "inherit"}
+                onClick={handleBookmarkClick}
               >
-                Read Full Article
+                {bookmarked ? "Bookmarked" : "Bookmark"}
               </Button>
-            )}
+
+              {article.url && (
+                <Button
+                  endIcon={<OpenInNewIcon />}
+                  variant="outlined"
+                  onClick={() => window.open(article.url, "_blank")}
+                >
+                  Read Full Article
+                </Button>
+              )}
+            </Box>
           </Box>
 
           <Divider sx={{ my: 2 }} />
@@ -293,6 +356,29 @@ const ResultPage: React.FC = () => {
           Go Back
         </Button>
       </Box>
+
+      {/* Comment Dialog */}
+      <CommentDialog
+        open={commentDialogOpen}
+        onClose={() => setCommentDialogOpen(false)}
+        comments={articleEngagement.comments || []}
+        onAddComment={handleAddComment}
+        onDeleteComment={(commentId) => {
+          if (article.url && deleteComment) {
+            deleteComment(article.url, commentId);
+          }
+        }}
+        onLikeComment={(commentId) => {
+          if (article.url && likeComment) {
+            likeComment(article.url, commentId);
+          }
+        }}
+        onDislikeComment={(commentId) => {
+          if (article.url && dislikeComment) {
+            dislikeComment(article.url, commentId);
+          }
+        }}
+      />
     </Container>
   );
 };

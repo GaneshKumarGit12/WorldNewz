@@ -72,7 +72,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
   };
 
   const handleCardClick = () => {
-    navigate(`/article/${article.url?.split("/").pop() || ""}`, { state: { article } });
+    const titleSlug = article.title?.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50) || "article";
+    navigate(`/article/${titleSlug}`, { state: { article } });
   };
 
   const handleBookmarkClick = (e: React.MouseEvent) => {

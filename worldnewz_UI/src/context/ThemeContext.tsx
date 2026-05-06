@@ -16,7 +16,7 @@ export const useColorMode = () => useContext(ColorModeContext);
 
 export const AppThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [mode, setMode] = useState<"light" | "dark">(() => {
-    return (localStorage.getItem("worldnewz_theme") as "light" | "dark") ?? "light";
+    return (localStorage.getItem("worldnewz_theme") as "light" | "dark") ?? "dark";
   });
 
   const toggleMode = () => {
