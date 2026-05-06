@@ -81,7 +81,7 @@ const NewsSlider: React.FC<Props> = ({
     const visibleArticles = articles.slice(currentIndex, currentIndex + slidesToShow);
 
     return (
-        <Box sx={{ position: "relative", display: "flex", alignItems: "center", gap: 2 }}>
+        <Box sx={{ position: "relative", display: "flex", alignItems: "center", gap: 2, mb: 6 }}>
             <IconButton
                 onClick={handlePrev}
                 sx={{
