@@ -64,6 +64,12 @@ public class NewsController : ControllerBase
         [FromQuery] string? country = "us",
         [FromQuery] string? language = "en")
     {
+        if (string.Equals(category, "shopping", StringComparison.OrdinalIgnoreCase))
+        {
+            query = string.IsNullOrEmpty(query) ? "shopping" : $"{query} shopping";
+            category = null;
+        }
+
         var context = new NewsQueryContext
         {
             Query = query,
