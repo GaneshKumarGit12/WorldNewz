@@ -60,7 +60,7 @@ public class NewsController : ControllerBase
         [FromQuery] string? category = null,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 9,
-        [FromQuery] string source = "news",
+        [FromQuery] string? source = "news",
         [FromQuery] string? country = "us",
         [FromQuery] string? language = "en")
     {
