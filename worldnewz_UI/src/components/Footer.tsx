@@ -45,6 +45,8 @@ const Footer: React.FC = () => {
               { label: "Weather", to: "/weather" },
               { label: "Shopping", to: "/shopping" },
               { label: "Bookmarks", to: "/bookmarks" },
+              { label: "Privacy Policy", to: "/privacy-policy" },
+              { label: "Terms", to: "/terms" },
             ].map((link) => (
               <MuiLink
                 key={link.to}
