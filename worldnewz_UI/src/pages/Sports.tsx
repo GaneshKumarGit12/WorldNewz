@@ -9,7 +9,7 @@ import NewsCard from "../components/NewsCard";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
-import { useSEO } from "../hooks/useSEO";
+import { SEOMeta } from "../seo/SEOMeta";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Sports: React.FC = () => {
@@ -31,11 +31,7 @@ const Sports: React.FC = () => {
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
 
-  useSEO({
-    title: "Sports News",
-    description: "Latest updates from the world of sports.",
-    keywords: "sports, news, football, basketball, tennis, latest sports",
-  });
+
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
@@ -93,6 +89,11 @@ const Sports: React.FC = () => {
 
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
+      <SEOMeta
+        title="Sports News"
+        description="Latest updates from the world of sports."
+        keywords={['sports', 'news', 'football', 'basketball', 'tennis', 'latest sports']}
+      />
       <Box sx={{ mb: 4 }}>
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
           Sports

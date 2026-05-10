@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WorldNewzWebAPI.Models;
 
 namespace WorldNewzWebAPI.Data
@@ -10,6 +10,7 @@ namespace WorldNewzWebAPI.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<NewsArticle> NewsArticles { get; set; }
         public DbSet<Ad> Ads { get; set; }
+        public DbSet<SeoKeyword> SeoKeywords { get; set; }
     }
 
 }

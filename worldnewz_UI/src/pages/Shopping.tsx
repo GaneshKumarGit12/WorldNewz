@@ -9,7 +9,7 @@ import NewsCard from "../components/NewsCard";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
-import { useSEO } from "../hooks/useSEO";
+import { SEOMeta } from "../seo/SEOMeta";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Shopping: React.FC = () => {
@@ -40,11 +40,7 @@ const Shopping: React.FC = () => {
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
 
-  useSEO({
-    title: "Shopping News",
-    description: "Latest shopping trends, deals, and e-commerce news.",
-    keywords: "shopping, e-commerce, deals, trends, discounts, news",
-  });
+
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
@@ -95,6 +91,11 @@ const Shopping: React.FC = () => {
 
   return (
     <Box sx={{ p: 2 }}>
+      <SEOMeta
+        title="Shopping News"
+        description="Latest shopping trends, deals, and e-commerce news."
+        keywords={['shopping', 'e-commerce', 'deals', 'trends', 'discounts', 'news']}
+      />
       <Typography variant="h4" sx={{ mb: 2, fontWeight: 700 }}>🛒 Shopping</Typography>
       <SectionStatus loading={loading} error={error} hasData={filteredArticles.length > 0}
         emptyText={normalizedSearchTerm ? "No results matching your search." : "No shopping news available."}>

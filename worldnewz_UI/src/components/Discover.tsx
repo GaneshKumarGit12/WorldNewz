@@ -11,7 +11,7 @@ import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import NewsSlider from "../components/NewsSlider";
-import { useSEO } from "../hooks/useSEO";
+import { SEOMeta } from "../seo/SEOMeta";
 import { getDailyKeyword } from "../utils/dailyKeyword";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -39,11 +39,7 @@ const Discover: React.FC = () => {
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
 
-  useSEO({
-    title: "Discover News",
-    description: `Stay updated with the latest news on ${dailyKeyword} and more.`,
-    keywords: `discover, news, ${dailyKeyword}`,
-  });
+
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   const filteredArticles = normalizedSearchTerm
@@ -118,6 +114,11 @@ const Discover: React.FC = () => {
 
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
+      <SEOMeta
+        title="Discover News"
+        description={`Stay updated with the latest news on ${dailyKeyword} and more.`}
+        keywords={['discover', 'news', dailyKeyword]}
+      />
       {/* Page Header */}
       <Box sx={{ mb: 4 }}>
         <Typography

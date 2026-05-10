@@ -57,6 +57,33 @@ builder.Services.AddMemoryCache();
 builder.Services.AddScoped<NewsService>();
 builder.Services.AddHttpClient<WeatherService>();
 
+// SEO Services
+builder.Services.AddScoped<SeoKeywordService>();
+
+// Quartz Scheduler
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionJobFactory();
+    
+    // News Refresh Job (Hourly)
+    var newsJobKey = new JobKey("NewsRefreshJob");
+    q.AddJob<NewsRefreshJob>(opts => opts.WithIdentity(newsJobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(newsJobKey)
+        .WithIdentity("NewsRefreshJob-trigger")
+        .WithSimpleSchedule(x => x.WithIntervalInHours(1).RepeatForever()));
+        
+    // Daily Keyword Job (Daily at 2 AM)
+    var keywordJobKey = new JobKey("DailyKeywordJob");
+    q.AddJob<DailyKeywordJob>(opts => opts.WithIdentity(keywordJobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(keywordJobKey)
+        .WithIdentity("DailyKeywordJob-trigger")
+        .WithCronSchedule("0 0 2 * * ?"));
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

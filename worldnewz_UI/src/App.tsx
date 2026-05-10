@@ -23,6 +23,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import Footer from "./components/Footer";
+import { JSONLDWebSite } from "./seo/JSONLDSchemas";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import TextField from "@mui/material/TextField";
@@ -107,6 +108,7 @@ const App: React.FC = () => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <JSONLDWebSite />
       {/* ─── Top AppBar ─── */}
       <AppBar
         position="static"
