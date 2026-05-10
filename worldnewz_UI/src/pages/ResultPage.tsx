@@ -19,6 +19,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import CommentDialog from "../components/CommentDialog";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
+import { JSONLDNewsArticle } from "../seo/JSONLDSchemas";
 
 const ResultPage: React.FC = () => {
   const navigate = useNavigate();
@@ -142,6 +143,16 @@ const ResultPage: React.FC = () => {
 
   return (
     <Container maxWidth="md" sx={{ py: 4, minHeight: "70vh" }}>
+      <JSONLDNewsArticle
+        article={{
+          title: article.title,
+          summary: article.description || "",
+          url: article.url || "",
+          imageUrl: article.urlToImage || article.imageUrl || "",
+          publishedAt: article.publishedAt || "",
+          category: article.category || ""
+        }}
+      />
       {/* Back Button */}
       <Button
         startIcon={<ArrowBackIcon />}

@@ -123,9 +123,10 @@ const Discover: React.FC = () => {
       <Box sx={{ mb: 4 }}>
         <Typography
           variant="h3"
+          component="h1"
           sx={{ fontWeight: 700, mb: 1, fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" } }}
         >
-          Discover
+          Discover Global News – WorldNewz
         </Typography>
         <Typography variant="body1" sx={{ color: "text.secondary" }}>
           Stay updated with the latest news from around the world

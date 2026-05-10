@@ -217,7 +217,7 @@ const App: React.FC = () => {
         PaperProps={{ sx: { backgroundColor: isDark ? "#161b22" : "#0a0a0a", color: "white" } }}
       >
         <List sx={{ width: 250 }}>
-          {[...navLinks, { label: "Comments", path: "/comments" }, { label: "Bookmarks", path: "/bookmarks" }].map((link) => (
+          {navLinks.map((link) => (
             <ListItem key={link.path} disablePadding>
               <ListItemButton
                 component={Link}

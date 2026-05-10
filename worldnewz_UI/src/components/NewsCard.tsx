@@ -137,6 +137,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             component="img"
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
+            loading="lazy"
             sx={{
               position: "absolute",
               top: 0,
