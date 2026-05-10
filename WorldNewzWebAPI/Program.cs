@@ -118,6 +118,13 @@ Console.WriteLine($"✓ Database: {dbPath}");
 Console.WriteLine($"✓ CORS Origins: Allowed for ALL (Vercel, Localhost, etc.)");
 Console.WriteLine($"✓ Environment: {builder.Environment.EnvironmentName}");
 
+// Ensure database is created and schema is up to date
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<WorldNewsDbContext>();
+    db.Database.EnsureCreated();
+}
+
 // Bind to Render's dynamic port
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5005";
 app.Urls.Add($"http://*:{port}");
