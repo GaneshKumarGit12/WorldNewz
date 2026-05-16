@@ -39,7 +39,6 @@ namespace WorldNewzWebAPI.Controllers
                 var client = _httpClientFactory.CreateClient();
                 var response = await client.GetStringAsync(apiEndpoint);
 
-                // ✅ Parse dynamically instead of assuming raw array
                 using var doc = JsonDocument.Parse(response);
                 JsonElement root = doc.RootElement;
 
@@ -53,12 +52,12 @@ namespace WorldNewzWebAPI.Controllers
                 }
                 else
                 {
-                    // fallback if API ever returns a raw array
-                    articles = JsonSerializer.Deserialize<List<Article>>(response);
+                    articles = new List<Article>();
                 }
 
                 // Deduplicate by URL and limit to last 10
                 articles = articles
+                    .Where(a => !string.IsNullOrEmpty(a.Url)) // filter out null/empty
                     .GroupBy(a => a.Url)
                     .Select(g => g.First())
                     .OrderByDescending(a => a.PublishedAt ?? DateTime.MinValue)
@@ -87,16 +86,15 @@ namespace WorldNewzWebAPI.Controllers
                 };
 
                 channel.Add(new XElement("item",
-     new XElement("title", a.Title ?? "Untitled"),
-     new XElement("link", a.Url ?? string.Empty),
-     new XElement("description", $"{a.Description ?? ""} {hashtags}"),
-     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
-     new XElement("category", a.Source?.Name ?? "General"),
-     new XElement("enclosure",
-         new XAttribute("url", a.UrlToImage ?? string.Empty),
-         new XAttribute("type", "image/jpeg"))
- ));
-
+                    new XElement("title", a.Title ?? "Untitled"),
+                    new XElement("link", a.Url ?? string.Empty),
+                    new XElement("description", $"{a.Description ?? ""} {hashtags}"),
+                    new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
+                    new XElement("category", a.Source?.Name ?? "General"),
+                    new XElement("enclosure",
+                        new XAttribute("url", a.UrlToImage ?? string.Empty),
+                        new XAttribute("type", "image/jpeg"))
+                ));
             }
 
             var feed = new XDocument(

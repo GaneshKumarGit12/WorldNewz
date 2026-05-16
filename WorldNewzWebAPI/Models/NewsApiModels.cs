@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 namespace WorldNewzWebAPI.Models
 {
     public class NewsApiResponse
@@ -12,19 +12,31 @@ namespace WorldNewzWebAPI.Models
 
     public class Article
     {
-        public Source Source { get; set; }
-        public string Author { get; set; }
+        [JsonPropertyName("title")]
         public string Title { get; set; }
-        public string Description { get; set; }
+
+        [JsonPropertyName("url")]
         public string Url { get; set; }
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        [JsonPropertyName("urlToImage")]
         public string UrlToImage { get; set; }
+
+        [JsonPropertyName("publishedAt")]
         public DateTime? PublishedAt { get; set; }
-        public string Content { get; set; }
+
+        [JsonPropertyName("source")]
+        public Source Source { get; set; }
     }
 
     public class Source
     {
+        [JsonPropertyName("id")]
         public string Id { get; set; }
+
+        [JsonPropertyName("name")]
         public string Name { get; set; }
     }
 
