@@ -39,7 +39,23 @@ namespace WorldNewzWebAPI.Controllers
                 var client = _httpClientFactory.CreateClient();
                 var response = await client.GetStringAsync(apiEndpoint);
 
-                articles = JsonSerializer.Deserialize<List<Article>>(response);
+                // ✅ Parse dynamically instead of assuming raw array
+                using var doc = JsonDocument.Parse(response);
+                JsonElement root = doc.RootElement;
+
+                if (root.TryGetProperty("articles", out JsonElement articlesElement))
+                {
+                    articles = JsonSerializer.Deserialize<List<Article>>(articlesElement.GetRawText());
+                }
+                else if (root.TryGetProperty("value", out JsonElement valueElement))
+                {
+                    articles = JsonSerializer.Deserialize<List<Article>>(valueElement.GetRawText());
+                }
+                else
+                {
+                    // fallback if API ever returns a raw array
+                    articles = JsonSerializer.Deserialize<List<Article>>(response);
+                }
 
                 // Deduplicate by URL and limit to last 10
                 articles = articles
