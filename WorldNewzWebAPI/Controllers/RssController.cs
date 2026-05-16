@@ -68,11 +68,17 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             // Build RSS feed
+            XNamespace atom = "http://www.w3.org/2005/Atom";
+
             var channel = new XElement("channel",
-    new XElement("title", $"WorldNewz {feedType}"),
-    new XElement("link", "https://world-newz.vercel.app"), // no space
-    new XElement("description", $"Latest {feedType} news from WorldNewz")
-);
+                new XElement("title", $"WorldNewz {feedType}"),
+                new XElement("link", "https://world-newz.vercel.app"),
+                new XElement("description", $"Latest {feedType} news from WorldNewz"),
+                new XElement(atom + "link",
+                    new XAttribute("href", $"https://worldnewz.onrender.com/rss/{feedType}"),
+                    new XAttribute("rel", "self"),
+                    new XAttribute("type", "application/rss+xml"))
+            );
 
             foreach (var a in articles)
             {
@@ -88,15 +94,16 @@ namespace WorldNewzWebAPI.Controllers
                 channel.Add(new XElement("item",
                     new XElement("title", (a.Title ?? "Untitled").Trim()),
                     new XElement("link", (a.Url ?? string.Empty).Trim()),
+                    new XElement("guid", (a.Url ?? string.Empty).Trim()), // ✅ Added GUID
                     new XElement("description", $"{(a.Description ?? "").Trim()} {hashtags}"),
                     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
                     new XElement("category", (a.Source?.Name ?? "General").Trim()),
                     new XElement("enclosure",
                         new XAttribute("url", (a.UrlToImage ?? string.Empty).Trim()),
-                        new XAttribute("type", "image/jpeg"))
+                        new XAttribute("type", "image/jpeg"),
+                        new XAttribute("length", "0")) // ✅ Added length
                 ));
             }
-
 
             var feed = new XDocument(
                 new XElement("rss",
