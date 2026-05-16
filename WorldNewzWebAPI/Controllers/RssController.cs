@@ -87,15 +87,16 @@ namespace WorldNewzWebAPI.Controllers
                 };
 
                 channel.Add(new XElement("item",
-                    new XElement("title", a.Title),
-                    new XElement("link", a.Url),
-                    new XElement("description", $"{a.Description} {hashtags}"),
-                    new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
-                    new XElement("category", a.Source?.Name ?? "General"),
-                    new XElement("enclosure",
-                        new XAttribute("url", a.UrlToImage),
-                        new XAttribute("type", "image/jpeg"))
-                ));
+     new XElement("title", a.Title ?? "Untitled"),
+     new XElement("link", a.Url ?? string.Empty),
+     new XElement("description", $"{a.Description ?? ""} {hashtags}"),
+     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
+     new XElement("category", a.Source?.Name ?? "General"),
+     new XElement("enclosure",
+         new XAttribute("url", a.UrlToImage ?? string.Empty),
+         new XAttribute("type", "image/jpeg"))
+ ));
+
             }
 
             var feed = new XDocument(
