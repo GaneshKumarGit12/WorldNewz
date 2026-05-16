@@ -2,11 +2,14 @@ import React from "react";
 import { Box, IconButton } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import Slider from "react-slick";
+import ReactSlick from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NewsCard from "../components/NewsCard";
 import type { Article } from "../types";
+
+// Workaround for Vite and react-slick default export mismatch
+const Slider = typeof ReactSlick === "function" ? ReactSlick : (ReactSlick as any).default;
 
 interface Props {
     articles: Article[];
