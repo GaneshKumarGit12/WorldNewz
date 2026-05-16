@@ -69,10 +69,10 @@ namespace WorldNewzWebAPI.Controllers
 
             // Build RSS feed
             var channel = new XElement("channel",
-                new XElement("title", $"WorldNewz {feedType}"),
-                new XElement("link", "https://world-newz.vercel.app"),
-                new XElement("description", $"Latest {feedType} news from WorldNewz")
-            );
+    new XElement("title", $"WorldNewz {feedType}"),
+    new XElement("link", "https://world-newz.vercel.app"), // no space
+    new XElement("description", $"Latest {feedType} news from WorldNewz")
+);
 
             foreach (var a in articles)
             {
@@ -96,6 +96,7 @@ namespace WorldNewzWebAPI.Controllers
                         new XAttribute("type", "image/jpeg"))
                 ));
             }
+
 
             var feed = new XDocument(
                 new XElement("rss",
