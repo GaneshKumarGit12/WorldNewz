@@ -23,7 +23,6 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetFeed(string feedType = "discover")
         {
-            // Map feedType to actual API endpoint
             var apiEndpoint = feedType?.ToLower() switch
             {
                 "bing" => "https://worldnewz.onrender.com/api/news/bing",
@@ -55,9 +54,8 @@ namespace WorldNewzWebAPI.Controllers
                     articles = new List<Article>();
                 }
 
-                // Deduplicate by URL and limit to last 10
                 articles = articles
-                    .Where(a => !string.IsNullOrEmpty(a.Url)) // filter out null/empty
+                    .Where(a => !string.IsNullOrEmpty(a.Url))
                     .GroupBy(a => a.Url)
                     .Select(g => g.First())
                     .OrderByDescending(a => a.PublishedAt ?? DateTime.MinValue)
@@ -67,7 +65,6 @@ namespace WorldNewzWebAPI.Controllers
                 _cache.Set(cacheKey, articles, TimeSpan.FromMinutes(5));
             }
 
-            // Build RSS feed
             XNamespace atom = "http://www.w3.org/2005/Atom";
 
             var channel = new XElement("channel",
@@ -95,7 +92,6 @@ namespace WorldNewzWebAPI.Controllers
                     new XElement("title", (a.Title ?? "Untitled").Trim()),
                     new XElement("link", (a.Url ?? string.Empty).Trim()),
                     new XElement("guid", (a.Url ?? string.Empty).Trim()),
-                    // Use XText to ensure proper escaping of &, <, >
                     new XElement("description", new XText($"{(a.Description ?? "").Trim()} {hashtags}")),
                     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
                     new XElement("category", (a.Source?.Name ?? "General").Trim()),
