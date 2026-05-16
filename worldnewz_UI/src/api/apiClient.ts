@@ -5,7 +5,18 @@ export const apiClient = axios.create({
 });
 
 apiClient.interceptors.response.use(
-  response => response,
+  response => {
+    if (response.data && Array.isArray(response.data.articles)) {
+      response.data.articles.sort((a: any, b: any) => {
+        const aHasImg = Boolean(a.urlToImage || a.imageUrl);
+        const bHasImg = Boolean(b.urlToImage || b.imageUrl);
+        if (aHasImg && !bHasImg) return -1;
+        if (!aHasImg && bHasImg) return 1;
+        return 0;
+      });
+    }
+    return response;
+  },
   error => {
     // Suppress ERR_CONNECTION_CLOSED console errors
     if (axios.isAxiosError(error)) {

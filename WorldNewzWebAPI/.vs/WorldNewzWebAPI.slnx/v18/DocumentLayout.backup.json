@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\WorldNewz\\WorldNewzWebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\rsscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\rsscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\models\\newsapimodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:models\\newsapimodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\moneycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\moneycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\render.yaml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
       "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:render.yaml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|c:\\worldnewz\\worldnewzwebapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8280E25C-54C2-97AC-2BA8-C2C25635D745}|WorldNewzWebAPI.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +38,79 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NewsApiModels.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\NewsApiModels.cs",
+              "RelativeDocumentMoniker": "Models\\NewsApiModels.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Models\\NewsApiModels.cs",
+              "RelativeToolTip": "Models\\NewsApiModels.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAUwC0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T09:37:04.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MoneyController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\MoneyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MoneyController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\MoneyController.cs",
+              "RelativeToolTip": "Controllers\\MoneyController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T07:21:25.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NewsController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "Controllers\\NewsController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T07:20:27Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RssController.cs",
+              "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\RssController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RssController.cs",
+              "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Controllers\\RssController.cs",
+              "RelativeToolTip": "Controllers\\RssController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAuwHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T04:43:09.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
               "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Dockerfile",
               "RelativeToolTip": "Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-04-27T11:28:09.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-27T11:28:09.251Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "render.yaml",
               "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\render.yaml",
               "RelativeDocumentMoniker": "render.yaml",
@@ -52,13 +123,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\WorldNewz\\WorldNewzWebAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\WorldNewz\\WorldNewzWebAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAAAJUAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-27T10:13:40.333Z",
               "EditorCaption": ""

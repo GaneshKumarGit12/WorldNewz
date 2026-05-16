@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -8,6 +8,10 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import ShareIcon from "@mui/icons-material/Share";
+import XIcon from "@mui/icons-material/X";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 
@@ -62,6 +66,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
 }) => {
   const navigate = useNavigate();
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
+  const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
+  const shareOpen = Boolean(shareAnchorEl);
 
   const articleEngagement = engagement || {
     likes: 0,
@@ -109,6 +115,43 @@ const NewsCard: React.FC<NewsCardProps> = ({
   const handleAddComment = (text: string, author: string) => {
     if (article.url && onAddComment) {
       onAddComment(article.url, text, author);
+    }
+  };
+
+  const handleShareClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setShareAnchorEl(e.currentTarget);
+  };
+
+  const handleShareClose = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setShareAnchorEl(null);
+  };
+
+  const handleShare = (platform: string) => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setShareAnchorEl(null);
+    const url = article.url || window.location.href;
+    const title = article.title || "";
+    let shareUrl = "";
+
+    switch (platform) {
+      case "facebook":
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      case "x":
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+        break;
+      case "linkedin":
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        break;
+    }
+
+    if (shareUrl) {
+      window.open(shareUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -242,8 +285,16 @@ const NewsCard: React.FC<NewsCardProps> = ({
             </Box>
           </Box>
 
-          {/* Bookmark (Optional) */}
-          <Box>
+          {/* Share & Bookmark */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <IconButton
+              aria-label="share"
+              onClick={handleShareClick}
+              size="small"
+              sx={{ p: 0.5, color: "text.secondary", '&:hover': { color: 'primary.main' } }}
+            >
+              <ShareIcon fontSize="small" />
+            </IconButton>
             <IconButton
               aria-label={isBookmarked ? "remove bookmark" : "add bookmark"}
               onClick={handleBookmarkClick}
@@ -255,6 +306,33 @@ const NewsCard: React.FC<NewsCardProps> = ({
           </Box>
         </Box>
       </Card>
+
+      {/* Share Menu */}
+      <Menu
+        anchorEl={shareAnchorEl}
+        open={shareOpen}
+        onClose={handleShareClose}
+        onClick={(e) => e.stopPropagation()}
+        transformOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+        PaperProps={{
+          elevation: 3,
+          sx: { minWidth: 150 }
+        }}
+      >
+        <MenuItem onClick={handleShare("facebook")}>
+          <ListItemIcon><FacebookIcon fontSize="small" color="primary" /></ListItemIcon>
+          <ListItemText>Facebook</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleShare("x")}>
+          <ListItemIcon><XIcon fontSize="small" sx={{ color: 'text.primary' }} /></ListItemIcon>
+          <ListItemText>X (Twitter)</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleShare("linkedin")}>
+          <ListItemIcon><LinkedInIcon fontSize="small" color="primary" /></ListItemIcon>
+          <ListItemText>LinkedIn</ListItemText>
+        </MenuItem>
+      </Menu>
 
       {/* Comment Dialog */}
       <CommentDialog
