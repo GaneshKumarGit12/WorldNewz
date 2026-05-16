@@ -94,20 +94,22 @@ namespace WorldNewzWebAPI.Controllers
                 channel.Add(new XElement("item",
                     new XElement("title", (a.Title ?? "Untitled").Trim()),
                     new XElement("link", (a.Url ?? string.Empty).Trim()),
-                    new XElement("guid", (a.Url ?? string.Empty).Trim()), // ✅ Added GUID
-                    new XElement("description", $"{(a.Description ?? "").Trim()} {hashtags}"),
+                    new XElement("guid", (a.Url ?? string.Empty).Trim()),
+                    // Use XText to ensure proper escaping of &, <, >
+                    new XElement("description", new XText($"{(a.Description ?? "").Trim()} {hashtags}")),
                     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
                     new XElement("category", (a.Source?.Name ?? "General").Trim()),
                     new XElement("enclosure",
                         new XAttribute("url", (a.UrlToImage ?? string.Empty).Trim()),
                         new XAttribute("type", "image/jpeg"),
-                        new XAttribute("length", "0")) // ✅ Added length
+                        new XAttribute("length", "0"))
                 ));
             }
 
             var feed = new XDocument(
                 new XElement("rss",
                     new XAttribute("version", "2.0"),
+                    new XAttribute(XNamespace.Xmlns + "atom", atom),
                     channel
                 )
             );
