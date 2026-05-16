@@ -115,7 +115,9 @@ const NewsSlider: React.FC<Props> = ({
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    initialSlide: 0
+                    initialSlide: 0,
+                    centerMode: true,
+                    centerPadding: "30px", // Show peek of next/prev cards
                 }
             }
         ]
@@ -133,11 +135,18 @@ const NewsSlider: React.FC<Props> = ({
                 "& .slick-slide": { 
                     height: "auto", 
                     display: "flex", 
-                    justifyContent: "center", 
+                    justifyContent: "center",
+                    transition: "transform 0.3s ease, opacity 0.3s ease",
+                    opacity: { xs: 0.6, sm: 1 }, // Dim non-center slides on mobile
+                    transform: { xs: "scale(0.92)", sm: "scale(1)" }, // Scale down non-center slides on mobile 
                     "& > div": { 
                         width: "100%",
                         display: "flex" 
                     } 
+                },
+                "& .slick-center": {
+                    opacity: 1,
+                    transform: "scale(1)",
                 },
                 "& .slick-dots": { bottom: -35 }
             }}
