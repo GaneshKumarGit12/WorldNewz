@@ -63,19 +63,54 @@ const Footer: React.FC = () => {
 
         {/* Right Side: Social Media Icons */}
         <Box sx={{ display: "flex", gap: 1 }}>
-          <IconButton sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} aria-label="YouTube">
+          <IconButton 
+            component="a"
+            href="https://www.youtube.com/@ganeshkumar56"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} 
+            aria-label="YouTube"
+          >
             <YouTubeIcon />
           </IconButton>
-          <IconButton sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} aria-label="X (Twitter)">
+          <IconButton 
+            component="a"
+            href="https://x.com/ganeshkumard1"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} 
+            aria-label="X (Twitter)"
+          >
             <XIcon />
           </IconButton>
-          <IconButton sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} aria-label="Facebook">
+          <IconButton 
+            component="a"
+            href="https://www.facebook.com/profile.php?id=61589266599006"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} 
+            aria-label="Facebook"
+          >
             <FacebookIcon />
           </IconButton>
-          <IconButton sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} aria-label="LinkedIn">
+          <IconButton 
+            component="a"
+            href="https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} 
+            aria-label="LinkedIn"
+          >
             <LinkedInIcon />
           </IconButton>
-          <IconButton sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} aria-label="Instagram">
+          <IconButton 
+            component="a"
+            href="https://www.instagram.com/ganeshkumard12/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" } }} 
+            aria-label="Instagram"
+          >
             <InstagramIcon />
           </IconButton>
         </Box>
