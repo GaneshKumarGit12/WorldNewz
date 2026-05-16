@@ -1,9 +1,13 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { Box, Typography, Card, CardMedia, Button, Container, Divider, Alert } from "@mui/material";
+import { Box, Typography, Card, CardMedia, Button, Container, Divider, Alert, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import ShareIcon from "@mui/icons-material/Share";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import XIcon from "@mui/icons-material/X";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useEffect, useState } from "react";
 import type { Article } from "../types";
 import { useBookmarks } from "../hooks/useBookmarks";
@@ -30,6 +34,8 @@ const ResultPage: React.FC = () => {
   const [relatedLoading, setRelatedLoading] = useState(true);
   const [relatedError, setRelatedError] = useState<string | null>(null);
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
+  const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
+  const shareOpen = Boolean(shareAnchorEl);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
     getEngagement, 
@@ -109,6 +115,39 @@ const ResultPage: React.FC = () => {
       removeBookmark(article.url);
     } else {
       addBookmark(article);
+    }
+  };
+
+  const handleShareClick = (e: React.MouseEvent<HTMLElement>) => {
+    setShareAnchorEl(e.currentTarget);
+  };
+
+  const handleShareClose = () => {
+    setShareAnchorEl(null);
+  };
+
+  const handleShare = (platform: string) => () => {
+    setShareAnchorEl(null);
+    if (!article) return;
+    
+    const url = article.url || window.location.href;
+    const title = article.title || "";
+    let shareUrl = "";
+
+    switch (platform) {
+      case "facebook":
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      case "x":
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+        break;
+      case "linkedin":
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        break;
+    }
+
+    if (shareUrl) {
+      window.open(shareUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -281,6 +320,14 @@ const ResultPage: React.FC = () => {
 
             <Box sx={{ display: 'flex', gap: 1 }}>
               <Button
+                startIcon={<ShareIcon />}
+                variant="outlined"
+                color="inherit"
+                onClick={handleShareClick}
+              >
+                Share
+              </Button>
+              <Button
                 startIcon={bookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
                 variant={bookmarked ? "contained" : "outlined"}
                 color={bookmarked ? "warning" : "inherit"}
@@ -330,6 +377,32 @@ const ResultPage: React.FC = () => {
           )}
         </Box>
       </Card>
+
+      {/* Share Menu */}
+      <Menu
+        anchorEl={shareAnchorEl}
+        open={shareOpen}
+        onClose={handleShareClose}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        PaperProps={{
+          elevation: 3,
+          sx: { minWidth: 150 }
+        }}
+      >
+        <MenuItem onClick={handleShare("facebook")}>
+          <ListItemIcon><FacebookIcon fontSize="small" color="primary" /></ListItemIcon>
+          <ListItemText>Facebook</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleShare("x")}>
+          <ListItemIcon><XIcon fontSize="small" sx={{ color: 'text.primary' }} /></ListItemIcon>
+          <ListItemText>X (Twitter)</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleShare("linkedin")}>
+          <ListItemIcon><LinkedInIcon fontSize="small" color="primary" /></ListItemIcon>
+          <ListItemText>LinkedIn</ListItemText>
+        </MenuItem>
+      </Menu>
 
       <Box sx={{ mt: 6 }}>
         <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
