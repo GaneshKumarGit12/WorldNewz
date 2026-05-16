@@ -38,11 +38,11 @@ builder.Services.AddCors(options =>
         policy.SetIsOriginAllowed(origin => true) // Allow any origin (Vercel, Localhost, etc.)
               .AllowAnyHeader()
               .AllowAnyMethod()
-              .AllowCredentials(); // Optional: allows cookies/auth if needed later
+              .AllowCredentials();
     });
 });
 
-// Add HttpClient for external API calls
+// Add HttpClient for external API calls (needed for RSSController)
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("NewsApiClient", client =>
 {
@@ -53,27 +53,26 @@ builder.Services.AddHttpClient<INewsApiService, NewsApiService>(client =>
     client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
 });
 
+// ✅ Add MemoryCache (needed for RSSController caching)
 builder.Services.AddMemoryCache();
+
+// Existing services
 builder.Services.AddScoped<NewsService>();
 builder.Services.AddHttpClient<WeatherService>();
-
-// SEO Services
 builder.Services.AddScoped<SeoKeywordService>();
 
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>
 {
     q.UseMicrosoftDependencyInjectionJobFactory();
-    
-    // News Refresh Job (Hourly)
+
     var newsJobKey = new JobKey("NewsRefreshJob");
     q.AddJob<NewsRefreshJob>(opts => opts.WithIdentity(newsJobKey));
     q.AddTrigger(opts => opts
         .ForJob(newsJobKey)
         .WithIdentity("NewsRefreshJob-trigger")
         .WithSimpleSchedule(x => x.WithIntervalInHours(1).RepeatForever()));
-        
-    // Daily Keyword Job (Daily at 2 AM)
+
     var keywordJobKey = new JobKey("DailyKeywordJob");
     q.AddJob<DailyKeywordJob>(opts => opts.WithIdentity(keywordJobKey));
     q.AddTrigger(opts => opts
@@ -129,7 +128,7 @@ using (var scope = app.Services.CreateScope())
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5005";
 app.Urls.Add($"http://*:{port}");
 
-// ✅ CORS MUST be first (before routing, headers, etc.)
+// ✅ CORS MUST be first
 app.UseCors("AllowFrontend");
 
 // Global exception handling middleware
