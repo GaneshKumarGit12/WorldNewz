@@ -10,14 +10,14 @@ namespace WorldNewzWebAPI.Services
         private readonly HttpClient _httpClient;
         private readonly WorldNewsDbContext _context;
         private readonly string _apiKey;
-        private readonly FacebookService _facebookService;
+        private readonly IFacebookPostQueue _facebookQueue;
 
-        public NewsService(IConfiguration config, WorldNewsDbContext context, HttpClient httpClient, FacebookService facebookService)
+        public NewsService(IConfiguration config, WorldNewsDbContext context, HttpClient httpClient, IFacebookPostQueue facebookQueue)
         {
             _httpClient = httpClient;
             _context = context;
             _apiKey = config["NEWS_API_KEY"];
-            _facebookService = facebookService;
+            _facebookQueue = facebookQueue;
         }
 
         public async Task FetchAndCacheNews(string category)
@@ -76,8 +76,11 @@ namespace WorldNewzWebAPI.Services
                     if (newArticlesToPost.Any())
                     {
                         var articlesToPost = newArticlesToPost.Take(5).ToList();
-                        Console.WriteLine($"[NewsService] Found {newArticlesToPost.Count} new articles for '{category}'. Posting {articlesToPost.Count} to Facebook.");
-                        await _facebookService.PostArticlesAsync(articlesToPost);
+                        Console.WriteLine($"[NewsService] Found {newArticlesToPost.Count} new articles for '{category}'. Enqueuing {articlesToPost.Count} for Facebook.");
+                        foreach(var article in articlesToPost)
+                        {
+                            await _facebookQueue.EnqueuePostAsync(article);
+                        }
                     }
                 }
             }

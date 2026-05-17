@@ -61,6 +61,8 @@ builder.Services.AddScoped<NewsService>();
 builder.Services.AddHttpClient<WeatherService>();
 builder.Services.AddScoped<SeoKeywordService>();
 builder.Services.AddHttpClient<FacebookService>();
+builder.Services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
+builder.Services.AddHostedService<FacebookWorkerService>();
 
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>
