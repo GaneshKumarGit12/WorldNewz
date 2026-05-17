@@ -50,4 +50,7 @@ export const fetchSports = (params?: SearchParams) => apiClient.get("/news/sport
 export const fetchMoney = (params?: SearchParams) => apiClient.get("/news/money", { params });
 export const fetchShopping = (params?: SearchParams) => apiClient.get("/news/shopping", { params });
 export const fetchWeather = (params?: SearchParams) => apiClient.get("/news/weather", { params });
+export const fetchTravel = (params?: SearchParams) => apiClient.get("/news/travel", { params });
+export const fetchFood = (params?: SearchParams) => apiClient.get("/news/food", { params });
+export const fetchEntertainment = (params?: SearchParams) => apiClient.get("/news/entertainment", { params });
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });

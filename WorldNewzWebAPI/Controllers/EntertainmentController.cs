@@ -1,0 +1,72 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System;
+using System.Text.Json;
+using WorldNewzWebAPI.Services;
+using WorldNewzWebAPI.Models;
+
+[ApiController]
+[Route("api/news")]
+public class EntertainmentController : ControllerBase
+{
+    private readonly INewsApiService _newsApiService;
+
+    public EntertainmentController(INewsApiService newsApiService)
+    {
+        _newsApiService = newsApiService;
+    }
+
+    [HttpGet("entertainment")]
+    public async Task<IActionResult> GetEntertainment(
+        [FromQuery] string? country = "us",
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
+    {
+        var articles = new List<object>();
+        var context = new NewsQueryContext
+        {
+            Country = country ?? "us",
+            Category = "entertainment",
+            IsTopHeadlines = true,
+            Page = page,
+            PageSize = pageSize
+        };
+
+        var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
+        if (fetchResult.Success)
+        {
+            try
+            {
+                using var doc = JsonDocument.Parse(fetchResult.Body);
+                if (doc.RootElement.TryGetProperty("articles", out var newsArts) && newsArts.ValueKind == JsonValueKind.Array)
+                {
+                    foreach (var a in newsArts.EnumerateArray())
+                    {
+                        articles.Add(new
+                        {
+                            title = a.TryGetProperty("title", out var t) && t.ValueKind == JsonValueKind.String ? t.GetString() : null,
+                            description = a.TryGetProperty("description", out var d) && d.ValueKind == JsonValueKind.String ? d.GetString() : null,
+                            url = a.TryGetProperty("url", out var u) && u.ValueKind == JsonValueKind.String ? u.GetString() : null,
+                            urlToImage = a.TryGetProperty("urlToImage", out var img) && img.ValueKind == JsonValueKind.String ? img.GetString() : null,
+                            publishedAt = a.TryGetProperty("publishedAt", out var pub) && pub.ValueKind == JsonValueKind.String ? pub.GetString() : null,
+                            source = a.TryGetProperty("source", out var src) && src.ValueKind != JsonValueKind.Null ? JsonSerializer.Deserialize<object>(src.GetRawText()) : new { name = "Entertainment News" }
+                        });
+                    }
+                }
+            }
+            catch { /* Ignore parsing errors */ }
+        }
+        else
+        {
+            return StatusCode(fetchResult.StatusCode ?? 500, new { error = "Failed to fetch entertainment news", details = fetchResult.Body });
+        }
+
+        return Ok(new
+        {
+            status = "ok",
+            totalResults = articles.Count,
+            articles = articles
+        });
+    }
+}

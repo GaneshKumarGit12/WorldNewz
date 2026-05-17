@@ -39,9 +39,12 @@ const navLinks = [
   { label: "Money", path: "/money" },
   { label: "Weather", path: "/weather" },
   { label: "Shopping", path: "/shopping" },
+  { label: "Travel", path: "/travel" },
+  { label: "Food", path: "/food" },
+  { label: "Entertainment", path: "/entertainment" },
 ];
 
-const categories = ["general", "sports", "business", "technology", "health", "science", "shopping"];
+const categories = ["general", "sports", "business", "technology", "health", "science", "shopping", "travel", "food", "entertainment"];
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);

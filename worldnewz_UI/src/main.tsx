@@ -16,6 +16,9 @@ import ResultPage from "./pages/ResultPage";
 import CommentHistory from "./pages/CommentHistory";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
+import Travel from "./pages/Travel";
+import Food from "./pages/Food";
+import Entertainment from "./pages/Entertainment";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -29,6 +32,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="money" element={<Money />} />
               <Route path="weather" element={<Weather />} />
               <Route path="shopping" element={<Shopping />} />
+              <Route path="travel" element={<Travel />} />
+              <Route path="food" element={<Food />} />
+              <Route path="entertainment" element={<Entertainment />} />
               <Route path="search" element={<Search />} />
               <Route path="bookmarks" element={<Bookmarks />} />
               <Route path="comments" element={<CommentHistory />} />
