@@ -60,6 +60,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddScoped<NewsService>();
 builder.Services.AddHttpClient<WeatherService>();
 builder.Services.AddScoped<SeoKeywordService>();
+builder.Services.AddHttpClient<FacebookService>();
 
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>

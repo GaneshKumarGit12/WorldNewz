@@ -1,4 +1,4 @@
-﻿using System.Net.Http;
+using System.Net.Http;
 using System.Text.Json;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
@@ -10,13 +10,15 @@ namespace WorldNewzWebAPI.Services
         private readonly HttpClient _httpClient;
         private readonly WorldNewsDbContext _context;
         private readonly string _apiKey;
+        private readonly FacebookService _facebookService;
 
-        public NewsService(IConfiguration config, WorldNewsDbContext context, HttpClient httpClient)
-            {
-                _httpClient = httpClient;
-                _context = context;
-                _apiKey = config["NEWS_API_KEY"];
-            }
+        public NewsService(IConfiguration config, WorldNewsDbContext context, HttpClient httpClient, FacebookService facebookService)
+        {
+            _httpClient = httpClient;
+            _context = context;
+            _apiKey = config["NEWS_API_KEY"];
+            _facebookService = facebookService;
+        }
 
         public async Task FetchAndCacheNews(string category)
         {
@@ -43,24 +45,40 @@ namespace WorldNewzWebAPI.Services
                 if (json != null && json.ContainsKey("articles"))
                 {
                     var articles = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(json["articles"].ToString() ?? "[]");
+                    var newArticlesToPost = new List<NewsArticle>();
 
                     foreach (var article in articles!)
                     {
-                        var news = new NewsArticle
+                        var articleUrl = article["url"]?.ToString();
+                        
+                        // Check if article already exists to prevent duplicates
+                        if (!string.IsNullOrEmpty(articleUrl) && !_context.NewsArticles.Any(a => a.Url == articleUrl))
                         {
-                            Title = article["title"]?.ToString() ?? "",
-                            Description = article["description"]?.ToString(),
-                            Url = article["url"]?.ToString(),
-                            ImageUrl = article["urlToImage"]?.ToString(),
-                            PublishedAt = DateTime.TryParse(article["publishedAt"]?.ToString(), out var dt) ? dt : null,
-                            CachedAt = DateTime.Now,
-                            CategoryId = _context.Categories.FirstOrDefault(c => c.Name == category)?.Id ?? 1
-                        };
+                            var news = new NewsArticle
+                            {
+                                Title = article["title"]?.ToString() ?? "",
+                                Description = article["description"]?.ToString(),
+                                Url = articleUrl,
+                                ImageUrl = article["urlToImage"]?.ToString(),
+                                PublishedAt = DateTime.TryParse(article["publishedAt"]?.ToString(), out var dt) ? dt : null,
+                                CachedAt = DateTime.Now,
+                                CategoryId = _context.Categories.FirstOrDefault(c => c.Name == category)?.Id ?? 1
+                            };
 
-                        _context.NewsArticles.Add(news);
+                            _context.NewsArticles.Add(news);
+                            newArticlesToPost.Add(news);
+                        }
                     }
 
                     await _context.SaveChangesAsync();
+
+                    // Dynamically post up to 5 unique new articles to Facebook page
+                    if (newArticlesToPost.Any())
+                    {
+                        var articlesToPost = newArticlesToPost.Take(5).ToList();
+                        Console.WriteLine($"[NewsService] Found {newArticlesToPost.Count} new articles for '{category}'. Posting {articlesToPost.Count} to Facebook.");
+                        await _facebookService.PostArticlesAsync(articlesToPost);
+                    }
                 }
             }
             catch (Exception ex)
