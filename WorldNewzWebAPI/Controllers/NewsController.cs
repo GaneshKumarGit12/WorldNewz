@@ -64,9 +64,11 @@ public class NewsController : ControllerBase
         [FromQuery] string? country = "us",
         [FromQuery] string? language = "en")
     {
-        if (string.Equals(category, "shopping", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(category, "shopping", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(category, "food", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(category, "travel", StringComparison.OrdinalIgnoreCase))
         {
-            query = string.IsNullOrEmpty(query) ? "shopping" : $"{query} shopping";
+            query = string.IsNullOrEmpty(query) ? category : $"{query} {category}";
             category = null;
         }
 
