@@ -78,7 +78,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
                 containIntrinsicSize: "auto 400px",
               }}
             >
-              <AdCard placement="between-articles" />
+              <AdCard placement="between-articles" index={Math.floor(itemNumber / adInterval) - 1} />
             </Grid>
           );
         }

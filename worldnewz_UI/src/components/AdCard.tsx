@@ -1,19 +1,81 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Card, Box, Typography } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar } from "@mui/material";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import ShareIcon from "@mui/icons-material/Share";
 import { fetchAdByPlacement } from "../api/apiClient";
 
 interface AdCardProps {
   placement?: string;
+  index?: number;
 }
 
-const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles" }) => {
+const SPONSORED_ADS = [
+  {
+    title: "Discover Next-Gen Cloud Storage Solutions for Modern Teams",
+    source: "CloudSpace",
+    imageUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=60",
+    publishedAt: new Date(Date.now() - 4 * 3600000).toISOString(),
+    likes: 124,
+  },
+  {
+    title: "Upgrade Your Workspace: The Best Ergonomic Chairs of 2026",
+    source: "ErgoDesign",
+    imageUrl: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=500&auto=format&fit=crop&q=60",
+    publishedAt: new Date(Date.now() - 8 * 3600000).toISOString(),
+    likes: 85,
+  },
+  {
+    title: "Learn Python in 30 Days: Zero to Hero Software Engineering Bootcamp",
+    source: "CodeAcademy",
+    imageUrl: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&auto=format&fit=crop&q=60",
+    publishedAt: new Date(Date.now() - 12 * 3600000).toISOString(),
+    likes: 342,
+  },
+  {
+    title: "Switch to Green Energy: Save Up to 40% on Your Monthly Electricity Bill",
+    source: "EcoPower",
+    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&auto=format&fit=crop&q=60",
+    publishedAt: new Date(Date.now() - 24 * 3600000).toISOString(),
+    likes: 93,
+  },
+  {
+    title: "Master the Art of Coffee Brewing with Premium Roast Beans",
+    source: "RoastMasters",
+    imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&auto=format&fit=crop&q=60",
+    publishedAt: new Date(Date.now() - 36 * 3600000).toISOString(),
+    likes: 215,
+  }
+];
+
+const formatTimeAgo = (dateString?: string) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "";
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  if (diffInSeconds < 60) return `${diffInSeconds}s`;
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes}m`;
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours}h`;
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 7) return `${diffInDays}d`;
+  return "1d";
+};
+
+const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index = 0 }) => {
   const [adScript, setAdScript] = useState<string | null>(null);
   const [adBlocked, setAdBlocked] = useState(false);
-  const adContainerRef = useRef<HTMLDivElement>(null);
   const initializedRef = useRef(false);
 
+  // Select a unique sponsored item based on the card position index
+  const adItem = SPONSORED_ADS[index % SPONSORED_ADS.length];
+
   useEffect(() => {
-    // Fetch the ad configuration from the backend
     fetchAdByPlacement(placement)
       .then((res) => {
         if (res.data && res.data.script) {
@@ -23,28 +85,22 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles" }) => {
         }
       })
       .catch((err) => {
-        console.warn(`Failed to fetch ad for placement '${placement}', using fallback.`, err);
-        // Fallback to local default script if API is unavailable
-        setAdScript(
-          `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7547748414764075" data-ad-slot="7829102931" data-ad-format="auto" data-ad-full-width-responsive="true"></ins>`
-        );
+        console.warn(`Failed to fetch ad for placement '${placement}', using placeholder.`, err);
+        setAdBlocked(true);
       });
   }, [placement]);
 
   useEffect(() => {
-    if (!adScript || initializedRef.current) return;
+    if (!adScript || adBlocked || initializedRef.current) return;
 
-    // Check if google ads is loaded and not blocked
     const adsbygoogle = (window as any).adsbygoogle;
     
-    // Give the DOM a tiny bit of time to render the injected html
     const timer = setTimeout(() => {
       try {
         if (adsbygoogle) {
           (adsbygoogle || []).push({});
           initializedRef.current = true;
         } else {
-          // If adsbygoogle script is not on window (e.g. ad blocked)
           setAdBlocked(true);
         }
       } catch (e) {
@@ -54,8 +110,38 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles" }) => {
     }, 150);
 
     return () => clearTimeout(timer);
-  }, [adScript]);
+  }, [adScript, adBlocked]);
 
+  // If the script is loaded and not blocked, render the AdSense container
+  if (!adBlocked && adScript) {
+    return (
+      <Card
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+          width: "100%",
+          minHeight: 320,
+          bgcolor: "background.paper",
+          backgroundImage: "none",
+          boxShadow: "none",
+          borderRadius: 2,
+          overflow: "hidden",
+          p: 1.5,
+          justifyContent: "center",
+          alignItems: "center",
+          border: "1px solid",
+          borderColor: "divider",
+        }}
+      >
+        <Box sx={{ width: "100%", height: "100%", minHeight: 280 }}>
+          <div dangerouslySetInnerHTML={{ __html: adScript }} />
+        </Box>
+      </Card>
+    );
+  }
+
+  // Otherwise (local dev, ad-blocked), render a perfectly matched placeholder card
   return (
     <Card
       sx={{
@@ -63,116 +149,136 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles" }) => {
         flexDirection: "column",
         height: "100%",
         width: "100%",
-        minHeight: 320,
-        p: 2,
-        borderRadius: 2,
+        bgcolor: "background.paper",
+        backgroundImage: "none",
         boxShadow: "none",
-        position: "relative",
+        borderRadius: 2,
         overflow: "hidden",
-        background: (theme) =>
-          theme.palette.mode === "dark"
-            ? "linear-gradient(135deg, rgba(22, 27, 34, 0.7) 0%, rgba(13, 17, 23, 0.95) 100%)"
-            : "linear-gradient(135deg, rgba(240, 244, 255, 0.6) 0%, rgba(224, 231, 255, 0.9) 100%)",
-        border: "1px dashed",
-        borderColor: (theme) => (theme.palette.mode === "dark" ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)"),
+        transition: "transform 0.2s ease",
+        "&:hover": {
+          transform: "scale(1.02)",
+        },
       }}
     >
-      {/* Dynamic background circles for premium aesthetics */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: -20,
-          right: -20,
-          width: 90,
-          height: 90,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(25, 118, 210, 0.12) 0%, transparent 70%)",
-          zIndex: 0,
-        }}
-      />
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: -30,
-          left: -30,
-          width: 110,
-          height: 110,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(156, 39, 176, 0.08) 0%, transparent 70%)",
-          zIndex: 0,
-        }}
-      />
-
-      <Box
-        sx={{
-          zIndex: 1,
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          flexGrow: 1,
-        }}
-      >
-        {/* Ad Tag */}
-        <Typography
-          variant="caption"
+      <Box sx={{ position: "relative", paddingTop: "56.25%" }}>
+        <CardMedia
+          component="img"
+          image={adItem.imageUrl}
+          alt={adItem.title}
+          loading="lazy"
           sx={{
-            alignSelf: "flex-start",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+        {/* Sponsored Tag */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: 8,
+            left: 8,
+            bgcolor: "rgba(0, 0, 0, 0.75)",
+            color: "#fff",
             px: 1,
             py: 0.25,
             borderRadius: 0.5,
-            backgroundColor: (theme) => (theme.palette.mode === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)"),
-            color: "text.secondary",
             fontSize: "0.65rem",
             fontWeight: 700,
-            letterSpacing: 1,
             textTransform: "uppercase",
+            letterSpacing: 0.5,
+            zIndex: 2,
           }}
         >
           Sponsored
-        </Typography>
+        </Box>
+      </Box>
 
-        {/* Ad Container */}
-        <Box
-          ref={adContainerRef}
-          sx={{
-            flexGrow: 1,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            my: 2,
-            width: "100%",
-            minHeight: 180,
-          }}
-        >
-          {adBlocked ? (
-            <Box sx={{ textAlign: "center", p: 2 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 600, mb: 1 }}>
-                Advertisement
-              </Typography>
-              <Typography variant="caption" color="text.disabled" sx={{ display: "block", maxWidth: 200, mx: "auto" }}>
-                Support our news team by keeping ads enabled.
-              </Typography>
-            </Box>
-          ) : (
-            adScript && (
-              <div
-                style={{ width: "100%", height: "100%" }}
-                dangerouslySetInnerHTML={{ __html: adScript }}
-              />
-            )
-          )}
+      <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 1.5, pb: 0 }}>
+        <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
+          <Avatar
+            sx={{
+              width: 24,
+              height: 24,
+              fontSize: "0.75rem",
+              bgcolor: "warning.main",
+              mt: 0.5,
+            }}
+          >
+            {adItem.source[0].toUpperCase()}
+          </Avatar>
+          <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontWeight: 600,
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                lineHeight: 1.3,
+                mb: 0.5,
+              }}
+            >
+              {adItem.title}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ display: "flex", alignItems: "center", fontSize: "0.75rem" }}
+            >
+              {adItem.source}
+              <Box component="span" sx={{ mx: 0.5 }}>
+                •
+              </Box>
+              {formatTimeAgo(adItem.publishedAt)}
+            </Typography>
+          </Box>
+        </Box>
+      </CardContent>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          px: 1.5,
+          pb: 1.5,
+          pl: 5.5,
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <ThumbUpOutlinedIcon fontSize="small" />
+            </IconButton>
+            <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
+              {adItem.likes}
+            </Typography>
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <ThumbDownOutlinedIcon fontSize="small" />
+            </IconButton>
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <ChatBubbleOutlineIcon fontSize="small" />
+            </IconButton>
+          </Box>
         </Box>
 
-        {/* Ad Footer */}
-        <Typography
-          variant="caption"
-          color="text.disabled"
-          sx={{ textAlign: "center", fontSize: "0.65rem", letterSpacing: 0.5 }}
-        >
-          Ads by Google
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+          <IconButton size="small" disabled sx={{ p: 0.5 }}>
+            <ShareIcon fontSize="small" />
+          </IconButton>
+          <IconButton size="small" disabled sx={{ p: 0.5 }}>
+            <BookmarkBorderIcon fontSize="small" />
+          </IconButton>
+        </Box>
       </Box>
     </Card>
   );
