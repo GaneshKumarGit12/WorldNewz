@@ -125,6 +125,27 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<WorldNewsDbContext>();
     db.Database.EnsureCreated();
+
+    // Seed default Ad slots if table is empty
+    if (!db.Ads.Any())
+    {
+        db.Ads.AddRange(
+            new WorldNewzWebAPI.Models.Ad
+            {
+                AdType = "responsive",
+                Placement = "between-articles",
+                Script = "<ins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-7547748414764075\" data-ad-slot=\"7829102931\" data-ad-format=\"auto\" data-ad-full-width-responsive=\"true\"></ins>"
+            },
+            new WorldNewzWebAPI.Models.Ad
+            {
+                AdType = "responsive",
+                Placement = "sidebar",
+                Script = "<ins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-7547748414764075\" data-ad-slot=\"1829302910\" data-ad-format=\"auto\" data-ad-full-width-responsive=\"true\"></ins>"
+            }
+        );
+        db.SaveChanges();
+        Console.WriteLine("✓ Seeded default AdSense slots to database");
+    }
 }
 
 // Bind to Render's dynamic port

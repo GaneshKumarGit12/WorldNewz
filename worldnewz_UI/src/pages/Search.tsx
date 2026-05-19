@@ -3,9 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { fetchSearch } from "../api/apiClient";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import NewsCard from "../components/NewsCard";
+import NewsGrid from "../components/NewsGrid";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
@@ -101,25 +100,20 @@ const Search: React.FC = () => {
           hasData={hasResults}
           emptyText="No results found. Try a different query or category."
         >
-          <Grid container spacing={2}>
-            {articles.map((article) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={article.url || article.title} sx={{ display: "flex" }}>
-                <NewsCard
-                  article={article}
-                  onBookmark={addBookmark}
-                  onRemoveBookmark={removeBookmark}
-                  isBookmarked={article.url ? isBookmarked(article.url) : false}
-                  onLike={toggleLike}
-                  onDislike={toggleDislike}
-                  onAddComment={(url, text, author) => addComment(url, text, author)}
-                  onDeleteComment={deleteComment}
-                  onLikeComment={likeComment}
-                  onDislikeComment={dislikeComment}
-                  engagement={article.url ? getEngagement(article.url) : undefined}
-                />
-              </Grid>
-            ))}
-          </Grid>
+          <NewsGrid
+            articles={articles}
+            onBookmark={addBookmark}
+            onRemoveBookmark={removeBookmark}
+            isBookmarked={isBookmarked}
+            onLike={toggleLike}
+            onDislike={toggleDislike}
+            onAddComment={addComment}
+            onDeleteComment={deleteComment}
+            onLikeComment={likeComment}
+            onDislikeComment={dislikeComment}
+            getEngagement={getEngagement}
+            columns={{ xs: 12, sm: 6, md: 4 }}
+          />
         </SectionStatus>
       )}
     </Box>

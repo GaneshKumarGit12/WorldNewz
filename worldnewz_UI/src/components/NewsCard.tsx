@@ -360,4 +360,4 @@ const NewsCard: React.FC<NewsCardProps> = ({
   );
 };
 
-export default NewsCard;
+export default React.memo(NewsCard);

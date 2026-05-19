@@ -3,9 +3,8 @@ import axios from "axios";
 import { fetchTravel } from "../api/apiClient";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import NewsCard from "../components/NewsCard";
+import NewsGrid from "../components/NewsGrid";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
@@ -111,29 +110,19 @@ const Travel: React.FC = () => {
         hasData={articles.length > 0}
         emptyText="No travel news available."
       >
-        <Grid container spacing={{ xs: 1.5, sm: 2, md: 2.5 }}>
-          {articles.map((a) => (
-            <Grid
-              size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-              key={a.url || a.title}
-              sx={{ display: "flex" }}
-            >
-              <NewsCard
-                article={a}
-                onBookmark={addBookmark}
-                onRemoveBookmark={removeBookmark}
-                isBookmarked={a.url ? isBookmarked(a.url) : false}
-                onLike={toggleLike}
-                onDislike={toggleDislike}
-                onAddComment={(url, text, author) => addComment(url, text, author)}
-                onDeleteComment={deleteComment}
-                onLikeComment={likeComment}
-                onDislikeComment={dislikeComment}
-                engagement={a.url ? getEngagement(a.url) : undefined}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        <NewsGrid
+          articles={articles}
+          onBookmark={addBookmark}
+          onRemoveBookmark={removeBookmark}
+          isBookmarked={isBookmarked}
+          onLike={toggleLike}
+          onDislike={toggleDislike}
+          onAddComment={addComment}
+          onDeleteComment={deleteComment}
+          onLikeComment={likeComment}
+          onDislikeComment={dislikeComment}
+          getEngagement={getEngagement}
+        />
         {isFetchingMore && (
           <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
             <CircularProgress />
