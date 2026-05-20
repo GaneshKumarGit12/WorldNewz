@@ -5,7 +5,7 @@ import { Container, Typography, Box } from '@mui/material';
 const LAST_UPDATED = '2026-05-10';
 const SITE_NAME = 'WorldNewz';
 const SITE_URL = 'https://world-newz.vercel.app';
-const CONTACT_EMAIL = 'legal@worldnewz.com';
+const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const TermsPage = () => (
   <>

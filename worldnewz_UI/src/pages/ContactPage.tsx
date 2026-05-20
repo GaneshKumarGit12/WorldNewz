@@ -7,7 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const SITE_URL = 'https://world-newz.vercel.app';
-const CONTACT_EMAIL = 'contact@worldnewz.com';
+const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const ContactPage = () => {
   const [name, setName] = useState('');
