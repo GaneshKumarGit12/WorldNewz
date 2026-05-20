@@ -116,3 +116,14 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #115293;
+  text-decoration: underline;
+}
