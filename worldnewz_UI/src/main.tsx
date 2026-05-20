@@ -16,6 +16,8 @@ import ResultPage from "./pages/ResultPage";
 import CommentHistory from "./pages/CommentHistory";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import Travel from "./pages/Travel";
 import Food from "./pages/Food";
 import Entertainment from "./pages/Entertainment";
@@ -41,6 +43,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="article/:id" element={<ResultPage />} />
               <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="terms" element={<TermsPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="contact" element={<ContactPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

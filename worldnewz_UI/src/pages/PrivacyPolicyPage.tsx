@@ -85,7 +85,19 @@ export const PrivacyPolicyPage = () => (
 
         <Box sx={{ mt: 3 }}>
           <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
-            4. Contact Us
+            4. Google AdSense & Third-Party Advertising
+          </Typography>
+          <Typography variant="body1" paragraph>
+            We partner with third-party advertising vendors, including Google, to serve ads when you visit our website. Google uses cookies to serve ads based on your prior visits to WorldNewz and other websites on the internet.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Google’s use of advertising cookies enables it and its partners to serve ads to our users based on their visits to our site and/or other sites on the Internet. You can opt out of personalized advertising by visiting Google's <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a> or by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
+          </Typography>
+        </Box>
+
+        <Box sx={{ mt: 3 }}>
+          <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
+            5. Contact Us
           </Typography>
           <Typography variant="body1" paragraph>
             If you have any questions about this Privacy Policy, please contact us at:

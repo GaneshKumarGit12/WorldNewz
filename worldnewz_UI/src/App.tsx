@@ -20,9 +20,11 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Fab from "@mui/material/Fab";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
+import Divider from "@mui/material/Divider";
 import { useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import Footer from "./components/Footer";
+import CookieConsent from "./components/CookieConsent";
 import { JSONLDWebSite } from "./seo/JSONLDSchemas";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
@@ -236,6 +238,26 @@ const App: React.FC = () => {
               </ListItemButton>
             </ListItem>
           ))}
+          <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", my: 1 }} />
+          {[
+            { label: "About Us", path: "/about" },
+            { label: "Contact Us", path: "/contact" }
+          ].map((link) => (
+            <ListItem key={link.path} disablePadding>
+              <ListItemButton
+                component={Link}
+                to={link.path}
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  fontWeight: location.pathname === link.path ? "bold" : "normal",
+                  color: location.pathname === link.path ? "#1976d2" : "rgba(255,255,255,0.7)",
+                  "&:hover": { color: "#90caf9" },
+                }}
+              >
+                <ListItemText primary={link.label} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Drawer>
 
@@ -346,6 +368,7 @@ const App: React.FC = () => {
       </Box>
 
       <Footer />
+      <CookieConsent />
 
       {/* ─── Global Back to Top FAB ─── */}
       {showBackToTop && (
