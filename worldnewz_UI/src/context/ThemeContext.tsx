@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo } from "react";
+import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -18,6 +18,10 @@ export const AppThemeProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [mode, setMode] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("worldnewz_theme") as "light" | "dark") ?? "dark";
   });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", mode);
+  }, [mode]);
 
   const toggleMode = () => {
     setMode((prev) => {
