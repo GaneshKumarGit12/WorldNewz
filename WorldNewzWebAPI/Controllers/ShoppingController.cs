@@ -7,101 +7,103 @@ using System.Text.Json;
 using WorldNewzWebAPI.Services;
 using WorldNewzWebAPI.Models;
 
-[ApiController]
-[Route("api/news")]
-public class ShoppingController : ControllerBase
+namespace WorldNewzWebAPI.Controllers
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-    private readonly INewsApiService _newsApiService;
-
-    public ShoppingController(IHttpClientFactory httpClientFactory, INewsApiService newsApiService)
+    [ApiController]
+    [Route("api/news")]
+    public class ShoppingController : ControllerBase
     {
-        _httpClientFactory = httpClientFactory;
-        _newsApiService = newsApiService;
-    }
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly INewsApiService _newsApiService;
+        private readonly INewsEnrichmentService _enrichmentService;
 
-    [HttpGet("shopping")]
-    public async Task<IActionResult> GetShopping(
-        [FromQuery] string? country = "us",
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 20)
-    {
-        var shoppingKey = Environment.GetEnvironmentVariable("SHOPPING_API_KEY");
-        var algoliaAppId = Environment.GetEnvironmentVariable("ALGOLIA_APP_ID");
-        var articles = new List<object>();
-
-        // 1. Fetch Algolia API
-        if (!string.IsNullOrWhiteSpace(shoppingKey) && !string.IsNullOrWhiteSpace(algoliaAppId))
+        public ShoppingController(
+            IHttpClientFactory httpClientFactory, 
+            INewsApiService newsApiService, 
+            INewsEnrichmentService enrichmentService)
         {
-            var url = $"https://{algoliaAppId}-dsn.algolia.net/1/keys/ALGOLIA_API_KEY";
-            try
-            {
-                var client = _httpClientFactory.CreateClient();
-                var request = new HttpRequestMessage(HttpMethod.Get, url);
-                
-                request.Headers.Add("X-Algolia-API-Key", shoppingKey);
-                request.Headers.Add("X-Algolia-Application-Id", algoliaAppId);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-
-                articles.Add(new
-                {
-                    title = "Algolia Key Metadata",
-                    description = responseBody,
-                    url = "https://algolia.com",
-                    urlToImage = "https://via.placeholder.com/600x400?text=Algolia+Data",
-                    publishedAt = DateTime.UtcNow.ToString("o"),
-                    source = new { name = "Algolia Search Backend" }
-                });
-            }
-            catch (Exception)
-            {
-                // Continue
-            }
+            _httpClientFactory = httpClientFactory;
+            _newsApiService = newsApiService;
+            _enrichmentService = enrichmentService;
         }
 
-        // 2. Fetch standard News API populated articles
-        country ??= "in";
-        var context = new NewsQueryContext
+        [HttpGet("shopping")]
+        public async Task<IActionResult> GetShopping(
+            [FromQuery] string? country = "us",
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 20)
         {
-            Country = country,
-            Query = "shopping",
-            IsTopHeadlines = false,
-            Page = page,
-            PageSize = pageSize
-        };
+            var shoppingKey = Environment.GetEnvironmentVariable("SHOPPING_API_KEY");
+            var algoliaAppId = Environment.GetEnvironmentVariable("ALGOLIA_APP_ID");
+            var articles = new List<NewsArticleDto>();
 
-        var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
-        if (fetchResult.Success)
-        {
-            try
+            // 1. Fetch Algolia API
+            if (!string.IsNullOrWhiteSpace(shoppingKey) && !string.IsNullOrWhiteSpace(algoliaAppId))
             {
-                using var doc = JsonDocument.Parse(fetchResult.Body);
-                if (doc.RootElement.TryGetProperty("articles", out var newsArts) && newsArts.ValueKind == JsonValueKind.Array)
+                var url = $"https://{algoliaAppId}-dsn.algolia.net/1/keys/ALGOLIA_API_KEY";
+                try
                 {
-                    foreach (var a in newsArts.EnumerateArray())
+                    var client = _httpClientFactory.CreateClient();
+                    var request = new HttpRequestMessage(HttpMethod.Get, url);
+                    
+                    request.Headers.Add("X-Algolia-API-Key", shoppingKey);
+                    request.Headers.Add("X-Algolia-Application-Id", algoliaAppId);
+
+                    var response = await client.SendAsync(request);
+                    var responseBody = await response.Content.ReadAsStringAsync();
+
+                    articles.Add(new NewsArticleDto
                     {
-                        articles.Add(new
-                        {
-                            title = a.TryGetProperty("title", out var t) && t.ValueKind == JsonValueKind.String ? t.GetString() : null,
-                            description = a.TryGetProperty("description", out var d) && d.ValueKind == JsonValueKind.String ? d.GetString() : null,
-                            url = a.TryGetProperty("url", out var u) && u.ValueKind == JsonValueKind.String ? u.GetString() : null,
-                            urlToImage = a.TryGetProperty("urlToImage", out var img) && img.ValueKind == JsonValueKind.String ? img.GetString() : null,
-                            publishedAt = a.TryGetProperty("publishedAt", out var pub) && pub.ValueKind == JsonValueKind.String ? pub.GetString() : null,
-                            source = a.TryGetProperty("source", out var src) && src.ValueKind != JsonValueKind.Null ? JsonSerializer.Deserialize<object>(src.GetRawText()) : new { name = "Shopping News" }
-                        });
-                    }
+                        Title = "Algolia Key Metadata",
+                        Description = responseBody,
+                        Url = "https://algolia.com",
+                        UrlToImage = "https://via.placeholder.com/600x400?text=Algolia+Data",
+                        PublishedAt = DateTime.UtcNow,
+                        Source = new SourceDto { Name = "Algolia Search Backend" },
+                        Verified = true,
+                        Headline = "Algolia Search Status",
+                        Summary = "Dynamic status from the Algolia Search backend integration.",
+                        Context = "This checks details regarding search indexes and API configurations for e-commerce catalog search.",
+                        SocialMediaHook = "Connected to Algolia catalog indexes. #ECommerce #Algolia",
+                        Category = "Shopping"
+                    });
+                }
+                catch (Exception)
+                {
+                    // Continue
                 }
             }
-            catch { /* Ignore parsing errors */ }
-        }
 
-        return Ok(new
-        {
-            status = "ok",
-            totalResults = articles.Count,
-            articles = articles
-        });
+            // 2. Fetch standard News API populated articles
+            country ??= "in";
+            var context = new NewsQueryContext
+            {
+                Country = country,
+                Query = "shopping",
+                IsTopHeadlines = false,
+                Page = page,
+                PageSize = pageSize
+            };
+
+            var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
+            if (fetchResult.Success)
+            {
+                try
+                {
+                    var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                    var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                    var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Shopping");
+                    articles.AddRange(enriched);
+                }
+                catch { /* Ignore parsing errors */ }
+            }
+
+            return Ok(new
+            {
+                status = "ok",
+                totalResults = articles.Count,
+                articles = articles
+            });
+        }
     }
 }

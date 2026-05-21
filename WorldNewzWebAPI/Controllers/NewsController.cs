@@ -6,121 +6,126 @@ using System;
 using WorldNewzWebAPI.Services;
 using WorldNewzWebAPI.Models;
 
-[ApiController]
-[Route("api/news")]
-public class NewsController : ControllerBase
+namespace WorldNewzWebAPI.Controllers
 {
-    private readonly INewsApiService _newsApiService;
-    private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-    public NewsController(INewsApiService newsApiService)
+    [ApiController]
+    [Route("api/news")]
+    public class NewsController : ControllerBase
     {
-        _newsApiService = newsApiService;
-    }
+        private readonly INewsApiService _newsApiService;
+        private readonly INewsEnrichmentService _enrichmentService;
+        private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-    [HttpGet("discover")]
-    public async Task<IActionResult> GetDiscover(
-        [FromQuery] string? query = null,
-        [FromQuery] string? country = "us",
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 20)
-    {
-        country ??= "us";
-        var context = new NewsQueryContext
+        public NewsController(INewsApiService newsApiService, INewsEnrichmentService enrichmentService)
         {
-            Query = query,
-            Country = country,
-            Category = "general",
-            IsTopHeadlines = string.IsNullOrEmpty(query), // use top headlines only if there is no query
-            Page = page,
-            PageSize = pageSize
-        };
-
-        var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
-        if (!fetchResult.Success)
-        {
-            return new ContentResult 
-            { 
-                Content = fetchResult.Body, 
-                ContentType = "application/json", 
-                StatusCode = fetchResult.StatusCode ?? 500 
-            };
+            _newsApiService = newsApiService;
+            _enrichmentService = enrichmentService;
         }
 
-        return Content(fetchResult.Body, "application/json");
-    }
-
-    /// <summary>
-    /// Search news articles. Now seamlessly maps DDG usage to the working Active API provider.
-    /// Returns { results: [...] } matching the UI's SearchPage expectation.
-    /// </summary>
-    [HttpGet("search")]
-    public async Task<IActionResult> Search(
-        [FromQuery] string? query = null,
-        [FromQuery] string? category = null,
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 9,
-        [FromQuery] string? source = "news",
-        [FromQuery] string? country = "us",
-        [FromQuery] string? language = "en")
-    {
-        if (string.Equals(category, "shopping", StringComparison.OrdinalIgnoreCase) ||
-            string.Equals(category, "food", StringComparison.OrdinalIgnoreCase) ||
-            string.Equals(category, "travel", StringComparison.OrdinalIgnoreCase))
+        [HttpGet("discover")]
+        public async Task<IActionResult> GetDiscover(
+            [FromQuery] string? query = null,
+            [FromQuery] string? country = "us",
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 20)
         {
-            query = string.IsNullOrEmpty(query) ? category : $"{query} {category}";
-            category = null;
-        }
-
-        var context = new NewsQueryContext
-        {
-            Query = query,
-            Category = category,
-            Page = page,
-            PageSize = pageSize,
-            Country = country,
-            Language = language,
-            Source = source,
-            // If category is provided, use topheadlines, otherwise everything
-            IsTopHeadlines = !string.IsNullOrEmpty(category) || (string.IsNullOrEmpty(query) && !string.IsNullOrEmpty(country))
-        };
-
-        var fetchResult = await _newsApiService.FetchNewsAsync(context);
-
-        if (!fetchResult.Success)
-        {
-            return StatusCode(fetchResult.StatusCode ?? 500, new { error = "Failed to fetch search results", details = fetchResult.Body });
-        }
-
-        // The UI expects { results: [...] } but NewsApiService returns NewsAPI shape { status, totalResults, articles }
-        // We unpack 'articles' into 'results' to match what the frontend expects from /search
-        try
-        {
-            using var doc = JsonDocument.Parse(fetchResult.Body);
-            var root = doc.RootElement;
-            
-            var results = new List<object>();
-            var resultsWithoutImage = new List<object>();
-
-            if (root.TryGetProperty("articles", out var articles) && articles.ValueKind == JsonValueKind.Array)
+            country ??= "us";
+            var context = new NewsQueryContext
             {
-                foreach (var article in articles.EnumerateArray())
-                {
-                    var urlToImageVal = article.TryGetProperty("urlToImage", out var img) && img.ValueKind == JsonValueKind.String ? img.GetString() : null;
-                    var item = new
-                    {
-                        title = article.TryGetProperty("title", out var t) && t.ValueKind == JsonValueKind.String ? t.GetString() : null,
-                        description = article.TryGetProperty("description", out var d) && d.ValueKind == JsonValueKind.String ? d.GetString() : null,
-                        url = article.TryGetProperty("url", out var u) && u.ValueKind == JsonValueKind.String ? u.GetString() : null,
-                        urlToImage = urlToImageVal,
-                        publishedAt = article.TryGetProperty("publishedAt", out var pub) && pub.ValueKind == JsonValueKind.String ? pub.GetString() : null,
-                        source = new { 
-                            id = article.TryGetProperty("source", out var src) && src.TryGetProperty("id", out var sid) && sid.ValueKind == JsonValueKind.String ? sid.GetString() : null, 
-                            name = article.TryGetProperty("source", out var src2) && src2.TryGetProperty("name", out var sname) && sname.ValueKind == JsonValueKind.String ? sname.GetString() : "News Provider" 
-                        }
-                    };
+                Query = query,
+                Country = country,
+                Category = "general",
+                IsTopHeadlines = string.IsNullOrEmpty(query), // use top headlines only if there is no query
+                Page = page,
+                PageSize = pageSize
+            };
 
-                    if (!string.IsNullOrWhiteSpace(urlToImageVal))
+            var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
+            if (!fetchResult.Success)
+            {
+                return new ContentResult 
+                { 
+                    Content = fetchResult.Body, 
+                    ContentType = "application/json", 
+                    StatusCode = fetchResult.StatusCode ?? 500 
+                };
+            }
+
+            try
+            {
+                var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, _jsonOptions);
+                var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                
+                var enrichedArticles = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Discover");
+
+                return Ok(new
+                {
+                    status = "ok",
+                    totalResults = enrichedArticles.Count,
+                    articles = enrichedArticles
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to process and enrich articles", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Search news articles. Now seamlessly maps DDG usage to the working Active API provider.
+        /// Returns { results: [...] } matching the UI's SearchPage expectation.
+        /// </summary>
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(
+            [FromQuery] string? query = null,
+            [FromQuery] string? category = null,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 9,
+            [FromQuery] string? source = "news",
+            [FromQuery] string? country = "us",
+            [FromQuery] string? language = "en")
+        {
+            if (string.Equals(category, "shopping", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(category, "food", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(category, "travel", StringComparison.OrdinalIgnoreCase))
+            {
+                query = string.IsNullOrEmpty(query) ? category : $"{query} {category}";
+                category = null;
+            }
+
+            var context = new NewsQueryContext
+            {
+                Query = query,
+                Category = category,
+                Page = page,
+                PageSize = pageSize,
+                Country = country,
+                Language = language,
+                Source = source,
+                // If category is provided, use topheadlines, otherwise everything
+                IsTopHeadlines = !string.IsNullOrEmpty(category) || (string.IsNullOrEmpty(query) && !string.IsNullOrEmpty(country))
+            };
+
+            var fetchResult = await _newsApiService.FetchNewsAsync(context);
+
+            if (!fetchResult.Success)
+            {
+                return StatusCode(fetchResult.StatusCode ?? 500, new { error = "Failed to fetch search results", details = fetchResult.Body });
+            }
+
+            try
+            {
+                var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, _jsonOptions);
+                var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                
+                var enrichedArticles = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, category ?? "Search");
+
+                var results = new List<NewsArticleDto>();
+                var resultsWithoutImage = new List<NewsArticleDto>();
+
+                foreach (var item in enrichedArticles)
+                {
+                    if (!string.IsNullOrWhiteSpace(item.UrlToImage))
                     {
                         results.Add(item);
                     }
@@ -129,16 +134,16 @@ public class NewsController : ControllerBase
                         resultsWithoutImage.Add(item);
                     }
                 }
+
+                // Append articles with no images at the end
+                results.AddRange(resultsWithoutImage);
+
+                return Ok(new { results });
             }
-
-            // Append articles with no images at the end
-            results.AddRange(resultsWithoutImage);
-
-            return Ok(new { results });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = $"Error parsing response: {ex.Message}" });
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = $"Error parsing response: {ex.Message}" });
+            }
         }
     }
 }

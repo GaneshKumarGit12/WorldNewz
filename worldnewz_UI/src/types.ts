@@ -28,4 +28,9 @@ export interface Article {
   source?: { name: string } | string;
   featured?: boolean;
   engagement?: ArticleEngagement;
+  headline?: string;
+  summary?: string;
+  context?: string;
+  socialMediaHook?: string;
+  verified?: boolean;
 }

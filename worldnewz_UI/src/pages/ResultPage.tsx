@@ -26,8 +26,60 @@ import IconButton from "@mui/material/IconButton";
 import { JSONLDNewsArticle } from "../seo/JSONLDSchemas";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import ScienceIcon from "@mui/icons-material/Science";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import ExploreIcon from "@mui/icons-material/Explore";
+import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import FlightIcon from "@mui/icons-material/Flight";
+import MovieIcon from "@mui/icons-material/Movie";
+import VerifiedIcon from "@mui/icons-material/Verified";
 
-const generateEditorialBriefing = (desc: string) => {
+const getCategoryConfig = (category?: string) => {
+  const cat = (category || '').toLowerCase().trim();
+  switch (cat) {
+    case 'science':
+      return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science' };
+    case 'tech':
+    case 'technology':
+      return { color: '#2196f3', icon: <LaptopIcon fontSize="inherit" />, name: 'Technology' };
+    case 'discover':
+    case 'general':
+    case 'news':
+      return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
+    case 'sports':
+      return { color: '#f44336', icon: <SportsSoccerIcon fontSize="inherit" />, name: 'Sports' };
+    case 'money':
+    case 'business':
+    case 'finance':
+      return { color: '#e91e63', icon: <MonetizationOnIcon fontSize="inherit" />, name: 'Money' };
+    case 'food':
+      return { color: '#9c27b0', icon: <RestaurantIcon fontSize="inherit" />, name: 'Food' };
+    case 'shopping':
+      return { color: '#00bcd4', icon: <ShoppingBagIcon fontSize="inherit" />, name: 'Shopping' };
+    case 'travel':
+      return { color: '#009688', icon: <FlightIcon fontSize="inherit" />, name: 'Travel' };
+    case 'entertainment':
+      return { color: '#673ab7', icon: <MovieIcon fontSize="inherit" />, name: 'Entertainment' };
+    default:
+      return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
+  }
+};
+
+const generateEditorialBriefing = (desc: string, article?: Article | null) => {
+  if (article && (article.summary || article.context)) {
+    const summarySentences = (article.summary || desc || "")
+      .split(/[.!?]+/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 10)
+      .map((s) => s + ".");
+    
+    const whyItMatters = article.context || "This breakthrough highlights an important shift that key stakeholders are watching closely.";
+    return { takeaways: summarySentences.slice(0, 3), whyItMatters };
+  }
+
   const cleanDesc = desc || "";
   const sentences = cleanDesc
     .split(/[.!?]+/)
@@ -178,15 +230,15 @@ const ResultPage: React.FC = () => {
     if (!article) return;
     
     const url = article.url || window.location.href;
-    const title = article.title || "";
+    const text = article.socialMediaHook || article.headline || article.title || "";
     let shareUrl = "";
 
     switch (platform) {
       case "facebook":
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
         break;
       case "x":
-        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
         break;
       case "linkedin":
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
@@ -231,8 +283,8 @@ const ResultPage: React.FC = () => {
     <Container maxWidth="md" sx={{ py: 4, minHeight: "70vh" }}>
       <JSONLDNewsArticle
         article={{
-          title: article.title,
-          summary: article.description || "",
+          title: article.headline || article.title,
+          summary: article.summary || article.description || "",
           url: article.url || "",
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
@@ -280,7 +332,7 @@ const ResultPage: React.FC = () => {
               fontSize: { xs: "1.75rem", sm: "2.25rem" },
             }}
           >
-            {article.title}
+            {article.headline || article.title}
           </Typography>
 
           {/* Meta Information */}
@@ -297,30 +349,38 @@ const ResultPage: React.FC = () => {
               📅 {formatDate(article.publishedAt)}
             </Typography>
 
-            {article.category && (
-              <Typography
-                variant="body2"
-                sx={{
-                  backgroundColor: "primary.light",
-                  color: "primary.contrastText",
-                  px: 1.5,
-                  py: 0.5,
-                  borderRadius: 6,
-                }}
-              >
-                {article.category}
-              </Typography>
-            )}
+            {article.category && (() => {
+              const catConfig = getCategoryConfig(article.category);
+              return (
+                <Box
+                  sx={{
+                    backgroundColor: catConfig.color,
+                    color: "#fff",
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: 6,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.5,
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {catConfig.icon}
+                  {catConfig.name}
+                </Box>
+              );
+            })()}
 
-            {typeof article.source === "string" ? (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              {article.verified && (
+                <VerifiedIcon sx={{ fontSize: '1rem', color: 'primary.main' }} />
+              )}
               <Typography variant="body2" color="text.secondary">
-                Source: {article.source}
+                Source: {typeof article.source === "string" ? article.source : (article.source?.name || 'News')}
               </Typography>
-            ) : article.source?.name ? (
-              <Typography variant="body2" color="text.secondary">
-                Source: {article.source.name}
-              </Typography>
-            ) : null}
+            </Box>
           </Box>
 
           <Divider sx={{ my: 2 }} />
@@ -411,36 +471,36 @@ const ResultPage: React.FC = () => {
                 mb: 4
               }}
             >
-              {article.description || "No description available for this article."}
+              {article.summary || article.description || "No description available for this article."}
             </Typography>
           </Box>
 
           {/* E-E-A-T Editorial Insights Briefing */}
-          {article.description && (
+          {(article.summary || article.description) && (
             <Box
               sx={{
                 p: { xs: 2.5, sm: 3.5 },
                 bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(25, 118, 210, 0.05)" : "rgba(25, 118, 210, 0.03)",
-                borderLeft: "4px solid #1976d2",
+                borderLeft: `4px solid ${getCategoryConfig(article.category).color}`,
                 borderRadius: 2,
                 mb: 4,
                 boxShadow: "0 2px 12px rgba(0,0,0,0.02)",
               }}
             >
               <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2.5 }}>
-                <AutoAwesomeIcon color="primary" sx={{ fontSize: 22 }} />
+                <AutoAwesomeIcon sx={{ color: getCategoryConfig(article.category).color, fontSize: 22 }} />
                 <Typography variant="subtitle1" sx={{ fontWeight: 700, letterSpacing: -0.2 }}>
                   WorldNewz Editorial Briefing
                 </Typography>
               </Box>
 
               {(() => {
-                const briefing = generateEditorialBriefing(article.description || "");
+                const briefing = generateEditorialBriefing(article.description || "", article);
                 return (
                   <Grid container spacing={3}>
                     <Grid size={{ xs: 12, md: 7 }}>
                       <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1, color: "text.primary", display: "flex", alignItems: "center", gap: 0.5 }}>
-                        <LibraryBooksIcon sx={{ fontSize: 16 }} /> Key Takeaways
+                        <LibraryBooksIcon sx={{ fontSize: 16, color: getCategoryConfig(article.category).color }} /> Key Takeaways
                       </Typography>
                       <ul style={{ margin: 0, paddingLeft: "18px" }}>
                         {briefing.takeaways.map((point, index) => (

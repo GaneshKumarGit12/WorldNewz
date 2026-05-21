@@ -12,6 +12,16 @@ import ShareIcon from "@mui/icons-material/Share";
 import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ScienceIcon from "@mui/icons-material/Science";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import ExploreIcon from "@mui/icons-material/Explore";
+import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import FlightIcon from "@mui/icons-material/Flight";
+import MovieIcon from "@mui/icons-material/Movie";
+import VerifiedIcon from "@mui/icons-material/Verified";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 
@@ -30,25 +40,56 @@ interface NewsCardProps {
   engagement?: any;
 }
 
-const formatTimeAgo = (dateString?: string) => {
+const formatTimeAgoLong = (dateString?: string) => {
   if (!dateString) return '';
   const date = new Date(dateString);
   if (isNaN(date.getTime())) return '';
   const now = new Date();
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
   
-  if (diffInSeconds < 60) return `${diffInSeconds}s`;
+  if (diffInSeconds < 60) return 'just now';
   const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) return `${diffInMinutes}m`;
+  if (diffInMinutes < 60) return `${diffInMinutes} ${diffInMinutes === 1 ? 'min' : 'mins'} ago`;
   const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours}h`;
+  if (diffInHours < 24) return `${diffInHours} ${diffInHours === 1 ? 'hour' : 'hours'} ago`;
   const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 7) return `${diffInDays}d`;
+  if (diffInDays < 7) return `${diffInDays} ${diffInDays === 1 ? 'day' : 'days'} ago`;
   const diffInWeeks = Math.floor(diffInDays / 7);
-  if (diffInWeeks < 4) return `${diffInWeeks}w`;
+  if (diffInWeeks < 4) return `${diffInWeeks} ${diffInWeeks === 1 ? 'week' : 'weeks'} ago`;
   const diffInMonths = Math.floor(diffInDays / 30);
-  if (diffInMonths < 12) return `${diffInMonths}mo`;
-  return `${Math.floor(diffInDays / 365)}y`;
+  if (diffInMonths < 12) return `${diffInMonths} ${diffInMonths === 1 ? 'month' : 'months'} ago`;
+  return `${Math.floor(diffInDays / 365)} years ago`;
+};
+
+const getCategoryConfig = (category?: string) => {
+  const cat = (category || '').toLowerCase().trim();
+  switch (cat) {
+    case 'science':
+      return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science' };
+    case 'tech':
+    case 'technology':
+      return { color: '#2196f3', icon: <LaptopIcon fontSize="inherit" />, name: 'Technology' };
+    case 'discover':
+    case 'general':
+    case 'news':
+      return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
+    case 'sports':
+      return { color: '#f44336', icon: <SportsSoccerIcon fontSize="inherit" />, name: 'Sports' };
+    case 'money':
+    case 'business':
+    case 'finance':
+      return { color: '#e91e63', icon: <MonetizationOnIcon fontSize="inherit" />, name: 'Money' };
+    case 'food':
+      return { color: '#9c27b0', icon: <RestaurantIcon fontSize="inherit" />, name: 'Food' };
+    case 'shopping':
+      return { color: '#00bcd4', icon: <ShoppingBagIcon fontSize="inherit" />, name: 'Shopping' };
+    case 'travel':
+      return { color: '#009688', icon: <FlightIcon fontSize="inherit" />, name: 'Travel' };
+    case 'entertainment':
+      return { color: '#673ab7', icon: <MovieIcon fontSize="inherit" />, name: 'Entertainment' };
+    default:
+      return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
+  }
 };
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -135,15 +176,15 @@ const NewsCard: React.FC<NewsCardProps> = ({
     e.preventDefault();
     setShareAnchorEl(null);
     const url = article.url || window.location.href;
-    const title = article.title || "";
+    const text = article.socialMediaHook || article.headline || article.title || "";
     let shareUrl = "";
 
     switch (platform) {
       case "facebook":
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
         break;
       case "x":
-        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
         break;
       case "linkedin":
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
@@ -154,6 +195,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
       window.open(shareUrl, "_blank", "noopener,noreferrer");
     }
   };
+
+  const categoryConfig = getCategoryConfig(article.category);
 
   return (
     <>
@@ -176,6 +219,30 @@ const NewsCard: React.FC<NewsCardProps> = ({
         }}
       >
         <Box sx={{ position: "relative", paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
+          {/* Category Tag overlay on image */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 8,
+              left: 8,
+              bgcolor: categoryConfig.color,
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              gap: 0.5,
+              px: 1,
+              py: 0.25,
+              borderRadius: 1,
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.4)",
+              zIndex: 2,
+            }}
+          >
+            {categoryConfig.icon}
+            {categoryConfig.name}
+          </Box>
           <CardMedia
             component="img"
             image={article.urlToImage || article.imageUrl}
@@ -202,7 +269,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 width: 24, 
                 height: 24, 
                 fontSize: '0.75rem', 
-                bgcolor: 'primary.main',
+                bgcolor: categoryConfig.color,
                 mt: 0.5
               }}
             >
@@ -221,17 +288,75 @@ const NewsCard: React.FC<NewsCardProps> = ({
                   mb: 0.5
                 }}
               >
-                {article.title}
+                {article.headline || article.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', fontSize: '0.75rem' }}>
-                {(typeof article.source === 'string' ? article.source : article.source?.name) || 'News'}
-                {article.publishedAt && (
-                  <>
-                    <Box component="span" sx={{ mx: 0.5 }}>•</Box>
-                    {formatTimeAgo(article.publishedAt)}
-                  </>
+
+              {/* Rich 2-3 sentence summary */}
+              <Typography 
+                variant="body2" 
+                color="text.secondary" 
+                sx={{ 
+                  display: "-webkit-box", 
+                  WebkitLineClamp: 3, 
+                  WebkitBoxOrient: "vertical", 
+                  overflow: "hidden", 
+                  lineHeight: 1.4,
+                  fontSize: "0.8rem",
+                  mb: 1
+                }}
+              >
+                {article.summary || article.description}
+              </Typography>
+
+              {/* Timestamp & Source Labeling with Verified badge */}
+              <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', fontSize: '0.725rem' }}>
+                {article.verified && (
+                  <VerifiedIcon sx={{ fontSize: '0.85rem', color: 'primary.main', mr: 0.5 }} />
+                )}
+                {article.publishedAt ? (
+                  `Updated ${formatTimeAgoLong(article.publishedAt)} – Source: ${(typeof article.source === 'string' ? article.source : article.source?.name) || 'News'}`
+                ) : (
+                  `Source: ${(typeof article.source === 'string' ? article.source : article.source?.name) || 'News'}`
                 )}
               </Typography>
+
+              {/* "Why it matters" context box */}
+              {article.context && (
+                <Box 
+                  sx={{ 
+                    mt: 1.5, 
+                    p: 1.25, 
+                    borderRadius: 1, 
+                    bgcolor: 'action.hover',
+                    borderLeft: `3px solid ${categoryConfig.color}`,
+                  }}
+                >
+                  <Typography 
+                    variant="caption" 
+                    sx={{ 
+                      fontWeight: 700, 
+                      textTransform: 'uppercase', 
+                      color: categoryConfig.color,
+                      display: 'block',
+                      mb: 0.25,
+                      letterSpacing: '0.05em'
+                    }}
+                  >
+                    Why it matters
+                  </Typography>
+                  <Typography 
+                    variant="body2" 
+                    color="text.primary" 
+                    sx={{ 
+                      fontSize: '0.75rem', 
+                      fontStyle: 'italic',
+                      lineHeight: 1.35
+                    }}
+                  >
+                    {article.context}
+                  </Typography>
+                </Box>
+              )}
             </Box>
           </Box>
         </CardContent>

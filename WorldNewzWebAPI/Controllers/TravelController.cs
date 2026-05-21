@@ -6,68 +6,60 @@ using System.Text.Json;
 using WorldNewzWebAPI.Services;
 using WorldNewzWebAPI.Models;
 
-[ApiController]
-[Route("api/news")]
-public class TravelController : ControllerBase
+namespace WorldNewzWebAPI.Controllers
 {
-    private readonly INewsApiService _newsApiService;
-
-    public TravelController(INewsApiService newsApiService)
+    [ApiController]
+    [Route("api/news")]
+    public class TravelController : ControllerBase
     {
-        _newsApiService = newsApiService;
-    }
+        private readonly INewsApiService _newsApiService;
+        private readonly INewsEnrichmentService _enrichmentService;
 
-    [HttpGet("travel")]
-    public async Task<IActionResult> GetTravel(
-        [FromQuery] string? country = "us",
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 20)
-    {
-        var articles = new List<object>();
-        var context = new NewsQueryContext
+        public TravelController(INewsApiService newsApiService, INewsEnrichmentService enrichmentService)
         {
-            Query = "travel OR tourism OR destination",
-            Country = country,
-            Language = "en",
-            IsTopHeadlines = false, // Since travel is a query, use everything
-            Page = page,
-            PageSize = pageSize
-        };
+            _newsApiService = newsApiService;
+            _enrichmentService = enrichmentService;
+        }
 
-        var fetchResult = await _newsApiService.FetchNewsAsync(context);
-        if (fetchResult.Success)
+        [HttpGet("travel")]
+        public async Task<IActionResult> GetTravel(
+            [FromQuery] string? country = "us",
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 20)
         {
+            var context = new NewsQueryContext
+            {
+                Query = "travel OR tourism OR destination",
+                Country = country,
+                Language = "en",
+                IsTopHeadlines = false, 
+                Page = page,
+                PageSize = pageSize
+            };
+
+            var fetchResult = await _newsApiService.FetchNewsAsync(context);
+            if (!fetchResult.Success)
+            {
+                return StatusCode(fetchResult.StatusCode ?? 500, new { error = "Failed to fetch travel news", details = fetchResult.Body });
+            }
+
             try
             {
-                using var doc = JsonDocument.Parse(fetchResult.Body);
-                if (doc.RootElement.TryGetProperty("articles", out var newsArts) && newsArts.ValueKind == JsonValueKind.Array)
-                {
-                    foreach (var a in newsArts.EnumerateArray())
-                    {
-                        articles.Add(new
-                        {
-                            title = a.TryGetProperty("title", out var t) && t.ValueKind == JsonValueKind.String ? t.GetString() : null,
-                            description = a.TryGetProperty("description", out var d) && d.ValueKind == JsonValueKind.String ? d.GetString() : null,
-                            url = a.TryGetProperty("url", out var u) && u.ValueKind == JsonValueKind.String ? u.GetString() : null,
-                            urlToImage = a.TryGetProperty("urlToImage", out var img) && img.ValueKind == JsonValueKind.String ? img.GetString() : null,
-                            publishedAt = a.TryGetProperty("publishedAt", out var pub) && pub.ValueKind == JsonValueKind.String ? pub.GetString() : null,
-                            source = a.TryGetProperty("source", out var src) && src.ValueKind != JsonValueKind.Null ? JsonSerializer.Deserialize<object>(src.GetRawText()) : new { name = "Travel News" }
-                        });
-                    }
-                }
-            }
-            catch { /* Ignore parsing errors */ }
-        }
-        else
-        {
-            return StatusCode(fetchResult.StatusCode ?? 500, new { error = "Failed to fetch travel news", details = fetchResult.Body });
-        }
+                var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Travel");
 
-        return Ok(new
-        {
-            status = "ok",
-            totalResults = articles.Count,
-            articles = articles
-        });
+                return Ok(new
+                {
+                    status = "ok",
+                    totalResults = enriched.Count,
+                    articles = enriched
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to parse and process articles", details = ex.Message });
+            }
+        }
     }
 }

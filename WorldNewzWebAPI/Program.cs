@@ -56,6 +56,9 @@ builder.Services.AddHttpClient<INewsApiService, NewsApiService>(client =>
 // ✅ Add MemoryCache (needed for RSSController caching)
 builder.Services.AddMemoryCache();
 
+// Enrichment Service
+builder.Services.AddScoped<INewsEnrichmentService, NewsEnrichmentService>();
+
 // Existing services
 builder.Services.AddScoped<NewsService>();
 builder.Services.AddHttpClient<WeatherService>();
@@ -125,6 +128,19 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<WorldNewsDbContext>();
     db.Database.EnsureCreated();
+
+    // Ensure EnrichedArticles table exists
+    db.Database.ExecuteSqlRaw(@"
+        CREATE TABLE IF NOT EXISTS EnrichedArticles (
+            Url TEXT PRIMARY KEY,
+            Headline TEXT NOT NULL,
+            Summary TEXT NOT NULL,
+            Context TEXT NOT NULL,
+            SocialMediaHook TEXT NOT NULL,
+            Verified INTEGER NOT NULL,
+            EnrichedAt TEXT NOT NULL
+        );
+    ");
 
     // Seed default Ad slots if table is empty
     if (!db.Ads.Any())

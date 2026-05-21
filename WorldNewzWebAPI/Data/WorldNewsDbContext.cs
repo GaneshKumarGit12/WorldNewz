@@ -11,6 +11,7 @@ namespace WorldNewzWebAPI.Data
         public DbSet<NewsArticle> NewsArticles { get; set; }
         public DbSet<Ad> Ads { get; set; }
         public DbSet<SeoKeyword> SeoKeywords { get; set; }
+        public DbSet<EnrichedArticle> EnrichedArticles { get; set; }
     }
 
 }
