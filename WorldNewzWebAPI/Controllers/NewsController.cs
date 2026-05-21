@@ -3,6 +3,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System;
+using System.Net.Http;
+using System.Text.RegularExpressions;
 using WorldNewzWebAPI.Services;
 using WorldNewzWebAPI.Models;
 
@@ -14,12 +16,17 @@ namespace WorldNewzWebAPI.Controllers
     {
         private readonly INewsApiService _newsApiService;
         private readonly INewsEnrichmentService _enrichmentService;
+        private readonly IHttpClientFactory _httpClientFactory;
         private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-        public NewsController(INewsApiService newsApiService, INewsEnrichmentService enrichmentService)
+        public NewsController(
+            INewsApiService newsApiService, 
+            INewsEnrichmentService enrichmentService,
+            IHttpClientFactory httpClientFactory)
         {
             _newsApiService = newsApiService;
             _enrichmentService = enrichmentService;
+            _httpClientFactory = httpClientFactory;
         }
 
         [HttpGet("discover")]
@@ -143,6 +150,72 @@ namespace WorldNewzWebAPI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { error = $"Error parsing response: {ex.Message}" });
+            }
+        }
+
+        [HttpGet("full-content")]
+        public async Task<IActionResult> GetFullContent([FromQuery] string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                return BadRequest(new { error = "URL is required" });
+            }
+
+            try
+            {
+                var client = _httpClientFactory.CreateClient();
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+                client.Timeout = TimeSpan.FromSeconds(5);
+
+                var response = await client.GetAsync(url);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return StatusCode((int)response.StatusCode, new { error = $"Failed to fetch source article. Status code: {response.StatusCode}" });
+                }
+
+                var html = await response.Content.ReadAsStringAsync();
+
+                // Clean script, style, header, footer, comments
+                html = Regex.Replace(html, @"<!--.*?-->", "", RegexOptions.Singleline);
+                html = Regex.Replace(html, @"<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                html = Regex.Replace(html, @"<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                html = Regex.Replace(html, @"<header\b[^<]*(?:(?!<\/header>)<[^<]*)*<\/header>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                html = Regex.Replace(html, @"<footer\b[^<]*(?:(?!<\/footer>)<[^<]*)*<\/footer>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                html = Regex.Replace(html, @"<nav\b[^<]*(?:(?!<\/nav>)<[^<]*)*<\/nav>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+                var matches = Regex.Matches(html, @"<p\b[^>]*>(.*?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                var paragraphs = new List<string>();
+
+                foreach (Match match in matches)
+                {
+                    var pText = match.Groups[1].Value;
+                    pText = Regex.Replace(pText, @"<[^>]*>", "").Trim();
+                    pText = System.Web.HttpUtility.HtmlDecode(pText);
+
+                    if (pText.Length > 50 && 
+                        !pText.Contains("javascript:", StringComparison.OrdinalIgnoreCase) && 
+                        !pText.Contains("cookies", StringComparison.OrdinalIgnoreCase) &&
+                        !pText.Contains("terms of use", StringComparison.OrdinalIgnoreCase) &&
+                        !pText.Contains("privacy policy", StringComparison.OrdinalIgnoreCase) &&
+                        !pText.Contains("subscribe", StringComparison.OrdinalIgnoreCase) &&
+                        !pText.Contains("advertisement", StringComparison.OrdinalIgnoreCase))
+                    {
+                        paragraphs.Add(pText);
+                    }
+                }
+
+                if (paragraphs.Count == 0)
+                {
+                    return Ok(new { success = false, message = "No readable paragraphs found." });
+                }
+
+                // Return at most 15 paragraphs
+                var content = paragraphs.Take(15).ToList();
+                return Ok(new { success = true, content = content });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Error extracting article content", details = ex.Message });
             }
         }
     }

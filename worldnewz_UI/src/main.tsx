@@ -13,6 +13,7 @@ import Shopping from "./pages/Shopping";
 import Search from "./pages/Search";
 import Bookmarks from "./pages/Bookmarks";
 import ResultPage from "./pages/ResultPage";
+import ReadFullArticles from "./pages/ReadFullArticles";
 import CommentHistory from "./pages/CommentHistory";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
@@ -41,6 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="bookmarks" element={<Bookmarks />} />
               <Route path="comments" element={<CommentHistory />} />
               <Route path="article/:id" element={<ResultPage />} />
+              <Route path="read-article/:id" element={<ReadFullArticles />} />
               <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="terms" element={<TermsPage />} />
               <Route path="about" element={<AboutPage />} />

@@ -8,6 +8,8 @@ import NewsGrid from "../components/NewsGrid";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
+import { deduplicateArticles } from "../utils/deduplicate";
+
 
 const Search: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -50,10 +52,12 @@ const Search: React.FC = () => {
       .then((res) => {
         const data = Array.isArray(res.data?.results) ? res.data.results : [];
         setArticles(
-          data.map((a: any) => ({
-            ...a,
-            imageUrl: a.urlToImage || a.image || a.imageUrl,
-          }))
+          deduplicateArticles(
+            data.map((a: any) => ({
+              ...a,
+              imageUrl: a.urlToImage || a.image || a.imageUrl,
+            }))
+          )
         );
       })
       .catch((err: any) => {

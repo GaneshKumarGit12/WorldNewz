@@ -10,6 +10,8 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import CircularProgress from "@mui/material/CircularProgress";
+import { deduplicateArticles } from "../utils/deduplicate";
+
 
 const Money: React.FC = () => {
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
@@ -53,7 +55,10 @@ const Money: React.FC = () => {
         if (formattedData.length === 0) {
           setHasMore(false);
         } else {
-          setArticles((prev) => currentPage === 1 ? formattedData : [...prev, ...formattedData]);
+          setArticles((prev) => {
+            const combined = currentPage === 1 ? formattedData : [...prev, ...formattedData];
+            return deduplicateArticles(combined);
+          });
         }
       })
       .catch(() => setError("Failed to load money news"))

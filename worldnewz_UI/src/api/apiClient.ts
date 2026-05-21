@@ -55,3 +55,4 @@ export const fetchFood = (params?: SearchParams) => apiClient.get("/news/food", 
 export const fetchEntertainment = (params?: SearchParams) => apiClient.get("/news/entertainment", { params });
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
+export const fetchFullContent = (url: string) => apiClient.get("/news/full-content", { params: { url } });

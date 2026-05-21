@@ -447,7 +447,7 @@ const ResultPage: React.FC = () => {
                 <Button
                   endIcon={<OpenInNewIcon />}
                   variant="outlined"
-                  onClick={() => window.open(article.url, "_blank")}
+                  onClick={() => navigate(`/read-article/${id || 'article'}`, { state: { article } })}
                 >
                   Read Full Article
                 </Button>

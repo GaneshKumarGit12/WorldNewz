@@ -10,6 +10,8 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import CircularProgress from "@mui/material/CircularProgress";
+import { deduplicateArticles } from "../utils/deduplicate";
+
 
 const Food: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -47,9 +49,8 @@ const Food: React.FC = () => {
           setHasMore(false);
         } else {
           setArticles((prev) => {
-            const existing = currentPage === 1 ? [] : prev;
-            const newArticles = formattedData.filter((a: Article) => !existing.some((e: Article) => e.url === a.url || (e.title && e.title === a.title)));
-            return [...existing, ...newArticles];
+            const combined = currentPage === 1 ? formattedData : [...prev, ...formattedData];
+            return deduplicateArticles(combined);
           });
         }
       })

@@ -143,6 +143,45 @@ namespace WorldNewzWebAPI.Services
             return enrichedList;
         }
 
+        private string NormalizeUrl(string? url)
+        {
+            if (string.IsNullOrWhiteSpace(url)) return string.Empty;
+            try
+            {
+                // Strip query parameters
+                int queryIndex = url.IndexOf('?');
+                if (queryIndex >= 0)
+                {
+                    url = url.Substring(0, queryIndex);
+                }
+                
+                // Strip hash fragments
+                int hashIndex = url.IndexOf('#');
+                if (hashIndex >= 0)
+                {
+                    url = url.Substring(0, hashIndex);
+                }
+                
+                url = url.ToLowerInvariant().Trim();
+                
+                // Strip protocols
+                if (url.StartsWith("https://")) url = url.Substring(8);
+                else if (url.StartsWith("http://")) url = url.Substring(7);
+                
+                // Strip www subdomains
+                if (url.StartsWith("www.")) url = url.Substring(4);
+                
+                // Strip trailing slash
+                if (url.EndsWith("/")) url = url.Substring(0, url.Length - 1);
+                
+                return url;
+            }
+            catch
+            {
+                return url ?? string.Empty;
+            }
+        }
+
         private List<Article> DeduplicateArticles(List<Article> articles)
         {
             var result = new List<Article>();
@@ -153,17 +192,21 @@ namespace WorldNewzWebAPI.Services
             {
                 if (string.IsNullOrWhiteSpace(a.Url)) continue;
 
-                // Normalize title to alphanumeric lowercase
+                string normUrl = NormalizeUrl(a.Url);
                 string normalizedTitle = NormalizeString(a.Title);
-                if (string.IsNullOrWhiteSpace(normalizedTitle)) continue;
+                
+                bool titleIsSignificant = normalizedTitle.Length > 10;
 
-                if (seenUrls.Contains(a.Url) || seenTitles.Contains(normalizedTitle))
+                if (seenUrls.Contains(normUrl) || (titleIsSignificant && seenTitles.Contains(normalizedTitle)))
                 {
                     continue; // Skip duplicates
                 }
 
-                seenUrls.Add(a.Url);
-                seenTitles.Add(normalizedTitle);
+                seenUrls.Add(normUrl);
+                if (titleIsSignificant)
+                {
+                    seenTitles.Add(normalizedTitle);
+                }
                 result.Add(a);
             }
 
