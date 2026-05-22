@@ -22,12 +22,15 @@ import ContactPage from "./pages/ContactPage";
 import Travel from "./pages/Travel";
 import Food from "./pages/Food";
 import Entertainment from "./pages/Entertainment";
+import NotFoundPage from "./pages/NotFoundPage";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <SEOProvider>
       <AppThemeProvider>
          <BrowserRouter>
+          <ErrorBoundary>
           <Routes>
             <Route path="/" element={<App />}>
               <Route index element={<Discover />} />
@@ -47,8 +50,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="terms" element={<TermsPage />} />
               <Route path="about" element={<AboutPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
+          </ErrorBoundary>
         </BrowserRouter>
       </AppThemeProvider>
     </SEOProvider>

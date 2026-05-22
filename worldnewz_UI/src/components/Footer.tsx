@@ -44,6 +44,9 @@ const Footer: React.FC = () => {
               { label: "Money", to: "/money" },
               { label: "Weather", to: "/weather" },
               { label: "Shopping", to: "/shopping" },
+              { label: "Travel", to: "/travel" },
+              { label: "Food", to: "/food" },
+              { label: "Entertainment", to: "/entertainment" },
               { label: "Bookmarks", to: "/bookmarks" },
               { label: "About Us", to: "/about" },
               { label: "Contact Us", to: "/contact" },
@@ -120,7 +123,7 @@ const Footer: React.FC = () => {
 
       <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 2 }} />
       <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center" }}>
-        © {new Date().getFullYear()} WorldNewz. Powerd by Ganesh CO.
+        © {new Date().getFullYear()} WorldNewz. Powered by Ganesh CO.
       </Typography>
     </Box>
   );

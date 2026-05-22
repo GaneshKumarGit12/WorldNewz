@@ -12,9 +12,10 @@
   <meta property="og:title" content="WorldNewz – Your World, Your News" />
   <meta property="og:description"
     content="Stay updated with the latest news in sports, business, technology, health, and more." />
-  <meta property="og:image" content="https://worldnewz.onrender.com/favicon.svg" />
-  <meta property="og:url" content="https://worldnewz.onrender.com" />
+  <meta property="og:image" content="https://world-newz.vercel.app/favicon.svg" />
+  <meta property="og:url" content="https://world-newz.vercel.app" />
   <meta property="og:type" content="website" />
+  <meta name="google-adsense-account" content="ca-pub-7547748414764075" />
   <meta name="facebook-domain-verification" content="9k75v6j7w1wg41u2dmd14zuihaw74p" />
   <title>WorldNewz – Your World, Your News</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,18 +23,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
-  <!-- Google Analytics (Replace G-YOUR_MEASUREMENT_ID with your actual ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF2V7TVHLW"></script>
+  <!-- Google Analytics & AdSense: Only load after cookie consent -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-NF2V7TVHLW');
+    (function () {
+      var consent = localStorage.getItem('worldnewz_cookie_consent');
+      if (consent === 'accepted') {
+        // Load Google Analytics
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-NF2V7TVHLW';
+        document.head.appendChild(gaScript);
+        gaScript.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-NF2V7TVHLW');
+        };
+        // Load Google AdSense
+        var adScript = document.createElement('script');
+        adScript.async = true;
+        adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075';
+        adScript.crossOrigin = 'anonymous';
+        document.head.appendChild(adScript);
+      }
+    })();
   </script>
-
-  <!-- Google AdSense (Replace ca-pub-YOUR_PUBLISHER_ID with your actual ID) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075"
-    crossorigin="anonymous"></script>
 </head>
 
 <body>

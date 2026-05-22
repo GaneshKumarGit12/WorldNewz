@@ -14,6 +14,13 @@ export default defineConfig({
         '/money',
         '/weather',
         '/shopping',
+        '/travel',
+        '/food',
+        '/entertainment',
+        '/search',
+        '/bookmarks',
+        '/about',
+        '/contact',
         '/privacy-policy',
         '/terms'
       ],
