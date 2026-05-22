@@ -3,15 +3,15 @@ import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
 import { Container, Typography, Box } from '@mui/material';
 
 const LAST_UPDATED = '2026-05-22';
-const SITE_NAME = 'WorldNewz';
-const SITE_URL = 'https://world-newz.vercel.app';
+const SITE_NAME = 'WorldNewzs';
+const SITE_URL = 'http://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const TermsPage = () => (
   <>
     <SEOMeta
-      title="Terms & Conditions | WorldNewz"
-      description="WorldNewz Terms and Conditions — the rules and guidelines governing your use of the WorldNewz news aggregation platform."
+      title="Terms & Conditions | WorldNewzs"
+      description="WorldNewzs Terms and Conditions — the rules and guidelines governing your use of the WorldNewzs news aggregation platform."
       canonical={`${SITE_URL}/terms`}
     />
     <JSONLDBreadcrumb crumbs={[

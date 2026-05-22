@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { fetchWeather } from "../api/apiClient";
+import { SEOMeta } from "../seo/SEOMeta";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -116,8 +117,14 @@ const Weather: React.FC = () => {
   const currentLabel = getWeatherLabel(weather?.current?.weatherCode);
   const currentIcon = getWeatherIcon(weather?.current?.weatherCode);
 
+  const titleText = weather?.location?.city ? `Weather in ${weather.location.city}` : "Weather Dashboard";
+  const descText = weather?.location?.city 
+    ? `Check the local weather forecast, temperature, wind, and 7-day details for ${weather.location.city}, ${weather.location.country || ""}.` 
+    : "Check the local weather forecast and today's atmospheric details on WorldNewzs.";
+
   return (
     <Box sx={{ p: 2 }}>
+      <SEOMeta title={titleText} description={descText} />
       <Typography variant="h4" sx={{ mb: 2 }}>
         Weather Dashboard
       </Typography>

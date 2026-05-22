@@ -33,7 +33,7 @@ namespace WorldNewzWebAPI.Services
                 var message = $"{article.Title}\n\n{article.Description ?? ""}";
                 
                 // Optional: URL encode the article title or URL for the link query
-                var linkUrl = "https://world-newz.vercel.app";
+                var linkUrl = "http://worldnewzs.in";
 
                 var postData = new
                 {

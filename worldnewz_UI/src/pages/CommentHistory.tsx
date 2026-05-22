@@ -15,6 +15,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
 import { useComments } from '../hooks/useComments';
+import { SEOMeta } from '../seo/SEOMeta';
 
 const CommentHistory: React.FC = () => {
   const navigate = useNavigate();
@@ -180,6 +181,10 @@ const CommentHistory: React.FC = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 4, minHeight: '70vh' }}>
+      <SEOMeta
+        title="Comment History"
+        description="View, search, and manage your complete comment history across WorldNewzs articles."
+      />
       {/* Back Button */}
       <Button
         startIcon={<ArrowBackIcon />}

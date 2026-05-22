@@ -63,7 +63,7 @@ namespace WorldNewzWebAPI.Services
             var systemPrompt = "You are an expert SEO specialist for a news aggregator website. Always respond ONLY with valid JSON.";
             
             var userPrompt = $@"
-Generate daily SEO keywords for the WorldNewz news website (world-newz.vercel.app)
+Generate daily SEO keywords for the WorldNewzs news website (worldnewzs.in)
 for the '{category}' news category. Today is {DateTime.UtcNow:yyyy-MM-dd}.
 
 Return a JSON object with exactly this structure:
@@ -71,14 +71,14 @@ Return a JSON object with exactly this structure:
   ""primary"":   [""keyword1"", ""keyword2"", ""keyword3"", ""keyword4"", ""keyword5""],
   ""longtail"":  [""long tail phrase 1"", ""long tail phrase 2"", ""long tail phrase 3""],
   ""trending"":  [""trending topic 1"", ""trending topic 2"", ""trending topic 3""],
-  ""metaDesc"":  ""A compelling 150-160 character meta description for the {category} news category page on WorldNewz, including the most important primary keyword naturally.""
+  ""metaDesc"":  ""A compelling 150-160 character meta description for the {category} news category page on WorldNewzs, including the most important primary keyword naturally.""
 }}
 
 Rules:
 - Primary: 5 high-volume, commercially relevant keywords for {category} news
 - Long-tail: 3 specific phrases (4-6 words) with clear search intent
 - Trending: 3 currently newsworthy topics in {category} (infer from today's date)
-- Meta desc: 150-160 chars, include WorldNewz brand, action-oriented
+- Meta desc: 150-160 chars, include WorldNewzs brand, action-oriented
 - Keywords must be varied, not repetitive
 ";
 

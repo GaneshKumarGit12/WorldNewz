@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -68,9 +68,9 @@ namespace WorldNewzWebAPI.Controllers
             XNamespace atom = "http://www.w3.org/2005/Atom";
 
             var channel = new XElement("channel",
-                new XElement("title", $"WorldNewz {feedType}"),
-                new XElement("link", "https://world-newz.vercel.app"),
-                new XElement("description", $"Latest {feedType} news from WorldNewz"),
+                new XElement("title", $"WorldNewzs {feedType}"),
+                new XElement("link", "http://worldnewzs.in"),
+                new XElement("description", $"Latest {feedType} news from WorldNewzs"),
                 new XElement(atom + "link",
                     new XAttribute("href", $"https://worldnewz.onrender.com/rss/{feedType}"),
                     new XAttribute("rel", "self"),
@@ -81,11 +81,11 @@ namespace WorldNewzWebAPI.Controllers
             {
                 string hashtags = a.Source?.Name?.ToLower() switch
                 {
-                    "technology" => "#Tech #Innovation #WorldNewz",
-                    "science" => "#Science #Discovery #WorldNewz",
-                    "business" => "#Business #Finance #WorldNewz",
-                    "health" => "#Health #Wellness #WorldNewz",
-                    _ => "#WorldNewz"
+                    "technology" => "#Tech #Innovation #WorldNewzs",
+                    "science" => "#Science #Discovery #WorldNewzs",
+                    "business" => "#Business #Finance #WorldNewzs",
+                    "health" => "#Health #Wellness #WorldNewzs",
+                    _ => "#WorldNewzs"
                 };
 
                 channel.Add(new XElement("item",

@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
         {/* Left Side: Brand & Links */}
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", md: "flex-start" } }}>
           <Typography variant="h6" sx={{ fontWeight: 800, color: "white", letterSpacing: 2, mb: 1 }}>
-            🌐 WORLDNEWZ
+            🌐 WORLDNEWZS
           </Typography>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: { xs: "center", md: "flex-start" } }}>
             {[
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
 
       <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 2 }} />
       <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center" }}>
-        © {new Date().getFullYear()} WorldNewz. Powered by Ganesh CO.
+        © {new Date().getFullYear()} WorldNewzs. Powered by Ganesh CO.
       </Typography>
     </Box>
   );

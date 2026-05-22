@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://world-newz.vercel.app';
-const SITE_NAME = 'WorldNewz';
-const LOGO_URL = 'https://world-newz.vercel.app/favicon.svg'; // Fixed fallback URL
+const SITE_URL = 'http://worldnewzs.in';
+const SITE_NAME = 'WorldNewzs';
+const LOGO_URL = 'http://worldnewzs.in/favicon.svg'; // Fixed fallback URL
 
 /* ── WebSite schema (inject in App root, once) ── */
 export const JSONLDWebSite = () => (

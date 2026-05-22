@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import type { Article } from "../types";
 import { fetchFullContent, fetchSearch } from "../api/apiClient";
 import { JSONLDNewsArticle } from "../seo/JSONLDSchemas";
+import { SEOMeta } from "../seo/SEOMeta";
 
 const getCategoryConfig = (category?: string) => {
   const cat = (category || '').toLowerCase().trim();
@@ -207,6 +208,15 @@ const ReadFullArticles: React.FC = () => {
 
   return (
     <Container maxWidth="md" sx={{ py: 4, minHeight: "75vh" }}>
+      <SEOMeta
+        title={article.headline || article.title}
+        description={article.summary || article.description || ""}
+        ogImage={article.urlToImage || article.imageUrl}
+        ogType="article"
+        articlePublishedTime={article.publishedAt}
+        articleSection={article.category}
+        canonical={article.url}
+      />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
@@ -236,6 +246,7 @@ const ReadFullArticles: React.FC = () => {
             height={420}
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
+            loading="lazy"
             onError={(e: any) => {
               e.target.style.display = "none";
             }}

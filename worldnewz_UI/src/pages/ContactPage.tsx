@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const SITE_URL = 'https://world-newz.vercel.app';
+const SITE_URL = 'http://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const ContactPage = () => {
@@ -43,8 +43,8 @@ export const ContactPage = () => {
   return (
     <>
       <SEOMeta
-        title="Contact Us | WorldNewz"
-        description="Get in touch with the WorldNewz team. Send us feedback, suggest news sources, or inquire about partnership opportunities."
+        title="Contact Us | WorldNewzs"
+        description="Get in touch with the WorldNewzs team. Send us feedback, suggest news sources, or inquire about partnership opportunities."
         canonical={`${SITE_URL}/contact`}
       />
       <JSONLDBreadcrumb crumbs={[

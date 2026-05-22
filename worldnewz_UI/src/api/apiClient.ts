@@ -18,11 +18,38 @@ apiClient.interceptors.response.use(
     return response;
   },
   error => {
-    // Suppress ERR_CONNECTION_CLOSED console errors
     if (axios.isAxiosError(error)) {
-      // Check if it's a connection error
-      if (error.code === "ERR_NETWORK" || error.code === "ECONNABORTED" || error.code === "ECONNREFUSED") {
-        // Silently return the error without logging to console
+      const config = error.config as any;
+
+      const isNetworkError = !error.response && (
+        error.code === "ERR_NETWORK" || 
+        error.code === "ECONNABORTED" || 
+        error.code === "ECONNREFUSED" || 
+        error.message === "Network Error"
+      );
+
+      const isRetryableServerError = error.response && (
+        error.response.status === 502 || 
+        error.response.status === 503 || 
+        error.response.status === 504
+      );
+
+      if (config && (isNetworkError || isRetryableServerError)) {
+        config._retryCount = config._retryCount ?? 0;
+        if (config._retryCount < 3) {
+          config._retryCount += 1;
+          const backoffDelay = config._retryCount * 2000;
+          console.warn(`API call failed (${error.message || error.code}). Retrying attempt ${config._retryCount} in ${backoffDelay}ms...`);
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(apiClient(config));
+            }, backoffDelay);
+          });
+        }
+      }
+
+      if (isNetworkError) {
+        // Silently return the network error without console pollution after retries exhaust
         return Promise.reject(error);
       }
 

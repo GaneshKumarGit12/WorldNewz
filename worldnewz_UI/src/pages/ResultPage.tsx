@@ -24,6 +24,7 @@ import CommentDialog from "../components/CommentDialog";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
 import { JSONLDNewsArticle } from "../seo/JSONLDSchemas";
+import { SEOMeta } from "../seo/SEOMeta";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import ScienceIcon from "@mui/icons-material/Science";
@@ -88,7 +89,7 @@ const generateEditorialBriefing = (desc: string, article?: Article | null) => {
 
   const takeaways = sentences.slice(0, 3).map((s) => s + ".");
   if (takeaways.length === 0) {
-    takeaways.push("WorldNewz Editorial Desk is monitoring this breaking news event for updates.");
+    takeaways.push("WorldNewzs Editorial Desk is monitoring this breaking news event for updates.");
     takeaways.push("Verify updates from local agencies and official news channels listed in sources.");
   }
 
@@ -281,6 +282,15 @@ const ResultPage: React.FC = () => {
 
   return (
     <Container maxWidth="md" sx={{ py: 4, minHeight: "70vh" }}>
+      <SEOMeta
+        title={article.headline || article.title}
+        description={article.summary || article.description || ""}
+        ogImage={article.urlToImage || article.imageUrl}
+        ogType="article"
+        articlePublishedTime={article.publishedAt}
+        articleSection={article.category}
+        canonical={article.url}
+      />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
@@ -310,6 +320,7 @@ const ResultPage: React.FC = () => {
             height={400}
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
+            loading="lazy"
             onError={(e: any) => {
               e.target.style.display = "none";
             }}
@@ -490,7 +501,7 @@ const ResultPage: React.FC = () => {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2.5 }}>
                 <AutoAwesomeIcon sx={{ color: getCategoryConfig(article.category).color, fontSize: 22 }} />
                 <Typography variant="subtitle1" sx={{ fontWeight: 700, letterSpacing: -0.2 }}>
-                  WorldNewz Editorial Briefing
+                  WorldNewzs Editorial Briefing
                 </Typography>
               </Box>
 

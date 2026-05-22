@@ -11,7 +11,7 @@ const NotFoundPage: React.FC = () => {
     <>
       <SEOMeta
         title="Page Not Found"
-        description="The page you are looking for does not exist on WorldNewz."
+        description="The page you are looking for does not exist on WorldNewzs."
         noIndex={true}
       />
       <Container maxWidth="sm" sx={{ py: 10, textAlign: 'center', minHeight: '60vh' }}>

@@ -3,15 +3,15 @@ import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
 import { Container, Typography, Box } from '@mui/material';
 
 const LAST_UPDATED = '2026-05-22';
-const SITE_NAME = 'WorldNewz';
-const SITE_URL = 'https://world-newz.vercel.app';
+const SITE_NAME = 'WorldNewzs';
+const SITE_URL = 'http://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const PrivacyPolicyPage = () => (
   <>
     <SEOMeta
-      title="Privacy Policy | WorldNewz"
-      description="WorldNewz Privacy Policy — how we collect, use, and protect your data when you use our news aggregation service."
+      title="Privacy Policy | WorldNewzs"
+      description="WorldNewzs Privacy Policy — how we collect, use, and protect your data when you use our news aggregation service."
       canonical={`${SITE_URL}/privacy-policy`}
       noIndex={false}
     />

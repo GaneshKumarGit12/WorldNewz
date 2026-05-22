@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://world-newz.vercel.app',
+      hostname: 'http://worldnewzs.in',
       dynamicRoutes: [
         '/',
         '/sports',

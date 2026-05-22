@@ -12,6 +12,7 @@ import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState, useEffect } from "react";
+import { SEOMeta } from "../seo/SEOMeta";
 
 const Bookmarks: React.FC = () => {
   const { bookmarks, removeBookmark, isBookmarked, clearAll } = useBookmarks();
@@ -34,6 +35,10 @@ const Bookmarks: React.FC = () => {
 
   return (
     <Box sx={{ p: { xs: 2, sm: 3 }, minHeight: "60vh" }}>
+      <SEOMeta
+        title="My Bookmarks"
+        description="Access and read your saved news articles and stories on WorldNewzs."
+      />
       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, flexWrap: "wrap" }}>
         <BookmarkIcon color="warning" sx={{ fontSize: 32 }} />
         <Typography variant="h4" sx={{ fontWeight: 700, flexGrow: 1 }}>

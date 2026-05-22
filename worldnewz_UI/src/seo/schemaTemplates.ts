@@ -2,10 +2,10 @@ export const getOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "WorldNewz",
-    "url": "https://world-newz.vercel.app",
-    "logo": "https://world-newz.vercel.app/favicon.svg",
-    "description": "WorldNewz – Stay updated with the latest news in sports, business, technology, health, and more."
+    "name": "WorldNewzs",
+    "url": "http://worldnewzs.in",
+    "logo": "http://worldnewzs.in/favicon.svg",
+    "description": "WorldNewzs – Stay updated with the latest news in sports, business, technology, health, and more."
   };
 };
 
@@ -19,14 +19,14 @@ export const getArticleSchema = (article: { title: string; description: string; 
     "dateModified": article.publishedAt,
     "author": [{
         "@type": "Person",
-        "name": article.author || "WorldNewz Journalist"
+        "name": article.author || "WorldNewzs Journalist"
     }],
     "publisher": {
       "@type": "Organization",
-      "name": "WorldNewz",
+      "name": "WorldNewzs",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://world-newz.vercel.app/favicon.svg"
+        "url": "http://worldnewzs.in/favicon.svg"
       }
     },
     "description": article.description

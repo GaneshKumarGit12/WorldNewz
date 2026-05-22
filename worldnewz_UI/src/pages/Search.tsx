@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchSearch } from "../api/apiClient";
+import { SEOMeta } from "../seo/SEOMeta";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -86,6 +87,10 @@ const Search: React.FC = () => {
 
   return (
     <Box sx={{ p: { xs: 2, sm: 3 } }}>
+      <SEOMeta
+        title={headingText ? `Search: ${headingText}` : "Search News"}
+        description={headingText ? `Browse current news and headlines for ${headingText} on WorldNewzs.` : "Search across sports, technology, business, food, and travel news on WorldNewzs."}
+      />
       <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
         🔍 Search Results
       </Typography>

@@ -136,9 +136,14 @@ const NewsSlider: React.FC<Props> = ({
                     height: "auto", 
                     display: "flex", 
                     justifyContent: "center",
+                    flexShrink: 0,
                     transition: "transform 0.3s ease, opacity 0.3s ease",
-                    opacity: { xs: 0.6, sm: 1 }, // Dim non-center slides on mobile
-                    transform: { xs: "scale(0.92)", sm: "scale(1)" }, // Scale down non-center slides on mobile 
+                    opacity: 0.6,
+                    transform: "scale(0.92)",
+                    "@media (min-width: 600px)": {
+                        opacity: 1,
+                        transform: "scale(1)",
+                    },
                     "& > div": { 
                         width: "100%",
                         display: "flex" 

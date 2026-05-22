@@ -129,7 +129,7 @@ const Discover: React.FC = () => {
           component="h1"
           sx={{ fontWeight: 700, mb: 1, fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" } }}
         >
-          Discover Global News – WorldNewz
+          Discover Global News – WorldNewzs
         </Typography>
         <Typography variant="body1" sx={{ color: "text.secondary" }}>
           Stay updated with the latest news from around the world

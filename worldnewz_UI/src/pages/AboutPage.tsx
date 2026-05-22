@@ -4,14 +4,14 @@ import { Container, Typography, Box, Grid, Card, CardContent, Avatar, Divider, L
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
-const SITE_URL = 'https://world-newz.vercel.app';
+const SITE_URL = 'http://worldnewzs.in';
 
 export const AboutPage = () => {
   return (
     <>
       <SEOMeta
-        title="About Us | WorldNewz"
-        description="Learn more about WorldNewz, our mission to deliver curated, high-quality global news, and our editorial standards for credibility."
+        title="About Us | WorldNewzs"
+        description="Learn more about WorldNewzs, our mission to deliver curated, high-quality global news, and our editorial standards for credibility."
         canonical={`${SITE_URL}/about`}
       />
       <JSONLDBreadcrumb crumbs={[
@@ -24,7 +24,7 @@ export const AboutPage = () => {
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 6 }}>
             <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 800, letterSpacing: -0.5 }}>
-              About WorldNewz
+              About WorldNewzs
             </Typography>
             <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '600px', mx: 'auto', fontWeight: 400 }}>
               Your trusted global news aggregator. We scan, verify, and curate the stories that shape our world.
@@ -40,7 +40,7 @@ export const AboutPage = () => {
                 Our Mission
               </Typography>
               <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.7 }}>
-                In an era of information overload, finding reliable updates can be daunting. WorldNewz was established with a singular mission: to provide a clean, unbiased, and comprehensive window into global headlines. We bring together diverse perspectives in sports, technology, business, travel, and more.
+                In an era of information overload, finding reliable updates can be daunting. WorldNewzs was established with a singular mission: to provide a clean, unbiased, and comprehensive window into global headlines. We bring together diverse perspectives in sports, technology, business, travel, and more.
               </Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>

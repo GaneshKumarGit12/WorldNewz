@@ -11,11 +11,11 @@ export const useSEO = ({
 }) => {
   useEffect(() => {
     if (title) {
-      document.title = `${title} | WorldNewz`;
+      document.title = `${title} | WorldNewzs`;
       
       const ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) {
-        ogTitle.setAttribute("content", `${title} | WorldNewz`);
+        ogTitle.setAttribute("content", `${title} | WorldNewzs`);
       }
     }
 

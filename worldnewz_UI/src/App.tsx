@@ -136,7 +136,7 @@ const App: React.FC = () => {
               "&:hover": { color: "#1976d2" },
             }}
           >
-            🌐 WorldNewz
+            🌐 WorldNewzs
           </Typography>
 
           {/* Desktop nav */}

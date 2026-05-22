@@ -13,14 +13,14 @@ export interface SEOMetaProps {
   noIndex?: boolean;
 }
 
-const SITE_NAME = 'WorldNewz';
-const SITE_URL = 'https://world-newz.vercel.app';
-const DEFAULT_OG = 'https://world-newz.vercel.app/favicon.svg'; // Fixed fallback URL
+const SITE_NAME = 'WorldNewzs';
+const SITE_URL = 'http://worldnewzs.in';
+const DEFAULT_OG = 'http://worldnewzs.in/favicon.svg'; // Fixed fallback URL
 
 const DEFAULTS: SEOMetaProps = {
-  title: 'WorldNewz – Your World, Your News',
+  title: 'WorldNewzs – Your World, Your News',
   description: 'Stay updated with the latest breaking news in sports, business, technology, health, entertainment and world events.',
-  keywords: ['news', 'breaking news', 'world news', 'latest headlines', 'WorldNewz'],
+  keywords: ['news', 'breaking news', 'world news', 'latest headlines', 'WorldNewzs'],
   ogType: 'website',
   ogImage: DEFAULT_OG,
 };
@@ -52,7 +52,7 @@ export const SEOMeta = (props: SEOMetaProps) => {
 
       {/* Twitter / X Cards */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@WorldNewz" />
+      <meta name="twitter:site" content="@WorldNewzs" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={p.description!} />
       <meta name="twitter:image" content={p.ogImage!} />
