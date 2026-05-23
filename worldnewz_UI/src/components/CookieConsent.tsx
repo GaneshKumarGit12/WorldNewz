@@ -10,14 +10,14 @@ const loadTrackingScripts = () => {
   // Load Google Analytics
   const gaScript = document.createElement('script');
   gaScript.async = true;
-  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-NF2V7TVHLW';
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JD24Y5Y78Z';
   document.head.appendChild(gaScript);
   gaScript.onload = () => {
     (window as any).dataLayer = (window as any).dataLayer || [];
     function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
     (window as any).gtag = gtag;
     gtag('js', new Date());
-    gtag('config', 'G-NF2V7TVHLW');
+    gtag('config', 'G-JD24Y5Y78Z');
   };
   // Load Google AdSense
   const adScript = document.createElement('script');

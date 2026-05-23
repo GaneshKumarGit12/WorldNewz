@@ -2,7 +2,7 @@ import { SEOMeta } from '../seo/SEOMeta';
 import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
 import { Container, Typography, Box } from '@mui/material';
 
-const LAST_UPDATED = '2026-05-22';
+const LAST_UPDATED = '2026-05-23';
 const SITE_NAME = 'WorldNewzs';
 const SITE_URL = 'http://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
@@ -107,7 +107,7 @@ export const PrivacyPolicyPage = () => (
             Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visits to our site and/or other sites on the Internet. You can opt out of personalized advertising by visiting Google's <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a> or by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
           </Typography>
           <Typography variant="body1" paragraph>
-            We use Google AdSense (Publisher ID: ca-pub-7547748414764075) and Google Analytics (Measurement ID: G-NF2V7TVHLW) on our Service. These services are only activated after you provide explicit consent through our cookie consent banner.
+            We use Google AdSense (Publisher ID: ca-pub-7547748414764075) and Google Analytics (Measurement ID: G-JD24Y5Y78Z) on our Service. These services are only activated after you provide explicit consent through our cookie consent banner.
           </Typography>
         </Box>
 
@@ -129,7 +129,7 @@ export const PrivacyPolicyPage = () => (
             5.2 Analytics Cookies
           </Typography>
           <Typography variant="body1" paragraph>
-            We use Google Analytics (G-NF2V7TVHLW) to understand how visitors interact with our Service. These cookies collect anonymized data about page views, session duration, and traffic sources. Analytics cookies are only loaded after you accept cookies through our consent banner.
+            We use Google Analytics (G-JD24Y5Y78Z) to understand how visitors interact with our Service. These cookies collect anonymized data about page views, session duration, and traffic sources. Analytics cookies are only loaded after you accept cookies through our consent banner.
           </Typography>
           <Typography variant="h6" component="h3" gutterBottom>
             5.3 Advertising Cookies
