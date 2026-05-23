@@ -111,13 +111,13 @@ const NewsSlider: React.FC<Props> = ({
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     initialSlide: 0,
                     centerMode: true,
-                    centerPadding: "30px", // Show peek of next/prev cards
+                    centerPadding: "20px", // Slight peek of adjacent cards
                 }
             }
         ]
@@ -129,29 +129,36 @@ const NewsSlider: React.FC<Props> = ({
                 mb: 8, 
                 px: { xs: 0, md: 3 }, 
                 "& .slick-track": { 
-                    display: "flex",
-                    alignItems: "stretch" 
+                    display: "block",
+                    "@media (min-width: 768px)": {
+                        display: "flex",
+                        alignItems: "stretch" 
+                    }
                 },
                 "& .slick-slide": { 
                     height: "auto", 
-                    display: "flex", 
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    transition: "transform 0.3s ease, opacity 0.3s ease",
-                    opacity: 0.6,
-                    transform: "scale(0.92)",
-                    "@media (min-width: 600px)": {
-                        opacity: 1,
-                        transform: "scale(1)",
+                    display: "block",
+                    "@media (min-width: 768px)": {
+                        display: "flex", 
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        transition: "transform 0.3s ease, opacity 0.3s ease",
+                        opacity: 0.6,
+                        transform: "scale(0.92)",
                     },
                     "& > div": { 
                         width: "100%",
-                        display: "flex" 
+                        display: "block",
+                        "@media (min-width: 768px)": {
+                            display: "flex" 
+                        }
                     } 
                 },
                 "& .slick-center": {
-                    opacity: 1,
-                    transform: "scale(1)",
+                    "@media (min-width: 768px)": {
+                        opacity: 1,
+                        transform: "scale(1)",
+                    }
                 },
                 "& .slick-dots": { bottom: -35 }
             }}
