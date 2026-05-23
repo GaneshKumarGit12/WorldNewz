@@ -23,24 +23,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
-  <!-- Google Analytics & AdSense: Only load after cookie consent -->
+  <!-- Google tag (gtag.js) - Google Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    var consent = localStorage.getItem('worldnewz_cookie_consent');
+    if (consent === 'accepted') {
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    } else {
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD24Y5Y78Z"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-JD24Y5Y78Z');
+  </script>
+
+  <!-- Google AdSense: Only load after cookie consent -->
   <script>
     (function () {
       var consent = localStorage.getItem('worldnewz_cookie_consent');
       if (consent === 'accepted') {
-        // Load Google Analytics
-        var gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JD24Y5Y78Z';
-        document.head.appendChild(gaScript);
-        gaScript.onload = function () {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-JD24Y5Y78Z');
-        };
-        // Load Google AdSense
         var adScript = document.createElement('script');
         adScript.async = true;
         adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075';
