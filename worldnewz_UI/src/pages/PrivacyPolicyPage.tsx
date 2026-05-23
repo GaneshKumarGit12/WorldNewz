@@ -107,7 +107,7 @@ export const PrivacyPolicyPage = () => (
             Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visits to our site and/or other sites on the Internet. You can opt out of personalized advertising by visiting Google's <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a> or by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
           </Typography>
           <Typography variant="body1" paragraph>
-            We use Google AdSense (Publisher ID: ca-pub-7547748414764075) and Google Analytics (Measurement ID: G-JD24Y5Y78Z) on our Service. These services are only activated after you provide explicit consent through our cookie consent banner.
+            We use Google AdSense (Publisher ID: ca-pub-7547748414764075) and Google Analytics (Measurement ID: G-JD24Y5Y78Z) on our Service.
           </Typography>
         </Box>
 
@@ -129,13 +129,13 @@ export const PrivacyPolicyPage = () => (
             5.2 Analytics Cookies
           </Typography>
           <Typography variant="body1" paragraph>
-            We use Google Analytics (G-JD24Y5Y78Z) to understand how visitors interact with our Service. These cookies collect anonymized data about page views, session duration, and traffic sources. Analytics cookies are only loaded after you accept cookies through our consent banner.
+            We use Google Analytics (G-JD24Y5Y78Z) to understand how visitors interact with our Service. These cookies collect anonymized data about page views, session duration, and traffic sources.
           </Typography>
           <Typography variant="h6" component="h3" gutterBottom>
             5.3 Advertising Cookies
           </Typography>
           <Typography variant="body1" paragraph>
-            Google AdSense uses cookies to serve personalized advertisements. These cookies may track your browsing activity across websites to provide targeted ads. Advertising cookies are only loaded after you accept cookies through our consent banner. You may opt out at any time via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
+            Google AdSense uses cookies to serve personalized advertisements. These cookies may track your browsing activity across websites to provide targeted ads. You may opt out at any time via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
           </Typography>
           <Typography variant="h6" component="h3" gutterBottom>
             5.4 Managing Cookies

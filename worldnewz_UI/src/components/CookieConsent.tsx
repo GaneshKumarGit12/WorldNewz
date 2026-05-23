@@ -6,44 +6,6 @@ export const getCookieConsent = (): 'accepted' | 'declined' | null => {
   return localStorage.getItem('worldnewz_cookie_consent') as 'accepted' | 'declined' | null;
 };
 
-const loadTrackingScripts = () => {
-  // Update Google Analytics Consent
-  if ((window as any).gtag) {
-    (window as any).gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'analytics_storage': 'granted'
-    });
-  } else {
-    // If not loaded statically yet (fallback), load it now
-    const gaScript = document.createElement('script');
-    gaScript.async = true;
-    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JD24Y5Y78Z';
-    document.head.appendChild(gaScript);
-    gaScript.onload = () => {
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
-      (window as any).gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-JD24Y5Y78Z');
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
-    };
-  }
-
-  // Load Google AdSense
-  const adScript = document.createElement('script');
-  adScript.async = true;
-  adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075';
-  adScript.crossOrigin = 'anonymous';
-  document.head.appendChild(adScript);
-};
-
 export const CookieConsent: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
@@ -59,7 +21,6 @@ export const CookieConsent: React.FC = () => {
   const handleAccept = () => {
     localStorage.setItem('worldnewz_cookie_consent', 'accepted');
     setVisible(false);
-    loadTrackingScripts();
   };
 
   const handleDecline = () => {
