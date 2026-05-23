@@ -23,49 +23,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) - Google Consent Mode -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
-
-    var consent = localStorage.getItem('worldnewz_cookie_consent');
-    if (consent === 'accepted') {
-      gtag('consent', 'default', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
-    } else {
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
-    }
-  </script>
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD24Y5Y78Z"></script>
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-JD24Y5Y78Z');
   </script>
 
-  <!-- Google AdSense: Only load after cookie consent -->
-  <script>
-    (function () {
-      var consent = localStorage.getItem('worldnewz_cookie_consent');
-      if (consent === 'accepted') {
-        var adScript = document.createElement('script');
-        adScript.async = true;
-        adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075';
-        adScript.crossOrigin = 'anonymous';
-        document.head.appendChild(adScript);
-      }
-    })();
-  </script>
-  <script type="module" crossorigin src="/assets/index-DO7mynYN.js"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075"
+    crossorigin="anonymous"></script>
+  <script type="module" crossorigin src="/assets/index-C57w4cff.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-COnpUsM8.js">
   <link rel="modulepreload" crossorigin href="/assets/mui-vendor-CX6aR5I8.js">
   <link rel="modulepreload" crossorigin href="/assets/react-vendor-BqsnKSgB.js">
