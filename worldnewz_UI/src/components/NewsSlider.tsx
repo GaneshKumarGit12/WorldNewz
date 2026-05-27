@@ -88,6 +88,26 @@ const NewsSlider: React.FC<Props> = ({
 }) => {
     if (!articles || articles.length === 0) return null;
 
+    const [sliderKey, setSliderKey] = React.useState("");
+
+    React.useEffect(() => {
+        const getBreakpointKey = () => {
+            const width = window.innerWidth;
+            if (width < 480) return "portrait";
+            if (width < 1024) return "landscape";
+            return "desktop";
+        };
+
+        setSliderKey(getBreakpointKey());
+
+        const handleResize = () => {
+            setSliderKey(getBreakpointKey());
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -148,6 +168,10 @@ const NewsSlider: React.FC<Props> = ({
                         opacity: 1,
                         transform: "scale(1)",
                     },
+                    "@media (min-width: 768px)": {
+                        opacity: 0.6,
+                        transform: "scale(0.92)",
+                    },
                     "& > div": { 
                         width: "100%",
                         display: "block",
@@ -159,11 +183,15 @@ const NewsSlider: React.FC<Props> = ({
                 "& .slick-center": {
                     opacity: 1,
                     transform: "scale(1)",
+                    "@media (min-width: 768px)": {
+                        opacity: 1,
+                        transform: "scale(1)",
+                    }
                 },
                 "& .slick-dots": { bottom: -35 }
             }}
         >
-            <Slider {...settings}>
+            <Slider key={sliderKey} {...settings}>
                 {articles.map((article, idx) => (
                     <Box key={article.url || idx} sx={{ p: 1, width: "100%", display: "flex", flexDirection: "column" }}>
                         <NewsCard
