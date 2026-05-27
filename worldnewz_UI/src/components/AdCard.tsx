@@ -101,6 +101,37 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
 
     let resizeObserver: ResizeObserver | null = null;
     let timer: ReturnType<typeof setTimeout> | null = null;
+    let statusInterval: ReturnType<typeof setInterval> | null = null;
+
+    const startMonitoringAdStatus = () => {
+      let checkCount = 0;
+      statusInterval = setInterval(() => {
+        const insElement = container.querySelector("ins.adsbygoogle");
+        if (insElement) {
+          const status = insElement.getAttribute("data-ad-status");
+          if (status === "unfilled") {
+            console.warn(`[AdCard] AdSense slot ${placement} returned unfilled status. Falling back to placeholder.`);
+            setAdBlocked(true);
+            if (statusInterval) clearInterval(statusInterval);
+            return;
+          } else if (status === "filled") {
+            if (statusInterval) clearInterval(statusInterval);
+            return;
+          }
+        }
+
+        checkCount++;
+        if (checkCount > 30) { // Timeout after 3 seconds (30 * 100ms)
+          const insElementAfterTimeout = container.querySelector("ins.adsbygoogle");
+          const hasIframe = insElementAfterTimeout?.querySelector("iframe") !== null;
+          if (!hasIframe) {
+            console.warn(`[AdCard] AdSense slot ${placement} failed to load iframe within 3 seconds. Falling back to placeholder.`);
+            setAdBlocked(true);
+          }
+          if (statusInterval) clearInterval(statusInterval);
+        }
+      }, 100);
+    };
 
     const initializeAd = () => {
       const adsbygoogle = (window as any).adsbygoogle;
@@ -108,6 +139,7 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
         if (adsbygoogle) {
           (adsbygoogle || []).push({});
           initializedRef.current = true;
+          startMonitoringAdStatus();
         } else {
           setAdBlocked(true);
         }
@@ -148,8 +180,11 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       if (timer) {
         clearTimeout(timer);
       }
+      if (statusInterval) {
+        clearInterval(statusInterval);
+      }
     };
-  }, [adScript, adBlocked]);
+  }, [adScript, adBlocked, placement]);
 
   // If the script is loaded and not blocked, render the AdSense container
   if (!adBlocked && adScript) {
