@@ -12,6 +12,7 @@ namespace WorldNewzWebAPI.Data
         public DbSet<Ad> Ads { get; set; }
         public DbSet<SeoKeyword> SeoKeywords { get; set; }
         public DbSet<EnrichedArticle> EnrichedArticles { get; set; }
+        public DbSet<FacebookPageSetting> FacebookPageSettings { get; set; }
     }
 
 }

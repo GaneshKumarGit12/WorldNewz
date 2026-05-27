@@ -142,6 +142,17 @@ using (var scope = app.Services.CreateScope())
         );
     ");
 
+    // Ensure FacebookPageSettings table exists
+    db.Database.ExecuteSqlRaw(@"
+        CREATE TABLE IF NOT EXISTS FacebookPageSettings (
+            PageId TEXT PRIMARY KEY,
+            PageName TEXT NOT NULL,
+            AccessToken TEXT NOT NULL,
+            IsActive INTEGER NOT NULL,
+            LastPostTime TEXT
+        );
+    ");
+
     // Seed default Ad slots if table is empty
     if (!db.Ads.Any())
     {

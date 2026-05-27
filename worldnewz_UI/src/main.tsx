@@ -24,6 +24,7 @@ import Food from "./pages/Food";
 import Entertainment from "./pages/Entertainment";
 import NotFoundPage from "./pages/NotFoundPage";
 import ErrorBoundary from "./components/ErrorBoundary";
+import FacebookSettings from "./pages/FacebookSettings";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -50,6 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="terms" element={<TermsPage />} />
               <Route path="about" element={<AboutPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="facebook-settings" element={<FacebookSettings />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>

@@ -17,6 +17,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import Fab from "@mui/material/Fab";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
@@ -184,6 +185,17 @@ const App: React.FC = () => {
               </IconButton>
             </Tooltip>
 
+            {/* Facebook Settings */}
+            <Tooltip title="Facebook Integration">
+              <IconButton
+                component={Link}
+                to="/facebook-settings"
+                sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white", ml: 1 }}
+              >
+                <FacebookIcon />
+              </IconButton>
+            </Tooltip>
+
             {/* Dark mode toggle */}
             <Tooltip title={isDark ? "Switch to Light mode" : "Switch to Dark mode"}>
               <IconButton onClick={toggleMode} sx={{ color: "white", ml: 0.5 }}>
@@ -203,6 +215,9 @@ const App: React.FC = () => {
               <Badge badgeContent={bookmarks.length} color="warning" max={99}>
                 <BookmarkIcon />
               </Badge>
+            </IconButton>
+            <IconButton component={Link} to="/facebook-settings" sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white" }}>
+              <FacebookIcon />
             </IconButton>
             <IconButton onClick={toggleMode} sx={{ color: "white" }}>
               {isDark ? <LightModeIcon /> : <DarkModeIcon />}
@@ -240,6 +255,7 @@ const App: React.FC = () => {
           ))}
           <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", my: 1 }} />
           {[
+            { label: "Facebook Settings", path: "/facebook-settings" },
             { label: "About Us", path: "/about" },
             { label: "Contact Us", path: "/contact" }
           ].map((link) => (

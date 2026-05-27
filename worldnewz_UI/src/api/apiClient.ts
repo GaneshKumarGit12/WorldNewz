@@ -83,3 +83,10 @@ export const fetchEntertainment = (params?: SearchParams) => apiClient.get("/new
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
 export const fetchFullContent = (url: string) => apiClient.get("/news/full-content", { params: { url } });
+
+export const fetchFacebookSettings = () => apiClient.get("/facebooksettings");
+export const fetchFacebookPages = (userAccessToken: string) => apiClient.post("/facebooksettings/fetch-pages", { userAccessToken });
+export const saveFacebookSettings = (settings: any[]) => apiClient.post("/facebooksettings/save", settings);
+export const toggleFacebookPage = (pageId: string) => apiClient.post(`/facebooksettings/toggle/${pageId}`);
+export const deleteFacebookPage = (pageId: string) => apiClient.delete(`/facebooksettings/${pageId}`);
+export const testFacebookPost = (pageId: string) => apiClient.post(`/facebooksettings/test/${pageId}`);
