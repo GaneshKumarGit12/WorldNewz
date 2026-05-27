@@ -71,11 +71,14 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
   const [adScript, setAdScript] = useState<string | null>(null);
   const [adBlocked, setAdBlocked] = useState(false);
   const initializedRef = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Select a unique sponsored item based on the card position index
   const adItem = SPONSORED_ADS[index % SPONSORED_ADS.length];
 
   useEffect(() => {
+    initializedRef.current = false;
+    setAdBlocked(false);
     fetchAdByPlacement(placement)
       .then((res) => {
         if (res.data && res.data.script) {
@@ -93,9 +96,14 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
   useEffect(() => {
     if (!adScript || adBlocked || initializedRef.current) return;
 
-    const adsbygoogle = (window as any).adsbygoogle;
-    
-    const timer = setTimeout(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let resizeObserver: ResizeObserver | null = null;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    const initializeAd = () => {
+      const adsbygoogle = (window as any).adsbygoogle;
       try {
         if (adsbygoogle) {
           (adsbygoogle || []).push({});
@@ -107,9 +115,40 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
         console.error("AdSense initialization error: ", e);
         setAdBlocked(true);
       }
-    }, 150);
+    };
 
-    return () => clearTimeout(timer);
+    const checkWidthAndInit = () => {
+      if (container.offsetWidth > 0) {
+        if (resizeObserver) {
+          resizeObserver.disconnect();
+          resizeObserver = null;
+        }
+        timer = setTimeout(() => {
+          initializeAd();
+        }, 50);
+      }
+    };
+
+    if (typeof window !== "undefined" && "ResizeObserver" in window) {
+      resizeObserver = new ResizeObserver(() => {
+        checkWidthAndInit();
+      });
+      resizeObserver.observe(container);
+      checkWidthAndInit();
+    } else {
+      timer = setTimeout(() => {
+        initializeAd();
+      }, 150);
+    }
+
+    return () => {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
   }, [adScript, adBlocked]);
 
   // If the script is loaded and not blocked, render the AdSense container
@@ -134,7 +173,7 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           borderColor: "divider",
         }}
       >
-        <Box sx={{ width: "100%", height: "100%", minHeight: 280 }}>
+        <Box ref={containerRef} sx={{ width: "100%", height: "100%", minHeight: 280 }}>
           <div dangerouslySetInnerHTML={{ __html: adScript }} />
         </Box>
       </Card>
