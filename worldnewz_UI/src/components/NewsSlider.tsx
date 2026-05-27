@@ -136,7 +136,7 @@ const NewsSlider: React.FC<Props> = ({
                 breakpoint: 1024, // screens >= 1024px (Desktops)
                 settings: {
                     slidesToShow: 5,
-                    slidesToScroll: 1,
+                    slidesToScroll: 4,
                     centerMode: false,
                 }
             }
