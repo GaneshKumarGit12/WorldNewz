@@ -105,7 +105,7 @@ const NewsSlider: React.FC<Props> = ({
         mobileFirst: true, // Enable mobile-first breakpoints
         responsive: [
             {
-                breakpoint: 768, // screens >= 768px (Tablets)
+                breakpoint: 480, // screens >= 480px (Landscape Mobiles & Tablets)
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
@@ -130,7 +130,7 @@ const NewsSlider: React.FC<Props> = ({
                 px: { xs: 0, md: 3 }, 
                 "& .slick-track": { 
                     display: "block",
-                    "@media (min-width: 768px)": {
+                    "@media (min-width: 480px)": {
                         display: "flex",
                         alignItems: "stretch" 
                     }
@@ -141,7 +141,7 @@ const NewsSlider: React.FC<Props> = ({
                     transition: "transform 0.3s ease, opacity 0.3s ease",
                     opacity: 0.6,
                     transform: "scale(0.92)",
-                    "@media (min-width: 768px)": {
+                    "@media (min-width: 480px)": {
                         display: "flex", 
                         justifyContent: "center",
                         flexShrink: 0,
@@ -151,7 +151,7 @@ const NewsSlider: React.FC<Props> = ({
                     "& > div": { 
                         width: "100%",
                         display: "block",
-                        "@media (min-width: 768px)": {
+                        "@media (min-width: 480px)": {
                             display: "flex" 
                         }
                     } 
