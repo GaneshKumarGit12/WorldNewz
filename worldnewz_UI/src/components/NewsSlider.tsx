@@ -92,7 +92,7 @@ const NewsSlider: React.FC<Props> = ({
         dots: true,
         infinite: true,
         speed: 600,
-        slidesToShow: 3,
+        slidesToShow: 1, // Default for mobile
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -100,24 +100,24 @@ const NewsSlider: React.FC<Props> = ({
         cssEase: "ease-in-out",
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
+        centerMode: true,
+        centerPadding: "20px", // Slight peek of adjacent cards on mobile
+        mobileFirst: true, // Enable mobile-first breakpoints
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 768, // screens >= 768px (Tablets)
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
+                    centerMode: false,
                 }
             },
             {
-                breakpoint: 768,
+                breakpoint: 1024, // screens >= 1024px (Desktops)
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
-                    initialSlide: 0,
-                    centerMode: true,
-                    centerPadding: "20px", // Slight peek of adjacent cards
+                    centerMode: false,
                 }
             }
         ]
@@ -138,13 +138,15 @@ const NewsSlider: React.FC<Props> = ({
                 "& .slick-slide": { 
                     height: "auto", 
                     display: "block",
+                    transition: "transform 0.3s ease, opacity 0.3s ease",
+                    opacity: 0.6,
+                    transform: "scale(0.92)",
                     "@media (min-width: 768px)": {
                         display: "flex", 
                         justifyContent: "center",
                         flexShrink: 0,
-                        transition: "transform 0.3s ease, opacity 0.3s ease",
-                        opacity: 0.6,
-                        transform: "scale(0.92)",
+                        opacity: 1,
+                        transform: "scale(1)",
                     },
                     "& > div": { 
                         width: "100%",
@@ -155,10 +157,8 @@ const NewsSlider: React.FC<Props> = ({
                     } 
                 },
                 "& .slick-center": {
-                    "@media (min-width: 768px)": {
-                        opacity: 1,
-                        transform: "scale(1)",
-                    }
+                    opacity: 1,
+                    transform: "scale(1)",
                 },
                 "& .slick-dots": { bottom: -35 }
             }}
