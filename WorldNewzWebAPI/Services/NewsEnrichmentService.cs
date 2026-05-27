@@ -124,19 +124,50 @@ namespace WorldNewzWebAPI.Services
                             EnrichedAt = DateTime.UtcNow
                         };
 
-                        _db.EnrichedArticles.Add(newCache);
-                        await _db.SaveChangesAsync();
+                        try
+                        {
+                            _db.EnrichedArticles.Add(newCache);
+                            await _db.SaveChangesAsync();
+                        }
+                        catch (DbUpdateException dbEx)
+                        {
+                            // Concurrency race: Another thread might have inserted the same article URL
+                            // Detach the failing entry from DB context tracking
+                            _db.Entry(newCache).State = EntityState.Detached;
+
+                            Console.WriteLine($"[EnrichmentService] Concurrency race detected for '{dto.Title}'. Attempting to load concurrently saved cache.");
+
+                            // Try to retrieve the record that was just successfully inserted by the concurrent thread
+                            var existing = await _db.EnrichedArticles.AsNoTracking().FirstOrDefaultAsync(e => e.Url == dto.Url);
+                            if (existing != null)
+                            {
+                                dto.Headline = existing.Headline;
+                                dto.Summary = existing.Summary;
+                                dto.Context = existing.Context;
+                                dto.SocialMediaHook = existing.SocialMediaHook;
+                                dto.Verified = dto.Verified || existing.Verified;
+                                Console.WriteLine($"[EnrichmentService] Concurrency recovery successful for '{dto.Title}'.");
+                            }
+                            else
+                            {
+                                // Rethrow if it's not a duplicate record insertion error
+                                throw;
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"[EnrichmentService] Error processing article '{dto.Title}': {ex.Message}");
-                    // Safe fallback in case DB save or check fails
-                    var fallback = GenerateLocalHeuristics(dto.Title, dto.Description, dto.Category);
-                    dto.Headline = fallback.Headline;
-                    dto.Summary = fallback.Summary;
-                    dto.Context = fallback.Context;
-                    dto.SocialMediaHook = fallback.SocialMediaHook;
+                    // Safe fallback in case DB save or check fails and cannot be recovered
+                    if (string.IsNullOrEmpty(dto.Headline))
+                    {
+                        var fallback = GenerateLocalHeuristics(dto.Title, dto.Description, dto.Category);
+                        dto.Headline = fallback.Headline;
+                        dto.Summary = fallback.Summary;
+                        dto.Context = fallback.Context;
+                        dto.SocialMediaHook = fallback.SocialMediaHook;
+                    }
                 }
             }
 
