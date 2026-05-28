@@ -67,9 +67,19 @@ const formatTimeAgo = (dateString?: string) => {
   return "1d";
 };
 
+const isLocalhost = typeof window !== "undefined" && (
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1" ||
+  window.location.hostname.endsWith(".local")
+);
+
+const isAdSenseEligible = typeof window !== "undefined" && 
+  !isLocalhost && 
+  window.location.protocol === "https:";
+
 const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index = 0 }) => {
   const [adScript, setAdScript] = useState<string | null>(null);
-  const [adBlocked, setAdBlocked] = useState(false);
+  const [adBlocked, setAdBlocked] = useState(!isAdSenseEligible);
   const initializedRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -78,6 +88,12 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
 
   useEffect(() => {
     initializedRef.current = false;
+    
+    if (!isAdSenseEligible) {
+      setAdBlocked(true);
+      return;
+    }
+
     setAdBlocked(false);
     fetchAdByPlacement(placement)
       .then((res) => {
@@ -87,14 +103,13 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           setAdBlocked(true);
         }
       })
-      .catch((err) => {
-        console.warn(`Failed to fetch ad for placement '${placement}', using placeholder.`, err);
+      .catch(() => {
         setAdBlocked(true);
       });
   }, [placement]);
 
   useEffect(() => {
-    if (!adScript || adBlocked || initializedRef.current) return;
+    if (!isAdSenseEligible || !adScript || adBlocked || initializedRef.current) return;
 
     const container = containerRef.current;
     if (!container) return;
@@ -110,7 +125,6 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
         if (insElement) {
           const status = insElement.getAttribute("data-ad-status");
           if (status === "unfilled") {
-            console.warn(`[AdCard] AdSense slot ${placement} returned unfilled status. Falling back to placeholder.`);
             setAdBlocked(true);
             if (statusInterval) clearInterval(statusInterval);
             return;
@@ -125,7 +139,6 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           const insElementAfterTimeout = container.querySelector("ins.adsbygoogle");
           const hasIframe = insElementAfterTimeout?.querySelector("iframe") !== null;
           if (!hasIframe) {
-            console.warn(`[AdCard] AdSense slot ${placement} failed to load iframe within 3 seconds. Falling back to placeholder.`);
             setAdBlocked(true);
           }
           if (statusInterval) clearInterval(statusInterval);
@@ -144,7 +157,6 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           setAdBlocked(true);
         }
       } catch (e) {
-        console.error("AdSense initialization error: ", e);
         setAdBlocked(true);
       }
     };
