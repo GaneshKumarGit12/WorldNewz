@@ -5,6 +5,8 @@ import { Container, Typography, Box, Grid, TextField, Button, Alert, Card, CardC
 import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 
 const SITE_URL = 'https://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
@@ -24,14 +26,12 @@ export const ContactPage = () => {
       return;
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError('Please provide a valid email address.');
       return;
     }
 
-    // Success simulation
     setError(null);
     setSubmitted(true);
     setName('');
@@ -44,7 +44,7 @@ export const ContactPage = () => {
     <>
       <SEOMeta
         title="Contact Us | WorldNewzs"
-        description="Get in touch with the WorldNewzs team. Send us feedback, suggest news sources, or inquire about partnership opportunities."
+        description="Get in touch with the WorldNewzs team. Contact details, office hours, query resolution timelines, and location information."
         canonical={`${SITE_URL}/contact`}
       />
       <JSONLDBreadcrumb crumbs={[
@@ -56,30 +56,41 @@ export const ContactPage = () => {
         <Box component="main">
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 800 }}>
+            <Typography 
+              variant="h3" 
+              component="h1" 
+              gutterBottom 
+              sx={{ 
+                fontWeight: 900,
+                background: 'linear-gradient(45deg, #c83a15, #ff7043)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
               Contact Us
             </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '600px', mx: 'auto', fontWeight: 400 }}>
-              Have questions, feedback, or business inquiries? We'd love to hear from you.
+            <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '600px', mx: 'auto', fontWeight: 400, mt: 2 }}>
+              Have questions, feedback, or business inquiries? The WorldNewzs team is here to assist.
             </Typography>
           </Box>
 
           <Divider sx={{ mb: 6 }} />
 
-          <Grid container spacing={4}>
-            {/* Contact Details */}
+          <Grid container spacing={4} sx={{ mb: 6 }}>
+            {/* Contact Details & SLA Info */}
             <Grid size={{ xs: 12, md: 5 }}>
-              <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 700, mb: 3 }}>
+              <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 800, mb: 3 }}>
                 Get In Touch
               </Typography>
               
-              <Card sx={{ mb: 3, boxShadow: '0 2px 10px rgba(0,0,0,0.04)', borderRadius: 2 }}>
+              {/* Email Card */}
+              <Card sx={{ mb: 2.5, boxShadow: '0 2px 10px rgba(0,0,0,0.04)', borderRadius: 3, border: '1px solid', borderColor: 'divider' }}>
                 <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, py: '16px !important' }}>
-                  <EmailIcon color="primary" sx={{ fontSize: 32 }} />
+                  <EmailIcon color="primary" sx={{ fontSize: 30 }} />
                   <Box>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>Email Address</Typography>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>Email Address</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      <a href={`mailto:${CONTACT_EMAIL}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <a href={`mailto:${CONTACT_EMAIL}`} style={{ textDecoration: 'none', color: 'inherit', fontWeight: 500 }}>
                         {CONTACT_EMAIL}
                       </a>
                     </Typography>
@@ -87,21 +98,45 @@ export const ContactPage = () => {
                 </CardContent>
               </Card>
 
-              <Card sx={{ mb: 3, boxShadow: '0 2px 10px rgba(0,0,0,0.04)', borderRadius: 2 }}>
+              {/* Office Hours Card */}
+              <Card sx={{ mb: 2.5, boxShadow: '0 2px 10px rgba(0,0,0,0.04)', borderRadius: 3, border: '1px solid', borderColor: 'divider' }}>
                 <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, py: '16px !important' }}>
-                  <LocationOnIcon color="primary" sx={{ fontSize: 32 }} />
+                  <AccessTimeIcon color="primary" sx={{ fontSize: 30 }} />
                   <Box>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>Headquarters</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Ganesh CO, India
+                    <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>Office Hours</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
+                      Mon – Fri, 9:00 AM – 6:00 PM IST
                     </Typography>
                   </Box>
                 </CardContent>
               </Card>
 
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 2, lineHeight: 1.6 }}>
-                For general support, feedback, copyright reports, or advertising inquiries, please use the contact form or send us an email directly. We typically reply within 24–48 business hours.
-              </Typography>
+              {/* SLA Timeline Card */}
+              <Card sx={{ mb: 2.5, boxShadow: '0 2px 10px rgba(0,0,0,0.04)', borderRadius: 3, border: '1px solid', borderColor: 'divider' }}>
+                <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, py: '16px !important' }}>
+                  <QuestionAnswerIcon color="primary" sx={{ fontSize: 30 }} />
+                  <Box>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>Resolution Timeline</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500, lineHeight: 1.4 }}>
+                      • Editorial corrections: &lt; 24 Hours<br />
+                      • General queries: &lt; 48 Hours
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+
+              {/* Headquarters Location */}
+              <Card sx={{ mb: 3, boxShadow: '0 2px 10px rgba(0,0,0,0.04)', borderRadius: 3, border: '1px solid', borderColor: 'divider' }}>
+                <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, py: '16px !important' }}>
+                  <LocationOnIcon color="primary" sx={{ fontSize: 30 }} />
+                  <Box>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>Headquarters</Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
+                      Ganesh CO, India
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
             </Grid>
 
             {/* Contact Form */}
@@ -112,11 +147,13 @@ export const ContactPage = () => {
                 sx={{ 
                   p: 4, 
                   bgcolor: 'background.paper', 
-                  borderRadius: 3, 
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.05)' 
+                  borderRadius: 4, 
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+                  border: '1px solid',
+                  borderColor: 'divider',
                 }}
               >
-                <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 700, mb: 3 }}>
+                <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 800, mb: 3 }}>
                   Send a Message
                 </Typography>
 
@@ -170,7 +207,7 @@ export const ContactPage = () => {
                       label="Message"
                       variant="outlined"
                       multiline
-                      rows={4}
+                      rows={5}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                     />
@@ -182,6 +219,7 @@ export const ContactPage = () => {
                       color="primary"
                       endIcon={<SendIcon />}
                       fullWidth
+                      sx={{ py: 1, borderRadius: 2, fontWeight: 700, textTransform: 'none' }}
                     >
                       Send Message
                     </Button>
@@ -190,6 +228,94 @@ export const ContactPage = () => {
               </Box>
             </Grid>
           </Grid>
+
+          {/* Styled Headquarters Location Map Placeholder Card */}
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 800, mb: 3 }}>
+              Our Location
+            </Typography>
+            <Card sx={{ 
+              height: 320, 
+              borderRadius: 4, 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+              border: '1px solid', 
+              borderColor: 'divider',
+              position: 'relative'
+            }}>
+              {/* Styled Mock Map Graphic Background */}
+              <Box sx={{ 
+                width: '100%', 
+                height: '100%', 
+                backgroundColor: (theme) => theme.palette.mode === 'light' ? '#eceff1' : '#1e293b',
+                backgroundImage: `radial-gradient(circle, rgba(200, 58, 21, 0.05) 1.5px, transparent 1.5px)`,
+                backgroundSize: '24px 24px',
+                display: 'flex', 
+                flexDirection: 'column',
+                justifyContent: 'center', 
+                alignItems: 'center',
+                position: 'relative',
+                p: 3
+              }}>
+                {/* Decorative Grid Lines */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: 0,
+                  right: 0,
+                  height: '1px',
+                  backgroundColor: 'rgba(200, 58, 21, 0.1)',
+                }} />
+                <Box sx={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: 0,
+                  bottom: 0,
+                  width: '1px',
+                  backgroundColor: 'rgba(200, 58, 21, 0.1)',
+                }} />
+                
+                {/* Central Radar Wave effect */}
+                <Box sx={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: '50%',
+                  border: '2px solid rgba(200, 58, 21, 0.3)',
+                  position: 'absolute',
+                  animation: 'pulse 3s infinite ease-in-out',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }} />
+
+                {/* Map Pin */}
+                <LocationOnIcon color="primary" sx={{ fontSize: 60, zIndex: 2, filter: 'drop-shadow(0px 8px 12px rgba(200, 58, 21, 0.4))' }} />
+                
+                {/* Floating Glassmorphic Location Info Box */}
+                <Box sx={{
+                  mt: 2,
+                  p: 2,
+                  zIndex: 2,
+                  borderRadius: 3,
+                  backgroundColor: (theme) => theme.palette.mode === 'light' ? 'rgba(255,255,255,0.9)' : 'rgba(22,27,34,0.9)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  textAlign: 'center',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                  maxWidth: 280
+                }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>WorldNewzs Headquarters</Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5, fontSize: '0.85rem' }}>
+                    Ganesh CO, India
+                  </Typography>
+                  <Typography variant="caption" color="primary" sx={{ display: 'block', mt: 1, fontWeight: 700 }}>
+                    Lat: 20.5937° N | Lon: 78.9629° E
+                  </Typography>
+                </Box>
+              </Box>
+            </Card>
+          </Box>
         </Box>
       </Container>
     </>

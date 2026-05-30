@@ -17,7 +17,13 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Collapse from "@mui/material/Collapse";
 import Fab from "@mui/material/Fab";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
@@ -36,11 +42,14 @@ import { useColorMode } from "./context/ThemeContext";
 import { useBookmarks } from "./hooks/useBookmarks";
 import { useComments } from "./hooks/useComments";
 
-const navLinks = [
+const primaryNavLinks = [
   { label: "Discover", path: "/" },
   { label: "Sports", path: "/sports" },
   { label: "Money", path: "/money" },
   { label: "Weather", path: "/weather" },
+];
+
+const secondaryNavLinks = [
   { label: "Shopping", path: "/shopping" },
   { label: "Travel", path: "/travel" },
   { label: "Food", path: "/food" },
@@ -51,6 +60,17 @@ const categories = ["general", "sports", "business", "technology", "health", "sc
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerCategoriesOpen, setDrawerCategoriesOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const menuOpen = Boolean(anchorEl);
+
+  const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
   const [searchTerm, setSearchTerm] = useState("");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
@@ -124,26 +144,55 @@ const App: React.FC = () => {
       >
         <Toolbar>
           {/* Logo */}
-          <Typography
-            variant="h6"
-            component={Link}
-            to="/"
-            sx={{
+          <Box 
+            component={Link} 
+            to="/" 
+            sx={{ 
+              display: "flex", 
+              alignItems: "center", 
+              textDecoration: "none", 
               flexGrow: 1,
-              fontWeight: 800,
-              color: "white",
-              textTransform: "uppercase",
-              letterSpacing: 2,
-              textDecoration: "none",
-              "&:hover": { color: "#1976d2" },
+              mr: 2,
+              "&:hover .brand-logo-img": {
+                transform: "rotate(15deg) scale(1.05)",
+              },
+              "&:hover .brand-name-text": {
+                color: "#ff8a65",
+              }
             }}
           >
-            🌐 WorldNewzs
-          </Typography>
+            <Box
+              component="img"
+              className="brand-logo-img"
+              src="/logo-transparent.svg"
+              alt="WorldNewzs Logo"
+              sx={{ 
+                height: 38, 
+                width: 38, 
+                mr: 1.5, 
+                transition: "transform 0.3s ease-in-out" 
+              }}
+            />
+            <Typography
+              variant="h6"
+              className="brand-name-text"
+              sx={{
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                letterSpacing: 2,
+                fontFamily: "'Outfit', 'Inter', 'Roboto', sans-serif",
+                transition: "color 0.3s ease-in-out",
+                fontSize: { xs: "1.1rem", sm: "1.3rem" }
+              }}
+            >
+              WorldNewzs
+            </Typography>
+          </Box>
 
           {/* Desktop nav */}
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 0.5 }}>
-            {navLinks.map((link) => (
+            {primaryNavLinks.map((link) => (
               <Button
                 key={link.path}
                 component={Link}
@@ -151,14 +200,75 @@ const App: React.FC = () => {
                 sx={{
                   color: "white",
                   fontWeight: location.pathname === link.path ? "bold" : "normal",
-                  borderBottom: location.pathname === link.path ? "2px solid #1976d2" : "none",
+                  borderBottom: location.pathname === link.path ? "2px solid #c83a15" : "none",
                   borderRadius: 0,
-                  "&:hover": { color: "#90caf9" },
+                  "&:hover": { color: "#ff8a65" },
                 }}
               >
                 {link.label}
               </Button>
             ))}
+
+            {/* Dropdown for other categories */}
+            <Button
+              aria-controls={menuOpen ? "more-categories-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={menuOpen ? "true" : undefined}
+              onClick={handleMenuClick}
+              endIcon={<KeyboardArrowDownIcon />}
+              sx={{
+                color: "white",
+                fontWeight: secondaryNavLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
+                borderBottom: secondaryNavLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
+                borderRadius: 0,
+                "&:hover": { color: "#ff8a65" },
+              }}
+            >
+              More
+            </Button>
+            <Menu
+              id="more-categories-menu"
+              anchorEl={anchorEl}
+              open={menuOpen}
+              onClose={handleMenuClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+              PaperProps={{
+                sx: {
+                  backgroundColor: isDark ? "#161b22" : "#ffffff",
+                  color: isDark ? "white" : "black",
+                  boxShadow: "0px 8px 16px rgba(0,0,0,0.15)",
+                  border: "1px solid",
+                  borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+                }
+              }}
+            >
+              {secondaryNavLinks.map((link) => (
+                <MenuItem
+                  key={link.path}
+                  component={Link}
+                  to={link.path}
+                  onClick={handleMenuClose}
+                  selected={location.pathname === link.path}
+                  sx={{
+                    minWidth: 140,
+                    fontWeight: location.pathname === link.path ? "bold" : "normal",
+                    color: location.pathname === link.path ? "#c83a15" : "inherit",
+                    "&.Mui-selected": {
+                      backgroundColor: isDark ? "rgba(200, 58, 21, 0.15)" : "rgba(200, 58, 21, 0.08)",
+                      color: "#c83a15",
+                      fontWeight: "bold",
+                    },
+                    "&:hover": {
+                      backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
+                    }
+                  }}
+                >
+                  {link.label}
+                </MenuItem>
+              ))}
+            </Menu>
 
             {/* Comments button */}
             <Tooltip title="Comments">
@@ -166,9 +276,9 @@ const App: React.FC = () => {
                 component={Link}
                 to="/comments"
                 aria-label="Comments"
-                sx={{ color: location.pathname === "/comments" ? "#4caf50" : "white", ml: 1 }}
+                sx={{ color: location.pathname === "/comments" ? "#c83a15" : "white", ml: 1 }}
               >
-                <Badge badgeContent={totalComments} color="success" max={999}>
+                <Badge badgeContent={totalComments} color="primary" max={999}>
                   <ChatBubbleIcon />
                 </Badge>
               </IconButton>
@@ -194,7 +304,7 @@ const App: React.FC = () => {
                 component={Link}
                 to="/facebook-settings"
                 aria-label="Facebook Settings"
-                sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white", ml: 1 }}
+                sx={{ color: location.pathname === "/facebook-settings" ? "#c83a15" : "white", ml: 1 }}
               >
                 <FacebookIcon />
               </IconButton>
@@ -211,7 +321,7 @@ const App: React.FC = () => {
           {/* Mobile: bookmark + theme + hamburger */}
           <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
             <IconButton component={Link} to="/comments" aria-label="Comments" sx={{ color: "white" }}>
-              <Badge badgeContent={totalComments} color="success" max={999}>
+              <Badge badgeContent={totalComments} color="primary" max={999}>
                 <ChatBubbleIcon />
               </Badge>
             </IconButton>
@@ -220,7 +330,7 @@ const App: React.FC = () => {
                 <BookmarkIcon />
               </Badge>
             </IconButton>
-            <IconButton component={Link} to="/facebook-settings" aria-label="Facebook Settings" sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white" }}>
+            <IconButton component={Link} to="/facebook-settings" aria-label="Facebook Settings" sx={{ color: location.pathname === "/facebook-settings" ? "#c83a15" : "white" }}>
               <FacebookIcon />
             </IconButton>
             <IconButton onClick={toggleMode} aria-label="Toggle theme" sx={{ color: "white" }}>
@@ -241,7 +351,7 @@ const App: React.FC = () => {
         PaperProps={{ sx: { backgroundColor: isDark ? "#161b22" : "#0a0a0a", color: "white" } }}
       >
         <List sx={{ width: 250 }}>
-          {navLinks.map((link) => (
+          {primaryNavLinks.map((link) => (
             <ListItem key={link.path} disablePadding>
               <ListItemButton
                 component={Link}
@@ -249,14 +359,54 @@ const App: React.FC = () => {
                 onClick={() => setDrawerOpen(false)}
                 sx={{
                   fontWeight: location.pathname === link.path ? "bold" : "normal",
-                  color: location.pathname === link.path ? "#1976d2" : "white",
-                  "&:hover": { color: "#90caf9" },
+                  color: location.pathname === link.path ? "#c83a15" : "white",
+                  "&:hover": { color: "#ff8a65" },
                 }}
               >
                 <ListItemText primary={link.label} />
               </ListItemButton>
             </ListItem>
           ))}
+
+          {/* Collapsible Mobile Secondary Categories */}
+          <ListItem disablePadding>
+            <ListItemButton
+              onClick={() => setDrawerCategoriesOpen(!drawerCategoriesOpen)}
+              sx={{
+                color: secondaryNavLinks.some(l => location.pathname === l.path) ? "#c83a15" : "white",
+                "&:hover": { color: "#ff8a65" },
+              }}
+            >
+              <ListItemText 
+                primary="More Categories" 
+                primaryTypographyProps={{ 
+                  sx: { fontWeight: secondaryNavLinks.some(l => location.pathname === l.path) ? "bold" : "normal" } 
+                }} 
+              />
+              {drawerCategoriesOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+          </ListItem>
+          <Collapse in={drawerCategoriesOpen} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding sx={{ pl: 2 }}>
+              {secondaryNavLinks.map((link) => (
+                <ListItem key={link.path} disablePadding>
+                  <ListItemButton
+                    component={Link}
+                    to={link.path}
+                    onClick={() => setDrawerOpen(false)}
+                    sx={{
+                      fontWeight: location.pathname === link.path ? "bold" : "normal",
+                      color: location.pathname === link.path ? "#c83a15" : "rgba(255,255,255,0.7)",
+                      "&:hover": { color: "#ff8a65" },
+                    }}
+                  >
+                    <ListItemText primary={link.label} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Collapse>
+
           <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", my: 1 }} />
           {[
             { label: "Facebook Settings", path: "/facebook-settings" },
@@ -270,8 +420,8 @@ const App: React.FC = () => {
                 onClick={() => setDrawerOpen(false)}
                 sx={{
                   fontWeight: location.pathname === link.path ? "bold" : "normal",
-                  color: location.pathname === link.path ? "#1976d2" : "rgba(255,255,255,0.7)",
-                  "&:hover": { color: "#90caf9" },
+                  color: location.pathname === link.path ? "#c83a15" : "rgba(255,255,255,0.7)",
+                  "&:hover": { color: "#ff8a65" },
                 }}
               >
                 <ListItemText primary={link.label} />
