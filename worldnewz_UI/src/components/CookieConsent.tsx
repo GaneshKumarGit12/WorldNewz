@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, Paper, Slide } from '@mui/material';
 import CookieIcon from '@mui/icons-material/Cookie';
+import { useABTest } from '../hooks/useABTest';
 
 export const getCookieConsent = (): 'accepted' | 'declined' | null => {
   return localStorage.getItem('worldnewz_cookie_consent') as 'accepted' | 'declined' | null;
@@ -8,6 +9,7 @@ export const getCookieConsent = (): 'accepted' | 'declined' | null => {
 
 export const CookieConsent: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const acceptBtnVariant = useABTest('cookie_accept_cta', ['A', 'B']); // Variant A: 'Accept All', Variant B: 'Got it!'
 
   useEffect(() => {
     const consent = localStorage.getItem('worldnewz_cookie_consent');
@@ -106,7 +108,7 @@ export const CookieConsent: React.FC = () => {
                 }
               }}
             >
-              Accept All
+              {acceptBtnVariant === 'B' ? 'Got it!' : 'Accept All'}
             </Button>
           </Box>
         </Box>
