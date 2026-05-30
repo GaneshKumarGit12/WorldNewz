@@ -30,7 +30,7 @@ export const CookieConsent: React.FC = () => {
   return (
     <Slide direction="up" in={visible} mountOnEnter unmountOnExit>
       <Paper
-        elevation={0}
+        elevation={6}
         sx={{
           position: 'fixed',
           bottom: { xs: 16, sm: 24 },
@@ -40,22 +40,21 @@ export const CookieConsent: React.FC = () => {
           mx: { sm: 'auto' },
           p: 3,
           zIndex: 9999,
-          borderRadius: 4,
+          borderRadius: 3,
           backgroundColor: (theme) => 
             theme.palette.mode === 'light' 
-              ? 'rgba(255, 255, 255, 0.85)' 
-              : 'rgba(22, 27, 34, 0.85)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
+              ? '#ffffff' 
+              : '#1e222b',
           border: '1px solid',
           borderColor: (theme) => 
             theme.palette.mode === 'light' 
-              ? 'rgba(200, 58, 21, 0.15)' 
-              : 'rgba(200, 58, 21, 0.25)',
+              ? 'rgba(0, 0, 0, 0.12)' 
+              : 'rgba(255, 255, 255, 0.12)',
+          borderTop: '4px solid #c83a15',
           boxShadow: (theme) => 
             theme.palette.mode === 'light' 
-              ? '0 10px 40px rgba(0,0,0,0.06)' 
-              : '0 10px 45px rgba(0,0,0,0.4)',
+              ? '0 10px 40px rgba(0,0,0,0.12)' 
+              : '0 10px 45px rgba(0,0,0,0.6)',
         }}
       >
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2.5 }}>
