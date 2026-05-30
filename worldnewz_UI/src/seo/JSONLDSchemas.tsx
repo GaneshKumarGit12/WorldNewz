@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'http://worldnewzs.in';
+const SITE_URL = 'https://worldnewzs.in';
 const SITE_NAME = 'WorldNewzs';
-const LOGO_URL = 'http://worldnewzs.in/favicon.svg'; // Fixed fallback URL
+const LOGO_URL = 'https://worldnewzs.in/favicon.svg'; // Fixed fallback URL
 
 /* ── WebSite schema (inject in App root, once) ── */
 export const JSONLDWebSite = () => (
@@ -26,6 +26,31 @@ export const JSONLDWebSite = () => (
           "url": LOGO_URL
         }
       }
+    })}</script>
+  </Helmet>
+);
+
+/* ── Organization schema (inject in App root, once) ── */
+export const JSONLDOrganization = () => (
+  <Helmet>
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": SITE_NAME,
+      "url": SITE_URL,
+      "logo": LOGO_URL,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-555-0199",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61589266599006",
+        "https://x.com/ganeshkumard1",
+        "https://www.youtube.com/@ganeshkumar56",
+        "https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/",
+        "https://www.instagram.com/ganeshkumard12/"
+      ]
     })}</script>
   </Helmet>
 );

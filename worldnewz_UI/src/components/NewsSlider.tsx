@@ -196,6 +196,7 @@ const NewsSlider: React.FC<Props> = ({
                     <Box key={article.url || idx} sx={{ p: 1, width: "100%", display: "flex", flexDirection: "column" }}>
                         <NewsCard
                             article={article}
+                            loading={idx < 2 ? "eager" : "lazy"}
                             onBookmark={onBookmark}
                             onRemoveBookmark={onRemoveBookmark}
                             isBookmarked={article.url ? isBookmarked(article.url) : false}

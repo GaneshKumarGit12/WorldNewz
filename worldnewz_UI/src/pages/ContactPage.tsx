@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const SITE_URL = 'http://worldnewzs.in';
+const SITE_URL = 'https://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const ContactPage = () => {

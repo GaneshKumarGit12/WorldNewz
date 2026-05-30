@@ -38,6 +38,7 @@ interface NewsCardProps {
   onLikeComment?: (articleUrl: string, commentId: string) => void;
   onDislikeComment?: (articleUrl: string, commentId: string) => void;
   engagement?: any;
+  loading?: "lazy" | "eager";
 }
 
 const formatTimeAgoLong = (dateString?: string) => {
@@ -104,6 +105,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   onLikeComment,
   onDislikeComment,
   engagement,
+  loading = "lazy",
 }) => {
   const navigate = useNavigate();
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
@@ -247,7 +249,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             component="img"
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
-            loading="lazy"
+            loading={loading}
             sx={{
               position: "absolute",
               top: 0,

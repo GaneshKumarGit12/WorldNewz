@@ -4,7 +4,7 @@ import { Container, Typography, Box } from '@mui/material';
 
 const LAST_UPDATED = '2026-05-23';
 const SITE_NAME = 'WorldNewzs';
-const SITE_URL = 'http://worldnewzs.in';
+const SITE_URL = 'https://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
 
 export const PrivacyPolicyPage = () => (

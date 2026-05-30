@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://worldnewzs.in/</loc>
+    <loc>https://worldnewzs.in/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/sports</loc>
+    <loc>https://worldnewzs.in/sports</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/money</loc>
+    <loc>https://worldnewzs.in/money</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/weather</loc>
+    <loc>https://worldnewzs.in/weather</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/shopping</loc>
+    <loc>https://worldnewzs.in/shopping</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/travel</loc>
+    <loc>https://worldnewzs.in/travel</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/food</loc>
+    <loc>https://worldnewzs.in/food</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/entertainment</loc>
+    <loc>https://worldnewzs.in/entertainment</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/search</loc>
+    <loc>https://worldnewzs.in/search</loc>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/bookmarks</loc>
+    <loc>https://worldnewzs.in/bookmarks</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/about</loc>
+    <loc>https://worldnewzs.in/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/contact</loc>
+    <loc>https://worldnewzs.in/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/privacy-policy</loc>
+    <loc>https://worldnewzs.in/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://worldnewzs.in/terms</loc>
+    <loc>https://worldnewzs.in/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

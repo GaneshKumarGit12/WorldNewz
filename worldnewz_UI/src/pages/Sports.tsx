@@ -9,6 +9,7 @@ import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
 
@@ -98,6 +99,10 @@ const Sports: React.FC = () => {
         description="Latest updates from the world of sports."
         keywords={['sports', 'news', 'football', 'basketball', 'tennis', 'latest sports']}
       />
+      <JSONLDBreadcrumb crumbs={[
+        { name: "Home", url: window.location.origin },
+        { name: "Sports", url: `${window.location.origin}/sports` }
+      ]} />
       <Box sx={{ mb: 4 }}>
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
           Sports

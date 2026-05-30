@@ -23,7 +23,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import CommentDialog from "../components/CommentDialog";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
-import { JSONLDNewsArticle } from "../seo/JSONLDSchemas";
+import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
@@ -289,17 +289,24 @@ const ResultPage: React.FC = () => {
         ogType="article"
         articlePublishedTime={article.publishedAt}
         articleSection={article.category}
-        canonical={article.url}
+        canonical={`${window.location.origin}/article/${id}`}
       />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
           summary: article.summary || article.description || "",
-          url: article.url || "",
+          url: `${window.location.origin}/article/${id}`,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
           category: article.category || ""
         }}
+      />
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: window.location.origin },
+          { name: getCategoryConfig(article.category).name, url: `${window.location.origin}/${article.category?.toLowerCase()}` },
+          { name: article.headline || article.title, url: `${window.location.origin}/article/${id}` }
+        ]}
       />
       {/* Back Button */}
       <Button

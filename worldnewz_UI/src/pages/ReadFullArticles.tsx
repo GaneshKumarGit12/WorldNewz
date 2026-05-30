@@ -19,7 +19,7 @@ import MovieIcon from "@mui/icons-material/Movie";
 import { useEffect, useState } from "react";
 import type { Article } from "../types";
 import { fetchFullContent, fetchSearch } from "../api/apiClient";
-import { JSONLDNewsArticle } from "../seo/JSONLDSchemas";
+import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
 
 const getCategoryConfig = (category?: string) => {
@@ -215,17 +215,24 @@ const ReadFullArticles: React.FC = () => {
         ogType="article"
         articlePublishedTime={article.publishedAt}
         articleSection={article.category}
-        canonical={article.url}
+        canonical={`${window.location.origin}/read-article/${id}`}
       />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
           summary: article.summary || article.description || "",
-          url: article.url || "",
+          url: `${window.location.origin}/read-article/${id}`,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
           category: article.category || ""
         }}
+      />
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: window.location.origin },
+          { name: catConfig.name, url: `${window.location.origin}/${article.category?.toLowerCase()}` },
+          { name: article.headline || article.title, url: `${window.location.origin}/read-article/${id}` }
+        ]}
       />
 
       {/* Back to Briefing Page */}

@@ -3,8 +3,8 @@ export const getOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "WorldNewzs",
-    "url": "http://worldnewzs.in",
-    "logo": "http://worldnewzs.in/favicon.svg",
+    "url": "https://worldnewzs.in",
+    "logo": "https://worldnewzs.in/favicon.svg",
     "description": "WorldNewzs – Stay updated with the latest news in sports, business, technology, health, and more."
   };
 };
@@ -26,7 +26,7 @@ export const getArticleSchema = (article: { title: string; description: string; 
       "name": "WorldNewzs",
       "logo": {
         "@type": "ImageObject",
-        "url": "http://worldnewzs.in/favicon.svg"
+        "url": "https://worldnewzs.in/favicon.svg"
       }
     },
     "description": article.description

@@ -26,7 +26,7 @@ import { useState, useEffect } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
-import { JSONLDWebSite } from "./seo/JSONLDSchemas";
+import { JSONLDWebSite, JSONLDOrganization } from "./seo/JSONLDSchemas";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import TextField from "@mui/material/TextField";
@@ -115,6 +115,7 @@ const App: React.FC = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <JSONLDWebSite />
+      <JSONLDOrganization />
       {/* ─── Top AppBar ─── */}
       <AppBar
         position="static"
@@ -164,6 +165,7 @@ const App: React.FC = () => {
               <IconButton
                 component={Link}
                 to="/comments"
+                aria-label="Comments"
                 sx={{ color: location.pathname === "/comments" ? "#4caf50" : "white", ml: 1 }}
               >
                 <Badge badgeContent={totalComments} color="success" max={999}>
@@ -177,6 +179,7 @@ const App: React.FC = () => {
               <IconButton
                 component={Link}
                 to="/bookmarks"
+                aria-label="Bookmarks"
                 sx={{ color: location.pathname === "/bookmarks" ? "#ffb74d" : "white", ml: 1 }}
               >
                 <Badge badgeContent={bookmarks.length} color="warning" max={99}>
@@ -190,6 +193,7 @@ const App: React.FC = () => {
               <IconButton
                 component={Link}
                 to="/facebook-settings"
+                aria-label="Facebook Settings"
                 sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white", ml: 1 }}
               >
                 <FacebookIcon />
@@ -198,7 +202,7 @@ const App: React.FC = () => {
 
             {/* Dark mode toggle */}
             <Tooltip title={isDark ? "Switch to Light mode" : "Switch to Dark mode"}>
-              <IconButton onClick={toggleMode} sx={{ color: "white", ml: 0.5 }}>
+              <IconButton onClick={toggleMode} aria-label="Toggle theme" sx={{ color: "white", ml: 0.5 }}>
                 {isDark ? <LightModeIcon /> : <DarkModeIcon />}
               </IconButton>
             </Tooltip>
@@ -206,23 +210,23 @@ const App: React.FC = () => {
 
           {/* Mobile: bookmark + theme + hamburger */}
           <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
-            <IconButton component={Link} to="/comments" sx={{ color: "white" }}>
+            <IconButton component={Link} to="/comments" aria-label="Comments" sx={{ color: "white" }}>
               <Badge badgeContent={totalComments} color="success" max={999}>
                 <ChatBubbleIcon />
               </Badge>
             </IconButton>
-            <IconButton component={Link} to="/bookmarks" sx={{ color: "white" }}>
+            <IconButton component={Link} to="/bookmarks" aria-label="Bookmarks" sx={{ color: "white" }}>
               <Badge badgeContent={bookmarks.length} color="warning" max={99}>
                 <BookmarkIcon />
               </Badge>
             </IconButton>
-            <IconButton component={Link} to="/facebook-settings" sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white" }}>
+            <IconButton component={Link} to="/facebook-settings" aria-label="Facebook Settings" sx={{ color: location.pathname === "/facebook-settings" ? "#1976d2" : "white" }}>
               <FacebookIcon />
             </IconButton>
-            <IconButton onClick={toggleMode} sx={{ color: "white" }}>
+            <IconButton onClick={toggleMode} aria-label="Toggle theme" sx={{ color: "white" }}>
               {isDark ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
-            <IconButton sx={{ color: "white" }} edge="end" onClick={() => setDrawerOpen(true)}>
+            <IconButton aria-label="Menu" sx={{ color: "white" }} edge="end" onClick={() => setDrawerOpen(true)}>
               <MenuIcon />
             </IconButton>
           </Box>

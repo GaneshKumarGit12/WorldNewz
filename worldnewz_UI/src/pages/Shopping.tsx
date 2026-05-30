@@ -9,6 +9,7 @@ import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
 
@@ -100,6 +101,10 @@ const Shopping: React.FC = () => {
         description="Latest shopping trends, deals, and e-commerce news."
         keywords={['shopping', 'e-commerce', 'deals', 'trends', 'discounts', 'news']}
       />
+      <JSONLDBreadcrumb crumbs={[
+        { name: "Home", url: window.location.origin },
+        { name: "Shopping", url: `${window.location.origin}/shopping` }
+      ]} />
       <Typography variant="h4" sx={{ mb: 2, fontWeight: 700 }}>🛒 Shopping</Typography>
       <SectionStatus loading={loading} error={error} hasData={filteredArticles.length > 0}
         emptyText={normalizedSearchTerm ? "No results matching your search." : "No shopping news available."}>

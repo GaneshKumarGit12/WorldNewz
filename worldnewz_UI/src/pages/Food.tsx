@@ -9,6 +9,7 @@ import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
 
@@ -96,6 +97,10 @@ const Food: React.FC = () => {
         description="Latest updates and recipes from the world of food."
         keywords={['food', 'news', 'dining', 'recipes', 'latest food']}
       />
+      <JSONLDBreadcrumb crumbs={[
+        { name: "Home", url: window.location.origin },
+        { name: "Food", url: `${window.location.origin}/food` }
+      ]} />
       <Box sx={{ mb: 4 }}>
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
           Food

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { fetchWeather } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -125,6 +126,10 @@ const Weather: React.FC = () => {
   return (
     <Box sx={{ p: 2 }}>
       <SEOMeta title={titleText} description={descText} />
+      <JSONLDBreadcrumb crumbs={[
+        { name: "Home", url: window.location.origin },
+        { name: "Weather", url: `${window.location.origin}/weather` }
+      ]} />
       <Typography variant="h4" sx={{ mb: 2 }}>
         Weather Dashboard
       </Typography>

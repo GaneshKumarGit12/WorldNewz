@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'http://worldnewzs.in',
+      hostname: 'https://worldnewzs.in',
       dynamicRoutes: [
         '/',
         '/sports',

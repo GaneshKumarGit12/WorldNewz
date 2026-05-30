@@ -4,7 +4,7 @@ import { Container, Typography, Box, Grid, Card, CardContent, Avatar, Divider, L
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
-const SITE_URL = 'http://worldnewzs.in';
+const SITE_URL = 'https://worldnewzs.in';
 
 export const AboutPage = () => {
   return (

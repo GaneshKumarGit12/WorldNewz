@@ -14,8 +14,8 @@ export interface SEOMetaProps {
 }
 
 const SITE_NAME = 'WorldNewzs';
-const SITE_URL = 'http://worldnewzs.in';
-const DEFAULT_OG = 'http://worldnewzs.in/favicon.svg'; // Fixed fallback URL
+const SITE_URL = 'https://worldnewzs.in';
+const DEFAULT_OG = 'https://worldnewzs.in/favicon.svg'; // Fixed fallback URL
 
 const DEFAULTS: SEOMetaProps = {
   title: 'WorldNewzs – Your World, Your News',
@@ -28,7 +28,7 @@ const DEFAULTS: SEOMetaProps = {
 export const SEOMeta = (props: SEOMetaProps) => {
   const p = { ...DEFAULTS, ...props };
   const fullTitle = p.title === DEFAULTS.title ? p.title : `${p.title} | ${SITE_NAME}`;
-  const canonical = p.canonical ?? (typeof window !== 'undefined' ? window.location.href : SITE_URL);
+  const canonical = p.canonical ?? (typeof window !== 'undefined' ? window.location.origin + window.location.pathname : SITE_URL);
 
   return (
     <Helmet prioritizeSeoTags>

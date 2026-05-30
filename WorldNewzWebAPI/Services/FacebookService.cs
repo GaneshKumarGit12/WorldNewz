@@ -68,7 +68,7 @@ namespace WorldNewzWebAPI.Services
                 try
                 {
                     var message = $"{article.Title}\n\n{article.Description ?? ""}";
-                    var linkUrl = "http://worldnewzs.in";
+                    var linkUrl = "https://worldnewzs.in";
 
                     var postData = new
                     {

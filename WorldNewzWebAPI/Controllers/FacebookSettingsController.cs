@@ -254,7 +254,7 @@ namespace WorldNewzWebAPI.Controllers
                 {
                     Title = "Test Integration Post from WorldNewz Dashboard",
                     Description = $"This is a verification post triggered from the admin dashboard on {DateTime.Now:yyyy-MM-dd HH:mm:ss} to confirm the dynamic posting workflow.",
-                    Url = "http://worldnewzs.in"
+                    Url = "https://worldnewzs.in"
                 };
 
                 // Perform direct API call to post just this test message to the page

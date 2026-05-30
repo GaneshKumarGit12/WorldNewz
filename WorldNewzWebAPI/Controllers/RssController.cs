@@ -69,7 +69,7 @@ namespace WorldNewzWebAPI.Controllers
 
             var channel = new XElement("channel",
                 new XElement("title", $"WorldNewzs {feedType}"),
-                new XElement("link", "http://worldnewzs.in"),
+                new XElement("link", "https://worldnewzs.in"),
                 new XElement("description", $"Latest {feedType} news from WorldNewzs"),
                 new XElement(atom + "link",
                     new XAttribute("href", $"https://worldnewz.onrender.com/rss/{feedType}"),

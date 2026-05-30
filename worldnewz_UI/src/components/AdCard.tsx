@@ -80,13 +80,33 @@ const isAdSenseEligible = typeof window !== "undefined" &&
 const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index = 0 }) => {
   const [adScript, setAdScript] = useState<string | null>(null);
   const [adBlocked, setAdBlocked] = useState(!isAdSenseEligible);
+  const [isVisible, setIsVisible] = useState(false);
   const initializedRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const adElementRef = useRef<HTMLDivElement>(null);
 
   // Select a unique sponsored item based on the card position index
   const adItem = SPONSORED_ADS[index % SPONSORED_ADS.length];
 
   useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // trigger 200px before entering viewport
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
     initializedRef.current = false;
     
     if (!isAdSenseEligible) {
@@ -106,12 +126,12 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       .catch(() => {
         setAdBlocked(true);
       });
-  }, [placement]);
+  }, [placement, isVisible]);
 
   useEffect(() => {
-    if (!isAdSenseEligible || !adScript || adBlocked || initializedRef.current) return;
+    if (!isVisible || !isAdSenseEligible || !adScript || adBlocked || initializedRef.current) return;
 
-    const container = containerRef.current;
+    const container = adElementRef.current;
     if (!container) return;
 
     let resizeObserver: ResizeObserver | null = null;
@@ -196,10 +216,37 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
         clearInterval(statusInterval);
       }
     };
-  }, [adScript, adBlocked, placement]);
+  }, [adScript, adBlocked, placement, isVisible]);
 
-  // If the script is loaded and not blocked, render the AdSense container
-  if (!adBlocked && adScript) {
+  const renderContent = () => {
+    if (!adBlocked && adScript) {
+      return (
+        <Card
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            width: "100%",
+            minHeight: 320,
+            bgcolor: "background.paper",
+            backgroundImage: "none",
+            boxShadow: "none",
+            borderRadius: 2,
+            overflow: "hidden",
+            p: 1.5,
+            justifyContent: "center",
+            alignItems: "center",
+            border: "1px solid",
+            borderColor: "divider",
+          }}
+        >
+          <Box ref={adElementRef} sx={{ width: "100%", height: "100%", minHeight: 280 }}>
+            <div dangerouslySetInnerHTML={{ __html: adScript }} />
+          </Box>
+        </Card>
+      );
+    }
+
     return (
       <Card
         sx={{
@@ -207,166 +254,146 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           flexDirection: "column",
           height: "100%",
           width: "100%",
-          minHeight: 320,
+          minHeight: 320, // Stable layout size to prevent CLS
           bgcolor: "background.paper",
           backgroundImage: "none",
           boxShadow: "none",
           borderRadius: 2,
           overflow: "hidden",
-          p: 1.5,
-          justifyContent: "center",
-          alignItems: "center",
-          border: "1px solid",
-          borderColor: "divider",
+          transition: "transform 0.2s ease",
+          "&:hover": {
+            transform: "scale(1.02)",
+          },
         }}
       >
-        <Box ref={containerRef} sx={{ width: "100%", height: "100%", minHeight: 280 }}>
-          <div dangerouslySetInnerHTML={{ __html: adScript }} />
+        <Box sx={{ position: "relative", paddingTop: "56.25%" }}>
+          <CardMedia
+            component="img"
+            image={adItem.imageUrl}
+            alt={adItem.title}
+            loading="lazy"
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+          {/* Sponsored Tag */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 8,
+              left: 8,
+              bgcolor: "rgba(0, 0, 0, 0.75)",
+              color: "#fff",
+              px: 1,
+              py: 0.25,
+              borderRadius: 0.5,
+              fontSize: "0.65rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: 0.5,
+              zIndex: 2,
+            }}
+          >
+            Sponsored
+          </Box>
+        </Box>
+
+        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 1.5, pb: 0 }}>
+          <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
+            <Avatar
+              sx={{
+                width: 24,
+                height: 24,
+                fontSize: "0.75rem",
+                bgcolor: "warning.main",
+                mt: 0.5,
+              }}
+            >
+              {adItem.source[0].toUpperCase()}
+            </Avatar>
+            <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 600,
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  lineHeight: 1.3,
+                  mb: 0.5,
+                }}
+              >
+                {adItem.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ display: "flex", alignItems: "center", fontSize: "0.75rem" }}
+              >
+                {adItem.source}
+                <Box component="span" sx={{ mx: 0.5 }}>
+                  •
+                </Box>
+                {formatTimeAgo(adItem.publishedAt)}
+              </Typography>
+            </Box>
+          </Box>
+        </CardContent>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            px: 1.5,
+            pb: 1.5,
+            pl: 5.5,
+          }}
+        >
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <IconButton size="small" disabled sx={{ p: 0.5 }}>
+                <ThumbUpOutlinedIcon fontSize="small" />
+              </IconButton>
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
+                {adItem.likes}
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <IconButton size="small" disabled sx={{ p: 0.5 }}>
+                <ThumbDownOutlinedIcon fontSize="small" />
+              </IconButton>
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+              <IconButton size="small" disabled sx={{ p: 0.5 }}>
+                <ChatBubbleOutlineIcon fontSize="small" />
+              </IconButton>
+            </Box>
+          </Box>
+
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <ShareIcon fontSize="small" />
+            </IconButton>
+            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <BookmarkBorderIcon fontSize="small" />
+            </IconButton>
+          </Box>
         </Box>
       </Card>
     );
-  }
+  };
 
-  // Otherwise (local dev, ad-blocked), render a perfectly matched placeholder card
   return (
-    <Card
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        width: "100%",
-        bgcolor: "background.paper",
-        backgroundImage: "none",
-        boxShadow: "none",
-        borderRadius: 2,
-        overflow: "hidden",
-        transition: "transform 0.2s ease",
-        "&:hover": {
-          transform: "scale(1.02)",
-        },
-      }}
-    >
-      <Box sx={{ position: "relative", paddingTop: "56.25%" }}>
-        <CardMedia
-          component="img"
-          image={adItem.imageUrl}
-          alt={adItem.title}
-          loading="lazy"
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
-        {/* Sponsored Tag */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 8,
-            left: 8,
-            bgcolor: "rgba(0, 0, 0, 0.75)",
-            color: "#fff",
-            px: 1,
-            py: 0.25,
-            borderRadius: 0.5,
-            fontSize: "0.65rem",
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: 0.5,
-            zIndex: 2,
-          }}
-        >
-          Sponsored
-        </Box>
-      </Box>
-
-      <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 1.5, pb: 0 }}>
-        <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
-          <Avatar
-            sx={{
-              width: 24,
-              height: 24,
-              fontSize: "0.75rem",
-              bgcolor: "warning.main",
-              mt: 0.5,
-            }}
-          >
-            {adItem.source[0].toUpperCase()}
-          </Avatar>
-          <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
-            <Typography
-              variant="subtitle2"
-              sx={{
-                fontWeight: 600,
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                lineHeight: 1.3,
-                mb: 0.5,
-              }}
-            >
-              {adItem.title}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ display: "flex", alignItems: "center", fontSize: "0.75rem" }}
-            >
-              {adItem.source}
-              <Box component="span" sx={{ mx: 0.5 }}>
-                •
-              </Box>
-              {formatTimeAgo(adItem.publishedAt)}
-            </Typography>
-          </Box>
-        </Box>
-      </CardContent>
-
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          px: 1.5,
-          pb: 1.5,
-          pl: 5.5,
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton size="small" disabled sx={{ p: 0.5 }}>
-              <ThumbUpOutlinedIcon fontSize="small" />
-            </IconButton>
-            <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
-              {adItem.likes}
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton size="small" disabled sx={{ p: 0.5 }}>
-              <ThumbDownOutlinedIcon fontSize="small" />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton size="small" disabled sx={{ p: 0.5 }}>
-              <ChatBubbleOutlineIcon fontSize="small" />
-            </IconButton>
-          </Box>
-        </Box>
-
-        <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-          <IconButton size="small" disabled sx={{ p: 0.5 }}>
-            <ShareIcon fontSize="small" />
-          </IconButton>
-          <IconButton size="small" disabled sx={{ p: 0.5 }}>
-            <BookmarkBorderIcon fontSize="small" />
-          </IconButton>
-        </Box>
-      </Box>
-    </Card>
+    <Box ref={containerRef} sx={{ width: "100%", height: "100%", minHeight: 320 }}>
+      {renderContent()}
+    </Box>
   );
 };
 

@@ -18,7 +18,7 @@ namespace WorldNewzWebAPI.Controllers
         [ResponseCache(Duration = 3600)]
         public IActionResult Sitemap()
         {
-            var siteUrl = "http://worldnewzs.in";
+            var siteUrl = "https://worldnewzs.in";
 
             var sb = new StringBuilder();
             sb.AppendLine(@"<?xml version=""1.0"" encoding=""UTF-8""?>");
@@ -56,7 +56,7 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet("robots.txt")]
         public IActionResult RobotsTxt()
         {
-            var siteUrl = "http://worldnewzs.in";
+            var siteUrl = "https://worldnewzs.in";
             var content = $@"User-agent: *
 Allow: /
 Disallow: /api/
