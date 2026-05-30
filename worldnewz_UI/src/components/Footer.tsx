@@ -34,9 +34,21 @@ const Footer: React.FC = () => {
       >
         {/* Left Side: Brand & Links */}
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", md: "flex-start" } }}>
-          <Typography variant="h6" sx={{ fontWeight: 800, color: "white", letterSpacing: 2, mb: 1 }}>
-            🌐 WORLDNEWZS
-          </Typography>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+            <Box
+              component="img"
+              src="/logo.svg"
+              alt="WorldNewzs Logo"
+              sx={{ 
+                height: 30, 
+                width: 30, 
+                mr: 1.5 
+              }}
+            />
+            <Typography variant="h6" sx={{ fontWeight: 800, color: "white", letterSpacing: 2 }}>
+              WORLDNEWZS
+            </Typography>
+          </Box>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: { xs: "center", md: "flex-start" } }}>
             {[
               { label: "Home", to: "/" },
