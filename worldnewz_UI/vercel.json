@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "destination": "https://worldnewzs.in/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/rss/:feedType",
