@@ -18,6 +18,18 @@
   <meta name="google-adsense-account" content="ca-pub-7547748414764075" />
   <meta name="facebook-domain-verification" content="9k75v6j7w1wg41u2dmd14zuihaw74p" />
   <title>WorldNewzs – Your World, Your News</title>
+  
+  <!-- Redirect from Vercel app domain to production domain -->
+  <script>
+    if (window.location.hostname.includes('world-newz.vercel.app')) {
+      const protocol = window.location.protocol;
+      const path = window.location.pathname;
+      const search = window.location.search;
+      const hash = window.location.hash;
+      window.location.replace('https://worldnewzs.in' + path + search + hash);
+    }
+  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -33,16 +45,28 @@
     gtag('config', 'G-JD24Y5Y78Z');
   </script>
 
+  <!-- Hotjar Tracking Code for worldnewzs.in -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:5401292,hjsv:6}; // Active Hotjar ID placeholder
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075"
     crossorigin="anonymous"></script>
-  <script type="module" crossorigin src="/assets/index-xqFK4dVF.js"></script>
+  <script type="module" crossorigin src="/assets/index-BJls_tw0.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-COnpUsM8.js">
-  <link rel="modulepreload" crossorigin href="/assets/mui-vendor-DJNdmSrt.js">
-  <link rel="modulepreload" crossorigin href="/assets/react-vendor-QPl0qxw4.js">
+  <link rel="modulepreload" crossorigin href="/assets/mui-vendor-DUAqkhM3.js">
+  <link rel="modulepreload" crossorigin href="/assets/react-vendor-BDr4K0K1.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-DdeIEvft.js">
   <link rel="modulepreload" crossorigin href="/assets/apiClient-CrnL5kfe.js">
-  <link rel="modulepreload" crossorigin href="/assets/NewsCard-BEq9WbI5.js">
+  <link rel="modulepreload" crossorigin href="/assets/NewsCard-DLkIgXgX.js">
   <link rel="stylesheet" crossorigin href="/assets/vendor-kZb8pGZf.css">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 </head>
