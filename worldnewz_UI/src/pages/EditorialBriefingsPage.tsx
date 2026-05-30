@@ -277,7 +277,7 @@ export const EditorialBriefingsPage = () => {
           {/* Briefings Grid */}
           <Grid container spacing={3}>
             {EDITORIAL_BRIEFINGS.map((briefing) => (
-              <Grid item xs={12} key={briefing.id}>
+              <Grid size={{ xs: 12 }} key={briefing.id}>
                 <Card
                   sx={{
                     height: '100%',

@@ -147,7 +147,3 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
     })}</script>
   </Helmet>
 );
-      }
-    })}</script>
-  </Helmet>
-);

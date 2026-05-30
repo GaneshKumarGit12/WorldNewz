@@ -186,7 +186,7 @@ export const EditorialGuidelinesPage = () => {
                   desc: 'Our editorial decisions are never influenced by commercial or political interests.'
                 }
               ].map((principle, idx) => (
-                <Grid item xs={12} sm={6} md={4} key={idx}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
                   <Card sx={{ height: '100%', textAlign: 'center', p: 3 }}>
                     <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center' }}>
                       {principle.icon}
@@ -222,7 +222,7 @@ export const EditorialGuidelinesPage = () => {
 
                     <Grid container spacing={3}>
                       {/* Allowed */}
-                      <Grid item xs={12} md={6}>
+                      <Grid size={{ xs: 12, md: 6 }}>
                         <Box sx={{ p: 2, bgcolor: '#e8f5e9', borderRadius: 2 }}>
                           <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: 'success.dark' }}>
                             <CheckCircleIcon /> Allowed
@@ -244,7 +244,7 @@ export const EditorialGuidelinesPage = () => {
                       </Grid>
 
                       {/* Not Allowed */}
-                      <Grid item xs={12} md={6}>
+                      <Grid size={{ xs: 12, md: 6 }}>
                         <Box sx={{ p: 2, bgcolor: '#ffebee', borderRadius: 2 }}>
                           <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: 'error.dark' }}>
                             <CancelIcon /> Not Allowed
