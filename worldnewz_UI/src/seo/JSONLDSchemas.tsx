@@ -39,10 +39,38 @@ export const JSONLDOrganization = () => (
       "name": SITE_NAME,
       "url": SITE_URL,
       "logo": LOGO_URL,
+      "description": "Multi-category news aggregator with original editorial analysis and verified reporting",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-800-555-0199",
         "contactType": "customer service"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "url": SITE_URL
+      },
+      "mainEntity": {
+        "@type": "NewsMediaOrganization",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "logo": LOGO_URL,
+        "description": "Breaking news aggregator with original editorial analysis across sports, business, technology, health, and world events",
+        "foundingDate": "2024",
+        "editorial": {
+          "@type": "Text",
+          "text": "Verified news from 10,000+ sources with multi-layer fact-checking and original editorial briefings"
+        }
+      },
+      "editorialBriefings": {
+        "@type": "Thing",
+        "url": `${SITE_URL}/editorial-briefings`,
+        "description": "Original editorial analysis synthesized from multiple credible sources"
+      },
+      "editorialGuidelines": {
+        "@type": "Thing",
+        "url": `${SITE_URL}/editorial-guidelines`,
+        "description": "Comprehensive editorial standards covering source verification, content originality, and factual accuracy"
       },
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61589266599006",
@@ -94,10 +122,31 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
       "url": article.url,
       "articleSection": article.category,
       "inLanguage": "en-US",
+      "author": {
+        "@type": "Organization",
+        "name": "WorldNewzs Editorial Desk",
+        "url": SITE_URL
+      },
       "publisher": {
         "@type": "Organization",
         "name": SITE_NAME,
         "logo": { "@type": "ImageObject", "url": LOGO_URL }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xpathSelectors": ["//*[@data-announcement]"]
+      },
+      "mainEntity": {
+        "@type": "Article",
+        "isPartOf": {
+          "@type": "NewsMediaOrganization",
+          "name": SITE_NAME,
+          "url": SITE_URL
+        }
+      }
+    })}</script>
+  </Helmet>
+);
       }
     })}</script>
   </Helmet>

@@ -24,6 +24,8 @@ const PrivacyPolicyPage = React.lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsPage = React.lazy(() => import("./pages/TermsPage"));
 const AboutPage = React.lazy(() => import("./pages/AboutPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+const EditorialBriefingsPage = React.lazy(() => import("./pages/EditorialBriefingsPage"));
+const EditorialGuidelinesPage = React.lazy(() => import("./pages/EditorialGuidelinesPage"));
 const Travel = React.lazy(() => import("./pages/Travel"));
 const Food = React.lazy(() => import("./pages/Food"));
 const Entertainment = React.lazy(() => import("./pages/Entertainment"));
@@ -61,6 +63,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="terms" element={<TermsPage />} />
                   <Route path="about" element={<AboutPage />} />
+                  <Route path="editorial-briefings" element={<EditorialBriefingsPage />} />
+                  <Route path="editorial-guidelines" element={<EditorialGuidelinesPage />} />
                   <Route path="contact" element={<ContactPage />} />
                   <Route path="facebook-settings" element={<FacebookSettings />} />
                   <Route path="*" element={<NotFoundPage />} />

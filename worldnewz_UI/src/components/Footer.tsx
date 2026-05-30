@@ -60,6 +60,8 @@ const Footer: React.FC = () => {
               { label: "Food", to: "/food" },
               { label: "Entertainment", to: "/entertainment" },
               { label: "Bookmarks", to: "/bookmarks" },
+              { label: "Editorial Briefings", to: "/editorial-briefings" },
+              { label: "Editorial Guidelines", to: "/editorial-guidelines" },
               { label: "About Us", to: "/about" },
               { label: "Contact Us", to: "/contact" },
               { label: "Privacy Policy", to: "/privacy-policy" },

@@ -54,6 +54,7 @@ const secondaryNavLinks = [
   { label: "Travel", path: "/travel" },
   { label: "Food", path: "/food" },
   { label: "Entertainment", path: "/entertainment" },
+  { label: "Editorial Briefings", path: "/editorial-briefings" },
 ];
 
 const categories = ["general", "sports", "business", "technology", "health", "science", "shopping", "travel", "food", "entertainment"];
