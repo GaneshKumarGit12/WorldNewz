@@ -223,8 +223,8 @@ export const EditorialGuidelinesPage = () => {
                     <Grid container spacing={3}>
                       {/* Allowed */}
                       <Grid size={{ xs: 12, md: 6 }}>
-                        <Box sx={{ p: 2, bgcolor: '#e8f5e9', borderRadius: 2 }}>
-                          <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: 'success.dark' }}>
+                        <Box sx={{ p: 2, bgcolor: (theme) => theme.palette.mode === 'dark' ? 'rgba(76, 175, 80, 0.15)' : '#e8f5e9', borderRadius: 2 }}>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: (theme) => theme.palette.mode === 'dark' ? 'success.light' : 'success.dark' }}>
                             <CheckCircleIcon /> Allowed
                           </Typography>
                           <List sx={{ p: 0 }}>
@@ -245,8 +245,8 @@ export const EditorialGuidelinesPage = () => {
 
                       {/* Not Allowed */}
                       <Grid size={{ xs: 12, md: 6 }}>
-                        <Box sx={{ p: 2, bgcolor: '#ffebee', borderRadius: 2 }}>
-                          <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: 'error.dark' }}>
+                        <Box sx={{ p: 2, bgcolor: (theme) => theme.palette.mode === 'dark' ? 'rgba(244, 67, 54, 0.15)' : '#ffebee', borderRadius: 2 }}>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: (theme) => theme.palette.mode === 'dark' ? 'error.light' : 'error.dark' }}>
                             <CancelIcon /> Not Allowed
                           </Typography>
                           <List sx={{ p: 0 }}>
