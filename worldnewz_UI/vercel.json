@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "https://worldnewz.onrender.com/sitemap.xml"
+    },
+    {
+      "source": "/news-sitemap.xml",
+      "destination": "https://worldnewz.onrender.com/news-sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "https://worldnewz.onrender.com/robots.txt"
+    },
+    {
       "source": "/rss/:feedType",
       "destination": "https://worldnewz.onrender.com/rss/:feedType"
     },
