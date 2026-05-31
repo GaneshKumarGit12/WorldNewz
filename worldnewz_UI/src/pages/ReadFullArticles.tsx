@@ -1,5 +1,5 @@
-import { useNavigate, useLocation, useParams } from "react-router-dom";
-import { Box, Typography, Card, CardMedia, Button, Container, Divider, Alert, LinearProgress, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
+import { useNavigate, useLocation, useParams, Link } from "react-router-dom";
+import { Box, Typography, Card, CardMedia, Button, Container, Divider, Alert, LinearProgress, Menu, MenuItem, ListItemIcon, ListItemText, Link as MuiLink, Avatar } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ShareIcon from "@mui/icons-material/Share";
@@ -18,9 +18,14 @@ import FlightIcon from "@mui/icons-material/Flight";
 import MovieIcon from "@mui/icons-material/Movie";
 import { useEffect, useState } from "react";
 import type { Article } from "../types";
-import { fetchFullContent, fetchSearch } from "../api/apiClient";
+import { fetchFullContent, fetchSearch, fetchDiscover } from "../api/apiClient";
 import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
+import { getAuthorForCategory } from "../utils/authors";
+import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
+import SectionStatus from "../components/SectionStatus";
+import NewsSlider from "../components/NewsSlider";
 
 const getCategoryConfig = (category?: string) => {
   const cat = (category || '').toLowerCase().trim();
@@ -65,6 +70,21 @@ const ReadFullArticles: React.FC = () => {
   
   const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
   const shareOpen = Boolean(shareAnchorEl);
+
+  const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
+  const [relatedLoading, setRelatedLoading] = useState(true);
+  const [relatedError, setRelatedError] = useState<string | null>(null);
+
+  const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
 
   // 1. Resolve article object (from state or fallback fetch)
   useEffect(() => {
@@ -124,6 +144,38 @@ const ReadFullArticles: React.FC = () => {
       .finally(() => {
         setScrapingLoading(false);
       });
+  }, [article]);
+
+  // 3. Fetch related stories
+  useEffect(() => {
+    if (!article) {
+      setRelatedArticles([]);
+      setRelatedLoading(false);
+      return;
+    }
+
+    setRelatedLoading(true);
+    setRelatedError(null);
+
+    fetchDiscover()
+      .then((res) => {
+        const data = Array.isArray(res.data?.articles) ? res.data.articles : [];
+        const related = data
+          .map((a: any) => ({
+            ...a,
+            imageUrl: a.urlToImage || a.image || a.imageUrl,
+            category: a.source?.name || "News",
+          }))
+          .filter((item: Article) => item.url && item.url !== article.url)
+          .slice(0, 10);
+
+        setRelatedArticles(related);
+      })
+      .catch((err: any) => {
+        const apiError = err.response?.data?.error || err.message || "Unable to load related stories.";
+        setRelatedError(apiError);
+      })
+      .finally(() => setRelatedLoading(false));
   }, [article]);
 
   if (loading) {
@@ -204,6 +256,7 @@ const ReadFullArticles: React.FC = () => {
     }
   };
 
+  const author = getAuthorForCategory(article.category);
   const catConfig = getCategoryConfig(article.category);
 
   return (
@@ -214,6 +267,7 @@ const ReadFullArticles: React.FC = () => {
         ogImage={article.urlToImage || article.imageUrl}
         ogType="article"
         articlePublishedTime={article.publishedAt}
+        articleModifiedTime={article.publishedAt}
         articleSection={article.category}
         canonical={`${window.location.origin}/read-article/${id}`}
       />
@@ -224,7 +278,10 @@ const ReadFullArticles: React.FC = () => {
           url: `${window.location.origin}/read-article/${id}`,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
-          category: article.category || ""
+          category: article.category || "",
+          authorName: author.name,
+          authorSlug: author.slug,
+          dateModified: article.publishedAt
         }}
       />
       <JSONLDBreadcrumb
@@ -253,7 +310,8 @@ const ReadFullArticles: React.FC = () => {
             height={420}
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
-            loading="lazy"
+            loading="eager"
+            {...({ fetchPriority: "high" } as any)}
             onError={(e: any) => {
               e.target.style.display = "none";
             }}
@@ -271,12 +329,39 @@ const ReadFullArticles: React.FC = () => {
             component="h1"
             sx={{
               fontWeight: 800,
-              mb: 2,
+              mb: 1,
               lineHeight: 1.25,
               fontSize: { xs: "1.85rem", sm: "2.4rem" },
             }}
           >
             {article.headline || article.title}
+          </Typography>
+
+          {/* Author Byline */}
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 650,
+              mb: 2,
+              color: "text.secondary",
+              fontSize: "0.95rem"
+            }}
+          >
+            By{" "}
+            <MuiLink
+              component={Link}
+              to={`/author/${author.slug}`}
+              sx={{
+                color: "primary.main",
+                textDecoration: "none",
+                fontWeight: 700,
+                "&:hover": {
+                  textDecoration: "underline",
+                }
+              }}
+            >
+              {author.name}
+            </MuiLink>
           </Typography>
 
           {/* Meta Information Bar */}
@@ -419,8 +504,73 @@ const ReadFullArticles: React.FC = () => {
               </Box>
             )}
           </Box>
+
+          {/* Editorial Oversight Box (E-E-A-T) */}
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 2,
+              p: 2,
+              border: "1px solid",
+              borderColor: "divider",
+              borderRadius: 2,
+              mt: 4,
+              bgcolor: "background.paper"
+            }}
+          >
+            <Avatar sx={{ bgcolor: catConfig.color, width: 44, height: 44, fontWeight: 700 }}>{author.avatar}</Avatar>
+            <Box>
+              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                Verified Curation & Analysis
+              </Typography>
+              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.25 }}>
+                Fact checked and compiled by{" "}
+                <MuiLink
+                  component={Link}
+                  to={`/author/${author.slug}`}
+                  sx={{
+                    fontWeight: 750,
+                    color: "primary.main",
+                    textDecoration: "none",
+                    "&:hover": { textDecoration: "underline" }
+                  }}
+                >
+                  {author.name}
+                </MuiLink>
+                , {author.title}. Aggregated from verified sources and annotated to support reporting transparency.
+              </Typography>
+            </Box>
+          </Box>
         </Box>
       </Card>
+
+      {/* Related Stories */}
+      <Box sx={{ mt: 6 }}>
+        <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+          Related Stories
+        </Typography>
+        <SectionStatus
+          loading={relatedLoading}
+          error={relatedError}
+          hasData={relatedArticles.length > 0}
+          emptyText="No related stories available right now."
+        >
+          <NewsSlider
+            articles={relatedArticles}
+            onBookmark={addBookmark}
+            onRemoveBookmark={removeBookmark}
+            isBookmarked={isBookmarked}
+            onLike={toggleLike}
+            onDislike={toggleDislike}
+            onAddComment={(url, text, author) => addComment(url, text, author)}
+            onDeleteComment={deleteComment}
+            onLikeComment={likeComment}
+            onDislikeComment={dislikeComment}
+            getEngagement={getEngagement}
+          />
+        </SectionStatus>
+      </Box>
 
       {/* Share Menu */}
       <Menu

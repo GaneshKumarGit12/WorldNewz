@@ -66,11 +66,11 @@ const Footer: React.FC = () => {
               { label: "Contact Us", to: "/contact" },
               { label: "Privacy Policy", to: "/privacy-policy" },
               { label: "Terms", to: "/terms" },
+              { label: "RSS Feed", to: "/rss/discover", isExternal: true },
             ].map((link) => (
               <MuiLink
                 key={link.to}
-                component={Link}
-                to={link.to}
+                {...(link.isExternal ? { href: link.to } : { component: Link, to: link.to })}
                 underline="hover"
                 sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" }, fontSize: "0.875rem" }}
               >

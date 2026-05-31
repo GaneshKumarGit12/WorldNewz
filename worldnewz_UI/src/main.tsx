@@ -30,6 +30,7 @@ const Travel = React.lazy(() => import("./pages/Travel"));
 const Food = React.lazy(() => import("./pages/Food"));
 const Entertainment = React.lazy(() => import("./pages/Entertainment"));
 const FacebookSettings = React.lazy(() => import("./pages/FacebookSettings"));
+const AuthorBioPage = React.lazy(() => import("./pages/AuthorBioPage"));
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 
 const PageLoader = () => (
@@ -60,6 +61,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="comments" element={<CommentHistory />} />
                   <Route path="article/:id" element={<ResultPage />} />
                   <Route path="read-article/:id" element={<ReadFullArticles />} />
+                  <Route path="author/:slug" element={<AuthorBioPage />} />
                   <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="terms" element={<TermsPage />} />
                   <Route path="about" element={<AboutPage />} />

@@ -1,5 +1,5 @@
-import { useNavigate, useLocation, useParams } from "react-router-dom";
-import { Box, Typography, Card, CardMedia, Button, Container, Divider, Alert, Menu, MenuItem, ListItemIcon, ListItemText, Avatar, Grid } from "@mui/material";
+import { useNavigate, useLocation, useParams, Link } from "react-router-dom";
+import { Box, Typography, Card, CardMedia, Button, Container, Divider, Alert, Menu, MenuItem, ListItemIcon, ListItemText, Avatar, Grid, Link as MuiLink } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
@@ -37,6 +37,7 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import FlightIcon from "@mui/icons-material/Flight";
 import MovieIcon from "@mui/icons-material/Movie";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import { getAuthorForCategory } from "../utils/authors";
 
 const getCategoryConfig = (category?: string) => {
   const cat = (category || '').toLowerCase().trim();
@@ -280,6 +281,8 @@ const ResultPage: React.FC = () => {
     }
   };
 
+  const author = getAuthorForCategory(article.category);
+
   return (
     <Container maxWidth="md" sx={{ py: 4, minHeight: "70vh" }}>
       <SEOMeta
@@ -288,6 +291,7 @@ const ResultPage: React.FC = () => {
         ogImage={article.urlToImage || article.imageUrl}
         ogType="article"
         articlePublishedTime={article.publishedAt}
+        articleModifiedTime={article.publishedAt}
         articleSection={article.category}
         canonical={`${window.location.origin}/article/${id}`}
       />
@@ -298,7 +302,10 @@ const ResultPage: React.FC = () => {
           url: `${window.location.origin}/article/${id}`,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
-          category: article.category || ""
+          category: article.category || "",
+          authorName: author.name,
+          authorSlug: author.slug,
+          dateModified: article.publishedAt
         }}
       />
       <JSONLDBreadcrumb
@@ -327,7 +334,8 @@ const ResultPage: React.FC = () => {
             height={400}
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
-            loading="lazy"
+            loading="eager"
+            {...({ fetchPriority: "high" } as any)}
             onError={(e: any) => {
               e.target.style.display = "none";
             }}
@@ -345,12 +353,39 @@ const ResultPage: React.FC = () => {
             component="h1"
             sx={{
               fontWeight: 700,
-              mb: 2,
+              mb: 1,
               lineHeight: 1.3,
               fontSize: { xs: "1.75rem", sm: "2.25rem" },
             }}
           >
             {article.headline || article.title}
+          </Typography>
+
+          {/* Author Byline */}
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 650,
+              mb: 2,
+              color: "text.secondary",
+              fontSize: "0.95rem"
+            }}
+          >
+            By{" "}
+            <MuiLink
+              component={Link}
+              to={`/author/${author.slug}`}
+              sx={{
+                color: "primary.main",
+                textDecoration: "none",
+                fontWeight: 700,
+                "&:hover": {
+                  textDecoration: "underline",
+                }
+              }}
+            >
+              {author.name}
+            </MuiLink>
           </Typography>
 
           {/* Meta Information */}
@@ -558,13 +593,26 @@ const ResultPage: React.FC = () => {
               bgcolor: "background.paper"
             }}
           >
-            <Avatar sx={{ bgcolor: "primary.main", width: 44, height: 44 }}>GK</Avatar>
+            <Avatar sx={{ bgcolor: getCategoryConfig(article.category).color, width: 44, height: 44, fontWeight: 700 }}>{author.avatar}</Avatar>
             <Box>
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Verified Curation By Editorial Board
+                Verified Curation & Analysis
               </Typography>
               <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.25 }}>
-                Fact checked by <strong>Ganesh Kumar</strong>, Editor-in-Chief. Aggregated from verified sources and annotated to support reporting transparency.
+                Fact checked and compiled by{" "}
+                <MuiLink
+                  component={Link}
+                  to={`/author/${author.slug}`}
+                  sx={{
+                    fontWeight: 750,
+                    color: "primary.main",
+                    textDecoration: "none",
+                    "&:hover": { textDecoration: "underline" }
+                  }}
+                >
+                  {author.name}
+                </MuiLink>
+                , {author.title}. Aggregated from verified sources and annotated to support reporting transparency.
               </Typography>
             </Box>
           </Box>

@@ -250,6 +250,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             image={article.urlToImage || article.imageUrl}
             alt={article.title}
             loading={loading}
+            {...({ fetchPriority: loading === "eager" ? "high" : undefined } as any)}
             sx={{
               position: "absolute",
               top: 0,

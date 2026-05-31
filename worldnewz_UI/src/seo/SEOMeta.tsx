@@ -15,7 +15,7 @@ export interface SEOMetaProps {
 
 const SITE_NAME = 'WorldNewzs';
 const SITE_URL = 'https://worldnewzs.in';
-const DEFAULT_OG = 'https://worldnewzs.in/favicon.svg'; // Fixed fallback URL
+const DEFAULT_OG = 'https://worldnewzs.in/og-image.png'; // Updated to 1200x630px image
 
 const DEFAULTS: SEOMetaProps = {
   title: 'WorldNewzs – Your World, Your News',
@@ -61,8 +61,8 @@ export const SEOMeta = (props: SEOMetaProps) => {
       {p.ogType === 'article' && p.articlePublishedTime && (
         <meta property="article:published_time" content={p.articlePublishedTime} />
       )}
-      {p.ogType === 'article' && p.articleModifiedTime && (
-        <meta property="article:modified_time" content={p.articleModifiedTime} />
+      {p.ogType === 'article' && (p.articleModifiedTime || p.articlePublishedTime) && (
+        <meta property="article:modified_time" content={p.articleModifiedTime || p.articlePublishedTime} />
       )}
       {p.ogType === 'article' && p.articleSection && (
         <meta property="article:section" content={p.articleSection} />

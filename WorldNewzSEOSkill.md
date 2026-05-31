@@ -120,18 +120,20 @@ Based on the live site at `https://world-newz.vercel.app`:
 
 | SEO Signal          | Current State              | Priority Fix       |
 |---------------------|----------------------------|--------------------|
-| Title tag           | ✅ "WorldNewz – Your World, Your News" | Optimize per-page |
-| Meta description    | ✅ Generic (one for all pages) | Make per-page      |
-| Keywords meta       | ✅ Static list             | Automate daily     |
-| OG tags             | ✅ Partial (og:title, og:url) | Add og:image per article |
-| Twitter Cards       | ❌ Missing                 | Add immediately    |
-| JSON-LD schema      | ❌ Missing                 | NewsArticle + WebSite |
-| Sitemap.xml         | ❌ Missing                 | Generate from API  |
-| robots.txt          | ❌ Missing                 | Add via ASP.NET    |
-| Canonical tag       | ❌ Missing                 | Add per route      |
-| Core Web Vitals     | ⚠️ Not measured            | Add LCP/CLS fixes  |
-| Privacy Policy      | ❌ Missing                 | Required for GDPR  |
-| Terms & Conditions  | ❌ Missing                 | Required legally   |
+| Title tag           | ✅ Dynamic per-page        | Complete           |
+| Meta description    | ✅ Dynamic per-page        | Complete           |
+| Keywords meta       | ✅ Dynamic daily AI-driven  | Complete           |
+| OG tags             | ✅ Complete with 1200x630px og-image.png and time tags | Complete |
+| Twitter Cards       | ✅ Complete with summary_large_image and site tags | Complete |
+| JSON-LD schema      | ✅ NewsArticle, WebSite & Breadcrumbs valid | Complete |
+| Sitemap.xml         | ✅ Dynamic from backend API | Complete           |
+| news-sitemap.xml    | ✅ Dynamic for last-48hr articles | Complete     |
+| robots.txt          | ✅ Complete with all sitemaps registered | Complete |
+| Canonical tag       | ✅ Automated per route     | Complete           |
+| Core Web Vitals     | ✅ LCP optimized via fetchpriority="high" | Complete |
+| Privacy Policy      | ✅ Live and footer linked  | Complete           |
+| Terms & Conditions  | ✅ Live and footer linked  | Complete           |
+| RSS Feed            | ✅ Live at /rss/{feedType} and footer linked | Complete |
 | hreflang            | ⚠️ Not needed (English only) | Add if multilingual |
 
 ---
@@ -1631,6 +1633,41 @@ public class SeoHealthCheckJob
 | `seo-health-check`    | `0 6 * * *`      | Verify all SEO endpoints are live        |
 | `gsc-performance`     | `0 8 * * 1`      | Weekly: pull GSC query data (Mondays)    |
 | `sitemap-rebuild`     | `*/30 * * * *`   | Rebuild sitemap XML cache every 30 min   |
+
+## 14. Advanced SEO, Performance & Monetization Guidelines
+
+Strategic implementations and warnings to maximize search engine authority and page load performance:
+
+### 14.1 Twitter Card & Open Graph Integration
+Open Graph and Twitter Cards must be present on every page, with dynamic updates for article views:
+- **twitter:card**: Should use `summary_large_image` to render a wide visual link.
+- **twitter:site**: Define the official platform handle (`@WorldNewzs`).
+- **article:published_time**: Required for news crawlers to verify date formatting.
+- **article:modified_time**: Must represent the last modification date. In the React client, fall back to the publication date if no modification time is recorded to ensure rich snippets validator compliance.
+
+### 14.2 RSS Feeds & Promotion
+Promote server-rendered RSS feeds to enable content syndication and index discovery:
+- **Endpoint**: ASP.NET Core serves XML feeds dynamically at `/rss/{feedType}` (e.g. `/rss/discover`, `/rss/sports`).
+- **Discovery**: Expose feed URLs on the frontend footer as server-side redirects (using external `href` anchors to bypass React Client Routing).
+- **Format**: Feed nodes must include custom enclosures (`<enclosure url="..." type="image/jpeg" />`) to support visual RSS readers.
+
+### 14.3 Internal Linking Strategy
+News authority is highly dependent on crawl-depth. Deep links help direct crawlers to under-indexed pages:
+- **Related Articles**: Result and Full Text Article pages must render a "Related Stories" horizontal slider referencing category peers.
+- **Anchor Bylines**: Article details must display clear, crawlable links pointing to specific author bio pages (e.g. `/author/marcus-sterling`).
+
+### 14.4 Custom 404 Page (Soft vs Hard 404)
+To prevent indexing of broken URLs:
+- Custom 404 page must inject `<meta name="robots" content="noindex, nofollow" />` dynamically using `react-helmet-async` (handled by `SEOMeta` with the `noIndex` prop).
+
+### 14.5 LCP Optimization (fetchpriority)
+Largest Contentful Paint is a primary SEO ranking factor. News article hero images must load instantly:
+- Hero images inside `ResultPage` and `ReadFullArticles` must be declared with `loading="eager"` and `fetchpriority="high"`.
+- Above-the-fold news grids must eager load the first 3 images (`loading={index < 3 ? "eager" : "lazy"}` and `fetchpriority="high"` for eager targets) to prevent LCP delays.
+
+### 14.6 AdSense Monetization Coexistence Warning
+> [!WARNING]
+> Do NOT combine Google Auto Ads and manual grid placements aggressively. Auto Ads dynamically inject script frames around DOM elements, which conflicts with manual `AdCard` placement structures. This causes cumulative layout shifts (CLS), user experience issues, and potential AdSense policy violations for exceeding acceptable ad-to-content ratios.
 
 ---
 

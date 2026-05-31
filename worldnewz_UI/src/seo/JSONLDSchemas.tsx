@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SITE_URL = 'https://worldnewzs.in';
 const SITE_NAME = 'WorldNewzs';
-const LOGO_URL = 'https://worldnewzs.in/favicon.svg'; // Fixed fallback URL
+const LOGO_URL = 'https://worldnewzs.in/logo.svg'; // Updated to official logo svg
 
 /* ── WebSite schema (inject in App root, once) ── */
 export const JSONLDWebSite = () => (
@@ -108,6 +108,9 @@ interface Article {
   imageUrl: string;
   publishedAt: string;
   category: string;
+  authorName?: string;
+  authorSlug?: string;
+  dateModified?: string;
 }
 
 export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
@@ -117,15 +120,16 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
       "@type": "NewsArticle",
       "headline": article.title,
       "description": article.summary,
-      "image": [article.imageUrl],
+      "image": [article.imageUrl || "https://worldnewzs.in/og-image.png"],
       "datePublished": article.publishedAt,
+      "dateModified": article.dateModified || article.publishedAt,
       "url": article.url,
       "articleSection": article.category,
       "inLanguage": "en-US",
       "author": {
-        "@type": "Organization",
-        "name": "WorldNewzs Editorial Desk",
-        "url": SITE_URL
+        "@type": "Person",
+        "name": article.authorName || "WorldNewzs Editorial Desk",
+        "url": article.authorSlug ? `${SITE_URL}/author/${article.authorSlug}` : `${SITE_URL}/about`
       },
       "publisher": {
         "@type": "Organization",

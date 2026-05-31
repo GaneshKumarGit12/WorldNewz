@@ -52,6 +52,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
           >
             <NewsCard
               article={article}
+              loading={index < 3 ? "eager" : "lazy"}
               onBookmark={onBookmark}
               onRemoveBookmark={onRemoveBookmark}
               isBookmarked={article.url ? isBookmarked(article.url) : false}
