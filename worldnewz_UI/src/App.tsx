@@ -88,6 +88,30 @@ const categories = [
   "entertainment"
 ];
 
+const getCategoryPath = (cat: string): string => {
+  switch (cat.toLowerCase().trim()) {
+    case "general": return "/";
+    case "politics": return "/politics";
+    case "technology": return "/technology";
+    case "business": return "/business";
+    case "science & health": return "/science-health";
+    case "lifestyle": return "/lifestyle";
+    case "education": return "/education";
+    case "opinion": return "/opinion";
+    case "trending": return "/trending";
+    case "podcasts & videos": return "/podcasts-videos";
+    case "local news": return "/local-news";
+    case "sports": return "/sports";
+    case "money": return "/money";
+    case "weather": return "/weather";
+    case "shopping": return "/shopping";
+    case "travel": return "/travel";
+    case "food": return "/food";
+    case "entertainment": return "/entertainment";
+    default: return "/";
+  }
+};
+
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerCategoriesOpen, setDrawerCategoriesOpen] = useState(false);
@@ -540,24 +564,28 @@ const App: React.FC = () => {
               "&::-webkit-scrollbar-thumb": { background: "#ccc", borderRadius: "2px" },
             }}
           >
-            {categories.map((cat) => (
-              <Chip
-                key={cat}
-                label={cat}
-                clickable
-                onClick={() => performSearch(searchTerm, cat)}
-                color={searchParams.get("category") === cat ? "primary" : "default"}
-                variant={searchParams.get("category") === cat ? "filled" : "outlined"}
-                size="small"
-                sx={{ 
-                  textTransform: "capitalize",
-                  fontSize: "0.8rem",
-                  height: 28,
-                  whiteSpace: "nowrap",
-                  flexShrink: 0,
-                }}
-              />
-            ))}
+            {categories.map((cat) => {
+              const path = getCategoryPath(cat);
+              const isActive = location.pathname === path || (location.pathname === "/search" && searchParams.get("category") === cat);
+              return (
+                <Chip
+                  key={cat}
+                  label={cat}
+                  clickable
+                  onClick={() => navigate(path)}
+                  color={isActive ? "primary" : "default"}
+                  variant={isActive ? "filled" : "outlined"}
+                  size="small"
+                  sx={{ 
+                    textTransform: "capitalize",
+                    fontSize: "0.8rem",
+                    height: 28,
+                    whiteSpace: "nowrap",
+                    flexShrink: 0,
+                  }}
+                />
+              );
+            })}
           </Box>
         </Box>
       </Box>
