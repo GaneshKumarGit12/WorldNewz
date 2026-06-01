@@ -22,6 +22,15 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import FlightIcon from "@mui/icons-material/Flight";
 import MovieIcon from "@mui/icons-material/Movie";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
+import SchoolIcon from "@mui/icons-material/School";
+import RateReviewIcon from "@mui/icons-material/RateReview";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import PodcastsIcon from "@mui/icons-material/Podcasts";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 
@@ -65,11 +74,33 @@ const formatTimeAgoLong = (dateString?: string) => {
 const getCategoryConfig = (category?: string) => {
   const cat = (category || '').toLowerCase().trim();
   switch (cat) {
-    case 'science':
-      return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science' };
+    case 'politics':
+      return { color: '#0d6efd', icon: <AccountBalanceIcon fontSize="inherit" />, name: 'Politics' };
     case 'tech':
     case 'technology':
       return { color: '#2196f3', icon: <LaptopIcon fontSize="inherit" />, name: 'Technology' };
+    case 'business':
+      return { color: '#0f172a', icon: <BusinessCenterIcon fontSize="inherit" />, name: 'Business' };
+    case 'science & health':
+    case 'science-health':
+      return { color: '#10b981', icon: <MedicalServicesIcon fontSize="inherit" />, name: 'Science & Health' };
+    case 'science':
+      return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science' };
+    case 'lifestyle':
+      return { color: '#ec4899', icon: <SelfImprovementIcon fontSize="inherit" />, name: 'Lifestyle' };
+    case 'education':
+      return { color: '#8b5cf6', icon: <SchoolIcon fontSize="inherit" />, name: 'Education' };
+    case 'opinion':
+      return { color: '#f59e0b', icon: <RateReviewIcon fontSize="inherit" />, name: 'Opinion' };
+    case 'trending':
+      return { color: '#ef4444', icon: <WhatshotIcon fontSize="inherit" />, name: 'Trending' };
+    case 'podcasts & videos':
+    case 'podcasts-videos':
+      return { color: '#d946ef', icon: <PodcastsIcon fontSize="inherit" />, name: 'Podcasts & Videos' };
+    case 'local news':
+    case 'local news (india)':
+    case 'local-news':
+      return { color: '#06b6d4', icon: <LocationOnIcon fontSize="inherit" />, name: 'Local News' };
     case 'discover':
     case 'general':
     case 'news':
@@ -77,7 +108,6 @@ const getCategoryConfig = (category?: string) => {
     case 'sports':
       return { color: '#f44336', icon: <SportsSoccerIcon fontSize="inherit" />, name: 'Sports' };
     case 'money':
-    case 'business':
     case 'finance':
       return { color: '#e91e63', icon: <MonetizationOnIcon fontSize="inherit" />, name: 'Money' };
     case 'food':
