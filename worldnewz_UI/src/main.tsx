@@ -33,6 +33,18 @@ const FacebookSettings = React.lazy(() => import("./pages/FacebookSettings"));
 const AuthorBioPage = React.lazy(() => import("./pages/AuthorBioPage"));
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 
+// New categories
+const Politics = React.lazy(() => import("./pages/Politics"));
+const Technology = React.lazy(() => import("./pages/Technology"));
+const Business = React.lazy(() => import("./pages/Business"));
+const ScienceHealth = React.lazy(() => import("./pages/ScienceHealth"));
+const Lifestyle = React.lazy(() => import("./pages/Lifestyle"));
+const Education = React.lazy(() => import("./pages/Education"));
+const Opinion = React.lazy(() => import("./pages/Opinion"));
+const Trending = React.lazy(() => import("./pages/Trending"));
+const PodcastsVideos = React.lazy(() => import("./pages/PodcastsVideos"));
+const LocalNews = React.lazy(() => import("./pages/LocalNews"));
+
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
     <LinearProgress sx={{ borderRadius: 1 }} />
@@ -56,6 +68,16 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="travel" element={<Travel />} />
                   <Route path="food" element={<Food />} />
                   <Route path="entertainment" element={<Entertainment />} />
+                  <Route path="politics" element={<Politics />} />
+                  <Route path="technology" element={<Technology />} />
+                  <Route path="business" element={<Business />} />
+                  <Route path="science-health" element={<ScienceHealth />} />
+                  <Route path="lifestyle" element={<Lifestyle />} />
+                  <Route path="education" element={<Education />} />
+                  <Route path="opinion" element={<Opinion />} />
+                  <Route path="trending" element={<Trending />} />
+                  <Route path="podcasts-videos" element={<PodcastsVideos />} />
+                  <Route path="local-news" element={<LocalNews />} />
                   <Route path="search" element={<Search />} />
                   <Route path="bookmarks" element={<Bookmarks />} />
                   <Route path="comments" element={<CommentHistory />} />

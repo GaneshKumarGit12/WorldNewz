@@ -44,20 +44,49 @@ import { useComments } from "./hooks/useComments";
 
 const primaryNavLinks = [
   { label: "Discover", path: "/" },
-  { label: "Sports", path: "/sports" },
-  { label: "Money", path: "/money" },
-  { label: "Weather", path: "/weather" },
+  { label: "Politics", path: "/politics" },
+  { label: "Technology", path: "/technology" },
+  { label: "Business", path: "/business" },
+  { label: "Science & Health", path: "/science-health" },
+  { label: "Local News (India)", path: "/local-news" },
 ];
 
 const secondaryNavLinks = [
+  { label: "Sports", path: "/sports" },
+  { label: "Money", path: "/money" },
+  { label: "Weather", path: "/weather" },
   { label: "Shopping", path: "/shopping" },
   { label: "Travel", path: "/travel" },
   { label: "Food", path: "/food" },
   { label: "Entertainment", path: "/entertainment" },
+  { label: "Lifestyle", path: "/lifestyle" },
+  { label: "Education", path: "/education" },
+  { label: "Opinion", path: "/opinion" },
+  { label: "Trending", path: "/trending" },
+  { label: "Podcasts & Videos", path: "/podcasts-videos" },
   { label: "Editorial Briefings", path: "/editorial-briefings" },
 ];
 
-const categories = ["general", "sports", "business", "technology", "health", "science", "shopping", "travel", "food", "entertainment"];
+const categories = [
+  "general", 
+  "politics", 
+  "technology", 
+  "business", 
+  "science & health", 
+  "lifestyle", 
+  "education", 
+  "opinion", 
+  "trending", 
+  "podcasts & videos",
+  "local news", 
+  "sports", 
+  "money", 
+  "weather", 
+  "shopping", 
+  "travel", 
+  "food", 
+  "entertainment"
+];
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);

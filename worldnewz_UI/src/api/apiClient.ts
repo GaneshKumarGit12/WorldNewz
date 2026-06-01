@@ -80,6 +80,16 @@ export const fetchWeather = (params?: SearchParams) => apiClient.get("/news/weat
 export const fetchTravel = (params?: SearchParams) => apiClient.get("/news/travel", { params });
 export const fetchFood = (params?: SearchParams) => apiClient.get("/news/food", { params });
 export const fetchEntertainment = (params?: SearchParams) => apiClient.get("/news/entertainment", { params });
+export const fetchPolitics = (params?: SearchParams) => apiClient.get("/news/politics", { params });
+export const fetchTechnology = (params?: SearchParams) => apiClient.get("/news/technology", { params });
+export const fetchBusiness = (params?: SearchParams) => apiClient.get("/news/business", { params });
+export const fetchScienceHealth = (params?: SearchParams) => apiClient.get("/news/science-health", { params });
+export const fetchLifestyle = (params?: SearchParams) => apiClient.get("/news/lifestyle", { params });
+export const fetchEducation = (params?: SearchParams) => apiClient.get("/news/education", { params });
+export const fetchOpinion = (params?: SearchParams) => apiClient.get("/news/opinion", { params });
+export const fetchTrending = (params?: SearchParams) => apiClient.get("/news/trending", { params });
+export const fetchPodcastsVideos = (params?: SearchParams) => apiClient.get("/news/podcasts-videos", { params });
+export const fetchLocalNews = (params?: SearchParams) => apiClient.get("/news/local-news", { params });
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
 export const fetchFullContent = (url: string) => apiClient.get("/news/full-content", { params: { url } });
