@@ -43,7 +43,7 @@ const Food: React.FC = () => {
         const formattedData = data.map((a: any) => ({
           ...a,
           imageUrl: a.urlToImage || a.image,
-          category: a.source?.name || "Food",
+          category: a.category || "Food",
         }));
         
         if (formattedData.length === 0) {

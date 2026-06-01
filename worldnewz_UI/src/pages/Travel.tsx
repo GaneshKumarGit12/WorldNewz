@@ -43,7 +43,7 @@ const Travel: React.FC = () => {
         const formattedData = data.map((a: any) => ({
           ...a,
           imageUrl: a.urlToImage || a.image,
-          category: a.source?.name || "Travel",
+          category: a.category || "Travel",
         }));
         
         if (formattedData.length === 0) {

@@ -57,6 +57,7 @@ const Search: React.FC = () => {
             data.map((a: any) => ({
               ...a,
               imageUrl: a.urlToImage || a.image || a.imageUrl,
+              category: a.category || category || "Discover",
             }))
           )
         );

@@ -45,7 +45,7 @@ const Sports: React.FC = () => {
         const formattedData = data.map((a: any) => ({
           ...a,
           imageUrl: a.urlToImage || a.image,
-          category: a.source?.name || "Sports",
+          category: a.category || "Sports",
         }));
         
         if (formattedData.length === 0) {

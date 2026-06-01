@@ -4,6 +4,7 @@ using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System;
 using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
 using WorldNewzWebAPI.Models;
 
 namespace WorldNewzWebAPI.Services
@@ -19,6 +20,7 @@ namespace WorldNewzWebAPI.Services
     public class NewsApiService : INewsApiService
     {
         private readonly HttpClient _httpClient;
+        private readonly IMemoryCache _cache;
         private static string _activeProvider = "NewsAPI"; // "NewsAPI" or "WorldNewsAPI"
         private static readonly object _lock = new object();
 
@@ -26,15 +28,23 @@ namespace WorldNewzWebAPI.Services
         private readonly string? _newsApiKey;
         private readonly string? _worldNewsApiKey;
 
-        public NewsApiService(HttpClient httpClient)
+        public NewsApiService(HttpClient httpClient, IMemoryCache cache)
         {
             _httpClient = httpClient;
+            _cache = cache;
             _newsApiKey = Environment.GetEnvironmentVariable("NEWS_API_KEY");
             _worldNewsApiKey = Environment.GetEnvironmentVariable("WORLDNEWS_API_KEY");
         }
 
         public async Task<NewsApiFetchResult> FetchNewsAsync(NewsQueryContext context)
         {
+            var cacheKey = $"news_api_cache_{context.Query}_{context.Category}_{context.Country}_{context.Language}_{context.Page}_{context.PageSize}_{context.IsTopHeadlines}_{context.Source}";
+            if (_cache.TryGetValue(cacheKey, out NewsApiFetchResult? cachedResult) && cachedResult != null)
+            {
+                Console.WriteLine($"[NewsApiService] Cache HIT for key: {cacheKey}");
+                return cachedResult;
+            }
+
             string currentProvider;
             lock (_lock)
             {
@@ -46,11 +56,8 @@ namespace WorldNewzWebAPI.Services
                 ? await TryNewsApiAsync(context)
                 : await TryWorldNewsApiAsync(context);
 
-            // If success, return immediately
-            if (result.Success) return result;
-
             // If failed due to Rate Limit / Quota Exceeded (429 or 402)
-            if (result.StatusCode == 429 || result.StatusCode == 402)
+            if (!result.Success && (result.StatusCode == 429 || result.StatusCode == 402))
             {
                 // Switch provider
                 lock (_lock)
@@ -63,9 +70,14 @@ namespace WorldNewzWebAPI.Services
                 }
 
                 // Retry with the fallback provider
-                return _activeProvider == "NewsAPI"
+                result = _activeProvider == "NewsAPI"
                     ? await TryNewsApiAsync(context)
                     : await TryWorldNewsApiAsync(context);
+            }
+
+            if (result.Success)
+            {
+                _cache.Set(cacheKey, result, TimeSpan.FromMinutes(15));
             }
 
             return result;
@@ -73,6 +85,13 @@ namespace WorldNewzWebAPI.Services
 
         public async Task<NewsApiFetchResult> FetchCombinedNewsAsync(NewsQueryContext context)
         {
+            var cacheKey = $"news_api_combined_cache_{context.Query}_{context.Category}_{context.Country}_{context.Language}_{context.Page}_{context.PageSize}_{context.IsTopHeadlines}_{context.Source}";
+            if (_cache.TryGetValue(cacheKey, out NewsApiFetchResult? cachedResult) && cachedResult != null)
+            {
+                Console.WriteLine($"[NewsApiService] Combined Cache HIT for key: {cacheKey}");
+                return cachedResult;
+            }
+
             var taskNews = TryNewsApiAsync(context);
             var taskWorld = TryWorldNewsApiAsync(context);
 
@@ -121,7 +140,14 @@ namespace WorldNewzWebAPI.Services
                 ["queryUsed"] = "Combined APIs"
             };
 
-            return new NewsApiFetchResult(true, resultObject.ToJsonString(), 200);
+            var result = new NewsApiFetchResult(true, resultObject.ToJsonString(), 200);
+
+            if (taskNews.Result.Success || taskWorld.Result.Success)
+            {
+                _cache.Set(cacheKey, result, TimeSpan.FromMinutes(15));
+            }
+
+            return result;
         }
 
         private async Task<NewsApiFetchResult> TryNewsApiAsync(NewsQueryContext context)

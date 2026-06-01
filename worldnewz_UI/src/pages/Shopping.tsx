@@ -51,7 +51,11 @@ const Shopping: React.FC = () => {
     fetchShopping({ page: currentPage, pageSize: 20 })
       .then((res) => {
         const data = Array.isArray(res.data?.articles) ? res.data.articles : [];
-        const formattedData = data.map((a: any) => ({ ...a, imageUrl: a.urlToImage || a.image || a.imageUrl }));
+        const formattedData = data.map((a: any) => ({
+          ...a,
+          imageUrl: a.urlToImage || a.image || a.imageUrl,
+          category: a.category || "Shopping",
+        }));
         
         if (formattedData.length === 0) {
           setHasMore(false);
