@@ -16,9 +16,10 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import FlightIcon from "@mui/icons-material/Flight";
 import MovieIcon from "@mui/icons-material/Movie";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import type { Article } from "../types";
 import { fetchFullContent, fetchSearch, fetchDiscover } from "../api/apiClient";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
 import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
 import { getAuthorForCategory } from "../utils/authors";
@@ -85,6 +86,26 @@ const ReadFullArticles: React.FC = () => {
     likeComment, 
     dislikeComment 
   } = useComments();
+
+  const originalUrl = article?.urlToImage || article?.imageUrl || "";
+  const optimizedUrl = useMemo(() => optimizeImageUrl(originalUrl, 1000), [originalUrl]);
+  const [imgSrc, setImgSrc] = useState(optimizedUrl);
+  const [isFallback, setIsFallback] = useState(false);
+
+  useEffect(() => {
+    setImgSrc(optimizedUrl);
+    setIsFallback(false);
+  }, [optimizedUrl]);
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    if (!isFallback && originalUrl && imgSrc !== originalUrl) {
+      setIsFallback(true);
+      setImgSrc(originalUrl);
+    } else {
+      target.style.display = "none";
+    }
+  };
 
   // 1. Resolve article object (from state or fallback fetch)
   useEffect(() => {
@@ -308,13 +329,11 @@ const ReadFullArticles: React.FC = () => {
           <CardMedia
             component="img"
             height={420}
-            image={article.urlToImage || article.imageUrl}
+            image={imgSrc || "https://via.placeholder.com/640x360?text=No+Image"}
             alt={article.title}
             loading="eager"
-            {...({ fetchPriority: "high" } as any)}
-            onError={(e: any) => {
-              e.target.style.display = "none";
-            }}
+            {...({ fetchpriority: "high" } as any)}
+            onError={handleImageError}
             sx={{
               objectFit: "cover",
               backgroundColor: "rgba(0,0,0,0.05)",

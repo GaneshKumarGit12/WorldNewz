@@ -8,11 +8,12 @@ import ShareIcon from "@mui/icons-material/Share";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import type { Article } from "../types";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { fetchDiscover, fetchSearch } from "../api/apiClient";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
 import SectionStatus from "../components/SectionStatus";
 import NewsSlider from "../components/NewsSlider";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -114,6 +115,26 @@ const ResultPage: React.FC = () => {
   const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
   const shareOpen = Boolean(shareAnchorEl);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
+
+  const originalUrl = article?.urlToImage || article?.imageUrl || "";
+  const optimizedUrl = useMemo(() => optimizeImageUrl(originalUrl, 1000), [originalUrl]);
+  const [imgSrc, setImgSrc] = useState(optimizedUrl);
+  const [isFallback, setIsFallback] = useState(false);
+
+  useEffect(() => {
+    setImgSrc(optimizedUrl);
+    setIsFallback(false);
+  }, [optimizedUrl]);
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    if (!isFallback && originalUrl && imgSrc !== originalUrl) {
+      setIsFallback(true);
+      setImgSrc(originalUrl);
+    } else {
+      target.style.display = "none";
+    }
+  };
   const { 
     getEngagement, 
     toggleLike, 
@@ -332,13 +353,11 @@ const ResultPage: React.FC = () => {
           <CardMedia
             component="img"
             height={400}
-            image={article.urlToImage || article.imageUrl}
+            image={imgSrc || "https://via.placeholder.com/640x360?text=No+Image"}
             alt={article.title}
             loading="eager"
-            {...({ fetchPriority: "high" } as any)}
-            onError={(e: any) => {
-              e.target.style.display = "none";
-            }}
+            {...({ fetchpriority: "high" } as any)}
+            onError={handleImageError}
             sx={{
               objectFit: "cover",
               backgroundColor: "#f5f5f5",

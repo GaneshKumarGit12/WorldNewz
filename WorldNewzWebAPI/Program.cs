@@ -89,6 +89,11 @@ builder.Services.AddQuartz(q =>
 
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -153,6 +158,11 @@ using (var scope = app.Services.CreateScope())
         );
     ");
 
+    // Ensure SQLite database indexes exist for news queries & sitemaps optimization
+    db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_PublishedAt ON NewsArticles (PublishedAt);");
+    db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_CategoryId ON NewsArticles (CategoryId);");
+    db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_Url ON NewsArticles (Url);");
+
     // Seed default Ad slots if table is empty
     if (!db.Ads.Any())
     {
@@ -181,6 +191,7 @@ app.Urls.Add($"http://*:{port}");
 
 // ✅ CORS MUST be first
 app.UseCors("AllowFrontend");
+app.UseResponseCompression();
 
 // Add security headers middleware
 app.Use(async (context, next) =>

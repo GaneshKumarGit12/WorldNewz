@@ -33,6 +33,7 @@ import PodcastsIcon from "@mui/icons-material/Podcasts";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
 
 interface NewsCardProps {
   article: Article;
@@ -154,6 +155,26 @@ const NewsCard: React.FC<NewsCardProps> = ({
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
   const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
   const shareOpen = Boolean(shareAnchorEl);
+
+  const originalUrl = article.urlToImage || article.imageUrl || "";
+  const optimizedUrl = React.useMemo(() => optimizeImageUrl(originalUrl, 500), [originalUrl]);
+  const [imgSrc, setImgSrc] = useState(optimizedUrl);
+  const [isFallback, setIsFallback] = useState(false);
+
+  React.useEffect(() => {
+    setImgSrc(optimizedUrl);
+    setIsFallback(false);
+  }, [optimizedUrl]);
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    if (!isFallback && originalUrl && imgSrc !== originalUrl) {
+      setIsFallback(true);
+      setImgSrc(originalUrl);
+    } else {
+      target.src = "https://via.placeholder.com/320x180?text=No+Image";
+    }
+  };
 
   const articleEngagement = engagement || {
     likes: 0,
@@ -290,10 +311,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
           </Box>
           <CardMedia
             component="img"
-            image={article.urlToImage || article.imageUrl}
+            image={imgSrc || "https://via.placeholder.com/320x180?text=No+Image"}
             alt={article.title}
             loading={loading}
-            {...({ fetchPriority: loading === "eager" ? "high" : undefined } as any)}
+            {...({ fetchpriority: loading === "eager" ? "high" : undefined } as any)}
             sx={{
               position: "absolute",
               top: 0,
@@ -302,9 +323,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               height: "100%",
               objectFit: "cover",
             }}
-            onError={(e: any) => {
-              e.target.src = "https://via.placeholder.com/320x180?text=No+Image";
-            }}
+            onError={handleImageError}
           />
         </Box>
 

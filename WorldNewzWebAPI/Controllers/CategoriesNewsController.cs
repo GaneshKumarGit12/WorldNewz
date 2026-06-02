@@ -46,6 +46,9 @@ namespace WorldNewzWebAPI.Controllers
                 var rawArticles = apiResponse?.Articles ?? new List<Article>();
                 var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, categoryLabel);
 
+                // Cache category feed at browser & CDN edge for 5 minutes
+                Response.Headers.CacheControl = "public, max-age=300";
+
                 return Ok(new
                 {
                     status = "ok",

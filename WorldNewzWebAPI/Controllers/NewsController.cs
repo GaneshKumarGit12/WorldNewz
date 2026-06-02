@@ -65,6 +65,9 @@ namespace WorldNewzWebAPI.Controllers
                 
                 var enrichedArticles = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Discover");
 
+                // Cache successful discover feed at browser & CDN edge for 5 minutes
+                Response.Headers.CacheControl = "public, max-age=300";
+
                 return Ok(new
                 {
                     status = "ok",
@@ -144,6 +147,9 @@ namespace WorldNewzWebAPI.Controllers
 
                 // Append articles with no images at the end
                 results.AddRange(resultsWithoutImage);
+
+                // Cache successful search results at browser & CDN edge for 5 minutes
+                Response.Headers.CacheControl = "public, max-age=300";
 
                 return Ok(new { results });
             }
