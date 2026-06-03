@@ -90,11 +90,21 @@ const Food: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
+  const [description, setDescription] = useState("Latest updates and recipes from the world of food.");
+
+  useEffect(() => {
+    if (articles.length > 0) {
+      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
+      const text = `Latest food headlines: ${headlines}. Read verified food reporting, recipes, and dining trends on WorldNewzs.`;
+      setDescription(text.substring(0, 155) + "...");
+    }
+  }, [articles]);
+
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
       <SEOMeta
         title="Food News"
-        description="Latest updates and recipes from the world of food."
+        description={description}
         keywords={['food', 'news', 'dining', 'recipes', 'latest food']}
       />
       <JSONLDBreadcrumb crumbs={[

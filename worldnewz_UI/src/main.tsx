@@ -7,10 +7,10 @@ import Box from "@mui/material/Box";
 import { AppThemeProvider } from "./context/ThemeContext";
 import App from "./App";
 import { SEOProvider } from "./seo/SEOProvider";
-import Discover from "./components/Discover";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 // Lazy load pages for optimized initial chunk sizing and quick loading
+const Discover = React.lazy(() => import("./components/Discover"));
 const Sports = React.lazy(() => import("./pages/Sports"));
 const Money = React.lazy(() => import("./pages/Money"));
 const Weather = React.lazy(() => import("./pages/Weather"));

@@ -90,11 +90,21 @@ const Travel: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
+  const [description, setDescription] = useState("Latest updates and destinations from the world of travel.");
+
+  useEffect(() => {
+    if (articles.length > 0) {
+      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
+      const text = `Latest travel headlines: ${headlines}. Read verified travel reporting, tourism highlights, and guides on WorldNewzs.`;
+      setDescription(text.substring(0, 155) + "...");
+    }
+  }, [articles]);
+
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
       <SEOMeta
         title="Travel News"
-        description="Latest updates and destinations from the world of travel."
+        description={description}
         keywords={['travel', 'news', 'tourism', 'destinations', 'latest travel']}
       />
       <JSONLDBreadcrumb crumbs={[

@@ -28,7 +28,7 @@ const DEFAULTS: SEOMetaProps = {
 export const SEOMeta = (props: SEOMetaProps) => {
   const p = { ...DEFAULTS, ...props };
   const fullTitle = p.title === DEFAULTS.title ? p.title : `${p.title} | ${SITE_NAME}`;
-  const canonical = p.canonical ?? (typeof window !== 'undefined' ? window.location.origin + window.location.pathname : SITE_URL);
+  const canonical = p.canonical ?? (typeof window !== 'undefined' ? SITE_URL + window.location.pathname : SITE_URL);
 
   return (
     <Helmet prioritizeSeoTags>

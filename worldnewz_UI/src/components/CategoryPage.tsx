@@ -147,12 +147,24 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   }, [isFetchingMore, hasMore, loading]);
 
   const description = CATEGORY_DESCRIPTIONS[categoryKey] || `Latest updates and news reports relating to ${title.toLowerCase()}.`;
+  const [dynamicDesc, setDynamicDesc] = useState(description.substring(0, 155) + "...");
+
+  useEffect(() => {
+    const defaultDesc = CATEGORY_DESCRIPTIONS[categoryKey] || `Latest updates and news reports relating to ${title.toLowerCase()}.`;
+    if (articles.length > 0) {
+      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
+      const fullText = `Latest ${title} headlines: ${headlines}. Read verified reporting on WorldNewzs.`;
+      setDynamicDesc(fullText.substring(0, 155) + "...");
+    } else {
+      setDynamicDesc(defaultDesc.substring(0, 155) + "...");
+    }
+  }, [articles, categoryKey, title]);
 
   return (
     <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
       <SEOMeta
         title={`${title} News - WorldNewzs`}
-        description={description.substring(0, 155) + "..."}
+        description={dynamicDesc}
         keywords={keywords}
       />
       

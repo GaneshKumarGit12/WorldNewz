@@ -98,11 +98,21 @@ const Shopping: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
+  const [description, setDescription] = useState("Latest shopping trends, deals, and e-commerce news.");
+
+  useEffect(() => {
+    if (articles.length > 0) {
+      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
+      const text = `Latest shopping trends and deals: ${headlines}. Read verified e-commerce news and discounts on WorldNewzs.`;
+      setDescription(text.substring(0, 155) + "...");
+    }
+  }, [articles]);
+
   return (
     <Box sx={{ p: 2 }}>
       <SEOMeta
         title="Shopping News"
-        description="Latest shopping trends, deals, and e-commerce news."
+        description={description}
         keywords={['shopping', 'e-commerce', 'deals', 'trends', 'discounts', 'news']}
       />
       <JSONLDBreadcrumb crumbs={[

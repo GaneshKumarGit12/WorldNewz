@@ -120,8 +120,8 @@ const Weather: React.FC = () => {
 
   const titleText = weather?.location?.city ? `Weather in ${weather.location.city}` : "Weather Dashboard";
   const descText = weather?.location?.city 
-    ? `Check the local weather forecast, temperature, wind, and 7-day details for ${weather.location.city}, ${weather.location.country || ""}.` 
-    : "Check the local weather forecast and today's atmospheric details on WorldNewzs.";
+    ? `Current weather in ${weather.location.city}: ${currentTemp?.toFixed(0) ?? "—"}°C, ${currentLabel}. Get the 7-day weather forecast, wind speed, and daily details.` 
+    : "Check the local weather forecast, temperature, wind, and today's atmospheric details on WorldNewzs.";
 
   return (
     <Box sx={{ p: 2 }}>

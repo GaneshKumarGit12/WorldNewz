@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { getThemeOptions } from "../Themes";
 
 interface ColorModeContextType {
   mode: "light" | "dark";
@@ -32,35 +33,7 @@ export const AppThemeProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-          primary: { main: "#c83a15" },
-          secondary: { main: "#f50057" },
-          background: {
-            default: mode === "light" ? "#f4f6f8" : "#0d1117",
-            paper: mode === "light" ? "#ffffff" : "#161b22",
-          },
-        },
-        typography: {
-          fontFamily: "'Inter', 'Roboto', Arial, sans-serif",
-          h4: { fontWeight: 600, letterSpacing: "0.5px" },
-          body1: { lineHeight: 1.6 },
-        },
-        components: {
-          MuiCard: {
-            styleOverrides: {
-              root: {
-                borderRadius: 12,
-                boxShadow: mode === "light"
-                  ? "0 4px 12px rgba(0,0,0,0.08)"
-                  : "0 4px 12px rgba(0,0,0,0.4)",
-              },
-            },
-          },
-        },
-      }),
+    () => createTheme(getThemeOptions(mode)),
     [mode]
   );
 

@@ -128,11 +128,14 @@ const EDITORIAL_GUIDELINES: GuidelineItem[] = [
 ];
 
 export const EditorialGuidelinesPage = () => {
+  const guidelineTitles = EDITORIAL_GUIDELINES.slice(0, 3).map(g => g.title).join(", ");
+  const dynamicDesc = `Editorial Guidelines: ${guidelineTitles}. Learn about our source verification, content originality, and factual accuracy policies on WorldNewzs.`;
+
   return (
     <>
       <SEOMeta
         title="Editorial Guidelines | WorldNewzs"
-        description="Comprehensive editorial guidelines and standards for WorldNewzs. Learn about our source verification, content originality, and factual accuracy policies."
+        description={dynamicDesc.substring(0, 155) + "..."}
         canonical={`${SITE_URL}/editorial-guidelines`}
       />
       <JSONLDBreadcrumb crumbs={[

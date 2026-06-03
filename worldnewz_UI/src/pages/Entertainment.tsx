@@ -90,11 +90,21 @@ const Entertainment: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
+  const [description, setDescription] = useState("Latest updates from the world of entertainment and showbiz.");
+
+  useEffect(() => {
+    if (articles.length > 0) {
+      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
+      const text = `Latest entertainment headlines: ${headlines}. Read verified showbiz updates, movies, and music news on WorldNewzs.`;
+      setDescription(text.substring(0, 155) + "...");
+    }
+  }, [articles]);
+
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
       <SEOMeta
         title="Entertainment News"
-        description="Latest updates from the world of entertainment and showbiz."
+        description={description}
         keywords={['entertainment', 'news', 'movies', 'music', 'latest entertainment']}
       />
       <JSONLDBreadcrumb crumbs={[

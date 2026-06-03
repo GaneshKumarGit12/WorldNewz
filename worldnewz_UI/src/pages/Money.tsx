@@ -98,11 +98,21 @@ const Money: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
+  const [description, setDescription] = useState("Latest financial, business, and stock market news.");
+
+  useEffect(() => {
+    if (articles.length > 0) {
+      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
+      const text = `Latest money and business headlines: ${headlines}. Read verified financial reporting and stock updates on WorldNewzs.`;
+      setDescription(text.substring(0, 155) + "...");
+    }
+  }, [articles]);
+
   return (
     <Box sx={{ p: 2 }}>
       <SEOMeta
         title="Money News"
-        description="Latest financial, business, and stock market news."
+        description={description}
         keywords={['money', 'finance', 'business', 'stocks', 'economy', 'latest news']}
       />
       <JSONLDBreadcrumb crumbs={[

@@ -232,11 +232,14 @@ export const EditorialBriefingsPage = () => {
     setExpandedBriefing(expandedBriefing === id ? null : id);
   };
 
+  const briefingTitles = EDITORIAL_BRIEFINGS.slice(0, 2).map(b => b.title).join(" | ");
+  const dynamicDesc = `Latest briefings: ${briefingTitles}. Read our original editorial analysis and expert insights on global news trends.`;
+
   return (
     <>
       <SEOMeta
         title="Editorial Briefings | WorldNewzs"
-        description="Original editorial analysis and briefings on global news trends. Expert-curated insights on economics, sports, technology, and more."
+        description={dynamicDesc.substring(0, 155) + "..."}
         canonical={`${SITE_URL}/editorial-briefings`}
       />
       <JSONLDBreadcrumb crumbs={[
