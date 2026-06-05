@@ -17,6 +17,7 @@ import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useColorMode } from "../context/ThemeContext";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
+import { AffiliateDeals } from "./AffiliateDeals";
 
 interface CategoryPageProps {
   categoryKey: string;
@@ -246,6 +247,11 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           </Typography>
         </CardContent>
       </Card>
+
+      {/* --- Affiliate Deals --- */}
+      {["technology", "business", "science-health"].includes(categoryKey) && (
+        <AffiliateDeals category={categoryKey} />
+      )}
 
       {/* --- News Feed Rendering --- */}
       <SectionStatus 

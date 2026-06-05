@@ -12,6 +12,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
+import { AffiliateDeals } from "../components/AffiliateDeals";
 
 
 const Money: React.FC = () => {
@@ -120,6 +121,7 @@ const Money: React.FC = () => {
         { name: "Money", url: `${window.location.origin}/money` }
       ]} />
       <Typography variant="h4" sx={{ mb: 2, fontWeight: 700 }}>💰 Money</Typography>
+      <AffiliateDeals category="money" />
       <SectionStatus loading={loading} error={error} hasData={filteredArticles.length > 0}
         emptyText={normalizedSearchTerm ? "No results matching your search." : "No money news available."}>
         <NewsGrid

@@ -9,8 +9,45 @@ import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import InputAdornment from "@mui/material/InputAdornment";
+import EmailIcon from "@mui/icons-material/Email";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
+import { useState } from "react";
 
 const Footer: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+    if (!trimmed) {
+      setStatus("error");
+      setMessage("Please enter your email address.");
+      return;
+    }
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(trimmed)) {
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setStatus("loading");
+    setMessage("");
+
+    // Simulate API subscription
+    setTimeout(() => {
+      setStatus("success");
+      setMessage("Thank you for subscribing! Check your inbox for updates.");
+      setEmail("");
+    }, 1200);
+  };
   return (
     <Box
       component="footer"
@@ -22,6 +59,136 @@ const Footer: React.FC = () => {
         color: "rgba(255,255,255,0.7)",
       }}
     >
+      {/* ─── Newsletter Signup section ─── */}
+      <Box
+        sx={{
+          mb: 4,
+          p: { xs: 3, md: 4 },
+          borderRadius: 4,
+          background: "linear-gradient(135deg, #161b22 0%, #0d1117 100%)",
+          border: "1px solid rgba(255,255,255,0.05)",
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: 3
+        }}
+      >
+        <Box sx={{ maxWidth: 550, textAlign: { xs: "center", md: "left" } }}>
+          <Typography variant="h6" sx={{ fontWeight: 800, color: "white", mb: 0.5, letterSpacing: 0.5 }}>
+            Subscribe to the WorldNewzs Newsletter
+          </Typography>
+          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>
+            Get curated editorial briefings, breaking news alerts, and premium factual analysis delivered directly to your inbox daily.
+          </Typography>
+        </Box>
+
+        <Box 
+          component="form" 
+          onSubmit={handleSubscribe} 
+          sx={{ 
+            width: { xs: "100%", md: "auto" }, 
+            display: "flex", 
+            flexDirection: "column", 
+            gap: 1,
+            minWidth: { md: 380 }
+          }}
+        >
+          <Box sx={{ display: "flex", gap: 1, width: "100%" }}>
+            <TextField
+              placeholder="Your email address"
+              variant="outlined"
+              size="small"
+              fullWidth
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (status === "error") setStatus("idle");
+              }}
+              disabled={status === "loading" || status === "success"}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailIcon sx={{ color: "rgba(255,255,255,0.4)", fontSize: 20 }} />
+                  </InputAdornment>
+                ),
+                sx: {
+                  color: "white",
+                  backgroundColor: "rgba(255,255,255,0.03)",
+                  borderRadius: 2.5,
+                  "& fieldset": { borderColor: "rgba(255,255,255,0.15)" },
+                  "&:hover fieldset": { borderColor: "rgba(255,255,255,0.3) !important" },
+                  "&.Mui-focused fieldset": { borderColor: "#ff8a65 !important" },
+                }
+              }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={status === "loading" || status === "success"}
+              sx={{
+                borderRadius: 2.5,
+                px: 3,
+                textTransform: "none",
+                fontWeight: 700,
+                background: "linear-gradient(135deg, #ff8a65 0%, #c83a15 100%)",
+                color: "white",
+                boxShadow: "none",
+                minWidth: 110,
+                "&:hover": {
+                  background: "linear-gradient(135deg, #ff9e80 0%, #d84315 100%)",
+                },
+                "&.Mui-disabled": {
+                  background: status === "success" ? "#22c55e" : "rgba(255,255,255,0.12)",
+                  color: status === "success" ? "white" : "rgba(255,255,255,0.3)"
+                }
+              }}
+            >
+              {status === "loading" ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : status === "success" ? (
+                <CheckCircleIcon sx={{ fontSize: 20 }} />
+              ) : (
+                "Subscribe"
+              )}
+            </Button>
+          </Box>
+
+          {status === "error" && (
+            <Alert 
+              severity="error" 
+              variant="outlined" 
+              sx={{ 
+                py: 0, 
+                px: 1.5,
+                borderColor: "rgba(244,67,54,0.3)",
+                color: "#f44336",
+                "& .MuiAlert-icon": { color: "#f44336", mr: 1, fontSize: 18 }
+              }}
+            >
+              {message}
+            </Alert>
+          )}
+
+          {status === "success" && (
+            <Alert 
+              severity="success" 
+              variant="outlined" 
+              sx={{ 
+                py: 0, 
+                px: 1.5,
+                borderColor: "rgba(76,175,80,0.3)",
+                color: "#4caf50",
+                "& .MuiAlert-icon": { color: "#4caf50", mr: 1, fontSize: 18 }
+              }}
+            >
+              {message}
+            </Alert>
+          )}
+        </Box>
+      </Box>
+
+      <Divider sx={{ borderColor: "rgba(255,255,255,0.08)", mb: 4 }} />
       <Box 
         sx={{ 
           display: "flex", 

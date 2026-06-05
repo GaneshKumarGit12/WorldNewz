@@ -33,6 +33,8 @@ import type { ChangeEvent, FormEvent } from "react";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import { JSONLDWebSite, JSONLDOrganization } from "./seo/JSONLDSchemas";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import CloseIcon from "@mui/icons-material/Close";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import TextField from "@mui/material/TextField";
@@ -117,6 +119,7 @@ const App: React.FC = () => {
   const [drawerCategoriesOpen, setDrawerCategoriesOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
+  const [showPushBanner, setShowPushBanner] = useState(false);
 
   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -145,6 +148,50 @@ const App: React.FC = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // GA4 Virtual Route-Change Tracking
+  useEffect(() => {
+    const gtag = (window as any).gtag;
+    if (typeof gtag === "function") {
+      gtag("config", "G-JD24Y5Y78Z", {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+
+  // Push Notifications Banner Display Logic
+  useEffect(() => {
+    if (typeof window !== "undefined" && "Notification" in window) {
+      const permission = Notification.permission;
+      const isDismissed = localStorage.getItem("worldnewzs_push_dismissed") === "true";
+      if (permission === "default" && !isDismissed) {
+        const timer = setTimeout(() => {
+          setShowPushBanner(true);
+        }, 4000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
+  const handleEnablePush = () => {
+    if (typeof window !== "undefined" && "Notification" in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          new Notification("WorldNewzs", {
+            body: "You have successfully subscribed to breaking news alerts!",
+            icon: "/logo-transparent.svg",
+          });
+        }
+        localStorage.setItem("worldnewzs_push_dismissed", "true");
+        setShowPushBanner(false);
+      });
+    }
+  };
+
+  const handleDismissPush = () => {
+    localStorage.setItem("worldnewzs_push_dismissed", "true");
+    setShowPushBanner(false);
+  };
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -597,6 +644,87 @@ const App: React.FC = () => {
 
       <Footer />
       <CookieConsent />
+
+      {/* ─── Push Notifications Banner ─── */}
+      {showPushBanner && (
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: { xs: 80, sm: 24 },
+            left: { xs: 16, sm: 24 },
+            right: { xs: 16, sm: "auto" },
+            maxWidth: 360,
+            zIndex: 3000,
+            p: 2.5,
+            borderRadius: 4,
+            border: "1px solid",
+            borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+            backgroundColor: isDark ? "rgba(22,27,34,0.95)" : "rgba(255,255,255,0.95)",
+            backdropFilter: "blur(12px)",
+            boxShadow: isDark
+              ? "0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)"
+              : "0 10px 30px rgba(0,0,0,0.08)",
+            display: "flex",
+            flexDirection: "column",
+            gap: 1.5,
+            animation: "slideUp 0.4s ease-out",
+            transition: "all 0.3s ease",
+          }}
+        >
+          <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
+            <Box
+              sx={{
+                p: 1,
+                borderRadius: 2,
+                backgroundColor: isDark ? "rgba(255,138,101,0.15)" : "rgba(200,58,21,0.08)",
+                color: isDark ? "#ff8a65" : "#c83a15",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <NotificationsActiveIcon />
+            </Box>
+            <Box sx={{ flexGrow: 1 }}>
+              <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 0.5 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 800, color: isDark ? "white" : "black" }}>
+                  Enable Breaking News Alerts
+                </Typography>
+                <IconButton size="small" onClick={handleDismissPush} sx={{ p: 0, color: "text.secondary" }} aria-label="Dismiss">
+                  <CloseIcon fontSize="small" />
+                </IconButton>
+              </Box>
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.8rem", lineHeight: 1.4 }}>
+                Get instant desktop and mobile notifications for critical breaking events and regional news stories.
+              </Typography>
+            </Box>
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 1 }}>
+            <Button size="small" onClick={handleDismissPush} sx={{ textTransform: "none", color: "text.secondary", fontWeight: 600 }}>
+              Later
+            </Button>
+            <Button
+              size="small"
+              variant="contained"
+              onClick={handleEnablePush}
+              sx={{
+                textTransform: "none",
+                fontWeight: 700,
+                borderRadius: 2,
+                px: 2,
+                background: "linear-gradient(135deg, #ff8a65 0%, #c83a15 100%)",
+                color: "white",
+                boxShadow: "none",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #ff9e80 0%, #d84315 100%)",
+                },
+              }}
+            >
+              Enable Alerts
+            </Button>
+          </Box>
+        </Box>
+      )}
 
       {/* ─── Global Back to Top FAB ─── */}
       {showBackToTop && (

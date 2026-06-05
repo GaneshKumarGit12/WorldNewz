@@ -274,6 +274,56 @@ export const EditorialGuidelinesPage = () => {
             ))}
           </Box>
 
+          {/* Factual Verification & Attribution Framework */}
+          <Box sx={{ mb: 8 }}>
+            <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 800, mb: 3 }}>
+              Fact-Checking & Attribution Policies
+            </Typography>
+            <Grid container spacing={4}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Card sx={{ height: '100%', p: 1 }}>
+                  <CardContent>
+                    <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: 'primary.main' }}>
+                      Multi-Layer Fact-Checking Protocol
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.7, color: 'text.secondary' }}>
+                      Our automated and manual curation systems are bound by a strict factual verification workflow before any information is summarized or presented as a briefing:
+                    </Typography>
+                    <Typography component="div" variant="body2" sx={{ pl: 2, borderLeft: '2px solid', borderColor: 'primary.main', color: 'text.secondary' }}>
+                      <ol style={{ margin: 0, paddingLeft: '15px' }}>
+                        <li style={{ marginBottom: '8px' }}><strong>Source Integrity Analysis:</strong> Every incoming RSS feed and license partner content is filtered through an authority-indexing registry to confirm current licensing and journalistic credentials.</li>
+                        <li style={{ marginBottom: '8px' }}><strong>Cross-Referencing:</strong> A single claim must be reported by at least three independent verified agencies before it is considered confirmed. Conflicting reports are automatically flagged for editorial desk review.</li>
+                        <li style={{ marginBottom: '8px' }}><strong>Semantic Cleansing:</strong> Our Natural Language Processing (NLP) tools parse text to separate objective factual statements from opinion pieces, editorial bias, and sensationalist adjectives.</li>
+                        <li style={{ marginBottom: '8px' }}><strong>Final Human Review:</strong> All curated briefs, especially in Politics and Business categories, are reviewed by our editors to verify dates, statistics, and proper contextual framing.</li>
+                      </ol>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Card sx={{ height: '100%', p: 1 }}>
+                  <CardContent>
+                    <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: 'primary.main' }}>
+                      Attribution & Direct Linking Policy
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 2, lineHeight: 1.7, color: 'text.secondary' }}>
+                      WorldNewzs respects intellectual property rights and prioritizes original source transparency. Our attribution standards guarantee:
+                    </Typography>
+                    <Typography component="div" variant="body2" sx={{ pl: 2, borderLeft: '2px solid', borderColor: 'primary.main', color: 'text.secondary' }}>
+                      <ul style={{ margin: 0, paddingLeft: '15px', listStyleType: 'disc' }}>
+                        <li style={{ marginBottom: '8px' }}><strong>Canonical Referencing:</strong> All aggregated articles feature direct, follow-canonical outbound links to the original publisher's landing page, ensuring proper SEO credit.</li>
+                        <li style={{ marginBottom: '8px' }}><strong>Journalist Citation:</strong> Wherever possible, the name of the original reporter and agency is explicitly displayed alongside the publication date and source logo.</li>
+                        <li style={{ marginBottom: '8px' }}><strong>No Inlining of Full Text:</strong> We only display summaries, key highlights, and editorial context (e.g. "Why It Matters"). Full article body texts are never scraped or stored.</li>
+                        <li style={{ marginBottom: '8px' }}><strong>Fair Use Compliance:</strong> Headings, brief snippets, and thumbnail images are utilized in full compliance with global news reporting fair use doctrines.</li>
+                      </ul>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+          </Box>
+
           {/* Source Whitelisting */}
           <Box sx={{ mb: 8 }}>
             <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 800, mb: 3 }}>

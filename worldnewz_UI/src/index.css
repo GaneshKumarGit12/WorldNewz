@@ -184,3 +184,14 @@ a:hover {
     opacity: 0.3;
   }
 }
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
