@@ -95,6 +95,8 @@ namespace WorldNewzWebAPI.Controllers
                 catch { /* Ignore parsing errors */ }
             }
 
+            Response.Headers.CacheControl = "public, max-age=300";
+
             return Ok(new
             {
                 status = "ok",

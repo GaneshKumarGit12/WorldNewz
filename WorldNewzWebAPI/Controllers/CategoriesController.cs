@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
 
@@ -19,6 +19,7 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet]
         public IActionResult GetCategories()
         {
+            Response.Headers.CacheControl = "public, max-age=86400";
             return Ok(_context.Categories.ToList());
         }
     }

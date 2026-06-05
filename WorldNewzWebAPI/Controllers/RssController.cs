@@ -110,6 +110,7 @@ namespace WorldNewzWebAPI.Controllers
                 )
             );
 
+            Response.Headers.CacheControl = "public, max-age=300";
             return Content(feed.ToString(), "application/rss+xml");
         }
     }

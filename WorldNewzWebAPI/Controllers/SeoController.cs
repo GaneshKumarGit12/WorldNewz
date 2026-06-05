@@ -123,6 +123,7 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             sb.AppendLine("</urlset>");
+            Response.Headers.CacheControl = "public, max-age=3600";
             return Content(sb.ToString(), "application/xml", Encoding.UTF8);
         }
 
@@ -184,6 +185,7 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             sb.AppendLine("</urlset>");
+            Response.Headers.CacheControl = "public, max-age=1800";
             return Content(sb.ToString(), "application/xml", Encoding.UTF8);
         }
 
@@ -198,6 +200,7 @@ Disallow: /swagger/
 
 Sitemap: {siteUrl}/sitemap.xml
 Sitemap: {siteUrl}/news-sitemap.xml";
+            Response.Headers.CacheControl = "public, max-age=3600";
             return Content(content, "text/plain");
         }
     }

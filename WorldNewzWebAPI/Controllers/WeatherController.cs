@@ -62,6 +62,7 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = weatherResult.Error });
             }
 
+            Response.Headers.CacheControl = "public, max-age=900";
             return Ok(weatherResult);
         }
     }

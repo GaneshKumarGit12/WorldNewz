@@ -217,6 +217,7 @@ namespace WorldNewzWebAPI.Controllers
 
                 // Return at most 15 paragraphs
                 var content = paragraphs.Take(15).ToList();
+                Response.Headers.CacheControl = "public, max-age=3600";
                 return Ok(new { success = true, content = content });
             }
             catch (Exception ex)

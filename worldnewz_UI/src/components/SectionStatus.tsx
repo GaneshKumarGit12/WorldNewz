@@ -14,6 +14,8 @@ interface SectionStatusProps {
   emptyText: string;
   children: React.ReactNode;
   skeletonCount?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns?: any;
 }
 
 const NewsCardSkeleton: React.FC = () => (
@@ -77,6 +79,7 @@ const SectionStatus: React.FC<SectionStatusProps> = ({
   emptyText,
   children,
   skeletonCount = 6,
+  columns = { xs: 12, sm: 6, md: 4 },
 }) => {
   if (loading) {
     return (
@@ -85,7 +88,7 @@ const SectionStatus: React.FC<SectionStatusProps> = ({
         <LinearProgress sx={{ mb: 2, borderRadius: 1 }} />
         <Grid container spacing={2}>
           {Array.from({ length: skeletonCount }).map((_, i) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={i}>
+            <Grid size={columns} key={i}>
               <NewsCardSkeleton />
             </Grid>
           ))}

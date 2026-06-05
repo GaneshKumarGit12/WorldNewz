@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -40,6 +40,7 @@ namespace WorldNewzWebAPI.Controllers
                 var response = await _httpClient.SendAsync(request);
                 response.EnsureSuccessStatusCode();
                 var json = await response.Content.ReadAsStringAsync();
+                Response.Headers.CacheControl = "public, max-age=300";
                 return Content(json, "application/json");
             }
             catch (HttpRequestException ex)

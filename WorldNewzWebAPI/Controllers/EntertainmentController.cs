@@ -48,6 +48,8 @@ namespace WorldNewzWebAPI.Controllers
                 var rawArticles = apiResponse?.Articles ?? new List<Article>();
                 var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Entertainment");
 
+                Response.Headers.CacheControl = "public, max-age=300";
+
                 return Ok(new
                 {
                     status = "ok",

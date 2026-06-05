@@ -14,6 +14,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { getDailyKeyword } from "../utils/dailyKeyword";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
 
 
 const Discover: React.FC = () => {
@@ -115,6 +116,26 @@ const Discover: React.FC = () => {
   const sliderArticles = filteredArticles.slice(0, 10);
   const remainingArticles = filteredArticles.slice(10);
 
+  // Dynamically preload the first article image to optimize LCP
+  useEffect(() => {
+    if (filteredArticles.length > 0) {
+      const firstArticle = filteredArticles[0];
+      const imageUrl = firstArticle.imageUrl || firstArticle.urlToImage;
+      if (imageUrl) {
+        const optimizedUrl = optimizeImageUrl(imageUrl, 500);
+        const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
+        if (!existingLink) {
+          const link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = optimizedUrl;
+          link.setAttribute("fetchpriority", "high");
+          document.head.appendChild(link);
+        }
+      }
+    }
+  }, [filteredArticles]);
+
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
       <SEOMeta
@@ -142,6 +163,7 @@ const Discover: React.FC = () => {
         error={error}
         hasData={filteredArticles.length > 0}
         emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
+        columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       >
         {/* ✅ Top Stories Slider */}
         {sliderArticles.length > 0 && (

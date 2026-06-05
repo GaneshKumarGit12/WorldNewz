@@ -124,6 +124,17 @@ const ResultPage: React.FC = () => {
   useEffect(() => {
     setImgSrc(optimizedUrl);
     setIsFallback(false);
+    if (optimizedUrl) {
+      const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
+      if (!existingLink) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = optimizedUrl;
+        link.setAttribute("fetchpriority", "high");
+        document.head.appendChild(link);
+      }
+    }
   }, [optimizedUrl]);
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {

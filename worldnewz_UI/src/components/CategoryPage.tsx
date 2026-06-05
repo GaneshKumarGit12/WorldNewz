@@ -16,6 +16,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useColorMode } from "../context/ThemeContext";
 import { deduplicateArticles } from "../utils/deduplicate";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
 
 interface CategoryPageProps {
   categoryKey: string;
@@ -160,6 +161,26 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     }
   }, [articles, categoryKey, title]);
 
+  // Dynamically preload the first article image to optimize LCP
+  useEffect(() => {
+    if (filteredArticles.length > 0) {
+      const firstArticle = filteredArticles[0];
+      const imageUrl = firstArticle.imageUrl || firstArticle.urlToImage;
+      if (imageUrl) {
+        const optimizedUrl = optimizeImageUrl(imageUrl, 500);
+        const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
+        if (!existingLink) {
+          const link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = optimizedUrl;
+          link.setAttribute("fetchpriority", "high");
+          document.head.appendChild(link);
+        }
+      }
+    }
+  }, [filteredArticles]);
+
   return (
     <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
       <SEOMeta
@@ -232,6 +253,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         error={error} 
         hasData={filteredArticles.length > 0}
         emptyText={normalizedSearchTerm ? "No results matching your search query." : `No articles currently available in ${title}.`}
+        columns={{ xs: 12, sm: 6, md: 4 }}
       >
         <NewsGrid
           articles={filteredArticles}

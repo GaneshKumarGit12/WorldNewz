@@ -51,6 +51,7 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             _cache.Set(key, keywords, TimeSpan.FromHours(1));
+            Response.Headers.CacheControl = "public, max-age=3600";
             return Ok(keywords);
         }
 
@@ -62,6 +63,7 @@ namespace WorldNewzWebAPI.Controllers
             var all = await _db.SeoKeywords
                 .Where(k => k.Date == today)
                 .ToListAsync();
+            Response.Headers.CacheControl = "public, max-age=3600";
             return Ok(all);
         }
     }

@@ -200,6 +200,42 @@ app.Urls.Add($"http://*:{port}");
 app.UseCors("AllowFrontend");
 app.UseResponseCompression();
 
+// ETag middleware for HTTP GET requests
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method != HttpMethods.Get)
+    {
+        await next();
+        return;
+    }
+
+    var originalBodyStream = context.Response.Body;
+    using var memoryStream = new MemoryStream();
+    context.Response.Body = memoryStream;
+
+    await next();
+
+    if (context.Response.StatusCode == StatusCodes.Status200OK && memoryStream.Length > 0)
+    {
+        memoryStream.Position = 0;
+        using var md5 = System.Security.Cryptography.MD5.Create();
+        var hash = md5.ComputeHash(memoryStream);
+        var etag = $"\"{Convert.ToBase64String(hash)}\"";
+
+        context.Response.Headers.ETag = etag;
+
+        if (context.Request.Headers.TryGetValue("If-None-Match", out var ifNoneMatch) && ifNoneMatch == etag)
+        {
+            context.Response.StatusCode = StatusCodes.Status304NotModified;
+            context.Response.ContentLength = 0;
+            return;
+        }
+    }
+
+    memoryStream.Position = 0;
+    await memoryStream.CopyToAsync(originalBodyStream);
+});
+
 // Add security headers middleware
 app.Use(async (context, next) =>
 {
