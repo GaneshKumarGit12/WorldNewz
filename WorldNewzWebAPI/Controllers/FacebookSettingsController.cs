@@ -149,6 +149,15 @@ namespace WorldNewzWebAPI.Controllers
                 {
                     if (string.IsNullOrWhiteSpace(item.PageId)) continue;
 
+                    // Ensure PageId is strictly numeric (defense-in-depth)
+                    if (!System.Text.RegularExpressions.Regex.IsMatch(item.PageId, @"^\d+$"))
+                    {
+                        return BadRequest(new { error = $"Invalid Facebook Page ID '{item.PageId}'. It must be numeric." });
+                    }
+
+                    // Sanitize PageName by stripping out any HTML tags
+                    var sanitizedPageName = System.Text.RegularExpressions.Regex.Replace(item.PageName ?? "", @"<[^>]*>", "").Trim();
+
                     var existing = await _context.FacebookPageSettings.FindAsync(item.PageId);
                     var tokenToSave = item.AccessToken;
 
@@ -160,7 +169,7 @@ namespace WorldNewzWebAPI.Controllers
                             tokenToSave = existing.AccessToken;
                         }
 
-                        existing.PageName = item.PageName;
+                        existing.PageName = sanitizedPageName;
                         existing.AccessToken = tokenToSave;
                         existing.IsActive = item.IsActive;
                         _context.FacebookPageSettings.Update(existing);
@@ -171,13 +180,13 @@ namespace WorldNewzWebAPI.Controllers
                         // But if they are importing, we expect the raw token from the fetch-pages result.
                         if (IsMasked(tokenToSave))
                         {
-                            return BadRequest(new { error = $"Cannot save new page '{item.PageName}' with a masked token. Please re-authenticate." });
+                            return BadRequest(new { error = $"Cannot save new page '{sanitizedPageName}' with a masked token. Please re-authenticate." });
                         }
 
                         var newSetting = new FacebookPageSetting
                         {
                             PageId = item.PageId,
-                            PageName = item.PageName,
+                            PageName = sanitizedPageName,
                             AccessToken = tokenToSave,
                             IsActive = item.IsActive
                         };

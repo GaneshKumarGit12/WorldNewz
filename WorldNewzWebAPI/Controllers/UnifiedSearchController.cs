@@ -45,26 +45,31 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Invalid parameter combination: sources cannot be combined with country or query." });
             }
 
+            // Escape query parameters to prevent parameter injection or malformed URL errors
+            var escapedQuery = !string.IsNullOrEmpty(query) ? Uri.EscapeDataString(query) : null;
+            var escapedCountry = !string.IsNullOrEmpty(country) ? Uri.EscapeDataString(country) : null;
+            var escapedSources = !string.IsNullOrEmpty(sources) ? Uri.EscapeDataString(sources) : null;
+
             var client = _httpClientFactory.CreateClient();
             client.DefaultRequestHeaders.Add("User-Agent", "WorldNewzWebAPI/1.0");
 
             // ✅ Build URL based on valid NewsAPI rules
             string url;
-            if (!string.IsNullOrEmpty(sources))
+            if (!string.IsNullOrEmpty(escapedSources))
             {
-                url = $"https://newsapi.org/v2/top-headlines?sources={sources}&apiKey={apiKey}";
+                url = $"https://newsapi.org/v2/top-headlines?sources={escapedSources}&apiKey={apiKey}";
             }
-            else if (!string.IsNullOrEmpty(country) && !string.IsNullOrEmpty(query))
+            else if (!string.IsNullOrEmpty(escapedCountry) && !string.IsNullOrEmpty(escapedQuery))
             {
-                url = $"https://newsapi.org/v2/top-headlines?country={country}&q={query}&apiKey={apiKey}";
+                url = $"https://newsapi.org/v2/top-headlines?country={escapedCountry}&q={escapedQuery}&apiKey={apiKey}";
             }
-            else if (!string.IsNullOrEmpty(country))
+            else if (!string.IsNullOrEmpty(escapedCountry))
             {
-                url = $"https://newsapi.org/v2/top-headlines?country={country}&apiKey={apiKey}";
+                url = $"https://newsapi.org/v2/top-headlines?country={escapedCountry}&apiKey={apiKey}";
             }
-            else if (!string.IsNullOrEmpty(query))
+            else if (!string.IsNullOrEmpty(escapedQuery))
             {
-                url = $"https://newsapi.org/v2/everything?q={query}&apiKey={apiKey}";
+                url = $"https://newsapi.org/v2/everything?q={escapedQuery}&apiKey={apiKey}";
             }
             else
             {
@@ -81,9 +86,9 @@ namespace WorldNewzWebAPI.Controllers
             var result = JsonSerializer.Deserialize<NewsApiResponse>(json, _jsonOptions);
 
             // ✅ Fallback if empty and query provided
-            if (result != null && result.TotalResults == 0 && !string.IsNullOrEmpty(query))
+            if (result != null && result.TotalResults == 0 && !string.IsNullOrEmpty(escapedQuery))
             {
-                var fallbackUrl = $"https://newsapi.org/v2/everything?q={query}&apiKey={apiKey}";
+                var fallbackUrl = $"https://newsapi.org/v2/everything?q={escapedQuery}&apiKey={apiKey}";
                 Console.WriteLine($"DEBUG Fallback URL: {fallbackUrl}");
 
                 var fallbackResponse = await client.GetAsync(fallbackUrl);

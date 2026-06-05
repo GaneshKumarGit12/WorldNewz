@@ -109,12 +109,21 @@ export const useComments = () => {
     });
   };
 
+  const sanitizeInput = (val: string): string => {
+    if (!val) return '';
+    // Strip all HTML tags to prevent XSS injection
+    return val.replace(/<[^>]*>/g, '').trim();
+  };
+
   const addComment = (articleUrl: string, text: string, author: string = 'Anonymous'): Comment => {
+    const sanitizedText = sanitizeInput(text);
+    const sanitizedAuthor = sanitizeInput(author) || 'Anonymous';
+
     const comment: Comment = {
       id: `${Date.now()}-${Math.random()}`,
       articleUrl,
-      author,
-      text,
+      author: sanitizedAuthor,
+      text: sanitizedText,
       timestamp: new Date().toISOString(),
       likes: 0,
       dislikes: 0,
