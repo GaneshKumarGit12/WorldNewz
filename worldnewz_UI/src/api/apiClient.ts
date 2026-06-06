@@ -93,6 +93,7 @@ export const fetchLocalNews = (params?: SearchParams) => apiClient.get("/news/lo
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
 export const fetchFullContent = (url: string) => apiClient.get("/news/full-content", { params: { url } });
+export const submitContactForm = (data: { name: string; email: string; subject: string; message: string }) => apiClient.post("/contact", data);
 
 export const fetchFacebookSettings = () => apiClient.get("/facebooksettings");
 export const fetchFacebookPages = (userAccessToken: string) => apiClient.post("/facebooksettings/fetch-pages", { userAccessToken });

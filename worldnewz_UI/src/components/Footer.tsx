@@ -16,7 +16,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -48,6 +48,72 @@ const Footer: React.FC = () => {
       setEmail("");
     }, 1200);
   };
+
+  const handleGoogleCredentialResponse = (response: any) => {
+    try {
+      setStatus("loading");
+      setMessage("");
+      // Decode JWT token safely
+      const base64Url = response.credential.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+          .join("")
+      );
+      const profile = JSON.parse(jsonPayload);
+      
+      const userEmail = profile.email;
+      const userName = profile.name || "Subscriber";
+      
+      // Simulate API subscription with Google Email
+      setTimeout(() => {
+        setStatus("success");
+        setMessage(`Thank you ${userName}! You have successfully subscribed to the newsletter with ${userEmail}.`);
+        setEmail("");
+      }, 1000);
+    } catch (err) {
+      setStatus("error");
+      setMessage("Failed to subscribe using Google Account. Please try manually.");
+    }
+  };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    
+    script.onload = () => {
+      const googleObj = (window as any).google;
+      if (googleObj) {
+        googleObj.accounts.id.initialize({
+          client_id: "39502935670-j17fuc8sb87tv7ds2efs97crcdu1vrbm.apps.googleusercontent.com",
+          callback: handleGoogleCredentialResponse,
+        });
+        const btnContainer = document.getElementById("google-subscribe-btn");
+        if (btnContainer) {
+          googleObj.accounts.id.renderButton(btnContainer, {
+            theme: "filled_blue",
+            size: "medium",
+            text: "signup_with",
+            shape: "pill",
+            width: 380
+          });
+        }
+      }
+    };
+
+    return () => {
+      try {
+        document.body.removeChild(script);
+      } catch (e) {
+        // Ignore if already removed or not attached
+      }
+    };
+  }, []);
   return (
     <Box
       component="footer"
@@ -90,7 +156,7 @@ const Footer: React.FC = () => {
             width: { xs: "100%", md: "auto" }, 
             display: "flex", 
             flexDirection: "column", 
-            gap: 1,
+            gap: 1.5,
             minWidth: { md: 380 }
           }}
         >
@@ -153,6 +219,31 @@ const Footer: React.FC = () => {
               )}
             </Button>
           </Box>
+
+          {status !== "success" && (
+            <>
+              <Box sx={{ display: "flex", alignItems: "center", my: 0.5 }}>
+                <Divider sx={{ flexGrow: 1, borderColor: "rgba(255,255,255,0.08)" }} />
+                <Typography variant="caption" sx={{ px: 1.5, color: "rgba(255,255,255,0.3)", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>
+                  or
+                </Typography>
+                <Divider sx={{ flexGrow: 1, borderColor: "rgba(255,255,255,0.08)" }} />
+              </Box>
+
+              <Box 
+                id="google-subscribe-btn" 
+                sx={{ 
+                  width: "100%", 
+                  display: "flex", 
+                  justifyContent: "center",
+                  minHeight: 40,
+                  "& iframe": {
+                    borderRadius: "20px"
+                  }
+                }} 
+              />
+            </>
+          )}
 
           {status === "error" && (
             <Alert 

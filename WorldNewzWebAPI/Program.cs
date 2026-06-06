@@ -66,6 +66,7 @@ builder.Services.AddScoped<SeoKeywordService>();
 builder.Services.AddHttpClient<FacebookService>();
 builder.Services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
 builder.Services.AddHostedService<FacebookWorkerService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>

@@ -7,6 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
+import { submitContactForm } from '../api/apiClient';
 
 const SITE_URL = 'https://worldnewzs.in';
 const CONTACT_EMAIL = 'ganeshkumard56@gmail.com';
@@ -17,9 +18,10 @@ export const ContactPage = () => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
       setError('Please fill in all fields.');
@@ -33,11 +35,19 @@ export const ContactPage = () => {
     }
 
     setError(null);
-    setSubmitted(true);
-    setName('');
-    setEmail('');
-    setSubject('');
-    setMessage('');
+    setSubmitting(true);
+    try {
+      await submitContactForm({ name, email, subject, message });
+      setSubmitted(true);
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+    } catch (err: any) {
+      setError(err?.message || 'An error occurred while sending your message. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -217,11 +227,12 @@ export const ContactPage = () => {
                       type="submit"
                       variant="contained"
                       color="primary"
-                      endIcon={<SendIcon />}
+                      disabled={submitting}
+                      endIcon={submitting ? undefined : <SendIcon />}
                       fullWidth
                       sx={{ py: 1, borderRadius: 2, fontWeight: 700, textTransform: 'none' }}
                     >
-                      Send Message
+                      {submitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </Grid>
                 </Grid>
