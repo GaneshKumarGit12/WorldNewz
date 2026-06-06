@@ -80,6 +80,42 @@ const Footer: React.FC = () => {
   };
 
   useEffect(() => {
+    let resizeTimeout: any = null;
+
+    const renderGoogleButton = () => {
+      const googleObj = (window as any).google;
+      const btnContainer = document.getElementById("google-subscribe-btn");
+      if (googleObj && btnContainer) {
+        // Clear previous button content to avoid duplication
+        btnContainer.innerHTML = "";
+        
+        // Measure parent container width
+        const containerWidth = btnContainer.getBoundingClientRect().width || 380;
+        // Clamp width: minimum 196px, maximum 380px (original style)
+        const buttonWidth = Math.max(196, Math.min(380, Math.floor(containerWidth)));
+
+        googleObj.accounts.id.initialize({
+          client_id: "39502935670-j17fuc8sb87tv7ds2efs97crcdu1vrbm.apps.googleusercontent.com",
+          callback: handleGoogleCredentialResponse,
+        });
+
+        googleObj.accounts.id.renderButton(btnContainer, {
+          theme: "filled_blue",
+          size: "medium",
+          text: "signup_with",
+          shape: "pill",
+          width: buttonWidth
+        });
+      }
+    };
+
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        renderGoogleButton();
+      }, 250);
+    };
+
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
@@ -87,26 +123,13 @@ const Footer: React.FC = () => {
     document.body.appendChild(script);
     
     script.onload = () => {
-      const googleObj = (window as any).google;
-      if (googleObj) {
-        googleObj.accounts.id.initialize({
-          client_id: "39502935670-j17fuc8sb87tv7ds2efs97crcdu1vrbm.apps.googleusercontent.com",
-          callback: handleGoogleCredentialResponse,
-        });
-        const btnContainer = document.getElementById("google-subscribe-btn");
-        if (btnContainer) {
-          googleObj.accounts.id.renderButton(btnContainer, {
-            theme: "filled_blue",
-            size: "medium",
-            text: "signup_with",
-            shape: "pill",
-            width: 380
-          });
-        }
-      }
+      renderGoogleButton();
+      window.addEventListener("resize", handleResize);
     };
 
     return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(resizeTimeout);
       try {
         document.body.removeChild(script);
       } catch (e) {

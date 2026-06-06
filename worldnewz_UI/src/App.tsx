@@ -601,9 +601,9 @@ const App: React.FC = () => {
           <Box 
             sx={{ 
               display: "flex", 
-              flexWrap: "wrap", 
+              flexWrap: { xs: "nowrap", md: "wrap" }, 
               gap: 0.75, 
-              justifyContent: "center",
+              justifyContent: { xs: "flex-start", md: "center" },
               overflowX: "auto",
               pb: 0.5,
               "&::-webkit-scrollbar": { height: "4px" },
