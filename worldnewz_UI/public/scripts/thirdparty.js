@@ -21,12 +21,7 @@ window.addEventListener('load', () => {
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 
-    // 3. Google AdSense
-    const adsenseScript = document.createElement('script');
-    adsenseScript.async = true;
-    adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075";
-    adsenseScript.crossOrigin = "anonymous";
-    document.head.appendChild(adsenseScript);
+
   };
 
   // Load third-party scripts strictly during browser idle to maximize FID/INP score

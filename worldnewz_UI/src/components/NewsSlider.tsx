@@ -93,8 +93,9 @@ const NewsSlider: React.FC<Props> = ({
     React.useEffect(() => {
         const getBreakpointKey = () => {
             const width = window.innerWidth;
-            if (width < 600) return "mobile";
-            if (width < 900) return "tablet";
+            if (width < 480) return "mobile-portrait";
+            if (width < 768) return "mobile-landscape";
+            if (width < 1024) return "tablet";
             if (width < 1200) return "laptop";
             return "desktop";
         };
@@ -110,17 +111,18 @@ const NewsSlider: React.FC<Props> = ({
     }, []);
 
     // Helper to dynamically calculate slides to show based on resolution and article count to prevent stretching
-    const getSlidesToShow = (breakpoint: "desktop" | "laptop" | "tablet" | "mobile") => {
+    const getSlidesToShow = (breakpoint: "desktop" | "laptop" | "tablet" | "mobile-landscape" | "mobile-portrait") => {
         const count = articles.length;
-        if (breakpoint === "desktop") return Math.min(4, count);
-        if (breakpoint === "laptop") return Math.min(3, count);
-        if (breakpoint === "tablet") return Math.min(2, count);
+        if (breakpoint === "desktop") return Math.min(5, count);
+        if (breakpoint === "laptop") return Math.min(4, count);
+        if (breakpoint === "tablet") return Math.min(4, count);
+        if (breakpoint === "mobile-landscape") return Math.min(3, count);
         return 1;
     };
 
     const settings = {
         dots: articles.length > 1,
-        infinite: articles.length > 4,
+        infinite: articles.length > 5,
         speed: 500,
         slidesToShow: getSlidesToShow("desktop"),
         slidesToScroll: 1,
@@ -138,19 +140,27 @@ const NewsSlider: React.FC<Props> = ({
                 settings: {
                     slidesToShow: getSlidesToShow("laptop"),
                     slidesToScroll: 1,
+                    infinite: articles.length > 4,
+                }
+            },
+            {
+                breakpoint: 1024, // < 1024px (Tablets)
+                settings: {
+                    slidesToShow: getSlidesToShow("tablet"),
+                    slidesToScroll: 1,
+                    infinite: articles.length > 4,
+                }
+            },
+            {
+                breakpoint: 768, // < 768px (Mobiles Landscape)
+                settings: {
+                    slidesToShow: getSlidesToShow("mobile-landscape"),
+                    slidesToScroll: 1,
                     infinite: articles.length > 3,
                 }
             },
             {
-                breakpoint: 900, // < 900px (Tablets)
-                settings: {
-                    slidesToShow: getSlidesToShow("tablet"),
-                    slidesToScroll: 1,
-                    infinite: articles.length > 2,
-                }
-            },
-            {
-                breakpoint: 600, // < 600px (Mobiles)
+                breakpoint: 480, // < 480px (Mobiles Portrait)
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -173,14 +183,14 @@ const NewsSlider: React.FC<Props> = ({
                     p: 1,
                     height: "auto",
                     transition: "transform 0.3s ease, opacity 0.3s ease",
-                    // Apply subtle focus effect on mobile center mode only
-                    "@media (max-width: 599px)": {
+                    // Apply focus effect on mobile portrait center mode only
+                    "@media (max-width: 479px)": {
                         opacity: 0.6,
                         transform: "scale(0.92)",
                     }
                 },
                 "& .slick-center": {
-                    "@media (max-width: 599px)": {
+                    "@media (max-width: 479px)": {
                         opacity: 1,
                         transform: "scale(1)",
                     }
@@ -206,7 +216,7 @@ const NewsSlider: React.FC<Props> = ({
                     <Box key={article.url || idx} sx={{ p: 1, width: "100%", display: "flex", flexDirection: "column" }}>
                         <NewsCard
                             article={article}
-                            loading={idx < 4 ? "eager" : "lazy"}
+                            loading={idx < 5 ? "eager" : "lazy"}
                             onBookmark={onBookmark}
                             onRemoveBookmark={onRemoveBookmark}
                             isBookmarked={article.url ? isBookmarked(article.url) : false}
