@@ -332,7 +332,7 @@ const ReadFullArticles: React.FC = () => {
             image={imgSrc || "/placeholder.svg"}
             alt={article.title}
             loading="eager"
-            {...({ fetchpriority: "high" } as any)}
+            fetchPriority="high"
             onError={handleImageError}
             sx={{
               objectFit: "cover",

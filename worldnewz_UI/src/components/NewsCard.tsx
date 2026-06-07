@@ -314,7 +314,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             image={imgSrc || "/placeholder.svg"}
             alt={article.title}
             loading={loading}
-            {...({ fetchpriority: loading === "eager" ? "high" : undefined } as any)}
+            fetchPriority={loading === "eager" ? "high" : undefined}
             sx={{
               position: "absolute",
               top: 0,

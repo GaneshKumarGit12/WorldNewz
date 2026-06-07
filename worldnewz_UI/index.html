@@ -22,9 +22,21 @@
   <meta name="facebook-domain-verification" content="9k75v6j7w1wg41u2dmd14zuihaw74p" />
   <title>WorldNewzs – Your World, Your News</title>
   
-  <!-- Redirect from Vercel app domain to production domain -->
-  <script src="/scripts/redirect.js"></script>
+  <!-- Redirect from Vercel app domain to production domain (Inlined for PageSpeed) -->
+  <script>
+    if (window.location.hostname.includes('world-newz.vercel.app')) {
+      window.location.replace('https://worldnewzs.in' + window.location.pathname + window.location.search + window.location.hash);
+    }
+  </script>
   
+  <!-- Preconnect to external domains to accelerate network hops -->
+  <link rel="preconnect" href="https://images.weserv.nl" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="preconnect" href="https://worldnewz.onrender.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.weserv.nl" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://worldnewz.onrender.com" />
+
   <!-- Optimized Google Fonts loading (Non-render blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
