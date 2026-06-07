@@ -26,7 +26,7 @@ import { getAuthorForCategory } from "../utils/authors";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import SectionStatus from "../components/SectionStatus";
-import NewsSlider from "../components/NewsSlider";
+import NewsGrid from "../components/NewsGrid";
 
 const getCategoryConfig = (category?: string) => {
   const cat = (category || '').toLowerCase().trim();
@@ -575,14 +575,14 @@ const ReadFullArticles: React.FC = () => {
           hasData={relatedArticles.length > 0}
           emptyText="No related stories available right now."
         >
-          <NewsSlider
-            articles={relatedArticles}
+          <NewsGrid
+            articles={relatedArticles.slice(0, 8)}
             onBookmark={addBookmark}
             onRemoveBookmark={removeBookmark}
             isBookmarked={isBookmarked}
             onLike={toggleLike}
             onDislike={toggleDislike}
-            onAddComment={(url, text, author) => addComment(url, text, author)}
+            onAddComment={addComment}
             onDeleteComment={deleteComment}
             onLikeComment={likeComment}
             onDislikeComment={dislikeComment}

@@ -15,7 +15,7 @@ import { useComments } from "../hooks/useComments";
 import { fetchDiscover, fetchSearch } from "../api/apiClient";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
 import SectionStatus from "../components/SectionStatus";
-import NewsSlider from "../components/NewsSlider";
+import NewsGrid from "../components/NewsGrid";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
@@ -694,14 +694,14 @@ const ResultPage: React.FC = () => {
           hasData={relatedArticles.length > 0}
           emptyText="No related stories available right now."
         >
-          <NewsSlider
-            articles={relatedArticles}
+          <NewsGrid
+            articles={relatedArticles.slice(0, 8)}
             onBookmark={addBookmark}
             onRemoveBookmark={removeBookmark}
             isBookmarked={isBookmarked}
             onLike={toggleLike}
             onDislike={toggleDislike}
-            onAddComment={(url, text, author) => addComment(url, text, author)}
+            onAddComment={addComment}
             onDeleteComment={deleteComment}
             onLikeComment={likeComment}
             onDislikeComment={dislikeComment}

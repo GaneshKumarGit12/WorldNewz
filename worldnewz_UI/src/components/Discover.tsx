@@ -9,7 +9,6 @@ import NewsGrid from "../components/NewsGrid";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
-import NewsSlider from "../components/NewsSlider";
 import { SEOMeta } from "../seo/SEOMeta";
 import { getDailyKeyword } from "../utils/dailyKeyword";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -113,8 +112,8 @@ const Discover: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
-  const sliderArticles = filteredArticles.slice(0, 10);
-  const remainingArticles = filteredArticles.slice(10);
+  const topStoriesArticles = filteredArticles.slice(0, 6);
+  const remainingArticles = filteredArticles.slice(6);
 
   // Dynamically preload the first article image to optimize LCP
   useEffect(() => {
@@ -165,20 +164,20 @@ const Discover: React.FC = () => {
         emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
         columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       >
-        {/* ✅ Top Stories Slider */}
-        {sliderArticles.length > 0 && (
+        {/* ✅ Top Stories Grid */}
+        {topStoriesArticles.length > 0 && (
           <Box sx={{ mb: 4 }}>
             <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
               Top Stories
             </Typography>
-            <NewsSlider
-              articles={sliderArticles}
+            <NewsGrid
+              articles={topStoriesArticles}
               onBookmark={addBookmark}
               onRemoveBookmark={removeBookmark}
               isBookmarked={isBookmarked}
               onLike={toggleLike}
               onDislike={toggleDislike}
-              onAddComment={(url, text, author) => addComment(url, text, author)}
+              onAddComment={addComment}
               onDeleteComment={deleteComment}
               onLikeComment={likeComment}
               onDislikeComment={dislikeComment}
