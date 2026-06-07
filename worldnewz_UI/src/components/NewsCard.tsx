@@ -172,7 +172,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
       setIsFallback(true);
       setImgSrc(originalUrl);
     } else {
-      target.src = "https://via.placeholder.com/320x180?text=No+Image";
+      target.src = "/placeholder.svg";
     }
   };
 
@@ -311,7 +311,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
           </Box>
           <CardMedia
             component="img"
-            image={imgSrc || "https://via.placeholder.com/320x180?text=No+Image"}
+            image={imgSrc || "/placeholder.svg"}
             alt={article.title}
             loading={loading}
             {...({ fetchpriority: loading === "eager" ? "high" : undefined } as any)}

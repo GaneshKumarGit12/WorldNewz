@@ -101,3 +101,15 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </SEOProvider>
   </React.StrictMode>
 );
+
+// Unregister any legacy service workers that might be cached in users' browsers to prevent network/fetch errors
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (const registration of registrations) {
+      registration.unregister();
+    }
+  }).catch((err) => {
+    console.error("Error unregistering service worker:", err);
+  });
+}
+

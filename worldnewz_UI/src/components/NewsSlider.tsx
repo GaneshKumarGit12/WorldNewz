@@ -93,8 +93,9 @@ const NewsSlider: React.FC<Props> = ({
     React.useEffect(() => {
         const getBreakpointKey = () => {
             const width = window.innerWidth;
-            if (width < 480) return "portrait";
-            if (width < 1024) return "landscape";
+            if (width < 600) return "mobile";
+            if (width < 900) return "tablet";
+            if (width < 1200) return "laptop";
             return "desktop";
         };
 
@@ -108,36 +109,54 @@ const NewsSlider: React.FC<Props> = ({
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Helper to dynamically calculate slides to show based on resolution and article count to prevent stretching
+    const getSlidesToShow = (breakpoint: "desktop" | "laptop" | "tablet" | "mobile") => {
+        const count = articles.length;
+        if (breakpoint === "desktop") return Math.min(4, count);
+        if (breakpoint === "laptop") return Math.min(3, count);
+        if (breakpoint === "tablet") return Math.min(2, count);
+        return 1;
+    };
+
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 1, // Default for mobile
+        dots: articles.length > 1,
+        infinite: articles.length > 4,
+        speed: 500,
+        slidesToShow: getSlidesToShow("desktop"),
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
+        autoplay: articles.length > 1,
+        autoplaySpeed: 4000,
         pauseOnHover: true,
+        lazyLoad: "ondemand" as const,
         cssEase: "ease-in-out",
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
-        centerMode: true,
-        centerPadding: "20px", // Slight peek of adjacent cards on mobile
-        mobileFirst: true, // Enable mobile-first breakpoints
+        centerMode: false,
         responsive: [
             {
-                breakpoint: 480, // screens >= 480px (Landscape Mobiles & Tablets)
+                breakpoint: 1200, // < 1200px (Laptops)
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: getSlidesToShow("laptop"),
                     slidesToScroll: 1,
-                    centerMode: false,
+                    infinite: articles.length > 3,
                 }
             },
             {
-                breakpoint: 1024, // screens >= 1024px (Desktops)
+                breakpoint: 900, // < 900px (Tablets)
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 4,
-                    centerMode: false,
+                    slidesToShow: getSlidesToShow("tablet"),
+                    slidesToScroll: 1,
+                    infinite: articles.length > 2,
+                }
+            },
+            {
+                breakpoint: 600, // < 600px (Mobiles)
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: articles.length > 1,
+                    centerMode: articles.length > 1,
+                    centerPadding: "24px",
                 }
             }
         ]
@@ -148,47 +167,38 @@ const NewsSlider: React.FC<Props> = ({
             sx={{ 
                 mb: 8, 
                 px: { xs: 0, md: 3 }, 
-                "& .slick-track": { 
-                    display: "block",
-                    "@media (min-width: 480px)": {
-                        display: "flex",
-                        alignItems: "stretch" 
-                    }
-                },
+                position: "relative",
+                // Customize slick track and slides for premium card spacing and effects
                 "& .slick-slide": { 
-                    height: "auto", 
-                    display: "block",
+                    p: 1,
+                    height: "auto",
                     transition: "transform 0.3s ease, opacity 0.3s ease",
-                    opacity: 0.6,
-                    transform: "scale(0.92)",
-                    "@media (min-width: 480px)": {
-                        display: "flex", 
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        opacity: 1,
-                        transform: "scale(1)",
-                    },
-                    "@media (min-width: 768px)": {
+                    // Apply subtle focus effect on mobile center mode only
+                    "@media (max-width: 599px)": {
                         opacity: 0.6,
                         transform: "scale(0.92)",
-                    },
-                    "& > div": { 
-                        width: "100%",
-                        display: "block",
-                        "@media (min-width: 480px)": {
-                            display: "flex" 
-                        }
-                    } 
+                    }
                 },
                 "& .slick-center": {
-                    opacity: 1,
-                    transform: "scale(1)",
-                    "@media (min-width: 768px)": {
+                    "@media (max-width: 599px)": {
                         opacity: 1,
                         transform: "scale(1)",
                     }
                 },
-                "& .slick-dots": { bottom: -35 }
+                "& .slick-list": {
+                    mx: -1, // Negate slide padding on container edges
+                },
+                "& .slick-dots": { 
+                    bottom: -35,
+                    "& li button:before": {
+                        color: "primary.main",
+                        opacity: 0.25,
+                    },
+                    "& li.slick-active button:before": {
+                        color: "primary.main",
+                        opacity: 0.85,
+                    }
+                }
             }}
         >
             <Slider key={sliderKey} {...settings}>
@@ -196,7 +206,7 @@ const NewsSlider: React.FC<Props> = ({
                     <Box key={article.url || idx} sx={{ p: 1, width: "100%", display: "flex", flexDirection: "column" }}>
                         <NewsCard
                             article={article}
-                            loading={idx < 2 ? "eager" : "lazy"}
+                            loading={idx < 4 ? "eager" : "lazy"}
                             onBookmark={onBookmark}
                             onRemoveBookmark={onRemoveBookmark}
                             isBookmarked={article.url ? isBookmarked(article.url) : false}
@@ -215,4 +225,4 @@ const NewsSlider: React.FC<Props> = ({
     );
 };
 
-export default NewsSlider;
+export default React.memo(NewsSlider);

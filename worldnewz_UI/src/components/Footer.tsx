@@ -16,7 +16,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -79,6 +79,11 @@ const Footer: React.FC = () => {
     }
   };
 
+  const credentialCallbackRef = useRef(handleGoogleCredentialResponse);
+  useEffect(() => {
+    credentialCallbackRef.current = handleGoogleCredentialResponse;
+  }, [handleGoogleCredentialResponse]);
+
   useEffect(() => {
     let resizeTimeout: any = null;
 
@@ -94,10 +99,14 @@ const Footer: React.FC = () => {
         // Clamp width: minimum 196px, maximum 380px (original style)
         const buttonWidth = Math.max(196, Math.min(380, Math.floor(containerWidth)));
 
-        googleObj.accounts.id.initialize({
-          client_id: "39502935670-j17fuc8sb87tv7ds2efs97crcdu1vrbm.apps.googleusercontent.com",
-          callback: handleGoogleCredentialResponse,
-        });
+        // Initialize Google Sign-In only once globally to prevent console warnings
+        if (!(window as any).__google_gsi_initialized) {
+          googleObj.accounts.id.initialize({
+            client_id: "39502935670-j17fuc8sb87tv7ds2efs97crcdu1vrbm.apps.googleusercontent.com",
+            callback: (res: any) => credentialCallbackRef.current(res),
+          });
+          (window as any).__google_gsi_initialized = true;
+        }
 
         googleObj.accounts.id.renderButton(btnContainer, {
           theme: "filled_blue",
@@ -116,25 +125,38 @@ const Footer: React.FC = () => {
       }, 250);
     };
 
-    const script = document.createElement("script");
-    script.src = "https://accounts.google.com/gsi/client";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    
-    script.onload = () => {
+    const googleObj = (window as any).google;
+    if (googleObj) {
       renderGoogleButton();
       window.addEventListener("resize", handleResize);
-    };
+    } else {
+      let script = document.getElementById("google-gsi-client") as HTMLScriptElement;
+      if (!script) {
+        script = document.createElement("script");
+        script.id = "google-gsi-client";
+        script.src = "https://accounts.google.com/gsi/client";
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+      }
+
+      const handleScriptLoad = () => {
+        renderGoogleButton();
+        window.addEventListener("resize", handleResize);
+      };
+
+      script.addEventListener("load", handleScriptLoad);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        clearTimeout(resizeTimeout);
+        script.removeEventListener("load", handleScriptLoad);
+      };
+    }
 
     return () => {
       window.removeEventListener("resize", handleResize);
       clearTimeout(resizeTimeout);
-      try {
-        document.body.removeChild(script);
-      } catch (e) {
-        // Ignore if already removed or not attached
-      }
     };
   }, []);
   return (

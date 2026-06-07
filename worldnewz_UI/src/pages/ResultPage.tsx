@@ -364,7 +364,7 @@ const ResultPage: React.FC = () => {
           <CardMedia
             component="img"
             height={400}
-            image={imgSrc || "https://via.placeholder.com/640x360?text=No+Image"}
+            image={imgSrc || "/placeholder.svg"}
             alt={article.title}
             loading="eager"
             {...({ fetchpriority: "high" } as any)}
