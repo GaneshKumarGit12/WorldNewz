@@ -79,14 +79,14 @@ const SectionStatus: React.FC<SectionStatusProps> = ({
   emptyText,
   children,
   skeletonCount = 6,
-  columns = { xs: 12, sm: 6, md: 4 },
+  columns = { xs: 12, sm: 6, md: 4, lg: 3 },
 }) => {
   if (loading) {
     return (
       <Box sx={{ width: "100%" }}>
         {/* Top Slim linear progress loader */}
         <LinearProgress sx={{ mb: 2, borderRadius: 1 }} />
-        <Grid container spacing={2}>
+        <Grid container spacing={{ xs: 1.5, sm: 2, md: 2.5 }}>
           {Array.from({ length: skeletonCount }).map((_, i) => (
             <Grid size={columns} key={i}>
               <NewsCardSkeleton />

@@ -44,14 +44,16 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('react')) {
-              return 'react-vendor'
+              return 'react';
             }
             if (id.includes('@mui')) {
-              return 'mui-vendor'
+              return 'mui';
             }
-            return 'vendor'
+            if (id.includes('axios')) {
+              return 'axios';
+            }
           }
-        },
+        }
       },
     },
   },

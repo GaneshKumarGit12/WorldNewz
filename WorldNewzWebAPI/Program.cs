@@ -201,6 +201,22 @@ app.Urls.Add($"http://*:{port}");
 app.UseCors("AllowFrontend");
 app.UseResponseCompression();
 
+// Cache-Control middleware for HTTP GET requests
+app.Use(async (context, next) =>
+{
+    if (HttpMethods.IsGet(context.Request.Method))
+    {
+        var path = context.Request.Path.Value ?? "";
+        if (path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase) && 
+            !path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase) &&
+            !path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
+        {
+            context.Response.Headers["Cache-Control"] = "public,max-age=600";
+        }
+    }
+    await next();
+});
+
 // ETag middleware for HTTP GET requests
 app.Use(async (context, next) =>
 {

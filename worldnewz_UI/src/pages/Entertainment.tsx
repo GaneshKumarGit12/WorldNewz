@@ -12,6 +12,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
 
 
 const Entertainment: React.FC = () => {
@@ -89,6 +90,26 @@ const Entertainment: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
+
+  // Dynamically preload the first article image to optimize LCP
+  useEffect(() => {
+    if (articles.length > 0) {
+      const firstArticle = articles[0];
+      const imageUrl = firstArticle.imageUrl || firstArticle.urlToImage;
+      if (imageUrl) {
+        const optimizedUrl = optimizeImageUrl(imageUrl, 500);
+        const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
+        if (!existingLink) {
+          const link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = optimizedUrl;
+          link.setAttribute("fetchpriority", "high");
+          document.head.appendChild(link);
+        }
+      }
+    }
+  }, [articles]);
 
   const [description, setDescription] = useState("Latest updates from the world of entertainment and showbiz.");
 
