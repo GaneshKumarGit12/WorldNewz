@@ -13,4 +13,6 @@ services:
         value: "https://ganeshkumargit12.github.io,http://localhost:5173,http://localhost:5174"
       - key: DATABASE_PATH
         value: "worldnews.db"
+      - key: GEMINI_API_KEY
+        value: "AIzaSyCa4npzbdFF-EJrYz1e9rN9VJG2Z40bLIs"
     healthCheckPath: "/health"
