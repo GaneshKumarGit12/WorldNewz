@@ -95,6 +95,8 @@ export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${p
 export const fetchFullContent = (url: string) => apiClient.get("/news/full-content", { params: { url } });
 export const submitContactForm = (data: { name: string; email: string; subject: string; message: string }) => apiClient.post("/contact", data);
 
+export const performGeminiSearch = (query: string) => apiClient.post("/news/gemini-search", { query });
+
 export const fetchFacebookSettings = () => apiClient.get("/facebooksettings");
 export const fetchFacebookPages = (userAccessToken: string) => apiClient.post("/facebooksettings/fetch-pages", { userAccessToken });
 export const saveFacebookSettings = (settings: any[]) => apiClient.post("/facebooksettings/save", settings);

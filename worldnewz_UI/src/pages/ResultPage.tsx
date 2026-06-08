@@ -72,6 +72,10 @@ const getCategoryConfig = (category?: string) => {
 };
 
 const generateEditorialBriefing = (desc: string, article?: Article | null) => {
+  if (article && article.takeaways && Array.isArray(article.takeaways) && article.takeaways.length > 0) {
+    return { takeaways: article.takeaways, whyItMatters: article.context || "This breakthrough highlights an important shift that key stakeholders are watching closely." };
+  }
+
   if (article && (article.summary || article.context)) {
     const summarySentences = (article.summary || desc || "")
       .split(/[.!?]+/)

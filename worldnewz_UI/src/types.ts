@@ -31,6 +31,7 @@ export interface Article {
   headline?: string;
   summary?: string;
   context?: string;
+  takeaways?: string[];
   socialMediaHook?: string;
   verified?: boolean;
 }
