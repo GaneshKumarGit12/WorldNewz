@@ -11,9 +11,7 @@ import Box from "@mui/material/Box";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import MicIcon from "@mui/icons-material/Mic";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import CircularProgress from "@mui/material/CircularProgress";
-import { performGeminiSearch } from "./api/apiClient";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -122,7 +120,6 @@ const App: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
   const [showPushBanner, setShowPushBanner] = useState(false);
-  const [geminiSearching, setGeminiSearching] = useState(false);
 
   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -209,57 +206,9 @@ const App: React.FC = () => {
     navigate(`/search?${combined}`);
   };
 
-  const performGeminiSearchAction = async (value: string) => {
-    const trimmed = value.trim();
-    if (!trimmed) return;
-
-    setGeminiSearching(true);
-    try {
-      const response = await performGeminiSearch(trimmed);
-      let data = response.data;
-      
-      if (typeof data === "string") {
-        try {
-          data = JSON.parse(data);
-        } catch {
-          data = { summary: data };
-        }
-      } else if (data && data.success && data.rawText) {
-        try {
-          data = JSON.parse(data.rawText);
-        } catch {
-          data = { summary: data.rawText };
-        }
-      }
-
-      const articleObj = {
-        url: "https://gemini.google.com/search?q=" + encodeURIComponent(trimmed),
-        title: data.headline || `AI Curation: ${trimmed}`,
-        headline: data.headline || `AI Curation: ${trimmed}`,
-        description: data.summary || "No description generated.",
-        summary: data.summary || "No description generated.",
-        context: data.context || "Why it matters: This highlights a notable pivot in contemporary trends relating to this topic.",
-        takeaways: Array.isArray(data.takeaways) ? data.takeaways : [],
-        publishedAt: new Date().toISOString(),
-        source: { name: "Google Gemini Curation" },
-        category: "technology",
-        verified: true,
-        urlToImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1000&auto=format&fit=crop&q=80"
-      };
-
-      const titleSlug = articleObj.title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50) || "article";
-      navigate(`/article/${titleSlug}`, { state: { article: articleObj } });
-    } catch (err) {
-      console.error("Gemini search failed, falling back to standard search", err);
-      performSearch(trimmed);
-    } finally {
-      setGeminiSearching(false);
-    }
-  };
-
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    performGeminiSearchAction(searchTerm);
+    performSearch(searchTerm);
   };
 
   const handleVoiceSearch = () => {
@@ -272,14 +221,14 @@ const App: React.FC = () => {
     recognition.onresult = (event: any) => {
       const transcript = event.results[0][0].transcript;
       setSearchTerm(transcript);
-      performGeminiSearchAction(transcript);
+      performSearch(transcript);
     };
     recognition.onerror = () => console.warn("Voice search failed");
     recognition.start();
   };
 
   const handleCopilotSearch = () => {
-    performGeminiSearchAction(searchTerm || "latest news");
+    performSearch(searchTerm || "latest news");
   };
 
   const isDark = mode === "dark";
@@ -603,7 +552,7 @@ const App: React.FC = () => {
               fullWidth
               value={searchTerm}
               onChange={handleSearchChange}
-              placeholder="Ask Google Gemini AI search..."
+              placeholder="Search news, weather, shopping, sports…"
               variant="outlined"
               size="small"
               autoComplete="off"
@@ -622,14 +571,14 @@ const App: React.FC = () => {
                         </IconButton>
                       </Tooltip>
                       <Button
-                        startIcon={<AutoAwesomeIcon sx={{ fontSize: 16 }} />}
+                        startIcon={<SmartToyIcon sx={{ fontSize: 16 }} />}
                         variant="contained"
                         color="primary"
                         size="small"
                         onClick={handleCopilotSearch}
                         sx={{ textTransform: "none", borderRadius: 4, boxShadow: "none", fontSize: "0.8rem", py: 0.5 }}
                       >
-                        Gemini Search
+                        Search
                       </Button>
                     </Box>
                   </InputAdornment>
@@ -777,34 +726,7 @@ const App: React.FC = () => {
         </Box>
       )}
 
-      {geminiSearching && (
-        <Box
-          sx={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(13, 17, 23, 0.85)",
-            backdropFilter: "blur(6px)",
-            zIndex: 99999,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            gap: 2,
-          }}
-        >
-          <CircularProgress size={50} sx={{ color: "#ff8a65" }} />
-          <Typography variant="h6" sx={{ fontWeight: 700, letterSpacing: 0.5 }}>
-            Google Gemini is curating your briefing...
-          </Typography>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
-            Analyzing news feeds and generating an AI synthesis
-          </Typography>
-        </Box>
-      )}
+
 
       {/* ─── Global Back to Top FAB ─── */}
       {showBackToTop && (
