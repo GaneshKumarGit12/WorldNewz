@@ -10,6 +10,7 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
@@ -33,6 +34,8 @@ const Sports: React.FC = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  const dynamicKeywordsData = useKeywords("sports");
 
 
 
@@ -123,12 +126,23 @@ const Sports: React.FC = () => {
     }
   }, [articles]);
 
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([
+        'sports', 'news', 'football', 'basketball', 'tennis', 'latest sports',
+        ...dynamicKeywordsData.primary,
+        ...dynamicKeywordsData.longtail,
+        ...dynamicKeywordsData.trending
+      ])]
+    : ['sports', 'news', 'football', 'basketball', 'tennis', 'latest sports'];
+  const seoDescription = dynamicKeywordsData?.metaDesc || description;
+
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
       <SEOMeta
         title="Sports News"
-        description={description}
-        keywords={['sports', 'news', 'football', 'basketball', 'tennis', 'latest sports']}
+        description={seoDescription}
+        keywords={combinedKeywords}
+        canonical="https://worldnewzs.in/sports"
       />
       <JSONLDBreadcrumb crumbs={[
         { name: "Home", url: window.location.origin },

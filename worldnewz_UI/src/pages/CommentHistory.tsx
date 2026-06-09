@@ -184,6 +184,7 @@ const CommentHistory: React.FC = () => {
       <SEOMeta
         title="Comment History"
         description="View, search, and manage your complete comment history across WorldNewzs articles."
+        canonical="https://worldnewzs.in/comments"
       />
       {/* Back Button */}
       <Button

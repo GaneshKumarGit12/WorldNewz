@@ -215,6 +215,8 @@ const FacebookSettings: React.FC = () => {
       <SEOMeta
         title="Facebook Automation Integration"
         description="Configure automated news feed posting to Facebook Pages using API settings."
+        canonical="https://worldnewzs.in/facebook-settings"
+        noIndex={true}
       />
 
       {/* Header */}

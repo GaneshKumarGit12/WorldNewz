@@ -10,6 +10,7 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { AffiliateDeals } from "../components/AffiliateDeals";
@@ -43,6 +44,8 @@ const Shopping: React.FC = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  const dynamicKeywordsData = useKeywords("shopping");
 
 
 
@@ -130,12 +133,23 @@ const Shopping: React.FC = () => {
     }
   }, [articles]);
 
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([
+        'shopping', 'e-commerce', 'deals', 'trends', 'discounts', 'news',
+        ...dynamicKeywordsData.primary,
+        ...dynamicKeywordsData.longtail,
+        ...dynamicKeywordsData.trending
+      ])]
+    : ['shopping', 'e-commerce', 'deals', 'trends', 'discounts', 'news'];
+  const seoDescription = dynamicKeywordsData?.metaDesc || description;
+
   return (
     <Box sx={{ p: 2 }}>
       <SEOMeta
         title="Shopping News"
-        description={description}
-        keywords={['shopping', 'e-commerce', 'deals', 'trends', 'discounts', 'news']}
+        description={seoDescription}
+        keywords={combinedKeywords}
+        canonical="https://worldnewzs.in/shopping"
       />
       <JSONLDBreadcrumb crumbs={[
         { name: "Home", url: window.location.origin },

@@ -141,6 +141,7 @@ const Discover: React.FC = () => {
         title="Discover News"
         description={`Stay updated with the latest news on ${dailyKeyword} and more.`}
         keywords={['discover', 'news', dailyKeyword]}
+        canonical="https://worldnewzs.in"
       />
       {/* Page Header */}
       <Box sx={{ mb: 4 }}>

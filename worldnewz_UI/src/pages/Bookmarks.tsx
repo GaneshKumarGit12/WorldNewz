@@ -38,6 +38,7 @@ const Bookmarks: React.FC = () => {
       <SEOMeta
         title="My Bookmarks"
         description="Access and read your saved news articles and stories on WorldNewzs."
+        canonical="https://worldnewzs.in/bookmarks"
       />
       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, flexWrap: "wrap" }}>
         <BookmarkIcon color="warning" sx={{ fontSize: 32 }} />

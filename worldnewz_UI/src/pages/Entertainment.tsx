@@ -10,6 +10,7 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
@@ -33,6 +34,8 @@ const Entertainment: React.FC = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  const dynamicKeywordsData = useKeywords("entertainment");
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
@@ -121,12 +124,23 @@ const Entertainment: React.FC = () => {
     }
   }, [articles]);
 
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([
+        'entertainment', 'news', 'movies', 'music', 'latest entertainment',
+        ...dynamicKeywordsData.primary,
+        ...dynamicKeywordsData.longtail,
+        ...dynamicKeywordsData.trending
+      ])]
+    : ['entertainment', 'news', 'movies', 'music', 'latest entertainment'];
+  const seoDescription = dynamicKeywordsData?.metaDesc || description;
+
   return (
     <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
       <SEOMeta
         title="Entertainment News"
-        description={description}
-        keywords={['entertainment', 'news', 'movies', 'music', 'latest entertainment']}
+        description={seoDescription}
+        keywords={combinedKeywords}
+        canonical="https://worldnewzs.in/entertainment"
       />
       <JSONLDBreadcrumb crumbs={[
         { name: "Home", url: window.location.origin },

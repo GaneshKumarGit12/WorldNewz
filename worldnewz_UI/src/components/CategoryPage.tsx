@@ -14,6 +14,7 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 import { useColorMode } from "../context/ThemeContext";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
@@ -80,6 +81,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  const dynamicKeywordsData = useKeywords(categoryKey);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   const filteredArticles = normalizedSearchTerm
@@ -182,12 +185,18 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     }
   }, [filteredArticles]);
 
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([...keywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
+    : keywords;
+  const descriptionToUse = dynamicKeywordsData?.metaDesc || dynamicDesc;
+
   return (
     <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
       <SEOMeta
         title={`${title} News - WorldNewzs`}
-        description={dynamicDesc}
-        keywords={keywords}
+        description={descriptionToUse}
+        keywords={combinedKeywords}
+        canonical={`https://worldnewzs.in/${categoryKey}`}
       />
       
       <JSONLDBreadcrumb crumbs={[

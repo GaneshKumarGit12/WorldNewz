@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { fetchWeather } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -87,6 +88,16 @@ const Weather: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const dynamicKeywordsData = useKeywords("weather");
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([
+        'weather', 'forecast', 'temperature', 'rain', 'wind',
+        ...dynamicKeywordsData.primary,
+        ...dynamicKeywordsData.longtail,
+        ...dynamicKeywordsData.trending
+      ])]
+    : ['weather', 'forecast', 'temperature', 'rain', 'wind'];
+
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   const weatherText = `${weather?.location?.city ?? ""} ${weather?.location?.country ?? ""} ${getWeatherLabel(weather?.current?.weatherCode)} ${weather?.location?.timezone ?? ""}`.toLowerCase();
   const weatherMatches = normalizedSearchTerm === "" || weatherText.includes(normalizedSearchTerm);
@@ -119,13 +130,13 @@ const Weather: React.FC = () => {
   const currentIcon = getWeatherIcon(weather?.current?.weatherCode);
 
   const titleText = weather?.location?.city ? `Weather in ${weather.location.city}` : "Weather Dashboard";
-  const descText = weather?.location?.city 
+  const descText = dynamicKeywordsData?.metaDesc || (weather?.location?.city 
     ? `Current weather in ${weather.location.city}: ${currentTemp?.toFixed(0) ?? "—"}°C, ${currentLabel}. Get the 7-day weather forecast, wind speed, and daily details.` 
-    : "Check the local weather forecast, temperature, wind, and today's atmospheric details on WorldNewzs.";
+    : "Check the local weather forecast, temperature, wind, and today's atmospheric details on WorldNewzs.");
 
   return (
     <Box sx={{ p: 2 }}>
-      <SEOMeta title={titleText} description={descText} />
+      <SEOMeta title={titleText} description={descText} keywords={combinedKeywords} canonical="https://worldnewzs.in/weather" />
       <JSONLDBreadcrumb crumbs={[
         { name: "Home", url: window.location.origin },
         { name: "Weather", url: `${window.location.origin}/weather` }
