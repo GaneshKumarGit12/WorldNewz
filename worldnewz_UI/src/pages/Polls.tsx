@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -34,6 +34,7 @@ const BANNED_WORDS = [
 ];
 
 const Polls: React.FC = () => {
+  const navigate = useNavigate();
   const { mode } = useColorMode();
   const isDark = mode === "dark";
 
@@ -51,6 +52,9 @@ const Polls: React.FC = () => {
   // Timers: { [pollId]: secondsLeft }
   const [timers, setTimers] = useState<{ [key: number]: number }>({});
   const [disabledPolls, setDisabledPolls] = useState<{ [key: number]: boolean }>({});
+  
+  // Track which polls have been answered
+  const [answeredPolls, setAnsweredPolls] = useState<{ [key: number]: boolean }>({});
   
   // Selections: { [pollId]: optionId }
   const [selections, setSelections] = useState<{ [key: number]: number }>({});
@@ -177,15 +181,22 @@ const Polls: React.FC = () => {
   };
 
   const handleOptionSelect = (pollId: number, optionId: number) => {
-    if (disabledPolls[pollId]) return;
+    // If the poll has already been disabled by timeout or answered once, block changes
+    if (disabledPolls[pollId] || answeredPolls[pollId]) return;
+
     setSelections((prev) => ({
       ...prev,
       [pollId]: optionId
     }));
+    
+    // Lock the question choice immediately upon the first click
+    setAnsweredPolls((prev) => ({
+      ...prev,
+      [pollId]: true
+    }));
   };
 
   const handlePollsAnswersSubmit = async () => {
-    // Collect answers
     const answersList = Object.entries(selections).map(([pollId, optionId]) => ({
       pollId: parseInt(pollId),
       optionId: optionId
@@ -215,7 +226,7 @@ const Polls: React.FC = () => {
         });
         setShowPopup(true);
 
-        // Clear session and state to allow re-identifying or clean slate next time
+        // Clear session and state to allow re-identifying cleanly
         sessionStorage.removeItem("polls_user_name");
         sessionStorage.removeItem("polls_user_email");
       }
@@ -237,8 +248,14 @@ const Polls: React.FC = () => {
     setPolls([]);
     setSelections({});
     setDisabledPolls({});
+    setAnsweredPolls({});
     setTimers({});
     if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
+  const handlePopupClose = () => {
+    setShowPopup(false);
+    navigate("/polls-history");
   };
 
   const dynamicKeywordsData = useKeywords("polls");
@@ -248,7 +265,6 @@ const Polls: React.FC = () => {
     : defaultKeywords;
   const descriptionToUse = dynamicKeywordsData?.metaDesc || "Cast your vote in our daily public polls on technology, sports, business, and policy. View real-time results instantly.";
 
-  // Status-based color/icon rendering
   const getStatusConfig = (status: string) => {
     switch (status) {
       case "Green":
@@ -291,7 +307,6 @@ const Polls: React.FC = () => {
         ]}
       />
 
-      {/* Embedded Animations CSS for dynamic icons */}
       <style>{`
         @keyframes pulse-green {
           0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
@@ -464,7 +479,12 @@ const Polls: React.FC = () => {
                 {polls.map((poll) => {
                   const timeLeft = timers[poll.id] ?? 30;
                   const isTimedOut = disabledPolls[poll.id] === true;
+                  const isAnswered = answeredPolls[poll.id] === true;
+                  const isLocked = isTimedOut || isAnswered;
                   const currentSelection = selections[poll.id];
+
+                  // Locate correct option
+                  const correctOption = poll.options.find(o => o.isCorrect === true);
 
                   return (
                     <Card
@@ -474,7 +494,7 @@ const Polls: React.FC = () => {
                         borderRadius: 4,
                         boxShadow: "0 4px 15px rgba(0,0,0,0.04)",
                         border: "1px solid",
-                        borderColor: isTimedOut ? "error.light" : "divider",
+                        borderColor: isLocked ? (isTimedOut && !currentSelection ? "error.light" : "success.light") : "divider",
                         opacity: isTimedOut && !currentSelection ? 0.7 : 1,
                         transition: "all 0.3s ease"
                       }}
@@ -482,7 +502,7 @@ const Polls: React.FC = () => {
                       {/* Card Header with Question and Timer */}
                       <Box sx={{ 
                         p: 3, 
-                        backgroundColor: isTimedOut ? "rgba(239,68,68,0.05)" : "action.hover", 
+                        backgroundColor: isLocked ? (isTimedOut && !currentSelection ? "rgba(239,68,68,0.05)" : "rgba(34,197,94,0.05)") : "action.hover", 
                         borderBottom: "1px solid", 
                         borderColor: "divider",
                         display: "flex",
@@ -508,14 +528,14 @@ const Polls: React.FC = () => {
                           px: 2, 
                           py: 0.75, 
                           borderRadius: 3, 
-                          backgroundColor: isTimedOut ? "error.main" : timeLeft < 10 ? "warning.main" : "primary.main",
+                          backgroundColor: isLocked ? (isTimedOut && !currentSelection ? "error.main" : "success.main") : timeLeft < 10 ? "warning.main" : "primary.main",
                           color: "white",
                           fontWeight: 800,
                           fontSize: "0.85rem",
                           boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
                         }}>
                           <TimerIcon fontSize="small" />
-                          <span>{isTimedOut ? "Timed Out" : `${timeLeft}s`}</span>
+                          <span>{isTimedOut ? "Timed Out" : isAnswered ? "Locked" : `${timeLeft}s`}</span>
                         </Box>
                       </Box>
 
@@ -530,32 +550,63 @@ const Polls: React.FC = () => {
                               key={option.id}
                               sx={{
                                 border: "1px solid",
-                                borderColor: currentSelection === option.id ? "primary.main" : "divider",
-                                backgroundColor: currentSelection === option.id ? "primary.light" : "transparent",
+                                borderColor: currentSelection === option.id 
+                                  ? "primary.main" 
+                                  : isLocked && option.isCorrect 
+                                    ? "success.main" 
+                                    : "divider",
+                                backgroundColor: currentSelection === option.id 
+                                  ? "primary.light" 
+                                  : isLocked && option.isCorrect 
+                                    ? "rgba(34,197,94,0.08)" 
+                                    : "transparent",
                                 borderRadius: 3,
                                 px: 2.5,
                                 py: 1.5,
                                 mb: 1.5,
                                 transition: "all 0.2s",
-                                cursor: isTimedOut ? "not-allowed" : "pointer",
-                                opacity: isTimedOut && currentSelection !== option.id ? 0.5 : 1,
+                                cursor: isLocked ? "not-allowed" : "pointer",
+                                opacity: isLocked && currentSelection !== option.id && !option.isCorrect ? 0.5 : 1,
                                 "&:hover": {
-                                  borderColor: isTimedOut ? "divider" : "primary.main",
-                                  backgroundColor: isTimedOut ? "transparent" : currentSelection === option.id ? "primary.light" : "action.hover",
+                                  borderColor: isLocked 
+                                    ? (option.isCorrect ? "success.main" : "divider") 
+                                    : "primary.main",
+                                  backgroundColor: isLocked 
+                                    ? (option.isCorrect ? "rgba(34,197,94,0.08)" : "transparent") 
+                                    : currentSelection === option.id ? "primary.light" : "action.hover",
                                 }
                               }}
-                              onClick={() => !isTimedOut && handleOptionSelect(poll.id, option.id)}
+                              onClick={() => !isLocked && handleOptionSelect(poll.id, option.id)}
                             >
                               <FormControlLabel
                                 value={option.id}
-                                disabled={isTimedOut}
+                                disabled={isLocked}
                                 control={<Radio size="small" />}
-                                label={option.optionText}
+                                label={
+                                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                                    <span>{option.optionText}</span>
+                                    {isLocked && option.isCorrect && (
+                                      <Typography variant="caption" sx={{ color: "success.main", fontWeight: 700 }}>
+                                        (Correct Choice)
+                                      </Typography>
+                                    )}
+                                  </Box>
+                                }
                                 sx={{ width: "100%", m: 0 }}
                               />
                             </Box>
                           ))}
                         </RadioGroup>
+
+                        {/* Display Correct Answer Reveal below choices */}
+                        {isLocked && correctOption && (
+                          <Box sx={{ mt: 2, display: "flex", alignItems: "center", gap: 1, p: 1.5, borderRadius: 2, backgroundColor: "rgba(34,197,94,0.05)" }}>
+                            <CheckCircleOutlineIcon sx={{ color: "success.main", fontSize: "1.1rem" }} />
+                            <Typography variant="body2" sx={{ color: "success.main", fontWeight: 800 }}>
+                              Correct Answer: {correctOption.optionText}
+                            </Typography>
+                          </Box>
+                        )}
                       </CardContent>
                     </Card>
                   );
@@ -594,7 +645,7 @@ const Polls: React.FC = () => {
         {/* ─── PHASE 3: RATING POPUP DIALOG ─── */}
         <Dialog
           open={showPopup}
-          onClose={() => setShowPopup(false)}
+          onClose={handlePopupClose}
           PaperProps={{
             sx: {
               borderRadius: 5,
@@ -643,29 +694,23 @@ const Polls: React.FC = () => {
                 Your responses have been successfully validated and recorded in our live database rankings. Check history to compare.
               </Typography>
 
-              <DialogActions sx={{ justifyContent: "center", gap: 1.5, p: 0 }}>
+              <DialogActions sx={{ justifyContent: "center", p: 0 }}>
                 <Button
-                  onClick={() => setShowPopup(false)}
-                  variant="outlined"
-                  sx={{ borderRadius: 3, textTransform: "none", fontWeight: 700 }}
-                >
-                  Close
-                </Button>
-                <Button
-                  component={Link}
-                  to="/polls-history"
+                  onClick={handlePopupClose}
                   variant="contained"
                   sx={{ 
                     borderRadius: 3, 
                     textTransform: "none", 
                     fontWeight: 800,
+                    px: 6,
+                    py: 1.25,
                     background: "linear-gradient(90deg, #ff8a65 0%, #c83a15 100%)",
                     "&:hover": {
                       background: "linear-gradient(90deg, #ff9e80 0%, #d84315 100%)",
                     }
                   }}
                 >
-                  View Leaderboard
+                  OK - View Leaderboard
                 </Button>
               </DialogActions>
             </DialogContent>

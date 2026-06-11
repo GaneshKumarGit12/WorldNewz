@@ -13,24 +13,29 @@ namespace WorldNewzWebAPI.Controllers
     public class PollsController : ControllerBase
     {
         private readonly WorldNewsDbContext _context;
+        private readonly UserPollsDbContext _userDb;
 
-        public PollsController(WorldNewsDbContext context)
+        public PollsController(WorldNewsDbContext context, UserPollsDbContext userDb)
         {
             _context = context;
+            _userDb = userDb;
         }
 
         // GET: api/polls
         [HttpGet]
         public async Task<IActionResult> GetActivePolls()
         {
-            // Returns active/current polls (we can sort by date descending)
-            var activePolls = await _context.Polls
+            var allPolls = await _context.Polls
                 .Include(p => p.Options)
-                .OrderByDescending(p => p.CreatedAt)
-                .Take(5)
                 .ToListAsync();
 
-            return Ok(activePolls);
+            // Randomly shuffle using Guid.NewGuid() and take 3
+            var randomized = allPolls
+                .OrderBy(p => Guid.NewGuid())
+                .Take(3)
+                .ToList();
+
+            return Ok(randomized);
         }
 
         // POST: api/polls/{id}/vote
@@ -137,7 +142,7 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             // 4. Check for duplicate Name + Email combination
-            var exists = await _context.PollSubmissions
+            var exists = await _userDb.PollSubmissions
                 .AnyAsync(s => s.Name.ToLower() == name.ToLower() && s.Email.ToLower() == email.ToLower());
             if (exists)
             {
@@ -193,7 +198,8 @@ namespace WorldNewzWebAPI.Controllers
                 SubmittedAt = DateTime.UtcNow
             };
 
-            _context.PollSubmissions.Add(submission);
+            _userDb.PollSubmissions.Add(submission);
+            await _userDb.SaveChangesAsync();
             await _context.SaveChangesAsync();
 
             return Ok(new
@@ -204,11 +210,10 @@ namespace WorldNewzWebAPI.Controllers
             });
         }
 
-        // GET: api/polls/history
         [HttpGet("history")]
         public async Task<IActionResult> GetPollsHistory()
         {
-            var submissions = await _context.PollSubmissions
+            var submissions = await _userDb.PollSubmissions
                 .OrderByDescending(s => s.SubmittedAt)
                 .ToListAsync();
 

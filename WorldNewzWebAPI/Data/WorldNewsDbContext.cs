@@ -15,7 +15,6 @@ namespace WorldNewzWebAPI.Data
         public DbSet<FacebookPageSetting> FacebookPageSettings { get; set; }
         public DbSet<Poll> Polls { get; set; }
         public DbSet<PollOption> PollOptions { get; set; }
-        public DbSet<PollSubmission> PollSubmissions { get; set; }
     }
 
 }

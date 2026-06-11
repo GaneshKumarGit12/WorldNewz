@@ -136,6 +136,7 @@ export interface PollOptionItem {
   pollId: number;
   optionText: string;
   votes: number;
+  isCorrect?: boolean;
 }
 
 export interface PollItem {

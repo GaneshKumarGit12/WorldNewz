@@ -24,10 +24,18 @@ builder.Configuration.AddEnvironmentVariables();
 var dbPath = Environment.GetEnvironmentVariable("DATABASE_PATH") ?? "worldnews.db";
 dbPath = Path.Combine(AppContext.BaseDirectory, dbPath);
 
+var userDbPath = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_PATH") ?? "userpolls.db";
+userDbPath = Path.Combine(AppContext.BaseDirectory, userDbPath);
+
 // Add DbContext - using SQLite for development
 builder.Services.AddDbContext<WorldNewsDbContext>(options =>
 {
     options.UseSqlite($"Data Source={dbPath}");
+});
+
+builder.Services.AddDbContext<UserPollsDbContext>(options =>
+{
+    options.UseSqlite($"Data Source={userDbPath}");
 });
 
 // Add CORS policy
@@ -143,6 +151,9 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<WorldNewsDbContext>();
     db.Database.EnsureCreated();
 
+    var userDb = scope.ServiceProvider.GetRequiredService<UserPollsDbContext>();
+    userDb.Database.EnsureCreated();
+
     // Ensure EnrichedArticles table exists
     db.Database.ExecuteSqlRaw(@"
         CREATE TABLE IF NOT EXISTS EnrichedArticles (
@@ -224,9 +235,9 @@ using (var scope = app.Services.CreateScope())
     db.SaveChanges();
 
     // Seed default polls
-    if (!db.Polls.Any() || !db.PollOptions.Any(o => o.IsCorrect))
+    if (db.Polls.Count() < 10 || !db.PollOptions.Any(o => o.IsCorrect))
     {
-        // Clear existing polls and options if they don't have IsCorrect flagged
+        // Clear existing polls and options if they don't have IsCorrect flagged or are outdated
         if (db.Polls.Any())
         {
             try
@@ -246,7 +257,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Question = "How will Artificial Intelligence impact your career in the next 5 years?",
                 Description = "A poll tracking general public sentiment regarding automated systems and career displacement/enhancement.",
-                CreatedAt = DateTime.UtcNow.AddDays(-2),
+                CreatedAt = DateTime.UtcNow.AddDays(-9),
                 Options = new List<WorldNewzWebAPI.Models.PollOption>
                 {
                     new WorldNewzWebAPI.Models.PollOption { OptionText = "Very Positively", Votes = 245, IsCorrect = true },
@@ -259,7 +270,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Question = "What is your primary source of daily technology news?",
                 Description = "Identifying news distribution preference among modern readers.",
-                CreatedAt = DateTime.UtcNow.AddDays(-1),
+                CreatedAt = DateTime.UtcNow.AddDays(-8),
                 Options = new List<WorldNewzWebAPI.Models.PollOption>
                 {
                     new WorldNewzWebAPI.Models.PollOption { OptionText = "Social Media Platforms (Twitter, Reddit)", Votes = 189, IsCorrect = false },
@@ -272,7 +283,7 @@ using (var scope = app.Services.CreateScope())
             {
                 Question = "Which cricket format do you prefer watching the most?",
                 Description = "Sports preference tracking for regional news targeting.",
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.UtcNow.AddDays(-7),
                 Options = new List<WorldNewzWebAPI.Models.PollOption>
                 {
                     new WorldNewzWebAPI.Models.PollOption { OptionText = "Test Cricket (Traditional)", Votes = 112, IsCorrect = false },
@@ -280,11 +291,102 @@ using (var scope = app.Services.CreateScope())
                     new WorldNewzWebAPI.Models.PollOption { OptionText = "T20 Internationals", Votes = 342, IsCorrect = true },
                     new WorldNewzWebAPI.Models.PollOption { OptionText = "IPL / Domestic Franchise Leagues", Votes = 489, IsCorrect = false }
                 }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "What is the most critical factor for successful remote team collaboration?",
+                Description = "Corporate and industry development survey on workplace methods.",
+                CreatedAt = DateTime.UtcNow.AddDays(-6),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Clear Communication Protocols", Votes = 190, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Robust Project Management Tools", Votes = 120, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Flexible Working Hours", Votes = 75, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Regular Virtual Meetings", Votes = 60, IsCorrect = false }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "Which renewable energy source has the highest potential for global adoption?",
+                Description = "Environmental and science survey tracking sustainable energy preference.",
+                CreatedAt = DateTime.UtcNow.AddDays(-5),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Solar Power", Votes = 420, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Wind Energy", Votes = 280, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Hydroelectric Energy", Votes = 150, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Geothermal Energy", Votes = 85, IsCorrect = false }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "What is the best way to improve cybersecurity awareness in an organization?",
+                Description = "Assessing IT security posture and training effectiveness in businesses.",
+                CreatedAt = DateTime.UtcNow.AddDays(-4),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Regular Training and Simulations", Votes = 310, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Strict IT Security Policies", Votes = 145, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Advanced Threat Detection Systems", Votes = 98, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Encrypted Communication Tools", Votes = 55, IsCorrect = false }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "Which platform do you prefer for professional networking?",
+                Description = "Career navigation and digital networking preference research.",
+                CreatedAt = DateTime.UtcNow.AddDays(-3),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "LinkedIn", Votes = 520, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "GitHub", Votes = 160, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Twitter/X", Votes = 110, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Dedicated Slack Communities", Votes = 95, IsCorrect = false }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "What is the primary benefit of deploying applications to the cloud?",
+                Description = "Tracking software engineering infrastructure trends.",
+                CreatedAt = DateTime.UtcNow.AddDays(-2),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Scalability and Flexibility", Votes = 340, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Reduced Maintenance Costs", Votes = 210, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Enhanced Built-in Security", Votes = 125, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Simplified Version Control", Votes = 45, IsCorrect = false }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "Which programming paradigm do you use most frequently?",
+                Description = "Assessing developer preferences and methodology.",
+                CreatedAt = DateTime.UtcNow.AddDays(-1),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Object-Oriented Programming", Votes = 450, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Functional Programming", Votes = 180, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Procedural Programming", Votes = 65, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Event-Driven Programming", Votes = 135, IsCorrect = false }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "What is the main advantage of Agile project management over Waterfall?",
+                Description = "Software project lifecycle management preference survey.",
+                CreatedAt = DateTime.UtcNow,
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Adaptability to Changing Requirements", Votes = 380, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Predictable Project Timelines", Votes = 95, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Fixed Budget Constraints", Votes = 60, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Comprehensive Initial Documentation", Votes = 45, IsCorrect = false }
+                }
             }
         };
         db.Polls.AddRange(polls);
         db.SaveChanges();
-        Console.WriteLine("✓ Seeded default polls to database with correct answers");
+        Console.WriteLine("✓ Seeded 10 default polls to database with correct answers");
     }
 
     // Seed default Ad slots if table is empty
@@ -325,6 +427,7 @@ app.Use(async (context, next) =>
         var path = context.Request.Path.Value ?? "";
         if (path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase) && 
             !path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase) &&
+            !path.Contains("polls", StringComparison.OrdinalIgnoreCase) &&
             !path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
         {
             context.Response.Headers["Cache-Control"] = "public,max-age=600";
