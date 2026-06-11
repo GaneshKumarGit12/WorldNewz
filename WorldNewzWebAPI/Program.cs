@@ -22,10 +22,22 @@ builder.Configuration.AddEnvironmentVariables();
 
 // Get database path from environment or default
 var dbPath = Environment.GetEnvironmentVariable("DATABASE_PATH") ?? "worldnews.db";
-dbPath = Path.Combine(AppContext.BaseDirectory, dbPath);
+var isAbsoluteDbPath = Path.IsPathRooted(dbPath);
+var dbDir = isAbsoluteDbPath ? Path.GetDirectoryName(dbPath) : AppContext.BaseDirectory;
+if (!isAbsoluteDbPath)
+{
+    dbPath = Path.Combine(AppContext.BaseDirectory, dbPath);
+}
 
-var userDbPath = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_PATH") ?? "userpolls.db";
-userDbPath = Path.Combine(AppContext.BaseDirectory, userDbPath);
+var userDbPath = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_PATH");
+if (string.IsNullOrEmpty(userDbPath))
+{
+    userDbPath = Path.Combine(dbDir ?? AppContext.BaseDirectory, "userpolls.db");
+}
+else if (!Path.IsPathRooted(userDbPath))
+{
+    userDbPath = Path.Combine(AppContext.BaseDirectory, userDbPath);
+}
 
 // Add DbContext - using SQLite for development
 builder.Services.AddDbContext<WorldNewsDbContext>(options =>
@@ -206,8 +218,8 @@ using (var scope = app.Services.CreateScope())
     }
     catch { /* Column already exists */ }
 
-    // Ensure PollSubmissions table exists
-    db.Database.ExecuteSqlRaw(@"
+    // Ensure PollSubmissions table exists in userDb database
+    userDb.Database.ExecuteSqlRaw(@"
         CREATE TABLE IF NOT EXISTS PollSubmissions (
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             Name TEXT NOT NULL,
@@ -425,12 +437,19 @@ app.Use(async (context, next) =>
     if (HttpMethods.IsGet(context.Request.Method))
     {
         var path = context.Request.Path.Value ?? "";
-        if (path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase) && 
-            !path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase) &&
-            !path.Contains("polls", StringComparison.OrdinalIgnoreCase) &&
-            !path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
+        if (path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase))
         {
-            context.Response.Headers["Cache-Control"] = "public,max-age=600";
+            if (path.Contains("polls", StringComparison.OrdinalIgnoreCase) || 
+                path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase))
+            {
+                context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+                context.Response.Headers["Pragma"] = "no-cache";
+                context.Response.Headers["Expires"] = "0";
+            }
+            else if (!path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
+            {
+                context.Response.Headers["Cache-Control"] = "public,max-age=600";
+            }
         }
     }
     await next();

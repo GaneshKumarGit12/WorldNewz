@@ -164,9 +164,9 @@ export interface PollSubmissionResponse {
   scoreStatus: string;
 }
 
-export const fetchActivePolls = () => apiClient.get<PollItem[]>("/polls");
+export const fetchActivePolls = () => apiClient.get<PollItem[]>(`/polls?t=${new Date().getTime()}`);
 export const submitPollAnswers = (data: PollAnswersSubmissionRequest) => apiClient.post<PollSubmissionResponse>("/polls/submit-answers", data);
-export const fetchPollsHistory = () => apiClient.get<PollSubmissionHistoryItem[]>("/polls/history");
+export const fetchPollsHistory = () => apiClient.get<PollSubmissionHistoryItem[]>(`/polls/history?t=${new Date().getTime()}`);
 
 // Stocks API Types & Clients
 export interface StockItem {
