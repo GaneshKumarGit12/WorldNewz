@@ -122,13 +122,13 @@ export interface VoteResponse {
   }>;
 }
 
-export interface PollHistoryItem {
+export interface PollSubmissionHistoryItem {
   id: number;
-  question: string;
-  description: string;
-  createdAt: string;
-  totalVotes: number;
-  optionsBreakdown: string;
+  name: string;
+  email: string;
+  percentage: number;
+  status: string;
+  submittedAt: string;
 }
 
 export interface PollOptionItem {
@@ -146,9 +146,26 @@ export interface PollItem {
   options: PollOptionItem[];
 }
 
+export interface PollAnswer {
+  pollId: number;
+  optionId: number;
+}
+
+export interface PollAnswersSubmissionRequest {
+  name: string;
+  email: string;
+  answers: PollAnswer[];
+}
+
+export interface PollSubmissionResponse {
+  status: string;
+  percentage: number;
+  scoreStatus: string;
+}
+
 export const fetchActivePolls = () => apiClient.get<PollItem[]>("/polls");
-export const submitPollVote = (pollId: number, optionId: number) => apiClient.post<VoteResponse>(`/polls/${pollId}/vote`, { optionId });
-export const fetchPollsHistory = () => apiClient.get<PollHistoryItem[]>("/polls/history");
+export const submitPollAnswers = (data: PollAnswersSubmissionRequest) => apiClient.post<PollSubmissionResponse>("/polls/submit-answers", data);
+export const fetchPollsHistory = () => apiClient.get<PollSubmissionHistoryItem[]>("/polls/history");
 
 // Stocks API Types & Clients
 export interface StockItem {

@@ -80,33 +80,146 @@ namespace WorldNewzWebAPI.Controllers
             });
         }
 
+        private static readonly string[] BannedWords = new[] { 
+            "pornography", "pronography", "sexual", "sexsual", 
+            "porn", "sex", "xxx", "nsfw", "adult", "naked", 
+            "erotic", "prostitute", "bitch", "bastard" 
+        };
+
+        private bool ContainsBannedWords(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return false;
+            var lower = input.ToLower();
+            return BannedWords.Any(word => lower.Contains(word));
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // POST: api/polls/submit-answers
+        [HttpPost("submit-answers")]
+        public async Task<IActionResult> SubmitAnswers([FromBody] PollAnswersSubmissionRequest request)
+        {
+            if (request == null)
+            {
+                return BadRequest(new { error = "Invalid submission payload." });
+            }
+
+            var name = (request.Name ?? "").Trim();
+            var email = (request.Email ?? "").Trim();
+
+            // 1. Basic validation
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email))
+            {
+                return BadRequest(new { error = "Name and Email are required fields." });
+            }
+
+            // 2. Inappropriate words filtering
+            if (ContainsBannedWords(name) || ContainsBannedWords(email))
+            {
+                return BadRequest(new { error = "Unwanted or inappropriate content detected in Name or Email address." });
+            }
+
+            // 3. Email format validation
+            if (!IsValidEmail(email))
+            {
+                return BadRequest(new { error = "Please provide a valid Email address format." });
+            }
+
+            // 4. Check for duplicate Name + Email combination
+            var exists = await _context.PollSubmissions
+                .AnyAsync(s => s.Name.ToLower() == name.ToLower() && s.Email.ToLower() == email.ToLower());
+            if (exists)
+            {
+                return BadRequest(new { error = "A submission with this Name and Email address already exists." });
+            }
+
+            if (request.Answers == null || request.Answers.Count == 0)
+            {
+                return BadRequest(new { error = "Please submit answers for at least one question." });
+            }
+
+            // 5. Evaluate answers
+            int correctCount = 0;
+            int totalEvaluated = 0;
+
+            foreach (var ans in request.Answers)
+            {
+                var option = await _context.PollOptions
+                    .FirstOrDefaultAsync(o => o.PollId == ans.PollId && o.Id == ans.OptionId);
+
+                if (option != null)
+                {
+                    totalEvaluated++;
+                    if (option.IsCorrect)
+                    {
+                        correctCount++;
+                    }
+
+                    // Increment the option vote count
+                    option.Votes += 1;
+                }
+            }
+
+            if (totalEvaluated == 0)
+            {
+                return BadRequest(new { error = "None of the selected options were found." });
+            }
+
+            double percentage = Math.Round(((double)correctCount / totalEvaluated) * 100, 1);
+
+            // Determine status based on percentage
+            string status = "Red";
+            if (percentage >= 60.0) status = "Green";
+            else if (percentage >= 30.0) status = "Orange";
+
+            // Save submission
+            var submission = new PollSubmission
+            {
+                Name = name,
+                Email = email,
+                Percentage = percentage,
+                Status = status,
+                SubmittedAt = DateTime.UtcNow
+            };
+
+            _context.PollSubmissions.Add(submission);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                status = "success",
+                percentage = percentage,
+                scoreStatus = status
+            });
+        }
+
         // GET: api/polls/history
         [HttpGet("history")]
         public async Task<IActionResult> GetPollsHistory()
         {
-            // Returns history format suitable for a premium DataGrid
-            var polls = await _context.Polls
-                .Include(p => p.Options)
-                .OrderByDescending(p => p.CreatedAt)
+            var submissions = await _context.PollSubmissions
+                .OrderByDescending(s => s.SubmittedAt)
                 .ToListAsync();
 
-            var history = polls.Select(p => {
-                int totalVotes = p.Options.Sum(o => o.Votes);
-                
-                // Construct a detailed options breakdown text for the DataGrid
-                var optionsBreakdown = string.Join(" | ", p.Options.Select(o => 
-                    $"{o.OptionText}: {o.Votes} ({(totalVotes > 0 ? Math.Round((double)o.Votes / totalVotes * 100, 1) : 0.0)}%)"
-                ));
-
-                return new
-                {
-                    id = p.Id,
-                    question = p.Question,
-                    description = p.Description,
-                    createdAt = p.CreatedAt.ToString("yyyy-MM-dd HH:mm"),
-                    totalVotes,
-                    optionsBreakdown
-                };
+            var history = submissions.Select(s => new
+            {
+                id = s.Id,
+                name = s.Name,
+                email = s.Email,
+                percentage = s.Percentage,
+                status = s.Status,
+                submittedAt = s.SubmittedAt.ToString("yyyy-MM-dd HH:mm")
             }).ToList();
 
             return Ok(history);
@@ -115,6 +228,19 @@ namespace WorldNewzWebAPI.Controllers
 
     public class VoteRequest
     {
+        public int OptionId { get; set; }
+    }
+
+    public class PollAnswersSubmissionRequest
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public System.Collections.Generic.List<PollAnswerRequest> Answers { get; set; } = new();
+    }
+
+    public class PollAnswerRequest
+    {
+        public int PollId { get; set; }
         public int OptionId { get; set; }
     }
 }

@@ -184,7 +184,26 @@ using (var scope = app.Services.CreateScope())
             PollId INTEGER NOT NULL,
             OptionText TEXT NOT NULL,
             Votes INTEGER NOT NULL DEFAULT 0,
+            IsCorrect INTEGER NOT NULL DEFAULT 0,
             FOREIGN KEY (PollId) REFERENCES Polls(Id) ON DELETE CASCADE
+        );
+    ");
+
+    try
+    {
+        db.Database.ExecuteSqlRaw("ALTER TABLE PollOptions ADD COLUMN IsCorrect INTEGER NOT NULL DEFAULT 0;");
+    }
+    catch { /* Column already exists */ }
+
+    // Ensure PollSubmissions table exists
+    db.Database.ExecuteSqlRaw(@"
+        CREATE TABLE IF NOT EXISTS PollSubmissions (
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            Name TEXT NOT NULL,
+            Email TEXT NOT NULL,
+            Percentage REAL NOT NULL,
+            Status TEXT NOT NULL,
+            SubmittedAt TEXT NOT NULL
         );
     ");
 
@@ -205,8 +224,22 @@ using (var scope = app.Services.CreateScope())
     db.SaveChanges();
 
     // Seed default polls
-    if (!db.Polls.Any())
+    if (!db.Polls.Any() || !db.PollOptions.Any(o => o.IsCorrect))
     {
+        // Clear existing polls and options if they don't have IsCorrect flagged
+        if (db.Polls.Any())
+        {
+            try
+            {
+                db.Polls.RemoveRange(db.Polls);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Could not clear old polls: {ex.Message}");
+            }
+        }
+
         var polls = new List<WorldNewzWebAPI.Models.Poll>
         {
             new WorldNewzWebAPI.Models.Poll
@@ -216,10 +249,10 @@ using (var scope = app.Services.CreateScope())
                 CreatedAt = DateTime.UtcNow.AddDays(-2),
                 Options = new List<WorldNewzWebAPI.Models.PollOption>
                 {
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Very Positively", Votes = 245 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Somewhat Positively", Votes = 312 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Neutral / No Impact", Votes = 98 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Negatively / Risk of Layoff", Votes = 156 }
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Very Positively", Votes = 245, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Somewhat Positively", Votes = 312, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Neutral / No Impact", Votes = 98, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Negatively / Risk of Layoff", Votes = 156, IsCorrect = false }
                 }
             },
             new WorldNewzWebAPI.Models.Poll
@@ -229,10 +262,10 @@ using (var scope = app.Services.CreateScope())
                 CreatedAt = DateTime.UtcNow.AddDays(-1),
                 Options = new List<WorldNewzWebAPI.Models.PollOption>
                 {
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Social Media Platforms (Twitter, Reddit)", Votes = 189 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Dedicated News Sites (WorldNewzs, BBC)", Votes = 224 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Email Newsletters", Votes = 87 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Video Tech Creators", Votes = 143 }
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Social Media Platforms (Twitter, Reddit)", Votes = 189, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Dedicated News Sites (WorldNewzs, BBC)", Votes = 224, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Email Newsletters", Votes = 87, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Video Tech Creators", Votes = 143, IsCorrect = false }
                 }
             },
             new WorldNewzWebAPI.Models.Poll
@@ -242,16 +275,16 @@ using (var scope = app.Services.CreateScope())
                 CreatedAt = DateTime.UtcNow,
                 Options = new List<WorldNewzWebAPI.Models.PollOption>
                 {
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Test Cricket (Traditional)", Votes = 112 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "One Day Internationals (ODI)", Votes = 95 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "T20 Internationals", Votes = 342 },
-                    new WorldNewzWebAPI.Models.PollOption { OptionText = "IPL / Domestic Franchise Leagues", Votes = 489 }
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Test Cricket (Traditional)", Votes = 112, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "One Day Internationals (ODI)", Votes = 95, IsCorrect = false },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "T20 Internationals", Votes = 342, IsCorrect = true },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "IPL / Domestic Franchise Leagues", Votes = 489, IsCorrect = false }
                 }
             }
         };
         db.Polls.AddRange(polls);
         db.SaveChanges();
-        Console.WriteLine("✓ Seeded default polls to database");
+        Console.WriteLine("✓ Seeded default polls to database with correct answers");
     }
 
     // Seed default Ad slots if table is empty
