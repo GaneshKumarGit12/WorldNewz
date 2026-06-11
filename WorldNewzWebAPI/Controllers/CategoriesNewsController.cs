@@ -121,5 +121,23 @@ namespace WorldNewzWebAPI.Controllers
         {
             return GetCategoryNews("Local News (India)", "Telangana OR Hyderabad OR local", null, "in", false, page, pageSize);
         }
+
+        [HttpGet("services")]
+        public Task<IActionResult> GetServices([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        {
+            return GetCategoryNews("Services", "service OR consultant OR platform OR utility OR SaaS OR \"business services\"", null, "us", false, page, pageSize);
+        }
+
+        [HttpGet("gaming")]
+        public Task<IActionResult> GetGaming([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        {
+            return GetCategoryNews("Gaming", "gaming OR e-sports OR xbox OR playstation OR nintendo OR \"PC games\" OR \"mobile game\" OR steam", null, "us", false, page, pageSize);
+        }
+
+        [HttpGet("cartoons")]
+        public Task<IActionResult> GetCartoons([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        {
+            return GetCategoryNews("Cartoons", "cartoon OR anime OR manga OR animation OR disney OR pixar OR nickelodeon OR \"comic book\"", null, "us", false, page, pageSize);
+        }
     }
 }

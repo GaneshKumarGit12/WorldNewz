@@ -103,3 +103,69 @@ export const saveFacebookSettings = (settings: any[]) => apiClient.post("/facebo
 export const toggleFacebookPage = (pageId: string) => apiClient.post(`/facebooksettings/toggle/${pageId}`);
 export const deleteFacebookPage = (pageId: string) => apiClient.delete(`/facebooksettings/${pageId}`);
 export const testFacebookPost = (pageId: string) => apiClient.post(`/facebooksettings/test/${pageId}`);
+
+// New Category feeds
+export const fetchServices = (params?: SearchParams) => apiClient.get("/news/services", { params });
+export const fetchGaming = (params?: SearchParams) => apiClient.get("/news/gaming", { params });
+export const fetchCartoons = (params?: SearchParams) => apiClient.get("/news/cartoons", { params });
+
+// Polls API Types & Clients
+export interface VoteResponse {
+  status: string;
+  message: string;
+  totalVotes: number;
+  results: Array<{
+    id: number;
+    optionText: string;
+    votes: number;
+    percentage: number;
+  }>;
+}
+
+export interface PollHistoryItem {
+  id: number;
+  question: string;
+  description: string;
+  createdAt: string;
+  totalVotes: number;
+  optionsBreakdown: string;
+}
+
+export interface PollOptionItem {
+  id: number;
+  pollId: number;
+  optionText: string;
+  votes: number;
+}
+
+export interface PollItem {
+  id: number;
+  question: string;
+  description: string;
+  createdAt: string;
+  options: PollOptionItem[];
+}
+
+export const fetchActivePolls = () => apiClient.get<PollItem[]>("/polls");
+export const submitPollVote = (pollId: number, optionId: number) => apiClient.post<VoteResponse>(`/polls/${pollId}/vote`, { optionId });
+export const fetchPollsHistory = () => apiClient.get<PollHistoryItem[]>("/polls/history");
+
+// Stocks API Types & Clients
+export interface StockItem {
+  symbol: string;
+  name: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  exchange: string;
+  trendHint: string;
+}
+
+export interface StocksResponse {
+  status: string;
+  exchange: string;
+  lastUpdated: string;
+  stocks: StockItem[];
+}
+
+export const fetchStocks = (exchange: string) => apiClient.get<StocksResponse>("/stocks", { params: { exchange } });

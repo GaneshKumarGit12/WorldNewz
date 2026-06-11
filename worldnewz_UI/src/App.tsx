@@ -61,6 +61,11 @@ const secondaryNavLinks = [
   { label: "Travel", path: "/travel" },
   { label: "Food", path: "/food" },
   { label: "Entertainment", path: "/entertainment" },
+  { label: "Services", path: "/services" },
+  { label: "Gaming", path: "/gaming" },
+  { label: "Cartoons", path: "/cartoons" },
+  { label: "Polls", path: "/polls" },
+  { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
   { label: "Education", path: "/education" },
   { label: "Opinion", path: "/opinion" },
@@ -87,7 +92,12 @@ const categories = [
   "shopping", 
   "travel", 
   "food", 
-  "entertainment"
+  "entertainment",
+  "services",
+  "gaming",
+  "cartoons",
+  "polls",
+  "stocks"
 ];
 
 const getCategoryPath = (cat: string): string => {
@@ -110,6 +120,11 @@ const getCategoryPath = (cat: string): string => {
     case "travel": return "/travel";
     case "food": return "/food";
     case "entertainment": return "/entertainment";
+    case "services": return "/services";
+    case "gaming": return "/gaming";
+    case "cartoons": return "/cartoons";
+    case "polls": return "/polls";
+    case "stocks": return "/stocks";
     default: return "/";
   }
 };

@@ -35,10 +35,22 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.SetIsOriginAllowed(origin => true) // Allow any origin (Vercel, Localhost, etc.)
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
+        var corsOrigins = Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS");
+        if (!string.IsNullOrEmpty(corsOrigins))
+        {
+            var origins = corsOrigins.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            policy.WithOrigins(origins)
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        }
+        else
+        {
+            policy.SetIsOriginAllowed(origin => true) // Fallback for development/wildcard
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        }
     });
 });
 
@@ -67,6 +79,7 @@ builder.Services.AddHttpClient<FacebookService>();
 builder.Services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
 builder.Services.AddHostedService<FacebookWorkerService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddHttpClient<MarketDataService>();
 
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>
@@ -166,10 +179,92 @@ using (var scope = app.Services.CreateScope())
         );
     ");
 
+    // Ensure Polls table exists
+    db.Database.ExecuteSqlRaw(@"
+        CREATE TABLE IF NOT EXISTS Polls (
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            Question TEXT NOT NULL,
+            Description TEXT NOT NULL,
+            CreatedAt TEXT NOT NULL
+        );
+    ");
+
+    // Ensure PollOptions table exists
+    db.Database.ExecuteSqlRaw(@"
+        CREATE TABLE IF NOT EXISTS PollOptions (
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            PollId INTEGER NOT NULL,
+            OptionText TEXT NOT NULL,
+            Votes INTEGER NOT NULL DEFAULT 0,
+            FOREIGN KEY (PollId) REFERENCES Polls(Id) ON DELETE CASCADE
+        );
+    ");
+
     // Ensure SQLite database indexes exist for news queries & sitemaps optimization
     db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_PublishedAt ON NewsArticles (PublishedAt);");
     db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_CategoryId ON NewsArticles (CategoryId);");
     db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_Url ON NewsArticles (Url);");
+
+    // Seed default categories
+    var requiredCategories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping", "Services", "Gaming", "Cartoons" };
+    foreach (var catName in requiredCategories)
+    {
+        if (!db.Categories.Any(c => c.Name.ToLower() == catName.ToLower()))
+        {
+            db.Categories.Add(new WorldNewzWebAPI.Models.Category { Name = catName });
+        }
+    }
+    db.SaveChanges();
+
+    // Seed default polls
+    if (!db.Polls.Any())
+    {
+        var polls = new List<WorldNewzWebAPI.Models.Poll>
+        {
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "How will Artificial Intelligence impact your career in the next 5 years?",
+                Description = "A poll tracking general public sentiment regarding automated systems and career displacement/enhancement.",
+                CreatedAt = DateTime.UtcNow.AddDays(-2),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Very Positively", Votes = 245 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Somewhat Positively", Votes = 312 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Neutral / No Impact", Votes = 98 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Negatively / Risk of Layoff", Votes = 156 }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "What is your primary source of daily technology news?",
+                Description = "Identifying news distribution preference among modern readers.",
+                CreatedAt = DateTime.UtcNow.AddDays(-1),
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Social Media Platforms (Twitter, Reddit)", Votes = 189 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Dedicated News Sites (WorldNewzs, BBC)", Votes = 224 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Email Newsletters", Votes = 87 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Video Tech Creators", Votes = 143 }
+                }
+            },
+            new WorldNewzWebAPI.Models.Poll
+            {
+                Question = "Which cricket format do you prefer watching the most?",
+                Description = "Sports preference tracking for regional news targeting.",
+                CreatedAt = DateTime.UtcNow,
+                Options = new List<WorldNewzWebAPI.Models.PollOption>
+                {
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "Test Cricket (Traditional)", Votes = 112 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "One Day Internationals (ODI)", Votes = 95 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "T20 Internationals", Votes = 342 },
+                    new WorldNewzWebAPI.Models.PollOption { OptionText = "IPL / Domestic Franchise Leagues", Votes = 489 }
+                }
+            }
+        };
+        db.Polls.AddRange(polls);
+        db.SaveChanges();
+        Console.WriteLine("✓ Seeded default polls to database");
+    }
 
     // Seed default Ad slots if table is empty
     if (!db.Ads.Any())
@@ -259,6 +354,8 @@ app.Use(async (context, next) =>
     context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
     context.Response.Headers.Append("X-Frame-Options", "DENY");
     context.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
+    context.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
+    context.Response.Headers.Append("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
     await next();
 });
 
