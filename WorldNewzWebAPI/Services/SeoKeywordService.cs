@@ -14,7 +14,7 @@ namespace WorldNewzWebAPI.Services
         private readonly ILogger<SeoKeywordService> _log;
 
         private static readonly string[] CATEGORIES =
-            { "sports", "business", "technology", "health", "world", "entertainment", "science" };
+            { "sports", "business", "technology", "health", "world", "entertainment", "science", "services", "gaming", "cartoons", "stocks", "polls", "polls-history" };
 
         public SeoKeywordService(IHttpClientFactory factory, IConfiguration cfg,
             WorldNewsDbContext db, ILogger<SeoKeywordService> log)

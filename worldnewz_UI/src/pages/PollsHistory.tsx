@@ -18,6 +18,7 @@ import { fetchPollsHistory } from "../api/apiClient";
 import type { PollHistoryItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 
 const PollsHistory: React.FC = () => {
   const [historyData, setHistoryData] = useState<PollHistoryItem[]>([]);
@@ -119,11 +120,20 @@ const PollsHistory: React.FC = () => {
     }
   ];
 
+  const dynamicKeywordsData = useKeywords("polls-history");
+
+  const defaultKeywords = ["polls archives", "polls history", "historical opinion polls", "voting metrics", "public trends", "historical data"];
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([...defaultKeywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
+    : defaultKeywords;
+  const descriptionToUse = dynamicKeywordsData?.metaDesc || "Explore the archives of historical opinion polls on WorldNewzs. View voting metrics and public trends over time.";
+
   return (
     <>
       <SEOMeta
         title="Opinion Polls Archives & History | WorldNewzs"
-        description="Explore the archives of historical opinion polls on WorldNewzs. View voting metrics and public trends over time."
+        description={descriptionToUse}
+        keywords={combinedKeywords}
         canonical="https://worldnewzs.in/polls-history"
       />
       <JSONLDBreadcrumb

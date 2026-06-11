@@ -19,6 +19,7 @@ import { fetchActivePolls, submitPollVote } from "../api/apiClient";
 import type { PollItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 
 const Polls: React.FC = () => {
   const [polls, setPolls] = useState<PollItem[]>([]);
@@ -120,11 +121,20 @@ const Polls: React.FC = () => {
     return poll ? poll.options.reduce((sum, o) => sum + o.votes, 0) : 0;
   };
 
+  const dynamicKeywordsData = useKeywords("polls");
+
+  const defaultKeywords = ["opinion polls", "public polls", "interactive polls", "voting results", "technology polls", "sports polls"];
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([...defaultKeywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
+    : defaultKeywords;
+  const descriptionToUse = dynamicKeywordsData?.metaDesc || "Cast your vote in our daily public polls on technology, sports, business, and policy. View real-time results instantly.";
+
   return (
     <>
       <SEOMeta
         title="Interactive Public Opinion Polls | WorldNewzs"
-        description="Cast your vote in our daily public polls on technology, sports, business, and policy. View real-time results instantly."
+        description={descriptionToUse}
+        keywords={combinedKeywords}
         canonical="https://worldnewzs.in/polls"
       />
       <JSONLDBreadcrumb

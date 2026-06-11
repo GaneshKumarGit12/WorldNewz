@@ -31,6 +31,7 @@ import { fetchStocks } from "../api/apiClient";
 import type { StockItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { useKeywords } from "../seo/useKeywords";
 
 const Stocks: React.FC = () => {
   const [exchange, setExchange] = useState<string>("NYSE");
@@ -92,11 +93,20 @@ const Stocks: React.FC = () => {
   const topLoser = getTopLoser();
   const currencySymbol = getCurrencySymbol(exchange);
 
+  const dynamicKeywordsData = useKeywords("stocks");
+
+  const defaultKeywords = ["stocks", "stock market", "NYSE", "BSE", "NSE", "investing", "financial analytics", "tomorrow trend hint"];
+  const combinedKeywords = dynamicKeywordsData
+    ? [...new Set([...defaultKeywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
+    : defaultKeywords;
+  const descriptionToUse = dynamicKeywordsData?.metaDesc || "Monitor indices and stock values for NYSE, BSE, and NSE. Get tomorrow's predictive stock trend hints using MarketData app feed.";
+
   return (
     <>
       <SEOMeta
         title="Dynamic Stock Market Dashboard | WorldNewzs"
-        description="Monitor indices and stock values for NYSE, BSE, and NSE. Get tomorrow's predictive stock trend hints using MarketData app feed."
+        description={descriptionToUse}
+        keywords={combinedKeywords}
         canonical="https://worldnewzs.in/stocks"
       />
       <JSONLDBreadcrumb
