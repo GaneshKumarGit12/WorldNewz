@@ -35,22 +35,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        var corsOrigins = Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS");
-        if (!string.IsNullOrEmpty(corsOrigins))
-        {
-            var origins = corsOrigins.Split(',', StringSplitOptions.RemoveEmptyEntries);
-            policy.WithOrigins(origins)
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
-        }
-        else
-        {
-            policy.SetIsOriginAllowed(origin => true) // Fallback for development/wildcard
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
-        }
+        policy.SetIsOriginAllowed(origin => true) // Allow any origin (Vercel, Localhost, GitHub Pages, custom domains)
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
