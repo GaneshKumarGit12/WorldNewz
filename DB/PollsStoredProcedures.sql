@@ -36,7 +36,7 @@ END;
 GO
 
 -- Step 3: Stored Procedure to Fetch Leaderboard
--- Retrieves users who achieved a 100% correct score, returning their latest submission (distinct by email).
+-- Retrieves users showing their latest submission (distinct by email).
 CREATE OR ALTER PROCEDURE dbo.sp_GetLeaderboard
 AS
 BEGIN
@@ -52,7 +52,6 @@ BEGIN
             [SubmittedAt],
             ROW_NUMBER() OVER (PARTITION BY Email ORDER BY SubmittedAt DESC) as rn
         FROM [dbo].[PollSubmissions]
-        WHERE [Percentage] = 100.0
     )
     SELECT [Id], [Name], [Email], [Percentage], [Status], [SubmittedAt]
     FROM LatestSubmissions

@@ -262,7 +262,7 @@ const PollsHistory: React.FC = () => {
               Rankings & Archives
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              View the perfect score leaderboard and check historical user validation statistics.
+              View user leaderboard rankings and check historical user validation statistics.
             </Typography>
           </Box>
         </Box>
@@ -305,7 +305,7 @@ const PollsHistory: React.FC = () => {
                   }
                 }}
               >
-                <Tab icon={<WorkspacePremiumIcon />} iconPosition="start" label="Leaderboard (100% Correct)" />
+                <Tab icon={<WorkspacePremiumIcon />} iconPosition="start" label="Leaderboard (Latest Attempts)" />
                 <Tab icon={<HistoryIcon />} iconPosition="start" label="All Submissions Log" />
               </Tabs>
 
@@ -331,7 +331,7 @@ const PollsHistory: React.FC = () => {
             {tabValue === 0 && (
               <Box sx={{ p: 3, pb: 0 }}>
                 <Alert severity="info" icon={<EmojiEventsIcon />} sx={{ borderRadius: 3 }}>
-                  This Leaderboard showcases the users who answered all 5 questions correctly (100% score). If a user attempts the polls multiple times, only their latest perfect submission is ranked.
+                  This Leaderboard showcases the latest poll submissions from all users. If a user attempts the polls multiple times, only their latest submission is ranked.
                 </Alert>
               </Box>
             )}

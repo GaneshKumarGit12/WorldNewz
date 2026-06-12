@@ -219,7 +219,7 @@ namespace WorldNewzWebAPI.Controllers
         {
             try
             {
-                // Retrieve leaderboard: users with 100% (all correct), distinct by email, taking their latest submission first.
+                // Retrieve leaderboard: latest attempt from all users, distinct by email, taking their latest submission first.
                 // SQLite supports ROW_NUMBER() OVER (...) window functions.
                 var leaderboard = await _userDb.PollSubmissions
                     .FromSqlRaw(@"
@@ -233,7 +233,6 @@ namespace WorldNewzWebAPI.Controllers
                                 SubmittedAt,
                                 ROW_NUMBER() OVER (PARTITION BY Email ORDER BY SubmittedAt DESC) as rn
                             FROM PollSubmissions
-                            WHERE Percentage = 100.0
                         )
                         SELECT Id, Name, Email, Percentage, Status, SubmittedAt
                         FROM LatestSubmissions
@@ -259,7 +258,6 @@ namespace WorldNewzWebAPI.Controllers
                 Console.WriteLine($"Error retrieving leaderboard: {ex.Message}");
                 // Fallback to LINQ if FromSqlRaw fails for any reason
                 var fallbackList = await _userDb.PollSubmissions
-                    .Where(s => s.Percentage == 100.0)
                     .ToListAsync();
                 
                 var history = fallbackList
