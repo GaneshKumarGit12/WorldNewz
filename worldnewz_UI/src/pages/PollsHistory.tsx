@@ -96,18 +96,29 @@ const PollsHistory: React.FC = () => {
     { 
       field: "id", 
       headerName: "Rank / ID", 
-      width: 100, 
+      width: 120, 
       sortable: true,
       renderCell: (params) => {
-        // In the leaderboard tab, show ranking placement style
+        let content;
         if (tabValue === 0) {
           const index = filteredData.findIndex(item => item.id === params.row.id);
-          if (index === 0) return <Chip label="1st 🥇" color="warning" size="small" sx={{ fontWeight: 800, mt: 1.5 }} />;
-          if (index === 1) return <Chip label="2nd 🥈" size="small" sx={{ fontWeight: 800, mt: 1.5, backgroundColor: "#b5b5b5", color: "white" }} />;
-          if (index === 2) return <Chip label="3rd 🥉" size="small" sx={{ fontWeight: 800, mt: 1.5, backgroundColor: "#cd7f32", color: "white" }} />;
-          return <Typography variant="body2" sx={{ fontWeight: 700, mt: 2, pl: 1 }}>#{index + 1}</Typography>;
+          if (index === 0) {
+            content = <Chip label="1st 🥇" size="small" sx={{ fontWeight: 900, color: "#fff", background: "linear-gradient(45deg, #f59e0b, #d97706)", px: 1.5, py: 0.5, border: "none" }} />;
+          } else if (index === 1) {
+            content = <Chip label="2nd 🥈" size="small" sx={{ fontWeight: 900, color: "#fff", background: "linear-gradient(45deg, #9ca3af, #4b5563)", px: 1.5, py: 0.5, border: "none" }} />;
+          } else if (index === 2) {
+            content = <Chip label="3rd 🥉" size="small" sx={{ fontWeight: 900, color: "#fff", background: "linear-gradient(45deg, #b45309, #78350f)", px: 1.5, py: 0.5, border: "none" }} />;
+          } else {
+            content = <Typography variant="body2" sx={{ fontWeight: 700, pl: 1 }}>#{index + 1}</Typography>;
+          }
+        } else {
+          content = <Typography variant="body2">{params.value}</Typography>;
         }
-        return <Typography variant="body2" sx={{ mt: 2 }}>{params.value}</Typography>;
+        return (
+          <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+            {content}
+          </Box>
+        );
       }
     },
     { 
@@ -116,9 +127,11 @@ const PollsHistory: React.FC = () => {
       flex: 1.2, 
       sortable: true,
       renderCell: (params) => (
-        <Typography variant="body2" sx={{ fontWeight: 700, mt: 1.5 }}>
-          {params.value}
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+          <Typography variant="body2" sx={{ fontWeight: 700 }}>
+            {params.value}
+          </Typography>
+        </Box>
       )
     },
     { 
@@ -127,9 +140,11 @@ const PollsHistory: React.FC = () => {
       flex: 1.5, 
       sortable: true,
       renderCell: (params) => (
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
-          {params.value}
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+          <Typography variant="body2" color="text.secondary">
+            {params.value}
+          </Typography>
+        </Box>
       )
     },
     { 
@@ -139,9 +154,11 @@ const PollsHistory: React.FC = () => {
       type: "number",
       sortable: true,
       renderCell: (params) => (
-        <Typography variant="body2" sx={{ fontWeight: 900, color: "primary.main", mt: 1.5 }}>
-          {params.value}%
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+          <Typography variant="body2" sx={{ fontWeight: 900, color: "primary.main" }}>
+            {params.value}%
+          </Typography>
+        </Box>
       )
     },
     { 
@@ -165,7 +182,7 @@ const PollsHistory: React.FC = () => {
         }
 
         return (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mt: 1.5 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, height: "100%" }}>
             {/* Pulsing Status Dot */}
             <Box 
               className={animationClass}
@@ -191,9 +208,11 @@ const PollsHistory: React.FC = () => {
       width: 180, 
       sortable: true,
       renderCell: (params) => (
-        <Typography variant="caption" color="text.secondary" sx={{ mt: 1.8, display: "block" }}>
-          {params.value}
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+          <Typography variant="caption" color="text.secondary">
+            {params.value}
+          </Typography>
+        </Box>
       )
     }
   ];
