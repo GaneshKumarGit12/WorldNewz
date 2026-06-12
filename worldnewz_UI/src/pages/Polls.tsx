@@ -15,11 +15,17 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
+import LinearProgress from "@mui/material/LinearProgress";
+import Chip from "@mui/material/Chip";
 import PollIcon from "@mui/icons-material/Poll";
 import HistoryIcon from "@mui/icons-material/History";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import TimerIcon from "@mui/icons-material/Timer";
 import InfoIcon from "@mui/icons-material/Info";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
 import { fetchActivePolls, submitPollAnswers } from "../api/apiClient";
 import type { PollItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
@@ -32,6 +38,8 @@ const BANNED_WORDS = [
   "porn", "sex", "xxx", "nsfw", "adult", "naked", 
   "erotic", "prostitute", "bitch", "bastard"
 ];
+
+const TIMER_DURATION = 15; // 15 seconds per question
 
 const Polls: React.FC = () => {
   const navigate = useNavigate();
@@ -49,14 +57,11 @@ const Polls: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Timers: { [pollId]: secondsLeft }
-  const [timers, setTimers] = useState<{ [key: number]: number }>({});
-  const [disabledPolls, setDisabledPolls] = useState<{ [key: number]: boolean }>({});
-  
-  // Track which polls have been answered
+  // Quiz states
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(TIMER_DURATION);
+  const [isTimedOutState, setIsTimedOutState] = useState<{ [key: number]: boolean }>({});
   const [answeredPolls, setAnsweredPolls] = useState<{ [key: number]: boolean }>({});
-  
-  // Selections: { [pollId]: optionId }
   const [selections, setSelections] = useState<{ [key: number]: number }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -64,8 +69,8 @@ const Polls: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupData, setPopupData] = useState<{ percentage: number; status: string } | null>(null);
 
-  // Timer reference to manage intervals
-  const intervalRef = useRef<any>(null);
+  // Timer reference to manage interval
+  const timerIntervalRef = useRef<any>(null);
 
   useEffect(() => {
     // Check if user was already identified in this session
@@ -81,9 +86,46 @@ const Polls: React.FC = () => {
     }
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
     };
   }, []);
+
+  // Timer countdown logic when current question changes
+  useEffect(() => {
+    if (identified && polls.length > 0 && currentQuestionIndex < polls.length) {
+      const pollId = polls[currentQuestionIndex].id;
+
+      // Reset timer for the current question if not yet answered
+      if (!answeredPolls[pollId]) {
+        setTimeLeft(TIMER_DURATION);
+
+        if (timerIntervalRef.current) {
+          clearInterval(timerIntervalRef.current);
+        }
+
+        timerIntervalRef.current = setInterval(() => {
+          setTimeLeft((prev) => {
+            if (prev <= 1) {
+              if (timerIntervalRef.current) {
+                clearInterval(timerIntervalRef.current);
+              }
+              // Mark question as answered and timed out
+              setAnsweredPolls((prevAns) => ({ ...prevAns, [pollId]: true }));
+              setIsTimedOutState((prevTimeOut) => ({ ...prevTimeOut, [pollId]: true }));
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      }
+    }
+
+    return () => {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+      }
+    };
+  }, [currentQuestionIndex, identified, polls]);
 
   const loadPolls = async () => {
     try {
@@ -91,56 +133,16 @@ const Polls: React.FC = () => {
       setError(null);
       const response = await fetchActivePolls();
       setPolls(response.data);
-
-      // Initialize timers for each poll (30 seconds each)
-      const initialTimers: { [key: number]: number } = {};
-      const initialDisabled: { [key: number]: boolean } = {};
-      response.data.forEach((poll) => {
-        initialTimers[poll.id] = 30;
-        initialDisabled[poll.id] = false;
-      });
-      setTimers(initialTimers);
-      setDisabledPolls(initialDisabled);
-
-      // Start the countdown interval
-      startTimers(response.data.map(p => p.id));
+      setCurrentQuestionIndex(0);
+      setSelections({});
+      setAnsweredPolls({});
+      setIsTimedOutState({});
     } catch (err: any) {
       setError("Failed to load polls. Please try again later.");
       console.error(err);
     } finally {
       setLoading(false);
     }
-  };
-
-  const startTimers = (pollIds: number[]) => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-
-    intervalRef.current = setInterval(() => {
-      setTimers((prev) => {
-        const updated = { ...prev };
-        let allZero = true;
-
-        pollIds.forEach((id) => {
-          if (updated[id] > 0) {
-            updated[id] -= 1;
-            allZero = false;
-            
-            if (updated[id] === 0) {
-              setDisabledPolls((prevDisabled) => ({
-                ...prevDisabled,
-                [id]: true
-              }));
-            }
-          }
-        });
-
-        if (allZero && intervalRef.current) {
-          clearInterval(intervalRef.current);
-        }
-
-        return updated;
-      });
-    }, 1000);
   };
 
   const handleIdentificationSubmit = (e: React.FormEvent) => {
@@ -181,31 +183,38 @@ const Polls: React.FC = () => {
   };
 
   const handleOptionSelect = (pollId: number, optionId: number) => {
-    // If the poll has already been disabled by timeout or answered once, block changes
-    if (disabledPolls[pollId] || answeredPolls[pollId]) return;
+    // If the poll has already been answered or timed out, block selection
+    if (answeredPolls[pollId] || isTimedOutState[pollId]) return;
 
+    // Lock option selection
     setSelections((prev) => ({
       ...prev,
       [pollId]: optionId
     }));
     
-    // Lock the question choice immediately upon the first click
     setAnsweredPolls((prev) => ({
       ...prev,
       [pollId]: true
     }));
+
+    // Stop countdown timer immediately
+    if (timerIntervalRef.current) {
+      clearInterval(timerIntervalRef.current);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < polls.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    }
   };
 
   const handlePollsAnswersSubmit = async () => {
-    const answersList = Object.entries(selections).map(([pollId, optionId]) => ({
-      pollId: parseInt(pollId),
-      optionId: optionId
+    // Format all 5 answers, assigning 0 to options if timed out/unanswered
+    const answersList = polls.map((poll) => ({
+      pollId: poll.id,
+      optionId: selections[poll.id] || 0
     }));
-
-    if (answersList.length === 0) {
-      alert("Please answer at least one question before submitting.");
-      return;
-    }
 
     try {
       setIsSubmitting(true);
@@ -247,10 +256,10 @@ const Polls: React.FC = () => {
     setIdentified(false);
     setPolls([]);
     setSelections({});
-    setDisabledPolls({});
     setAnsweredPolls({});
-    setTimers({});
-    if (intervalRef.current) clearInterval(intervalRef.current);
+    setIsTimedOutState({});
+    setCurrentQuestionIndex(0);
+    if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
   };
 
   const handlePopupClose = () => {
@@ -338,7 +347,7 @@ const Polls: React.FC = () => {
                 Opinion Polls
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Verify your details, answer active timed polls, and track evaluation scores.
+                Verify details, answer active timed questions, and see how you score.
               </Typography>
             </Box>
           </Box>
@@ -352,7 +361,7 @@ const Polls: React.FC = () => {
               startIcon={<HistoryIcon />}
               sx={{ textTransform: "none", borderRadius: 3, fontWeight: 700 }}
             >
-              View Polls Submissions History
+              View Leaderboard & History
             </Button>
             {identified && (
               <Button
@@ -459,186 +468,282 @@ const Polls: React.FC = () => {
           </Box>
         )}
 
-        {/* ─── PHASE 2: QUESTIONS LIST ─── */}
-        {identified && !loading && (
+        {/* ─── PHASE 2: QUESTIONS LIST (ONE-BY-ONE FLOW) ─── */}
+        {identified && !loading && polls.length > 0 && (
           <Box>
-            {polls.length === 0 ? (
-              <Alert severity="info" sx={{ mb: 4, borderRadius: 3 }}>
-                No active polls found. Please check back later.
-              </Alert>
-            ) : (
-              <Box>
-                {/* User Identity Chip */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3, p: 2, borderRadius: 3, border: "1px solid", borderColor: "divider", backgroundColor: "action.hover" }}>
-                  <InfoIcon color="primary" fontSize="small" />
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                    Answering as: <Box component="span" sx={{ color: "primary.main" }}>{name} ({email})</Box>
-                  </Typography>
-                </Box>
+            {/* User Identity Chip */}
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3, p: 2, borderRadius: 3, border: "1px solid", borderColor: "divider", backgroundColor: "action.hover" }}>
+              <InfoIcon color="primary" fontSize="small" />
+              <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                Answering as: <Box component="span" sx={{ color: "primary.main" }}>{name} ({email})</Box>
+              </Typography>
+            </Box>
 
-                {polls.map((poll) => {
-                  const timeLeft = timers[poll.id] ?? 30;
-                  const isTimedOut = disabledPolls[poll.id] === true;
-                  const isAnswered = answeredPolls[poll.id] === true;
-                  const isLocked = isTimedOut || isAnswered;
-                  const currentSelection = selections[poll.id];
+            {/* Progress indicator */}
+            <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                Question {currentQuestionIndex + 1} of {polls.length}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Progress: {Math.round(((currentQuestionIndex + 1) / polls.length) * 100)}%
+              </Typography>
+            </Box>
+            <LinearProgress 
+              variant="determinate" 
+              value={((currentQuestionIndex + 1) / polls.length) * 100}
+              sx={{ height: 6, borderRadius: 3, mb: 4 }}
+            />
 
-                  // Locate correct option
-                  const correctOption = poll.options.find(o => o.isCorrect === true);
+            {(() => {
+              const poll = polls[currentQuestionIndex];
+              const isTimedOut = isTimedOutState[poll.id] === true;
+              const isAnswered = answeredPolls[poll.id] === true;
+              const isLocked = isTimedOut || isAnswered;
+              const currentSelection = selections[poll.id];
 
-                  return (
-                    <Card
-                      key={poll.id}
-                      sx={{
-                        mb: 4,
-                        borderRadius: 4,
-                        boxShadow: "0 4px 15px rgba(0,0,0,0.04)",
-                        border: "1px solid",
-                        borderColor: isLocked ? (isTimedOut && !currentSelection ? "error.light" : "success.light") : "divider",
-                        opacity: isTimedOut && !currentSelection ? 0.7 : 1,
-                        transition: "all 0.3s ease"
-                      }}
-                    >
-                      {/* Card Header with Question and Timer */}
-                      <Box sx={{ 
-                        p: 3, 
-                        backgroundColor: isLocked ? (isTimedOut && !currentSelection ? "rgba(239,68,68,0.05)" : "rgba(34,197,94,0.05)") : "action.hover", 
-                        borderBottom: "1px solid", 
-                        borderColor: "divider",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "flex-start",
-                        flexWrap: "wrap",
-                        gap: 2
-                      }}>
-                        <Box sx={{ flex: 1 }}>
-                          <Typography variant="h6" sx={{ fontWeight: 800 }}>
-                            {poll.question}
-                          </Typography>
-                          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
-                            {poll.description}
-                          </Typography>
-                        </Box>
+              // Locate correct option
+              const correctOption = poll.options.find(o => o.isCorrect === true);
 
-                        {/* Question Timer Indicator */}
-                        <Box sx={{ 
-                          display: "flex", 
-                          alignItems: "center", 
-                          gap: 1, 
-                          px: 2, 
-                          py: 0.75, 
-                          borderRadius: 3, 
-                          backgroundColor: isLocked ? (isTimedOut && !currentSelection ? "error.main" : "success.main") : timeLeft < 10 ? "warning.main" : "primary.main",
-                          color: "white",
-                          fontWeight: 800,
-                          fontSize: "0.85rem",
-                          boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
-                        }}>
-                          <TimerIcon fontSize="small" />
-                          <span>{isTimedOut ? "Timed Out" : isAnswered ? "Locked" : `${timeLeft}s`}</span>
-                        </Box>
-                      </Box>
+              return (
+                <Card
+                  sx={{
+                    borderRadius: 4,
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+                    border: "1px solid",
+                    borderColor: isLocked ? (isTimedOut ? "error.light" : "success.light") : "divider",
+                    transition: "all 0.3s ease"
+                  }}
+                >
+                  {/* Card Header with Question and Timer */}
+                  <Box sx={{ 
+                    p: 3, 
+                    backgroundColor: isLocked ? (isTimedOut ? "rgba(239,68,68,0.03)" : "rgba(34,197,94,0.03)") : "action.hover", 
+                    borderBottom: "1px solid", 
+                    borderColor: "divider",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    flexWrap: "wrap",
+                    gap: 2
+                  }}>
+                    <Box sx={{ flex: 1 }}>
+                      <Typography variant="h6" sx={{ fontWeight: 800 }}>
+                        {poll.question}
+                      </Typography>
+                      <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+                        {poll.description}
+                      </Typography>
+                    </Box>
 
-                      {/* Card Options list */}
-                      <CardContent sx={{ p: 3 }}>
-                        <RadioGroup
-                          value={currentSelection || ""}
-                          onChange={(e) => handleOptionSelect(poll.id, parseInt(e.target.value))}
-                        >
-                          {poll.options.map((option) => (
-                            <Box
-                              key={option.id}
-                              sx={{
-                                border: "1px solid",
-                                borderColor: currentSelection === option.id 
-                                  ? "primary.main" 
-                                  : isLocked && option.isCorrect 
-                                    ? "success.main" 
-                                    : "divider",
-                                backgroundColor: currentSelection === option.id 
-                                  ? "primary.light" 
-                                  : isLocked && option.isCorrect 
-                                    ? "rgba(34,197,94,0.08)" 
-                                    : "transparent",
-                                borderRadius: 3,
-                                px: 2.5,
-                                py: 1.5,
-                                mb: 1.5,
-                                transition: "all 0.2s",
-                                cursor: isLocked ? "not-allowed" : "pointer",
-                                opacity: isLocked && currentSelection !== option.id && !option.isCorrect ? 0.5 : 1,
-                                "&:hover": {
-                                  borderColor: isLocked 
-                                    ? (option.isCorrect ? "success.main" : "divider") 
-                                    : "primary.main",
-                                  backgroundColor: isLocked 
-                                    ? (option.isCorrect ? "rgba(34,197,94,0.08)" : "transparent") 
-                                    : currentSelection === option.id ? "primary.light" : "action.hover",
-                                }
-                              }}
-                              onClick={() => !isLocked && handleOptionSelect(poll.id, option.id)}
-                            >
-                              <FormControlLabel
-                                value={option.id}
-                                disabled={isLocked}
-                                control={<Radio size="small" />}
-                                label={
-                                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                    <span>{option.optionText}</span>
-                                    {isLocked && option.isCorrect && (
-                                      <Typography variant="caption" sx={{ color: "success.main", fontWeight: 700 }}>
-                                        (Correct Choice)
-                                      </Typography>
-                                    )}
-                                  </Box>
-                                }
-                                sx={{ width: "100%", m: 0 }}
-                              />
-                            </Box>
-                          ))}
-                        </RadioGroup>
-
-                        {/* Display Correct Answer Reveal below choices */}
-                        {isLocked && correctOption && (
-                          <Box sx={{ mt: 2, display: "flex", alignItems: "center", gap: 1, p: 1.5, borderRadius: 2, backgroundColor: "rgba(34,197,94,0.05)" }}>
-                            <CheckCircleOutlineIcon sx={{ color: "success.main", fontSize: "1.1rem" }} />
-                            <Typography variant="body2" sx={{ color: "success.main", fontWeight: 800 }}>
-                              Correct Answer: {correctOption.optionText}
-                            </Typography>
-                          </Box>
-                        )}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-
-                {/* Submit Action */}
-                <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-                  <Button
-                    variant="contained"
-                    size="large"
-                    onClick={handlePollsAnswersSubmit}
-                    disabled={isSubmitting || Object.keys(selections).length === 0}
-                    startIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <CheckCircleOutlineIcon />}
-                    sx={{
-                      borderRadius: 4,
-                      textTransform: "none",
+                    {/* Question Timer Indicator */}
+                    <Box sx={{ 
+                      display: "flex", 
+                      alignItems: "center", 
+                      gap: 1, 
+                      px: 2, 
+                      py: 0.75, 
+                      borderRadius: 3, 
+                      backgroundColor: isLocked 
+                        ? (isTimedOut ? "error.main" : "success.main") 
+                        : timeLeft < 6 ? "error.main" : timeLeft < 10 ? "warning.main" : "primary.main",
+                      color: "white",
                       fontWeight: 800,
-                      px: 5,
-                      py: 1.5,
-                      fontSize: "1.05rem",
-                      boxShadow: "0 6px 20px rgba(200, 58, 21, 0.25)",
-                      background: "linear-gradient(90deg, #ff8a65 0%, #c83a15 100%)",
-                      "&:hover": {
-                        background: "linear-gradient(90deg, #ff9e80 0%, #d84315 100%)",
-                      }
-                    }}
-                  >
-                    Submit Poll Answers
-                  </Button>
-                </Box>
-              </Box>
-            )}
+                      fontSize: "0.85rem",
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                      transition: "background-color 0.3s"
+                    }}>
+                      <TimerIcon fontSize="small" />
+                      <span>{isTimedOut ? "Timed Out" : isAnswered ? "Answered" : `${timeLeft}s`}</span>
+                    </Box>
+                  </Box>
+
+                  {/* Animated Timer Progress Bar */}
+                  {!isLocked && (
+                    <LinearProgress 
+                      variant="determinate" 
+                      value={(timeLeft / TIMER_DURATION) * 100}
+                      sx={{ 
+                        height: 4, 
+                        backgroundColor: "rgba(0,0,0,0.03)",
+                        "& .MuiLinearProgress-bar": {
+                          backgroundColor: timeLeft < 6 ? "error.main" : timeLeft < 10 ? "warning.main" : "primary.main",
+                          transition: "transform 1s linear"
+                        }
+                      }}
+                    />
+                  )}
+
+                  {/* Card Options list */}
+                  <CardContent sx={{ p: 4 }}>
+                    <RadioGroup
+                      value={currentSelection || ""}
+                      onChange={(e) => handleOptionSelect(poll.id, parseInt(e.target.value))}
+                    >
+                      {poll.options.map((option) => {
+                        const isSelected = currentSelection === option.id;
+                        const isCorrect = option.isCorrect;
+                        
+                        // Option highlights when locked
+                        let borderColor = "divider";
+                        let backgroundColor = "transparent";
+                        let adornment = null;
+
+                        if (isLocked) {
+                          if (isCorrect) {
+                            borderColor = "#22c55e"; // Green correct
+                            backgroundColor = isDark ? "rgba(34,197,94,0.08)" : "rgba(34,197,94,0.04)";
+                            adornment = (
+                              <Chip 
+                                size="small" 
+                                color="success" 
+                                icon={<CheckCircleIcon />} 
+                                label="Correct Answer" 
+                                sx={{ ml: 2, fontWeight: 700 }}
+                              />
+                            );
+                          } else if (isSelected) {
+                            borderColor = "#ef4444"; // Red wrong
+                            backgroundColor = isDark ? "rgba(239,68,68,0.08)" : "rgba(239,68,68,0.04)";
+                            adornment = (
+                              <Chip 
+                                size="small" 
+                                color="error" 
+                                icon={<CancelIcon />} 
+                                label="Your Wrong Selection" 
+                                sx={{ ml: 2, fontWeight: 700 }}
+                              />
+                            );
+                          }
+                        } else if (isSelected) {
+                          borderColor = "primary.main";
+                          backgroundColor = "primary.light";
+                        }
+
+                        return (
+                          <Box
+                            key={option.id}
+                            sx={{
+                              border: "1px solid",
+                              borderColor: borderColor,
+                              backgroundColor: backgroundColor,
+                              borderRadius: 3,
+                              px: 2.5,
+                              py: 1.8,
+                              mb: 2,
+                              transition: "all 0.2s",
+                              cursor: isLocked ? "not-allowed" : "pointer",
+                              opacity: isLocked && !isSelected && !isCorrect ? 0.4 : 1,
+                              "&:hover": {
+                                borderColor: isLocked ? borderColor : "primary.main",
+                                backgroundColor: isLocked ? backgroundColor : "action.hover",
+                              }
+                            }}
+                            onClick={() => !isLocked && handleOptionSelect(poll.id, option.id)}
+                          >
+                            <FormControlLabel
+                              value={option.id}
+                              disabled={isLocked}
+                              control={<Radio size="small" />}
+                              label={
+                                <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+                                  <Typography sx={{ fontWeight: 600 }}>{option.optionText}</Typography>
+                                  {adornment}
+                                </Box>
+                              }
+                              sx={{ width: "100%", m: 0 }}
+                            />
+                          </Box>
+                        );
+                      })}
+                    </RadioGroup>
+
+                    {/* Display Correct Answer Reveal below choices */}
+                    {isLocked && correctOption && (
+                      <Box sx={{ mt: 3 }}>
+                        {isTimedOut ? (
+                          <Alert severity="warning" variant="outlined" sx={{ borderRadius: 3 }}>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                              <QueryBuilderIcon color="warning" />
+                              <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                                Time's up! The correct answer was: <Box component="span" sx={{ color: "success.main", fontWeight: 800 }}>{correctOption.optionText}</Box>
+                              </Typography>
+                            </Box>
+                          </Alert>
+                        ) : selections[poll.id] === correctOption.id ? (
+                          <Alert severity="success" variant="outlined" sx={{ borderRadius: 3 }}>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                              <CheckCircleIcon color="success" />
+                              <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                                Correct! Excellent job. The answer is: <Box component="span" sx={{ color: "success.main", fontWeight: 800 }}>{correctOption.optionText}</Box>
+                              </Typography>
+                            </Box>
+                          </Alert>
+                        ) : (
+                          <Alert severity="error" variant="outlined" sx={{ borderRadius: 3 }}>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                              <CancelIcon color="error" />
+                              <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                                Incorrect. The correct answer is: <Box component="span" sx={{ color: "success.main", fontWeight: 800 }}>{correctOption.optionText}</Box>
+                              </Typography>
+                            </Box>
+                          </Alert>
+                        )}
+                      </Box>
+                    )}
+
+                    {/* Navigation Actions */}
+                    {isLocked && (
+                      <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 4 }}>
+                        {currentQuestionIndex < polls.length - 1 ? (
+                          <Button
+                            variant="contained"
+                            size="large"
+                            onClick={handleNextQuestion}
+                            endIcon={<ArrowForwardIcon />}
+                            sx={{
+                              borderRadius: 3,
+                              textTransform: "none",
+                              fontWeight: 800,
+                              px: 4,
+                              py: 1.25,
+                              boxShadow: "0 4px 12px rgba(200, 58, 21, 0.15)",
+                              background: "linear-gradient(90deg, #ff8a65 0%, #c83a15 100%)",
+                              "&:hover": {
+                                background: "linear-gradient(90deg, #ff9e80 0%, #d84315 100%)",
+                              }
+                            }}
+                          >
+                            Next Question
+                          </Button>
+                        ) : (
+                          <Button
+                            variant="contained"
+                            size="large"
+                            onClick={handlePollsAnswersSubmit}
+                            disabled={isSubmitting}
+                            startIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <CheckCircleOutlineIcon />}
+                            sx={{
+                              borderRadius: 3,
+                              textTransform: "none",
+                              fontWeight: 800,
+                              px: 5,
+                              py: 1.25,
+                              boxShadow: "0 6px 18px rgba(200, 58, 21, 0.25)",
+                              background: "linear-gradient(90deg, #ff8a65 0%, #c83a15 100%)",
+                              "&:hover": {
+                                background: "linear-gradient(90deg, #ff9e80 0%, #d84315 100%)",
+                              }
+                            }}
+                          >
+                            Finish & View Score
+                          </Button>
+                        )}
+                      </Box>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })()}
           </Box>
         )}
 
@@ -691,7 +796,7 @@ const Polls: React.FC = () => {
               </Typography>
 
               <Typography variant="body2" color="text.secondary" sx={{ px: 2, mb: 3 }}>
-                Your responses have been successfully validated and recorded in our live database rankings. Check history to compare.
+                Your responses have been successfully validated and recorded in our live database rankings. Check the leaderboard to compare.
               </Typography>
 
               <DialogActions sx={{ justifyContent: "center", p: 0 }}>

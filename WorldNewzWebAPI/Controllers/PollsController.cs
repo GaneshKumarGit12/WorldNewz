@@ -29,10 +29,10 @@ namespace WorldNewzWebAPI.Controllers
                 .Include(p => p.Options)
                 .ToListAsync();
 
-            // Randomly shuffle using Guid.NewGuid() and take 3
+            // Randomly shuffle using Guid.NewGuid() and take 5
             var randomized = allPolls
                 .OrderBy(p => Guid.NewGuid())
-                .Take(3)
+                .Take(5)
                 .ToList();
 
             return Ok(randomized);
@@ -141,13 +141,15 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Please provide a valid Email address format." });
             }
 
-            // 4. Check for duplicate Name + Email combination
+            // 4. Check for duplicate Name + Email combination (Disabled to allow multiple submissions and display the latest one)
+            /*
             var exists = await _userDb.PollSubmissions
                 .AnyAsync(s => s.Name.ToLower() == name.ToLower() && s.Email.ToLower() == email.ToLower());
             if (exists)
             {
                 return BadRequest(new { error = "A submission with this Name and Email address already exists." });
             }
+            */
 
             if (request.Answers == null || request.Answers.Count == 0)
             {
@@ -176,12 +178,13 @@ namespace WorldNewzWebAPI.Controllers
                 }
             }
 
-            if (totalEvaluated == 0)
+            int totalQuestions = request.Answers.Count;
+            if (totalQuestions == 0)
             {
-                return BadRequest(new { error = "None of the selected options were found." });
+                return BadRequest(new { error = "Please submit answers for at least one question." });
             }
 
-            double percentage = Math.Round(((double)correctCount / totalEvaluated) * 100, 1);
+            double percentage = Math.Round(((double)correctCount / totalQuestions) * 100, 1);
 
             // Determine status based on percentage
             string status = "Red";
@@ -208,6 +211,74 @@ namespace WorldNewzWebAPI.Controllers
                 percentage = percentage,
                 scoreStatus = status
             });
+        }
+
+        // GET: api/polls/leaderboard
+        [HttpGet("leaderboard")]
+        public async Task<IActionResult> GetLeaderboard()
+        {
+            try
+            {
+                // Retrieve leaderboard: users with 100% (all correct), distinct by email, taking their latest submission first.
+                // SQLite supports ROW_NUMBER() OVER (...) window functions.
+                var leaderboard = await _userDb.PollSubmissions
+                    .FromSqlRaw(@"
+                        WITH LatestSubmissions AS (
+                            SELECT 
+                                Id,
+                                Name, 
+                                Email, 
+                                Percentage, 
+                                Status, 
+                                SubmittedAt,
+                                ROW_NUMBER() OVER (PARTITION BY Email ORDER BY SubmittedAt DESC) as rn
+                            FROM PollSubmissions
+                            WHERE Percentage = 100.0
+                        )
+                        SELECT Id, Name, Email, Percentage, Status, SubmittedAt
+                        FROM LatestSubmissions
+                        WHERE rn = 1
+                        ORDER BY SubmittedAt DESC
+                    ")
+                    .ToListAsync();
+
+                var history = leaderboard.Select(s => new
+                {
+                    id = s.Id,
+                    name = s.Name,
+                    email = s.Email,
+                    percentage = s.Percentage,
+                    status = s.Status,
+                    submittedAt = s.SubmittedAt.ToString("yyyy-MM-dd HH:mm")
+                }).ToList();
+
+                return Ok(history);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving leaderboard: {ex.Message}");
+                // Fallback to LINQ if FromSqlRaw fails for any reason
+                var fallbackList = await _userDb.PollSubmissions
+                    .Where(s => s.Percentage == 100.0)
+                    .ToListAsync();
+                
+                var history = fallbackList
+                    .GroupBy(s => s.Email.ToLower())
+                    .Select(g => g.OrderByDescending(s => s.SubmittedAt).First())
+                    .OrderByDescending(s => s.SubmittedAt)
+                    .Select(s => new
+                    {
+                        id = s.Id,
+                        name = s.Name,
+                        email = s.Email,
+                        percentage = s.Percentage,
+                        status = s.Status,
+                        submittedAt = s.SubmittedAt.ToString("yyyy-MM-dd HH:mm")
+                    })
+                    .ToList();
+
+                return Ok(history);
+            }
         }
 
         [HttpGet("history")]

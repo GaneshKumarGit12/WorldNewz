@@ -9,52 +9,79 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Chip from "@mui/material/Chip";
 import { DataGrid } from "@mui/x-data-grid";
 import type { GridColDef } from "@mui/x-data-grid";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchIcon from "@mui/icons-material/Search";
 import HistoryIcon from "@mui/icons-material/History";
-import { fetchPollsHistory } from "../api/apiClient";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import { fetchPollsHistory, fetchLeaderboard } from "../api/apiClient";
 import type { PollSubmissionHistoryItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
 
 const PollsHistory: React.FC = () => {
-
+  const [leaderboardData, setLeaderboardData] = useState<PollSubmissionHistoryItem[]>([]);
   const [historyData, setHistoryData] = useState<PollSubmissionHistoryItem[]>([]);
   const [filteredData, setFilteredData] = useState<PollSubmissionHistoryItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [tabValue, setTabValue] = useState<number>(0); // 0: Leaderboard, 1: History
 
   useEffect(() => {
-    loadHistory();
+    loadData();
   }, []);
 
-  const loadHistory = async () => {
+  const loadData = async () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetchPollsHistory();
-      setHistoryData(response.data);
-      setFilteredData(response.data);
+      
+      const [historyRes, leaderboardRes] = await Promise.all([
+        fetchPollsHistory(),
+        fetchLeaderboard()
+      ]);
+
+      setHistoryData(historyRes.data);
+      setLeaderboardData(leaderboardRes.data);
+      
+      // Default view is Leaderboard (tab index 0)
+      setFilteredData(leaderboardRes.data);
     } catch (err: any) {
-      setError("Failed to load polls submissions history from server.");
+      setError("Failed to load polls history and leaderboard from server.");
       console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+    setSearchQuery(""); // Clear search on tab change
+    
+    if (newValue === 0) {
+      setFilteredData(leaderboardData);
+    } else {
+      setFilteredData(historyData);
+    }
+  };
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
     setSearchQuery(query);
+    const activeDataset = tabValue === 0 ? leaderboardData : historyData;
+
     if (!query) {
-      setFilteredData(historyData);
+      setFilteredData(activeDataset);
     } else {
       const lower = query.toLowerCase();
-      const filtered = historyData.filter(
+      const filtered = activeDataset.filter(
         (item) =>
           item.name.toLowerCase().includes(lower) ||
           item.email.toLowerCase().includes(lower) ||
@@ -68,9 +95,20 @@ const PollsHistory: React.FC = () => {
   const columns: GridColDef[] = [
     { 
       field: "id", 
-      headerName: "ID", 
-      width: 70, 
-      sortable: true 
+      headerName: "Rank / ID", 
+      width: 100, 
+      sortable: true,
+      renderCell: (params) => {
+        // In the leaderboard tab, show ranking placement style
+        if (tabValue === 0) {
+          const index = filteredData.findIndex(item => item.id === params.row.id);
+          if (index === 0) return <Chip label="1st 🥇" color="warning" size="small" sx={{ fontWeight: 800, mt: 1.5 }} />;
+          if (index === 1) return <Chip label="2nd 🥈" size="small" sx={{ fontWeight: 800, mt: 1.5, backgroundColor: "#b5b5b5", color: "white" }} />;
+          if (index === 2) return <Chip label="3rd 🥉" size="small" sx={{ fontWeight: 800, mt: 1.5, backgroundColor: "#cd7f32", color: "white" }} />;
+          return <Typography variant="body2" sx={{ fontWeight: 700, mt: 2, pl: 1 }}>#{index + 1}</Typography>;
+        }
+        return <Typography variant="body2" sx={{ mt: 2 }}>{params.value}</Typography>;
+      }
     },
     { 
       field: "name", 
@@ -170,7 +208,7 @@ const PollsHistory: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Opinion Polls Archives & History | WorldNewzs"
+        title="Opinion Polls Archives & Leaderboard | WorldNewzs"
         description={descriptionToUse}
         keywords={combinedKeywords}
         canonical="https://worldnewzs.in/polls-history"
@@ -213,18 +251,18 @@ const PollsHistory: React.FC = () => {
           startIcon={<ArrowBackIcon />}
           sx={{ mb: 3, textTransform: "none", fontWeight: 700 }}
         >
-          Back to Active Polls
+          Back to Timed Polls
         </Button>
 
         {/* Title */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 4 }}>
-          <HistoryIcon sx={{ fontSize: 40, color: "primary.main" }} />
+          <EmojiEventsIcon sx={{ fontSize: 42, color: "warning.main" }} />
           <Box>
             <Typography variant="h4" component="h1" sx={{ fontWeight: 900 }}>
-              Submissions Archives
+              Rankings & Archives
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Search and analyze user evaluation ratings and status benchmarks over time.
+              View the perfect score leaderboard and check historical user validation statistics.
             </Typography>
           </Box>
         </Box>
@@ -246,14 +284,34 @@ const PollsHistory: React.FC = () => {
         {!loading && !error && (
           <Card sx={{ 
             borderRadius: 4, 
-            boxShadow: "0 6px 20px rgba(0,0,0,0.06)", 
+            boxShadow: "0 6px 25px rgba(0,0,0,0.06)", 
             border: "1px solid", 
             borderColor: "divider",
             backgroundColor: "background.paper"
           }}>
-            <Box sx={{ p: 3, borderBottom: "1px solid", borderColor: "divider", display: "flex", justifyContent: "flex-end" }}>
+            {/* Tabs Header */}
+            <Box sx={{ borderBottom: 1, borderColor: "divider", display: "flex", justifyContent: "space-between", alignItems: "center", px: 3, flexWrap: "wrap", gap: 2 }}>
+              <Tabs 
+                value={tabValue} 
+                onChange={handleTabChange}
+                textColor="primary"
+                indicatorColor="primary"
+                sx={{
+                  "& .MuiTab-root": {
+                    textTransform: "none",
+                    fontWeight: 800,
+                    fontSize: "0.95rem",
+                    py: 2.5
+                  }
+                }}
+              >
+                <Tab icon={<WorkspacePremiumIcon />} iconPosition="start" label="Leaderboard (100% Correct)" />
+                <Tab icon={<HistoryIcon />} iconPosition="start" label="All Submissions Log" />
+              </Tabs>
+
+              {/* Search Field */}
               <TextField
-                placeholder="Search by name, email or status..."
+                placeholder={tabValue === 0 ? "Search leaderboard..." : "Search submissions..."}
                 value={searchQuery}
                 onChange={handleSearchChange}
                 size="small"
@@ -265,11 +323,20 @@ const PollsHistory: React.FC = () => {
                     </InputAdornment>
                   ),
                 }}
-                sx={{ maxWidth: 300, width: "100%" }}
+                sx={{ maxWidth: 260, width: "100%", my: 1.5 }}
               />
             </Box>
 
-            <Box sx={{ height: 500, width: "100%" }}>
+            {/* Leaderboard Welcome Alert */}
+            {tabValue === 0 && (
+              <Box sx={{ p: 3, pb: 0 }}>
+                <Alert severity="info" icon={<EmojiEventsIcon />} sx={{ borderRadius: 3 }}>
+                  This Leaderboard showcases the users who answered all 5 questions correctly (100% score). If a user attempts the polls multiple times, only their latest perfect submission is ranked.
+                </Alert>
+              </Box>
+            )}
+
+            <Box sx={{ height: 500, width: "100%", p: 2 }}>
               <DataGrid
                 rows={filteredData}
                 columns={columns}
@@ -287,7 +354,7 @@ const PollsHistory: React.FC = () => {
                     backgroundColor: "action.hover",
                     borderBottom: "1px solid",
                     borderColor: "divider",
-                    fontWeight: 800,
+                    fontWeight: 900,
                   },
                   "& .MuiDataGrid-row:hover": {
                     backgroundColor: "action.hover",
