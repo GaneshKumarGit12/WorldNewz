@@ -267,6 +267,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   return (
     <>
       <Card
+        component="article"
         onClick={handleCardClick}
         sx={{
           display: "flex",
@@ -343,6 +344,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
               <Typography 
                 variant="subtitle2" 
+                component="h3"
                 sx={{ 
                   fontWeight: 600, 
                   display: "-webkit-box", 

@@ -47,7 +47,27 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   
   "podcasts-videos": `Dive into our rich multimedia section featuring engaging interviews, visual explainers, audio podcasts, and short documentary clips. Sourced from verified video journals, academic podcasters, and independent multimedia creators, these assets provide a highly engaging experience. We verify the authenticity and copyright status of all media to ensure they come from credible producers. The videos and audios are optimized for adaptive streaming and quick load times, ensuring a buffer-free experience on mobile and desktop. This section increases time-on-site and adds a rich layer of interactivity to our news platform.`,
   
-  "local-news": `Stay updated with high-value regional news from Telangana, Hyderabad, and major cities across India. Sourced from regional news bureaus, local municipalities, state government updates, and regional correspondents, we cover local politics, development, traffic, and civic issues. We cross-verify all local updates against official municipal statements to ensure high accuracy. By prioritizing local stories, we bring regional relevance directly to your screen, ensuring that civic issues and regional achievements get the coverage they deserve.`
+  "local-news": `Stay updated with high-value regional news from Telangana, Hyderabad, and major cities across India. Sourced from regional news bureaus, local municipalities, state government updates, and regional correspondents, we cover local politics, development, traffic, and civic issues. We cross-verify all local updates against official municipal statements to ensure high accuracy. By prioritizing local stories, we bring regional relevance directly to your screen, ensuring that civic issues and regional achievements get the coverage they deserve.`,
+
+  sports: `Welcome to our sports arena, delivering real-time coverage of global athletics, soccer, basketball, tennis, cricket tournaments, and Olympic events. Sourced from authorized sports federations, official club announcements, and leading sports journalists, our reports keep you up-to-date with match results, transfer news, player statistics, and injury updates. All articles undergo verification to ensure accurate scores, schedules, and league tables, filtering out rumors and clickbait fan commentary. Whether you are tracking the Premier League, NBA, or regional championships, find objective and fact-checked reporting here.`,
+
+  money: `Navigate your personal finances, wealth management, savings, real estate trends, tax planning, and investment strategies with our dedicated Money channel. We pull insights from certified financial advisors, consumer protection bureaus, banking statements, and macroeconomic indices. To ensure the highest relevance, we filter out speculative get-rich-quick schemes, focusing instead on verified budgeting guidelines, interest rate updates, retirement planning advice, and secure wealth preservation techniques. Each story is verified to provide actionable and reliable guidance for managing your assets.`,
+
+  weather: `Get accurate and hyper-local meteorological updates, long-range forecasts, severe weather alerts, and climate analysis. Sourced from the national meteorological services, space agencies, and climate research stations, our reports cover temperature changes, precipitation levels, air quality indices, and UV advisories. To guarantee reliability, all meteorological alerts are cross-referenced with emergency broadcast networks and local municipal feeds, ensuring our readers receive timely safety warnings and precise climate data to plan their day.`,
+
+  shopping: `Discover the best consumer guides, product reviews, e-commerce deals, and retail trends in our Shopping vertical. Sourced from consumer protection groups, product testing labs, verified buyer feedback, and retail indices, our reviews help you make informed purchasing decisions. We run verification to check discount authenticity, product warranty claims, and recall notices, protecting you from counterfeit listings and artificial price inflations. Each article is curated alongside active affiliate deals to bring you verified savings.`,
+
+  travel: `Embark on your next journey with our comprehensive Travel guide, featuring destination reviews, transit advisories, hotel guides, cultural insights, and travel safety tips. Sourced from tourism boards, airline announcements, global health advisories, and local travel experts, we cover everything from budget backpacking to luxury cruises. We cross-verify travel requirements, visa regulations, and local safety updates to provide accurate, reliable instructions. Filtered to highlight authentic travel experiences and cultural respect, this channel is your trusted companion.`,
+
+  food: `Savor culinary trends, gourmet recipes, restaurant guides, food science, and dietary advice on our Food channel. Sourced from certified nutritionists, culinary institutes, restaurant critics, and food safety agencies, our articles celebrate global cuisines and healthy eating. We verify the accuracy of recipes, health benefits, and food recall reports to ensure a high-quality reading experience free from fad diets or unscientific nutrition advice. Perfect for home cooks and food enthusiasts looking for trustworthy kitchen guidance.`,
+
+  entertainment: `Get your front-row seat to the entertainment industry, featuring movie reviews, celebrity news, music releases, box office reports, and theatre updates. Sourced from industry registries, film festivals, streaming networks, and verified entertainment correspondents, we provide comprehensive coverage of pop culture. We cross-verify industry announcements and interview transcripts to ensure our coverage is factual, avoiding unfounded gossip. Find reliable reviews and behind-the-scenes insights here.`,
+
+  services: `Explore professional solutions, business consultancies, utilities, software-as-a-service (SaaS) reviews, and digital service platforms. We aggregate insights from industry analysts, software developers, corporate customer reviews, and technology consultants. To assist business managers and developers, we cross-verify platform features, pricing plans, security compliance, and user satisfaction ratings, delivering unbiased reviews of services that power modern enterprises.`,
+
+  gaming: `Level up your gaming knowledge with updates on video game releases, hardware reviews, e-sports tournaments, patch notes, and console specs. Sourced from gaming studios, e-sports leagues, certified hardware testers, and major gaming publications, we cover Xbox, PlayStation, Nintendo, PC, and mobile gaming. We verify technical specifications, launch dates, and e-sports scores, keeping our coverage accurate and free from rumor-mongering.`,
+
+  cartoons: `Delve into the vibrant world of animation, anime, manga, and comic books on our Cartoons page. Sourced from animation studios, comic conventions, comic book publishers, and pop culture historians, we cover everything from classic cartoons to modern anime. We verify release calendars, studio announcements, and character designs, providing a dedicated and accurate space for fans and researchers alike.`
 };
 
 const CategoryPage: React.FC<CategoryPageProps> = ({
@@ -189,12 +209,13 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     ? [...new Set([...keywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
     : keywords;
   const descriptionToUse = dynamicKeywordsData?.metaDesc || dynamicDesc;
+  const todayDate = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
   return (
     <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
       <SEOMeta
-        title={`${title} News - WorldNewzs`}
-        description={descriptionToUse}
+        title={`${title} News (${todayDate})`}
+        description={`${descriptionToUse} (Updated ${todayDate})`}
         keywords={combinedKeywords}
         canonical={`https://worldnewzs.in/${categoryKey}`}
       />
@@ -211,7 +232,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           mb: 4, 
           borderRadius: 4, 
           border: "1px solid",
-          borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
+          borderColor: "divider",
           background: isDark 
             ? "linear-gradient(135deg, #1e2530 0%, #161b22 100%)" 
             : "linear-gradient(135deg, #f5f8ff 0%, #ffffff 100%)",
@@ -223,21 +244,19 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
           <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 2, mb: 2 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-              <Typography variant="h3" sx={{ fontSize: { xs: "1.8rem", sm: "2.4rem" }, fontWeight: 800 }}>
+              <Typography variant="h3" component="h1" sx={{ fontSize: { xs: "1.8rem", sm: "2.4rem" }, fontWeight: 800 }}>
                 {emoji} {title}
               </Typography>
             </Box>
             
             <Chip 
-              icon={<VerifiedIcon sx={{ color: "#22c55e !important" }} />}
+              icon={<VerifiedIcon />}
               label="Source Verification Active" 
               variant="outlined"
+              color="success"
               sx={{ 
-                borderColor: "#22c55e",
-                color: "#22c55e",
                 fontWeight: 600,
                 borderRadius: 2,
-                backgroundColor: isDark ? "rgba(34,197,94,0.08)" : "rgba(34,197,94,0.04)"
               }}
             />
           </Box>
@@ -245,7 +264,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           <Typography 
             variant="body1" 
             sx={{ 
-              color: isDark ? "rgba(255,255,255,0.85)" : "#2d3748", 
+              color: "text.primary", 
               lineHeight: 1.8, 
               fontSize: { xs: "0.95rem", sm: "1.05rem" },
               textAlign: "justify",
@@ -258,7 +277,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
       </Card>
 
       {/* --- Affiliate Deals --- */}
-      {["technology", "business", "science-health"].includes(categoryKey) && (
+      {["technology", "business", "science-health", "shopping", "money"].includes(categoryKey) && (
         <AffiliateDeals category={categoryKey} />
       )}
 
