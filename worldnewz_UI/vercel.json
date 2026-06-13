@@ -1,6 +1,30 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "world-newz.vercel.app"
+        }
+      ],
+      "destination": "https://worldnewzs.in/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.worldnewzs.in"
+        }
+      ],
+      "destination": "https://worldnewzs.in/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
