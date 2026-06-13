@@ -161,70 +161,12 @@ const Discover: React.FC = () => {
         </Typography>
       </Box>
 
-      {/* Section Status Wrapper */}
-      <SectionStatus
-        loading={loading}
-        error={error}
-        hasData={filteredArticles.length > 0}
-        emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
-        columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-      >
-        {/* ✅ Top Stories Grid */}
-        {topStoriesArticles.length > 0 && (
-          <Box sx={{ mb: 4 }}>
-            <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 2 }}>
-              Top Stories
-            </Typography>
-            <NewsGrid
-              articles={topStoriesArticles}
-              onBookmark={addBookmark}
-              onRemoveBookmark={removeBookmark}
-              isBookmarked={isBookmarked}
-              onLike={toggleLike}
-              onDislike={toggleDislike}
-              onAddComment={addComment}
-              onDeleteComment={deleteComment}
-              onLikeComment={likeComment}
-              onDislikeComment={dislikeComment}
-              getEngagement={getEngagement}
-            />
-          </Box>
-        )}
-
-        {/* ✅ More News Grid */}
-        {remainingArticles.length > 0 && (
-          <>
-            <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 2 }}>
-              More News
-            </Typography>
-            <NewsGrid
-              articles={remainingArticles}
-              onBookmark={addBookmark}
-              onRemoveBookmark={removeBookmark}
-              isBookmarked={isBookmarked}
-              onLike={toggleLike}
-              onDislike={toggleDislike}
-              onAddComment={addComment}
-              onDeleteComment={deleteComment}
-              onLikeComment={likeComment}
-              onDislikeComment={dislikeComment}
-              getEngagement={getEngagement}
-            />
-          </>
-        )}
-
-        {isFetchingMore && (
-          <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
-            <CircularProgress />
-          </Box>
-        )}
-      </SectionStatus>
-
       {/* Premium Editorial & Platform Guide Section */}
       <Paper
         elevation={0}
         sx={{
-          mt: 6,
+          mt: 2,
+          mb: 6,
           p: { xs: 3, sm: 4, md: 5 },
           borderRadius: 4,
           border: '1px solid',
@@ -385,6 +327,65 @@ const Discover: React.FC = () => {
           </Typography>
         </Box>
       </Paper>
+
+      {/* Section Status Wrapper */}
+      <SectionStatus
+        loading={loading}
+        error={error}
+        hasData={filteredArticles.length > 0}
+        emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
+        columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+      >
+        {/* ✅ Top Stories Grid */}
+        {topStoriesArticles.length > 0 && (
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 2 }}>
+              Top Stories
+            </Typography>
+            <NewsGrid
+              articles={topStoriesArticles}
+              onBookmark={addBookmark}
+              onRemoveBookmark={removeBookmark}
+              isBookmarked={isBookmarked}
+              onLike={toggleLike}
+              onDislike={toggleDislike}
+              onAddComment={addComment}
+              onDeleteComment={deleteComment}
+              onLikeComment={likeComment}
+              onDislikeComment={dislikeComment}
+              getEngagement={getEngagement}
+            />
+          </Box>
+        )}
+
+        {/* ✅ More News Grid */}
+        {remainingArticles.length > 0 && (
+          <>
+            <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 2 }}>
+              More News
+            </Typography>
+            <NewsGrid
+              articles={remainingArticles}
+              onBookmark={addBookmark}
+              onRemoveBookmark={removeBookmark}
+              isBookmarked={isBookmarked}
+              onLike={toggleLike}
+              onDislike={toggleDislike}
+              onAddComment={addComment}
+              onDeleteComment={deleteComment}
+              onLikeComment={likeComment}
+              onDislikeComment={dislikeComment}
+              getEngagement={getEngagement}
+            />
+          </>
+        )}
+
+        {isFetchingMore && (
+          <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
+            <CircularProgress />
+          </Box>
+        )}
+      </SectionStatus>
     </Box>
   );
 };
