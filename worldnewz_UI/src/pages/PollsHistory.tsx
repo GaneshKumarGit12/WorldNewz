@@ -207,13 +207,33 @@ const PollsHistory: React.FC = () => {
       headerName: "Submitted Date", 
       width: 180, 
       sortable: true,
-      renderCell: (params) => (
-        <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
-          <Typography variant="caption" color="text.secondary">
-            {params.value}
-          </Typography>
-        </Box>
-      )
+      renderCell: (params) => {
+        let formattedDate = params.value as string;
+        try {
+          if (formattedDate) {
+            // Append Z if it is not present so browser treats it as UTC
+            const utcString = formattedDate.endsWith("Z") ? formattedDate : formattedDate + "Z";
+            const dateObj = new Date(utcString);
+            formattedDate = dateObj.toLocaleString(navigator.language, {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true
+            });
+          }
+        } catch (e) {
+          console.error("Error formatting date", e);
+        }
+        return (
+          <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+            <Typography variant="caption" color="text.secondary">
+              {formattedDate}
+            </Typography>
+          </Box>
+        );
+      }
     }
   ];
 

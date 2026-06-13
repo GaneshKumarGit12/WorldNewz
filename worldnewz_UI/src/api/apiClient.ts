@@ -155,6 +155,7 @@ export interface PollAnswer {
 export interface PollAnswersSubmissionRequest {
   name: string;
   email: string;
+  timezoneOffset: number;
   answers: PollAnswer[];
 }
 
@@ -175,8 +176,8 @@ export interface CheckUserAttemptResponse {
   scoreStatus?: string;
 }
 
-export const checkUserAttempt = (name: string, email: string) => 
-  apiClient.get<CheckUserAttemptResponse>(`/polls/check-attempt?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&t=${new Date().getTime()}`);
+export const checkUserAttempt = (name: string, email: string, timezoneOffset: number) => 
+  apiClient.get<CheckUserAttemptResponse>(`/polls/check-attempt?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&timezoneOffset=${timezoneOffset}&t=${new Date().getTime()}`);
 
 // Stocks API Types & Clients
 export interface StockItem {

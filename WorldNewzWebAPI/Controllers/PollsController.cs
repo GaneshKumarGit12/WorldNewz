@@ -113,7 +113,7 @@ namespace WorldNewzWebAPI.Controllers
 
         // GET: api/polls/check-attempt
         [HttpGet("check-attempt")]
-        public async Task<IActionResult> CheckAttempt([FromQuery] string name, [FromQuery] string email)
+        public async Task<IActionResult> CheckAttempt([FromQuery] string name, [FromQuery] string email, [FromQuery] int timezoneOffset = 0)
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email))
             {
@@ -122,7 +122,9 @@ namespace WorldNewzWebAPI.Controllers
 
             var trimmedName = name.Trim().ToLower();
             var trimmedEmail = email.Trim().ToLower();
-            var today = DateTime.UtcNow.Date;
+
+            // Calculate user's current local date (based on their timezone offset in minutes)
+            var todayLocal = DateTime.UtcNow.AddMinutes(-timezoneOffset).Date;
 
             // Fetch submissions for this name and email to compare dates in memory safely
             var userSubmissions = await _userDb.PollSubmissions
@@ -130,7 +132,7 @@ namespace WorldNewzWebAPI.Controllers
                 .ToListAsync();
 
             var todaySubmission = userSubmissions
-                .FirstOrDefault(s => s.SubmittedAt.Date == today);
+                .FirstOrDefault(s => s.SubmittedAt.AddMinutes(-timezoneOffset).Date == todayLocal);
 
             if (todaySubmission != null)
             {
@@ -175,13 +177,13 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Please provide a valid Email address format." });
             }
 
-            // 4. Check for duplicate Name + Email combination for today (Date-wise check)
-            var today = DateTime.UtcNow.Date;
+            // 4. Check for duplicate Name + Email combination for today (Date-wise check in user's timezone)
+            var todayLocal = DateTime.UtcNow.AddMinutes(-request.TimezoneOffset).Date;
             var userSubmissions = await _userDb.PollSubmissions
                 .Where(s => s.Name.ToLower() == name.ToLower() && s.Email.ToLower() == email.ToLower())
                 .ToListAsync();
 
-            if (userSubmissions.Any(s => s.SubmittedAt.Date == today))
+            if (userSubmissions.Any(s => s.SubmittedAt.AddMinutes(-request.TimezoneOffset).Date == todayLocal))
             {
                 return BadRequest(new { error = "Current user already applied. No chance to applicable same user again." });
             }
@@ -283,7 +285,7 @@ namespace WorldNewzWebAPI.Controllers
                     email = s.Email,
                     percentage = s.Percentage,
                     status = s.Status,
-                    submittedAt = s.SubmittedAt.ToString("yyyy-MM-dd HH:mm")
+                    submittedAt = DateTime.SpecifyKind(s.SubmittedAt, DateTimeKind.Utc).ToString("o")
                 }).ToList();
 
                 return Ok(history);
@@ -306,7 +308,7 @@ namespace WorldNewzWebAPI.Controllers
                         email = s.Email,
                         percentage = s.Percentage,
                         status = s.Status,
-                        submittedAt = s.SubmittedAt.ToString("yyyy-MM-dd HH:mm")
+                        submittedAt = DateTime.SpecifyKind(s.SubmittedAt, DateTimeKind.Utc).ToString("o")
                     })
                     .ToList();
 
@@ -328,7 +330,7 @@ namespace WorldNewzWebAPI.Controllers
                 email = s.Email,
                 percentage = s.Percentage,
                 status = s.Status,
-                submittedAt = s.SubmittedAt.ToString("yyyy-MM-dd HH:mm")
+                submittedAt = DateTime.SpecifyKind(s.SubmittedAt, DateTimeKind.Utc).ToString("o")
             }).ToList();
 
             return Ok(history);
@@ -344,6 +346,7 @@ namespace WorldNewzWebAPI.Controllers
     {
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public int TimezoneOffset { get; set; } = 0;
         public System.Collections.Generic.List<PollAnswerRequest> Answers { get; set; } = new();
     }
 

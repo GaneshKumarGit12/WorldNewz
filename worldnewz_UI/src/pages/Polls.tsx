@@ -177,7 +177,7 @@ const Polls: React.FC = () => {
     }
 
     setLoading(true);
-    checkUserAttempt(trimmedName, trimmedEmail)
+    checkUserAttempt(trimmedName, trimmedEmail, new Date().getTimezoneOffset())
       .then((res) => {
         if (res.data.exists) {
           setDuplicateError(true);
@@ -244,6 +244,7 @@ const Polls: React.FC = () => {
       const payload = {
         name: name.trim(),
         email: email.trim(),
+        timezoneOffset: new Date().getTimezoneOffset(),
         answers: answersList
       };
 
