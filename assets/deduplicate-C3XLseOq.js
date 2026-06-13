@@ -1,0 +1,1 @@
+function e(e){let t=new Set,n=new Set;return e.filter(e=>{if(!e||!e.url)return!1;let r=e.url.trim().toLowerCase(),i=(e.headline||e.title||``).replace(/[^a-zA-Z0-9]/g,``).toLowerCase().trim();return t.has(r)||i&&i.length>10&&n.has(i)?!1:(t.add(r),i&&i.length>10&&n.add(i),!0)})}export{e as t};

@@ -22,9 +22,12 @@
   <meta name="facebook-domain-verification" content="9k75v6j7w1wg41u2dmd14zuihaw74p" />
   <title>WorldNewzs – Your World, Your News</title>
   
-  <!-- Redirect from Vercel app domain to production domain -->
-  <script src="/scripts/redirect.js"></script>
-  
+  <!-- Preconnect to external domains to accelerate network hops -->
+  <link rel="preconnect" href="https://worldnewz.onrender.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.weserv.nl" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://worldnewz.onrender.com" />
+
   <!-- Optimized Google Fonts loading (Non-render blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,17 +39,14 @@
 
   <!-- Optimized Dynamic Script Loader for Trackers and Ads (Post-Load & Idle Execution) -->
   <script src="/scripts/thirdparty.js" defer></script>
-  <script type="module" crossorigin src="/assets/index-BLVOEf68.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-COnpUsM8.js">
-  <link rel="modulepreload" crossorigin href="/assets/mui-vendor-AAFcaIMv.js">
-  <link rel="modulepreload" crossorigin href="/assets/react-vendor-CWo0j90A.js">
+  <script type="module" crossorigin src="/assets/index-CuxWwptp.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Dw2cE7zH.js">
+  <link rel="modulepreload" crossorigin href="/assets/mui-Ct-JEhUW.js">
+  <link rel="modulepreload" crossorigin href="/assets/react-23ntI__2.js">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 </head>
 
 <body>
-  <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-7547748414764075">
-  </amp-auto-ads>
   <div id="root">
     <!-- Premium Pre-render Loading Screen (Inlined Critical CSS to eliminate CLS and FCP latency) -->
     <div id="initial-loader" style="
