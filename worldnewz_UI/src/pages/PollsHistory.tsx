@@ -344,7 +344,7 @@ const PollsHistory: React.FC = () => {
                   }
                 }}
               >
-                <Tab icon={<WorkspacePremiumIcon />} iconPosition="start" label="Leaderboard (Latest Attempts)" />
+                <Tab icon={<WorkspacePremiumIcon />} iconPosition="start" label="Leaderboard Rankings" />
                 <Tab icon={<HistoryIcon />} iconPosition="start" label="All Submissions Log" />
               </Tabs>
 
@@ -370,7 +370,7 @@ const PollsHistory: React.FC = () => {
             {tabValue === 0 && (
               <Box sx={{ p: 3, pb: 0 }}>
                 <Alert severity="info" icon={<EmojiEventsIcon />} sx={{ borderRadius: 3 }}>
-                  This Leaderboard showcases the latest poll submissions from all users. If a user attempts the polls multiple times, only their latest submission is ranked.
+                  This Leaderboard showcases the poll submissions from all participants ranked by their scores.
                 </Alert>
               </Box>
             )}

@@ -256,26 +256,10 @@ namespace WorldNewzWebAPI.Controllers
         {
             try
             {
-                // Retrieve leaderboard: latest attempt from all users, distinct by email, taking their latest submission first.
-                // SQLite supports ROW_NUMBER() OVER (...) window functions.
+                // Retrieve leaderboard: all submissions ranked by score percentage then submitted date
                 var leaderboard = await _userDb.PollSubmissions
-                    .FromSqlRaw(@"
-                        WITH LatestSubmissions AS (
-                            SELECT 
-                                Id,
-                                Name, 
-                                Email, 
-                                Percentage, 
-                                Status, 
-                                SubmittedAt,
-                                ROW_NUMBER() OVER (PARTITION BY Email ORDER BY SubmittedAt DESC) as rn
-                            FROM PollSubmissions
-                        )
-                        SELECT Id, Name, Email, Percentage, Status, SubmittedAt
-                        FROM LatestSubmissions
-                        WHERE rn = 1
-                        ORDER BY SubmittedAt DESC
-                    ")
+                    .OrderByDescending(s => s.Percentage)
+                    .ThenByDescending(s => s.SubmittedAt)
                     .ToListAsync();
 
                 var history = leaderboard.Select(s => new
@@ -293,26 +277,7 @@ namespace WorldNewzWebAPI.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine($"Error retrieving leaderboard: {ex.Message}");
-                // Fallback to LINQ if FromSqlRaw fails for any reason
-                var fallbackList = await _userDb.PollSubmissions
-                    .ToListAsync();
-                
-                var history = fallbackList
-                    .GroupBy(s => s.Email.ToLower())
-                    .Select(g => g.OrderByDescending(s => s.SubmittedAt).First())
-                    .OrderByDescending(s => s.SubmittedAt)
-                    .Select(s => new
-                    {
-                        id = s.Id,
-                        name = s.Name,
-                        email = s.Email,
-                        percentage = s.Percentage,
-                        status = s.Status,
-                        submittedAt = DateTime.SpecifyKind(s.SubmittedAt, DateTimeKind.Utc).ToString("o")
-                    })
-                    .ToList();
-
-                return Ok(history);
+                return StatusCode(500, new { error = "Failed to retrieve leaderboard." });
             }
         }
 
