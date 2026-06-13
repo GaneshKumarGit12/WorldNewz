@@ -111,6 +111,40 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
+        // GET: api/polls/check-attempt
+        [HttpGet("check-attempt")]
+        public async Task<IActionResult> CheckAttempt([FromQuery] string name, [FromQuery] string email)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email))
+            {
+                return BadRequest(new { error = "Name and Email are required parameters." });
+            }
+
+            var trimmedName = name.Trim().ToLower();
+            var trimmedEmail = email.Trim().ToLower();
+            var today = DateTime.UtcNow.Date;
+
+            // Fetch submissions for this name and email to compare dates in memory safely
+            var userSubmissions = await _userDb.PollSubmissions
+                .Where(s => s.Name.ToLower() == trimmedName && s.Email.ToLower() == trimmedEmail)
+                .ToListAsync();
+
+            var todaySubmission = userSubmissions
+                .FirstOrDefault(s => s.SubmittedAt.Date == today);
+
+            if (todaySubmission != null)
+            {
+                return Ok(new
+                {
+                    exists = true,
+                    percentage = todaySubmission.Percentage,
+                    scoreStatus = todaySubmission.Status
+                });
+            }
+
+            return Ok(new { exists = false });
+        }
+
         // POST: api/polls/submit-answers
         [HttpPost("submit-answers")]
         public async Task<IActionResult> SubmitAnswers([FromBody] PollAnswersSubmissionRequest request)
@@ -141,15 +175,16 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Please provide a valid Email address format." });
             }
 
-            // 4. Check for duplicate Name + Email combination (Disabled to allow multiple submissions and display the latest one)
-            /*
-            var exists = await _userDb.PollSubmissions
-                .AnyAsync(s => s.Name.ToLower() == name.ToLower() && s.Email.ToLower() == email.ToLower());
-            if (exists)
+            // 4. Check for duplicate Name + Email combination for today (Date-wise check)
+            var today = DateTime.UtcNow.Date;
+            var userSubmissions = await _userDb.PollSubmissions
+                .Where(s => s.Name.ToLower() == name.ToLower() && s.Email.ToLower() == email.ToLower())
+                .ToListAsync();
+
+            if (userSubmissions.Any(s => s.SubmittedAt.Date == today))
             {
-                return BadRequest(new { error = "A submission with this Name and Email address already exists." });
+                return BadRequest(new { error = "Current user already applied. No chance to applicable same user again." });
             }
-            */
 
             if (request.Answers == null || request.Answers.Count == 0)
             {

@@ -169,6 +169,15 @@ export const submitPollAnswers = (data: PollAnswersSubmissionRequest) => apiClie
 export const fetchPollsHistory = () => apiClient.get<PollSubmissionHistoryItem[]>(`/polls/history?t=${new Date().getTime()}`);
 export const fetchLeaderboard = () => apiClient.get<PollSubmissionHistoryItem[]>(`/polls/leaderboard?t=${new Date().getTime()}`);
 
+export interface CheckUserAttemptResponse {
+  exists: boolean;
+  percentage?: number;
+  scoreStatus?: string;
+}
+
+export const checkUserAttempt = (name: string, email: string) => 
+  apiClient.get<CheckUserAttemptResponse>(`/polls/check-attempt?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&t=${new Date().getTime()}`);
+
 // Stocks API Types & Clients
 export interface StockItem {
   symbol: string;

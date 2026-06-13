@@ -26,7 +26,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
-import { fetchActivePolls, submitPollAnswers } from "../api/apiClient";
+import { fetchActivePolls, submitPollAnswers, checkUserAttempt } from "../api/apiClient";
 import type { PollItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
@@ -51,6 +51,7 @@ const Polls: React.FC = () => {
   const [email, setEmail] = useState("");
   const [identified, setIdentified] = useState(false);
   const [idError, setIdError] = useState<string | null>(null);
+  const [duplicateError, setDuplicateError] = useState<boolean>(false);
 
   // Polls state
   const [polls, setPolls] = useState<PollItem[]>([]);
@@ -175,11 +176,31 @@ const Polls: React.FC = () => {
       return;
     }
 
-    // Save locally
-    sessionStorage.setItem("polls_user_name", trimmedName);
-    sessionStorage.setItem("polls_user_email", trimmedEmail);
-    setIdentified(true);
-    loadPolls();
+    setLoading(true);
+    checkUserAttempt(trimmedName, trimmedEmail)
+      .then((res) => {
+        if (res.data.exists) {
+          setDuplicateError(true);
+          setPopupData({
+            percentage: res.data.percentage ?? 0,
+            status: res.data.scoreStatus ?? "Red"
+          });
+          setShowPopup(true);
+        } else {
+          // Save locally
+          sessionStorage.setItem("polls_user_name", trimmedName);
+          sessionStorage.setItem("polls_user_email", trimmedEmail);
+          setIdentified(true);
+          loadPolls();
+        }
+      })
+      .catch((err) => {
+        const errMsg = err.response?.data?.error || "Failed to verify user. Please try again.";
+        setIdError(errMsg);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleOptionSelect = (pollId: number, optionId: number) => {
@@ -259,11 +280,13 @@ const Polls: React.FC = () => {
     setAnsweredPolls({});
     setIsTimedOutState({});
     setCurrentQuestionIndex(0);
+    setDuplicateError(false);
     if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
   };
 
   const handlePopupClose = () => {
     setShowPopup(false);
+    setDuplicateError(false);
     navigate("/polls-history");
   };
 
@@ -767,37 +790,70 @@ const Polls: React.FC = () => {
         >
           {popupData && (
             <DialogContent sx={{ p: 0, textAlign: "center" }}>
-              {/* Pulsing Animated Status Circle */}
-              <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
-                <Box 
-                  className={`animate-${getStatusConfig(popupData.status).animation}`}
-                  sx={{
-                    width: 90,
-                    height: 90,
-                    borderRadius: "50%",
-                    backgroundColor: getStatusConfig(popupData.status).color,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "2.5rem",
-                    color: "white"
-                  }}
-                >
-                  {getStatusConfig(popupData.status).emoji}
-                </Box>
-              </Box>
+              {duplicateError ? (
+                <>
+                  {/* Warning Dot */}
+                  <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
+                    <Box 
+                      sx={{
+                        width: 90,
+                        height: 90,
+                        borderRadius: "50%",
+                        backgroundColor: "#f59e0b",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "2.5rem",
+                        color: "white"
+                      }}
+                    >
+                      ⚠️
+                    </Box>
+                  </Box>
 
-              <Typography variant="h4" sx={{ fontWeight: 900, mb: 1, color: "text.primary" }}>
-                {popupData.percentage}% Score
-              </Typography>
-              
-              <Typography variant="subtitle1" sx={{ fontWeight: 700, color: getStatusConfig(popupData.status).color, mb: 2 }}>
-                {getStatusConfig(popupData.status).label}
-              </Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 900, mb: 2, color: "text.primary" }}>
+                    Already Submitted
+                  </Typography>
+                  
+                  <Typography variant="body1" sx={{ fontWeight: 700, color: "warning.main", px: 2, mb: 3 }}>
+                    Current user already applied. No chance to applicable same user again.
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  {/* Pulsing Animated Status Circle */}
+                  <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
+                    <Box 
+                      className={`animate-${getStatusConfig(popupData.status).animation}`}
+                      sx={{
+                        width: 90,
+                        height: 90,
+                        borderRadius: "50%",
+                        backgroundColor: getStatusConfig(popupData.status).color,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "2.5rem",
+                        color: "white"
+                      }}
+                    >
+                      {getStatusConfig(popupData.status).emoji}
+                    </Box>
+                  </Box>
 
-              <Typography variant="body2" color="text.secondary" sx={{ px: 2, mb: 3 }}>
-                Your responses have been successfully validated and recorded in our live database rankings. Check the leaderboard to compare.
-              </Typography>
+                  <Typography variant="h4" sx={{ fontWeight: 900, mb: 1, color: "text.primary" }}>
+                    {popupData.percentage}% Score
+                  </Typography>
+                  
+                  <Typography variant="subtitle1" sx={{ fontWeight: 700, color: getStatusConfig(popupData.status).color, mb: 2 }}>
+                    {getStatusConfig(popupData.status).label}
+                  </Typography>
+
+                  <Typography variant="body2" color="text.secondary" sx={{ px: 2, mb: 3 }}>
+                    Your responses have been successfully validated and recorded in our live database rankings. Check the leaderboard to compare.
+                  </Typography>
+                </>
+              )}
 
               <DialogActions sx={{ justifyContent: "center", p: 0 }}>
                 <Button
