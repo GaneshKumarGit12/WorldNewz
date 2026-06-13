@@ -39,7 +39,6 @@ import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import Chip from "@mui/material/Chip";
 import { useColorMode } from "./context/ThemeContext";
 import { useBookmarks } from "./hooks/useBookmarks";
 import { useComments } from "./hooks/useComments";
@@ -617,7 +616,8 @@ const App: React.FC = () => {
             sx={{ 
               display: "flex", 
               flexWrap: { xs: "nowrap", md: "wrap" }, 
-              gap: 0.75, 
+              gap: 1.0, 
+              rowGap: 1.25,
               justifyContent: { xs: "flex-start", md: "center" },
               overflowX: "auto",
               pb: 0.5,
@@ -630,22 +630,44 @@ const App: React.FC = () => {
               const path = getCategoryPath(cat);
               const isActive = location.pathname === path || (location.pathname === "/search" && searchParams.get("category") === cat);
               return (
-                <Chip
+                <Box
                   key={cat}
-                  label={cat}
-                  clickable
+                  component="button"
                   onClick={() => navigate(path)}
-                  color={isActive ? "primary" : "default"}
-                  variant={isActive ? "filled" : "outlined"}
-                  size="small"
-                  sx={{ 
+                  sx={{
                     textTransform: "capitalize",
-                    fontSize: "0.8rem",
-                    height: 28,
+                    fontSize: "0.85rem",
+                    fontWeight: 700,
+                    fontFamily: "'Outfit', 'Inter', 'Roboto', sans-serif",
+                    height: 30,
+                    px: 1.75,
+                    border: "1px solid",
+                    borderColor: isActive ? "#c83a15" : (isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)"),
+                    borderRadius: "4px",
+                    cursor: "pointer",
                     whiteSpace: "nowrap",
                     flexShrink: 0,
+                    backgroundColor: isActive 
+                      ? "#c83a15" 
+                      : (isDark ? "#161b22" : "#ffffff"),
+                    color: isActive 
+                      ? "#ffffff" 
+                      : (isDark ? "rgba(255, 255, 255, 0.85)" : "#1f2937"),
+                    boxShadow: "none",
+                    transition: "all 0.15s ease-in-out",
+                    "&:hover": {
+                      backgroundColor: isActive 
+                        ? "#d84315" 
+                        : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.04)"),
+                      borderColor: isActive ? "#d84315" : (isDark ? "rgba(255, 255, 255, 0.35)" : "rgba(0, 0, 0, 0.35)"),
+                    },
+                    "&:focus": {
+                      outline: "none",
+                    }
                   }}
-                />
+                >
+                  {cat}
+                </Box>
               );
             })}
           </Box>
