@@ -68,6 +68,8 @@ string ParsePostgresUrl(string url)
 
 // Get database connection string if configured (DefaultConnection or DATABASE_CONNECTION_STRING)
 var envConnection = Environment.GetEnvironmentVariable("DATABASE_URL")
+                    ?? Environment.GetEnvironmentVariable("DataBase_URL")
+                    ?? Environment.GetEnvironmentVariable("database_url")
                     ?? Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")
                     ?? Environment.GetEnvironmentVariable("DefaultConnection")
                     ?? Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
@@ -95,6 +97,8 @@ if (isRender && !string.IsNullOrEmpty(connectionString) &&
 }
 
 var envUserConnection = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_URL")
+                        ?? Environment.GetEnvironmentVariable("UserPollsDataBase_URL")
+                        ?? Environment.GetEnvironmentVariable("user_polls_database_url")
                         ?? Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_CONNECTION_STRING")
                         ?? Environment.GetEnvironmentVariable("UserPollsConnection")
                         ?? Environment.GetEnvironmentVariable("ConnectionStrings__UserPollsConnection");
@@ -271,7 +275,14 @@ if (missingVars.Count > 0)
 
 if (!string.IsNullOrEmpty(connectionString))
 {
-    Console.WriteLine("✓ Database: SQL Server");
+    if (connectionString.Contains("Host=") || connectionString.Contains("Port="))
+    {
+        Console.WriteLine("✓ Database: PostgreSQL");
+    }
+    else
+    {
+        Console.WriteLine("✓ Database: SQL Server");
+    }
 }
 else
 {
@@ -288,6 +299,59 @@ using (var scope = app.Services.CreateScope())
 
     var userDb = scope.ServiceProvider.GetRequiredService<UserPollsDbContext>();
     userDb.Database.EnsureCreated();
+
+    if (db.Database.ProviderName != null && db.Database.ProviderName.Contains("PostgreSQL"))
+    {
+        Console.WriteLine("✓ Running PostgreSQL table creation verification...");
+        // Ensure Polls table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS ""Polls"" (
+                ""Id"" SERIAL PRIMARY KEY,
+                ""Question"" TEXT NOT NULL,
+                ""Description"" TEXT NOT NULL,
+                ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+            );
+        ");
+
+        // Ensure PollOptions table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS ""PollOptions"" (
+                ""Id"" SERIAL PRIMARY KEY,
+                ""PollId"" INTEGER NOT NULL,
+                ""OptionText"" TEXT NOT NULL,
+                ""Votes"" INTEGER NOT NULL DEFAULT 0,
+                ""IsCorrect"" BOOLEAN NOT NULL DEFAULT FALSE,
+                CONSTRAINT ""FK_PollOptions_Polls_PollId"" FOREIGN KEY (""PollId"") REFERENCES ""Polls"" (""Id"") ON DELETE CASCADE
+            );
+        ");
+
+        // Ensure PollSubmissions table exists in userDb database
+        userDb.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS ""PollSubmissions"" (
+                ""Id"" SERIAL PRIMARY KEY,
+                ""Name"" TEXT NOT NULL,
+                ""Email"" TEXT NOT NULL,
+                ""Percentage"" DOUBLE PRECISION NOT NULL,
+                ""Status"" TEXT NOT NULL,
+                ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+            );
+        ");
+
+        // Ensure QuizSubmissions table exists in userDb database
+        userDb.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS ""QuizSubmissions"" (
+                ""Id"" SERIAL PRIMARY KEY,
+                ""Name"" TEXT NOT NULL,
+                ""Email"" TEXT NOT NULL,
+                ""Score"" INTEGER NOT NULL,
+                ""Coins"" INTEGER NOT NULL,
+                ""Percentage"" DOUBLE PRECISION NOT NULL,
+                ""Status"" TEXT NOT NULL,
+                ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+            );
+        ");
+        Console.WriteLine("✓ PostgreSQL tables verified successfully.");
+    }
 
     if (db.Database.IsSqlite())
     {
