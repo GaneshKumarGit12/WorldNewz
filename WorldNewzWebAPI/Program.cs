@@ -40,14 +40,47 @@ else if (!Path.IsPathRooted(userDbPath))
 }
 
 // Get database connection string if configured (DefaultConnection or DATABASE_CONNECTION_STRING)
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-                       ?? Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")
-                       ?? Environment.GetEnvironmentVariable("DefaultConnection");
+var envConnection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")
+                    ?? Environment.GetEnvironmentVariable("DefaultConnection")
+                    ?? Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
 
-var userPollsConnectionString = builder.Configuration.GetConnectionString("UserPollsConnection")
-                                ?? Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_CONNECTION_STRING")
-                                ?? Environment.GetEnvironmentVariable("UserPollsConnection")
-                                ?? connectionString; // Fallback to DefaultConnection if not specified
+var isRender = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("RENDER"));
+var connectionString = envConnection;
+
+if (string.IsNullOrEmpty(connectionString) && !isRender)
+{
+    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+}
+
+// Clean up if it's pointing to localhost/127.0.0.1 on Render (since localhost has no SQL Server running in the container)
+if (isRender && !string.IsNullOrEmpty(connectionString) && 
+    (connectionString.Contains("localhost", StringComparison.OrdinalIgnoreCase) || 
+     connectionString.Contains("127.0.0.1")))
+{
+    connectionString = null;
+}
+
+var envUserConnection = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_CONNECTION_STRING")
+                        ?? Environment.GetEnvironmentVariable("UserPollsConnection")
+                        ?? Environment.GetEnvironmentVariable("ConnectionStrings__UserPollsConnection");
+
+var userPollsConnectionString = envUserConnection;
+if (string.IsNullOrEmpty(userPollsConnectionString) && !isRender)
+{
+    userPollsConnectionString = builder.Configuration.GetConnectionString("UserPollsConnection");
+}
+
+if (isRender && !string.IsNullOrEmpty(userPollsConnectionString) && 
+    (userPollsConnectionString.Contains("localhost", StringComparison.OrdinalIgnoreCase) || 
+     userPollsConnectionString.Contains("127.0.0.1")))
+{
+    userPollsConnectionString = null;
+}
+
+if (string.IsNullOrEmpty(userPollsConnectionString))
+{
+    userPollsConnectionString = connectionString; // Fallback to DefaultConnection if not specified
+}
 
 if (!string.IsNullOrEmpty(connectionString))
 {
