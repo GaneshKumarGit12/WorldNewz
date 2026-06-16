@@ -39,16 +39,41 @@ else if (!Path.IsPathRooted(userDbPath))
     userDbPath = Path.Combine(AppContext.BaseDirectory, userDbPath);
 }
 
-// Add DbContext - using SQLite for development
-builder.Services.AddDbContext<WorldNewsDbContext>(options =>
-{
-    options.UseSqlite($"Data Source={dbPath}");
-});
+// Get database connection string if configured (DefaultConnection or DATABASE_CONNECTION_STRING)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+                       ?? Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")
+                       ?? Environment.GetEnvironmentVariable("DefaultConnection");
 
-builder.Services.AddDbContext<UserPollsDbContext>(options =>
+var userPollsConnectionString = builder.Configuration.GetConnectionString("UserPollsConnection")
+                                ?? Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_CONNECTION_STRING")
+                                ?? Environment.GetEnvironmentVariable("UserPollsConnection")
+                                ?? connectionString; // Fallback to DefaultConnection if not specified
+
+if (!string.IsNullOrEmpty(connectionString))
 {
-    options.UseSqlite($"Data Source={userDbPath}");
-});
+    builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+    {
+        options.UseSqlServer(connectionString);
+    });
+
+    builder.Services.AddDbContext<UserPollsDbContext>(options =>
+    {
+        options.UseSqlServer(userPollsConnectionString);
+    });
+}
+else
+{
+    // Add DbContext - using SQLite for development
+    builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+    {
+        options.UseSqlite($"Data Source={dbPath}");
+    });
+
+    builder.Services.AddDbContext<UserPollsDbContext>(options =>
+    {
+        options.UseSqlite($"Data Source={userDbPath}");
+    });
+}
 
 // Add CORS policy
 builder.Services.AddCors(options =>
@@ -153,7 +178,14 @@ if (missingVars.Count > 0)
     throw new InvalidOperationException(message);
 }
 
-Console.WriteLine($"✓ Database: {dbPath}");
+if (!string.IsNullOrEmpty(connectionString))
+{
+    Console.WriteLine("✓ Database: SQL Server");
+}
+else
+{
+    Console.WriteLine($"✓ Database: SQLite ({dbPath})");
+}
 Console.WriteLine($"✓ CORS Origins: Allowed for ALL (Vercel, Localhost, etc.)");
 Console.WriteLine($"✓ Environment: {builder.Environment.EnvironmentName}");
 
@@ -166,74 +198,77 @@ using (var scope = app.Services.CreateScope())
     var userDb = scope.ServiceProvider.GetRequiredService<UserPollsDbContext>();
     userDb.Database.EnsureCreated();
 
-    // Ensure EnrichedArticles table exists
-    db.Database.ExecuteSqlRaw(@"
-        CREATE TABLE IF NOT EXISTS EnrichedArticles (
-            Url TEXT PRIMARY KEY,
-            Headline TEXT NOT NULL,
-            Summary TEXT NOT NULL,
-            Context TEXT NOT NULL,
-            SocialMediaHook TEXT NOT NULL,
-            Verified INTEGER NOT NULL,
-            EnrichedAt TEXT NOT NULL
-        );
-    ");
-
-    // Ensure FacebookPageSettings table exists
-    db.Database.ExecuteSqlRaw(@"
-        CREATE TABLE IF NOT EXISTS FacebookPageSettings (
-            PageId TEXT PRIMARY KEY,
-            PageName TEXT NOT NULL,
-            AccessToken TEXT NOT NULL,
-            IsActive INTEGER NOT NULL,
-            LastPostTime TEXT
-        );
-    ");
-
-    // Ensure Polls table exists
-    db.Database.ExecuteSqlRaw(@"
-        CREATE TABLE IF NOT EXISTS Polls (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Question TEXT NOT NULL,
-            Description TEXT NOT NULL,
-            CreatedAt TEXT NOT NULL
-        );
-    ");
-
-    // Ensure PollOptions table exists
-    db.Database.ExecuteSqlRaw(@"
-        CREATE TABLE IF NOT EXISTS PollOptions (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            PollId INTEGER NOT NULL,
-            OptionText TEXT NOT NULL,
-            Votes INTEGER NOT NULL DEFAULT 0,
-            IsCorrect INTEGER NOT NULL DEFAULT 0,
-            FOREIGN KEY (PollId) REFERENCES Polls(Id) ON DELETE CASCADE
-        );
-    ");
-
-    try
+    if (db.Database.IsSqlite())
     {
-        db.Database.ExecuteSqlRaw("ALTER TABLE PollOptions ADD COLUMN IsCorrect INTEGER NOT NULL DEFAULT 0;");
+        // Ensure EnrichedArticles table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS EnrichedArticles (
+                Url TEXT PRIMARY KEY,
+                Headline TEXT NOT NULL,
+                Summary TEXT NOT NULL,
+                Context TEXT NOT NULL,
+                SocialMediaHook TEXT NOT NULL,
+                Verified INTEGER NOT NULL,
+                EnrichedAt TEXT NOT NULL
+            );
+        ");
+
+        // Ensure FacebookPageSettings table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS FacebookPageSettings (
+                PageId TEXT PRIMARY KEY,
+                PageName TEXT NOT NULL,
+                AccessToken TEXT NOT NULL,
+                IsActive INTEGER NOT NULL,
+                LastPostTime TEXT
+            );
+        ");
+
+        // Ensure Polls table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS Polls (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Question TEXT NOT NULL,
+                Description TEXT NOT NULL,
+                CreatedAt TEXT NOT NULL
+            );
+        ");
+
+        // Ensure PollOptions table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS PollOptions (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                PollId INTEGER NOT NULL,
+                OptionText TEXT NOT NULL,
+                Votes INTEGER NOT NULL DEFAULT 0,
+                IsCorrect INTEGER NOT NULL DEFAULT 0,
+                FOREIGN KEY (PollId) REFERENCES Polls(Id) ON DELETE CASCADE
+            );
+        ");
+
+        try
+        {
+            db.Database.ExecuteSqlRaw("ALTER TABLE PollOptions ADD COLUMN IsCorrect INTEGER NOT NULL DEFAULT 0;");
+        }
+        catch { /* Column already exists */ }
+
+        // Ensure PollSubmissions table exists in userDb database
+        userDb.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS PollSubmissions (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Name TEXT NOT NULL,
+                Email TEXT NOT NULL,
+                Percentage REAL NOT NULL,
+                Status TEXT NOT NULL,
+                SubmittedAt TEXT NOT NULL
+            );
+        ");
+
+        // Ensure SQLite database indexes exist for news queries & sitemaps optimization
+        db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_PublishedAt ON NewsArticles (PublishedAt);");
+        db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_CategoryId ON NewsArticles (CategoryId);");
+        db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_Url ON NewsArticles (Url);");
     }
-    catch { /* Column already exists */ }
-
-    // Ensure PollSubmissions table exists in userDb database
-    userDb.Database.ExecuteSqlRaw(@"
-        CREATE TABLE IF NOT EXISTS PollSubmissions (
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Name TEXT NOT NULL,
-            Email TEXT NOT NULL,
-            Percentage REAL NOT NULL,
-            Status TEXT NOT NULL,
-            SubmittedAt TEXT NOT NULL
-        );
-    ");
-
-    // Ensure SQLite database indexes exist for news queries & sitemaps optimization
-    db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_PublishedAt ON NewsArticles (PublishedAt);");
-    db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_CategoryId ON NewsArticles (CategoryId);");
-    db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_Url ON NewsArticles (Url);");
 
     // Seed default categories
     var requiredCategories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping", "Services", "Gaming", "Cartoons" };
