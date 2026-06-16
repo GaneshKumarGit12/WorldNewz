@@ -461,7 +461,7 @@ const Footer: React.FC = () => {
       </Typography>
       <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 2 }} />
       <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center", mb: 1 }}>
-        © {new Date().getFullYear()} WorldNewzs. Powered by Ganesh CO v2.
+        © {new Date().getFullYear()} WorldNewzs. Powered by Ganesh CO.
       </Typography>
       <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center" }}>
         <a href="https://trafficpeak.io" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "underline" }}>Boost Your Website Traffic with TrafficPeak</a>
