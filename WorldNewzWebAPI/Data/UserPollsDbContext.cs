@@ -8,5 +8,6 @@ namespace WorldNewzWebAPI.Data
         public UserPollsDbContext(DbContextOptions<UserPollsDbContext> options) : base(options) { }
 
         public DbSet<PollSubmission> PollSubmissions { get; set; }
+        public DbSet<QuizSubmission> QuizSubmissions { get; set; }
     }
 }

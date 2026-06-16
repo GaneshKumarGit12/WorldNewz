@@ -52,6 +52,8 @@ const Cartoons = React.lazy(() => import("./pages/Cartoons"));
 const Polls = React.lazy(() => import("./pages/Polls"));
 const PollsHistory = React.lazy(() => import("./pages/PollsHistory"));
 const Stocks = React.lazy(() => import("./pages/Stocks"));
+const BadgeQuiz = React.lazy(() => import("./pages/BadgeQuiz"));
+const QuizHistory = React.lazy(() => import("./pages/QuizHistory"));
 
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -92,6 +94,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="polls" element={<Polls />} />
                   <Route path="polls-history" element={<PollsHistory />} />
                   <Route path="stocks" element={<Stocks />} />
+                  <Route path="badge-quiz" element={<BadgeQuiz />} />
+                  <Route path="quiz-history" element={<QuizHistory />} />
                   <Route path="search" element={<Search />} />
                   <Route path="bookmarks" element={<Bookmarks />} />
                   <Route path="comments" element={<CommentHistory />} />

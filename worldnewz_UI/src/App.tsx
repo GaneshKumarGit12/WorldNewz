@@ -64,6 +64,7 @@ const secondaryNavLinks = [
   { label: "Gaming", path: "/gaming" },
   { label: "Cartoons", path: "/cartoons" },
   { label: "Polls", path: "/polls" },
+  { label: "GK Quiz", path: "/badge-quiz" },
   { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
   { label: "Education", path: "/education" },
@@ -96,6 +97,7 @@ const categories = [
   "gaming",
   "cartoons",
   "polls",
+  "badge quiz",
   "stocks"
 ];
 
@@ -123,6 +125,7 @@ const getCategoryPath = (cat: string): string => {
     case "gaming": return "/gaming";
     case "cartoons": return "/cartoons";
     case "polls": return "/polls";
+    case "badge quiz": return "/badge-quiz";
     case "stocks": return "/stocks";
     default: return "/";
   }

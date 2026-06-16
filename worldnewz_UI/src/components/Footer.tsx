@@ -366,6 +366,7 @@ const Footer: React.FC = () => {
               { label: "Gaming", to: "/gaming" },
               { label: "Cartoons", to: "/cartoons" },
               { label: "Polls", to: "/polls" },
+              { label: "GK Badge Quiz", to: "/badge-quiz" },
               { label: "Stocks", to: "/stocks" },
               { label: "Bookmarks", to: "/bookmarks" },
               { label: "Editorial Briefings", to: "/editorial-briefings" },

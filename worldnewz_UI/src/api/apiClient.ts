@@ -210,6 +210,82 @@ export interface CheckUserAttemptResponse {
 export const checkUserAttempt = (name: string, email: string, timezoneOffset: number) => 
   apiClient.get<CheckUserAttemptResponse>(`/polls/check-attempt?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&timezoneOffset=${timezoneOffset}&t=${new Date().getTime()}`);
 
+// Quiz API Types & Clients
+export interface QuizOptionItem {
+  id: number;
+  optionText: string;
+}
+
+export interface QuizQuestionItem {
+  id: number;
+  question: string;
+  description: string;
+  options: QuizOptionItem[];
+}
+
+export interface QuizAnswer {
+  questionId: number;
+  optionId: number;
+}
+
+export interface QuizSubmissionRequest {
+  name: string;
+  email: string;
+  timezoneOffset: number;
+  answers: QuizAnswer[];
+}
+
+export interface QuestionEvaluationResult {
+  questionId: number;
+  submittedOptionId: number;
+  correctOptionId: number;
+  isCorrect: boolean;
+}
+
+export interface QuizSubmissionResponse {
+  status: string;
+  score: number;
+  total: number;
+  percentage: number;
+  coins: number;
+  scoreStatus: string;
+  results: QuestionEvaluationResult[];
+}
+
+export interface QuizSubmissionHistoryItem {
+  id: number;
+  name: string;
+  email: string;
+  score: number;
+  coins: number;
+  percentage: number;
+  status: string;
+  submittedAt: string;
+}
+
+export interface CheckQuizUserAttemptResponse {
+  exists: boolean;
+  percentage?: number;
+  scoreStatus?: string;
+  coins?: number;
+  score?: number;
+}
+
+export const fetchQuizQuestions = () => 
+  apiClient.get<QuizQuestionItem[]>(`/quiz/questions?t=${new Date().getTime()}`);
+
+export const checkQuizUserAttempt = (name: string, email: string, timezoneOffset: number) => 
+  apiClient.get<CheckQuizUserAttemptResponse>(`/quiz/check-attempt?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&timezoneOffset=${timezoneOffset}&t=${new Date().getTime()}`);
+
+export const submitQuizAnswers = (data: QuizSubmissionRequest) => 
+  apiClient.post<QuizSubmissionResponse>("/quiz/submit", data);
+
+export const fetchQuizLeaderboard = () => 
+  apiClient.get<QuizSubmissionHistoryItem[]>(`/quiz/leaderboard?t=${new Date().getTime()}`);
+
+export const fetchQuizHistory = () => 
+  apiClient.get<QuizSubmissionHistoryItem[]>(`/quiz/history?t=${new Date().getTime()}`);
+
 // Stocks API Types & Clients
 export interface StockItem {
   symbol: string;

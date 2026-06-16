@@ -355,6 +355,19 @@ using (var scope = app.Services.CreateScope())
             );
         ");
 
+        userDb.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS QuizSubmissions (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Name TEXT NOT NULL,
+                Email TEXT NOT NULL,
+                Score INTEGER NOT NULL,
+                Coins INTEGER NOT NULL,
+                Percentage REAL NOT NULL,
+                Status TEXT NOT NULL,
+                SubmittedAt TEXT NOT NULL
+            );
+        ");
+
         // Ensure SQLite database indexes exist for news queries & sitemaps optimization
         db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_PublishedAt ON NewsArticles (PublishedAt);");
         db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_CategoryId ON NewsArticles (CategoryId);");

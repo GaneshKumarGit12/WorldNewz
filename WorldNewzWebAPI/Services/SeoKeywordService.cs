@@ -16,7 +16,7 @@ namespace WorldNewzWebAPI.Services
         private static readonly string[] CATEGORIES =
         {
             "sports", "business", "technology", "health", "world", "entertainment", "science", 
-            "services", "gaming", "cartoons", "stocks", "polls", "polls-history",
+            "services", "gaming", "cartoons", "stocks", "polls", "polls-history", "badge-quiz", "quiz-history",
             "politics", "science-health", "local-news", "weather", "shopping", "travel", "food", 
             "lifestyle", "education", "opinion", "trending", "podcasts-videos"
         };
