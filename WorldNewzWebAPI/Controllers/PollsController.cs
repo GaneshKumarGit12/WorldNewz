@@ -300,6 +300,124 @@ namespace WorldNewzWebAPI.Controllers
 
             return Ok(history);
         }
+
+        // POST: api/polls/vote
+        [HttpPost("vote")]
+        public async Task<IActionResult> Vote([FromBody] VotePayload request)
+        {
+            if (request == null || request.PollId <= 0 || string.IsNullOrWhiteSpace(request.Choice))
+            {
+                return BadRequest(new { error = "Invalid vote payload." });
+            }
+
+            var poll = await _context.Polls
+                .Include(p => p.Options)
+                .FirstOrDefaultAsync(p => p.Id == request.PollId);
+
+            if (poll == null)
+            {
+                return NotFound(new { error = "Poll not found." });
+            }
+
+            PollOption? option = null;
+            if (int.TryParse(request.Choice, out int optionId))
+            {
+                option = poll.Options.FirstOrDefault(o => o.Id == optionId);
+            }
+            if (option == null)
+            {
+                option = poll.Options.FirstOrDefault(o => o.OptionText.Trim().Equals(request.Choice.Trim(), StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (option == null)
+            {
+                return BadRequest(new { error = "Choice option not found in this poll." });
+            }
+
+            option.Votes += 1;
+            await _context.SaveChangesAsync();
+
+            int totalVotes = poll.Options.Sum(o => o.Votes);
+            var results = poll.Options.Select(o => new
+            {
+                optionId = o.Id,
+                choice = o.OptionText,
+                votes = o.Votes,
+                percentage = totalVotes > 0 ? Math.Round((double)o.Votes / totalVotes * 100, 1) : 0.0
+            }).ToList();
+
+            return Ok(new
+            {
+                status = "success",
+                message = "Vote recorded successfully.",
+                pollId = poll.Id,
+                totalVotes,
+                results
+            });
+        }
+
+        // GET: api/polls/results
+        [HttpGet("results")]
+        public async Task<IActionResult> GetResults([FromQuery] int? pollId)
+        {
+            if (pollId.HasValue)
+            {
+                var poll = await _context.Polls
+                    .Include(p => p.Options)
+                    .FirstOrDefaultAsync(p => p.Id == pollId.Value);
+
+                if (poll == null)
+                {
+                    return NotFound(new { error = "Poll not found." });
+                }
+
+                int totalVotes = poll.Options.Sum(o => o.Votes);
+                var results = poll.Options.Select(o => new
+                {
+                    optionId = o.Id,
+                    choice = o.OptionText,
+                    votes = o.Votes,
+                    percentage = totalVotes > 0 ? Math.Round((double)o.Votes / totalVotes * 100, 1) : 0.0
+                }).ToList();
+
+                return Ok(new
+                {
+                    pollId = poll.Id,
+                    question = poll.Question,
+                    totalVotes,
+                    results
+                });
+            }
+            else
+            {
+                var polls = await _context.Polls
+                    .Include(p => p.Options)
+                    .ToListAsync();
+
+                var allResults = polls.Select(p => {
+                    int totalVotes = p.Options.Sum(o => o.Votes);
+                    return new {
+                        pollId = p.Id,
+                        question = p.Question,
+                        totalVotes,
+                        results = p.Options.Select(o => new {
+                            optionId = o.Id,
+                            choice = o.OptionText,
+                            votes = o.Votes,
+                            percentage = totalVotes > 0 ? Math.Round((double)o.Votes / totalVotes * 100, 1) : 0.0
+                        }).ToList()
+                    };
+                }).ToList();
+
+                return Ok(allResults);
+            }
+        }
+    }
+
+    public class VotePayload
+    {
+        public int PollId { get; set; }
+        public string Choice { get; set; } = string.Empty;
     }
 
     public class VoteRequest

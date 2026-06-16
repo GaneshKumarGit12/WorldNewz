@@ -643,6 +643,12 @@ const Polls: React.FC = () => {
                           backgroundColor = "primary.light";
                         }
 
+                        const isPollAnswered = Boolean(selections[poll.id]);
+                        const totalVotesOfPoll = poll.options.reduce((sum, o) => sum + o.votes, 0) + (isPollAnswered ? 1 : 0);
+                        const isUserSelected = selections[poll.id] === option.id;
+                        const optionVotes = option.votes + (isUserSelected ? 1 : 0);
+                        const optionPercentage = totalVotesOfPoll > 0 ? Math.round((optionVotes / totalVotesOfPoll) * 100) : 0;
+
                         return (
                           <Box
                             key={option.id}
@@ -656,7 +662,7 @@ const Polls: React.FC = () => {
                               mb: 2,
                               transition: "all 0.2s",
                               cursor: isLocked ? "not-allowed" : "pointer",
-                              opacity: isLocked && !isSelected && !isCorrect ? 0.4 : 1,
+                              opacity: isLocked && !isSelected && !isCorrect ? 0.6 : 1,
                               "&:hover": {
                                 borderColor: isLocked ? borderColor : "primary.main",
                                 backgroundColor: isLocked ? backgroundColor : "action.hover",
@@ -667,11 +673,36 @@ const Polls: React.FC = () => {
                             <FormControlLabel
                               value={option.id}
                               disabled={isLocked}
-                              control={<Radio size="small" />}
+                              control={<Radio size="small" sx={{ display: isLocked ? "none" : "inline-flex" }} />}
                               label={
-                                <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
-                                  <Typography sx={{ fontWeight: 600 }}>{option.optionText}</Typography>
-                                  {adornment}
+                                <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
+                                  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", width: "100%", gap: 1 }}>
+                                    <Typography sx={{ fontWeight: 600 }}>{option.optionText}</Typography>
+                                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                                      {adornment}
+                                      {isLocked && (
+                                        <Typography variant="body2" sx={{ fontWeight: 800, color: isCorrect ? "success.main" : isSelected ? "error.main" : "text.secondary" }}>
+                                          {optionPercentage}% ({optionVotes} {optionVotes === 1 ? "vote" : "votes"})
+                                        </Typography>
+                                      )}
+                                    </Box>
+                                  </Box>
+                                  {isLocked && (
+                                    <LinearProgress
+                                      variant="determinate"
+                                      value={optionPercentage}
+                                      sx={{
+                                        mt: 1.5,
+                                        height: 6,
+                                        borderRadius: 3,
+                                        backgroundColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                                        "& .MuiLinearProgress-bar": {
+                                          backgroundColor: isCorrect ? "#22c55e" : isSelected ? "#ef4444" : "text.secondary",
+                                          borderRadius: 3
+                                        }
+                                      }}
+                                    />
+                                  )}
                                 </Box>
                               }
                               sx={{ width: "100%", m: 0 }}

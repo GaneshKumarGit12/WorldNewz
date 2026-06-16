@@ -170,6 +170,37 @@ export const submitPollAnswers = (data: PollAnswersSubmissionRequest) => apiClie
 export const fetchPollsHistory = () => apiClient.get<PollSubmissionHistoryItem[]>(`/polls/history?t=${new Date().getTime()}`);
 export const fetchLeaderboard = () => apiClient.get<PollSubmissionHistoryItem[]>(`/polls/leaderboard?t=${new Date().getTime()}`);
 
+export interface SingleVoteResponse {
+  status: string;
+  message: string;
+  pollId: number;
+  totalVotes: number;
+  results: Array<{
+    optionId: number;
+    choice: string;
+    votes: number;
+    percentage: number;
+  }>;
+}
+
+export interface PollResultsResponse {
+  pollId: number;
+  question: string;
+  totalVotes: number;
+  results: Array<{
+    optionId: number;
+    choice: string;
+    votes: number;
+    percentage: number;
+  }>;
+}
+
+export const submitSingleVote = (pollId: number, choice: string | number) => 
+  apiClient.post<SingleVoteResponse>("/polls/vote", { pollId, choice });
+
+export const fetchPollResults = (pollId?: number) => 
+  apiClient.get<PollResultsResponse | PollResultsResponse[]>("/polls/results", { params: { pollId } });
+
 export interface CheckUserAttemptResponse {
   exists: boolean;
   percentage?: number;

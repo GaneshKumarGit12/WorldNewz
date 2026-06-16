@@ -39,8 +39,36 @@ else if (!Path.IsPathRooted(userDbPath))
     userDbPath = Path.Combine(AppContext.BaseDirectory, userDbPath);
 }
 
+// Helper function to parse Heroku/Render postgres:// connection URLs
+string ParsePostgresUrl(string url)
+{
+    if (string.IsNullOrEmpty(url) || (!url.StartsWith("postgres://") && !url.StartsWith("postgresql://")))
+    {
+        return url;
+    }
+
+    try
+    {
+        var uri = new Uri(url);
+        var userInfo = uri.UserInfo.Split(':');
+        var username = userInfo[0];
+        var password = userInfo.Length > 1 ? userInfo[1] : "";
+        var host = uri.Host;
+        var port = uri.Port == -1 ? 5432 : uri.Port;
+        var database = uri.AbsolutePath.TrimStart('/');
+
+        return $"Host={host};Port={port};Database={database};Username={username};Password={password};SSL Mode=Require;Trust Server Certificate=true;";
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"⚠️ Error parsing PostgreSQL URL: {ex.Message}");
+        return url;
+    }
+}
+
 // Get database connection string if configured (DefaultConnection or DATABASE_CONNECTION_STRING)
-var envConnection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")
+var envConnection = Environment.GetEnvironmentVariable("DATABASE_URL")
+                    ?? Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")
                     ?? Environment.GetEnvironmentVariable("DefaultConnection")
                     ?? Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection");
 
@@ -52,6 +80,12 @@ if (string.IsNullOrEmpty(connectionString) && !isRender)
     connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 }
 
+// Support Postgres URL parsing
+if (!string.IsNullOrEmpty(connectionString) && (connectionString.StartsWith("postgres://") || connectionString.StartsWith("postgresql://")))
+{
+    connectionString = ParsePostgresUrl(connectionString);
+}
+
 // Clean up if it's pointing to localhost/127.0.0.1 on Render (since localhost has no SQL Server running in the container)
 if (isRender && !string.IsNullOrEmpty(connectionString) && 
     (connectionString.Contains("localhost", StringComparison.OrdinalIgnoreCase) || 
@@ -60,7 +94,8 @@ if (isRender && !string.IsNullOrEmpty(connectionString) &&
     connectionString = null;
 }
 
-var envUserConnection = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_CONNECTION_STRING")
+var envUserConnection = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_URL")
+                        ?? Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_CONNECTION_STRING")
                         ?? Environment.GetEnvironmentVariable("UserPollsConnection")
                         ?? Environment.GetEnvironmentVariable("ConnectionStrings__UserPollsConnection");
 
@@ -68,6 +103,12 @@ var userPollsConnectionString = envUserConnection;
 if (string.IsNullOrEmpty(userPollsConnectionString) && !isRender)
 {
     userPollsConnectionString = builder.Configuration.GetConnectionString("UserPollsConnection");
+}
+
+// Support Postgres URL parsing for user polls DB
+if (!string.IsNullOrEmpty(userPollsConnectionString) && (userPollsConnectionString.StartsWith("postgres://") || userPollsConnectionString.StartsWith("postgresql://")))
+{
+    userPollsConnectionString = ParsePostgresUrl(userPollsConnectionString);
 }
 
 if (isRender && !string.IsNullOrEmpty(userPollsConnectionString) && 
@@ -84,15 +125,32 @@ if (string.IsNullOrEmpty(userPollsConnectionString))
 
 if (!string.IsNullOrEmpty(connectionString))
 {
-    builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+    if (connectionString.Contains("Host=") || connectionString.Contains("Port="))
     {
-        options.UseSqlServer(connectionString);
-    });
+        Console.WriteLine("✓ Database: PostgreSQL");
+        builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+        {
+            options.UseNpgsql(connectionString);
+        });
 
-    builder.Services.AddDbContext<UserPollsDbContext>(options =>
+        builder.Services.AddDbContext<UserPollsDbContext>(options =>
+        {
+            options.UseNpgsql(userPollsConnectionString);
+        });
+    }
+    else
     {
-        options.UseSqlServer(userPollsConnectionString);
-    });
+        Console.WriteLine("✓ Database: SQL Server");
+        builder.Services.AddDbContext<WorldNewsDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString);
+        });
+
+        builder.Services.AddDbContext<UserPollsDbContext>(options =>
+        {
+            options.UseSqlServer(userPollsConnectionString);
+        });
+    }
 }
 else
 {
