@@ -27,7 +27,7 @@
   ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/:path*",
       "headers": [
         {
           "key": "Cache-Control",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "source": "/scripts/(.*)",
+      "source": "/scripts/:path*",
       "headers": [
         {
           "key": "Cache-Control",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         {
           "key": "Strict-Transport-Security",
@@ -106,7 +106,7 @@
       "destination": "https://worldnewz.onrender.com/rss/:feedType"
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "destination": "/index.html"
     }
   ]
