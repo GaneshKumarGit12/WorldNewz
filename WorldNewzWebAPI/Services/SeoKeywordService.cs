@@ -33,12 +33,22 @@ namespace WorldNewzWebAPI.Services
         // Called by background job daily
         public async Task RefreshAllKeywordsAsync()
         {
+            var today = DateTime.UtcNow.Date;
             foreach (var category in CATEGORIES)
             {
                 try
                 {
+                    // Performance optimization: check if already exists before calling Gemini
+                    var existing = await _db.SeoKeywords
+                        .AnyAsync(k => k.Category == category && k.Date == today);
+                    
+                    if (existing)
+                    {
+                        continue; // Skip instantly with zero delay
+                    }
+
                     await GenerateKeywordsAsync(category);
-                    await Task.Delay(1000); // Rate limit courtesy
+                    await Task.Delay(4500); // Proactively avoid 15 RPM rate limit (60s / 15 = 4s)
                 }
                 catch (Exception ex)
                 {
@@ -105,12 +115,37 @@ Rules:
                 }
             };
 
-            var response = await _http.PostAsJsonAsync(endpoint, payload);
-            if (!response.IsSuccessStatusCode)
+            HttpResponseMessage? response = null;
+            int maxRetries = 4;
+            int delaySeconds = 6;
+
+            for (int attempt = 1; attempt <= maxRetries; attempt++)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                _log.LogError("Gemini API call failed: {StatusCode} - {Error}", response.StatusCode, error);
-                throw new HttpRequestException($"Gemini API call failed with status code {response.StatusCode}");
+                response = await _http.PostAsJsonAsync(endpoint, payload);
+                if (response.IsSuccessStatusCode)
+                {
+                    break;
+                }
+
+                if (response.StatusCode == System.Net.HttpStatusCode.TooManyRequests) // 429
+                {
+                    _log.LogWarning("Gemini API rate limit hit (429) on attempt {Attempt} for category '{Category}'. Retrying in {Delay}s...", attempt, category, delaySeconds);
+                    await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
+                    delaySeconds *= 2; // Exponential backoff
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    _log.LogError("Gemini API call failed: {StatusCode} - {Error}", response.StatusCode, error);
+                    throw new HttpRequestException($"Gemini API call failed with status code {response.StatusCode}");
+                }
+            }
+
+            if (response == null || !response.IsSuccessStatusCode)
+            {
+                var error = response != null ? await response.Content.ReadAsStringAsync() : "No response";
+                _log.LogError("Gemini API call failed after retries: {Error}", error);
+                throw new HttpRequestException($"Gemini API call failed after max retries.");
             }
 
             var geminiResponse = await response.Content.ReadFromJsonAsync<JsonElement>();
