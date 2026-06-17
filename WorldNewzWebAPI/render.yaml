@@ -10,9 +10,18 @@ services:
       - key: NEWS_API_KEY
         sync: true
       - key: CORS_ALLOWED_ORIGINS
-        value: "https://ganeshkumargit12.github.io,http://localhost:5173,http://localhost:5174"
+        value: "https://worldnewzs.in,https://world-newz.vercel.app,https://ganeshkumargit12.github.io,http://localhost:5173,http://localhost:5174"
       - key: DATABASE_URL
-        sync: true
+        fromDatabase:
+          name: worldnewz-db
+          property: connectionString
       - key: GEMINI_API_KEY
         sync: true
     healthCheckPath: "/health"
+
+databases:
+  - name: worldnewz-db
+    databaseName: worldnewz
+    user: worldnewz_user
+    plan: free
+    region: singapore
