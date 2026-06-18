@@ -106,7 +106,7 @@
       "destination": "https://worldnewz.onrender.com/rss/:feedType"
     },
     {
-      "source": "/((?!assets|scripts|favicon.svg|favicon.ico|robots.txt|ads.txt|sitemap.xml|news-sitemap.xml|rss|.*\\.(svg|png|jpg|jpeg|ico|gif|webp|json)).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
