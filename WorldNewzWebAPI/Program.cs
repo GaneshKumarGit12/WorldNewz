@@ -294,63 +294,88 @@ Console.WriteLine($"✓ Environment: {builder.Environment.EnvironmentName}");
 // Ensure database is created and schema is up to date
 using (var scope = app.Services.CreateScope())
 {
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
     var db = scope.ServiceProvider.GetRequiredService<WorldNewsDbContext>();
-    db.Database.EnsureCreated();
-
     var userDb = scope.ServiceProvider.GetRequiredService<UserPollsDbContext>();
-    userDb.Database.EnsureCreated();
 
-    if (db.Database.ProviderName != null && db.Database.ProviderName.Contains("PostgreSQL"))
+    try
     {
-        Console.WriteLine("✓ Running PostgreSQL table creation verification...");
-        // Ensure Polls table exists
-        db.Database.ExecuteSqlRaw(@"
-            CREATE TABLE IF NOT EXISTS ""Polls"" (
-                ""Id"" SERIAL PRIMARY KEY,
-                ""Question"" TEXT NOT NULL,
-                ""Description"" TEXT NOT NULL,
-                ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
-            );
-        ");
+        db.Database.EnsureCreated();
+        logger.LogInformation("✓ WorldNewsDbContext EnsureCreated completed.");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "❌ WorldNewsDbContext EnsureCreated failed.");
+    }
 
-        // Ensure PollOptions table exists
-        db.Database.ExecuteSqlRaw(@"
-            CREATE TABLE IF NOT EXISTS ""PollOptions"" (
-                ""Id"" SERIAL PRIMARY KEY,
-                ""PollId"" INTEGER NOT NULL,
-                ""OptionText"" TEXT NOT NULL,
-                ""Votes"" INTEGER NOT NULL DEFAULT 0,
-                ""IsCorrect"" BOOLEAN NOT NULL DEFAULT FALSE,
-                CONSTRAINT ""FK_PollOptions_Polls_PollId"" FOREIGN KEY (""PollId"") REFERENCES ""Polls"" (""Id"") ON DELETE CASCADE
-            );
-        ");
+    try
+    {
+        userDb.Database.EnsureCreated();
+        logger.LogInformation("✓ UserPollsDbContext EnsureCreated completed.");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "❌ UserPollsDbContext EnsureCreated failed.");
+    }
 
-        // Ensure PollSubmissions table exists in userDb database
-        userDb.Database.ExecuteSqlRaw(@"
-            CREATE TABLE IF NOT EXISTS ""PollSubmissions"" (
-                ""Id"" SERIAL PRIMARY KEY,
-                ""Name"" TEXT NOT NULL,
-                ""Email"" TEXT NOT NULL,
-                ""Percentage"" DOUBLE PRECISION NOT NULL,
-                ""Status"" TEXT NOT NULL,
-                ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
-            );
-        ");
+    try
+    {
+        if (db.Database.ProviderName != null && db.Database.ProviderName.Contains("PostgreSQL"))
+        {
+            logger.LogInformation("✓ Running PostgreSQL table creation verification...");
+            // Ensure Polls table exists
+            db.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""Polls"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Question"" TEXT NOT NULL,
+                    ""Description"" TEXT NOT NULL,
+                    ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                );
+            ");
 
-        // Ensure QuizSubmissions table exists in userDb database
-        userDb.Database.ExecuteSqlRaw(@"
-            CREATE TABLE IF NOT EXISTS ""QuizSubmissions"" (
-                ""Id"" SERIAL PRIMARY KEY,
-                ""Name"" TEXT NOT NULL,
-                ""Email"" TEXT NOT NULL,
-                ""Score"" INTEGER NOT NULL,
-                ""Coins"" INTEGER NOT NULL,
-                ""Percentage"" DOUBLE PRECISION NOT NULL,
-                ""Status"" TEXT NOT NULL,
-                ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
-            );
-        ");
-        Console.WriteLine("✓ PostgreSQL tables verified successfully.");
+            // Ensure PollOptions table exists
+            db.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""PollOptions"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""PollId"" INTEGER NOT NULL,
+                    ""OptionText"" TEXT NOT NULL,
+                    ""Votes"" INTEGER NOT NULL DEFAULT 0,
+                    ""IsCorrect"" BOOLEAN NOT NULL DEFAULT FALSE,
+                    CONSTRAINT ""FK_PollOptions_Polls_PollId"" FOREIGN KEY (""PollId"") REFERENCES ""Polls"" (""Id"") ON DELETE CASCADE
+                );
+            ");
+
+            // Ensure PollSubmissions table exists in userDb database
+            userDb.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""PollSubmissions"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Name"" TEXT NOT NULL,
+                    ""Email"" TEXT NOT NULL,
+                    ""Percentage"" DOUBLE PRECISION NOT NULL,
+                    ""Status"" TEXT NOT NULL,
+                    ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                );
+            ");
+
+            // Ensure QuizSubmissions table exists in userDb database
+            userDb.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""QuizSubmissions"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Name"" TEXT NOT NULL,
+                    ""Email"" TEXT NOT NULL,
+                    ""Score"" INTEGER NOT NULL,
+                    ""Coins"" INTEGER NOT NULL,
+                    ""Percentage"" DOUBLE PRECISION NOT NULL,
+                    ""Status"" TEXT NOT NULL,
+                    ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                );
+            ");
+            logger.LogInformation("✓ PostgreSQL tables verified successfully.");
+        }
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "❌ PostgreSQL table creation verification failed.");
     }
 
     if (db.Database.IsSqlite())
