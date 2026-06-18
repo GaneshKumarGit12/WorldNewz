@@ -305,3 +305,40 @@ export interface StocksResponse {
 }
 
 export const fetchStocks = (exchange: string) => apiClient.get<StocksResponse>("/stocks", { params: { exchange } });
+
+// --- Admin DB Management & Storage Types & Clients ---
+
+export interface DbStorageResponse {
+  dbProvider: string;
+  databaseSizeInBytes: number;
+  percentageUsed: number;
+  formattedSize: string;
+  maxSizeBytes: number;
+  formattedMaxSize: string;
+}
+
+export interface AdminLoginResponse {
+  success: boolean;
+  token: string;
+}
+
+export const adminLogin = (username: string, password: string) =>
+  apiClient.post<AdminLoginResponse>("/admin/login", { username, password });
+
+export const fetchDbStorage = () =>
+  apiClient.get<DbStorageResponse>("/admin/storage");
+
+export const deleteQuizHistory = (id: number, token: string) =>
+  apiClient.delete(`/admin/quiz-history/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+export const deletePollHistory = (id: number, token: string) =>
+  apiClient.delete(`/admin/poll-history/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+

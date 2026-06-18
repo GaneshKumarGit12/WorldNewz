@@ -23,8 +23,17 @@ import HistoryIcon from "@mui/icons-material/History";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import StarsIcon from "@mui/icons-material/Stars";
 
-import { fetchQuizHistory, fetchQuizLeaderboard } from "../api/apiClient";
-import type { QuizSubmissionHistoryItem } from "../api/apiClient";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import LockIcon from "@mui/icons-material/Lock";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+
+import { fetchQuizHistory, fetchQuizLeaderboard, adminLogin, fetchDbStorage, deleteQuizHistory } from "../api/apiClient";
+import type { QuizSubmissionHistoryItem, DbStorageResponse } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
@@ -41,9 +50,29 @@ const QuizHistory: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [tabValue, setTabValue] = useState<number>(0); // 0: Leaderboard, 1: History
 
+  // Admin and database storage states
+  const [adminToken, setAdminToken] = useState<string | null>(localStorage.getItem("adminToken"));
+  const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [adminUsername, setAdminUsername] = useState<string>("");
+  const [adminPassword, setAdminPassword] = useState<string>("");
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [storageInfo, setStorageInfo] = useState<DbStorageResponse | null>(null);
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState<boolean>(false);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [deleting, setDeleting] = useState<boolean>(false);
+
   useEffect(() => {
     loadData();
   }, []);
+
+  const loadStorage = async () => {
+    try {
+      const res = await fetchDbStorage();
+      setStorageInfo(res.data);
+    } catch (err) {
+      console.error("Failed to load database storage details:", err);
+    }
+  };
 
   const loadData = async () => {
     try {
@@ -59,12 +88,73 @@ const QuizHistory: React.FC = () => {
       setLeaderboardData(leaderboardRes.data);
       
       // Default view is Leaderboard (tab index 0)
-      setFilteredData(leaderboardRes.data);
+      if (tabValue === 0) {
+        setFilteredData(leaderboardRes.data);
+      } else {
+        setFilteredData(historyRes.data);
+      }
+      
+      // Fetch DB storage
+      loadStorage();
     } catch (err: any) {
       setError("Failed to load quiz history and leaderboard from server.");
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleLoginClick = () => {
+    setLoginOpen(true);
+    setLoginError(null);
+  };
+
+  const handleLoginSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError(null);
+    try {
+      const res = await adminLogin(adminUsername, adminPassword);
+      if (res.data && res.data.token) {
+        localStorage.setItem("adminToken", res.data.token);
+        setAdminToken(res.data.token);
+        setLoginOpen(false);
+        setAdminUsername("");
+        setAdminPassword("");
+      } else {
+        setLoginError("Failed to login. No token returned.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setLoginError(err.message || "Invalid admin credentials.");
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    setAdminToken(null);
+  };
+
+  const handleDeleteClick = (id: number) => {
+    setDeleteId(id);
+    setDeleteConfirmOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (deleteId === null || !adminToken) return;
+    try {
+      setDeleting(true);
+      await deleteQuizHistory(deleteId, adminToken);
+      
+      // Reload history and storage
+      await loadData();
+      
+      setDeleteConfirmOpen(false);
+      setDeleteId(null);
+    } catch (err: any) {
+      console.error("Failed to delete quiz submission:", err);
+      alert(err.message || "Failed to delete submission.");
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -266,6 +356,36 @@ const QuizHistory: React.FC = () => {
     : defaultKeywords;
   const descriptionToUse = dynamicKeywordsData?.metaDesc || "View the live Leaderboard and Submission history for our General Knowledge Badge Quiz. Check top players, total gold coins, and accuracy ranks.";
 
+  const columnsToRender = [...columns];
+  if (adminToken) {
+    columnsToRender.push({
+      field: "deleteAction",
+      headerName: "Action",
+      width: 100,
+      sortable: false,
+      align: "center",
+      headerAlign: "center",
+      renderCell: (params) => (
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", width: "100%" }}>
+          <IconButton
+            color="error"
+            size="small"
+            onClick={() => handleDeleteClick(params.row.id)}
+            sx={{
+              "&:hover": {
+                transform: "scale(1.15)",
+                backgroundColor: "rgba(239, 68, 68, 0.08)"
+              },
+              transition: "transform 0.2s"
+            }}
+          >
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        </Box>
+      )
+    });
+  }
+
   return (
     <>
       <SEOMeta
@@ -306,6 +426,111 @@ const QuizHistory: React.FC = () => {
               </Typography>
             </Box>
           </Box>
+        </Box>
+
+        {/* Dynamic Database Storage Visualization & Admin controls */}
+        <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 3, mb: 4, alignItems: "stretch" }}>
+          
+          {/* Storage Visualization Card */}
+          <Card 
+            elevation={0}
+            sx={{ 
+              flex: 1,
+              borderRadius: 4, 
+              border: "1px solid", 
+              borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
+              p: 3,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              backgroundColor: "background.paper"
+            }}
+          >
+            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1.5 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 800, color: "text.primary", letterSpacing: 0.5 }}>
+                DATABASE STORAGE
+              </Typography>
+              <Typography variant="caption" sx={{ fontWeight: 900, color: "warning.main", bgcolor: isDark ? "rgba(255,179,0,0.08)" : "rgba(255,179,0,0.04)", px: 1.5, py: 0.5, borderRadius: 2 }}>
+                {storageInfo ? `${storageInfo.percentageUsed}% used` : "0.00% used"}
+              </Typography>
+            </Box>
+
+            <Box sx={{ width: "100%", height: 8, bgcolor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)", borderRadius: 4, overflow: "hidden", mb: 1 }}>
+              <Box 
+                sx={{ 
+                  width: `${storageInfo ? Math.max(0.1, Math.min(100, storageInfo.percentageUsed)) : 0}%`, 
+                  height: "100%", 
+                  background: "linear-gradient(90deg, #ffb300, #ff8f00)", 
+                  borderRadius: 4,
+                  transition: "width 0.5s ease-in-out" 
+                }} 
+              />
+            </Box>
+
+            <Box sx={{ display: "flex", justifyContent: "space-between", mt: 0.5 }}>
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700 }}>
+                {storageInfo?.formattedSize ?? "0.00 MB"} of 1 GB used
+              </Typography>
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
+                PostgreSQL Limit: 1 GB
+              </Typography>
+            </Box>
+          </Card>
+
+          {/* Admin Control Card */}
+          <Card 
+            elevation={0}
+            sx={{ 
+              borderRadius: 4, 
+              border: "1px solid", 
+              borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
+              p: 3,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              minWidth: { md: 300 },
+              backgroundColor: "background.paper"
+            }}
+          >
+            <Box sx={{ mr: 2 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 0.5 }}>
+                ADMIN CONTROLS
+              </Typography>
+              <Typography variant="caption" color="text.secondary">
+                {adminToken ? "Authorized as Administrator." : "Authenticate to manage storage."}
+              </Typography>
+            </Box>
+
+            {adminToken ? (
+              <Button
+                variant="outlined"
+                color="error"
+                startIcon={<LockOpenIcon />}
+                onClick={handleLogout}
+                sx={{ fontWeight: 800, textTransform: "none", borderRadius: 3 }}
+              >
+                Log Out
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                color="warning"
+                startIcon={<LockIcon />}
+                onClick={handleLoginClick}
+                sx={{ 
+                  fontWeight: 800, 
+                  textTransform: "none", 
+                  borderRadius: 3,
+                  boxShadow: "none",
+                  "&:hover": { boxShadow: "none" }
+                }}
+              >
+                Admin Login
+              </Button>
+            )}
+          </Card>
         </Box>
 
         {error && (
@@ -389,7 +614,7 @@ const QuizHistory: React.FC = () => {
               <Box sx={{ height: 600, width: "100%" }}>
                 <DataGrid
                   rows={filteredData}
-                  columns={columns}
+                  columns={columnsToRender}
                   initialState={{
                     pagination: {
                       paginationModel: { pageSize: 10, page: 0 },
@@ -422,6 +647,95 @@ const QuizHistory: React.FC = () => {
             )}
           </CardContent>
         </Card>
+
+        {/* Admin Login Dialog */}
+        <Dialog 
+          open={loginOpen} 
+          onClose={() => setLoginOpen(false)}
+          PaperProps={{
+            sx: { borderRadius: 4, p: 2, maxWidth: 400, width: "100%" }
+          }}
+        >
+          <DialogTitle sx={{ fontWeight: 900, pb: 1 }}>Admin Authentication</DialogTitle>
+          <form onSubmit={handleLoginSubmit}>
+            <DialogContent sx={{ py: 1 }}>
+              {loginError && (
+                <Alert severity="error" sx={{ mb: 2, borderRadius: 2 }}>
+                  {loginError}
+                </Alert>
+              )}
+              <TextField
+                margin="dense"
+                label="Username"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={adminUsername}
+                onChange={(e) => setAdminUsername(e.target.value)}
+                required
+                slotProps={{
+                  input: { sx: { borderRadius: 3 } }
+                }}
+                sx={{ mb: 2 }}
+              />
+              <TextField
+                margin="dense"
+                label="Password"
+                type="password"
+                fullWidth
+                variant="outlined"
+                value={adminPassword}
+                onChange={(e) => setAdminPassword(e.target.value)}
+                required
+                slotProps={{
+                  input: { sx: { borderRadius: 3 } }
+                }}
+              />
+            </DialogContent>
+            <DialogActions sx={{ px: 3, pt: 2 }}>
+              <Button onClick={() => setLoginOpen(false)} sx={{ fontWeight: 700, textTransform: "none", borderRadius: 2 }}>
+                Cancel
+              </Button>
+              <Button type="submit" variant="contained" color="warning" sx={{ fontWeight: 800, textTransform: "none", borderRadius: 2, px: 3 }}>
+                Authenticate
+              </Button>
+            </DialogActions>
+          </form>
+        </Dialog>
+
+        {/* Delete Confirmation Dialog */}
+        <Dialog
+          open={deleteConfirmOpen}
+          onClose={() => setDeleteConfirmOpen(false)}
+          PaperProps={{
+            sx: { borderRadius: 4, p: 1, maxWidth: 380, width: "100%" }
+          }}
+        >
+          <DialogTitle sx={{ fontWeight: 900 }}>Can I delete this user?</DialogTitle>
+          <DialogContent>
+            <Typography variant="body2" color="text.secondary">
+              This action will permanently delete this quiz submission from the persistent database. This cannot be undone.
+            </Typography>
+          </DialogContent>
+          <DialogActions sx={{ px: 3, pb: 2 }}>
+            <Button 
+              onClick={() => setDeleteConfirmOpen(false)} 
+              disabled={deleting}
+              sx={{ fontWeight: 700, textTransform: "none", borderRadius: 2 }}
+            >
+              No
+            </Button>
+            <Button 
+              onClick={handleDeleteConfirm} 
+              variant="contained" 
+              color="error"
+              disabled={deleting}
+              sx={{ fontWeight: 800, textTransform: "none", borderRadius: 2, px: 3 }}
+            >
+              {deleting ? "Deleting..." : "Yes"}
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Container>
     </>
   );
