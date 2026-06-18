@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WorldNewzWebAPI.Data;
 
@@ -47,6 +50,18 @@ namespace WorldNewzWebAPI.Controllers
                 userDbError = ex.Message;
             }
 
+            // Inspect environment variables safely (keys only)
+            var envKeys = new List<string>();
+            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+            {
+                envKeys.Add(de.Key.ToString() ?? "");
+            }
+            envKeys.Sort();
+
+            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+            var userPollsUrl = Environment.GetEnvironmentVariable("USER_POLLS_DATABASE_URL");
+            var renderEnv = Environment.GetEnvironmentVariable("RENDER");
+
             return Ok(new
             {
                 dbProvider,
@@ -55,6 +70,16 @@ namespace WorldNewzWebAPI.Controllers
                 userDbProvider,
                 userDbConnected,
                 userDbError,
+                environment = new
+                {
+                    isRender = !string.IsNullOrEmpty(renderEnv),
+                    renderValue = renderEnv,
+                    hasDatabaseUrl = !string.IsNullOrEmpty(databaseUrl),
+                    databaseUrlLength = databaseUrl?.Length ?? 0,
+                    hasUserPollsDatabaseUrl = !string.IsNullOrEmpty(userPollsUrl),
+                    userPollsDatabaseUrlLength = userPollsUrl?.Length ?? 0,
+                    allKeys = envKeys
+                },
                 timestamp = DateTime.UtcNow
             });
         }
