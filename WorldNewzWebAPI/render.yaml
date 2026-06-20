@@ -17,6 +17,8 @@ services:
           property: connectionString
       - key: GEMINI_API_KEY
         sync: true
+      - key: GNEWS_API_KEY
+        sync: true
     healthCheckPath: "/health"
 
 databases:
