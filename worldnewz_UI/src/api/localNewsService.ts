@@ -1,8 +1,5 @@
-import axios from "axios";
+import { apiClient } from "./apiClient";
 import type { Article } from "../types";
-
-const GNEWS_API_KEY = import.meta.env.VITE_GNEWS_API_KEY || "f6dca38320ca277194f33d5269c40137";
-const CACHE_TTL = 10 * 60 * 1000; // 10 minutes in milliseconds
 
 // Supported country list from GNews documentation
 export const SUPPORTED_COUNTRIES = [
@@ -74,116 +71,33 @@ export async function detectCountryCode(): Promise<string> {
 }
 
 /**
- * Helper to get cached data from sessionStorage.
- */
-function getCachedData<T>(key: string): T | null {
-  try {
-    const cached = sessionStorage.getItem(key);
-    if (!cached) return null;
-    const parsed = JSON.parse(cached);
-    if (Date.now() - parsed.timestamp < CACHE_TTL) {
-      return parsed.data as T;
-    }
-    // Expired
-    sessionStorage.removeItem(key);
-  } catch (e) {
-    console.error("Error reading cache from sessionStorage", e);
-  }
-  return null;
-}
-
-/**
- * Helper to write data to sessionStorage cache.
- */
-function setCachedData<T>(key: string, data: T): void {
-  try {
-    sessionStorage.setItem(key, JSON.stringify({
-      data,
-      timestamp: Date.now()
-    }));
-  } catch (e) {
-    console.error("Error writing cache to sessionStorage", e);
-  }
-}
-
-/**
- * Maps GNews API articles into the application's Article model.
- */
-function mapGNewsArticles(gnewsArticles: any[]): Article[] {
-  if (!Array.isArray(gnewsArticles)) return [];
-  return gnewsArticles.map((a: any) => ({
-    title: a.title,
-    description: a.description || "",
-    summary: a.description || "",
-    url: a.url,
-    imageUrl: a.image || "",
-    urlToImage: a.image || "",
-    publishedAt: a.publishedAt,
-    source: typeof a.source === "string" ? a.source : (a.source?.name || "News"),
-    category: "Local News",
-    verified: true // Mark as verified for premium badge overlay
-  }));
-}
-
-/**
- * Fetches Top Headlines for a given country code from GNews.
+ * Fetches Top Headlines for a given country code from backend proxy.
  */
 export async function fetchTopHeadlines(country: string): Promise<Article[]> {
-  const cacheKey = `gnews_headlines_${country}`;
-  const cached = getCachedData<Article[]>(cacheKey);
-  if (cached) {
-    return cached;
-  }
-
   try {
-    const response = await axios.get("https://gnews.io/api/v4/top-headlines", {
-      params: {
-        category: "general",
-        lang: "en",
-        country: country,
-        max: 10,
-        apikey: GNEWS_API_KEY
-      }
+    const response = await apiClient.get("/news/gnews-headlines", {
+      params: { country }
     });
-
-    const articles = mapGNewsArticles(response.data?.articles || []);
-    setCachedData(cacheKey, articles);
-    return articles;
+    return response.data?.articles || [];
   } catch (err: any) {
-    console.error("Error fetching top headlines from GNews API:", err);
-    const errorMessage = err.response?.data?.errors?.[0] || err.message || "Failed to load top headlines.";
+    console.error("Error fetching top headlines from backend API:", err);
+    const errorMessage = err.response?.data?.error || err.message || "Failed to load top headlines.";
     throw new Error(errorMessage);
   }
 }
 
 /**
- * Fetches More Local News (National Category) for a given country code from GNews.
+ * Fetches More Local News for a given country code from backend proxy.
  */
 export async function fetchMoreLocalNews(country: string, page: number = 1): Promise<Article[]> {
-  const cacheKey = `gnews_more_${country}_page_${page}`;
-  const cached = getCachedData<Article[]>(cacheKey);
-  if (cached) {
-    return cached;
-  }
-
   try {
-    const response = await axios.get("https://gnews.io/api/v4/top-headlines", {
-      params: {
-        category: "nation",
-        lang: "en",
-        country: country,
-        max: 9, // Grid friendly layout sizing
-        page: page,
-        apikey: GNEWS_API_KEY
-      }
+    const response = await apiClient.get("/news/gnews-more", {
+      params: { country, page }
     });
-
-    const articles = mapGNewsArticles(response.data?.articles || []);
-    setCachedData(cacheKey, articles);
-    return articles;
+    return response.data?.articles || [];
   } catch (err: any) {
-    console.error("Error fetching more local news from GNews API:", err);
-    const errorMessage = err.response?.data?.errors?.[0] || err.message || "Failed to load more local news.";
+    console.error("Error fetching more local news from backend API:", err);
+    const errorMessage = err.response?.data?.error || err.message || "Failed to load more local news.";
     throw new Error(errorMessage);
   }
 }

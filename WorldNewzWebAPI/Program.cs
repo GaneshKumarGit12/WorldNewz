@@ -192,6 +192,11 @@ builder.Services.AddHttpClient<INewsApiService, NewsApiService>(client =>
 {
     client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
 });
+builder.Services.AddHttpClient<IGNewsService, GNewsService>(client =>
+{
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
+});
+
 
 // ✅ Add MemoryCache (needed for RSSController caching)
 builder.Services.AddMemoryCache();
