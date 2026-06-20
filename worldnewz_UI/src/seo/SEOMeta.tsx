@@ -37,7 +37,11 @@ export const SEOMeta = (props: SEOMetaProps) => {
       <meta name="description" content={p.description!} />
       <meta name="keywords" content={p.keywords!.join(', ')} />
       <link rel="canonical" href={canonical} />
-      {p.noIndex && <meta name="robots" content="noindex, nofollow" />}
+      {p.noIndex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      )}
 
       {/* Open Graph */}
       <meta property="og:site_name" content={SITE_NAME} />

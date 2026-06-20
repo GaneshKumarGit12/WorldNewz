@@ -6,6 +6,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PAGE_METADATA = {
+  'home': {
+    title: 'WorldNewzs – Your World, Your News',
+    description: 'Stay updated with the latest news in sports, business, technology, health, and more on WorldNewzs, a premium news aggregator.',
+    keywords: 'news, breaking news, latest news, sports news, business news, technology news, health news, world news, daily news, WorldNewzs',
+    canonical: 'https://worldnewzs.in',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
   'badge-quiz': {
     title: 'Badge Quiz – Challenge Your Trivia Knowledge',
     description: 'Take the WorldNewzs daily trivia badge quiz! Answer trivia questions across sports, business, tech, history, and science to earn badges and coins.',
@@ -258,12 +266,67 @@ export default async function handler(req, res) {
     keywords = meta.keywords || keywords;
     ogType = meta.ogType || ogType;
 
+    const newsCategories = [
+      'home', 'politics', 'technology', 'business', 'science-health',
+      'sports', 'money', 'gaming', 'cartoons', 'entertainment',
+      'lifestyle', 'education', 'opinion', 'trending', 'podcasts-videos',
+      'local-news', 'services', 'shopping', 'travel', 'food'
+    ];
+
+    let articlesListHtml = '';
+    if (newsCategories.includes(page)) {
+      let fetchUrl = 'https://worldnewz.onrender.com/api/news/discover?pageSize=8';
+      if (page !== 'home') {
+        fetchUrl = `https://worldnewz.onrender.com/api/news/${page}?pageSize=8`;
+      }
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 4000);
+        const response = await fetch(fetchUrl, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (response.ok) {
+          const data = await response.json();
+          const articles = data.articles || data.results || [];
+          if (articles && articles.length > 0) {
+            articlesListHtml = articles.map(art => {
+              const artId = art.id || art.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              const artTitle = art.headline || art.title || '';
+              const artSummary = art.summary || art.description || '';
+              const artSource = typeof art.source === 'string' ? art.source : (art.source?.name || '');
+              const artDate = art.publishedAt ? new Date(art.publishedAt).toLocaleDateString() : '';
+              return `
+                <article style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                  <h3><a href="/article/${artId}">${escapeHtml(artTitle)}</a></h3>
+                  <p style="font-size: 0.85rem; color: #666; margin: 5px 0;">
+                    ${artSource ? `Source: ${escapeHtml(artSource)} | ` : ''} 
+                    ${artDate ? `Published: ${escapeHtml(artDate)}` : ''}
+                  </p>
+                  <p style="margin: 5px 0;">${escapeHtml(artSummary)}</p>
+                </article>
+              `;
+            }).join('');
+          }
+        }
+      } catch (err) {
+        console.error(`Error fetching category ${page} articles:`, err);
+      }
+    }
+
     bodyFallback = `
-      <div id="fallback-page-content" style="display: none;">
+      <div id="semantic-fallback-container" style="padding: 20px; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
         <main>
           <h1>${escapeHtml(title)}</h1>
           <p>${escapeHtml(description)}</p>
-          <p>Read the latest about ${escapeHtml(title)} and take part in interactive elements on WorldNewzs.</p>
+          ${articlesListHtml ? `
+            <section style="margin-top: 30px;">
+              <h2>Latest Stories</h2>
+              ${articlesListHtml}
+            </section>
+          ` : `
+            <p>Read the latest about ${escapeHtml(title)} and take part in interactive elements on WorldNewzs.</p>
+          `}
         </main>
       </div>
     `;
@@ -309,12 +372,17 @@ export default async function handler(req, res) {
         "url": canonical,
         "articleSection": article.category || 'News',
         "inLanguage": "en-US",
+        "author": {
+          "@type": "Person",
+          "name": article.author || (typeof article.source === 'string' ? article.source : (article.source?.name || "WorldNewzs Editorial Desk")),
+          "url": "https://worldnewzs.in/about"
+        },
         "publisher": {
           "@type": "Organization",
           "name": "WorldNewzs",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://worldnewzs.in/favicon.svg"
+            "url": "https://worldnewzs.in/logo.svg"
           }
         },
         "mainEntityOfPage": {
@@ -324,13 +392,15 @@ export default async function handler(req, res) {
       };
 
       bodyFallback = `
-        <div id="fallback-article-content" style="display: none;">
+        <div id="semantic-fallback-container" style="padding: 20px; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
           <article>
             <h1>${escapeHtml(title)}</h1>
-            <p><strong>Published on:</strong> ${escapeHtml(article.publishedAt)}</p>
-            <p><strong>Category:</strong> ${escapeHtml(article.category || 'News')}</p>
-            <p><strong>Source:</strong> ${escapeHtml(typeof article.source === 'string' ? article.source : (article.source?.name || 'News'))}</p>
-            <div class="summary">${escapeHtml(description)}</div>
+            <p style="font-size: 0.9rem; color: #555; margin: 10px 0;">
+              <strong>Published:</strong> ${escapeHtml(article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : 'Recent')} | 
+              <strong>Category:</strong> ${escapeHtml(article.category || 'News')} | 
+              <strong>Author/Source:</strong> ${escapeHtml(article.author || (typeof article.source === 'string' ? article.source : (article.source?.name || 'WorldNewzs Editorial Desk')))}
+            </p>
+            <div class="summary" style="margin-top: 20px; line-height: 1.6; font-size: 1.1rem;">${escapeHtml(description)}</div>
           </article>
         </div>
       `;
@@ -382,7 +452,12 @@ export default async function handler(req, res) {
 
   // 7. Inject Body Fallback
   if (bodyFallback) {
-    html = html.replace('<body>', `<body>\n${bodyFallback}`);
+    const fallbackRegex = /<div id="semantic-fallback-container"[\s\S]*?<\/div>/i;
+    if (fallbackRegex.test(html)) {
+      html = html.replace(fallbackRegex, bodyFallback);
+    } else {
+      html = html.replace('<body>', `<body>\n${bodyFallback}`);
+    }
   }
 
   res.setHeader('Content-Type', 'text/html');
