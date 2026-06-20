@@ -98,6 +98,10 @@
       "destination": "/api/news-sitemap"
     },
     {
+      "source": "/(politics|technology|business|science-health|lifestyle|education|opinion|trending|podcasts-videos|local-news|sports|money|weather|shopping|travel|food|entertainment|services|gaming|cartoons|stocks|badge-quiz|polls|about|contact|privacy-policy|terms)",
+      "destination": "/api/prerender?page=$1"
+    },
+    {
       "source": "/article/:id",
       "destination": "/api/prerender?id=:id"
     },

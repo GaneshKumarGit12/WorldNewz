@@ -5,6 +5,177 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const PAGE_METADATA = {
+  'badge-quiz': {
+    title: 'Badge Quiz – Challenge Your Trivia Knowledge',
+    description: 'Take the WorldNewzs daily trivia badge quiz! Answer trivia questions across sports, business, tech, history, and science to earn badges and coins.',
+    keywords: 'trivia quiz, badge quiz, knowledge quiz, daily trivia, earn coins, WorldNewzs quiz',
+    canonical: 'https://worldnewzs.in/badge-quiz',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'polls': {
+    title: 'Opinion Polls – Speak Your Mind On Hot Topics',
+    description: 'Participate in WorldNewzs daily opinion polls. Cast your vote on sports, politics, tech, and hot global topics, and check live voter percentages instantly.',
+    keywords: 'opinion polls, public opinion, cast vote, voting polls, daily polls',
+    canonical: 'https://worldnewzs.in/polls',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'politics': {
+    title: 'Politics News – World & Local Geopolitics',
+    description: 'Stay updated with global politics, government policies, elections, policy updates, and expert political analysis on WorldNewzs.',
+    keywords: 'politics news, government policy, elections, geopolitical updates',
+    canonical: 'https://worldnewzs.in/politics',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'technology': {
+    title: 'Technology News – Latest AI, Tech & Gadget Reviews',
+    description: 'Discover Silicon Valley breakthroughs, AI updates, budget phone launches, cybersecurity trends, and software reviews on WorldNewzs.',
+    keywords: 'tech news, AI advancements, gadget launches, software reviews',
+    canonical: 'https://worldnewzs.in/technology',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'business': {
+    title: 'Business News – Stock Markets, Finance & Mergers',
+    description: 'Latest financial news, stock market updates, startup funding, merger announcements, and economic trends on WorldNewzs.',
+    keywords: 'business news, stock market, start-ups, economy',
+    canonical: 'https://worldnewzs.in/business',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'science-health': {
+    title: 'Science & Health News – Space, Medicine & Wellness',
+    description: 'Stay informed with medical research breakthroughs, public health guidelines, space exploration news, and climate discoveries on WorldNewzs.',
+    keywords: 'science news, medical research, health tips, climate science',
+    canonical: 'https://worldnewzs.in/science-health',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'sports': {
+    title: 'Sports News – Live Scores, Cricket & Football Updates',
+    description: 'Get real-time sports results, cricket match updates, IPL scores, transfers, and rankings updates on WorldNewzs.',
+    keywords: 'sports news, cricket scores, IPL schedule, football transfer',
+    canonical: 'https://worldnewzs.in/sports',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'money': {
+    title: 'Money & Finance – Personal Investments & Tax Updates',
+    description: 'Learn personal finance management, tax-saving tips, investment strategies, and cryptocurrency trends on WorldNewzs.',
+    keywords: 'personal finance, investment, tax-saving, crypto news',
+    canonical: 'https://worldnewzs.in/money',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'weather': {
+    title: 'Weather Forecast – Local & Global Temperature Updates',
+    description: 'Check current weather forecasts, severe weather alerts, temperature indices, and regional climate reports on WorldNewzs.',
+    keywords: 'weather forecast, temperature, climate alerts, local weather',
+    canonical: 'https://worldnewzs.in/weather',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'shopping': {
+    title: 'Shopping Deals – Latest Sales, Coupons & Product Reviews',
+    description: 'Find online shopping discounts, promo codes, e-commerce product reviews, and shopping guides on WorldNewzs.',
+    keywords: 'shopping deals, discount coupons, product reviews',
+    canonical: 'https://worldnewzs.in/shopping',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'travel': {
+    title: 'Travel Guide – Top Destinations, Tips & Bookings',
+    description: 'Explore top travel destinations, packing advice, hotel search links, and budget travel guidelines on WorldNewzs.',
+    keywords: 'travel guide, tourism, budget travel, hotel bookings',
+    canonical: 'https://worldnewzs.in/travel',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'food': {
+    title: 'Food & Recipes – Cooking Guides & Restaurant Reviews',
+    description: 'Browse quick recipes, cooking hacks, kitchen guides, and honest restaurant reviews on WorldNewzs.',
+    keywords: 'cooking recipes, restaurant reviews, food tips',
+    canonical: 'https://worldnewzs.in/food',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'entertainment': {
+    title: 'Entertainment News – Movies, Music & Celebrity Gossips',
+    description: 'Keep up with movie releases, celebrity gossip, music charts, television shows, and pop culture on WorldNewzs.',
+    keywords: 'entertainment news, movie reviews, celebrity gossip, music charts',
+    canonical: 'https://worldnewzs.in/entertainment',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'services': {
+    title: 'Online Services – Utilities & Digital Portals',
+    description: 'Access digital tools, essential services lookup, utilities directories, and online portals on WorldNewzs.',
+    keywords: 'online services, utility lookup, digital portals',
+    canonical: 'https://worldnewzs.in/services',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'gaming': {
+    title: 'Gaming News – Reviews, Guides & Esports Tournaments',
+    description: 'Get reviews of new PC, console, and mobile game releases, gaming tips, and esports tournament news on WorldNewzs.',
+    keywords: 'gaming news, game reviews, esports, cheats',
+    canonical: 'https://worldnewzs.in/gaming',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'cartoons': {
+    title: 'Cartoons & Editorial Satire',
+    description: 'Daily political cartoons, comic strips, editorial illustrations, and light-hearted satire on WorldNewzs.',
+    keywords: 'comic strips, political cartoons, editorial satire',
+    canonical: 'https://worldnewzs.in/cartoons',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'stocks': {
+    title: 'Stock Market Live – Real-time Nifty, Sensex & Stock Price Alerts',
+    description: 'Live indices updates, stock price movements, top gainers/losers list, and stock market summaries on WorldNewzs.',
+    keywords: 'stock prices, live indices, nifty 50, sensex index',
+    canonical: 'https://worldnewzs.in/stocks',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'about': {
+    title: 'About WorldNewzs – Our Editorial Mission',
+    description: 'Learn about WorldNewzs, our team, our mission, and our editorial guidelines for transparent and objective news curation.',
+    keywords: 'about worldnewzs, news aggregator mission, editorial staff',
+    canonical: 'https://worldnewzs.in/about',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'contact': {
+    title: 'Contact Us – Get in Touch with WorldNewzs',
+    description: 'Contact the WorldNewzs team. Send us your feedback, report site issues, or submit news stories.',
+    keywords: 'contact news aggregator, submit feedback, customer service',
+    canonical: 'https://worldnewzs.in/contact',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'privacy-policy': {
+    title: 'Privacy Policy – WorldNewzs',
+    description: 'WorldNewzs Privacy Policy outlines how we collect, use, and protect your personal information on our platform.',
+    keywords: 'privacy policy, cookies disclosure, user safety',
+    canonical: 'https://worldnewzs.in/privacy-policy',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'terms': {
+    title: 'Terms & Conditions – WorldNewzs',
+    description: 'WorldNewzs Terms and Conditions outline user agreements, code of conduct, and terms of service.',
+    keywords: 'terms of service, conditions of use, user agreement',
+    canonical: 'https://worldnewzs.in/terms',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  }
+};
+
 function escapeHtml(unsafe) {
   if (!unsafe) return '';
   return unsafe
@@ -39,12 +210,9 @@ function replaceMeta(htmlStr, propertyAttr, attrValue, newValue) {
 }
 
 export default async function handler(req, res) {
-  const { id } = req.query;
-  
-  if (!id) {
-    return res.status(400).send('Article ID / Slug is required');
-  }
+  const { id, page } = req.query;
 
+  // Load Built index.html template from Vercel's output
   const pathsToTry = [
     path.join(process.cwd(), 'dist', 'index.html'),
     path.join(process.cwd(), 'worldnewz_UI', 'dist', 'index.html'),
@@ -71,45 +239,119 @@ export default async function handler(req, res) {
     return res.status(500).send('Could not load base HTML template');
   }
 
-  const cleanQuery = id.split('-').join(' ');
-  const backendUrl = `https://worldnewz.onrender.com/api/news/search?query=${encodeURIComponent(cleanQuery)}&pageSize=1`;
+  let title = '';
+  let description = '';
+  let imageUrl = 'https://worldnewzs.in/og-image.png';
+  let canonical = 'https://worldnewzs.in';
+  let keywords = 'news, breaking news, latest headlines, WorldNewzs';
+  let ogType = 'website';
+  let articleJsonLd = null;
+  let bodyFallback = '';
 
-  let article = null;
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
-    const response = await fetch(backendUrl, { signal: controller.signal });
-    clearTimeout(timeoutId);
+  // Case A: Pre-render static/category page
+  if (page && PAGE_METADATA[page]) {
+    const meta = PAGE_METADATA[page];
+    title = meta.title;
+    description = meta.description;
+    imageUrl = meta.ogImage || imageUrl;
+    canonical = meta.canonical;
+    keywords = meta.keywords || keywords;
+    ogType = meta.ogType || ogType;
 
-    if (response.ok) {
-      const data = await response.json();
-      if (data && Array.isArray(data.results) && data.results.length > 0) {
-        article = data.results[0];
+    bodyFallback = `
+      <div id="fallback-page-content" style="display: none;">
+        <main>
+          <h1>${escapeHtml(title)}</h1>
+          <p>${escapeHtml(description)}</p>
+          <p>Read the latest about ${escapeHtml(title)} and take part in interactive elements on WorldNewzs.</p>
+        </main>
+      </div>
+    `;
+  }
+  // Case B: Pre-render dynamic article
+  else if (id) {
+    const cleanQuery = id.split('-').join(' ');
+    const backendUrl = `https://worldnewz.onrender.com/api/news/search?query=${encodeURIComponent(cleanQuery)}&pageSize=1`;
+
+    let article = null;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+      const response = await fetch(backendUrl, { signal: controller.signal });
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data && Array.isArray(data.results) && data.results.length > 0) {
+          article = data.results[0];
+        }
       }
+    } catch (error) {
+      console.error('Error fetching article metadata for pre-render:', error);
     }
-  } catch (error) {
-    console.error('Error fetching article metadata for pre-render:', error);
+
+    if (article) {
+      title = article.headline || article.title;
+      description = article.summary || article.description || '';
+      imageUrl = article.urlToImage || article.imageUrl || imageUrl;
+      canonical = `https://worldnewzs.in/article/${id}`;
+      ogType = 'article';
+      keywords = (Array.isArray(article.tags) ? article.tags.join(', ') : '') || keywords;
+
+      articleJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": title,
+        "description": description,
+        "image": [imageUrl],
+        "datePublished": article.publishedAt || new Date().toISOString(),
+        "dateModified": article.publishedAt || new Date().toISOString(),
+        "url": canonical,
+        "articleSection": article.category || 'News',
+        "inLanguage": "en-US",
+        "publisher": {
+          "@type": "Organization",
+          "name": "WorldNewzs",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://worldnewzs.in/favicon.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonical
+        }
+      };
+
+      bodyFallback = `
+        <div id="fallback-article-content" style="display: none;">
+          <article>
+            <h1>${escapeHtml(title)}</h1>
+            <p><strong>Published on:</strong> ${escapeHtml(article.publishedAt)}</p>
+            <p><strong>Category:</strong> ${escapeHtml(article.category || 'News')}</p>
+            <p><strong>Source:</strong> ${escapeHtml(typeof article.source === 'string' ? article.source : (article.source?.name || 'News'))}</p>
+            <div class="summary">${escapeHtml(description)}</div>
+          </article>
+        </div>
+      `;
+    }
   }
 
-  if (!article) {
+  // If neither matches or fetch failed, serve index.html untouched
+  if (!title) {
     res.setHeader('Content-Type', 'text/html');
     res.setHeader('Cache-Control', 'public, max-age=60');
     return res.status(200).send(htmlTemplate);
   }
-
-  const title = article.headline || article.title;
-  const description = article.summary || article.description || '';
-  const imageUrl = article.urlToImage || article.imageUrl || 'https://worldnewzs.in/og-image.png';
-  const canonical = `https://worldnewzs.in/article/${id}`;
-  const category = article.category || 'News';
 
   let html = htmlTemplate;
 
   // 1. Update Title tag
   html = html.replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(title)} | WorldNewzs</title>`);
 
-  // 2. Update Description
+  // 2. Update Description & Keywords
   html = replaceMeta(html, 'name', 'description', description);
+  html = replaceMeta(html, 'name', 'keywords', keywords);
 
   // 3. Update Canonical link
   const canonicalRegex = /<link\s+[^>]*rel=["']canonical["'][^>]*href=["'].*?["']/i;
@@ -124,7 +366,7 @@ export default async function handler(req, res) {
   html = replaceMeta(html, 'property', 'og:description', description);
   html = replaceMeta(html, 'property', 'og:image', imageUrl);
   html = replaceMeta(html, 'property', 'og:url', canonical);
-  html = replaceMeta(html, 'property', 'og:type', 'article');
+  html = replaceMeta(html, 'property', 'og:type', ogType);
 
   // 5. Update Twitter Cards Meta Tags
   html = replaceMeta(html, 'name', 'twitter:title', `${title} | WorldNewzs`);
@@ -133,50 +375,15 @@ export default async function handler(req, res) {
   html = replaceMeta(html, 'name', 'twitter:card', 'summary_large_image');
   html = replaceMeta(html, 'name', 'twitter:site', '@WorldNewzs');
 
-  // 6. Inject Article Specific JSON-LD Schema
-  const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": title,
-    "description": description,
-    "image": [imageUrl],
-    "datePublished": article.publishedAt || new Date().toISOString(),
-    "dateModified": article.publishedAt || new Date().toISOString(),
-    "url": canonical,
-    "articleSection": category,
-    "inLanguage": "en-US",
-    "publisher": {
-      "@type": "Organization",
-      "name": "WorldNewzs",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://worldnewzs.in/favicon.svg"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonical
-    }
-  };
+  // 6. Inject Schema if present
+  if (articleJsonLd) {
+    html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(articleJsonLd)}</script>\n</head>`);
+  }
 
-  html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(jsonLdSchema)}</script>\n</head>`);
-
-  // 7. Inject article content semantic fallback in body
-  const bodyArticleFallback = `
-    <div id="fallback-article-content" style="display: none;">
-      <article>
-        <h1>${escapeHtml(title)}</h1>
-        <p><strong>Published on:</strong> ${escapeHtml(article.publishedAt)}</p>
-        <p><strong>Category:</strong> ${escapeHtml(category)}</p>
-        <p><strong>Source:</strong> ${escapeHtml(typeof article.source === 'string' ? article.source : (article.source?.name || 'News'))}</p>
-        <div class="summary">${escapeHtml(description)}</div>
-      </article>
-      <nav>
-        <p>Return to <a href="/">WorldNewzs Home</a> or browse <a href="/${escapeHtml(category.toLowerCase())}">${escapeHtml(category)} News</a>.</p>
-      </nav>
-    </div>
-  `;
-  html = html.replace('<body>', `<body>\n${bodyArticleFallback}`);
+  // 7. Inject Body Fallback
+  if (bodyFallback) {
+    html = html.replace('<body>', `<body>\n${bodyFallback}`);
+  }
 
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Cache-Control', 'public, max-age=900, stale-while-revalidate=450');
