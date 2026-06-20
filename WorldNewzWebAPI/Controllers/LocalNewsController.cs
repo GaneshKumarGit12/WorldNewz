@@ -33,7 +33,8 @@ namespace WorldNewzWebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { error = "Failed to retrieve top headlines", details = ex.Message });
+                Console.WriteLine($"Error in GetGNewsHeadlines for country={country}: {ex}");
+                return StatusCode(500, new { error = "Failed to retrieve top headlines", details = ex.Message, stackTrace = ex.StackTrace });
             }
         }
 
@@ -55,7 +56,8 @@ namespace WorldNewzWebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { error = "Failed to retrieve more local news", details = ex.Message });
+                Console.WriteLine($"Error in GetGNewsMore for country={country}, page={page}: {ex}");
+                return StatusCode(500, new { error = "Failed to retrieve more local news", details = ex.Message, stackTrace = ex.StackTrace });
             }
         }
     }

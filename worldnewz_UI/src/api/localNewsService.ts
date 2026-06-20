@@ -80,8 +80,8 @@ export async function fetchTopHeadlines(country: string): Promise<Article[]> {
     });
     return response.data?.articles || [];
   } catch (err: any) {
-    console.error("Error fetching top headlines from backend API:", err);
-    const errorMessage = err.response?.data?.error || err.message || "Failed to load top headlines.";
+    console.error("Error fetching top headlines from backend API:", err, err.response?.data);
+    const errorMessage = err.response?.data?.details || err.response?.data?.error || err.message || "Failed to load top headlines.";
     throw new Error(errorMessage);
   }
 }
@@ -96,8 +96,8 @@ export async function fetchMoreLocalNews(country: string, page: number = 1): Pro
     });
     return response.data?.articles || [];
   } catch (err: any) {
-    console.error("Error fetching more local news from backend API:", err);
-    const errorMessage = err.response?.data?.error || err.message || "Failed to load more local news.";
+    console.error("Error fetching more local news from backend API:", err, err.response?.data);
+    const errorMessage = err.response?.data?.details || err.response?.data?.error || err.message || "Failed to load more local news.";
     throw new Error(errorMessage);
   }
 }
