@@ -659,6 +659,15 @@ app.Urls.Add($"http://*:{port}");
 app.UseCors("AllowFrontend");
 app.UseResponseCompression();
 
+// Security headers middleware
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["X-Content-Type-Options"] = "nosniff";
+    context.Response.Headers["X-Frame-Options"] = "DENY";
+    context.Response.Headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
+    await next();
+});
+
 // Cache-Control middleware for HTTP GET requests
 app.Use(async (context, next) =>
 {

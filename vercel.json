@@ -91,15 +91,19 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "destination": "https://worldnewz.onrender.com/sitemap.xml"
+      "destination": "/api/sitemap"
     },
     {
       "source": "/news-sitemap.xml",
-      "destination": "https://worldnewz.onrender.com/news-sitemap.xml"
+      "destination": "/api/news-sitemap"
     },
     {
-      "source": "/robots.txt",
-      "destination": "https://worldnewz.onrender.com/robots.txt"
+      "source": "/article/:id",
+      "destination": "/api/prerender?id=:id"
+    },
+    {
+      "source": "/read-article/:id",
+      "destination": "/api/prerender?id=:id"
     },
     {
       "source": "/rss/:feedType",
