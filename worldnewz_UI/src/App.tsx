@@ -50,6 +50,8 @@ const primaryNavLinks = [
   { label: "Business", path: "/business" },
   { label: "Science & Health", path: "/science-health" },
   { label: "Local News (India)", path: "/local-news" },
+  { label: "Polls 🗳️", path: "/polls", highlight: true, highlightColor: "linear-gradient(135deg, #00c6ff, #0072ff)" },
+  { label: "GK Quiz 🏆", path: "/badge-quiz", highlight: true, highlightColor: "linear-gradient(135deg, #f857a6, #ff5858)" },
 ];
 
 const secondaryNavLinks = [
@@ -63,8 +65,6 @@ const secondaryNavLinks = [
   { label: "Services", path: "/services" },
   { label: "Gaming", path: "/gaming" },
   { label: "Cartoons", path: "/cartoons" },
-  { label: "Polls", path: "/polls" },
-  { label: "GK Quiz", path: "/badge-quiz" },
   { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
   { label: "Education", path: "/education" },
@@ -309,23 +309,44 @@ const App: React.FC = () => {
           </Box>
 
           {/* Desktop nav */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 0.5 }}>
-            {primaryNavLinks.map((link) => (
-              <Button
-                key={link.path}
-                component={Link}
-                to={link.path}
-                sx={{
-                  color: "white",
-                  fontWeight: location.pathname === link.path ? "bold" : "normal",
-                  borderBottom: location.pathname === link.path ? "2px solid #c83a15" : "none",
-                  borderRadius: 0,
-                  "&:hover": { color: "#ff8a65" },
-                }}
-              >
-                {link.label}
-              </Button>
-            ))}
+          <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 0.5 }}>
+            {primaryNavLinks.map((link) => {
+              const isHighlighted = link.highlight;
+              const isActive = location.pathname === link.path;
+              return (
+                <Button
+                  key={link.path}
+                  component={Link}
+                  to={link.path}
+                  sx={isHighlighted ? {
+                    background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
+                    color: "white",
+                    fontWeight: "bold",
+                    borderRadius: "20px",
+                    px: 2,
+                    mx: 0.5,
+                    fontSize: "0.85rem",
+                    textTransform: "none",
+                    boxShadow: isActive ? "0 0 10px rgba(255,255,255,0.4)" : "none",
+                    border: isActive ? "1px solid #fff" : "1px solid transparent",
+                    transition: "all 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+                      filter: "brightness(1.1)",
+                    },
+                  } : {
+                    color: "white",
+                    fontWeight: isActive ? "bold" : "normal",
+                    borderBottom: isActive ? "2px solid #c83a15" : "none",
+                    borderRadius: 0,
+                    "&:hover": { color: "#ff8a65" },
+                  }}
+                >
+                  {link.label}
+                </Button>
+              );
+            })}
 
             {/* Dropdown for other categories */}
             <Button
@@ -437,7 +458,7 @@ const App: React.FC = () => {
           </Box>
 
           {/* Mobile: bookmark + theme + hamburger */}
-          <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
+          <Box sx={{ display: { xs: "flex", lg: "none" }, alignItems: "center" }}>
             <IconButton component={Link} to="/comments" aria-label="Comments" sx={{ color: "white" }}>
               <Badge badgeContent={totalComments} color="primary" max={999}>
                 <ChatBubbleIcon />
@@ -469,22 +490,42 @@ const App: React.FC = () => {
         PaperProps={{ sx: { backgroundColor: isDark ? "#161b22" : "#0a0a0a", color: "white" } }}
       >
         <List sx={{ width: 250 }}>
-          {primaryNavLinks.map((link) => (
-            <ListItem key={link.path} disablePadding>
-              <ListItemButton
-                component={Link}
-                to={link.path}
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  fontWeight: location.pathname === link.path ? "bold" : "normal",
-                  color: location.pathname === link.path ? "#c83a15" : "white",
-                  "&:hover": { color: "#ff8a65" },
-                }}
-              >
-                <ListItemText primary={link.label} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {primaryNavLinks.map((link) => {
+            const isHighlighted = link.highlight;
+            const isActive = location.pathname === link.path;
+            return (
+              <ListItem key={link.path} disablePadding sx={isHighlighted ? { px: 2, py: 0.5 } : {}}>
+                <ListItemButton
+                  component={Link}
+                  to={link.path}
+                  onClick={() => setDrawerOpen(false)}
+                  sx={isHighlighted ? {
+                    background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
+                    color: "white",
+                    borderRadius: "12px",
+                    fontWeight: "bold",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    border: isActive ? "2px solid #fff" : "none",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                    "& .MuiListItemText-primary": {
+                      fontWeight: "700 !important",
+                      fontSize: "0.95rem"
+                    },
+                    "&:hover": {
+                      filter: "brightness(1.1)",
+                    }
+                  } : {
+                    fontWeight: isActive ? "bold" : "normal",
+                    color: isActive ? "#c83a15" : "white",
+                    "&:hover": { color: "#ff8a65" },
+                  }}
+                >
+                  <ListItemText primary={link.label} sx={isHighlighted ? { textAlign: "center" } : {}} />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
 
           {/* Collapsible Mobile Secondary Categories */}
           <ListItem disablePadding>

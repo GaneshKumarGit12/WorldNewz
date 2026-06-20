@@ -18,6 +18,7 @@ import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import MuiLink from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 
 
 const Discover: React.FC = () => {
@@ -160,6 +161,123 @@ const Discover: React.FC = () => {
           Stay updated with the latest news from around the world
         </Typography>
       </Box>
+
+      {/* Dynamic Interactive Features Call-to-Action Section */}
+      <Grid container spacing={3} sx={{ mb: 4 }}>
+        {/* Polls Highlight Card */}
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(0, 198, 255, 0.1), rgba(0, 114, 255, 0.1))",
+              border: "1px solid rgba(0, 114, 255, 0.25)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(0, 114, 255, 0.15)",
+              }
+            }}
+          >
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
+                  Interactive Polls 🗳️
+                </Typography>
+                <Box sx={{ ml: "auto", px: 1.5, py: 0.25, borderRadius: 10, background: "linear-gradient(135deg, #00c6ff, #0072ff)", color: "#fff", fontSize: "0.75rem", fontWeight: "bold" }}>
+                  TRENDING
+                </Box>
+              </Box>
+              <Typography variant="body2" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.6 }}>
+                Make your voice heard! Vote on crucial daily topics, share your opinion on world events, and instantly view visual live statistics from our global audience.
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/polls"
+              variant="contained"
+              sx={{
+                background: "linear-gradient(135deg, #00c6ff, #0072ff)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                py: 1,
+                alignSelf: "flex-start",
+                boxShadow: "0 4px 15px rgba(0, 114, 255, 0.2)",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #0072ff, #00c6ff)",
+                  boxShadow: "0 6px 20px rgba(0, 114, 255, 0.3)",
+                }
+              }}
+            >
+              Vote Now & View Stats
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* GK Quiz Highlight Card */}
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(248, 87, 166, 0.1), rgba(255, 88, 88, 0.1))",
+              border: "1px solid rgba(255, 88, 88, 0.25)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(255, 88, 88, 0.15)",
+              }
+            }}
+          >
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
+                  GK Badge Quiz 🏆
+                </Typography>
+                <Box sx={{ ml: "auto", px: 1.5, py: 0.25, borderRadius: 10, background: "linear-gradient(135deg, #f857a6, #ff5858)", color: "#fff", fontSize: "0.75rem", fontWeight: "bold" }}>
+                  NEW REWARDS
+                </Box>
+              </Box>
+              <Typography variant="body2" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.6 }}>
+                Challenge your general knowledge and test your news awareness. Answer the daily trivia question set correctly to claim exclusive profile badges and join the leaderboard!
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/badge-quiz"
+              variant="contained"
+              sx={{
+                background: "linear-gradient(135deg, #f857a6, #ff5858)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                py: 1,
+                alignSelf: "flex-start",
+                boxShadow: "0 4px 15px rgba(255, 88, 88, 0.2)",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #ff5858, #f857a6)",
+                  boxShadow: "0 6px 20px rgba(255, 88, 88, 0.3)",
+                }
+              }}
+            >
+              Play Quiz & Claim Badges
+            </Button>
+          </Paper>
+        </Grid>
+      </Grid>
 
       {/* Premium Editorial & Platform Guide Section */}
       <Paper
