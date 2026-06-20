@@ -48,13 +48,13 @@ const primaryNavLinks = [
   { label: "Politics", path: "/politics" },
   { label: "Technology", path: "/technology" },
   { label: "Business", path: "/business" },
-  { label: "Science & Health", path: "/science-health" },
-  { label: "Local News (India)", path: "/local-news" },
   { label: "Polls 🗳️", path: "/polls", highlight: true, highlightColor: "linear-gradient(135deg, #00c6ff, #0072ff)" },
   { label: "GK Quiz 🏆", path: "/badge-quiz", highlight: true, highlightColor: "linear-gradient(135deg, #f857a6, #ff5858)" },
 ];
 
 const secondaryNavLinks = [
+  { label: "Science & Health", path: "/science-health" },
+  { label: "Local News (India)", path: "/local-news" },
   { label: "Sports", path: "/sports" },
   { label: "Money", path: "/money" },
   { label: "Weather", path: "/weather" },
@@ -309,7 +309,7 @@ const App: React.FC = () => {
           </Box>
 
           {/* Desktop nav */}
-          <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 0.5 }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
             {primaryNavLinks.map((link) => {
               const isHighlighted = link.highlight;
               const isActive = location.pathname === link.path;
@@ -327,6 +327,11 @@ const App: React.FC = () => {
                     mx: 0.5,
                     fontSize: "0.85rem",
                     textTransform: "none",
+                    whiteSpace: "nowrap",
+                    height: "36px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     boxShadow: isActive ? "0 0 10px rgba(255,255,255,0.4)" : "none",
                     border: isActive ? "1px solid #fff" : "1px solid transparent",
                     transition: "all 0.3s ease-in-out",
@@ -458,7 +463,7 @@ const App: React.FC = () => {
           </Box>
 
           {/* Mobile: bookmark + theme + hamburger */}
-          <Box sx={{ display: { xs: "flex", lg: "none" }, alignItems: "center" }}>
+          <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
             <IconButton component={Link} to="/comments" aria-label="Comments" sx={{ color: "white" }}>
               <Badge badgeContent={totalComments} color="primary" max={999}>
                 <ChatBubbleIcon />
