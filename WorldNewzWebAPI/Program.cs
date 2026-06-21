@@ -214,6 +214,13 @@ builder.Services.AddHostedService<FacebookWorkerService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddHttpClient<MarketDataService>();
 
+// FreeToGame Service Integration
+builder.Services.AddHttpClient<IFreeToGameService, FreeToGameService>(client =>
+{
+    client.BaseAddress = new Uri("https://www.freetogame.com/api/");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
+});
+
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>
 {

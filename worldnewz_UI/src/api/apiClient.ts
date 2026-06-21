@@ -109,6 +109,61 @@ export const fetchServices = (params?: SearchParams) => apiClient.get("/news/ser
 export const fetchGaming = (params?: SearchParams) => apiClient.get("/news/gaming", { params });
 export const fetchCartoons = (params?: SearchParams) => apiClient.get("/news/cartoons", { params });
 
+// Free-To-Play Games API
+export interface FreeToGameItem {
+  id: number;
+  title: string;
+  thumbnail: string;
+  short_description: string;
+  game_url: string;
+  genre: string;
+  platform: string;
+  publisher: string;
+  developer: string;
+  release_date: string;
+  freetogame_profile_url: string;
+}
+
+export interface MinimumSystemRequirements {
+  os: string;
+  processor: string;
+  memory: string;
+  graphics: string;
+  storage: string;
+}
+
+export interface ScreenshotItem {
+  id: number;
+  image: string;
+}
+
+export interface FreeToGameDetails {
+  id: number;
+  title: string;
+  thumbnail: string;
+  status: string;
+  short_description: string;
+  description: string;
+  game_url: string;
+  genre: string;
+  platform: string;
+  publisher: string;
+  developer: string;
+  release_date: string;
+  freetogame_profile_url: string;
+  minimum_system_requirements?: MinimumSystemRequirements;
+  screenshots: ScreenshotItem[];
+}
+
+export const fetchFreeToPlayGames = (params?: { platform?: string; category?: string; 'sort-by'?: string }) =>
+  apiClient.get<FreeToGameItem[]>("/gaming/games", { params });
+
+export const fetchFreeToPlayGameDetails = (id: number) =>
+  apiClient.get<FreeToGameDetails>("/gaming/game", { params: { id } });
+
+export const fetchFreeToPlayGamesFilter = (params: { tag: string; platform?: string; sort?: string }) =>
+  apiClient.get<FreeToGameItem[]>("/gaming/filter", { params });
+
 // Polls API Types & Clients
 export interface VoteResponse {
   status: string;
