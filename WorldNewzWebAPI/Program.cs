@@ -221,6 +221,13 @@ builder.Services.AddHttpClient<IFreeToGameService, FreeToGameService>(client =>
     client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
 });
 
+// MovieDB Service Integration
+builder.Services.AddHttpClient<IMovieDbService, MovieDbService>(client =>
+{
+    client.BaseAddress = new Uri("https://api.themoviedb.org/3/");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
+});
+
 // Quartz Scheduler
 builder.Services.AddQuartz(q =>
 {

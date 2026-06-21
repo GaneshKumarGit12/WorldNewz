@@ -397,3 +397,110 @@ export const deletePollHistory = (id: number, token: string) =>
     }
   });
 
+// --- MovieDB API Types & Clients ---
+export interface MovieDbItem {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  popularity: number;
+  genre_ids: number[];
+}
+
+export interface MovieDbListResponse {
+  page: number;
+  results: MovieDbItem[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface MovieDbGenre {
+  id: number;
+  name: string;
+}
+
+export interface MovieDbProductionCompany {
+  id: number;
+  name: string;
+  logo_path: string | null;
+}
+
+export interface MovieDbCastItem {
+  id: number;
+  name: string;
+  character: string;
+  profile_path: string | null;
+}
+
+export interface MovieDbCrewItem {
+  id: number;
+  name: string;
+  job: string;
+}
+
+export interface MovieDbCredits {
+  cast: MovieDbCastItem[];
+  crew: MovieDbCrewItem[];
+}
+
+export interface MovieDbVideoItem {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+}
+
+export interface MovieDbVideosResponse {
+  results: MovieDbVideoItem[];
+}
+
+export interface MovieDbDetails {
+  id: number;
+  title: string;
+  overview: string;
+  tagline: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  runtime: number | null;
+  budget: number;
+  revenue: number;
+  status: string;
+  genres: MovieDbGenre[];
+  production_companies: MovieDbProductionCompany[];
+  credits?: MovieDbCredits;
+  videos?: MovieDbVideosResponse;
+  recommendations: MovieDbItem[];
+}
+
+export interface MovieDbImageConfig {
+  base_url: string;
+  secure_base_url: string;
+  poster_sizes: string[];
+  backdrop_sizes: string[];
+}
+
+export interface MovieDbConfiguration {
+  images: MovieDbImageConfig;
+}
+
+export const fetchMoviesBrowse = (params: { type?: string; page?: number; genre?: number }) =>
+  apiClient.get<MovieDbListResponse>("/movies/browse", { params });
+
+export const fetchMoviesSearch = (params: { query: string; page?: number }) =>
+  apiClient.get<MovieDbListResponse>("/movies/search", { params });
+
+export const fetchMovieDetails = (id: number) =>
+  apiClient.get<MovieDbDetails>(`/movies/movie/${id}`);
+
+export const fetchMovieDbConfig = () =>
+  apiClient.get<MovieDbConfiguration>("/movies/config");
+
+
