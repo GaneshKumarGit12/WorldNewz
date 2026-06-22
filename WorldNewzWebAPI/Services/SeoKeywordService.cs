@@ -25,6 +25,7 @@ namespace WorldNewzWebAPI.Services
             WorldNewsDbContext db, ILogger<SeoKeywordService> log)
         {
             _http = factory.CreateClient();
+            _http.Timeout = TimeSpan.FromSeconds(8);
             _cfg = cfg;
             _db = db;
             _log = log;
