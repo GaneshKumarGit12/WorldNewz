@@ -42,6 +42,7 @@ namespace WorldNewzWebAPI.Services
             foreach (var product in products)
             {
                 product.ProductUrl = BuildAffiliateLink(product.ProductUrl, product.Asin);
+                product.ImageUrl = EnsureAbsoluteImageUrl(product.ImageUrl);
             }
 
             return products;
@@ -103,6 +104,8 @@ namespace WorldNewzWebAPI.Services
             }
 
             var existing = await _context.AmazonProducts.FirstOrDefaultAsync(p => p.Asin == productDto.Asin);
+            productDto.ImageUrl = EnsureAbsoluteImageUrl(productDto.ImageUrl);
+
             if (existing != null)
             {
                 existing.Title = productDto.Title;
@@ -179,6 +182,26 @@ namespace WorldNewzWebAPI.Services
             // Construct direct product affiliate link using Amazon India domain
             string cleanAsin = string.IsNullOrWhiteSpace(asin) ? "B0BY8MCQ9S" : asin.Trim();
             return $"https://www.amazon.in/dp/{cleanAsin}?tag={_associateTag}&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl";
+        }
+
+        private string EnsureAbsoluteImageUrl(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                return "https://via.placeholder.com/600x400?text=Amazon+Product";
+            }
+
+            url = url.Trim();
+
+            // If it's already an absolute URL, return it
+            if (url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || 
+                url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            {
+                return url;
+            }
+
+            // If it's just the Amazon image ID/filename, prefix it
+            return $"https://images-eu.ssl-images-amazon.com/images/I/{url}";
         }
 
         /// <summary>

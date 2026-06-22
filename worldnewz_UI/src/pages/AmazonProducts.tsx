@@ -33,6 +33,15 @@ const AmazonProducts: React.FC = () => {
   const { mode } = useColorMode();
   const isDark = mode === "dark";
 
+  const getAbsoluteImageUrl = (url: string | undefined | null) => {
+    if (!url) return "https://via.placeholder.com/600x400?text=Amazon+Product";
+    const trimmed = url.trim();
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+      return trimmed;
+    }
+    return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+  };
+
   const [products, setProducts] = useState<AmazonProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -374,7 +383,7 @@ const AmazonProducts: React.FC = () => {
                     
                     <Box 
                       component="img" 
-                      src={scratchDealProduct.imageUrl} 
+                      src={getAbsoluteImageUrl(scratchDealProduct.imageUrl)} 
                       alt={scratchDealProduct.title}
                       loading="lazy"
                       sx={{ 
@@ -578,7 +587,7 @@ const AmazonProducts: React.FC = () => {
                           <Box sx={{ position: "relative", p: 3, pt: 4, backgroundColor: isDark ? "#161b22" : "#fafafa", display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <Box 
                               component="img" 
-                              src={product.imageUrl} 
+                              src={getAbsoluteImageUrl(product.imageUrl)} 
                               alt={product.title}
                               loading="lazy" // SEO Performance lazy loading requirement
                               sx={{ 
