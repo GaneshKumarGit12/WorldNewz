@@ -503,4 +503,27 @@ export const fetchMovieDetails = (id: number) =>
 export const fetchMovieDbConfig = () =>
   apiClient.get<MovieDbConfiguration>("/movies/config");
 
+// Amazon Affiliate Products Interface
+export interface AmazonProduct {
+  id: number;
+  asin: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  originalPrice: number;
+  rating: number;
+  reviewCount: number;
+  category: string;
+  productUrl: string;
+  lastUpdated: string;
+}
 
+export interface AmazonProductsResponse {
+  status: string;
+  totalResults: number;
+  products: AmazonProduct[];
+}
+
+export const fetchAmazonProducts = () =>
+  apiClient.get<AmazonProductsResponse>("/amazonproducts");

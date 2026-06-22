@@ -38,7 +38,8 @@ export default defineConfig({
         '/about',
         '/contact',
         '/privacy-policy',
-        '/terms'
+        '/terms',
+        '/amazon-products'
       ],
     }),
   ],

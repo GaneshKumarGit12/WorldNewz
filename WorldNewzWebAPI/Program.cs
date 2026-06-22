@@ -206,6 +206,7 @@ builder.Services.AddScoped<INewsEnrichmentService, NewsEnrichmentService>();
 
 // Existing services
 builder.Services.AddScoped<NewsService>();
+builder.Services.AddScoped<AmazonProductService>();
 builder.Services.AddHttpClient<WeatherService>();
 builder.Services.AddScoped<SeoKeywordService>();
 builder.Services.AddHttpClient<FacebookService>();
@@ -246,6 +247,13 @@ builder.Services.AddQuartz(q =>
         .ForJob(keywordJobKey)
         .WithIdentity("DailyKeywordJob-trigger")
         .WithCronSchedule("0 0 2 * * ?"));
+
+    var amazonJobKey = new JobKey("AmazonProductRefreshJob");
+    q.AddJob<AmazonProductRefreshJob>(opts => opts.WithIdentity(amazonJobKey));
+    q.AddTrigger(opts => opts
+        .ForJob(amazonJobKey)
+        .WithIdentity("AmazonProductRefreshJob-trigger")
+        .WithCronSchedule("0 30 2 * * ?"));
 });
 
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
@@ -389,6 +397,24 @@ using (var scope = app.Services.CreateScope())
                     ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                 );
             ");
+
+            // Ensure AmazonProducts table exists
+            db.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""AmazonProducts"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Asin"" TEXT NOT NULL,
+                    ""Title"" TEXT NOT NULL,
+                    ""Description"" TEXT NOT NULL,
+                    ""ImageUrl"" TEXT NOT NULL,
+                    ""Price"" NUMERIC NOT NULL,
+                    ""OriginalPrice"" NUMERIC NOT NULL,
+                    ""Rating"" DOUBLE PRECISION NOT NULL,
+                    ""ReviewCount"" INTEGER NOT NULL,
+                    ""Category"" TEXT NOT NULL,
+                    ""ProductUrl"" TEXT NOT NULL,
+                    ""LastUpdated"" TIMESTAMP WITH TIME ZONE NOT NULL
+                );
+            ");
             logger.LogInformation("✓ PostgreSQL tables verified successfully.");
         }
     }
@@ -480,6 +506,24 @@ using (var scope = app.Services.CreateScope())
         db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_PublishedAt ON NewsArticles (PublishedAt);");
         db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_CategoryId ON NewsArticles (CategoryId);");
         db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS IX_NewsArticles_Url ON NewsArticles (Url);");
+
+        // Ensure AmazonProducts table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS AmazonProducts (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Asin TEXT NOT NULL,
+                Title TEXT NOT NULL,
+                Description TEXT NOT NULL,
+                ImageUrl TEXT NOT NULL,
+                Price REAL NOT NULL,
+                OriginalPrice REAL NOT NULL,
+                Rating REAL NOT NULL,
+                ReviewCount INTEGER NOT NULL,
+                Category TEXT NOT NULL,
+                ProductUrl TEXT NOT NULL,
+                LastUpdated TEXT NOT NULL
+            );
+        ");
     }
 
     // Seed default categories
