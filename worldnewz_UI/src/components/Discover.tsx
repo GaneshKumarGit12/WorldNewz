@@ -165,29 +165,40 @@ const Discover: React.FC = () => {
       {/* Dynamic Interactive Features Call-to-Action Section */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {/* Polls Highlight Card */}
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <Paper
             elevation={3}
             sx={{
               p: 3,
               borderRadius: 3,
-              background: "linear-gradient(135deg, rgba(0, 198, 255, 0.1), rgba(0, 114, 255, 0.1))",
-              border: "1px solid rgba(0, 114, 255, 0.25)",
+              background: "linear-gradient(135deg, rgba(0, 198, 255, 0.08), rgba(0, 114, 255, 0.08))",
+              border: "1px solid rgba(0, 114, 255, 0.2)",
               display: "flex",
               flexDirection: "column",
               height: "100%",
               justifyContent: "space-between",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
               "&:hover": {
                 transform: "translateY(-4px)",
-                boxShadow: "0 8px 24px rgba(0, 114, 255, 0.15)",
+                boxShadow: "0 8px 24px rgba(0, 114, 255, 0.18)",
+                borderColor: "rgba(0, 114, 255, 0.4)",
+              },
+              "&:hover .animate-polls-icon": {
+                animation: "float 0.8s ease-in-out infinite"
+              },
+              "@keyframes float": {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" }
               }
             }}
           >
             <Box>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
                 <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
-                  Interactive Polls 🗳️
+                  Interactive Polls{" "}
+                  <Box className="animate-polls-icon" component="span" sx={{ display: "inline-block" }}>
+                    🗳️
+                  </Box>
                 </Typography>
                 <Box sx={{ ml: "auto", px: 1.5, py: 0.25, borderRadius: 10, background: "linear-gradient(135deg, #00c6ff, #0072ff)", color: "#fff", fontSize: "0.75rem", fontWeight: "bold" }}>
                   TRENDING
@@ -222,29 +233,41 @@ const Discover: React.FC = () => {
         </Grid>
 
         {/* GK Quiz Highlight Card */}
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <Paper
             elevation={3}
             sx={{
               p: 3,
               borderRadius: 3,
-              background: "linear-gradient(135deg, rgba(248, 87, 166, 0.1), rgba(255, 88, 88, 0.1))",
-              border: "1px solid rgba(255, 88, 88, 0.25)",
+              background: "linear-gradient(135deg, rgba(248, 87, 166, 0.08), rgba(255, 88, 88, 0.08))",
+              border: "1px solid rgba(255, 88, 88, 0.2)",
               display: "flex",
               flexDirection: "column",
               height: "100%",
               justifyContent: "space-between",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
               "&:hover": {
                 transform: "translateY(-4px)",
-                boxShadow: "0 8px 24px rgba(255, 88, 88, 0.15)",
+                boxShadow: "0 8px 24px rgba(255, 88, 88, 0.18)",
+                borderColor: "rgba(255, 88, 88, 0.4)",
+              },
+              "&:hover .animate-quiz-icon": {
+                animation: "wiggle 0.5s ease-in-out infinite"
+              },
+              "@keyframes wiggle": {
+                "0%, 100%": { transform: "rotate(0)" },
+                "25%": { transform: "rotate(-10deg)" },
+                "75%": { transform: "rotate(10deg)" }
               }
             }}
           >
             <Box>
               <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
                 <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
-                  GK Badge Quiz 🏆
+                  GK Badge Quiz{" "}
+                  <Box className="animate-quiz-icon" component="span" sx={{ display: "inline-block" }}>
+                    🏆
+                  </Box>
                 </Typography>
                 <Box sx={{ ml: "auto", px: 1.5, py: 0.25, borderRadius: 10, background: "linear-gradient(135deg, #f857a6, #ff5858)", color: "#fff", fontSize: "0.75rem", fontWeight: "bold" }}>
                   NEW REWARDS
@@ -274,6 +297,142 @@ const Discover: React.FC = () => {
               }}
             >
               Play Quiz & Claim Badges
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* Movies DB Highlight Card */}
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(225, 29, 72, 0.08), rgba(190, 18, 60, 0.08))",
+              border: "1px solid rgba(225, 29, 72, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(225, 29, 72, 0.18)",
+                borderColor: "rgba(225, 29, 72, 0.4)",
+              },
+              "&:hover .animate-movies-icon": {
+                animation: "clap 0.6s ease-in-out infinite"
+              },
+              "@keyframes clap": {
+                "0%, 100%": { transform: "rotate(0) scale(1)" },
+                "50%": { transform: "rotate(-15deg) scale(1.15)" }
+              }
+            }}
+          >
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
+                  Movies DB{" "}
+                  <Box className="animate-movies-icon" component="span" sx={{ display: "inline-block" }}>
+                    🎬
+                  </Box>
+                </Typography>
+                <Box sx={{ ml: "auto", px: 1.5, py: 0.25, borderRadius: 10, background: "linear-gradient(135deg, #e11d48, #be123c)", color: "#fff", fontSize: "0.75rem", fontWeight: "bold" }}>
+                  BOX OFFICE
+                </Box>
+              </Box>
+              <Typography variant="body2" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.6 }}>
+                Explore the latest trending movies, browse box office hits, view detailed ratings and reviews, and search our extensive global cinematic database!
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/movies"
+              variant="contained"
+              sx={{
+                background: "linear-gradient(135deg, #e11d48, #be123c)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                py: 1,
+                alignSelf: "flex-start",
+                boxShadow: "0 4px 15px rgba(225, 29, 72, 0.2)",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #be123c, #e11d48)",
+                  boxShadow: "0 6px 20px rgba(225, 29, 72, 0.3)",
+                }
+              }}
+            >
+              Browse Movies DB
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* Amazon Deals Highlight Card */}
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(255, 153, 0, 0.08), rgba(255, 60, 0, 0.08))",
+              border: "1px solid rgba(255, 153, 0, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(255, 153, 0, 0.18)",
+                borderColor: "rgba(255, 153, 0, 0.4)",
+              },
+              "&:hover .animate-deals-icon": {
+                animation: "pulse 0.8s ease-in-out infinite"
+              },
+              "@keyframes pulse": {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.2) rotate(5deg)" }
+              }
+            }}
+          >
+            <Box>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 700, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
+                  Amazon Deals{" "}
+                  <Box className="animate-deals-icon" component="span" sx={{ display: "inline-block" }}>
+                    🛍️
+                  </Box>
+                </Typography>
+                <Box sx={{ ml: "auto", px: 1.5, py: 0.25, borderRadius: 10, background: "linear-gradient(135deg, #FF9900, #FF5500)", color: "#fff", fontSize: "0.75rem", fontWeight: "bold" }}>
+                  HOT DEALS
+                </Box>
+              </Box>
+              <Typography variant="body2" sx={{ color: "text.secondary", mb: 3, lineHeight: 1.6 }}>
+                Unlock exclusive lightning deals and daily discount shopping on top Amazon products. Scratch and reveal hidden vouchers to save big on electronics, smartwatches, and gadgets!
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/amazon-products"
+              variant="contained"
+              sx={{
+                background: "linear-gradient(135deg, #FF9900, #FF5500)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                py: 1,
+                alignSelf: "flex-start",
+                boxShadow: "0 4px 15px rgba(255, 153, 0, 0.2)",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #FF5500, #FF9900)",
+                  boxShadow: "0 6px 20px rgba(255, 153, 0, 0.3)",
+                }
+              }}
+            >
+              Shop Deals Hub
             </Button>
           </Paper>
         </Grid>
