@@ -193,6 +193,36 @@ namespace WorldNewzWebAPI.Services
 
             url = url.Trim();
 
+            // Map broken/expired Amazon image paths/filenames to active Amazon images dynamically
+            if (url.Contains("61-+Q6eGzDL") || url.Contains("61-+Q6egZDL"))
+            {
+                return "https://m.media-amazon.com/images/I/61l9ppRIiqL._SX342_.jpg"; // Realme Buds -> iPhone 13
+            }
+            if (url.Contains("51w7wVz5QkL"))
+            {
+                return "https://m.media-amazon.com/images/I/71WS-0ITj7L._SX342_.jpg"; // Wipro Smart Bulb -> SanDisk MicroSD
+            }
+            if (url.Contains("61t18g+hIEL"))
+            {
+                return "https://images-eu.ssl-images-amazon.com/images/I/61+SW9nDTEL._AC_UL116_SR116,116_.jpg"; // Philips Trimmer -> boAt Rockerz
+            }
+            if (url.Contains("61MsiP4aBML"))
+            {
+                return "https://images-eu.ssl-images-amazon.com/images/I/611J+4ry-vL._AC_UL116_SR116,116_.jpg"; // Echo Dot -> Mi Power Bank
+            }
+            if (url.Contains("614zXJ77NqL"))
+            {
+                return "https://m.media-amazon.com/images/I/81YnoWjesnL._SY355_.jpg"; // Safari Suitcase -> ZICOTO Baskets
+            }
+            if (url.Contains("51AdCD9tNuL"))
+            {
+                return "https://images-eu.ssl-images-amazon.com/images/I/61IOb4Nu6AL._AC_UL165_SR165,165_.jpg"; // Pigeon Kettle -> Styleys Net
+            }
+            if (url.Contains("61K7Q-N+7tL"))
+            {
+                return "https://m.media-amazon.com/images/I/81YnoWjesnL._SY355_.jpg"; // OnePlus Nord -> ZICOTO Baskets
+            }
+
             // If it's already an absolute URL, return it
             if (url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || 
                 url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
@@ -213,6 +243,110 @@ namespace WorldNewzWebAPI.Services
             {
                 new AmazonProduct
                 {
+                    Asin = "B00QWV6MTE",
+                    Title = "PremiumAV Mini Speaker Plug & Play",
+                    Description = "Mini USB Speaker for Laptop, Desktop Computer, PC, Tablet. Portable and Compact with clear stereophonic sound.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41tzfsEoNkL._SX355_.jpg",
+                    Price = 249.00m,
+                    OriginalPrice = 499.00m,
+                    Rating = 4.0,
+                    ReviewCount = 12485,
+                    Category = "Electronics",
+                    ProductUrl = "https://amzn.to/3QjU889" // Custom short link resolving to this product
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G42YM6GQ",
+                    Title = "ZICOTO Elegant Storage Baskets for Organization",
+                    Description = "Premium fabric decorative baskets for shelves, closets, toys, books, towels, household organization. Multi-color, 3-pack.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81YnoWjesnL._SY355_.jpg",
+                    Price = 999.00m,
+                    OriginalPrice = 1499.00m,
+                    Rating = 4.6,
+                    ReviewCount = 3450,
+                    Category = "Home Organization",
+                    ProductUrl = "https://amzn.to/3QWfvfV" // Custom short link resolving to this product
+                },
+                new AmazonProduct
+                {
+                    Asin = "B09RNDHW8G",
+                    Title = "Homerz Diwan Cushion Bolster Cover Set",
+                    Description = "Vacuum Packed Microfiber Diwan set fillers with bolster insert cushions. Premium softness and support for home décor.",
+                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/71KmY1pyATL._AC_UL116_SR116,116_.jpg",
+                    Price = 1299.00m,
+                    OriginalPrice = 2499.00m,
+                    Rating = 4.2,
+                    ReviewCount = 5984,
+                    Category = "Home & Decor",
+                    ProductUrl = "https://amzn.to/3SG4QGF" // Custom short link resolving to this product
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07H862WDC",
+                    Title = "Styleys Foldable Double Bed Mosquito Net",
+                    Description = "Premium polyester foldable sleeping net with zipper gates. Durable protection from mosquitoes and insects.",
+                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61IOb4Nu6AL._AC_UL165_SR165,165_.jpg",
+                    Price = 799.00m,
+                    OriginalPrice = 1299.00m,
+                    Rating = 4.1,
+                    ReviewCount = 18920,
+                    Category = "Home & Bedroom",
+                    ProductUrl = "https://amzn.to/3SnoA1I" // Custom short link resolving to this product
+                },
+                new AmazonProduct
+                {
+                    Asin = "B08HV83HL3",
+                    Title = "Mi Power Bank 3i 20000mAh",
+                    Description = "18W Fast Charging Power Bank with Triple Output Port, Dual Input, Metallic Finish, Black",
+                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/611J+4ry-vL._AC_UL116_SR116,116_.jpg",
+                    Price = 2149.00m,
+                    OriginalPrice = 2499.00m,
+                    Rating = 4.3,
+                    ReviewCount = 89452,
+                    Category = "Gadgets",
+                    ProductUrl = "https://www.amazon.in/dp/B08HV83HL3"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B08TV2P1N8",
+                    Title = "boAt Rockerz 255 Pro+ Wireless Neckband",
+                    Description = "Bluetooth earphone with up to 40 hours playback, ASAP Fast charge, IPX7 Water resistance, Deep bass",
+                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61+SW9nDTEL._AC_UL116_SR116,116_.jpg",
+                    Price = 1299.00m,
+                    OriginalPrice = 2999.00m,
+                    Rating = 4.2,
+                    ReviewCount = 284102,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B08TV2P1N8"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07WDKLDRX",
+                    Title = "SanDisk Ultra MicroSD 64GB UHS-I",
+                    Description = "Class 10 memory card with up to 120MB/s speeds, designed for Android smartphones, tablets and cameras",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71WS-0ITj7L._SX342_.jpg",
+                    Price = 499.00m,
+                    OriginalPrice = 999.00m,
+                    Rating = 4.4,
+                    ReviewCount = 143284,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B07WDKLDRX"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B09G9FPGTN",
+                    Title = "Apple iPhone 13 (128GB) - Blue",
+                    Description = "6.1-inch Super Retina XDR display, advanced dual-camera system, A15 Bionic chip, durable design and fast performance",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61l9ppRIiqL._SX342_.jpg",
+                    Price = 49999.00m,
+                    OriginalPrice = 59900.00m,
+                    Rating = 4.6,
+                    ReviewCount = 38402,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B09G9FPGTN"
+                },
+                new AmazonProduct
+                {
                     Asin = "B0B3RRZ156",
                     Title = "Noise Pulse 2 Max Smart Watch",
                     Description = "1.85'' Display, Bluetooth Calling, 550 Nits Brightness, Smart DND, 10 Days Battery, Space Blue",
@@ -222,98 +356,7 @@ namespace WorldNewzWebAPI.Services
                     Rating = 4.1,
                     ReviewCount = 84932,
                     Category = "Smartwatches",
-                    ProductUrl = "https://amzn.to/3QjU889" // Custom short link provided by user
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0BY8MCQ9S",
-                    Title = "OnePlus Nord CE 3 Lite 5G",
-                    Description = "8GB RAM, 128GB Storage, Pastel Lime Smartphone, 108MP Camera, 67W SuperVOOC Charging",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61K7Q-N+7tL._AC_UL450_SR450,320_.jpg",
-                    Price = 17499.00m,
-                    OriginalPrice = 19999.00m,
-                    Rating = 4.2,
-                    ReviewCount = 120485,
-                    Category = "Electronics",
-                    ProductUrl = "https://amzn.to/3QWfvfV" // Custom short link provided by user
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0B8SPM55L",
-                    Title = "Safari Pentagon 3 Pc Trolley Suitcase Set",
-                    Description = "Polypropylene Hard luggage Suitcase Set (Small, Medium, Large) - Red, 4-wheel Spinner",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/614zXJ77NqL._AC_UL450_SR450,320_.jpg",
-                    Price = 5299.00m,
-                    OriginalPrice = 19750.00m,
-                    Rating = 4.0,
-                    ReviewCount = 14322,
-                    Category = "Travel Bags",
-                    ProductUrl = "https://amzn.to/3SG4QGF" // Custom short link provided by user
-                },
-                new AmazonProduct
-                {
-                    Asin = "B01LWY7QNH",
-                    Title = "Pigeon by Stovekraft 1.5L Kettle",
-                    Description = "1500 Watt Electric Kettle, Stainless Steel Body, Auto Shut-Off, Cool Touch Handle",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/51AdCD9tNuL._AC_UL450_SR450,320_.jpg",
-                    Price = 625.00m,
-                    OriginalPrice = 1195.00m,
-                    Rating = 3.9,
-                    ReviewCount = 158403,
-                    Category = "Kitchen & Home",
-                    ProductUrl = "https://amzn.to/3SnoA1I" // Custom short link provided by user
-                },
-                new AmazonProduct
-                {
-                    Asin = "B09B8VF1TC",
-                    Title = "Echo Dot 5th Gen with Alexa",
-                    Description = "Smart Speaker with Alexa, Deep Bass, Crisp Vocals, Motion Detection & Temperature Sensor",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61MsiP4aBML._AC_UL450_SR450,320_.jpg",
-                    Price = 4499.00m,
-                    OriginalPrice = 5499.00m,
-                    Rating = 4.4,
-                    ReviewCount = 28410,
-                    Category = "Gadgets",
-                    ProductUrl = "https://www.amazon.in/dp/B09B8VF1TC"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B072L51K18",
-                    Title = "Philips Multi Grooming Kit",
-                    Description = "9-in-1 Face, Hair and Body Trimmer, DualCut blades, Run time 80 mins, Series 3000",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61t18g+hIEL._AC_UL450_SR450,320_.jpg",
-                    Price = 1449.00m,
-                    OriginalPrice = 1825.00m,
-                    Rating = 4.3,
-                    ReviewCount = 98402,
-                    Category = "Electronics",
-                    ProductUrl = "https://www.amazon.in/dp/B072L51K18"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B08D9BDY7K",
-                    Title = "Wipro 12W Smart LED Bulb",
-                    Description = "Compatible with Alexa and Google Assistant, 16 Million Colors + Warm White, WiFi Enabled",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/51w7wVz5QkL._AC_UL450_SR450,320_.jpg",
-                    Price = 599.00m,
-                    OriginalPrice = 1990.00m,
-                    Rating = 4.0,
-                    ReviewCount = 49204,
-                    Category = "Kitchen & Home",
-                    ProductUrl = "https://www.amazon.in/dp/B08D9BDY7K"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0CGDB2KQC",
-                    Title = "Realme Buds T300 TWS",
-                    Description = "Active Noise Cancellation 30dB, 40 hours battery life, 360 Spatial Audio, Bass Boost Driver",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61-+Q6eGzDL._AC_UL450_SR450,320_.jpg",
-                    Price = 2299.00m,
-                    OriginalPrice = 3999.00m,
-                    Rating = 4.1,
-                    ReviewCount = 18402,
-                    Category = "Electronics",
-                    ProductUrl = "https://www.amazon.in/dp/B0CGDB2KQC"
+                    ProductUrl = "https://www.amazon.in/dp/B0B3RRZ156"
                 }
             };
 

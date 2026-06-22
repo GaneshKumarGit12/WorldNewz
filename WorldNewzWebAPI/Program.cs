@@ -415,6 +415,20 @@ using (var scope = app.Services.CreateScope())
                     ""LastUpdated"" TIMESTAMP WITH TIME ZONE NOT NULL
                 );
             ");
+
+            // Ensure SeoKeywords table exists
+            db.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""SeoKeywords"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Category"" TEXT NOT NULL,
+                    ""Primary"" TEXT NOT NULL,
+                    ""Longtail"" TEXT NOT NULL,
+                    ""Trending"" TEXT NOT NULL,
+                    ""MetaDesc"" TEXT NOT NULL,
+                    ""Date"" TIMESTAMP WITH TIME ZONE NOT NULL,
+                    ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                );
+            ");
             logger.LogInformation("✓ PostgreSQL tables verified successfully.");
         }
     }
@@ -522,6 +536,20 @@ using (var scope = app.Services.CreateScope())
                 Category TEXT NOT NULL,
                 ProductUrl TEXT NOT NULL,
                 LastUpdated TEXT NOT NULL
+            );
+        ");
+
+        // Ensure SeoKeywords table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS SeoKeywords (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Category TEXT NOT NULL,
+                [Primary] TEXT NOT NULL,
+                Longtail TEXT NOT NULL,
+                Trending TEXT NOT NULL,
+                MetaDesc TEXT NOT NULL,
+                Date TEXT NOT NULL,
+                CreatedAt TEXT NOT NULL
             );
         ");
     }
