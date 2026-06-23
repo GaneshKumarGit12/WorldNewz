@@ -53,12 +53,6 @@ export default defineConfig({
             if (id.includes('react')) {
               return 'react';
             }
-            if (id.includes('@mui')) {
-              return 'mui';
-            }
-            if (id.includes('axios')) {
-              return 'axios';
-            }
           }
         }
       },

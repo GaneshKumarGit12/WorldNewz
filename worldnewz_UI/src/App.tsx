@@ -28,10 +28,10 @@ import Fab from "@mui/material/Fab";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
 import Divider from "@mui/material/Divider";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import Footer from "./components/Footer";
-import CookieConsent from "./components/CookieConsent";
+const Footer = lazy(() => import("./components/Footer"));
+const CookieConsent = lazy(() => import("./components/CookieConsent"));
 import { JSONLDWebSite, JSONLDOrganization } from "./seo/JSONLDSchemas";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import CloseIcon from "@mui/icons-material/Close";
@@ -791,8 +791,12 @@ const App: React.FC = () => {
         <Outlet context={{ searchTerm }} />
       </Box>
 
-      <Footer />
-      <CookieConsent />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+      <Suspense fallback={null}>
+        <CookieConsent />
+      </Suspense>
 
       {/* ─── Push Notifications Banner ─── */}
       {showPushBanner && (
