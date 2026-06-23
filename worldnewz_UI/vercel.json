@@ -102,7 +102,15 @@
       "destination": "/api/prerender?page=home"
     },
     {
-      "source": "/(politics|technology|business|science-health|lifestyle|education|opinion|trending|podcasts-videos|local-news|sports|money|weather|shopping|travel|food|entertainment|services|gaming|cartoons|stocks|badge-quiz|polls|about|contact|privacy-policy|terms)",
+      "source": "/jobs/post-job",
+      "destination": "/api/prerender?page=jobs/post-job"
+    },
+    {
+      "source": "/jobs/detail/:slug",
+      "destination": "/api/prerender?jobSlug=:slug"
+    },
+    {
+      "source": "/(politics|technology|business|science-health|lifestyle|education|opinion|trending|podcasts-videos|local-news|sports|money|weather|shopping|travel|food|entertainment|services|gaming|cartoons|stocks|badge-quiz|polls|about|contact|privacy-policy|terms|jobs)",
       "destination": "/api/prerender?page=$1"
     },
     {

@@ -378,7 +378,7 @@ const App: React.FC = () => {
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
             {primaryNavLinks.map((link) => {
               const isHighlighted = link.highlight;
-              const isActive = location.pathname === link.path;
+              const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
               return (
                 <Button
                   key={link.path}
@@ -563,7 +563,7 @@ const App: React.FC = () => {
         <List sx={{ width: 250 }}>
           {primaryNavLinks.map((link) => {
             const isHighlighted = link.highlight;
-            const isActive = location.pathname === link.path;
+            const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
             return (
               <ListItem key={link.path} disablePadding sx={isHighlighted ? { px: 2, py: 0.5 } : {}}>
                 <ListItemButton
@@ -743,7 +743,7 @@ const App: React.FC = () => {
           >
             {categories.map((cat) => {
               const path = getCategoryPath(cat);
-              const isActive = location.pathname === path || (location.pathname === "/search" && searchParams.get("category") === cat);
+              const isActive = location.pathname === path || (path === "/jobs" && location.pathname.startsWith("/jobs")) || (location.pathname === "/search" && searchParams.get("category") === cat);
               return (
                 <Box
                   key={cat}

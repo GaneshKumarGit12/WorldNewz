@@ -429,6 +429,24 @@ using (var scope = app.Services.CreateScope())
                     ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                 );
             ");
+
+            // Ensure JobPostings table exists
+            db.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""JobPostings"" (
+                    ""Slug"" TEXT PRIMARY KEY,
+                    ""CompanyName"" TEXT NOT NULL,
+                    ""Title"" TEXT NOT NULL,
+                    ""Description"" TEXT NOT NULL,
+                    ""Remote"" BOOLEAN NOT NULL,
+                    ""Url"" TEXT NOT NULL,
+                    ""Tags"" TEXT NULL,
+                    ""JobTypes"" TEXT NULL,
+                    ""Location"" TEXT NOT NULL,
+                    ""CreatedAt"" BIGINT NOT NULL,
+                    ""IsLocal"" BOOLEAN NOT NULL DEFAULT FALSE
+                );
+            ");
+
             logger.LogInformation("✓ PostgreSQL tables verified successfully.");
         }
     }
@@ -514,6 +532,23 @@ using (var scope = app.Services.CreateScope())
                 Percentage REAL NOT NULL,
                 Status TEXT NOT NULL,
                 SubmittedAt TEXT NOT NULL
+            );
+        ");
+
+        // Ensure JobPostings table exists
+        db.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS JobPostings (
+                Slug TEXT PRIMARY KEY,
+                CompanyName TEXT NOT NULL,
+                Title TEXT NOT NULL,
+                Description TEXT NOT NULL,
+                Remote INTEGER NOT NULL,
+                Url TEXT NOT NULL,
+                Tags TEXT NULL,
+                JobTypes TEXT NULL,
+                Location TEXT NOT NULL,
+                CreatedAt INTEGER NOT NULL,
+                IsLocal INTEGER NOT NULL DEFAULT 0
             );
         ");
 

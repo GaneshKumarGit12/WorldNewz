@@ -166,6 +166,14 @@ const PAGE_METADATA = {
     ogImage: 'https://worldnewzs.in/og-image.png',
     ogType: 'website'
   },
+  'jobs/post-job': {
+    title: 'Post a Job – Hire Remote & Local Talent',
+    description: 'Submit your job postings to WorldNewzs Jobs board. Reach thousands of active job seekers, developers, designers, and marketers globally.',
+    keywords: 'post a job, hire talent, job board posting, recruit remote workers, post jobs free',
+    canonical: 'https://worldnewzs.in/jobs/post-job',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
   'privacy-policy': {
     title: 'Privacy Policy – WorldNewzs',
     description: 'WorldNewzs Privacy Policy outlines how we collect, use, and protect your personal information on our platform.',
@@ -225,7 +233,7 @@ export default async function handler(req, res) {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://www.googletagmanager.com https://static.hotjar.com https://pagead2.googlesyndication.com https://adservice.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://partner.googleadservices.com https://*.adtrafficquality.google; connect-src 'self' https://accounts.google.com https://worldnewz.onrender.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.hotjar.com wss://*.hotjar.com https://*.hotjar.io wss://*.hotjar.io https://*.adtrafficquality.google https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; img-src * data: blob: android-webview-video-poster:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com; font-src 'self' data: https://fonts.gstatic.com https://static.hotjar.com; frame-src 'self' https://accounts.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://vars.hotjar.com https://*.hotjar.com; object-src 'none'; media-src * data: blob:;");
 
-  const { id, page } = req.query;
+  const { id, page, jobSlug } = req.query;
 
   // Load Built index.html template from Vercel's output
   const pathsToTry = [
@@ -566,6 +574,42 @@ export default async function handler(req, res) {
     }
 
     richFallbackBody = contentHtml;
+  }
+  // Case C: Pre-render dynamic job posting
+  else if (jobSlug) {
+    try {
+      const response = await fetch(`https://worldnewz.onrender.com/api/news/jobs/detail/${encodeURIComponent(jobSlug)}`);
+      if (response.ok) {
+        const job = await response.json();
+        if (job) {
+          title = `${job.title} at ${job.company_name}`;
+          description = `${job.title} job opening at ${job.company_name} in ${job.location}. ${job.remote ? 'Remote work available.' : ''} Read details and apply.`;
+          canonical = `https://worldnewzs.in/jobs/detail/${job.slug}`;
+          ogType = 'website';
+          keywords = (Array.isArray(job.tags) ? job.tags.join(', ') : '') || 'jobs, career, hiring';
+          
+          richFallbackBody = `
+            <article style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
+              <h1 style="font-size: 2.2rem; margin-bottom: 5px;">${escapeHtml(job.title)}</h1>
+              <h2 style="font-size: 1.4rem; color: #555; margin-bottom: 20px;">at ${escapeHtml(job.company_name)} | ${escapeHtml(job.location)}</h2>
+              <div style="margin-bottom: 20px;">
+                ${job.remote ? '<span style="background: #e6f4ea; color: #137333; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; margin-right: 10px;">Remote</span>' : ''}
+                ${job.isLocal ? '<span style="background: #e8f0fe; color: #1a73e8; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.85rem;">Direct</span>' : ''}
+              </div>
+              <div style="border-top: 1px solid #eee; padding-top: 20px; font-size: 1.1rem; line-height: 1.8; color: #333;">
+                ${job.description}
+              </div>
+              <div style="margin-top: 30px; text-align: center;">
+                <p><strong>Every Job and Job posting coming under arbeitnow.com</strong></p>
+                <a href="${escapeHtml(job.url)}" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #137333; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold;">Apply for this Job &rarr;</a>
+              </div>
+            </article>
+          `;
+        }
+      }
+    } catch (err) {
+      console.error('Error pre-rendering job detail:', err);
+    }
   }
   // Case B: Pre-render dynamic article
   else if (id) {

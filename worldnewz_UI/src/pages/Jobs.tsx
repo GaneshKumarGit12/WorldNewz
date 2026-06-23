@@ -22,7 +22,6 @@ import WorkIcon from "@mui/icons-material/Work";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import BusinessIcon from "@mui/icons-material/Business";
 import SearchIcon from "@mui/icons-material/Search";
-import LaunchIcon from "@mui/icons-material/Launch";
 import HomeIcon from "@mui/icons-material/Home";
 import { fetchJobs } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
@@ -38,6 +37,7 @@ interface Job {
   job_types: string[];
   location: string;
   created_at: number;
+  isLocal?: boolean;
 }
 
 const Jobs: React.FC = () => {
@@ -142,11 +142,22 @@ const Jobs: React.FC = () => {
       </Breadcrumbs>
 
       {/* Header and Title */}
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 3 }}>
-        <WorkIcon color="success" sx={{ fontSize: 36 }} />
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
-          Latest Job Opportunities
-        </Typography>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3, flexWrap: "wrap", gap: 2 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+          <WorkIcon color="success" sx={{ fontSize: 36 }} />
+          <Typography variant="h4" sx={{ fontWeight: 800 }}>
+            Latest Job Opportunities
+          </Typography>
+        </Box>
+        <Button
+          variant="contained"
+          color="success"
+          startIcon={<WorkIcon />}
+          onClick={() => navigate("/jobs/post-job")}
+          sx={{ textTransform: "none", fontWeight: 700, borderRadius: 2, px: 3, py: 1 }}
+        >
+          Post a Job 💼
+        </Button>
       </Box>
 
       {/* Filter panel */}
@@ -274,15 +285,26 @@ const Jobs: React.FC = () => {
                       <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1.3 }}>
                         {job.title}
                       </Typography>
-                      {job.remote && (
-                        <Chip 
-                          label="Remote" 
-                          size="small" 
-                          color="success" 
-                          variant="outlined" 
-                          sx={{ fontSize: "0.65rem", fontWeight: 700, height: 20 }} 
-                        />
-                      )}
+                      <Box sx={{ display: "flex", gap: 0.5, flexShrink: 0 }}>
+                        {job.isLocal && (
+                          <Chip 
+                            label="Direct" 
+                            size="small" 
+                            color="primary" 
+                            variant="filled" 
+                            sx={{ fontSize: "0.65rem", fontWeight: 700, height: 20 }} 
+                          />
+                        )}
+                        {job.remote && (
+                          <Chip 
+                            label="Remote" 
+                            size="small" 
+                            color="success" 
+                            variant="outlined" 
+                            sx={{ fontSize: "0.65rem", fontWeight: 700, height: 20 }} 
+                          />
+                        )}
+                      </Box>
                     </Box>
 
                     {/* Company details */}
@@ -324,10 +346,7 @@ const Jobs: React.FC = () => {
                       size="small" 
                       color="success" 
                       variant="contained" 
-                      endIcon={<LaunchIcon sx={{ fontSize: "0.75rem !important" }} />}
-                      href={job.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      onClick={() => navigate(`/jobs/detail/${job.slug}`)}
                       sx={{ textTransform: "none", fontWeight: 600, borderRadius: 1 }}
                     >
                       Apply Now
@@ -357,6 +376,9 @@ const Jobs: React.FC = () => {
         <Typography variant="body2" color="text.secondary">
           Jobs data powered by <Link href="https://www.arbeitnow.com/" target="_blank" rel="noopener noreferrer" sx={{ color: "success.main", fontWeight: 600 }}>Arbeitnow</Link>. 
           By using this service, you agree to the terms of service of the job provider.
+        </Typography>
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1, fontSize: "0.75rem", fontStyle: "italic" }}>
+          Every Job and Job posting coming under arbeitnow.com
         </Typography>
       </Box>
     </Box>

@@ -94,6 +94,8 @@ export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
 export const fetchFullContent = (url: string, title?: string, description?: string, category?: string) => apiClient.get("/news/full-content", { params: { url, title, description, category } });
 export const fetchJobs = (page: number = 1) => apiClient.get("/news/jobs", { params: { page } });
+export const fetchJobDetail = (slug: string) => apiClient.get(`/news/jobs/detail/${slug}`);
+export const postJob = (jobData: any) => apiClient.post("/news/jobs/post", jobData);
 export const submitContactForm = (data: { name: string; email: string; subject: string; message: string }) => apiClient.post("/contact", data);
 
 export const performGeminiSearch = (query: string) => apiClient.post("/news/gemini-search", { query });
