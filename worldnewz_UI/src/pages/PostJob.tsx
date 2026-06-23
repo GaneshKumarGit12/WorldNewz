@@ -175,7 +175,7 @@ const PostJob: React.FC = () => {
       </Box>
 
       {/* Main Grid */}
-      <Grid container spacing={4}>
+      <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
         
         {/* Form Column */}
         <Grid size={{ xs: 12, md: 7 }}>

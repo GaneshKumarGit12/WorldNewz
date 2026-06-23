@@ -260,7 +260,7 @@ const Jobs: React.FC = () => {
         </Typography>
       ) : (
         <>
-          <Grid container spacing={2}>
+          <Grid container spacing={{ xs: 1.5, sm: 2 }}>
             {filteredJobs.map((job) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={job.slug}>
                 <Card 
