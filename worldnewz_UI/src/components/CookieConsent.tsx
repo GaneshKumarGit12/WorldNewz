@@ -14,7 +14,7 @@ export const CookieConsent: React.FC = () => {
   useEffect(() => {
     const consent = localStorage.getItem('worldnewz_cookie_consent');
     if (!consent) {
-      const timer = setTimeout(() => setVisible(true), 1500);
+      const timer = setTimeout(() => setVisible(true), 200);
       return () => clearTimeout(timer);
     }
   }, []);

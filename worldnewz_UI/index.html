@@ -80,6 +80,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
   </noscript>
 
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD24Y5Y78Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JD24Y5Y78Z');
+  </script>
+
   <!-- Optimized Dynamic Script Loader for Trackers and Ads (Post-Load & Idle Execution) -->
   <script src="/scripts/thirdparty.js" defer></script>
 </head>
@@ -121,7 +130,7 @@
           <img src="/logo-transparent.svg" alt="Logo" style="width: 50px; height: 50px;" />
         </div>
         <!-- Glowing title -->
-        <h1 style="
+        <div style="
           font-size: 1.5rem;
           font-weight: 800;
           letter-spacing: 3px;
@@ -130,7 +139,7 @@
           background: linear-gradient(135deg, #ff8a65, #c83a15);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-        ">WorldNewzs</h1>
+        ">WorldNewzs</div>
         <!-- Modern Spinner -->
         <div style="
           width: 24px;
