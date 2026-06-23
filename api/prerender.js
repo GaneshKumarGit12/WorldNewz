@@ -158,6 +158,14 @@ const PAGE_METADATA = {
     ogImage: 'https://worldnewzs.in/og-image.png',
     ogType: 'website'
   },
+  'jobs': {
+    title: 'Jobs – Find Your Next Career Opportunity',
+    description: 'Explore the latest job listings, career openings, and remote employment opportunities on WorldNewzs.',
+    keywords: 'jobs, job search, career opportunities, employment, job openings, remote jobs',
+    canonical: 'https://worldnewzs.in/jobs',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
   'privacy-policy': {
     title: 'Privacy Policy – WorldNewzs',
     description: 'WorldNewzs Privacy Policy outlines how we collect, use, and protect your personal information on our platform.',

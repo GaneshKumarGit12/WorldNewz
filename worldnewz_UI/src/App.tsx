@@ -52,6 +52,7 @@ const primaryNavLinks = [
   { label: "GK Quiz 🏆", path: "/badge-quiz", highlight: true, highlightColor: "linear-gradient(135deg, #f857a6, #ff5858)" },
   { label: "MoviesDB 🎬", path: "/movies", highlight: true, highlightColor: "linear-gradient(135deg, #e11d48, #be123c)" },
   { label: "Deals 🛍️", path: "/amazon-products", highlight: true, highlightColor: "linear-gradient(135deg, #ff8a00, #ff5500)" },
+  { label: "Jobs 💼", path: "/jobs", highlight: true, highlightColor: "linear-gradient(135deg, #10b981, #059669)" },
 ];
 
 const secondaryNavLinks = [
@@ -101,7 +102,8 @@ const categories = [
   "polls",
   "badge quiz",
   "stocks",
-  "movies"
+  "movies",
+  "jobs"
 ];
 
 const getCategoryPath = (cat: string): string => {
@@ -133,6 +135,7 @@ const getCategoryPath = (cat: string): string => {
     case "movies": return "/movies";
     case "deals": return "/amazon-products";
     case "amazon products": return "/amazon-products";
+    case "jobs": return "/jobs";
     default: return "/";
   }
 };

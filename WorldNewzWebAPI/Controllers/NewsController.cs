@@ -520,6 +520,33 @@ Requirements:
                 return StatusCode(500, new { error = "Exception during Gemini search execution", details = ex.Message });
             }
         }
+
+        [HttpGet("jobs")]
+        public async Task<IActionResult> GetJobs([FromQuery] int page = 1)
+        {
+            try
+            {
+                var client = _httpClientFactory.CreateClient();
+                client.Timeout = TimeSpan.FromSeconds(8);
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+
+                var url = $"https://www.arbeitnow.com/api/job-board-api?page={page}";
+                var response = await client.GetAsync(url);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Response.Headers.CacheControl = "public, max-age=1800"; // Cache for 30 minutes
+                    return Content(content, "application/json");
+                }
+                
+                return StatusCode((int)response.StatusCode, new { error = "Failed to fetch jobs from provider" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
 
     public class GeminiSearchRequest
