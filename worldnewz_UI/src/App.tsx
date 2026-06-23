@@ -735,6 +735,8 @@ const App: React.FC = () => {
               rowGap: 1.25,
               justifyContent: { xs: "flex-start", md: "center" },
               overflowX: "auto",
+              width: "100%",
+              maxWidth: "100%",
               pb: 0.5,
               "&::-webkit-scrollbar": { height: "4px" },
               "&::-webkit-scrollbar-track": { background: "transparent" },
