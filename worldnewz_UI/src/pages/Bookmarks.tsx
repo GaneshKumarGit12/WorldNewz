@@ -68,22 +68,33 @@ const Bookmarks: React.FC = () => {
             {bookmarks.length} saved article{bookmarks.length !== 1 ? "s" : ""}
           </Typography>
           <Grid container spacing={2}>
-            {bookmarks.map((article: Article) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={article.url || article.title} sx={{ display: "flex" }}>
-                <NewsCard
-                  article={article}
-                  isBookmarked={article.url ? isBookmarked(article.url) : false}
-                  onRemoveBookmark={removeBookmark}
-                  onLike={toggleLike}
-                  onDislike={toggleDislike}
-                  onAddComment={(url, text, author) => addComment(url, text, author)}
-                  onDeleteComment={deleteComment}
-                  onLikeComment={likeComment}
-                  onDislikeComment={dislikeComment}
-                  engagement={article.url ? getEngagement(article.url) : undefined}
-                />
-              </Grid>
-            ))}
+            {(() => {
+              const seenImages = new Set<string>();
+              return bookmarks.map((article: Article) => {
+                const imageUrl = article.urlToImage || article.imageUrl || "";
+                const isDuplicateImage = imageUrl ? seenImages.has(imageUrl) : false;
+                if (imageUrl) {
+                  seenImages.add(imageUrl);
+                }
+                return (
+                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={article.url || article.title} sx={{ display: "flex" }}>
+                    <NewsCard
+                      article={article}
+                      isBookmarked={article.url ? isBookmarked(article.url) : false}
+                      onRemoveBookmark={removeBookmark}
+                      onLike={toggleLike}
+                      onDislike={toggleDislike}
+                      onAddComment={(url, text, author) => addComment(url, text, author)}
+                      onDeleteComment={deleteComment}
+                      onLikeComment={likeComment}
+                      onDislikeComment={dislikeComment}
+                      engagement={article.url ? getEngagement(article.url) : undefined}
+                      isDuplicateImage={isDuplicateImage}
+                    />
+                  </Grid>
+                );
+              });
+            })()}
           </Grid>
         </>
       )}

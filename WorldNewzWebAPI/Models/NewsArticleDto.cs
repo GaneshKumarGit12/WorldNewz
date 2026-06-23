@@ -40,6 +40,9 @@ namespace WorldNewzWebAPI.Models
 
         [JsonPropertyName("category")]
         public string? Category { get; set; }
+
+        [JsonPropertyName("fullContent")]
+        public string? FullContent { get; set; }
     }
 
     public class SourceDto

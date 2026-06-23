@@ -19,5 +19,7 @@ namespace WorldNewzWebAPI.Models
         public bool Verified { get; set; }
 
         public DateTime EnrichedAt { get; set; } = DateTime.UtcNow;
+
+        public string? FullContent { get; set; }
     }
 }

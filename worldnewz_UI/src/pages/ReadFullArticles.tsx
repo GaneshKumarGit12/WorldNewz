@@ -162,7 +162,12 @@ const ReadFullArticles: React.FC = () => {
     setScrapingLoading(true);
     setScrapingError(null);
 
-    fetchFullContent(article.url)
+    fetchFullContent(
+      article.url,
+      article.headline || article.title,
+      article.summary || article.description,
+      article.category
+    )
       .then((res) => {
         if (res.data && res.data.success && Array.isArray(res.data.content)) {
           setParagraphs(res.data.content);

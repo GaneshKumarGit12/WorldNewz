@@ -92,7 +92,7 @@ export const fetchPodcastsVideos = (params?: SearchParams) => apiClient.get("/ne
 export const fetchLocalNews = (params?: SearchParams) => apiClient.get("/news/local-news", { params });
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
-export const fetchFullContent = (url: string) => apiClient.get("/news/full-content", { params: { url } });
+export const fetchFullContent = (url: string, title?: string, description?: string, category?: string) => apiClient.get("/news/full-content", { params: { url, title, description, category } });
 export const submitContactForm = (data: { name: string; email: string; subject: string; message: string }) => apiClient.post("/contact", data);
 
 export const performGeminiSearch = (query: string) => apiClient.post("/news/gemini-search", { query });

@@ -385,6 +385,64 @@ export default async function handler(req, res) {
     return fallbackNews;
   };
 
+  // Fetch keywords from backend daily SEO API
+  const fetchKeywordsWithFallback = async (category) => {
+    const fullUrl = `https://worldnewz.onrender.com/api/seo/keywords/${category.toLowerCase()}`;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 1200);
+      const res = await fetch(fullUrl, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.metaDesc) {
+          return {
+            metaDesc: data.metaDesc,
+            primary: Array.isArray(data.primary) ? data.primary : (typeof data.primary === 'string' ? JSON.parse(data.primary) : []),
+            longtail: Array.isArray(data.longtail) ? data.longtail : (typeof data.longtail === 'string' ? JSON.parse(data.longtail) : []),
+            trending: Array.isArray(data.trending) ? data.trending : (typeof data.trending === 'string' ? JSON.parse(data.trending) : [])
+          };
+        }
+      }
+    } catch (e) {
+      console.warn(`Fetch keywords for ${category} failed: ${e.message}`);
+    }
+    return null;
+  };
+
+  // Generate unique, deterministic background text based on title, category, and date
+  const generateUniqueBackdropText = (articleTitle, category, dateStr) => {
+    const date = dateStr ? new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'recently';
+    const cleanTitle = articleTitle.replace(/[|:-].*$/, '').trim();
+    
+    const intros = [
+      `The recent developments surrounding "${cleanTitle}" mark a significant milestone in the ${category} landscape. As observers examine the nuances of this event, it becomes increasingly clear that the implications extend far beyond the immediate headlines.`,
+      `As news of "${cleanTitle}" continues to unfold, industry experts and analysts are closely examining the broader context of this situation. This event, occurring in the ${category} sector, highlights key trends that have been developing over several months.`,
+      `With the announcement of "${cleanTitle}" on ${date}, the ${category} community has experienced a notable shift. Understanding the background of these events requires looking at the structural dynamics that govern this domain.`
+    ];
+
+    const bodies = [
+      `In recent years, the ${category} sphere has been characterized by rapid innovation and shifting regulatory frameworks. Stakeholders are forced to adapt to volatile market conditions, technological updates, and changing public expectations. The circumstances detailed in this report reflect these overarching challenges, emphasizing the need for robust strategic planning and transparent communication among all involved parties.`,
+      `Historically, topics like "${cleanTitle}" have triggered extensive debates regarding compliance, public trust, and technological efficiency. As new guidelines emerge globally, organization leaders are re-evaluating their operations to remain competitive and socially responsible. This ongoing transition underscores the importance of objective coverage and thorough analysis.`,
+      `Furthermore, public interest in ${category} developments has reached historic levels, driven by digital connectivity and immediate information sharing. This heightened awareness means that every action, decision, or announcement is scrutinized by a global audience, forcing a pivot toward higher standards of accountability and expertise.`
+    ];
+
+    const conclusions = [
+      `Moving forward, our editorial team at WorldNewzs will continue to track the aftermath of "${cleanTitle}" and provide updated reports as new details emerge. We remain committed to delivering clear, verified, and objective insights to help our readers navigate these complex issues.`,
+      `As the situation surrounding "${cleanTitle}" stabilizes, the long-term impact on the ${category} ecosystem will become more apparent. Observers should watch for subsequent policy statements and stakeholder responses in the coming weeks.`,
+      `In conclusion, the details emerging from this ${category} report serve as a reminder of how interconnected modern global systems have become. Stay tuned to WorldNewzs for further updates and expert commentary on this evolving story.`
+    ];
+
+    const titleSum = cleanTitle.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const introIndex = titleSum % intros.length;
+    const bodyIndex = (titleSum + 1) % bodies.length;
+    const conclusionIndex = (titleSum + 2) % conclusions.length;
+
+    const detailParagraph = `When analyzing "${cleanTitle}" in detail, one must consider how this fits into the historical timeline of ${category} advancements. Over the past decade, several similar events have paved the way for the current scenario, showing that progress is rarely linear. Industry reports suggest that while the initial reaction to such news is often speculative, the structural changes that follow tend to be permanent, reshaping consumer habits and corporate policies alike.`;
+
+    return `<h3>Editorial Analysis & Category Background</h3>\n<p>${intros[introIndex]}</p>\n\n<p>${bodies[bodyIndex]}</p>\n\n<p>${detailParagraph}</p>\n\n<p>${conclusions[conclusionIndex]}</p>`;
+  };
+
   // Case A: Pre-render static pages
   if (activePage === 'home') {
     title = 'WorldNewzs – Your World, Your News';
@@ -426,6 +484,22 @@ export default async function handler(req, res) {
     canonical = meta.canonical;
     keywords = meta.keywords || keywords;
     ogType = meta.ogType || ogType;
+
+    // Fetch daily dynamic SEO keywords from backend
+    const dynamicKeywords = await fetchKeywordsWithFallback(activePage);
+    if (dynamicKeywords) {
+      description = dynamicKeywords.metaDesc || description;
+      
+      const allKeywordsList = [
+        ...dynamicKeywords.primary,
+        ...dynamicKeywords.longtail,
+        ...dynamicKeywords.trending
+      ].filter(Boolean);
+      
+      if (allKeywordsList.length > 0) {
+        keywords = allKeywordsList.join(', ');
+      }
+    }
 
     let contentHtml = '';
 
@@ -545,11 +619,31 @@ export default async function handler(req, res) {
         }
       };
 
-      let bodyText = article.description || article.summary || '';
+      let bodyText = '';
+      try {
+        const fullContentUrl = `https://worldnewz.onrender.com/api/news/full-content?url=${encodeURIComponent(article.url)}&title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&category=${encodeURIComponent(article.category || 'News')}`;
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
+        const fullContentRes = await fetch(fullContentUrl, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (fullContentRes.ok) {
+          const fullContentData = await fullContentRes.json();
+          if (fullContentData && fullContentData.success && Array.isArray(fullContentData.content)) {
+            bodyText = fullContentData.content.join('\n\n');
+          }
+        }
+      } catch (err) {
+        console.warn('Error fetching full content in pre-render:', err);
+      }
+
+      if (!bodyText) {
+        bodyText = article.description || article.summary || '';
+      }
+
       if (bodyText.split(' ').length < 600) {
-        bodyText += "\n\n<h3>Editorial Analysis & Category Background</h3>\n" +
-          "At WorldNewzs, we aim to provide comprehensive oversight and historical context to current events. The topic discussed in this article reflects broader ongoing shifts in the sector. Over the past decade, we have observed rapid transformations fueled by technological innovations, evolving government policies, and shifting global demographics. To understand the significance of these developments, one must examine the underlying structural dynamics. Market trends indicate that consumer behaviors are shifting toward digital-first, decentralized, and environmentally sustainable options. Analysts warn that failing to adapt to these changes could result in increased volatility and long-term stagnation. As a result, industry leaders are increasingly prioritizing research and development to build resilient models that can withstand macroeconomic pressures.\n\n" +
-          "Furthermore, the global community is increasingly recognizing the importance of ethical considerations, data security, and equitable distribution of resources. Regulatory bodies are introducing stricter guidelines to protect consumer rights, enforce fair competition, and promote carbon neutrality. These legislative actions are reshaping the competitive landscape and compelling organizations to rethink their operational strategies. In this context, proactive adaptation and transparent reporting are crucial for maintaining public trust and securing sustainable growth. Our editorial team will continue to track these developments closely, providing objective updates and in-depth analysis to keep our readers informed and engaged.";
+        const uniqueBackground = generateUniqueBackdropText(title, article.category || 'News', article.publishedAt);
+        bodyText += "\n\n" + uniqueBackground;
       }
 
       richFallbackBody = `

@@ -7,8 +7,11 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Text;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Services;
 using WorldNewzWebAPI.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace WorldNewzWebAPI.Controllers
 {
@@ -19,16 +22,22 @@ namespace WorldNewzWebAPI.Controllers
         private readonly INewsApiService _newsApiService;
         private readonly INewsEnrichmentService _enrichmentService;
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly WorldNewsDbContext _db;
+        private readonly string? _geminiApiKey;
         private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
         public NewsController(
             INewsApiService newsApiService, 
             INewsEnrichmentService enrichmentService,
-            IHttpClientFactory httpClientFactory)
+            IHttpClientFactory httpClientFactory,
+            WorldNewsDbContext db,
+            IConfiguration config)
         {
             _newsApiService = newsApiService;
             _enrichmentService = enrichmentService;
             _httpClientFactory = httpClientFactory;
+            _db = db;
+            _geminiApiKey = config["GEMINI_API_KEY"] ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY");
         }
 
         [HttpGet("discover")]
@@ -162,7 +171,11 @@ namespace WorldNewzWebAPI.Controllers
         }
 
         [HttpGet("full-content")]
-        public async Task<IActionResult> GetFullContent([FromQuery] string url)
+        public async Task<IActionResult> GetFullContent(
+            [FromQuery] string url, 
+            [FromQuery] string? title = null, 
+            [FromQuery] string? description = null, 
+            [FromQuery] string? category = null)
         {
             if (string.IsNullOrWhiteSpace(url))
             {
@@ -171,61 +184,245 @@ namespace WorldNewzWebAPI.Controllers
 
             try
             {
-                var client = _httpClientFactory.CreateClient();
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
-                client.Timeout = TimeSpan.FromSeconds(5);
-
-                var response = await client.GetAsync(url);
-                if (!response.IsSuccessStatusCode)
+                // 1. Check if we have the article in EnrichedArticles with FullContent cached
+                var cachedArticle = await _db.EnrichedArticles.AsNoTracking().FirstOrDefaultAsync(e => e.Url == url);
+                if (cachedArticle != null && !string.IsNullOrWhiteSpace(cachedArticle.FullContent))
                 {
-                    return StatusCode((int)response.StatusCode, new { error = $"Failed to fetch source article. Status code: {response.StatusCode}" });
-                }
+                    var cachedParagraphs = cachedArticle.FullContent
+                        .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(p => p.Trim())
+                        .Where(p => p.Length > 0)
+                        .ToList();
 
-                var html = await response.Content.ReadAsStringAsync();
-
-                // Clean script, style, header, footer, comments
-                html = Regex.Replace(html, @"<!--.*?-->", "", RegexOptions.Singleline);
-                html = Regex.Replace(html, @"<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                html = Regex.Replace(html, @"<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                html = Regex.Replace(html, @"<header\b[^<]*(?:(?!<\/header>)<[^<]*)*<\/header>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                html = Regex.Replace(html, @"<footer\b[^<]*(?:(?!<\/footer>)<[^<]*)*<\/footer>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                html = Regex.Replace(html, @"<nav\b[^<]*(?:(?!<\/nav>)<[^<]*)*<\/nav>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-
-                var matches = Regex.Matches(html, @"<p\b[^>]*>(.*?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                var paragraphs = new List<string>();
-
-                foreach (Match match in matches)
-                {
-                    var pText = match.Groups[1].Value;
-                    pText = Regex.Replace(pText, @"<[^>]*>", "").Trim();
-                    pText = System.Web.HttpUtility.HtmlDecode(pText);
-
-                    if (pText.Length > 50 && 
-                        !pText.Contains("javascript:", StringComparison.OrdinalIgnoreCase) && 
-                        !pText.Contains("cookies", StringComparison.OrdinalIgnoreCase) &&
-                        !pText.Contains("terms of use", StringComparison.OrdinalIgnoreCase) &&
-                        !pText.Contains("privacy policy", StringComparison.OrdinalIgnoreCase) &&
-                        !pText.Contains("subscribe", StringComparison.OrdinalIgnoreCase) &&
-                        !pText.Contains("advertisement", StringComparison.OrdinalIgnoreCase))
+                    if (cachedParagraphs.Count > 0)
                     {
-                        paragraphs.Add(pText);
+                        Response.Headers.CacheControl = "public, max-age=86400"; // Cache dynamic article for 24 hours at edge
+                        return Ok(new { success = true, content = cachedParagraphs });
                     }
                 }
 
-                if (paragraphs.Count == 0)
+                // 2. Not cached. Try to fetch/scrape first.
+                var paragraphs = new List<string>();
+                string html = "";
+                try
                 {
-                    return Ok(new { success = false, message = "No readable paragraphs found." });
+                    var client = _httpClientFactory.CreateClient();
+                    client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+                    client.Timeout = TimeSpan.FromSeconds(5);
+
+                    var response = await client.GetAsync(url);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        html = await response.Content.ReadAsStringAsync();
+
+                        // Clean HTML
+                        html = Regex.Replace(html, @"<!--.*?-->", "", RegexOptions.Singleline);
+                        html = Regex.Replace(html, @"<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                        html = Regex.Replace(html, @"<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                        html = Regex.Replace(html, @"<header\b[^<]*(?:(?!<\/header>)<[^<]*)*<\/header>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                        html = Regex.Replace(html, @"<footer\b[^<]*(?:(?!<\/footer>)<[^<]*)*<\/footer>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                        html = Regex.Replace(html, @"<nav\b[^<]*(?:(?!<\/nav>)<[^<]*)*<\/nav>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+                        var matches = Regex.Matches(html, @"<p\b[^>]*>(.*?)</p>", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                        foreach (Match match in matches)
+                        {
+                            var pText = match.Groups[1].Value;
+                            pText = Regex.Replace(pText, @"<[^>]*>", "").Trim();
+                            pText = System.Web.HttpUtility.HtmlDecode(pText);
+
+                            if (pText.Length > 50 && 
+                                !pText.Contains("javascript:", StringComparison.OrdinalIgnoreCase) && 
+                                !pText.Contains("cookies", StringComparison.OrdinalIgnoreCase) &&
+                                !pText.Contains("terms of use", StringComparison.OrdinalIgnoreCase) &&
+                                !pText.Contains("privacy policy", StringComparison.OrdinalIgnoreCase) &&
+                                !pText.Contains("subscribe", StringComparison.OrdinalIgnoreCase) &&
+                                !pText.Contains("advertisement", StringComparison.OrdinalIgnoreCase))
+                            {
+                                paragraphs.Add(pText);
+                            }
+                        }
+                    }
+                }
+                catch (Exception scrapeEx)
+                {
+                    Console.WriteLine($"[FullContent] Scraping failed for {url}: {scrapeEx.Message}");
                 }
 
-                // Return at most 15 paragraphs
-                var content = paragraphs.Take(15).ToList();
-                Response.Headers.CacheControl = "public, max-age=3600";
-                return Ok(new { success = true, content = content });
+                // 3. Check if scraped content is sufficient (5+ paragraphs and 600+ words)
+                var wordCount = paragraphs.Sum(p => p.Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length);
+                if (paragraphs.Count >= 5 && wordCount >= 600)
+                {
+                    await SaveFullContentToCacheAsync(url, string.Join("\n\n", paragraphs));
+                    Response.Headers.CacheControl = "public, max-age=86400";
+                    return Ok(new { success = true, content = paragraphs.Take(15).ToList() });
+                }
+
+                // 4. Content is thin or scraping failed. Call Gemini to generate a high-quality, unique 600+ word report!
+                if (!string.IsNullOrWhiteSpace(_geminiApiKey))
+                {
+                    // Fallback search in database if title is missing
+                    if (string.IsNullOrWhiteSpace(title))
+                    {
+                        var dbArt = await _db.NewsArticles.AsNoTracking().FirstOrDefaultAsync(a => a.Url == url);
+                        if (dbArt != null)
+                        {
+                            title = dbArt.Title;
+                            description ??= dbArt.Description;
+                        }
+                        else
+                        {
+                            // Try to parse title from HTML title tag
+                            var titleMatch = Regex.Match(html, @"<title>(.*?)</title>", RegexOptions.IgnoreCase);
+                            if (titleMatch.Success)
+                            {
+                                title = System.Web.HttpUtility.HtmlDecode(titleMatch.Groups[1].Value.Replace(" - BBC News", "").Replace(" - Reuters", "").Trim());
+                            }
+                        }
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(title))
+                    {
+                        var generatedParagraphs = await GenerateArticleWithGeminiAsync(title, description, category, paragraphs);
+                        if (generatedParagraphs != null && generatedParagraphs.Count > 0)
+                        {
+                            await SaveFullContentToCacheAsync(url, string.Join("\n\n", generatedParagraphs));
+                            Response.Headers.CacheControl = "public, max-age=86400";
+                            return Ok(new { success = true, content = generatedParagraphs });
+                        }
+                    }
+                }
+
+                // 5. If Gemini is not configured or failed, return whatever we scraped (even if thin)
+                if (paragraphs.Count > 0)
+                {
+                    return Ok(new { success = true, content = paragraphs.Take(15).ToList() });
+                }
+
+                return Ok(new { success = false, message = "No readable paragraphs found." });
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { error = "Error extracting article content", details = ex.Message });
             }
+        }
+
+        private async Task SaveFullContentToCacheAsync(string url, string fullContent)
+        {
+            try
+            {
+                var cached = await _db.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == url);
+                if (cached != null)
+                {
+                    cached.FullContent = fullContent;
+                    cached.EnrichedAt = DateTime.UtcNow;
+                    _db.EnrichedArticles.Update(cached);
+                }
+                else
+                {
+                    var dbArt = await _db.NewsArticles.AsNoTracking().FirstOrDefaultAsync(a => a.Url == url);
+                    _db.EnrichedArticles.Add(new EnrichedArticle
+                    {
+                        Url = url,
+                        Headline = dbArt?.Title ?? "News Update",
+                        Summary = dbArt?.Description ?? string.Empty,
+                        Context = string.Empty,
+                        SocialMediaHook = string.Empty,
+                        Verified = true,
+                        EnrichedAt = DateTime.UtcNow,
+                        FullContent = fullContent
+                    });
+                }
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[SaveFullContentToCache] Database write failed: {ex.Message}");
+            }
+        }
+
+        private async Task<List<string>?> GenerateArticleWithGeminiAsync(
+            string title, 
+            string? description, 
+            string? category, 
+            List<string> scrapedParagraphs)
+        {
+            try
+            {
+                var client = _httpClientFactory.CreateClient();
+                client.Timeout = TimeSpan.FromSeconds(15);
+                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
+
+                var scrapedText = scrapedParagraphs != null && scrapedParagraphs.Count > 0 
+                    ? string.Join(" ", scrapedParagraphs)
+                    : "";
+
+                var prompt = $@"
+You are a senior professional journalist writing for WorldNewzs (https://worldnewzs.in). 
+Write a comprehensive, high-quality, and completely unique news report based on the following information:
+
+Title: {title}
+Summary/Key point: {description ?? "News update details"}
+Category: {category ?? "General"}
+Contextual Snippet (from wire service): {scrapedText}
+
+Requirements:
+- The article MUST be 600+ words long (aim for 600 to 800 words).
+- Write in a highly informative, professional, and objective journalistic tone.
+- Do NOT use repetitive sentences, generic fluff, or boilerplate paragraphs. Make every paragraph contribute new details, background context, geopolitical or market implications, or potential future outlooks.
+- Organize the report logically. You may include sub-headings (e.g. ### Background, ### Strategic Implications, ### Expert Insights, ### Looking Forward) to divide sections.
+- Make the content fully publishable, unique, and appealing to readers. Do NOT write any meta-talk or introductory remarks (e.g. do not say 'Here is the article', do not use markdown code wrappers like ```json or ```html, do not state that you are an AI or this is generated).
+- Output the article as plain text paragraphs separated by double newlines.
+";
+
+                var payload = new
+                {
+                    contents = new[]
+                    {
+                        new { parts = new[] { new { text = prompt } } }
+                    }
+                };
+
+                var requestContent = new StringContent(JsonSerializer.Serialize(payload), System.Text.Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(url, requestContent);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"[GeminiGenerateContent] Gemini API error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
+                    return null;
+                }
+
+                var responseBody = await response.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(responseBody);
+                var root = doc.RootElement;
+
+                if (root.TryGetProperty("candidates", out var candidates) && 
+                    candidates.ValueKind == JsonValueKind.Array && 
+                    candidates.GetArrayLength() > 0)
+                {
+                    var content = candidates[0].GetProperty("content");
+                    var parts = content.GetProperty("parts");
+                    if (parts.ValueKind == JsonValueKind.Array && parts.GetArrayLength() > 0)
+                    {
+                        var textStr = parts[0].GetProperty("text").GetString();
+                        if (!string.IsNullOrWhiteSpace(textStr))
+                        {
+                            var paragraphs = textStr
+                                .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(p => p.Trim())
+                                .Where(p => p.Length > 0)
+                                .ToList();
+
+                            return paragraphs;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[GeminiGenerateContent] Exception during Gemini article generation: {ex.Message}");
+            }
+
+            return null;
         }
 
         [HttpPost("gemini-search")]

@@ -101,6 +101,7 @@ namespace WorldNewzWebAPI.Services
                         dto.SocialMediaHook = cached.SocialMediaHook;
                         // Keep the verified flag calculated above or combine with DB
                         dto.Verified = dto.Verified || cached.Verified;
+                        dto.FullContent = cached.FullContent;
                     }
                     else
                     {
@@ -121,7 +122,8 @@ namespace WorldNewzWebAPI.Services
                             Context = dto.Context ?? string.Empty,
                             SocialMediaHook = dto.SocialMediaHook ?? string.Empty,
                             Verified = dto.Verified,
-                            EnrichedAt = DateTime.UtcNow
+                            EnrichedAt = DateTime.UtcNow,
+                            FullContent = dto.FullContent
                         };
 
                         try
@@ -146,6 +148,7 @@ namespace WorldNewzWebAPI.Services
                                 dto.Context = existing.Context;
                                 dto.SocialMediaHook = existing.SocialMediaHook;
                                 dto.Verified = dto.Verified || existing.Verified;
+                                dto.FullContent = existing.FullContent;
                                 Console.WriteLine($"[EnrichmentService] Concurrency recovery successful for '{dto.Title}'.");
                             }
                             else

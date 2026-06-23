@@ -49,6 +49,7 @@ interface NewsCardProps {
   onDislikeComment?: (articleUrl: string, commentId: string) => void;
   engagement?: any;
   loading?: "lazy" | "eager";
+  isDuplicateImage?: boolean;
 }
 
 const formatTimeAgoLong = (dateString?: string) => {
@@ -150,6 +151,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   onDislikeComment,
   engagement,
   loading = "lazy",
+  isDuplicateImage = false,
 }) => {
   const navigate = useNavigate();
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
@@ -157,7 +159,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
   const shareOpen = Boolean(shareAnchorEl);
 
   const originalUrl = article.urlToImage || article.imageUrl || "";
-  const optimizedUrl = React.useMemo(() => optimizeImageUrl(originalUrl, 500), [originalUrl]);
+  const optimizedUrl = React.useMemo(() => {
+    if (!originalUrl || isDuplicateImage) return "";
+    return optimizeImageUrl(originalUrl, 500);
+  }, [originalUrl, isDuplicateImage]);
+
   const [imgSrc, setImgSrc] = useState(optimizedUrl);
   const [isFallback, setIsFallback] = useState(false);
 

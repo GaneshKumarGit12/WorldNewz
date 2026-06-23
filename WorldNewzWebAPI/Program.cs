@@ -448,7 +448,8 @@ using (var scope = app.Services.CreateScope())
                 Context TEXT NOT NULL,
                 SocialMediaHook TEXT NOT NULL,
                 Verified INTEGER NOT NULL,
-                EnrichedAt TEXT NOT NULL
+                EnrichedAt TEXT NOT NULL,
+                FullContent TEXT NULL
             );
         ");
 
@@ -552,6 +553,32 @@ using (var scope = app.Services.CreateScope())
                 CreatedAt TEXT NOT NULL
             );
         ");
+    }
+
+    // Run database alteration migrations to ensure EnrichedArticles has FullContent column across all provider types
+    try
+    {
+        if (db.Database.IsSqlite())
+        {
+            db.Database.ExecuteSqlRaw("ALTER TABLE EnrichedArticles ADD COLUMN FullContent TEXT NULL;");
+            logger.LogInformation("✓ SQLite EnrichedArticles table FullContent column verified.");
+        }
+        else if (db.Database.ProviderName != null && db.Database.ProviderName.Contains("PostgreSQL"))
+        {
+            db.Database.ExecuteSqlRaw(@"ALTER TABLE ""EnrichedArticles"" ADD COLUMN IF NOT EXISTS ""FullContent"" TEXT NULL;");
+            logger.LogInformation("✓ PostgreSQL EnrichedArticles table FullContent column verified.");
+        }
+        else // SQL Server
+        {
+            db.Database.ExecuteSqlRaw(@"
+                IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID(N'[dbo].[EnrichedArticles]') AND name = 'FullContent') 
+                ALTER TABLE [dbo].[EnrichedArticles] ADD [FullContent] NVARCHAR(MAX) NULL;");
+            logger.LogInformation("✓ SQL Server EnrichedArticles table FullContent column verified.");
+        }
+    }
+    catch (Exception ex)
+    {
+        logger.LogWarning($"⚠️ Non-critical schema alteration check: {ex.Message}");
     }
 
     // Seed default categories
