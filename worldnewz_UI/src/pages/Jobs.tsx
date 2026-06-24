@@ -25,6 +25,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/Home";
 import { fetchJobs } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 interface Job {
   slug: string;
@@ -370,6 +371,8 @@ const Jobs: React.FC = () => {
           </Box>
         </>
       )}
+
+      <CategoryEditorial categoryKey="jobs" />
 
       {/* Attribution footer */}
       <Box sx={{ mt: 6, p: 2, borderRadius: 2, bgcolor: "action.hover", textAlign: "center" }}>

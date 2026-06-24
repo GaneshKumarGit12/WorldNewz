@@ -32,6 +32,7 @@ import type { StockItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 const Stocks: React.FC = () => {
   const [exchange, setExchange] = useState<string>("NYSE");
@@ -353,6 +354,8 @@ const Stocks: React.FC = () => {
             </TableContainer>
           </Card>
         )}
+
+        <CategoryEditorial categoryKey="stocks" />
       </Container>
     </>
   );

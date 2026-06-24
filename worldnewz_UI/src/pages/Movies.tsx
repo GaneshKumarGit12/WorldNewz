@@ -33,6 +33,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { Helmet } from "react-helmet-async";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 import {
   fetchMoviesBrowse,
@@ -515,6 +516,8 @@ const Movies: React.FC = () => {
             )}
           </>
         )}
+
+        <CategoryEditorial categoryKey="movies" />
 
         {/* TMDB API Attribution */}
         <Box textAlign="center" mt={8} pt={3} borderTop="1px solid" borderColor="divider">

@@ -31,6 +31,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import CloseIcon from "@mui/icons-material/Close";
 import GamepadIcon from "@mui/icons-material/Gamepad";
 import { Helmet } from "react-helmet-async";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 import {
   fetchFreeToPlayGames,
@@ -463,6 +464,8 @@ const Gaming: React.FC = () => {
             ))}
           </Grid>
         )}
+
+        <CategoryEditorial categoryKey="gaming" />
 
         {/* Footer Attribution as requested by Terms of Use */}
         <Box textAlign="center" mt={6} pt={3} borderTop="1px solid" borderColor="divider">

@@ -31,6 +31,7 @@ import type { QuizQuestionItem } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 const TIMER_DURATION = 15; // 15 seconds per question
 
@@ -668,6 +669,8 @@ const BadgeQuiz: React.FC = () => {
             })()}
           </Box>
         )}
+
+        <CategoryEditorial categoryKey="badge-quiz" />
 
         {/* Results Popup Dialog */}
         <Dialog

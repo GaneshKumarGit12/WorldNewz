@@ -32,6 +32,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
 import { useColorMode } from "../context/ThemeContext";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 const BANNED_WORDS = [
   "pornography", "pronography", "sexual", "sexsual", 
@@ -801,6 +802,8 @@ const Polls: React.FC = () => {
             })()}
           </Box>
         )}
+
+        <CategoryEditorial categoryKey="polls" />
 
         {/* ─── PHASE 3: RATING POPUP DIALOG ─── */}
         <Dialog

@@ -19,6 +19,7 @@ import { useColorMode } from "../context/ThemeContext";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
 import { AffiliateDeals } from "./AffiliateDeals";
+import { CategoryEditorial } from "./CategoryEditorial";
 
 interface CategoryPageProps {
   categoryKey: string;
@@ -280,6 +281,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
       {["technology", "business", "science-health", "shopping", "money"].includes(categoryKey) && (
         <AffiliateDeals category={categoryKey} />
       )}
+
+      {/* --- Category Specific Editorial Guide --- */}
+      <CategoryEditorial categoryKey={categoryKey} />
 
       {/* --- News Feed Rendering --- */}
       <SectionStatus 

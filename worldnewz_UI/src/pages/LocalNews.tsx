@@ -33,6 +33,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useColorMode } from "../context/ThemeContext";
 import type { Article } from "../types";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 const LocalNews: React.FC = () => {
   const { mode } = useColorMode();
@@ -427,6 +428,8 @@ const LocalNews: React.FC = () => {
             )}
           </>
         )}
+
+        <CategoryEditorial categoryKey="local-news" />
       </Box>
     </Box>
   );

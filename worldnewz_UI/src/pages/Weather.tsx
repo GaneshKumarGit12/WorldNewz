@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import SectionStatus from "../components/SectionStatus";
+import { CategoryEditorial } from "../components/CategoryEditorial";
 
 type DailyForecast = {
   date?: string;
@@ -226,6 +227,8 @@ const Weather: React.FC = () => {
           </Grid>
         </Grid>
       </SectionStatus>
+
+      <CategoryEditorial categoryKey="weather" />
     </Box>
   );
 };
