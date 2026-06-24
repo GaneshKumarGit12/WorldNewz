@@ -202,6 +202,56 @@ function escapeHtml(unsafe) {
     .replace(/'/g, '&#039;');
 }
 
+function convertMarkdownToHtml(text) {
+  if (!text) return '';
+  
+  const blocks = text.split(/\n\n+/);
+  return blocks.map(block => {
+    let trimmed = block.trim();
+    if (!trimmed) return '';
+    
+    // Headings
+    if (trimmed.startsWith('### ')) {
+      return `<h3 style="font-size: 1.4rem; font-weight: 700; margin-top: 30px; margin-bottom: 15px; color: #c83a15;">${escapeHtml(trimmed.substring(4))}</h3>`;
+    }
+    if (trimmed.startsWith('## ')) {
+      return `<h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 30px; margin-bottom: 15px; color: #c83a15;">${escapeHtml(trimmed.substring(3))}</h2>`;
+    }
+    if (trimmed.startsWith('# ')) {
+      return `<h1 style="font-size: 2.0rem; font-weight: 800; margin-top: 30px; margin-bottom: 15px; color: #c83a15;">${escapeHtml(trimmed.substring(2))}</h1>`;
+    }
+    
+    // Lists
+    if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+      const items = trimmed.split(/\n[*+-]\s+/);
+      const listItemsHtml = items.map(item => {
+        const itemText = item.replace(/^[*+-]\s+/, '');
+        return `<li style="margin-bottom: 8px;">${parseInlineMarkdownHtml(itemText)}</li>`;
+      }).join('');
+      return `<ul style="margin-left: 20px; margin-bottom: 20px;">${listItemsHtml}</ul>`;
+    }
+    
+    // Regular paragraph
+    return `<p style="margin-bottom: 20px; text-align: justify; line-height: 1.8;">${parseInlineMarkdownHtml(trimmed)}</p>`;
+  }).join('\n');
+}
+
+function parseInlineMarkdownHtml(text) {
+  let html = escapeHtml(text);
+  
+  // Bold: **text**
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  
+  // Links: [text](url)
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, (match, linkText, linkUrl) => {
+    const isExternal = linkUrl.startsWith('http');
+    const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${linkUrl}" style="color: #c83a15; font-weight: 600; text-decoration: underline;"${targetAttr}>${linkText}</a>`;
+  });
+  
+  return html;
+}
+
 function replaceMeta(htmlStr, propertyAttr, attrValue, newValue) {
   const regex1 = new RegExp(
     `(<meta\\s+[^>]*(?:name|property)=["']${attrValue}["'][^>]*content=)["'].*?["']`,
@@ -705,8 +755,8 @@ export default async function handler(req, res) {
             <strong>By ${escapeHtml(article.author || 'Editorial Staff')}</strong> | Published on: ${escapeHtml(article.publishedAt)} | Category: ${escapeHtml(article.category || 'News')}
           </p>
           ${imageUrl ? `<img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 25px;" />` : ''}
-          <div style="font-size: 1.1rem; line-height: 1.8; color: #222; text-align: justify; white-space: pre-wrap;">
-            ${bodyText}
+          <div style="font-size: 1.1rem; line-height: 1.8; color: #222; text-align: justify;">
+            ${convertMarkdownToHtml(bodyText)}
           </div>
         </article>
       `;

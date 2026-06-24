@@ -280,6 +280,124 @@ const ReadFullArticles: React.FC = () => {
     }
   };
 
+  const parseInlineMarkdown = (text: string): React.ReactNode[] => {
+    const parts: React.ReactNode[] = [];
+    if (!text) return parts;
+
+    const regex = /(\*\*.*?\*\*|\[.*?\]\(.*?\))/g;
+    const splitParts = text.split(regex);
+
+    return splitParts.map((part, index) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
+      }
+      if (part.startsWith("[") && part.includes("](")) {
+        const match = part.match(/\[(.*?)\]\((.*?)\)/);
+        if (match) {
+          const linkText = match[1];
+          const linkUrl = match[2];
+          const isExternal = linkUrl.startsWith("http");
+          if (isExternal) {
+            return (
+              <MuiLink 
+                key={index} 
+                href={linkUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                sx={{ fontWeight: 600, color: "primary.main", textDecoration: "underline" }}
+              >
+                {linkText}
+              </MuiLink>
+            );
+          } else {
+            const path = linkUrl.replace(/^https?:\/\/worldnewzs\.in/, "").replace(/^\/?/, "/");
+            return (
+              <MuiLink 
+                key={index} 
+                component={Link} 
+                to={path} 
+                sx={{ fontWeight: 600, color: "primary.main", textDecoration: "underline" }}
+              >
+                {linkText}
+              </MuiLink>
+            );
+          }
+        }
+      }
+      return part;
+    });
+  };
+
+  const renderParagraph = (text: string, index: number) => {
+    const trimmed = text.trim();
+    if (!trimmed) return null;
+
+    if (trimmed.startsWith("### ")) {
+      return (
+        <Typography 
+          key={index} 
+          variant="h5" 
+          component="h3" 
+          sx={{ fontWeight: 750, mt: 4, mb: 2, color: "text.primary" }}
+        >
+          {trimmed.substring(4)}
+        </Typography>
+      );
+    }
+    if (trimmed.startsWith("## ")) {
+      return (
+        <Typography 
+          key={index} 
+          variant="h4" 
+          component="h2" 
+          sx={{ fontWeight: 800, mt: 4, mb: 2, color: "text.primary" }}
+        >
+          {trimmed.substring(3)}
+        </Typography>
+      );
+    }
+    if (trimmed.startsWith("# ")) {
+      return (
+        <Typography 
+          key={index} 
+          variant="h3" 
+          component="h1" 
+          sx={{ fontWeight: 800, mt: 4, mb: 2, color: "text.primary" }}
+        >
+          {trimmed.substring(2)}
+        </Typography>
+      );
+    }
+
+    if (trimmed.startsWith("* ") || trimmed.startsWith("- ")) {
+      return (
+        <Box 
+          key={index} 
+          component="li" 
+          sx={{ ml: 3, mb: 1, fontSize: { xs: "1rem", sm: "1.05rem" }, lineHeight: 1.8, color: "text.primary" }}
+        >
+          {parseInlineMarkdown(trimmed.substring(2))}
+        </Box>
+      );
+    }
+
+    return (
+      <Typography
+        key={index}
+        variant="body1"
+        sx={{
+          fontSize: { xs: "1rem", sm: "1.05rem" },
+          lineHeight: 1.8,
+          color: "text.primary",
+          mb: 2.5,
+          textAlign: "justify"
+        }}
+      >
+        {parseInlineMarkdown(trimmed)}
+      </Typography>
+    );
+  };
+
   const formatDate = (dateString?: string) => {
     if (!dateString) return "Date unknown";
     try {
@@ -478,21 +596,7 @@ const ReadFullArticles: React.FC = () => {
 
             {!scrapingLoading && paragraphs.length > 0 && (
               <Box>
-                {paragraphs.map((para, index) => (
-                  <Typography
-                    key={index}
-                    variant="body1"
-                    sx={{
-                      fontSize: { xs: "1rem", sm: "1.05rem" },
-                      lineHeight: 1.8,
-                      color: "text.primary",
-                      mb: 2.5,
-                      textAlign: "justify"
-                    }}
-                  >
-                    {para}
-                  </Typography>
-                ))}
+                {paragraphs.map((para, index) => renderParagraph(para, index))}
                 
                 <Box sx={{ mt: 5, p: 2, bgcolor: "action.hover", borderRadius: 1, borderLeft: `4px solid ${catConfig.color}` }}>
                   <Typography variant="body2" color="text.secondary">

@@ -282,7 +282,7 @@ namespace WorldNewzWebAPI.Controllers
 
                     if (!string.IsNullOrWhiteSpace(title))
                     {
-                        var generatedParagraphs = await GenerateArticleWithGeminiAsync(title, description, category, paragraphs);
+                        var generatedParagraphs = await _enrichmentService.GenerateArticleWithGeminiAsync(title, description, category, paragraphs);
                         if (generatedParagraphs != null && generatedParagraphs.Count > 0)
                         {
                             await SaveFullContentToCacheAsync(url, string.Join("\n\n", generatedParagraphs));
@@ -303,6 +303,20 @@ namespace WorldNewzWebAPI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { error = "Error extracting article content", details = ex.Message });
+            }
+        }
+
+        [HttpPost("admin/pre-enrich")]
+        public async Task<IActionResult> TriggerPreEnrichment([FromQuery] int count = 5)
+        {
+            try
+            {
+                await _enrichmentService.PreEnrichLatestArticlesAsync(count);
+                return Ok(new { success = true, message = "Pre-enrichment completed successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message, details = ex.InnerException?.Message ?? ex.Message });
             }
         }
 
@@ -340,90 +354,6 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
-        private async Task<List<string>?> GenerateArticleWithGeminiAsync(
-            string title, 
-            string? description, 
-            string? category, 
-            List<string> scrapedParagraphs)
-        {
-            try
-            {
-                var client = _httpClientFactory.CreateClient();
-                client.Timeout = TimeSpan.FromSeconds(15);
-                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
-
-                var scrapedText = scrapedParagraphs != null && scrapedParagraphs.Count > 0 
-                    ? string.Join(" ", scrapedParagraphs)
-                    : "";
-
-                var prompt = $@"
-You are a senior professional journalist writing for WorldNewzs (https://worldnewzs.in). 
-Write a comprehensive, high-quality, and completely unique news report based on the following information:
-
-Title: {title}
-Summary/Key point: {description ?? "News update details"}
-Category: {category ?? "General"}
-Contextual Snippet (from wire service): {scrapedText}
-
-Requirements:
-- The article MUST be 600+ words long (aim for 600 to 800 words).
-- Write in a highly informative, professional, and objective journalistic tone.
-- Do NOT use repetitive sentences, generic fluff, or boilerplate paragraphs. Make every paragraph contribute new details, background context, geopolitical or market implications, or potential future outlooks.
-- Organize the report logically. You may include sub-headings (e.g. ### Background, ### Strategic Implications, ### Expert Insights, ### Looking Forward) to divide sections.
-- Make the content fully publishable, unique, and appealing to readers. Do NOT write any meta-talk or introductory remarks (e.g. do not say 'Here is the article', do not use markdown code wrappers like ```json or ```html, do not state that you are an AI or this is generated).
-- Output the article as plain text paragraphs separated by double newlines.
-";
-
-                var payload = new
-                {
-                    contents = new[]
-                    {
-                        new { parts = new[] { new { text = prompt } } }
-                    }
-                };
-
-                var requestContent = new StringContent(JsonSerializer.Serialize(payload), System.Text.Encoding.UTF8, "application/json");
-                var response = await client.PostAsync(url, requestContent);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine($"[GeminiGenerateContent] Gemini API error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
-                    return null;
-                }
-
-                var responseBody = await response.Content.ReadAsStringAsync();
-                using var doc = JsonDocument.Parse(responseBody);
-                var root = doc.RootElement;
-
-                if (root.TryGetProperty("candidates", out var candidates) && 
-                    candidates.ValueKind == JsonValueKind.Array && 
-                    candidates.GetArrayLength() > 0)
-                {
-                    var content = candidates[0].GetProperty("content");
-                    var parts = content.GetProperty("parts");
-                    if (parts.ValueKind == JsonValueKind.Array && parts.GetArrayLength() > 0)
-                    {
-                        var textStr = parts[0].GetProperty("text").GetString();
-                        if (!string.IsNullOrWhiteSpace(textStr))
-                        {
-                            var paragraphs = textStr
-                                .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
-                                .Select(p => p.Trim())
-                                .Where(p => p.Length > 0)
-                                .ToList();
-
-                            return paragraphs;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[GeminiGenerateContent] Exception during Gemini article generation: {ex.Message}");
-            }
-
-            return null;
-        }
 
         [HttpPost("gemini-search")]
         public async Task<IActionResult> GeminiSearch([FromBody] GeminiSearchRequest request)
