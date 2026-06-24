@@ -376,37 +376,14 @@ const App: React.FC = () => {
 
           {/* Desktop nav */}
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
-            {primaryNavLinks.map((link) => {
-              const isHighlighted = link.highlight;
+            {primaryNavLinks.filter((link) => !link.highlight).map((link) => {
               const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
               return (
                 <Button
                   key={link.path}
                   component={Link}
                   to={link.path}
-                  sx={isHighlighted ? {
-                    background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
-                    color: "white",
-                    fontWeight: "bold",
-                    borderRadius: "20px",
-                    px: 2,
-                    mx: 0.5,
-                    fontSize: "0.85rem",
-                    textTransform: "none",
-                    whiteSpace: "nowrap",
-                    height: "36px",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: isActive ? "0 0 10px rgba(255,255,255,0.4)" : "none",
-                    border: isActive ? "1px solid #fff" : "1px solid transparent",
-                    transition: "all 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-1px)",
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-                      filter: "brightness(1.1)",
-                    },
-                  } : {
+                  sx={{
                     color: "white",
                     fontWeight: isActive ? "bold" : "normal",
                     borderBottom: isActive ? "2px solid #c83a15" : "none",
@@ -551,6 +528,57 @@ const App: React.FC = () => {
             </IconButton>
           </Box>
         </Toolbar>
+
+        {/* Centered responsive navigation buttons (Polls, GK Quiz, MoviesDB, Deals, Jobs) */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 1.5,
+            py: 1.5,
+            px: 2,
+            backgroundColor: isDark ? "#12161a" : "#050505",
+            borderTop: "1px solid rgba(255,255,255,0.08)",
+          }}
+        >
+          {primaryNavLinks.filter((link) => link.highlight).map((link) => {
+            const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
+            return (
+              <Button
+                key={link.path}
+                component={Link}
+                to={link.path}
+                sx={{
+                  background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
+                  color: "white",
+                  fontWeight: "bold",
+                  borderRadius: "20px",
+                  px: 2.2,
+                  mx: 0.5,
+                  fontSize: "0.85rem",
+                  textTransform: "none",
+                  whiteSpace: "nowrap",
+                  height: "36px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: isActive ? "0 0 10px rgba(255,255,255,0.4)" : "none",
+                  border: isActive ? "1px solid #fff" : "1px solid transparent",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "translateY(-1px)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+                    filter: "brightness(1.1)",
+                  },
+                }}
+              >
+                {link.label}
+              </Button>
+            );
+          })}
+        </Box>
       </AppBar>
 
       {/* ─── Mobile Drawer ─── */}
