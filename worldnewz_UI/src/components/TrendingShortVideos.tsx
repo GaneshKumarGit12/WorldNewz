@@ -203,20 +203,41 @@ export const TrendingShortVideos: React.FC = () => {
               }}
             >
               {/* HTML5 video loop player */}
-              <video
-                src={video.videoUrl}
-                loop
-                muted
-                playsInline
-                onMouseEnter={handleHoverPlay}
-                onMouseLeave={handleHoverPause}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  opacity: 0.85,
-                }}
-              />
+              {/* Hybrid Video Preview (Thumbnail image for YouTube, video player for raw MP4) */}
+              {video.videoUrl.includes("youtube.com") || video.videoUrl.includes("embed") ? (
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url(https://img.youtube.com/vi/${video.id}/hqdefault.jpg)`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    opacity: 0.85,
+                    transition: "opacity 0.2s",
+                    "&:hover": { opacity: 1 },
+                  }}
+                >
+                  <PlayArrowIcon sx={{ fontSize: 50, color: "#fff", filter: "drop-shadow(0px 2px 10px rgba(0,0,0,0.5))" }} />
+                </Box>
+              ) : (
+                <video
+                  src={video.videoUrl}
+                  loop
+                  muted
+                  playsInline
+                  onMouseEnter={handleHoverPlay}
+                  onMouseLeave={handleHoverPause}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    opacity: 0.85,
+                  }}
+                />
+              )}
 
               {/* Views Counter (Top Left) */}
               <Box
@@ -412,49 +433,64 @@ export const TrendingShortVideos: React.FC = () => {
                 justifyContent: "center",
               }}
             >
-              <video
-                ref={mainVideoRef}
-                src={activeVideo.videoUrl}
-                autoPlay
-                loop
-                muted={muted}
-                playsInline
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                }}
-              />
+              {activeVideo.videoUrl.includes("youtube.com") || activeVideo.videoUrl.includes("embed") ? (
+                <iframe
+                  src={`${activeVideo.videoUrl}?autoplay=1&mute=${muted ? 1 : 0}&loop=1&playlist=${activeVideo.id}&controls=1`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                  }}
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                />
+              ) : (
+                <>
+                  <video
+                    ref={mainVideoRef}
+                    src={activeVideo.videoUrl}
+                    autoPlay
+                    loop
+                    muted={muted}
+                    playsInline
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
 
-              {/* Custom Controller Overlay */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: 16,
-                  left: 16,
-                  right: 16,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  bgcolor: "rgba(0,0,0,0.6)",
-                  p: 1,
-                  borderRadius: 3,
-                  backdropFilter: "blur(4px)",
-                }}
-              >
-                <IconButton onClick={handlePlayPause} sx={{ color: "#fff" }}>
-                  {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
-                </IconButton>
+                  {/* Custom Controller Overlay */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: 16,
+                      left: 16,
+                      right: 16,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      bgcolor: "rgba(0,0,0,0.6)",
+                      p: 1,
+                      borderRadius: 3,
+                      backdropFilter: "blur(4px)",
+                    }}
+                  >
+                    <IconButton onClick={handlePlayPause} sx={{ color: "#fff" }}>
+                      {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
+                    </IconButton>
 
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.7)" }}>
-                    {activeVideo.duration}
-                  </Typography>
-                  <IconButton onClick={handleVolumeToggle} sx={{ color: "#fff" }}>
-                    {muted ? <VolumeOffIcon /> : <VolumeUpIcon />}
-                  </IconButton>
-                </Box>
-              </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.7)" }}>
+                        {activeVideo.duration}
+                      </Typography>
+                      <IconButton onClick={handleVolumeToggle} sx={{ color: "#fff" }}>
+                        {muted ? <VolumeOffIcon /> : <VolumeUpIcon />}
+                      </IconButton>
+                    </Box>
+                  </Box>
+                </>
+              )}
             </Box>
 
             {/* Right Side: Metadata, Engagement & Comments Panel */}
