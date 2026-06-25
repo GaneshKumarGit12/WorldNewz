@@ -530,3 +530,27 @@ export interface AmazonProductsResponse {
 
 export const fetchAmazonProducts = () =>
   apiClient.get<AmazonProductsResponse>("/amazonproducts");
+
+// Short Videos Interface
+export interface ShortVideo {
+  id: string;
+  title: string;
+  videoUrl: string;
+  viewsCount: string;
+  likesCount: number;
+  commentsCount: number;
+  author: string;
+  authorAvatar: string;
+  category: string;
+  duration: string;
+}
+
+export interface ShortVideosResponse {
+  status: string;
+  totalResults: number;
+  videos: ShortVideo[];
+}
+
+export const fetchShortVideos = () =>
+  apiClient.get<ShortVideosResponse>("/shortvideos");
+

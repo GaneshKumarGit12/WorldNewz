@@ -19,6 +19,12 @@ import Divider from "@mui/material/Divider";
 import MuiLink from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import { WatchlistWidget } from "./WatchlistWidget";
+import { TopEngagingNewsWidget } from "./TopEngagingNewsWidget";
+import { ShoppingWidget } from "./ShoppingWidget";
+import { WeatherWidget } from "./WeatherWidget";
+import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
+import { TrendingShortVideos } from "./TrendingShortVideos";
 
 
 const Discover: React.FC = () => {
@@ -43,16 +49,29 @@ const Discover: React.FC = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
-
-
+  const [followedTopics, setFollowedTopics] = useState<string[]>([]);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-  const filteredArticles = normalizedSearchTerm
-    ? articles.filter((article) => {
+  const filteredArticles = articles.filter((article) => {
+    if (normalizedSearchTerm) {
       const text = `${article.title} ${article.description ?? ""} ${article.category ?? ""}`.toLowerCase();
       return text.includes(normalizedSearchTerm);
-    })
-    : articles;
+    }
+    if (followedTopics.length > 0) {
+      const sourceName = typeof article.source === "object" && article.source !== null && "name" in article.source
+        ? article.source.name
+        : typeof article.source === "string"
+        ? article.source
+        : "";
+      const category = (article.category ?? sourceName ?? "").toLowerCase();
+      const title = article.title.toLowerCase();
+      return followedTopics.some(topic => 
+        category.includes(topic.toLowerCase()) || 
+        title.includes(topic.toLowerCase())
+      );
+    }
+    return true;
+  });
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
@@ -161,6 +180,28 @@ const Discover: React.FC = () => {
           Stay updated with the latest news from around the world
         </Typography>
       </Box>
+
+      {/* Premium Interactive Widgets Dashboard */}
+      <Grid container spacing={3} sx={{ mb: 4 }} id="homepage-widgets-dashboard">
+        <Grid size={{ xs: 12, md: 4 }}>
+          <WatchlistWidget />
+        </Grid>
+        <Grid size={{ xs: 12, md: 4 }}>
+          <TopEngagingNewsWidget articles={articles} getEngagement={getEngagement} />
+        </Grid>
+        <Grid size={{ xs: 12, md: 4 }}>
+          <ShoppingWidget />
+        </Grid>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <WeatherWidget />
+        </Grid>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <SuggestedForYouWidget onTopicsChange={setFollowedTopics} />
+        </Grid>
+      </Grid>
+
+      {/* Trending Short Videos */}
+      <TrendingShortVideos />
 
       {/* Dynamic Interactive Features Call-to-Action Section */}
       <Grid container spacing={3} sx={{ mb: 4 }}>

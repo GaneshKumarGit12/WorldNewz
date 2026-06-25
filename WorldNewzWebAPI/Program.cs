@@ -207,6 +207,7 @@ builder.Services.AddScoped<INewsEnrichmentService, NewsEnrichmentService>();
 // Existing services
 builder.Services.AddScoped<NewsService>();
 builder.Services.AddScoped<AmazonProductService>();
+builder.Services.AddSingleton<ShortVideoService>();
 builder.Services.AddHttpClient<WeatherService>();
 builder.Services.AddScoped<SeoKeywordService>();
 builder.Services.AddHttpClient<FacebookService>();
