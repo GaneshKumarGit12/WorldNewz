@@ -225,6 +225,7 @@ export const TrendingShortVideos: React.FC = () => {
               ) : (
                 <video
                   src={video.videoUrl}
+                  poster={video.authorAvatar}
                   loop
                   muted
                   playsInline
@@ -449,6 +450,7 @@ export const TrendingShortVideos: React.FC = () => {
                   <video
                     ref={mainVideoRef}
                     src={activeVideo.videoUrl}
+                    poster={activeVideo.authorAvatar}
                     autoPlay
                     loop
                     muted={muted}
