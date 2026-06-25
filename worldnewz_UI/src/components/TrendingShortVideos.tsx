@@ -19,6 +19,12 @@ import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
 import SendIcon from "@mui/icons-material/Send";
 import CircularProgress from "@mui/material/CircularProgress";
+import Link from "@mui/material/Link";
+import { Link as RouterLink } from "react-router-dom";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import { fetchShortVideos } from "../api/apiClient";
 import type { ShortVideo } from "../api/apiClient";
 
@@ -39,8 +45,17 @@ export const TrendingShortVideos: React.FC = () => {
   const [comments, setComments] = useState<Record<string, LocalComment[]>>({});
   const [newComment, setNewComment] = useState("");
   const [commentAuthor, setCommentAuthor] = useState("");
+  const [optionsAnchorEl, setOptionsAnchorEl] = useState<null | HTMLElement>(null);
+  const optionsMenuOpen = Boolean(optionsAnchorEl);
 
   const mainVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleOpenOptionsMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setOptionsAnchorEl(event.currentTarget);
+  };
+  const handleCloseOptionsMenu = () => {
+    setOptionsAnchorEl(null);
+  };
 
   useEffect(() => {
     fetchShortVideos()
@@ -153,12 +168,81 @@ export const TrendingShortVideos: React.FC = () => {
 
   return (
     <Box sx={{ my: 6, textAlign: "left" }}>
-      <Typography variant="h4" sx={{ fontWeight: 800, mb: 1, color: "text.primary" }}>
-        🔥 Trending Shorts
-      </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-        Watch quick, engaging video summaries curated directly by our journalists.
-      </Typography>
+      {/* Header Row */}
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 3 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "action.hover", p: 1, borderRadius: 2, border: "1px solid", borderColor: "divider" }}>
+            <OndemandVideoIcon sx={{ color: "primary.main", fontSize: 24 }} />
+          </Box>
+          <Box>
+            <Typography variant="h4" sx={{ fontWeight: 800, color: "text.primary", m: 0, fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" } }}>
+              Trending Shorts
+            </Typography>
+            <Typography variant="caption" color="text.secondary" sx={{ display: { xs: "none", sm: "block" } }}>
+              Watch quick, engaging video summaries curated directly by our journalists.
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Link
+            component={RouterLink}
+            to="/trending-videos"
+            id="see-more-shorts-header-link"
+            sx={{
+              fontSize: "0.85rem",
+              fontWeight: 800,
+              color: "text.secondary",
+              "&:hover": { color: "primary.main", textDecoration: "underline" },
+            }}
+          >
+            See more
+          </Link>
+          <IconButton 
+            size="small" 
+            id="shorts-header-menu-btn"
+            onClick={handleOpenOptionsMenu}
+          >
+            <MoreHorizIcon fontSize="small" />
+          </IconButton>
+          <Menu
+            anchorEl={optionsAnchorEl}
+            open={optionsMenuOpen}
+            onClose={handleCloseOptionsMenu}
+            MenuListProps={{
+              "aria-labelledby": "shorts-header-menu-btn",
+            }}
+            PaperProps={{
+              sx: {
+                bgcolor: "#090d16",
+                color: "#fff",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: 2,
+                mt: 0.5,
+              }
+            }}
+          >
+            <MenuItem 
+              onClick={handleCloseOptionsMenu}
+              component={RouterLink}
+              to="/trending-videos"
+              sx={{ 
+                fontSize: "0.85rem",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                "&:hover": { bgcolor: "rgba(255,255,255,0.08)" }
+              }}
+            >
+              <span>View All Trending Videos</span>
+              <Box sx={{ bgcolor: "error.main", color: "#fff", fontSize: "0.65rem", fontWeight: "bold", px: 0.8, py: 0.2, borderRadius: 1 }}>
+                Trending
+              </Box>
+            </MenuItem>
+          </Menu>
+        </Box>
+      </Box>
 
       {/* Videos Horizontal Roll Grid */}
       <Box

@@ -48,6 +48,7 @@ const primaryNavLinks = [
   { label: "Politics", path: "/politics" },
   { label: "Technology", path: "/technology" },
   { label: "Business", path: "/business" },
+  { label: "Trending Videos 🎥", path: "/trending-videos", highlight: true, highlightColor: "linear-gradient(135deg, #ef4444, #b91c1c)", badge: "HOT" },
   { label: "Polls 🗳️", path: "/polls", highlight: true, highlightColor: "linear-gradient(135deg, #00c6ff, #0072ff)" },
   { label: "GK Quiz 🏆", path: "/badge-quiz", highlight: true, highlightColor: "linear-gradient(135deg, #f857a6, #ff5858)" },
   { label: "MoviesDB 🎬", path: "/movies", highlight: true, highlightColor: "linear-gradient(135deg, #e11d48, #be123c)" },
@@ -545,7 +546,7 @@ const App: React.FC = () => {
         >
           {primaryNavLinks.filter((link) => link.highlight).map((link) => {
             const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
-            return (
+            const buttonContent = (
               <Button
                 key={link.path}
                 component={Link}
@@ -577,6 +578,30 @@ const App: React.FC = () => {
                 {link.label}
               </Button>
             );
+
+            if ((link as any).badge) {
+              return (
+                <Badge
+                  key={link.path}
+                  badgeContent={(link as any).badge}
+                  color="error"
+                  sx={{
+                    "& .MuiBadge-badge": {
+                      fontSize: "0.6rem",
+                      fontWeight: "bold",
+                      height: 14,
+                      minWidth: 14,
+                      top: 4,
+                      right: 12,
+                      px: 0.5,
+                    },
+                  }}
+                >
+                  {buttonContent}
+                </Badge>
+              );
+            }
+            return buttonContent;
           })}
         </Box>
       </AppBar>
@@ -592,36 +617,69 @@ const App: React.FC = () => {
           {primaryNavLinks.map((link) => {
             const isHighlighted = link.highlight;
             const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
+            const buttonContent = (
+              <ListItemButton
+                component={Link}
+                to={link.path}
+                onClick={() => setDrawerOpen(false)}
+                sx={isHighlighted ? {
+                  background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
+                  color: "white",
+                  borderRadius: "12px",
+                  fontWeight: "bold",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  border: isActive ? "2px solid #fff" : "none",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                  "& .MuiListItemText-primary": {
+                    fontWeight: "700 !important",
+                    fontSize: "0.95rem"
+                  },
+                  "&:hover": {
+                    filter: "brightness(1.1)",
+                  }
+                } : {
+                  fontWeight: isActive ? "bold" : "normal",
+                  color: isActive ? "#c83a15" : "white",
+                  "&:hover": { color: "#ff8a65" },
+                  borderRadius: "8px",
+                  mx: 1,
+                  my: 0.25,
+                  "& .MuiListItemText-primary": {
+                    fontWeight: isActive ? "700" : "500",
+                    fontSize: "0.95rem"
+                  }
+                }}
+              >
+                <ListItemText primary={link.label} />
+              </ListItemButton>
+            );
+
+            const itemContent = (link as any).badge ? (
+              <Badge
+                badgeContent={(link as any).badge}
+                color="error"
+                sx={{
+                  width: "100%",
+                  "& .MuiBadge-badge": {
+                    fontSize: "0.6rem",
+                    fontWeight: "bold",
+                    height: 14,
+                    minWidth: 14,
+                    top: 10,
+                    right: 20,
+                  },
+                }}
+              >
+                {buttonContent}
+              </Badge>
+            ) : (
+              buttonContent
+            );
+
             return (
               <ListItem key={link.path} disablePadding sx={isHighlighted ? { px: 2, py: 0.5 } : {}}>
-                <ListItemButton
-                  component={Link}
-                  to={link.path}
-                  onClick={() => setDrawerOpen(false)}
-                  sx={isHighlighted ? {
-                    background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
-                    color: "white",
-                    borderRadius: "12px",
-                    fontWeight: "bold",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    border: isActive ? "2px solid #fff" : "none",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-                    "& .MuiListItemText-primary": {
-                      fontWeight: "700 !important",
-                      fontSize: "0.95rem"
-                    },
-                    "&:hover": {
-                      filter: "brightness(1.1)",
-                    }
-                  } : {
-                    fontWeight: isActive ? "bold" : "normal",
-                    color: isActive ? "#c83a15" : "white",
-                    "&:hover": { color: "#ff8a65" },
-                  }}
-                >
-                  <ListItemText primary={link.label} sx={isHighlighted ? { textAlign: "center" } : {}} />
-                </ListItemButton>
+                {itemContent}
               </ListItem>
             );
           })}

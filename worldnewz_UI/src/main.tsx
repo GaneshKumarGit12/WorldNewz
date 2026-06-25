@@ -32,6 +32,7 @@ const Entertainment = React.lazy(() => import("./pages/Entertainment"));
 const FacebookSettings = React.lazy(() => import("./pages/FacebookSettings"));
 const AuthorBioPage = React.lazy(() => import("./pages/AuthorBioPage"));
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
+const TrendingVideos = React.lazy(() => import("./pages/TrendingVideos"));
 
 // New categories
 const Politics = React.lazy(() => import("./pages/Politics"));
@@ -104,6 +105,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="movies" element={<Movies />} />
                   <Route path="amazon-products" element={<AmazonProducts />} />
                   <Route path="jobs" element={<Jobs />} />
+                  <Route path="trending-videos" element={<TrendingVideos />} />
                   <Route path="jobs/detail/:slug" element={<JobDetails />} />
                   <Route path="jobs/post-job" element={<PostJob />} />
                   <Route path="search" element={<Search />} />
