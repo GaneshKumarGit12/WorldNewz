@@ -802,6 +802,11 @@ export default async function handler(req, res) {
   html = replaceMeta(html, 'name', 'twitter:card', 'summary_large_image');
   html = replaceMeta(html, 'name', 'twitter:site', '@WorldNewzs');
 
+  // 5b. Inject image preload for LCP optimization
+  if (imageUrl) {
+    html = html.replace('</head>', `<link rel="preload" as="image" href="${escapeHtml(imageUrl)}" fetchpriority="high" />\n</head>`);
+  }
+
   // 6. Inject Schema if present
   if (articleJsonLd) {
     html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(articleJsonLd)}</script>\n</head>`);

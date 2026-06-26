@@ -178,15 +178,14 @@ const AdminDashboard: React.FC = () => {
       } else if (type === "quiz") {
         await deleteQuizHistory(id, adminToken);
       }
-      
-      // Refresh local state list
-      loadTabData(adminToken);
-      setDeleteConfirmOpen(false);
-      setDeleteTarget(null);
     } catch (err: any) {
       console.error("Delete operation failed:", err);
       alert(err.response?.data?.error || "Delete operation failed.");
     } finally {
+      // Always refresh local state list to synchronize with database
+      loadTabData(adminToken);
+      setDeleteConfirmOpen(false);
+      setDeleteTarget(null);
       setDeleting(false);
     }
   };
