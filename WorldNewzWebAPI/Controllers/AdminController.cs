@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
+using WorldNewzWebAPI.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace WorldNewzWebAPI.Controllers
 {
@@ -14,10 +16,14 @@ namespace WorldNewzWebAPI.Controllers
     public class AdminController : ControllerBase
     {
         private readonly UserPollsDbContext _userDb;
+        private readonly IEmailService _emailService;
+        private readonly IConfiguration _configuration;
 
-        public AdminController(UserPollsDbContext userDb)
+        public AdminController(UserPollsDbContext userDb, IEmailService emailService, IConfiguration configuration)
         {
             _userDb = userDb;
+            _emailService = emailService;
+            _configuration = configuration;
         }
 
         public class LoginRequest
@@ -287,5 +293,49 @@ namespace WorldNewzWebAPI.Controllers
                 return StatusCode(500, new { error = "Failed to verify subscriber." });
             }
         }
+
+        [HttpPost("test-email")]
+        public async Task<IActionResult> TestEmail([FromBody] TestEmailRequest request)
+        {
+            if (!IsAuthorized())
+            {
+                return Unauthorized(new { error = "Unauthorized admin access." });
+            }
+
+            if (request == null || string.IsNullOrWhiteSpace(request.Email))
+            {
+                return BadRequest(new { error = "Email address is required." });
+            }
+
+            var smtpPass = _configuration["SMTP_PASS"];
+            if (string.IsNullOrEmpty(smtpPass))
+            {
+                return BadRequest(new { error = "SMTP_PASS is not configured in the server environment variables. Please add it to your Render environment settings." });
+            }
+
+            try
+            {
+                var subject = "WorldNewzs SMTP Test Email";
+                var body = $@"
+<div style=""font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background-color: #ffffff;"">
+    <h2 style=""color: #c83a15; margin-top: 0;"">WORLDNEWZS</h2>
+    <p>This is a test email sent from the WorldNewzs Admin Dashboard to verify your SMTP configuration.</p>
+    <p><strong>Status:</strong> SMTP connection and authentication succeeded!</p>
+    <p>Time sent (UTC): {DateTime.UtcNow:f}</p>
+</div>";
+
+                await _emailService.SendEmailAsync(request.Email.Trim(), subject, body);
+                return Ok(new { success = true, message = $"Test email sent successfully to {request.Email}." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = $"SMTP Error: {ex.Message} (Inner: {ex.InnerException?.Message})" });
+            }
+        }
+    }
+
+    public class TestEmailRequest
+    {
+        public string Email { get; set; } = string.Empty;
     }
 }

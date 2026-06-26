@@ -42,7 +42,8 @@ import {
   deletePollHistory, 
   fetchQuizHistory, 
   deleteQuizHistory,
-  verifySubscriber
+  verifySubscriber,
+  testSmtpSettings
 } from "../api/apiClient";
 import type { 
   DbStorageResponse, 
@@ -83,6 +84,11 @@ const AdminDashboard: React.FC = () => {
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState<boolean>(false);
   const [deleteTarget, setDeleteTarget] = useState<{ id: number; type: "subscriber" | "poll" | "quiz" } | null>(null);
   const [deleting, setDeleting] = useState<boolean>(false);
+
+  // SMTP Settings Test States
+  const [smtpTestEmail, setSmtpTestEmail] = useState<string>("ganeshkumard56@gmail.com");
+  const [smtpTestLoading, setSmtpTestLoading] = useState<boolean>(false);
+  const [smtpTestResult, setSmtpTestResult] = useState<{ success: boolean; message: string } | null>(null);
 
   // Load storage size (even if unauthenticated, but endpoint might need auth or not; it doesn't strictly need it in AdminController, but let's load it)
   const loadStorage = async () => {
@@ -198,6 +204,25 @@ const AdminDashboard: React.FC = () => {
     } catch (err: any) {
       console.error("Manual verification failed:", err);
       alert(err.response?.data?.error || "Manual verification failed.");
+    }
+  };
+
+  const handleTestSmtp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!smtpTestEmail || !adminToken) return;
+    setSmtpTestLoading(true);
+    setSmtpTestResult(null);
+    try {
+      const res = await testSmtpSettings(smtpTestEmail, adminToken);
+      setSmtpTestResult({ success: true, message: res.data.message });
+    } catch (err: any) {
+      console.error("SMTP test failed:", err);
+      setSmtpTestResult({ 
+        success: false, 
+        message: err.response?.data?.error || "SMTP verification failed. Connection refused or invalid credentials." 
+      });
+    } finally {
+      setSmtpTestLoading(false);
     }
   };
 
@@ -696,8 +721,9 @@ const AdminDashboard: React.FC = () => {
           </Box>
         ) : (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            {/* Database storage stats card */}
-            <Box>
+            {/* Stats and Diagnostics Grid */}
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1.2fr 1fr" }, gap: 3 }}>
+              {/* Database storage stats card */}
               <Card 
                 sx={{ 
                   borderRadius: 4, 
@@ -745,6 +771,85 @@ const AdminDashboard: React.FC = () => {
                         sx={{ fontWeight: 800 }}
                       />
                     </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+
+              {/* SMTP test settings card */}
+              <Card 
+                sx={{ 
+                  borderRadius: 4, 
+                  border: "1px solid", 
+                  borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)",
+                  background: isDark ? "linear-gradient(135deg, #161b22 0%, #0d1117 100%)" : "#ffffff",
+                  boxShadow: "none"
+                }}
+              >
+                <CardContent sx={{ p: 3 }}>
+                  <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                      <Box 
+                        sx={{ 
+                          p: 1, 
+                          borderRadius: 2, 
+                          backgroundColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", 
+                          color: "primary.main",
+                          display: "flex" 
+                        }}
+                      >
+                        <EmailIcon fontSize="small" />
+                      </Box>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
+                        SMTP Mail Server Diagnostics
+                      </Typography>
+                    </Box>
+
+                    <Typography variant="caption" color="text.secondary">
+                      Verify if your server's environment variables (such as SMTP_PASS App Password) are configured and authenticating correctly.
+                    </Typography>
+
+                    <Box component="form" onSubmit={handleTestSmtp} sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
+                      <TextField
+                        id="smtp-test-email-input"
+                        label="Destination Email"
+                        variant="outlined"
+                        size="small"
+                        fullWidth
+                        value={smtpTestEmail}
+                        onChange={(e) => setSmtpTestEmail(e.target.value)}
+                        placeholder="e.g. user@gmail.com"
+                        sx={{ backgroundColor: "background.paper", borderRadius: 2 }}
+                      />
+                      <Button
+                        id="smtp-test-send-btn"
+                        type="submit"
+                        variant="contained"
+                        disabled={smtpTestLoading}
+                        sx={{ 
+                          textTransform: "none", 
+                          fontWeight: 800, 
+                          borderRadius: 2.5,
+                          px: 3,
+                          py: 1,
+                          whiteSpace: "nowrap"
+                        }}
+                      >
+                        {smtpTestLoading ? <CircularProgress size={20} color="inherit" /> : "Send Test"}
+                      </Button>
+                    </Box>
+
+                    {smtpTestResult && (
+                      <Alert 
+                        severity={smtpTestResult.success ? "success" : "error"} 
+                        sx={{ 
+                          borderRadius: 2, 
+                          fontSize: "0.85rem",
+                          "& .MuiAlert-message": { wordBreak: "break-word" }
+                        }}
+                      >
+                        {smtpTestResult.message}
+                      </Alert>
+                    )}
                   </Box>
                 </CardContent>
               </Card>

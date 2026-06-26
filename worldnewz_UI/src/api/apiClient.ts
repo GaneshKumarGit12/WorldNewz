@@ -588,3 +588,10 @@ export const verifySubscriber = (id: number, token: string) =>
     }
   });
 
+export const testSmtpSettings = (email: string, token: string) =>
+  apiClient.post<{ success: boolean; message: string }>("/admin/test-email", { email }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
