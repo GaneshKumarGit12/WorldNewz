@@ -810,14 +810,18 @@ namespace WorldNewzWebAPI.Controllers
     </p>
 </div>";
 
-                    try
+                    // Send email in a background task so it doesn't block the API response
+                    _ = Task.Run(async () =>
                     {
-                        await _emailService.SendEmailAsync(request.Email.Trim(), emailSubject, emailBody);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"⚠️ Failed to send Google welcome email: {ex.Message}");
-                    }
+                        try
+                        {
+                            await _emailService.SendEmailAsync(request.Email.Trim(), emailSubject, emailBody);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"⚠️ Background Google welcome email failed: {ex.Message}");
+                        }
+                    });
 
                     return Ok(new { success = true, verified = true, message = "Thank you! You have successfully subscribed to the newsletter." });
                 }
@@ -853,14 +857,18 @@ namespace WorldNewzWebAPI.Controllers
     </p>
 </div>";
 
-                    try
+                    // Send email in a background task so it doesn't block the API response
+                    _ = Task.Run(async () =>
                     {
-                        await _emailService.SendEmailAsync(request.Email.Trim(), emailSubject, emailBody);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"⚠️ Failed to send verification email: {ex.Message}");
-                    }
+                        try
+                        {
+                            await _emailService.SendEmailAsync(request.Email.Trim(), emailSubject, emailBody);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"⚠️ Background verification email failed: {ex.Message}");
+                        }
+                    });
 
                     return Ok(new { success = true, verified = false, message = "Verification link sent! Check your inbox to activate." });
                 }
