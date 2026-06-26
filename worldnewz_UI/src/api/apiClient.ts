@@ -561,6 +561,7 @@ export interface NewsletterSubscriber {
   name: string;
   subscriptionType: string;
   subscribedAt: string;
+  isVerified: boolean;
 }
 
 export const subscribeNewsletter = (email: string, name: string, subscriptionType: string) =>
@@ -575,6 +576,13 @@ export const fetchSubscribers = (token: string) =>
 
 export const deleteSubscriber = (id: number, token: string) =>
   apiClient.delete(`/admin/subscribers/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+export const verifySubscriber = (id: number, token: string) =>
+  apiClient.post(`/admin/subscribers/${id}/verify`, {}, {
     headers: {
       Authorization: `Bearer ${token}`
     }

@@ -9,5 +9,7 @@ namespace WorldNewzWebAPI.Models
         public string Name { get; set; } = string.Empty;
         public string SubscriptionType { get; set; } = string.Empty; // "Google" or "Direct"
         public DateTime SubscribedAt { get; set; } = DateTime.UtcNow;
+        public bool IsVerified { get; set; } = false;
+        public string? VerificationToken { get; set; }
     }
 }

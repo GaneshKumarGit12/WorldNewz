@@ -406,9 +406,21 @@ using (var scope = app.Services.CreateScope())
                     ""Email"" TEXT NOT NULL UNIQUE,
                     ""Name"" TEXT NULL,
                     ""SubscriptionType"" TEXT NOT NULL,
-                    ""SubscribedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                    ""SubscribedAt"" TIMESTAMP WITH TIME ZONE NOT NULL,
+                    ""IsVerified"" BOOLEAN NOT NULL DEFAULT FALSE,
+                    ""VerificationToken"" TEXT NULL
                 );
             ");
+
+            try
+            {
+                userDb.Database.ExecuteSqlRaw(@"ALTER TABLE ""NewsletterSubscribers"" ADD COLUMN IF NOT EXISTS ""IsVerified"" BOOLEAN NOT NULL DEFAULT FALSE;");
+                userDb.Database.ExecuteSqlRaw(@"ALTER TABLE ""NewsletterSubscribers"" ADD COLUMN IF NOT EXISTS ""VerificationToken"" TEXT;");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Error altering PostgreSQL NewsletterSubscribers table: {ex.Message}");
+            }
 
             // Ensure AmazonProducts table exists
             db.Database.ExecuteSqlRaw(@"
@@ -553,9 +565,23 @@ using (var scope = app.Services.CreateScope())
                 Email TEXT NOT NULL UNIQUE,
                 Name TEXT NULL,
                 SubscriptionType TEXT NOT NULL,
-                SubscribedAt TEXT NOT NULL
+                SubscribedAt TEXT NOT NULL,
+                IsVerified INTEGER NOT NULL DEFAULT 0,
+                VerificationToken TEXT NULL
             );
         ");
+
+        try
+        {
+            userDb.Database.ExecuteSqlRaw("ALTER TABLE NewsletterSubscribers ADD COLUMN IsVerified INTEGER NOT NULL DEFAULT 0;");
+        }
+        catch { /* Column already exists */ }
+
+        try
+        {
+            userDb.Database.ExecuteSqlRaw("ALTER TABLE NewsletterSubscribers ADD COLUMN VerificationToken TEXT;");
+        }
+        catch { /* Column already exists */ }
 
         // Ensure JobPostings table exists
         db.Database.ExecuteSqlRaw(@"

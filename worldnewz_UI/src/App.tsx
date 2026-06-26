@@ -40,6 +40,8 @@ import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import { useColorMode } from "./context/ThemeContext";
 import { useBookmarks } from "./hooks/useBookmarks";
 import { useComments } from "./hooks/useComments";
@@ -166,9 +168,42 @@ const App: React.FC = () => {
   const { getAllComments } = useComments();
   const totalComments = getAllComments().length;
 
+  const [verificationSnackbar, setVerificationSnackbar] = useState<{ open: boolean; message: string; severity: "success" | "error" }>({ 
+    open: false, 
+    message: "", 
+    severity: "success" 
+  });
+
   useEffect(() => {
     const query = searchParams.get("q") ?? "";
     setSearchTerm(query);
+  }, [searchParams]);
+
+  // Listen for subscription verification parameters
+  useEffect(() => {
+    const verified = searchParams.get("subscription_verified");
+    if (verified) {
+      if (verified === "true") {
+        setVerificationSnackbar({
+          open: true,
+          message: "Email successfully verified! Your subscription to WorldNewzs newsletter is now active.",
+          severity: "success"
+        });
+      } else {
+        const errorMsg = searchParams.get("error") === "invalid_token" ? "Invalid or expired verification token." : "Verification failed.";
+        setVerificationSnackbar({
+          open: true,
+          message: `Verification Failed: ${errorMsg}`,
+          severity: "error"
+        });
+      }
+      
+      // Clean up URL parameters
+      const url = new URL(window.location.href);
+      url.searchParams.delete("subscription_verified");
+      url.searchParams.delete("error");
+      window.history.replaceState({}, document.title, url.pathname + url.search);
+    }
   }, [searchParams]);
 
   useEffect(() => {
@@ -1006,6 +1041,22 @@ const App: React.FC = () => {
           <KeyboardArrowUpIcon />
         </Fab>
       )}
+
+      {/* ─── Email Verification Toast Notification ─── */}
+      <Snackbar
+        open={verificationSnackbar.open}
+        autoHideDuration={6000}
+        onClose={() => setVerificationSnackbar(prev => ({ ...prev, open: false }))}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert 
+          onClose={() => setVerificationSnackbar(prev => ({ ...prev, open: false }))} 
+          severity={verificationSnackbar.severity} 
+          sx={{ width: "100%", borderRadius: 3, fontWeight: 700 }}
+        >
+          {verificationSnackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

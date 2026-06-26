@@ -258,5 +258,34 @@ namespace WorldNewzWebAPI.Controllers
                 return StatusCode(500, new { error = "Failed to delete subscriber." });
             }
         }
+
+        [HttpPost("subscribers/{id}/verify")]
+        public async Task<IActionResult> VerifySubscriber(int id)
+        {
+            if (!IsAuthorized())
+            {
+                return Unauthorized(new { error = "Unauthorized admin access." });
+            }
+
+            try
+            {
+                var subscriber = await _userDb.NewsletterSubscribers.FindAsync(id);
+                if (subscriber == null)
+                {
+                    return NotFound(new { error = "Subscriber not found." });
+                }
+
+                subscriber.IsVerified = true;
+                subscriber.VerificationToken = null;
+                await _userDb.SaveChangesAsync();
+
+                return Ok(new { success = true, message = "Subscriber verified successfully." });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Error verifying subscriber {id}: {ex.Message}");
+                return StatusCode(500, new { error = "Failed to verify subscriber." });
+            }
+        }
     }
 }

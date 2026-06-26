@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MuiLink from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -23,6 +23,12 @@ const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    setStatus("idle");
+    setMessage("");
+  }, [location.pathname]);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +51,7 @@ const Footer: React.FC = () => {
     try {
       await subscribeNewsletter(trimmed, "", "Direct");
       setStatus("success");
-      setMessage("Thank you for subscribing! Check your inbox for updates.");
+      setMessage("Verification email sent! Check your inbox to activate your subscription.");
       setEmail("");
     } catch (err: any) {
       setStatus("error");

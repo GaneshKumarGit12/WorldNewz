@@ -17,6 +17,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 import { DataGrid } from "@mui/x-data-grid";
 import type { GridColDef } from "@mui/x-data-grid";
 import { useTheme } from "@mui/material/styles";
@@ -29,6 +30,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PollIcon from "@mui/icons-material/Poll";
 import QuizIcon from "@mui/icons-material/Quiz";
 import StarsIcon from "@mui/icons-material/Stars";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 // API & SEO
 import { 
@@ -39,7 +41,8 @@ import {
   fetchPollsHistory, 
   deletePollHistory, 
   fetchQuizHistory, 
-  deleteQuizHistory 
+  deleteQuizHistory,
+  verifySubscriber
 } from "../api/apiClient";
 import type { 
   DbStorageResponse, 
@@ -188,6 +191,17 @@ const AdminDashboard: React.FC = () => {
     }
   };
 
+  const handleVerifyClick = async (id: number) => {
+    if (!adminToken) return;
+    try {
+      await verifySubscriber(id, adminToken);
+      loadTabData(adminToken);
+    } catch (err: any) {
+      console.error("Manual verification failed:", err);
+      alert(err.response?.data?.error || "Manual verification failed.");
+    }
+  };
+
   // Formatting helper for Date Strings
   const formatDateTime = (dateStr: string) => {
     try {
@@ -238,6 +252,8 @@ const AdminDashboard: React.FC = () => {
     );
   };
 
+
+
   // Columns Definitions for grids
   const subscriberColumns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
@@ -268,7 +284,7 @@ const AdminDashboard: React.FC = () => {
     { 
       field: "subscriptionType", 
       headerName: "Method", 
-      width: 130,
+      width: 120,
       renderCell: (params) => {
         const type = params.value as string;
         const isGoogle = type?.toLowerCase() === "google";
@@ -285,10 +301,28 @@ const AdminDashboard: React.FC = () => {
         );
       }
     },
+    {
+      field: "isVerified",
+      headerName: "Status",
+      width: 140,
+      renderCell: (params) => {
+        const verified = params.value as boolean;
+        return (
+          <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+            <Chip 
+              label={verified ? "Verified" : "Pending"} 
+              size="small" 
+              color={verified ? "success" : "warning"}
+              sx={{ fontWeight: 800 }}
+            />
+          </Box>
+        );
+      }
+    },
     { 
       field: "subscribedAt", 
       headerName: "Subscribed Date", 
-      width: 220,
+      width: 200,
       renderCell: (params) => (
         <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
           <Typography variant="caption" color="text.secondary">
@@ -298,14 +332,28 @@ const AdminDashboard: React.FC = () => {
       )
     },
     {
-      field: "deleteAction",
-      headerName: "Action",
-      width: 100,
+      field: "actions",
+      headerName: "Actions",
+      width: 140,
       sortable: false,
       align: "center",
       headerAlign: "center",
       renderCell: (params) => (
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, height: "100%" }}>
+          {!params.row.isVerified && (
+            <Tooltip title="Verify Subscriber Manually">
+              <IconButton
+                id={`verify-subscriber-btn-${params.row.id}`}
+                color="success"
+                size="small"
+                onClick={() => handleVerifyClick(params.row.id)}
+                sx={{ "&:hover": { transform: "scale(1.15)", backgroundColor: "rgba(34, 197, 94, 0.08)" } }}
+                aria-label="Verify subscriber"
+              >
+                <CheckCircleIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+          )}
           <IconButton
             id={`delete-subscriber-btn-${params.row.id}`}
             color="error"
