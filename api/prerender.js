@@ -281,7 +281,7 @@ export default async function handler(req, res) {
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  res.setHeader('Cross-Origin-Opener-Policy', 'unsafe-none');
   res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://www.googletagmanager.com https://static.hotjar.com https://pagead2.googlesyndication.com https://adservice.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://partner.googleadservices.com https://*.adtrafficquality.google; connect-src 'self' https://accounts.google.com https://worldnewz.onrender.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.hotjar.com wss://*.hotjar.com https://*.hotjar.io wss://*.hotjar.io https://*.adtrafficquality.google https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; img-src * data: blob: android-webview-video-poster:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com; font-src 'self' data: https://fonts.gstatic.com https://static.hotjar.com; frame-src 'self' https://accounts.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://vars.hotjar.com https://*.hotjar.com; object-src 'none'; media-src * data: blob:;");
 
   const { id, page, jobSlug } = req.query;

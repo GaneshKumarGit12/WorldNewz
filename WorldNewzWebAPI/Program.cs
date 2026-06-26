@@ -866,7 +866,7 @@ app.Use(async (context, next) =>
     context.Response.Headers["X-Content-Type-Options"] = "nosniff";
     context.Response.Headers["X-Frame-Options"] = "DENY";
     context.Response.Headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
-    context.Response.Headers["Cross-Origin-Opener-Policy"] = "same-origin-allow-popups";
+    context.Response.Headers["Cross-Origin-Opener-Policy"] = "unsafe-none";
     await next();
 });
 
@@ -938,7 +938,7 @@ app.Use(async (context, next) =>
     context.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
     context.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
     context.Response.Headers.Append("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
-    context.Response.Headers.Append("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+    context.Response.Headers.Append("Cross-Origin-Opener-Policy", "unsafe-none");
     await next();
 });
 
