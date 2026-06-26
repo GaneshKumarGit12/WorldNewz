@@ -554,3 +554,29 @@ export interface ShortVideosResponse {
 export const fetchShortVideos = () =>
   apiClient.get<ShortVideosResponse>("/shortvideos");
 
+// --- Newsletter Subscription API ---
+export interface NewsletterSubscriber {
+  id: number;
+  email: string;
+  name: string;
+  subscriptionType: string;
+  subscribedAt: string;
+}
+
+export const subscribeNewsletter = (email: string, name: string, subscriptionType: string) =>
+  apiClient.post("/news/subscribe", { email, name, subscriptionType });
+
+export const fetchSubscribers = (token: string) =>
+  apiClient.get<NewsletterSubscriber[]>("/admin/subscribers", {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+export const deleteSubscriber = (id: number, token: string) =>
+  apiClient.delete(`/admin/subscribers/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+

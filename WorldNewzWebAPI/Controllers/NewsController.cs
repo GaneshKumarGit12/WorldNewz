@@ -23,6 +23,7 @@ namespace WorldNewzWebAPI.Controllers
         private readonly INewsEnrichmentService _enrichmentService;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly WorldNewsDbContext _db;
+        private readonly UserPollsDbContext _userDb;
         private readonly string? _geminiApiKey;
         private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
@@ -31,12 +32,14 @@ namespace WorldNewzWebAPI.Controllers
             INewsEnrichmentService enrichmentService,
             IHttpClientFactory httpClientFactory,
             WorldNewsDbContext db,
+            UserPollsDbContext userDb,
             IConfiguration config)
         {
             _newsApiService = newsApiService;
             _enrichmentService = enrichmentService;
             _httpClientFactory = httpClientFactory;
             _db = db;
+            _userDb = userDb;
             _geminiApiKey = config["GEMINI_API_KEY"] ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY");
         }
 
@@ -704,6 +707,56 @@ namespace WorldNewzWebAPI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+        public class SubscriptionRequest
+        {
+            public string Email { get; set; } = string.Empty;
+            public string Name { get; set; } = string.Empty;
+            public string SubscriptionType { get; set; } = string.Empty; // "Google" or "Direct"
+        }
+
+        [HttpPost("subscribe")]
+        public async Task<IActionResult> SubscribeNewsletter([FromBody] SubscriptionRequest request)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Email))
+            {
+                return BadRequest(new { error = "Email address is required." });
+            }
+
+            try
+            {
+                var emailNormalized = request.Email.Trim().ToLowerInvariant();
+                var existing = await _userDb.NewsletterSubscribers
+                    .FirstOrDefaultAsync(s => s.Email.ToLower() == emailNormalized);
+
+                if (existing != null)
+                {
+                    existing.Name = string.IsNullOrWhiteSpace(request.Name) ? existing.Name : request.Name.Trim();
+                    existing.SubscriptionType = string.IsNullOrWhiteSpace(request.SubscriptionType) ? existing.SubscriptionType : request.SubscriptionType.Trim();
+                    existing.SubscribedAt = DateTime.UtcNow;
+                    await _userDb.SaveChangesAsync();
+                    return Ok(new { success = true, message = "Subscription updated successfully.", alreadySubscribed = true });
+                }
+
+                var newSubscriber = new NewsletterSubscriber
+                {
+                    Email = request.Email.Trim(),
+                    Name = request.Name?.Trim() ?? string.Empty,
+                    SubscriptionType = string.IsNullOrWhiteSpace(request.SubscriptionType) ? "Direct" : request.SubscriptionType.Trim(),
+                    SubscribedAt = DateTime.UtcNow
+                };
+
+                _userDb.NewsletterSubscribers.Add(newSubscriber);
+                await _userDb.SaveChangesAsync();
+
+                return Ok(new { success = true, message = "Thank you for subscribing!" });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Error in newsletter subscription: {ex.Message}");
+                return StatusCode(500, new { error = "An error occurred while saving your subscription." });
             }
         }
     }

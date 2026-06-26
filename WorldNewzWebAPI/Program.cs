@@ -399,6 +399,17 @@ using (var scope = app.Services.CreateScope())
                 );
             ");
 
+            // Ensure NewsletterSubscribers table exists in userDb database
+            userDb.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""NewsletterSubscribers"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Email"" TEXT NOT NULL UNIQUE,
+                    ""Name"" TEXT NULL,
+                    ""SubscriptionType"" TEXT NOT NULL,
+                    ""SubscribedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                );
+            ");
+
             // Ensure AmazonProducts table exists
             db.Database.ExecuteSqlRaw(@"
                 CREATE TABLE IF NOT EXISTS ""AmazonProducts"" (
@@ -533,6 +544,16 @@ using (var scope = app.Services.CreateScope())
                 Percentage REAL NOT NULL,
                 Status TEXT NOT NULL,
                 SubmittedAt TEXT NOT NULL
+            );
+        ");
+
+        userDb.Database.ExecuteSqlRaw(@"
+            CREATE TABLE IF NOT EXISTS NewsletterSubscribers (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Email TEXT NOT NULL UNIQUE,
+                Name TEXT NULL,
+                SubscriptionType TEXT NOT NULL,
+                SubscribedAt TEXT NOT NULL
             );
         ");
 

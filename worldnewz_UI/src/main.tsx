@@ -60,6 +60,7 @@ const AmazonProducts = React.lazy(() => import("./pages/AmazonProducts"));
 const Jobs = React.lazy(() => import("./pages/Jobs"));
 const JobDetails = React.lazy(() => import("./pages/JobDetails"));
 const PostJob = React.lazy(() => import("./pages/PostJob"));
+const AdminDashboard = React.lazy(() => import("./pages/AdminDashboard"));
 
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -121,6 +122,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="editorial-guidelines" element={<EditorialGuidelinesPage />} />
                   <Route path="contact" element={<ContactPage />} />
                   <Route path="facebook-settings" element={<FacebookSettings />} />
+                  <Route path="admin" element={<AdminDashboard />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

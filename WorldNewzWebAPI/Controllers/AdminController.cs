@@ -208,5 +208,55 @@ namespace WorldNewzWebAPI.Controllers
                 return StatusCode(500, new { error = "Failed to delete item." });
             }
         }
+
+        [HttpGet("subscribers")]
+        public async Task<IActionResult> GetSubscribers()
+        {
+            if (!IsAuthorized())
+            {
+                return Unauthorized(new { error = "Unauthorized admin access." });
+            }
+
+            try
+            {
+                var subscribers = await _userDb.NewsletterSubscribers
+                    .OrderByDescending(s => s.SubscribedAt)
+                    .ToListAsync();
+                return Ok(subscribers);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Error fetching subscribers: {ex.Message}");
+                return StatusCode(500, new { error = "Failed to load subscribers." });
+            }
+        }
+
+        [HttpDelete("subscribers/{id}")]
+        public async Task<IActionResult> DeleteSubscriber(int id)
+        {
+            if (!IsAuthorized())
+            {
+                return Unauthorized(new { error = "Unauthorized admin access." });
+            }
+
+            try
+            {
+                var subscriber = await _userDb.NewsletterSubscribers.FindAsync(id);
+                if (subscriber == null)
+                {
+                    return NotFound(new { error = "Subscriber not found." });
+                }
+
+                _userDb.NewsletterSubscribers.Remove(subscriber);
+                await _userDb.SaveChangesAsync();
+
+                return Ok(new { success = true, message = "Subscriber removed successfully." });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Error deleting subscriber {id}: {ex.Message}");
+                return StatusCode(500, new { error = "Failed to delete subscriber." });
+            }
+        }
     }
 }

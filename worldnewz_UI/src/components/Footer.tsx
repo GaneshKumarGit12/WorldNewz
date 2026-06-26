@@ -17,13 +17,14 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 import { useState, useEffect, useRef } from "react";
+import { subscribeNewsletter } from "../api/apiClient";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = email.trim();
     if (!trimmed) {
@@ -41,15 +42,18 @@ const Footer: React.FC = () => {
     setStatus("loading");
     setMessage("");
 
-    // Simulate API subscription
-    setTimeout(() => {
+    try {
+      await subscribeNewsletter(trimmed, "", "Direct");
       setStatus("success");
       setMessage("Thank you for subscribing! Check your inbox for updates.");
       setEmail("");
-    }, 1200);
+    } catch (err: any) {
+      setStatus("error");
+      setMessage(err.response?.data?.error || "Failed to subscribe. Please try again.");
+    }
   };
 
-  const handleGoogleCredentialResponse = (response: any) => {
+  const handleGoogleCredentialResponse = async (response: any) => {
     try {
       setStatus("loading");
       setMessage("");
@@ -67,15 +71,13 @@ const Footer: React.FC = () => {
       const userEmail = profile.email;
       const userName = profile.name || "Subscriber";
       
-      // Simulate API subscription with Google Email
-      setTimeout(() => {
-        setStatus("success");
-        setMessage(`Thank you ${userName}! You have successfully subscribed to the newsletter with ${userEmail}.`);
-        setEmail("");
-      }, 1000);
-    } catch (err) {
+      await subscribeNewsletter(userEmail, userName, "Google");
+      setStatus("success");
+      setMessage(`Thank you ${userName}! You have successfully subscribed to the newsletter with ${userEmail}.`);
+      setEmail("");
+    } catch (err: any) {
       setStatus("error");
-      setMessage("Failed to subscribe using Google Account. Please try manually.");
+      setMessage(err.response?.data?.error || "Failed to subscribe using Google Account. Please try manually.");
     }
   };
 

@@ -19,6 +19,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Menu from "@mui/material/Menu";
@@ -486,6 +487,19 @@ const App: React.FC = () => {
               </IconButton>
             </Tooltip>
 
+            {/* Admin Panel button */}
+            <Tooltip title="Admin Dashboard">
+              <IconButton
+                id="header-admin-btn-desktop"
+                component={Link}
+                to="/admin"
+                aria-label="Admin Dashboard"
+                sx={{ color: location.pathname === "/admin" ? "#ffb74d" : "white", ml: 1 }}
+              >
+                <AdminPanelSettingsIcon />
+              </IconButton>
+            </Tooltip>
+
             {/* Facebook Settings */}
             <Tooltip title="Facebook Integration">
               <IconButton
@@ -517,6 +531,15 @@ const App: React.FC = () => {
               <Badge badgeContent={bookmarks.length} color="warning" max={99}>
                 <BookmarkIcon />
               </Badge>
+            </IconButton>
+            <IconButton 
+              id="header-admin-btn-mobile"
+              component={Link} 
+              to="/admin" 
+              aria-label="Admin Dashboard" 
+              sx={{ color: location.pathname === "/admin" ? "#ffb74d" : "white" }}
+            >
+              <AdminPanelSettingsIcon />
             </IconButton>
             <IconButton component={Link} to="/facebook-settings" aria-label="Facebook Settings" sx={{ color: location.pathname === "/facebook-settings" ? "#c83a15" : "white" }}>
               <FacebookIcon />
