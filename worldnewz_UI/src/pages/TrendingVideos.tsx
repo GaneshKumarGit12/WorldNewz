@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -34,6 +35,7 @@ interface LocalComment {
 
 const TrendingVideos: React.FC = () => {
   const [videos, setVideos] = useState<ShortVideo[]>([]);
+  const [visibleCount, setVisibleCount] = useState(16);
   const [loading, setLoading] = useState(true);
   const [activeVideo, setActiveVideo] = useState<ShortVideo | null>(null);
   const [muted, setMuted] = useState(true);
@@ -170,8 +172,9 @@ const TrendingVideos: React.FC = () => {
             <CircularProgress size={50} />
           </Box>
         ) : (
-          <Grid container spacing={3} id="trending-shorts-page-grid">
-            {videos.map((video) => {
+          <>
+            <Grid container spacing={3} id="trending-shorts-page-grid">
+            {videos.slice(0, visibleCount).map((video) => {
               const isLiked = userLikes[video.id] || false;
               const likes = likesCount[video.id] ?? video.likesCount;
               const commentList = comments[video.id] || [];
@@ -344,6 +347,31 @@ const TrendingVideos: React.FC = () => {
               );
             })}
           </Grid>
+          {visibleCount < videos.length && (
+            <Box sx={{ display: "flex", justifyContent: "center", width: "100%", mt: 5 }}>
+              <Button
+                id="load-more-shorts-btn"
+                variant="outlined"
+                onClick={() => setVisibleCount((prev) => Math.min(videos.length, prev + 8))}
+                sx={{
+                  borderRadius: 3,
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 700,
+                  textTransform: "none",
+                  borderColor: "rgba(239, 68, 68, 0.4)",
+                  color: "#ef4444",
+                  "&:hover": {
+                    borderColor: "#ef4444",
+                    bgcolor: "rgba(239, 68, 68, 0.05)",
+                  }
+                }}
+              >
+                Load More Shorts 🎥
+              </Button>
+            </Box>
+          )}
+          </>
         )}
       </Container>
 
