@@ -570,7 +570,7 @@ const GameWrapper: React.FC = () => {
           minHeight: "92vh",
           background: "radial-gradient(circle, #0c0926 0%, #020108 100%)",
           color: "#f1f5f9",
-          p: { xs: 1.5, md: 3 },
+          p: { xs: 1, sm: 2 },
           fontFamily: '"Outfit", sans-serif',
           display: "flex",
           flexDirection: "column",
@@ -580,6 +580,24 @@ const GameWrapper: React.FC = () => {
           position: "relative",
         }}
       >
+        <Card
+          sx={{
+            width: "100%",
+            maxWidth: "540px",
+            height: "min(760px, 92vh)",
+            background: "rgba(20, 18, 50, 0.75)",
+            backdropFilter: "blur(18px)",
+            border: "2px solid #a855f7",
+            borderRadius: "24px",
+            boxShadow: "0 0 45px rgba(168, 85, 247, 0.4)",
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+            overflow: "hidden",
+            p: { xs: 2, sm: 3 },
+            zIndex: 10,
+          }}
+        >
         {/* Toast Alert */}
         {toastMessage && (
           <Box
@@ -608,13 +626,13 @@ const GameWrapper: React.FC = () => {
         {currentScreen === "home" && (
           <Box
             sx={{
-              maxWidth: 450,
               width: "100%",
+              height: "100%",
               textAlign: "center",
-              zIndex: 10,
               display: "flex",
               flexDirection: "column",
-              gap: 3.5,
+              justifyContent: "space-between",
+              alignItems: "center",
               animation: "fadeIn 0.5s ease-out",
             }}
           >
@@ -784,17 +802,13 @@ const GameWrapper: React.FC = () => {
 
         {/* --- SCREEN 2: TUTORIAL SCREEN --- */}
         {currentScreen === "tutorial" && (
-          <Card
+          <Box
             sx={{
-              maxWidth: 450,
               width: "100%",
-              background: "rgba(20, 18, 50, 0.65)",
-              backdropFilter: "blur(12px)",
-              border: "2px solid #a855f7",
-              boxShadow: "0 0 30px rgba(168, 85, 247, 0.3)",
-              color: "#fff",
-              borderRadius: "24px",
-              p: 3,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
               textAlign: "center",
               animation: "fadeIn 0.4s ease-out",
             }}
@@ -868,12 +882,12 @@ const GameWrapper: React.FC = () => {
             >
               Got it ➔
             </Button>
-          </Card>
+          </Box>
         )}
 
         {/* --- SCREEN 3: GAMEPLAY SCREEN --- */}
         {currentScreen === "playing" && (
-          <Box sx={{ width: "100%", height: { xs: "72vh", md: "80vh" }, display: "flex", flexDirection: "column" }}>
+          <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", flexGrow: 1 }}>
             {/* HUD Overlay */}
             <Box
               sx={{
@@ -1214,14 +1228,11 @@ const GameWrapper: React.FC = () => {
         {currentScreen === "gameover" && (
           <Box
             sx={{
-              maxWidth: 450,
               width: "100%",
-              background: "rgba(15, 12, 38, 0.8)",
-              backdropFilter: "blur(12px)",
-              border: "2px solid #ef4444",
-              boxShadow: "0 0 40px rgba(239, 68, 68, 0.45)",
-              borderRadius: "24px",
-              p: 3.5,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
               textAlign: "center",
               animation: "fadeIn 0.4s ease-out",
             }}
@@ -1347,14 +1358,11 @@ const GameWrapper: React.FC = () => {
         {currentScreen === "leaderboard" && (
           <Box
             sx={{
-              maxWidth: 450,
               width: "100%",
-              background: "rgba(20, 18, 50, 0.7)",
-              backdropFilter: "blur(15px)",
-              border: "2px solid #a855f7",
-              boxShadow: "0 0 35px rgba(168, 85, 247, 0.4)",
-              borderRadius: "24px",
-              p: 3,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
               animation: "fadeIn 0.4s ease-out",
             }}
           >
@@ -1487,23 +1495,20 @@ const GameWrapper: React.FC = () => {
         {currentScreen === "shop" && (
           <Box
             sx={{
-              maxWidth: 450,
               width: "100%",
-              background: "rgba(20, 18, 50, 0.75)",
-              backdropFilter: "blur(15px)",
-              border: "2px solid #a855f7",
-              boxShadow: "0 0 35px rgba(168, 85, 247, 0.4)",
-              borderRadius: "24px",
-              p: 3,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
               animation: "fadeIn 0.4s ease-out",
             }}
           >
             {/* Header / Coins balance */}
-            <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+            <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
               <Typography variant="h5" fontWeight="950" color="#a855f7">
                 🎨 Cubie Skins
               </Typography>
-              <Box display="flex" alignItems="center" gap={0.5} sx={{ background: "rgba(251, 191, 36, 0.1)", p: "6px 12px", borderRadius: "10px" }}>
+              <Box display="flex" alignItems="center" gap={0.5} sx={{ background: "rgba(251, 191, 36, 0.15)", p: "6px 12px", borderRadius: "10px" }}>
                 <MonetizationOnIcon sx={{ color: "#fbbf24", fontSize: 18 }} />
                 <Typography variant="subtitle2" fontWeight="800" color="#fbbf24">
                   {coins}
@@ -1511,7 +1516,7 @@ const GameWrapper: React.FC = () => {
               </Box>
             </Box>
 
-            <List sx={{ display: "flex", flexDirection: "column", gap: 1.5, mb: 3 }}>
+            <List sx={{ display: "flex", flexDirection: "column", gap: 1.5, mb: 2, maxHeight: "40vh", overflowY: "auto", pr: 0.5 }}>
               {skins.map((skin) => {
                 const isEquipped = equippedSkin === skin.id;
                 return (
@@ -1604,14 +1609,11 @@ const GameWrapper: React.FC = () => {
         {currentScreen === "profile" && (
           <Box
             sx={{
-              maxWidth: 450,
               width: "100%",
-              background: "rgba(20, 18, 50, 0.75)",
-              backdropFilter: "blur(15px)",
-              border: "2px solid #a855f7",
-              boxShadow: "0 0 35px rgba(168, 85, 247, 0.4)",
-              borderRadius: "24px",
-              p: 3,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
               animation: "fadeIn 0.4s ease-out",
             }}
           >
@@ -1675,6 +1677,7 @@ const GameWrapper: React.FC = () => {
             </Button>
           </Box>
         )}
+        </Card>
       </Box>
 
       {/* SETTINGS DIALOG */}

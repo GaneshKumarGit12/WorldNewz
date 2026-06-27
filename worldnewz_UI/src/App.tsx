@@ -57,6 +57,7 @@ const primaryNavLinks = [
   { label: "MoviesDB 🎬", path: "/movies", highlight: true, highlightColor: "linear-gradient(135deg, #e11d48, #be123c)" },
   { label: "Deals 🛍️", path: "/amazon-products", highlight: true, highlightColor: "linear-gradient(135deg, #ff8a00, #ff5500)" },
   { label: "Jobs 💼", path: "/jobs", highlight: true, highlightColor: "linear-gradient(135deg, #10b981, #059669)" },
+  { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", highlight: true, highlightColor: "linear-gradient(135deg, #a855f7, #ec4899)", badge: "NEW" },
 ];
 
 const secondaryNavLinks = [
@@ -71,7 +72,6 @@ const secondaryNavLinks = [
   { label: "Entertainment", path: "/entertainment" },
   { label: "Services", path: "/services" },
   { label: "Gaming", path: "/gaming" },
-  { label: "DVCubie2026 🎮", path: "/games/dvcubie2026" },
   { label: "Cartoons", path: "/cartoons" },
   { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
