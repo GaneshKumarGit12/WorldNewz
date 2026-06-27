@@ -32,19 +32,42 @@ This document describes the mechanics and maintenance guidelines for the **DVCub
   - Head-to-head collisions result in the larger head consuming the entire smaller snake (transferring its score value).
 - **Division Signs `(/)`**:
   - Halves the value of the head segment upon collision, with a minimum value of 2.
+- **Next Cube Preview**:
+  - A random power-of-two value (2, 4, 8, 16) is pre-rolled as the "next cube".
+  - Phaser emits `next-cube-changed` when a new food item spawns or is eaten, updating the HUD display card.
 
-## 2. Controls & Responsiveness
+## 2. Controls & Layout Specifications
 
 - **Desktop**: Mouse pointer position guides the head angle. Click or press `Space` to speed boost.
 - **Mobile/Tablets**:
   - Touch-drag anywhere on the canvas updates pointer target coordinates.
-  - Canvas scales dynamically using Phaser's scale manager to match parent viewport limits, preventing letterboxing.
+  - Canvas scales dynamically using Phaser's scale manager to match parent viewport limits.
   - Speed boost is activated via an on-screen overlay button.
+- **HUD Placements**:
+  - **Pause Button**: Positioned in the **top-left** of the gameplay screen.
+  - **Scoreboard**: Current Score on the **left**, Best Score on the **right**.
+  - **Next Cube**: Card container in the **top-right** displaying the upcoming value.
+- **Pause Menu Modal**:
+  - Overlays semi-transparent dark backdrop.
+  - Displays Sound, Music, and Vibration settings switches.
+  - Close button `(X)` at the top-right of the modal box.
+- **Tutorial Guided Layout**:
+  - Visual block merging illustration ($2 + 2 = 4$).
+  - Action button label: "Got it →".
+- **Leaderboard Rankings**:
+  - Supports Global and mock Friends ranking list tabs.
+  - Emphasizes the player's own score row with a colored glow background.
 
-## 3. Global Page UI Integration
+## 3. Audio, Music & Haptics
 
-- When route matches `/games/dvcubie2026`, parent layouts automatically hide the global search form and comments/bookmarks badges.
-- Toggle events are dispatched globally via:
-  ```javascript
-  window.dispatchEvent(new CustomEvent("dvcubie-settings-changed"));
-  ```
+- **Ambient Music Synthesizer**:
+  - When music is enabled, a periodic oscillator timer plays soft synth chords via Web Audio API.
+- **Mobile Haptics**:
+  - Merging segments triggers haptic vibration on compatible touch screens:
+    ```javascript
+    if (vibrateEnabled && navigator.vibrate) {
+      navigator.vibrate(40);
+    }
+    ```
+- **Sound Effects**:
+  - Sine/sawtooth wave oscillators play audio sweeps for merges and game-overs.

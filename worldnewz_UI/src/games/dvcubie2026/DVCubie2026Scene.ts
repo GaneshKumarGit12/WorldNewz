@@ -31,6 +31,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   private isGameOver = false;
   private maxFood = 120;
   private maxDivisions = 20;
+  private nextCubeVal = 2;
 
   constructor() {
     super("DVCubie2026Scene");
@@ -39,6 +40,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   create() {
     this.isGameOver = false;
     this.aiSnakes = [];
+    this.rollNextCube();
 
     // Set world physics bounds
     this.physics.world.setBounds(0, 0, this.mapWidth, this.mapHeight);
@@ -338,7 +340,12 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     const val = food.getData("value");
     food.destroy();
 
-    this.appendTailSegment(snake, val);
+    if (snake === this.playerSnake) {
+      this.appendTailSegment(snake, this.nextCubeVal);
+      this.rollNextCube();
+    } else {
+      this.appendTailSegment(snake, val);
+    }
     this.cascadeMerge(snake);
   }
 
@@ -772,5 +779,10 @@ export default class DVCubie2026Scene extends Phaser.Scene {
 
     const score = this.getSnakeScore(this.playerSnake);
     this.game.events.emit("game-over", score);
+  }
+
+  private rollNextCube() {
+    this.nextCubeVal = Phaser.Math.RND.pick([2, 4, 8, 16]);
+    this.game.events.emit("next-cube-changed", this.nextCubeVal);
   }
 }
