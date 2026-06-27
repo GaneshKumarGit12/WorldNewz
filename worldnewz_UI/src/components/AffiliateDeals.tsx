@@ -85,27 +85,27 @@ const DEALS_DATA: Record<string, Deal[]> = {
   shopping: [
     {
       id: "shop1",
-      title: "Anker 511 Charger (Nano 3, 30W) USB-C Adapter",
-      description: "Super-compact high-speed charger for iPhone, iPad, MacBook Air, and Samsung Galaxy devices. Foldable plug design.",
-      imageUrl: "https://images.unsplash.com/photo-1622445262465-2481c4574875?w=500&auto=format&fit=crop&q=60",
-      rating: 4.8,
-      price: "$19.99",
-      originalPrice: "$22.99",
-      discount: "13% OFF",
-      link: "https://amzn.to/3AnkerNano",
-      badge: "Daily Deal"
+      title: "PremiumAV Mini Speaker Plug & Play",
+      description: "Mini USB 2.0 speaker for laptops and computers. Rich stereo sound, compact portable design, and easy plug-and-play setup.",
+      imageUrl: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&auto=format&fit=crop&q=60",
+      rating: 4.0,
+      price: "₹249",
+      originalPrice: "₹499",
+      discount: "50% OFF",
+      link: "https://amzn.to/3QjU889",
+      badge: "50% Off"
     },
     {
       id: "shop2",
-      title: "Hydro Flask Wide Mouth Bottle with Flex Straw",
-      description: "Double-wall vacuum insulated stainless steel water bottle. Keeps drinks cold for up to 24 hours and hot up to 12 hours.",
-      imageUrl: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&auto=format&fit=crop&q=60",
-      rating: 4.7,
-      price: "$39.95",
-      originalPrice: "$44.95",
-      discount: "11% OFF",
-      link: "https://amzn.to/3HydroFlask",
-      badge: "Eco Friendly"
+      title: "Homerz Diwan Cushion Bolster Set",
+      description: "Premium microfiber fillers with bolster cushions. Soft comfort, hypoallergenic material, and durable support for home styling.",
+      imageUrl: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=500&auto=format&fit=crop&q=60",
+      rating: 4.2,
+      price: "₹1,299",
+      originalPrice: "₹2,499",
+      discount: "48% OFF",
+      link: "https://amzn.to/3SG4QGF",
+      badge: "Comfort Pack"
     }
   ]
 };

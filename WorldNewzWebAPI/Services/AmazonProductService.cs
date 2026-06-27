@@ -28,11 +28,8 @@ namespace WorldNewzWebAPI.Services
         /// </summary>
         public async Task<List<AmazonProduct>> GetAffiliateProductsAsync()
         {
-            // Seed defaults if table is empty
-            if (!await _context.AmazonProducts.AnyAsync())
-            {
-                await SeedDefaultProductsAsync();
-            }
+            // Seed and ensure default products are synchronized in database
+            await EnsureDefaultProductsSeededAsync();
 
             var products = await _context.AmazonProducts
                 .OrderByDescending(p => p.LastUpdated)
@@ -53,11 +50,7 @@ namespace WorldNewzWebAPI.Services
         /// </summary>
         public async Task RefreshDailyDealsAsync()
         {
-            if (!await _context.AmazonProducts.AnyAsync())
-            {
-                await SeedDefaultProductsAsync();
-                return;
-            }
+            await EnsureDefaultProductsSeededAsync();
 
             var products = await _context.AmazonProducts.ToListAsync();
             var random = new Random();
@@ -235,134 +228,182 @@ namespace WorldNewzWebAPI.Services
         }
 
         /// <summary>
-        /// Seeds default high-converting product deals in Amazon India
+        /// Seeds and synchronizes default high-converting product deals in Amazon India
         /// </summary>
-        private async Task SeedDefaultProductsAsync()
+        private async Task EnsureDefaultProductsSeededAsync()
         {
             var seedData = new List<AmazonProduct>
             {
                 new AmazonProduct
                 {
-                    Asin = "B00QWV6MTE",
-                    Title = "PremiumAV Mini Speaker Plug & Play",
-                    Description = "Mini USB Speaker for Laptop, Desktop Computer, PC, Tablet. Portable and Compact with clear stereophonic sound.",
-                    ImageUrl = "https://m.media-amazon.com/images/I/41tzfsEoNkL._SX355_.jpg",
+                    Asin = "B08H88N2N9",
+                    Title = "Cubelelo Drift 3x3 Stickerless Warrior Speed Cube",
+                    Description = "High-speed stickerless 3x3 speed cube with smooth turning and frosted surface design for puzzle enthusiasts.",
+                    ImageUrl = "https://images.unsplash.com/photo-1591811400261-26c71c4c8105?w=500&auto=format&fit=crop&q=60",
                     Price = 249.00m,
-                    OriginalPrice = 499.00m,
-                    Rating = 4.0,
-                    ReviewCount = 12485,
-                    Category = "Electronics",
-                    ProductUrl = "https://amzn.to/3QjU889" // Custom short link resolving to this product
+                    OriginalPrice = 399.00m,
+                    Rating = 4.3,
+                    ReviewCount = 8430,
+                    Category = "Gadgets",
+                    ProductUrl = "https://amzn.to/4w4F7Gc"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B0G42YM6GQ",
-                    Title = "ZICOTO Elegant Storage Baskets for Organization",
-                    Description = "Premium fabric decorative baskets for shelves, closets, toys, books, towels, household organization. Multi-color, 3-pack.",
-                    ImageUrl = "https://m.media-amazon.com/images/I/81YnoWjesnL._SY355_.jpg",
-                    Price = 999.00m,
-                    OriginalPrice = 1499.00m,
-                    Rating = 4.6,
-                    ReviewCount = 3450,
-                    Category = "Home Organization",
-                    ProductUrl = "https://amzn.to/3QWfvfV" // Custom short link resolving to this product
+                    Asin = "B07QBBV15F",
+                    Title = "Little Angel Baby Diaper Pants (X-Large, Pack of 4)",
+                    Description = "Super absorbent baby diapers with 360-degree soft stretch waistband, bubble bed technology, and up to 12 hours protection.",
+                    ImageUrl = "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&auto=format&fit=crop&q=60",
+                    Price = 699.00m,
+                    OriginalPrice = 999.00m,
+                    Rating = 4.1,
+                    ReviewCount = 3200,
+                    Category = "Shopping",
+                    ProductUrl = "https://amzn.to/4eKLuaC"
                 },
                 new AmazonProduct
                 {
                     Asin = "B09RNDHW8G",
-                    Title = "Homerz Diwan Cushion Bolster Cover Set",
-                    Description = "Vacuum Packed Microfiber Diwan set fillers with bolster insert cushions. Premium softness and support for home décor.",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/71KmY1pyATL._AC_UL116_SR116,116_.jpg",
+                    Title = "Homerz Diwan Cushion Bolster Set (Vacuum Packed)",
+                    Description = "Premium microfiber fillers with bolster cushions. Soft comfort, hypoallergenic material, and durable support for home styling.",
+                    ImageUrl = "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=500&auto=format&fit=crop&q=60",
                     Price = 1299.00m,
                     OriginalPrice = 2499.00m,
                     Rating = 4.2,
                     ReviewCount = 5984,
                     Category = "Home & Decor",
-                    ProductUrl = "https://amzn.to/3SG4QGF" // Custom short link resolving to this product
+                    ProductUrl = "https://amzn.to/3SG4QGF"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B07H862WDC",
-                    Title = "Styleys Foldable Double Bed Mosquito Net",
-                    Description = "Premium polyester foldable sleeping net with zipper gates. Durable protection from mosquitoes and insects.",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61IOb4Nu6AL._AC_UL165_SR165,165_.jpg",
-                    Price = 799.00m,
-                    OriginalPrice = 1299.00m,
-                    Rating = 4.1,
-                    ReviewCount = 18920,
-                    Category = "Home & Bedroom",
-                    ProductUrl = "https://amzn.to/3SnoA1I" // Custom short link resolving to this product
-                },
-                new AmazonProduct
-                {
-                    Asin = "B08HV83HL3",
-                    Title = "Mi Power Bank 3i 20000mAh",
-                    Description = "18W Fast Charging Power Bank with Triple Output Port, Dual Input, Metallic Finish, Black",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/611J+4ry-vL._AC_UL116_SR116,116_.jpg",
-                    Price = 2149.00m,
-                    OriginalPrice = 2499.00m,
+                    Asin = "B0DZDXCFYX",
+                    Title = "Conair Handheld Compact Garment Steamer",
+                    Description = "Compact and powerful fabric steamer that quickly removes wrinkles from clothes, drapes, and upholstery. Travel-friendly design.",
+                    ImageUrl = "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60",
+                    Price = 2499.00m,
+                    OriginalPrice = 3999.00m,
                     Rating = 4.3,
-                    ReviewCount = 89452,
-                    Category = "Gadgets",
-                    ProductUrl = "https://www.amazon.in/dp/B08HV83HL3"
+                    ReviewCount = 1540,
+                    Category = "Home Appliances",
+                    ProductUrl = "https://amzn.to/4apYj99"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B08TV2P1N8",
-                    Title = "boAt Rockerz 255 Pro+ Wireless Neckband",
-                    Description = "Bluetooth earphone with up to 40 hours playback, ASAP Fast charge, IPX7 Water resistance, Deep bass",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61+SW9nDTEL._AC_UL116_SR116,116_.jpg",
-                    Price = 1299.00m,
-                    OriginalPrice = 2999.00m,
-                    Rating = 4.2,
-                    ReviewCount = 284102,
+                    Asin = "B00QWV6MTE",
+                    Title = "PremiumAV Mini Speaker Plug & Play",
+                    Description = "Mini USB 2.0 speaker for laptops and computers. Rich stereo sound, compact portable design, and easy plug-and-play setup.",
+                    ImageUrl = "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&auto=format&fit=crop&q=60",
+                    Price = 249.00m,
+                    OriginalPrice = 499.00m,
+                    Rating = 4.0,
+                    ReviewCount = 12485,
                     Category = "Electronics",
-                    ProductUrl = "https://www.amazon.in/dp/B08TV2P1N8"
+                    ProductUrl = "https://amzn.to/3QjU889"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B07WDKLDRX",
-                    Title = "SanDisk Ultra MicroSD 64GB UHS-I",
-                    Description = "Class 10 memory card with up to 120MB/s speeds, designed for Android smartphones, tablets and cameras",
-                    ImageUrl = "https://m.media-amazon.com/images/I/71WS-0ITj7L._SX342_.jpg",
+                    Asin = "B0821XB1Q6",
+                    Title = "Amazon Pay Insurance Premium Payment (via Billdesk)",
+                    Description = "Secure your vehicle or health with Amazon Pay Insurance. Paperless booking, instant premium payment, and quick claim approvals.",
+                    ImageUrl = "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&auto=format&fit=crop&q=60",
+                    Price = 499.00m,
+                    OriginalPrice = 599.00m,
+                    Rating = 4.5,
+                    ReviewCount = 920,
+                    Category = "Services",
+                    ProductUrl = "https://amzn.to/4oUWYNF"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07JJ5TFY1",
+                    Title = "MMR Making Marvelous Ultimate Cockroach Gel",
+                    Description = "Highly effective pest control cockroach bait gel. Easy application, fast action, and long-lasting protection for kitchen and home.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 199.00m,
+                    OriginalPrice = 299.00m,
+                    Rating = 4.0,
+                    ReviewCount = 4120,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://amzn.to/3SwQ7xR"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07G8BVF7X",
+                    Title = "VIP Ultima Cotton Briefs (Assorted Colors, Pack of 4)",
+                    Description = "Premium cotton interlock fabric trunks with soft outer elastic waistband. Super breathable and comfortable for daily wear.",
+                    ImageUrl = "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&auto=format&fit=crop&q=60",
+                    Price = 688.00m,
+                    OriginalPrice = 899.00m,
+                    Rating = 4.1,
+                    ReviewCount = 2150,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4f6C36U"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07QP9PTZP",
+                    Title = "Amazon Pay LPG Cylinder Booking & Bill Payment",
+                    Description = "Quick and secure LPG gas cylinder booking for HP, Indane, and Bharat Gas. Enjoy instant cashbacks and payment verification.",
+                    ImageUrl = "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=500&auto=format&fit=crop&q=60",
+                    Price = 850.00m,
+                    OriginalPrice = 850.00m,
+                    Rating = 4.6,
+                    ReviewCount = 10450,
+                    Category = "Services",
+                    ProductUrl = "https://amzn.to/4xWBX9y"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07FFQG8GT",
+                    Title = "Milan Jewellers 99.5% OM Silver Coin",
+                    Description = "Charming 99.5% pure silver OM coin, ideal for pooja, gifting, or festive occasions. Certified purity with detailed craftsmanship.",
+                    ImageUrl = "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=500&auto=format&fit=crop&q=60",
                     Price = 499.00m,
                     OriginalPrice = 999.00m,
-                    Rating = 4.4,
-                    ReviewCount = 143284,
-                    Category = "Electronics",
-                    ProductUrl = "https://www.amazon.in/dp/B07WDKLDRX"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B09G9FPGTN",
-                    Title = "Apple iPhone 13 (128GB) - Blue",
-                    Description = "6.1-inch Super Retina XDR display, advanced dual-camera system, A15 Bionic chip, durable design and fast performance",
-                    ImageUrl = "https://m.media-amazon.com/images/I/61l9ppRIiqL._SX342_.jpg",
-                    Price = 49999.00m,
-                    OriginalPrice = 59900.00m,
-                    Rating = 4.6,
-                    ReviewCount = 38402,
-                    Category = "Electronics",
-                    ProductUrl = "https://www.amazon.in/dp/B09G9FPGTN"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0B3RRZ156",
-                    Title = "Noise Pulse 2 Max Smart Watch",
-                    Description = "1.85'' Display, Bluetooth Calling, 550 Nits Brightness, Smart DND, 10 Days Battery, Space Blue",
-                    ImageUrl = "https://images-eu.ssl-images-amazon.com/images/I/61SSVxTSs3L._AC_UL450_SR450,320_.jpg",
-                    Price = 1199.00m,
-                    OriginalPrice = 5999.00m,
-                    Rating = 4.1,
-                    ReviewCount = 84932,
-                    Category = "Smartwatches",
-                    ProductUrl = "https://www.amazon.in/dp/B0B3RRZ156"
+                    Rating = 4.3,
+                    ReviewCount = 780,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
                 }
             };
 
-            _context.AmazonProducts.AddRange(seedData);
-            await _context.SaveChangesAsync();
-            Console.WriteLine("[AmazonProductService] Seeded default Amazon products database successfully.");
+            bool changed = false;
+            foreach (var seed in seedData)
+            {
+                var existing = await _context.AmazonProducts.FirstOrDefaultAsync(p => p.Asin == seed.Asin);
+                if (existing == null)
+                {
+                    seed.LastUpdated = DateTime.UtcNow;
+                    _context.AmazonProducts.Add(seed);
+                    changed = true;
+                }
+                else
+                {
+                    // Ensure the values are correct if they differ (e.g. title or productUrl updated)
+                    if (existing.ProductUrl != seed.ProductUrl || 
+                        existing.Title != seed.Title || 
+                        existing.Description != seed.Description || 
+                        existing.ImageUrl != seed.ImageUrl ||
+                        existing.Category != seed.Category)
+                    {
+                        existing.Title = seed.Title;
+                        existing.Description = seed.Description;
+                        existing.ImageUrl = seed.ImageUrl;
+                        existing.Price = seed.Price;
+                        existing.OriginalPrice = seed.OriginalPrice;
+                        existing.Rating = seed.Rating;
+                        existing.ReviewCount = seed.ReviewCount;
+                        existing.Category = seed.Category;
+                        existing.ProductUrl = seed.ProductUrl;
+                        existing.LastUpdated = DateTime.UtcNow;
+                        changed = true;
+                    }
+                }
+            }
+
+            if (changed)
+            {
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

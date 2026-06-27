@@ -236,7 +236,7 @@ const AmazonProducts: React.FC = () => {
   };
 
   // Categories list
-  const categories = ["All", "Smartwatches", "Electronics", "Kitchen & Home", "Travel Bags", "Gadgets"];
+  const categories = ["All", "Electronics", "Kitchen & Home", "Home & Decor", "Home Appliances", "Gadgets", "Lifestyle", "Services", "Shopping"];
 
   // Filter products based on selected category tab
   const filteredProducts = selectedTab === "All"
@@ -288,6 +288,7 @@ const AmazonProducts: React.FC = () => {
           />
           <Typography
             variant="h3"
+            component="h1"
             sx={{
               fontWeight: 900,
               fontFamily: "'Outfit', sans-serif",
@@ -424,6 +425,7 @@ const AmazonProducts: React.FC = () => {
                     </Box>
 
                     <Button
+                      id={`scratch-buy-btn-${scratchDealProduct.asin}`}
                       variant="contained"
                       href={scratchDealProduct.productUrl}
                       target="_blank"
@@ -474,6 +476,7 @@ const AmazonProducts: React.FC = () => {
                       
                       {/* Emergency Quick-Reveal Button */}
                       <Button
+                        id="quick-reveal-btn"
                         size="small"
                         onClick={handleRevealClick}
                         sx={{
@@ -696,6 +699,7 @@ const AmazonProducts: React.FC = () => {
                               </Box>
 
                               <Button
+                                id={`buy-btn-${product.asin}`}
                                 variant="contained"
                                 href={product.productUrl}
                                 target="_blank"

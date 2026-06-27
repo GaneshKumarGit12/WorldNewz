@@ -14,31 +14,104 @@ import type { AmazonProduct } from "../api/apiClient";
 const fallbackProducts: Partial<AmazonProduct>[] = [
   {
     id: 1,
-    title: "Amazon Pay Gift Card - Birthday Theme (Physical Card)",
-    imageUrl: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=300&auto=format&fit=crop&q=60",
-    price: 1000,
-    originalPrice: 1000,
-    productUrl: "https://www.amazon.in/dp/B085MFR763?tag=ganeshd12-21",
-    category: "Gift Cards",
+    asin: "B08H88N2N9",
+    title: "Cubelelo Drift 3x3 Stickerless Warrior Speed Cube",
+    imageUrl: "https://images.unsplash.com/photo-1591811400261-26c71c4c8105?w=300&auto=format&fit=crop&q=60",
+    price: 249,
+    originalPrice: 399,
+    productUrl: "https://amzn.to/4w4F7Gc",
+    category: "Gadgets",
   },
   {
     id: 2,
-    title: "Echo Dot (5th Gen) - Deep Ocean Blue Smart Speaker",
-    imageUrl: "https://images.unsplash.com/photo-1543512214-318c7553f230?w=300&auto=format&fit=crop&q=60",
-    price: 4499,
-    originalPrice: 5499,
-    productUrl: "https://www.amazon.in/dp/B09B8VF151?tag=ganeshd12-21",
-    category: "Electronics",
+    asin: "B07QBBV15F",
+    title: "Little Angel Baby Diaper Pants (X-Large, Pack of 4)",
+    imageUrl: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=300&auto=format&fit=crop&q=60",
+    price: 699,
+    originalPrice: 999,
+    productUrl: "https://amzn.to/4eKLuaC",
+    category: "Shopping",
   },
   {
     id: 3,
-    title: "Kindle Paperwhite (16 GB) - 6.8\" Display with Adjustable Warm Light",
-    imageUrl: "https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?w=300&auto=format&fit=crop&q=60",
-    price: 13999,
-    originalPrice: 14999,
-    productUrl: "https://www.amazon.in/dp/B08N36XNTT?tag=ganeshd12-21",
-    category: "Devices",
+    asin: "B09RNDHW8G",
+    title: "Homerz Diwan Cushion Bolster Set (Vacuum Packed)",
+    imageUrl: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=300&auto=format&fit=crop&q=60",
+    price: 1299,
+    originalPrice: 2499,
+    productUrl: "https://amzn.to/3SG4QGF",
+    category: "Home & Decor",
   },
+  {
+    id: 4,
+    asin: "B0DZDXCFYX",
+    title: "Conair Handheld Compact Garment Steamer",
+    imageUrl: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=300&auto=format&fit=crop&q=60",
+    price: 2499,
+    originalPrice: 3999,
+    productUrl: "https://amzn.to/4apYj99",
+    category: "Home Appliances",
+  },
+  {
+    id: 5,
+    asin: "B00QWV6MTE",
+    title: "PremiumAV Mini Speaker Plug & Play",
+    imageUrl: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&auto=format&fit=crop&q=60",
+    price: 249,
+    originalPrice: 499,
+    productUrl: "https://amzn.to/3QjU889",
+    category: "Electronics",
+  },
+  {
+    id: 6,
+    asin: "B0821XB1Q6",
+    title: "Amazon Pay Insurance Premium Payment",
+    imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&auto=format&fit=crop&q=60",
+    price: 499,
+    originalPrice: 599,
+    productUrl: "https://amzn.to/4oUWYNF",
+    category: "Services",
+  },
+  {
+    id: 7,
+    asin: "B07JJ5TFY1",
+    title: "MMR Making Marvelous Ultimate Cockroach Gel",
+    imageUrl: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=300&auto=format&fit=crop&q=60",
+    price: 199,
+    originalPrice: 299,
+    productUrl: "https://amzn.to/3SwQ7xR",
+    category: "Kitchen & Home",
+  },
+  {
+    id: 8,
+    asin: "B07G8BVF7X",
+    title: "VIP Ultima Cotton Briefs (Pack of 4)",
+    imageUrl: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=300&auto=format&fit=crop&q=60",
+    price: 688,
+    originalPrice: 899,
+    productUrl: "https://amzn.to/4f6C36U",
+    category: "Lifestyle",
+  },
+  {
+    id: 9,
+    asin: "B07QP9PTZP",
+    title: "Amazon Pay LPG Cylinder Booking & Bill Payment",
+    imageUrl: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=300&auto=format&fit=crop&q=60",
+    price: 850,
+    originalPrice: 850,
+    productUrl: "https://amzn.to/4xWBX9y",
+    category: "Services",
+  },
+  {
+    id: 10,
+    asin: "B07FFQG8GT",
+    title: "Milan Jewellers 99.5% OM Silver Coin",
+    imageUrl: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=300&auto=format&fit=crop&q=60",
+    price: 499,
+    originalPrice: 999,
+    productUrl: "https://amzn.to/4oPQsb1",
+    category: "Lifestyle",
+  }
 ];
 
 export const ShoppingWidget: React.FC = () => {
@@ -57,16 +130,38 @@ export const ShoppingWidget: React.FC = () => {
       });
   }, []);
 
+  // Daily products helper: select exactly 4 products, rotated daily
+  const getDailyProducts = (list: Partial<AmazonProduct>[]) => {
+    if (list.length <= 4) return list;
+    
+    // Compute day of year index
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = now.getTime() - start.getTime();
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    
+    const startIndex = dayOfYear % list.length;
+    const daily: Partial<AmazonProduct>[] = [];
+    
+    for (let i = 0; i < 4; i++) {
+      daily.push(list[(startIndex + i) % list.length]);
+    }
+    return daily;
+  };
+
+  const dailyProducts = getDailyProducts(products);
+
   // Auto rotate products every 4 seconds
   useEffect(() => {
-    if (products.length <= 1) return;
+    if (dailyProducts.length <= 1) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % products.length);
+      setCurrentIndex((prev) => (prev + 1) % dailyProducts.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [products]);
+  }, [dailyProducts.length]);
 
-  const activeProduct = products[currentIndex] || fallbackProducts[0];
+  const activeProduct = dailyProducts[currentIndex] || dailyProducts[0] || fallbackProducts[0];
 
   return (
     <Card
@@ -214,7 +309,7 @@ export const ShoppingWidget: React.FC = () => {
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mt: 2, pt: 1, borderTop: "1px solid", borderColor: "divider" }}>
           {/* Dot navigation */}
           <Box sx={{ display: "flex", gap: 0.75 }}>
-            {products.map((_, idx) => (
+            {dailyProducts.map((_, idx) => (
               <Box
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
