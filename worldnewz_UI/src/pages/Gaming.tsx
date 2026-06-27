@@ -287,14 +287,14 @@ const Gaming: React.FC = () => {
                 }}
               />
               <Typography variant="h4" fontWeight="800" gutterBottom sx={{ letterSpacing: "-0.03em" }}>
-                DVCubie2026: Physics 2048 Merge
+                DVCubie2026: Cubes 2048.io Arena
               </Typography>
               <Typography variant="body1" sx={{ color: "#cbd5e1", mb: 3, maxWidth: "600px", lineHeight: 1.6 }}>
-                Drop cubes, merge matches under gravity, trigger chain reactions, and challenge other players on our live real-time leaderboard! Can you reach the 2048 cube?
+                Slide on a grid, collect numbered food blocks, merge trailing segments, consume smaller AI snakes, and avoid division hazards or larger enemies on our live real-time leaderboard!
               </Typography>
               <Button
                 component={Link}
-                to="/games/cubie2048"
+                to="/games/dvcubie2026"
                 variant="contained"
                 size="large"
                 id="play-dvcubie-promo-btn"

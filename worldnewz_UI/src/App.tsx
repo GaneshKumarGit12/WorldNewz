@@ -71,7 +71,7 @@ const secondaryNavLinks = [
   { label: "Entertainment", path: "/entertainment" },
   { label: "Services", path: "/services" },
   { label: "Gaming", path: "/gaming" },
-  { label: "DVCubie2026 🎮", path: "/games/cubie2048" },
+  { label: "DVCubie2026 🎮", path: "/games/dvcubie2026" },
   { label: "Cartoons", path: "/cartoons" },
   { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
@@ -168,6 +168,23 @@ const App: React.FC = () => {
   const { bookmarks } = useBookmarks();
   const { getAllComments } = useComments();
   const totalComments = getAllComments().length;
+
+  const [hideSearchInGame, setHideSearchInGame] = useState(() => localStorage.getItem("dvcubie_hide_search") !== "false");
+  const [hideBadgesInGame, setHideBadgesInGame] = useState(() => localStorage.getItem("dvcubie_hide_badges") !== "false");
+
+  useEffect(() => {
+    const handleSettingsChange = () => {
+      setHideSearchInGame(localStorage.getItem("dvcubie_hide_search") !== "false");
+      setHideBadgesInGame(localStorage.getItem("dvcubie_hide_badges") !== "false");
+    };
+
+    window.addEventListener("dvcubie-settings-changed", handleSettingsChange);
+    handleSettingsChange();
+
+    return () => {
+      window.removeEventListener("dvcubie-settings-changed", handleSettingsChange);
+    };
+  }, [location.pathname]);
 
   const [verificationSnackbar, setVerificationSnackbar] = useState<{ open: boolean; message: string; severity: "success" | "error" }>({ 
     open: false, 
@@ -496,32 +513,36 @@ const App: React.FC = () => {
             </Menu>
 
             {/* Comments button */}
-            <Tooltip title="Comments">
-              <IconButton
-                component={Link}
-                to="/comments"
-                aria-label="Comments"
-                sx={{ color: location.pathname === "/comments" ? "#c83a15" : "white", ml: 1 }}
-              >
-                <Badge badgeContent={totalComments} color="primary" max={999}>
-                  <ChatBubbleIcon />
-                </Badge>
-              </IconButton>
-            </Tooltip>
+            {!(location.pathname === "/games/dvcubie2026" && hideBadgesInGame) && (
+              <Tooltip title="Comments">
+                <IconButton
+                  component={Link}
+                  to="/comments"
+                  aria-label="Comments"
+                  sx={{ color: location.pathname === "/comments" ? "#c83a15" : "white", ml: 1 }}
+                >
+                  <Badge badgeContent={totalComments} color="primary" max={999}>
+                    <ChatBubbleIcon />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+            )}
 
             {/* Bookmarks button */}
-            <Tooltip title="Bookmarks">
-              <IconButton
-                component={Link}
-                to="/bookmarks"
-                aria-label="Bookmarks"
-                sx={{ color: location.pathname === "/bookmarks" ? "#ffb74d" : "white", ml: 1 }}
-              >
-                <Badge badgeContent={bookmarks.length} color="warning" max={99}>
-                  <BookmarkIcon />
-                </Badge>
-              </IconButton>
-            </Tooltip>
+            {!(location.pathname === "/games/dvcubie2026" && hideBadgesInGame) && (
+              <Tooltip title="Bookmarks">
+                <IconButton
+                  component={Link}
+                  to="/bookmarks"
+                  aria-label="Bookmarks"
+                  sx={{ color: location.pathname === "/bookmarks" ? "#ffb74d" : "white", ml: 1 }}
+                >
+                  <Badge badgeContent={bookmarks.length} color="warning" max={99}>
+                    <BookmarkIcon />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+            )}
 
             {/* Admin Panel button */}
             <Tooltip title="Admin Dashboard">
@@ -558,16 +579,20 @@ const App: React.FC = () => {
 
           {/* Mobile: bookmark + theme + hamburger */}
           <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}>
-            <IconButton component={Link} to="/comments" aria-label="Comments" sx={{ color: "white" }}>
-              <Badge badgeContent={totalComments} color="primary" max={999}>
-                <ChatBubbleIcon />
-              </Badge>
-            </IconButton>
-            <IconButton component={Link} to="/bookmarks" aria-label="Bookmarks" sx={{ color: "white" }}>
-              <Badge badgeContent={bookmarks.length} color="warning" max={99}>
-                <BookmarkIcon />
-              </Badge>
-            </IconButton>
+            {!(location.pathname === "/games/dvcubie2026" && hideBadgesInGame) && (
+              <>
+                <IconButton component={Link} to="/comments" aria-label="Comments" sx={{ color: "white" }}>
+                  <Badge badgeContent={totalComments} color="primary" max={999}>
+                    <ChatBubbleIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton component={Link} to="/bookmarks" aria-label="Bookmarks" sx={{ color: "white" }}>
+                  <Badge badgeContent={bookmarks.length} color="warning" max={99}>
+                    <BookmarkIcon />
+                  </Badge>
+                </IconButton>
+              </>
+            )}
             <IconButton 
               id="header-admin-btn-mobile"
               component={Link} 
@@ -821,55 +846,57 @@ const App: React.FC = () => {
       >
         <Box sx={{ maxWidth: 1200, mx: "auto" }}>
           {/* Compact search section */}
-          <Box component="form" onSubmit={handleSearchSubmit} sx={{ display: "flex", justifyContent: "center", mb: 1.5 }}>
-            <TextField
-              fullWidth
-              value={searchTerm}
-              onChange={handleSearchChange}
-              placeholder="Search news, weather, shopping, sports…"
-              variant="outlined"
-              size="small"
-              autoComplete="off"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start" sx={{ ml: 1, mr: 0 }}>
-                    <SearchIcon color="action" sx={{ fontSize: 20 }} />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end" sx={{ mr: 0.5 }}>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                      <Tooltip title="Voice search">
-                        <IconButton size="small" aria-label="Voice search" onClick={handleVoiceSearch} sx={{ p: 0.5 }}>
-                          <MicIcon sx={{ fontSize: 18 }} />
-                        </IconButton>
-                      </Tooltip>
-                      <Button
-                        startIcon={<SmartToyIcon sx={{ fontSize: 16 }} />}
-                        variant="contained"
-                        color="primary"
-                        size="small"
-                        onClick={handleCopilotSearch}
-                        sx={{ textTransform: "none", borderRadius: 4, boxShadow: "none", fontSize: "0.8rem", py: 0.5 }}
-                      >
-                        Search
-                      </Button>
-                    </Box>
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                maxWidth: 600,
-                backgroundColor: "background.paper",
-                borderRadius: 6,
-                boxShadow: "0 4px 20px rgba(15,23,42,0.08)",
-                "& .MuiOutlinedInput-root": {
-                  py: 0.75,
-                  fontSize: "0.95rem",
-                },
-              }}
-            />
-          </Box>
+          {!(location.pathname === "/games/dvcubie2026" && hideSearchInGame) && (
+            <Box component="form" onSubmit={handleSearchSubmit} sx={{ display: "flex", justifyContent: "center", mb: 1.5 }}>
+              <TextField
+                fullWidth
+                value={searchTerm}
+                onChange={handleSearchChange}
+                placeholder="Search news, weather, shopping, sports…"
+                variant="outlined"
+                size="small"
+                autoComplete="off"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start" sx={{ ml: 1, mr: 0 }}>
+                      <SearchIcon color="action" sx={{ fontSize: 20 }} />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position="end" sx={{ mr: 0.5 }}>
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                        <Tooltip title="Voice search">
+                          <IconButton size="small" aria-label="Voice search" onClick={handleVoiceSearch} sx={{ p: 0.5 }}>
+                            <MicIcon sx={{ fontSize: 18 }} />
+                          </IconButton>
+                        </Tooltip>
+                        <Button
+                          startIcon={<SmartToyIcon sx={{ fontSize: 16 }} />}
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          onClick={handleCopilotSearch}
+                          sx={{ textTransform: "none", borderRadius: 4, boxShadow: "none", fontSize: "0.8rem", py: 0.5 }}
+                        >
+                          Search
+                        </Button>
+                      </Box>
+                    </InputAdornment>
+                  ),
+                }}
+                sx={{
+                  maxWidth: 600,
+                  backgroundColor: "background.paper",
+                  borderRadius: 6,
+                  boxShadow: "0 4px 20px rgba(15,23,42,0.08)",
+                  "& .MuiOutlinedInput-root": {
+                    py: 0.75,
+                    fontSize: "0.95rem",
+                  },
+                }}
+              />
+            </Box>
+          )}
 
           {/* Compact category chips - horizontal scrollable on mobile */}
           <Box 
