@@ -10,5 +10,6 @@ namespace WorldNewzWebAPI.Data
         public DbSet<PollSubmission> PollSubmissions { get; set; }
         public DbSet<QuizSubmission> QuizSubmissions { get; set; }
         public DbSet<NewsletterSubscriber> NewsletterSubscribers { get; set; }
+        public DbSet<Score> Scores { get; set; }
     }
 }

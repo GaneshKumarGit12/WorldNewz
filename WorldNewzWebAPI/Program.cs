@@ -274,6 +274,7 @@ builder.Services.AddHsts(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -409,6 +410,16 @@ using (var scope = app.Services.CreateScope())
                     ""SubscribedAt"" TIMESTAMP WITH TIME ZONE NOT NULL,
                     ""IsVerified"" BOOLEAN NOT NULL DEFAULT FALSE,
                     ""VerificationToken"" TEXT NULL
+                );
+            ");
+
+            // Ensure Scores table exists in userDb database
+            userDb.Database.ExecuteSqlRaw(@"
+                CREATE TABLE IF NOT EXISTS ""Scores"" (
+                    ""Id"" SERIAL PRIMARY KEY,
+                    ""Username"" TEXT NOT NULL,
+                    ""Points"" INTEGER NOT NULL,
+                    ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                 );
             ");
 
@@ -980,6 +991,7 @@ else
 
 app.UseAuthorization();
 app.MapControllers();
+app.MapHub<WorldNewzWebAPI.Hubs.LeaderboardHub>("/hubs/leaderboard");
 
 // Root route for Render
 app.MapGet("/", () => "WorldNewz API is running. Use /api/... endpoints.");

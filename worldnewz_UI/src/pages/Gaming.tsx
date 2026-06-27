@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -244,6 +245,163 @@ const Gaming: React.FC = () => {
       </Box>
 
       <Container maxWidth="lg" sx={{ pb: 8 }}>
+        {/* Original Featured Game Promotion */}
+        <Paper
+          elevation={6}
+          sx={{
+            p: 4,
+            mb: 5,
+            borderRadius: "20px",
+            background: "linear-gradient(135deg, #1e1b4b 0%, #311042 50%, #4c1d95 100%)",
+            color: "#ffffff",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 10px 30px rgba(168, 85, 247, 0.3)",
+            border: "1px solid rgba(236, 72, 153, 0.4)",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: "-50%",
+              right: "-20%",
+              width: "300px",
+              height: "300px",
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%)",
+              filter: "blur(20px)",
+              pointerEvents: "none",
+            }
+          }}
+        >
+          <Grid container spacing={3} alignItems="center">
+            <Grid size={{ xs: 12, md: 8 }}>
+              <Chip
+                label="WorldNewzs Original"
+                size="small"
+                sx={{
+                  background: "linear-gradient(to right, #ec4899, #f43f5e)",
+                  color: "#ffffff",
+                  fontWeight: "800",
+                  fontSize: "0.75rem",
+                  mb: 2,
+                  px: 1,
+                }}
+              />
+              <Typography variant="h4" fontWeight="800" gutterBottom sx={{ letterSpacing: "-0.03em" }}>
+                DVCubie2026: Physics 2048 Merge
+              </Typography>
+              <Typography variant="body1" sx={{ color: "#cbd5e1", mb: 3, maxWidth: "600px", lineHeight: 1.6 }}>
+                Drop cubes, merge matches under gravity, trigger chain reactions, and challenge other players on our live real-time leaderboard! Can you reach the 2048 cube?
+              </Typography>
+              <Button
+                component={Link}
+                to="/games/cubie2048"
+                variant="contained"
+                size="large"
+                id="play-dvcubie-promo-btn"
+                sx={{
+                  borderRadius: "12px",
+                  background: "linear-gradient(to right, #ec4899, #8b5cf6)",
+                  fontWeight: "700",
+                  px: 4,
+                  py: 1.5,
+                  boxShadow: "0 4px 15px rgba(236, 72, 153, 0.4)",
+                  "&:hover": {
+                    boxShadow: "0 6px 20px rgba(236, 72, 153, 0.6)",
+                  }
+                }}
+              >
+                Play Now (Free)
+              </Button>
+            </Grid>
+            <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center">
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "120px",
+                  height: "120px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "24px",
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px dashed rgba(255,255,255,0.2)",
+                    transform: "rotate(15deg)",
+                  }
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "12px",
+                    background: "#fef08a",
+                    color: "#ca8a04",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: "900",
+                    fontSize: "1.5rem",
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
+                    transform: "rotate(-10deg)",
+                    zIndex: 2,
+                  }}
+                >
+                  2048
+                </Box>
+                <Box
+                  sx={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "10px",
+                    background: "#fecaca",
+                    color: "#dc2626",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: "900",
+                    fontSize: "1.1rem",
+                    boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                    position: "absolute",
+                    top: "10px",
+                    left: "-10px",
+                    transform: "rotate(-30deg)",
+                    zIndex: 1,
+                  }}
+                >
+                  16
+                </Box>
+                <Box
+                  sx={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "10px",
+                    background: "#bfdbfe",
+                    color: "#2563eb",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: "900",
+                    fontSize: "1.1rem",
+                    boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                    position: "absolute",
+                    bottom: "10px",
+                    right: "-10px",
+                    transform: "rotate(20deg)",
+                    zIndex: 1,
+                  }}
+                >
+                  128
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </Paper>
+
         {/* Filters Toolbar */}
         <Paper
           elevation={4}

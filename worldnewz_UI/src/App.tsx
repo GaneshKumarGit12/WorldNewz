@@ -71,6 +71,7 @@ const secondaryNavLinks = [
   { label: "Entertainment", path: "/entertainment" },
   { label: "Services", path: "/services" },
   { label: "Gaming", path: "/gaming" },
+  { label: "DVCubie2026 🎮", path: "/games/cubie2048" },
   { label: "Cartoons", path: "/cartoons" },
   { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
