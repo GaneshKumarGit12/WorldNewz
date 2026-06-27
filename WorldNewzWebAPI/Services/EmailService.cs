@@ -1,5 +1,10 @@
-using System.Net;
-using System.Net.Mail;
+using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 
 namespace WorldNewzWebAPI.Services
 {
@@ -24,7 +29,7 @@ namespace WorldNewzWebAPI.Services
             try
             {
                 var smtpServer = _configuration["SMTP_SERVER"] ?? "smtp.gmail.com";
-                var smtpPortStr = _configuration["SMTP_PORT"] ?? "587";
+                var smtpPortStr = _configuration["SMTP_PORT"] ?? "465"; // Default to 465 (unblocked SSL on cloud providers)
                 var smtpUser = _configuration["SMTP_USER"] ?? "ganeshkumard56@gmail.com";
                 var smtpPass = _configuration["SMTP_PASS"]; // Gmail App Password
 
@@ -36,28 +41,44 @@ namespace WorldNewzWebAPI.Services
                     return;
                 }
 
-                int smtpPort = int.TryParse(smtpPortStr, out var port) ? port : 587;
+                int smtpPort = int.TryParse(smtpPortStr, out var port) ? port : 465;
 
-                using var client = new SmtpClient(smtpServer, smtpPort)
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("WorldNewzs System", smtpUser));
+                message.To.Add(new MailboxAddress("", toEmail));
+                message.Subject = subject;
+
+                var bodyBuilder = new BodyBuilder
                 {
-                    Credentials = new NetworkCredential(smtpUser, smtpPass),
-                    EnableSsl = true
+                    HtmlBody = body
                 };
+                message.Body = bodyBuilder.ToMessageBody();
 
-                using var mailMessage = new MailMessage
+                using var client = new SmtpClient();
+
+                // Select connection security based on the port
+                SecureSocketOptions socketOptions = SecureSocketOptions.Auto;
+                if (smtpPort == 465)
                 {
-                    From = new MailAddress(smtpUser, "WorldNewzs System"),
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true
-                };
+                    socketOptions = SecureSocketOptions.SslOnConnect; // Implicit SSL/TLS
+                }
+                else if (smtpPort == 587)
+                {
+                    socketOptions = SecureSocketOptions.StartTls; // STARTTLS
+                }
 
-                mailMessage.To.Add(toEmail);
+                // Connect to server
+                await client.ConnectAsync(smtpServer, smtpPort, socketOptions);
 
-                // Add Reply-To if the body contains sender email or we can pass it separately.
-                // We'll set the Reply-To address to the sender's email if possible, so replying to the notification goes to the sender.
+                // Authenticate
+                await client.AuthenticateAsync(smtpUser, smtpPass);
 
-                await client.SendMailAsync(mailMessage);
+                // Send email
+                await client.SendAsync(message);
+
+                // Disconnect cleanly
+                await client.DisconnectAsync(true);
+
                 _logger.LogInformation($"Email sent successfully to {toEmail}");
             }
             catch (Exception ex)
