@@ -47,6 +47,12 @@ This document describes the mechanics and maintenance guidelines for the **DVCub
   - Touch-drag anywhere on the canvas updates pointer target coordinates.
   - Canvas scales dynamically using Phaser's scale manager to match parent viewport limits.
   - Speed boost is activated via an on-screen overlay button.
+- **Unified Arcade PopUp Cabinet**:
+  - The entire game is contained inside a centralized, responsive popup card container:
+    - Width: `maxWidth: "540px"`, `width: "100%"`.
+    - Height: `height: "min(760px, 92vh)"`.
+  - Nested screens (home, tutorial, leaderboard, shop, profile, gameover) have internal card margins and borders removed, fitting cleanly within the popup card borders.
+  - Shop skins list and achievements lists have `max-height` constraints and `overflow-y: auto` to prevent window overflows on any screen resolution.
 - **HUD Placements**:
   - **Pause Button**: Positioned in the **top-left** of the gameplay screen.
   - **Scoreboard**: Current Score on the **left**, Best Score on the **right**.
@@ -62,6 +68,12 @@ This document describes the mechanics and maintenance guidelines for the **DVCub
 - **Leaderboard Rankings**:
   - Supports Global and mock Friends ranking list tabs.
   - Emphasizes the player's own score row with a colored glow background.
+- **Global Header Badge**:
+  - Promoted `DVCubie2026` to `primaryNavLinks` as a purple/pink highlighted nav badge:
+    ```javascript
+    { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", highlight: true, highlightColor: "linear-gradient(135deg, #a855f7, #ec4899)", badge: "NEW" }
+    ```
+  - Directly opens the game screen in one click and is highly visible on the top main navigation bar.
 
 ## 3. Audio, Music & Haptics
 
