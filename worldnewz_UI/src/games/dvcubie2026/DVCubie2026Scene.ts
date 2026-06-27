@@ -25,12 +25,12 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   private playerSnake!: Snake;
   private aiSnakes: Snake[] = [];
   private foodGroup!: Phaser.Physics.Arcade.Group;
-  private divisionGroup!: Phaser.Physics.Arcade.Group;
+  private blockerGroup!: Phaser.Physics.Arcade.StaticGroup;
   
   // Game state
   private isGameOver = false;
   private maxFood = 120;
-  private maxDivisions = 20;
+  private maxBlockers = 25;
   private nextCubeVal = 2;
 
   constructor() {
@@ -60,13 +60,13 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     this.generateCubeTextures();
     this.generateObstacleTextures();
 
-    // Food and Obstacle groups
+    // Food and blocker groups
     this.foodGroup = this.physics.add.group();
-    this.divisionGroup = this.physics.add.group();
+    this.blockerGroup = this.physics.add.staticGroup();
 
     // Spawn Initial map entities
     this.spawnInitialFood();
-    this.spawnInitialDivisions();
+    this.spawnInitialBlockers();
 
     // Spawn Player
     this.playerSnake = this.spawnSnake("Player (You)", false, 1000, 1000, 4);
@@ -99,26 +99,20 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       this.playerSnake.boostActive = false;
     });
 
-    // Share player score updates
+    // Share player score and rankings updates
     this.time.addEvent({
       delay: 500,
       callback: () => {
         if (!this.isGameOver) {
           const score = this.getSnakeScore(this.playerSnake);
           this.game.events.emit("score-changed", score);
+          this.updateArenaRankings();
         }
       },
       loop: true
     });
 
-    // Setup Collision / Overlap rules
-    this.physics.add.overlap(this.playerSnake.head, this.foodGroup, (_head, food) => {
-      this.handleFoodEating(this.playerSnake, food as Phaser.Physics.Arcade.Sprite);
-    });
-
-    this.physics.add.overlap(this.playerSnake.head, this.divisionGroup, (_head, div) => {
-      this.handleDivisionSign(this.playerSnake, div as Phaser.Physics.Arcade.Sprite);
-    });
+    // Overlap rules (collisions are auto-registered in spawnSnake)
   }
 
   update(time: number, delta: number) {
@@ -349,26 +343,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     this.cascadeMerge(snake);
   }
 
-  private handleDivisionSign(snake: Snake, div: Phaser.Physics.Arcade.Sprite) {
-    // Respawn division sign elsewhere
-    div.destroy();
-    this.spawnSingleDivision();
-
-    // Halve the head block value
-    const currentVal = snake.head.getData("value");
-    if (currentVal > 2) {
-      const newVal = currentVal / 2;
-      snake.head.setData("value", newVal);
-      snake.head.setTexture(`cube_${newVal}`);
-      
-      this.createMergeParticles(snake.head.x, snake.head.y, currentVal);
-
-      if (snake === this.playerSnake) {
-        this.cameras.main.shake(150, 0.005);
-        this.game.events.emit("score-changed", this.getSnakeScore(snake));
-      }
-    }
-  }
+  // division sign logic removed
 
   private absorbSnake(hunter: Snake, prey: Snake) {
     // Add prey's head value as segment
@@ -387,13 +362,15 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     if (hunter === this.playerSnake) {
       this.cameras.main.flash(200, 168, 85, 247);
       this.game.events.emit("toast-alert", `🔥 You completely consumed ${prey.name}!`);
-      
-      // Respawn AI snake
+    }
+
+    // Respawn AI snake
+    if (prey.isAI) {
       this.time.delayedCall(3000, () => {
         const rx = Phaser.Math.Between(100, this.mapWidth - 100);
         const ry = Phaser.Math.Between(100, this.mapHeight - 100);
-        const name = prey.name;
-        this.aiSnakes.push(this.spawnSnake(name, true, rx, ry, 4));
+        const ai = this.spawnSnake(prey.name, true, rx, ry, 4);
+        this.aiSnakes.push(ai);
       });
     }
   }
@@ -479,18 +456,26 @@ export default class DVCubie2026Scene extends Phaser.Scene {
         this.game.events.emit("cube-merged", { scoreAwarded: headVal, mergedValue: headVal });
         // Emit virtual coin earned
         this.game.events.emit("coin-earned", 1);
+        this.game.events.emit("score-changed", headVal);
       }
+      this.updateArenaRankings();
       // Recursive call for cascading chains
       this.cascadeMerge(snake);
     }
   }
 
   private getSnakeScore(snake: Snake): number {
-    let total = snake.head.getData("value") as number;
-    snake.segments.forEach(seg => {
-      total += seg.value;
-    });
-    return total;
+    return (snake.head.getData("value") as number) || 2;
+  }
+
+  private updateArenaRankings() {
+    if (this.isGameOver || !this.playerSnake) return;
+    const rankings = [
+      { name: this.playerSnake.name, score: this.getSnakeScore(this.playerSnake), isPlayer: true },
+      ...this.aiSnakes.map(ai => ({ name: ai.name, score: this.getSnakeScore(ai), isPlayer: false }))
+    ].sort((a, b) => b.score - a.score);
+
+    this.game.events.emit("arena-rankings-updated", rankings);
   }
 
   private spawnSnake(name: string, isAI: boolean, x: number, y: number, startVal: number): Snake {
@@ -534,6 +519,13 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       loop: true
     });
 
+    // Auto-register physics colliders and overlaps
+    this.physics.add.overlap(head, this.foodGroup, (_head, food) => {
+      this.handleFoodEating(snake, food as Phaser.Physics.Arcade.Sprite);
+    });
+
+    this.physics.add.collider(head, this.blockerGroup);
+
     return snake;
   }
 
@@ -556,19 +548,24 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     body.setAllowGravity(false);
   }
 
-  private spawnInitialDivisions() {
-    for (let i = 0; i < this.maxDivisions; i++) {
-      this.spawnSingleDivision();
+  private spawnInitialBlockers() {
+    for (let i = 0; i < this.maxBlockers; i++) {
+      this.spawnSingleBlocker();
     }
   }
 
-  private spawnSingleDivision() {
+  private spawnSingleBlocker() {
     const rx = Phaser.Math.Between(100, this.mapWidth - 100);
     const ry = Phaser.Math.Between(100, this.mapHeight - 100);
 
-    const div = this.divisionGroup.create(rx, ry, "hazard_div");
-    const body = div.body as Phaser.Physics.Arcade.Body;
-    body.setAllowGravity(false);
+    // Avoid player start zone
+    if (Phaser.Math.Distance.Between(rx, ry, 1000, 1000) < 250) {
+      this.spawnSingleBlocker();
+      return;
+    }
+
+    const blocker = this.blockerGroup.create(rx, ry, "blocker");
+    blocker.refreshBody();
   }
 
   private createMergeParticles(x: number, y: number, value: number) {
@@ -739,30 +736,32 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private generateObstacleTextures() {
-    // 1. Division block (/)
-    if (!this.textures.exists("hazard_div")) {
+    // 1. Static Square Blocker (Gray 3D Bevel Box)
+    if (!this.textures.exists("blocker")) {
       const canvas = document.createElement("canvas");
-      canvas.width = 44;
-      canvas.height = 44;
+      canvas.width = 120;
+      canvas.height = 120;
       const ctx = canvas.getContext("2d")!;
 
-      ctx.fillStyle = "#ef4444"; // Warning Red
+      // Background Bevel / Shadow Frame
+      ctx.fillStyle = "#374151"; // Slate Gray Shadow
       ctx.beginPath();
-      ctx.arc(22, 22, 20, 0, Math.PI * 2);
+      ctx.roundRect(0, 0, 120, 120, 16);
       ctx.fill();
 
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 2.5;
-      ctx.stroke();
+      // Top Face slightly shifted
+      ctx.fillStyle = "#6b7280"; // Medium Slate Gray
+      ctx.beginPath();
+      ctx.roundRect(4, 4, 112, 112, 12);
+      ctx.fill();
 
-      // Draw '/' symbol in white
-      ctx.fillStyle = "#ffffff";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.font = 'bold 20px "Outfit", sans-serif';
-      ctx.fillText("÷", 22, 21);
+      // Reflective glass reflection highlight
+      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
+      ctx.beginPath();
+      ctx.roundRect(8, 8, 104, 52, [8, 8, 0, 0]);
+      ctx.fill();
 
-      this.textures.addCanvas("hazard_div", canvas);
+      this.textures.addCanvas("blocker", canvas);
     }
   }
 

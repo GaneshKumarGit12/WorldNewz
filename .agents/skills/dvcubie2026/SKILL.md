@@ -29,12 +29,16 @@ This document describes the mechanics and maintenance guidelines for the **DVCub
     - If this double matches the segment in front of *it*, a cascade occurs.
 - **Eating and Combat**:
   - A snake consumes body segments of another snake if its head value is strictly greater than the collided segment's value.
-  - Head-to-head collisions result in the larger head consuming the entire smaller snake (transferring its score value).
-- **Division Signs `(/)`**:
-  - Halves the value of the head segment upon collision, with a minimum value of 2.
+  - Head-to-head collisions result in the larger head consuming the entire smaller snake.
+- **Static Square Blockers**:
+  - Replaces old division sign hazards with solid 3D gray bevel obstacles.
+  - Players and bots collide and slide around these blockers to navigate, cut off opponents, or corner food.
 - **Next Cube Preview**:
   - A random power-of-two value (2, 4, 8, 16) is pre-rolled as the "next cube".
   - Phaser emits `next-cube-changed` when a new food item spawns or is eaten, updating the HUD display card.
+- **Score Calculation**:
+  - The score/count of the snake is equal to the value of its head segment (the highest block).
+  - Eating food appends blocks to the tail; player scores increase when tail blocks merge up to the head, doubling the head block value.
 
 ## 2. Controls & Layout Specifications
 
@@ -47,6 +51,7 @@ This document describes the mechanics and maintenance guidelines for the **DVCub
   - **Pause Button**: Positioned in the **top-left** of the gameplay screen.
   - **Scoreboard**: Current Score on the **left**, Best Score on the **right**.
   - **Next Cube**: Card container in the **top-right** displaying the upcoming value.
+  - **In-Game Leaderboard**: Semi-transparent panel in the **top-right** listing the top 5 players/AI bots in real-time.
 - **Pause Menu Modal**:
   - Overlays semi-transparent dark backdrop.
   - Displays Sound, Music, and Vibration settings switches.

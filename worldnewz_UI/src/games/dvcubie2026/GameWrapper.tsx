@@ -118,6 +118,18 @@ const GameWrapper: React.FC = () => {
   const [nextCube, setNextCube] = useState<number>(2);
   const [leaderboardTab, setLeaderboardTab] = useState<number>(0);
 
+  const [arenaRankings, setArenaRankings] = useState<{ name: string; score: number; isPlayer: boolean }[]>([]);
+
+  const formatCubeValue = (val: number): string => {
+    if (val >= 1000000) {
+      return (val / 1000000).toFixed(0) + "M";
+    }
+    if (val >= 1000) {
+      return (val / 1000).toFixed(0) + "K";
+    }
+    return val.toString();
+  };
+
   const musicIntervalRef = useRef<any>(null);
 
   const playMusicNote = () => {
@@ -365,6 +377,10 @@ const GameWrapper: React.FC = () => {
 
     game.events.on("next-cube-changed", (val: number) => {
       setNextCube(val);
+    });
+
+    game.events.on("arena-rankings-updated", (rankings: any) => {
+      setArenaRankings(rankings);
     });
 
     game.events.on("coin-earned", (amt: number) => {
@@ -951,6 +967,57 @@ const GameWrapper: React.FC = () => {
                   <Typography variant="body2" fontWeight="950" sx={{ color: "#fff" }}>
                     {nextCube}
                   </Typography>
+                </Box>
+              </Box>
+
+              {/* In-Game Mini Leaderboard (Top Right) */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 96,
+                  right: 14,
+                  zIndex: 1000,
+                  background: "rgba(15, 12, 38, 0.75)",
+                  backdropFilter: "blur(4px)",
+                  border: "1.5px solid rgba(255, 255, 255, 0.15)",
+                  borderRadius: "12px",
+                  p: 1.5,
+                  width: 140,
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.5)",
+                }}
+              >
+                <Typography variant="caption" sx={{ color: "#94a3b8", display: "block", mb: 0.8, fontSize: "0.65rem", fontWeight: "bold", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.08)", pb: 0.5 }}>
+                  ARENA TOP 5
+                </Typography>
+                <Box display="flex" flexDirection="column" gap={0.5}>
+                  {arenaRankings.slice(0, 5).map((player, idx) => {
+                    const isSelf = player.isPlayer;
+                    return (
+                      <Box key={player.name} display="flex" justifyContent="space-between" alignItems="center">
+                        <Typography 
+                          variant="caption" 
+                          fontWeight={isSelf ? "bold" : "normal"} 
+                          sx={{ 
+                            color: isSelf ? "#fbbf24" : "#cbd5e1", 
+                            fontSize: "0.6rem", 
+                            overflow: "hidden", 
+                            textOverflow: "ellipsis", 
+                            whiteSpace: "nowrap",
+                            maxWidth: 80 
+                          }}
+                        >
+                          {idx + 1}. {isSelf ? "You" : player.name}
+                        </Typography>
+                        <Typography 
+                          variant="caption" 
+                          fontWeight="bold" 
+                          sx={{ color: isSelf ? "#fbbf24" : "#ec4899", fontSize: "0.6rem" }}
+                        >
+                          {formatCubeValue(player.score)}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
                 </Box>
               </Box>
 
