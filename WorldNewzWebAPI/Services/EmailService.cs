@@ -92,9 +92,9 @@ namespace WorldNewzWebAPI.Services
             // 3. Fallback to MailKit SMTP (Requires SMTP ports 465/587 to be unblocked on host server)
             try
             {
-                var smtpServer = _configuration["SMTP_SERVER"] ?? "smtp.gmail.com";
-                var smtpPortStr = _configuration["SMTP_PORT"] ?? "465";
-                var smtpPass = _configuration["SMTP_PASS"]; // Gmail App Password
+                var smtpServer = _configuration["SMTP_SERVER"] ?? "smtp-relay.brevo.com";
+                var smtpPortStr = _configuration["SMTP_PORT"] ?? "587";
+                var smtpPass = _configuration["SMTP_PASS"];
 
                 if (string.IsNullOrEmpty(smtpPass))
                 {
