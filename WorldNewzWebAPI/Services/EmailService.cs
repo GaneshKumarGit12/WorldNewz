@@ -36,71 +36,57 @@ namespace WorldNewzWebAPI.Services
             var brevoApiKey = _configuration["BREVO_API_KEY"] ?? _configuration["SENDINBLUE_API_KEY"];
             if (!string.IsNullOrEmpty(brevoApiKey))
             {
-                try
+                _logger.LogInformation("Attempting to send email via Brevo HTTP API (Port 443)...");
+                var payload = new
                 {
-                    _logger.LogInformation("Attempting to send email via Brevo HTTP API (Port 443)...");
-                    var payload = new
-                    {
-                        sender = new { name = "WorldNewzs System", email = senderEmail },
-                        to = new[] { new { email = toEmail } },
-                        subject = subject,
-                        htmlContent = body
-                    };
+                    sender = new { name = "WorldNewzs System", email = senderEmail },
+                    to = new[] { new { email = toEmail } },
+                    subject = subject,
+                    htmlContent = body
+                };
 
-                    using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email");
-                    request.Headers.Add("api-key", brevoApiKey);
-                    request.Headers.Add("accept", "application/json");
-                    request.Content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+                using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email");
+                request.Headers.Add("api-key", brevoApiKey);
+                request.Headers.Add("accept", "application/json");
+                request.Content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
 
-                    var response = await _httpClient.SendAsync(request);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        _logger.LogInformation($"Email sent successfully to {toEmail} via Brevo HTTP API.");
-                        return;
-                    }
-
-                    var errContent = await response.Content.ReadAsStringAsync();
-                    _logger.LogWarning($"Brevo HTTP API returned error code {response.StatusCode}: {errContent}");
-                }
-                catch (Exception ex)
+                var response = await _httpClient.SendAsync(request);
+                if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogError(ex, "Failed to send email via Brevo HTTP API, will try fallback.");
+                    _logger.LogInformation($"Email sent successfully to {toEmail} via Brevo HTTP API.");
+                    return;
                 }
+
+                var errContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Brevo API Error (Status {response.StatusCode}): {errContent}");
             }
 
             // 2. Try SendGrid HTTP API (Bypasses SMTP port blocking completely)
             var sendGridApiKey = _configuration["SENDGRID_API_KEY"];
             if (!string.IsNullOrEmpty(sendGridApiKey))
             {
-                try
+                _logger.LogInformation("Attempting to send email via SendGrid HTTP API (Port 443)...");
+                var payload = new
                 {
-                    _logger.LogInformation("Attempting to send email via SendGrid HTTP API (Port 443)...");
-                    var payload = new
-                    {
-                        personalizations = new[] { new { to = new[] { new { email = toEmail } } } },
-                        from = new { name = "WorldNewzs System", email = senderEmail },
-                        subject = subject,
-                        content = new[] { new { type = "text/html", value = body } }
-                    };
+                    personalizations = new[] { new { to = new[] { new { email = toEmail } } } },
+                    from = new { name = "WorldNewzs System", email = senderEmail },
+                    subject = subject,
+                    content = new[] { new { type = "text/html", value = body } }
+                };
 
-                    using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.sendgrid.com/v3/mail/send");
-                    request.Headers.Add("Authorization", $"Bearer {sendGridApiKey}");
-                    request.Content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+                using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.sendgrid.com/v3/mail/send");
+                request.Headers.Add("Authorization", $"Bearer {sendGridApiKey}");
+                request.Content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
 
-                    var response = await _httpClient.SendAsync(request);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        _logger.LogInformation($"Email sent successfully to {toEmail} via SendGrid HTTP API.");
-                        return;
-                    }
-
-                    var errContent = await response.Content.ReadAsStringAsync();
-                    _logger.LogWarning($"SendGrid HTTP API returned error code {response.StatusCode}: {errContent}");
-                }
-                catch (Exception ex)
+                var response = await _httpClient.SendAsync(request);
+                if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogError(ex, "Failed to send email via SendGrid HTTP API, will try fallback.");
+                    _logger.LogInformation($"Email sent successfully to {toEmail} via SendGrid HTTP API.");
+                    return;
                 }
+
+                var errContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"SendGrid API Error (Status {response.StatusCode}): {errContent}");
             }
 
             // 3. Fallback to MailKit SMTP (Requires SMTP ports 465/587 to be unblocked on host server)
