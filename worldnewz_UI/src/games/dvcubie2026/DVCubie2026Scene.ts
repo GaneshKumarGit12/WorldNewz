@@ -470,6 +470,8 @@ export default class DVCubie2026Scene extends Phaser.Scene {
         this.cameras.main.shake(60, 0.003);
         const headVal = snake.head.getData("value");
         this.game.events.emit("cube-merged", { scoreAwarded: headVal, mergedValue: headVal });
+        // Emit virtual coin earned
+        this.game.events.emit("coin-earned", 1);
       }
       // Recursive call for cascading chains
       this.cascadeMerge(snake);
@@ -604,7 +606,70 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       4096: 88,
       8192: 92
     };
+    const size = sizeMap[value] || 92;
 
+    const skin = localStorage.getItem("dvcubie_equipped_skin") || "default";
+
+    // Dynamic Skin mappings
+    if (skin === "neon") {
+      const neonColors: Record<number, { bg: string; text: string }> = {
+        2: { bg: "#06b6d4", text: "#ffffff" },
+        4: { bg: "#ec4899", text: "#ffffff" },
+        8: { bg: "#eab308", text: "#ffffff" },
+        16: { bg: "#22c55e", text: "#ffffff" },
+        32: { bg: "#a855f7", text: "#ffffff" },
+        64: { bg: "#ef4444", text: "#ffffff" },
+        128: { bg: "#3b82f6", text: "#ffffff" },
+        256: { bg: "#f97316", text: "#ffffff" },
+        512: { bg: "#10b981", text: "#ffffff" },
+        1024: { bg: "#d946ef", text: "#ffffff" },
+        2048: { bg: "#f43f5e", text: "#ffffff" }
+      };
+      const colors = neonColors[value] || { bg: "#0f172a", text: "#00ffff" };
+      return { size, colors };
+    }
+
+    if (skin === "gold") {
+      const colors = { bg: "#eab308", text: "#1e1b4b" };
+      if (value >= 128) {
+        colors.bg = "#d97706";
+        colors.text = "#ffffff";
+      }
+      if (value >= 1024) {
+        colors.bg = "#f59e0b";
+        colors.text = "#1e1b4b";
+      }
+      return { size, colors };
+    }
+
+    if (skin === "magma") {
+      const magmaColors: Record<number, { bg: string; text: string }> = {
+        2: { bg: "#7f1d1d", text: "#fca5a5" },
+        4: { bg: "#991b1b", text: "#fca5a5" },
+        8: { bg: "#b91c1c", text: "#fecaca" },
+        16: { bg: "#dc2626", text: "#fee2e2" },
+        32: { bg: "#ea580c", text: "#ffedd5" },
+        64: { bg: "#f97316", text: "#ffedd5" },
+        128: { bg: "#fdba74", text: "#7c2d12" },
+        256: { bg: "#facc15", text: "#713f12" },
+        512: { bg: "#fef08a", text: "#713f12" },
+        1024: { bg: "#ffffff", text: "#7f1d1d" }
+      };
+      const colors = magmaColors[value] || { bg: "#450a0a", text: "#ffffff" };
+      return { size, colors };
+    }
+
+    if (skin === "matrix") {
+      const colors = { bg: "#022c22", text: "#10b981" };
+      if (value >= 256) colors.bg = "#064e3b";
+      if (value >= 1024) {
+        colors.bg = "#10b981";
+        colors.text = "#022c22";
+      }
+      return { size, colors };
+    }
+
+    // Default skin
     const colorMap: Record<number, { bg: string; text: string }> = {
       2: { bg: "#e2e8f0", text: "#334155" },
       4: { bg: "#fde68a", text: "#92400e" },
@@ -620,10 +685,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       4096: { bg: "#475569", text: "#f8fafc" },
       8192: { bg: "#1e293b", text: "#f8fafc" }
     };
-
-    const size = sizeMap[value] || 92;
     const colors = colorMap[value] || { bg: "#0f172a", text: "#ffffff" };
-
     return { size, colors };
   }
 
@@ -631,7 +693,9 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     const values = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192];
     values.forEach((val) => {
       const key = `cube_${val}`;
-      if (this.textures.exists(key)) return;
+      if (this.textures.exists(key)) {
+        this.textures.remove(key);
+      }
 
       const { size, colors } = this.getCubeProperties(val);
       const canvas = document.createElement("canvas");
