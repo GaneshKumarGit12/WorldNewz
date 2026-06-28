@@ -119,6 +119,7 @@ const GameWrapper: React.FC = () => {
   const [leaderboardTab, setLeaderboardTab] = useState<number>(0);
 
   const [arenaRankings, setArenaRankings] = useState<{ name: string; score: number; isPlayer: boolean }[]>([]);
+  const [activeBooster, setActiveBooster] = useState<{ type: string; time: number } | null>(null);
 
   const formatCubeValue = (val: number): string => {
     if (val >= 1000000) {
@@ -381,6 +382,19 @@ const GameWrapper: React.FC = () => {
 
     game.events.on("arena-rankings-updated", (rankings: any) => {
       setArenaRankings(rankings);
+    });
+
+    game.events.on("booster-activated", (data: { type: string; duration: number }) => {
+      setActiveBooster({ type: data.type, time: data.duration });
+      playSound("merge");
+    });
+
+    game.events.on("booster-tick", (data: { type: string; time: number }) => {
+      setActiveBooster({ type: data.type, time: data.time });
+    });
+
+    game.events.on("booster-deactivated", () => {
+      setActiveBooster(null);
     });
 
     game.events.on("coin-earned", (amt: number) => {
@@ -907,7 +921,7 @@ const GameWrapper: React.FC = () => {
                 <Box display="flex" flexDirection="column" sx={{ ml: 1 }}>
                   <Typography variant="caption" color="textSecondary" sx={{ fontSize: "0.65rem", fontWeight: "bold" }}>SCORE</Typography>
                   <Typography variant="h6" fontWeight="950" sx={{ color: "#a855f7", lineHeight: 1.1 }}>
-                    {score}
+                    {formatCubeValue(score)}
                   </Typography>
                 </Box>
               </Box>
@@ -927,7 +941,7 @@ const GameWrapper: React.FC = () => {
               <Box display="flex" flexDirection="column" alignSelf="center">
                 <Typography variant="caption" color="textSecondary" align="right" sx={{ fontSize: "0.65rem", fontWeight: "bold" }}>BEST</Typography>
                 <Typography variant="h6" fontWeight="950" color="#fbbf24" align="right" sx={{ lineHeight: 1.1 }}>
-                  {highScore}
+                  {formatCubeValue(highScore)}
                 </Typography>
               </Box>
             </Box>
@@ -946,6 +960,43 @@ const GameWrapper: React.FC = () => {
               }}
             >
               <div ref={gameContainerRef} id="phaser-dvcubie-io-canvas" style={{ width: "100%", height: "100%" }} />
+
+              {/* Active Booster Overlay (Top-Left) */}
+              {activeBooster && activeBooster.time > 0 && (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 14,
+                    left: 14,
+                    zIndex: 1000,
+                    background: activeBooster.type.startsWith("/") ? "rgba(220, 38, 38, 0.85)" : "rgba(245, 158, 11, 0.85)",
+                    border: activeBooster.type.startsWith("/") ? "1.5px solid #ef4444" : "1.5px solid #fbbf24",
+                    borderRadius: "12px",
+                    p: "6px 12px",
+                    textAlign: "center",
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.5)",
+                    minWidth: 100,
+                  }}
+                >
+                  <Typography variant="caption" sx={{ color: "#fff", display: "block", mb: 0.5, fontSize: "0.6rem", fontWeight: "bold" }}>
+                    {activeBooster.type.startsWith("/") ? "⚠️ DECREASED" : "⚡ BOOSTER"}
+                  </Typography>
+                  <Box
+                    sx={{
+                      borderRadius: "6px",
+                      background: "rgba(255,255,255,0.15)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      p: 0.5,
+                    }}
+                  >
+                    <Typography variant="body2" fontWeight="950" sx={{ color: "#fff" }}>
+                      {activeBooster.type} ({activeBooster.time.toFixed(1)}s)
+                    </Typography>
+                  </Box>
+                </Box>
+              )}
 
               {/* Next Cube Preview Overlay (Top-Right) */}
               <Box
@@ -1245,11 +1296,11 @@ const GameWrapper: React.FC = () => {
             <Grid container spacing={2} sx={{ mb: 4 }}>
               <Grid size={6}>
                 <Typography variant="caption" color="textSecondary">YOUR SCORE</Typography>
-                <Typography variant="h5" fontWeight="900" color="#ec4899">{score}</Typography>
+                <Typography variant="h5" fontWeight="900" color="#ec4899">{formatCubeValue(score)}</Typography>
               </Grid>
               <Grid size={6}>
                 <Typography variant="caption" color="textSecondary">BEST SCORE</Typography>
-                <Typography variant="h5" fontWeight="900" color="#fbbf24">{highScore}</Typography>
+                <Typography variant="h5" fontWeight="900" color="#fbbf24">{formatCubeValue(highScore)}</Typography>
               </Grid>
             </Grid>
 

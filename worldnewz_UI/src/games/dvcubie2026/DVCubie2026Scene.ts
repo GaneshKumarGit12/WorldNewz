@@ -17,6 +17,8 @@ interface Snake {
   aiTargetX?: number;
   aiTargetY?: number;
   aiActionTimer?: number;
+  boosterType?: string | null;
+  boosterTimer?: number;
 }
 
 export default class DVCubie2026Scene extends Phaser.Scene {
@@ -26,11 +28,13 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   private aiSnakes: Snake[] = [];
   private foodGroup!: Phaser.Physics.Arcade.Group;
   private blockerGroup!: Phaser.Physics.Arcade.StaticGroup;
+  private boosterGroup!: Phaser.Physics.Arcade.Group;
   
   // Game state
   private isGameOver = false;
   private maxFood = 120;
   private maxBlockers = 25;
+  private maxBoosters = 12;
   private nextCubeVal = 2;
 
   constructor() {
@@ -59,14 +63,17 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     // Dynamic texture creation
     this.generateCubeTextures();
     this.generateObstacleTextures();
+    this.generateBoosterTextures();
 
-    // Food and blocker groups
+    // Food, blocker and booster groups
     this.foodGroup = this.physics.add.group();
     this.blockerGroup = this.physics.add.staticGroup();
+    this.boosterGroup = this.physics.add.group();
 
     // Spawn Initial map entities
     this.spawnInitialFood();
     this.spawnInitialBlockers();
+    this.spawnInitialBoosters();
 
     // Spawn Player
     this.playerSnake = this.spawnSnake("Player (You)", false, 1000, 1000, 4);
@@ -131,9 +138,34 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     // 4. Combat / Collision checks between snakes
     this.checkSnakeCollisions();
 
-    // 5. Spawn new food elements if count is low
+    // 5. Update booster timers for player
+    if (this.playerSnake && this.playerSnake.boosterTimer !== undefined && this.playerSnake.boosterTimer > 0) {
+      this.playerSnake.boosterTimer -= delta / 1000;
+      this.game.events.emit("booster-tick", { type: this.playerSnake.boosterType, time: Math.max(0, this.playerSnake.boosterTimer) });
+      if (this.playerSnake.boosterTimer <= 0) {
+        this.playerSnake.boosterType = null;
+        this.game.events.emit("booster-deactivated");
+      }
+    }
+
+    // 6. Update booster timers for AI
+    this.aiSnakes.forEach(ai => {
+      if (ai.boosterTimer !== undefined && ai.boosterTimer > 0) {
+        ai.boosterTimer -= delta / 1000;
+        if (ai.boosterTimer <= 0) {
+          ai.boosterType = null;
+        }
+      }
+    });
+
+    // 7. Spawn new food elements if count is low
     if (this.foodGroup.countActive() < this.maxFood - 10) {
       this.spawnSingleFood();
+    }
+
+    // 8. Spawn new boosters if count is low
+    if (this.boosterGroup.countActive() < this.maxBoosters) {
+      this.spawnSingleBooster();
     }
   }
 
@@ -169,6 +201,15 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       } else {
         this.playerSnake.boostCooldown = Math.min(100, this.playerSnake.boostCooldown + 0.3);
         this.game.events.emit("boost-cooldown-changed", this.playerSnake.boostCooldown);
+      }
+
+      // Apply temporary booster modifiers (1X/2X speed up, /1//2 slow down)
+      if (this.playerSnake.boosterType) {
+        if (this.playerSnake.boosterType.startsWith("/")) {
+          speed *= 0.65;
+        } else {
+          speed *= 1.45;
+        }
       }
 
       const vx = Math.cos(angle) * speed;
@@ -242,6 +283,15 @@ export default class DVCubie2026Scene extends Phaser.Scene {
 
           let speed = snake.speed;
           if (snake.boostActive) speed *= 1.8;
+
+          // Apply temporary booster modifiers
+          if (snake.boosterType) {
+            if (snake.boosterType.startsWith("/")) {
+              speed *= 0.65;
+            } else {
+              speed *= 1.45;
+            }
+          }
 
           head.setVelocity(Math.cos(angle) * speed, Math.sin(angle) * speed);
         } else {
@@ -453,64 +503,58 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private cascadeMerge(snake: Snake) {
-    let merged = false;
+    let hasDuplicates = true;
+    let safetyCounter = 0;
 
-    // 1. Scan tail list for matching pairs
-    for (let i = snake.segments.length - 1; i > 0; i--) {
-      const segCurrent = snake.segments[i];
-      const segPrev = snake.segments[i - 1];
+    while (hasDuplicates && safetyCounter < 100) {
+      safetyCounter++;
+      hasDuplicates = false;
 
-      if (segCurrent.value === segPrev.value) {
-        const newVal = segCurrent.value * 2;
+      const values: number[] = [];
+      values.push(snake.head.getData("value") as number);
+      snake.segments.forEach(seg => values.push(seg.value));
 
-        segPrev.value = newVal;
-        segPrev.sprite.setData("value", newVal);
-        segPrev.sprite.setTexture(`cube_${newVal}`);
+      let dupVal = -1;
+      let firstIdx = -1;
+      let secondIdx = -1;
 
-        this.createMergeParticles(segPrev.sprite.x, segPrev.sprite.y, newVal);
-
-        // Remove and destroy current
-        snake.segments.splice(i, 1);
-        segCurrent.sprite.destroy();
-
-        merged = true;
-        break;
+      for (let i = 0; i < values.length; i++) {
+        for (let j = i + 1; j < values.length; j++) {
+          if (values[i] === values[j]) {
+            dupVal = values[i];
+            firstIdx = i;
+            secondIdx = j;
+            break;
+          }
+        }
+        if (dupVal !== -1) break;
       }
-    }
 
-    // 2. Compare first segment in tail list with head
-    if (snake.segments.length > 0) {
-      const firstSeg = snake.segments[0];
-      const headVal = snake.head.getData("value");
+      if (dupVal !== -1) {
+        hasDuplicates = true;
+        
+        const segToRemoveIdx = secondIdx - 1;
+        const segToRemove = snake.segments[segToRemoveIdx];
+        if (segToRemove && segToRemove.sprite) {
+          this.createMergeParticles(segToRemove.sprite.x, segToRemove.sprite.y, dupVal);
+          segToRemove.sprite.destroy();
+        }
+        snake.segments.splice(segToRemoveIdx, 1);
 
-      if (firstSeg.value === headVal) {
-        const newVal = headVal * 2;
-
-        snake.head.setData("value", newVal);
-        snake.head.setTexture(`cube_${newVal}`);
-
-        this.createMergeParticles(snake.head.x, snake.head.y, newVal);
-
-        // Remove and destroy first
-        snake.segments.splice(0, 1);
-        firstSeg.sprite.destroy();
-
-        merged = true;
+        const newVal = dupVal * 2;
+        if (firstIdx === 0) {
+          this.updateHeadValue(snake, newVal);
+        } else {
+          const segToDoubleIdx = firstIdx - 1;
+          const segToDouble = snake.segments[segToDoubleIdx];
+          if (segToDouble) {
+            segToDouble.value = newVal;
+            segToDouble.sprite.setData("value", newVal);
+            segToDouble.sprite.setTexture(`cube_${newVal}`);
+            this.createMergeParticles(segToDouble.sprite.x, segToDouble.sprite.y, newVal);
+          }
+        }
       }
-    }
-
-    if (merged) {
-      if (snake === this.playerSnake) {
-        this.cameras.main.shake(60, 0.003);
-        const headVal = snake.head.getData("value");
-        this.game.events.emit("cube-merged", { scoreAwarded: headVal, mergedValue: headVal });
-        // Emit virtual coin earned
-        this.game.events.emit("coin-earned", 1);
-        this.game.events.emit("score-changed", headVal);
-      }
-      this.updateArenaRankings();
-      // Recursive call for cascading chains
-      this.cascadeMerge(snake);
     }
   }
 
@@ -572,6 +616,10 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     // Auto-register physics colliders and overlaps
     this.physics.add.overlap(head, this.foodGroup, (_head, food) => {
       this.handleFoodEating(snake, food as Phaser.Physics.Arcade.Sprite);
+    });
+
+    this.physics.add.overlap(head, this.boosterGroup, (_head, booster) => {
+      this.handleBoosterEating(snake, booster as Phaser.Physics.Arcade.Sprite);
     });
 
     this.physics.add.collider(head, this.blockerGroup);
@@ -743,8 +791,15 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     return { size, colors };
   }
 
+  private formatValue(val: number): string {
+    if (val >= 1000) {
+      return (val / 1000).toFixed(0) + "K";
+    }
+    return val.toString();
+  }
+
   private generateCubeTextures() {
-    const values = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192];
+    const values = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768];
     values.forEach((val) => {
       const key = `cube_${val}`;
       if (this.textures.exists(key)) {
@@ -757,29 +812,50 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       canvas.height = size;
       const ctx = canvas.getContext("2d")!;
 
-      ctx.fillStyle = colors.bg;
       const radius = size * 0.16;
+      const shift = Math.floor(size * 0.08);
+
+      // Oblique 3D Bevel style:
+      // 1. Draw darker shadow base
+      ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
       ctx.beginPath();
       ctx.roundRect(0, 0, size, size, radius);
       ctx.fill();
 
-      ctx.strokeStyle = val === 2048 ? "rgba(234, 179, 8, 0.8)" : "rgba(255, 255, 255, 0.35)";
-      ctx.lineWidth = val === 2048 ? 3.5 : 2;
-      ctx.stroke();
-
-      ctx.fillStyle = "rgba(255, 255, 255, 0.12)";
+      // 2. Draw front side shadow panel
+      ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
       ctx.beginPath();
-      ctx.roundRect(1.5, 1.5, size - 3, size / 2.7, [radius, radius, 0, 0]);
+      ctx.roundRect(0, size - shift, size, shift, [0, 0, radius, radius]);
       ctx.fill();
 
-      // Draw value text
+      // 3. Draw raised top face (brighter, shifted up by shift)
+      ctx.fillStyle = colors.bg;
+      ctx.beginPath();
+      ctx.roundRect(0, 0, size, size - shift, radius);
+      ctx.fill();
+
+      // 4. Highlight bevel border
+      ctx.strokeStyle = val === 2048 ? "rgba(234, 179, 8, 0.9)" : "rgba(255, 255, 255, 0.4)";
+      ctx.lineWidth = val === 2048 ? 3.5 : 2;
+      ctx.beginPath();
+      ctx.roundRect(1, 1, size - 2, size - shift - 2, radius);
+      ctx.stroke();
+
+      // 5. Draw light reflection overlay
+      ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+      ctx.beginPath();
+      ctx.roundRect(1.5, 1.5, size - 3, (size - shift) / 2.7, [radius, radius, 0, 0]);
+      ctx.fill();
+
+      // 6. Draw value text (centered on the raised face)
       ctx.fillStyle = colors.text;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      const textLen = val.toString().length;
+      const formattedText = this.formatValue(val);
+      const textLen = formattedText.length;
       const fontSize = size * (textLen > 3 ? 0.28 : 0.36);
       ctx.font = `bold ${fontSize}px "Outfit", "Inter", "Segoe UI", sans-serif`;
-      ctx.fillText(val.toString(), size / 2, size / 2 + 1);
+      ctx.fillText(formattedText, size / 2, (size - shift) / 2 + 1);
 
       this.textures.addCanvas(key, canvas);
     });
@@ -833,5 +909,100 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   private rollNextCube() {
     this.nextCubeVal = Phaser.Math.RND.pick([2, 4, 8, 16]);
     this.game.events.emit("next-cube-changed", this.nextCubeVal);
+  }
+
+  private generateBoosterTextures() {
+    const boosters = [
+      { key: "booster_1x", text: "1X", bg: "#f59e0b", textCol: "#ffffff" },
+      { key: "booster_2x", text: "2X", bg: "#ea580c", textCol: "#ffffff" },
+      { key: "booster_div1", text: "/1", bg: "#2563eb", textCol: "#ffffff" },
+      { key: "booster_div2", text: "/2", bg: "#dc2626", textCol: "#ffffff" }
+    ];
+
+    boosters.forEach(b => {
+      if (this.textures.exists(b.key)) {
+        this.textures.remove(b.key);
+      }
+
+      const size = 50;
+      const canvas = document.createElement("canvas");
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d")!;
+
+      const grad = ctx.createRadialGradient(size/2 - 5, size/2 - 5, 2, size/2, size/2, size/2);
+      grad.addColorStop(0, "#ffffff");
+      grad.addColorStop(0.3, b.bg);
+      grad.addColorStop(1, "#09090b");
+
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size/2 - 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(255,255,255,0.4)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = b.textCol;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = 'bold 20px "Outfit", sans-serif';
+      ctx.fillText(b.text, size/2, size/2);
+
+      this.textures.addCanvas(b.key, canvas);
+    });
+  }
+
+  private spawnInitialBoosters() {
+    for (let i = 0; i < 8; i++) {
+      this.spawnSingleBooster();
+    }
+  }
+
+  private spawnSingleBooster() {
+    const rx = Phaser.Math.Between(100, this.mapWidth - 100);
+    const ry = Phaser.Math.Between(100, this.mapHeight - 100);
+
+    if (Phaser.Math.Distance.Between(rx, ry, 1000, 1000) < 250) {
+      return;
+    }
+
+    const type = Phaser.Math.RND.pick(["1X", "2X", "/1", "/2"]);
+    const key = type === "1X" ? "booster_1x" : type === "2X" ? "booster_2x" : type === "/1" ? "booster_div1" : "booster_div2";
+
+    const booster = this.boosterGroup.create(rx, ry, key);
+    booster.setData("type", type);
+    const body = booster.body as Phaser.Physics.Arcade.Body;
+    body.setAllowGravity(false);
+  }
+
+  private handleBoosterEating(snake: Snake, booster: Phaser.Physics.Arcade.Sprite) {
+    const type = booster.getData("type") as string;
+    booster.destroy();
+
+    const headVal = snake.head.getData("value") as number;
+    let newVal = headVal;
+
+    if (type === "1X") {
+      newVal = headVal * 2;
+    } else if (type === "2X") {
+      newVal = headVal * 4;
+    } else if (type === "/1") {
+      newVal = Math.max(2, Math.floor(headVal / 2));
+    } else if (type === "/2") {
+      newVal = Math.max(2, Math.floor(headVal / 4));
+    }
+
+    this.updateHeadValue(snake, newVal);
+    this.createMergeParticles(snake.head.x, snake.head.y, newVal);
+
+    snake.boosterType = type;
+    snake.boosterTimer = type.startsWith("/") ? 8 : 10;
+
+    if (snake === this.playerSnake) {
+      this.cameras.main.flash(150, type.startsWith("/") ? 220 : 245, type.startsWith("/") ? 38 : 158, type.startsWith("/") ? 38 : 11);
+      this.game.events.emit("booster-activated", { type, duration: snake.boosterTimer });
+    }
   }
 }
