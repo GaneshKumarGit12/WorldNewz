@@ -113,9 +113,9 @@ const AuthorBioPage: React.FC = () => {
       
       <JSONLDBreadcrumb
         crumbs={[
-          { name: "Home", url: window.location.origin },
-          { name: "Authors", url: `${window.location.origin}/about` },
-          { name: author.name, url: `${window.location.origin}/author/${author.slug}` }
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Authors", url: "https://worldnewzs.in/about" },
+          { name: author.name, url: `https://worldnewzs.in/author/${author.slug}` }
         ]}
       />
 

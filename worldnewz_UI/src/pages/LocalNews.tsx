@@ -204,8 +204,8 @@ const LocalNews: React.FC = () => {
       />
 
       <JSONLDBreadcrumb crumbs={[
-        { name: "Home", url: window.location.origin },
-        { name: "Local News", url: `${window.location.origin}/local-news` }
+        { name: "Home", url: "https://worldnewzs.in" },
+        { name: "Local News", url: "https://worldnewzs.in/local-news" }
       ]} />
 
       {/* Hero Header Card */}

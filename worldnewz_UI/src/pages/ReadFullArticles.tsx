@@ -20,6 +20,8 @@ import SectionStatus from "../components/SectionStatus";
 import NewsGrid from "../components/NewsGrid";
 import { getCategoryConfig } from "../utils/categoryConfig";
 
+const SITE_URL = "https://worldnewzs.in";
+
 const ReadFullArticles: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -387,13 +389,13 @@ const ReadFullArticles: React.FC = () => {
         articlePublishedTime={article.publishedAt}
         articleModifiedTime={article.publishedAt}
         articleSection={article.category}
-        canonical={`${window.location.origin}/read-article/${id}`}
+        canonical={`${SITE_URL}/read-article/${id}`}
       />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
           summary: article.summary || article.description || "",
-          url: `${window.location.origin}/read-article/${id}`,
+          url: `${SITE_URL}/read-article/${id}`,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
           category: article.category || "",
@@ -404,9 +406,9 @@ const ReadFullArticles: React.FC = () => {
       />
       <JSONLDBreadcrumb
         crumbs={[
-          { name: "Home", url: window.location.origin },
-          { name: catConfig.name, url: `${window.location.origin}/${article.category?.toLowerCase()}` },
-          { name: article.headline || article.title, url: `${window.location.origin}/read-article/${id}` }
+          { name: "Home", url: SITE_URL },
+          { name: catConfig.name, url: `${SITE_URL}/${article.category?.toLowerCase()}` },
+          { name: article.headline || article.title, url: `${SITE_URL}/read-article/${id}` }
         ]}
       />
 
@@ -498,7 +500,7 @@ const ReadFullArticles: React.FC = () => {
 
             <Box itemProp="publisher" itemScope itemType="https://schema.org/Organization" sx={{ display: "none" }}>
               <meta itemProp="name" content="WorldNewz" />
-              <meta itemProp="logo" content={`${window.location.origin}/favicon.svg`} />
+              <meta itemProp="logo" content={`${SITE_URL}/favicon.svg`} />
             </Box>
 
             {article.category && (

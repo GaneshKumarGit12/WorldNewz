@@ -222,8 +222,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
       />
       
       <JSONLDBreadcrumb crumbs={[
-        { name: "Home", url: window.location.origin },
-        { name: title, url: `${window.location.origin}/${categoryKey}` }
+        { name: "Home", url: "https://worldnewzs.in" },
+        { name: title, url: `https://worldnewzs.in/${categoryKey}` }
       ]} />
 
       {/* --- Reusable Premium Overview Info Box --- */}

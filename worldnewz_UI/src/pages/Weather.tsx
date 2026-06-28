@@ -139,8 +139,8 @@ const Weather: React.FC = () => {
     <Box sx={{ p: 2 }}>
       <SEOMeta title={titleText} description={descText} keywords={combinedKeywords} canonical="https://worldnewzs.in/weather" />
       <JSONLDBreadcrumb crumbs={[
-        { name: "Home", url: window.location.origin },
-        { name: "Weather", url: `${window.location.origin}/weather` }
+        { name: "Home", url: "https://worldnewzs.in" },
+        { name: "Weather", url: "https://worldnewzs.in/weather" }
       ]} />
       <Typography variant="h4" sx={{ mb: 2 }}>
         Weather Dashboard

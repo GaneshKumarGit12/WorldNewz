@@ -27,6 +27,8 @@ import IconButton from "@mui/material/IconButton";
 import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+
+const SITE_URL = "https://worldnewzs.in";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { getAuthorForCategory } from "../utils/authors";
@@ -290,13 +292,13 @@ const ResultPage: React.FC = () => {
         articlePublishedTime={article.publishedAt}
         articleModifiedTime={article.publishedAt}
         articleSection={article.category}
-        canonical={`${window.location.origin}/article/${id}`}
+        canonical={`${SITE_URL}/article/${id}`}
       />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
           summary: article.summary || article.description || "",
-          url: `${window.location.origin}/article/${id}`,
+          url: `${SITE_URL}/article/${id}`,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
           category: article.category || "",
@@ -307,9 +309,9 @@ const ResultPage: React.FC = () => {
       />
       <JSONLDBreadcrumb
         crumbs={[
-          { name: "Home", url: window.location.origin },
-          { name: getCategoryConfig(article.category).name, url: `${window.location.origin}/${article.category?.toLowerCase()}` },
-          { name: article.headline || article.title, url: `${window.location.origin}/article/${id}` }
+          { name: "Home", url: SITE_URL },
+          { name: getCategoryConfig(article.category).name, url: `${SITE_URL}/${article.category?.toLowerCase()}` },
+          { name: article.headline || article.title, url: `${SITE_URL}/article/${id}` }
         ]}
       />
       {/* Back Button */}
@@ -409,7 +411,7 @@ const ResultPage: React.FC = () => {
 
             <Box itemProp="publisher" itemScope itemType="https://schema.org/Organization" sx={{ display: "none" }}>
               <meta itemProp="name" content="WorldNewz" />
-              <meta itemProp="logo" content={`${window.location.origin}/favicon.svg`} />
+              <meta itemProp="logo" content={`${SITE_URL}/favicon.svg`} />
             </Box>
 
             {article.category && (() => {
