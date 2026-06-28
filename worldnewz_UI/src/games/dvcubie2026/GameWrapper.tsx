@@ -358,6 +358,10 @@ const GameWrapper: React.FC = () => {
       width: width,
       height: height,
       parent: gameContainerRef.current,
+      scale: {
+        mode: Phaser.Scale.RESIZE,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+      },
       physics: {
         default: "arcade",
         arcade: { gravity: { x: 0, y: 0 }, debug: false },
@@ -581,10 +585,10 @@ const GameWrapper: React.FC = () => {
 
       <Box
         sx={{
-          minHeight: "92vh",
+          minHeight: "100vh",
           background: "radial-gradient(circle, #0c0926 0%, #020108 100%)",
           color: "#f1f5f9",
-          p: { xs: 1, sm: 2 },
+          p: { xs: 0, sm: 2 },
           fontFamily: '"Outfit", sans-serif',
           display: "flex",
           flexDirection: "column",
@@ -597,18 +601,18 @@ const GameWrapper: React.FC = () => {
         <Card
           sx={{
             width: "100%",
-            maxWidth: "540px",
-            height: "min(760px, 92vh)",
+            maxWidth: { xs: "100%", sm: "640px" },
+            height: { xs: "100vh", sm: "min(860px, 92vh)" },
             background: "rgba(20, 18, 50, 0.75)",
             backdropFilter: "blur(18px)",
-            border: "2px solid #a855f7",
-            borderRadius: "24px",
-            boxShadow: "0 0 45px rgba(168, 85, 247, 0.4)",
+            border: { xs: "none", sm: "2px solid #a855f7" },
+            borderRadius: { xs: 0, sm: "24px" },
+            boxShadow: { xs: "none", sm: "0 0 45px rgba(168, 85, 247, 0.4)" },
             display: "flex",
             flexDirection: "column",
             position: "relative",
             overflow: "hidden",
-            p: { xs: 2, sm: 3 },
+            p: { xs: 1.5, sm: 2.5 },
             zIndex: 10,
           }}
         >
