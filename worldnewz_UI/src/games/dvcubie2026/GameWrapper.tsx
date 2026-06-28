@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import { useNavigate } from "react-router-dom";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -120,6 +121,7 @@ const GameWrapper: React.FC = () => {
 
   const [arenaRankings, setArenaRankings] = useState<{ name: string; score: number; isPlayer: boolean }[]>([]);
   const [activeBooster, setActiveBooster] = useState<{ type: string; time: number } | null>(null);
+  const navigate = useNavigate();
 
   const formatCubeValue = (val: number): string => {
     if (val >= 1000000) {
@@ -488,6 +490,7 @@ const GameWrapper: React.FC = () => {
     playSound("click");
     destroyPhaserGame();
     setCurrentScreen("home");
+    navigate("/");
   };
 
   const handleBuySkin = (skin: Skin) => {
@@ -585,7 +588,12 @@ const GameWrapper: React.FC = () => {
 
       <Box
         sx={{
-          minHeight: "100vh",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1300,
           background: "radial-gradient(circle, #0c0926 0%, #020108 100%)",
           color: "#f1f5f9",
           p: { xs: 0, sm: 2 },
@@ -595,7 +603,6 @@ const GameWrapper: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
-          position: "relative",
         }}
       >
         <Card
@@ -616,6 +623,29 @@ const GameWrapper: React.FC = () => {
             zIndex: 10,
           }}
         >
+          {/* Close / Exit to Site floating button */}
+          {currentScreen !== "playing" && (
+            <IconButton
+              onClick={handleExitToHome}
+              sx={{
+                position: "absolute",
+                top: 14,
+                right: 14,
+                color: "#94a3b8",
+                backgroundColor: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                zIndex: 1000,
+                "&:hover": {
+                  color: "#f43f5e",
+                  backgroundColor: "rgba(244,63,94,0.15)",
+                  borderColor: "#f43f5e",
+                },
+              }}
+              aria-label="Exit Game"
+            >
+              <CloseIcon />
+            </IconButton>
+          )}
         {/* Toast Alert */}
         {toastMessage && (
           <Box
