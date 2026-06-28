@@ -53,7 +53,7 @@ import { apiClient } from "../../api/apiClient";
 import { useKeywords } from "../../seo/useKeywords";
 
 // Base API and Hub URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://worldnewzs.onrender.com/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://worldnewz.onrender.com/api";
 const HUB_URL = API_BASE_URL.replace("/api", "") + "/hubs/leaderboard";
 
 type ScreenState = "home" | "tutorial" | "playing" | "paused" | "gameover" | "leaderboard" | "shop" | "profile";

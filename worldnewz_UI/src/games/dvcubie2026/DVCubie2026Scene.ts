@@ -896,10 +896,14 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     this.isGameOver = true;
 
     // Freeze player movements
-    this.playerSnake.head.setVelocity(0, 0);
-    this.playerSnake.head.setTint(0xef4444);
+    if (this.playerSnake.head && this.playerSnake.head.active) {
+      this.playerSnake.head.setVelocity(0, 0);
+      this.playerSnake.head.setTint(0xef4444);
+    }
     this.playerSnake.segments.forEach(seg => {
-      seg.sprite.setTint(0x555555);
+      if (seg.sprite && seg.sprite.active) {
+        seg.sprite.setTint(0x555555);
+      }
     });
 
     const score = this.getSnakeScore(this.playerSnake);
