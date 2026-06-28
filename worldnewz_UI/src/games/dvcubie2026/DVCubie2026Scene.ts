@@ -274,102 +274,152 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private checkSnakeCollisions() {
-    // Check player head vs AI segments
-    this.aiSnakes.forEach((aiSnake, aiIdx) => {
-      // Player head vs AI head
-      const distHead = Phaser.Math.Distance.Between(this.playerSnake.head.x, this.playerSnake.head.y, aiSnake.head.x, aiSnake.head.y);
-      if (distHead < 40) {
-        const playerVal = this.playerSnake.head.getData("value");
-        const aiVal = aiSnake.head.getData("value");
+    const allSnakes = [this.playerSnake, ...this.aiSnakes].filter(s => s && s.head && s.head.active);
 
-        if (playerVal > aiVal) {
-          // Player eats AI
-          this.absorbSnake(this.playerSnake, aiSnake);
-          this.aiSnakes.splice(aiIdx, 1);
-          this.createMergeParticles(aiSnake.head.x, aiSnake.head.y, aiVal);
-        } else if (aiVal > playerVal) {
-          // Player dies
-          this.triggerGameOver();
+    for (let i = 0; i < allSnakes.length; i++) {
+      const snakeA = allSnakes[i];
+      
+      for (let j = 0; j < allSnakes.length; j++) {
+        if (i === j) continue;
+        const snakeB = allSnakes[j];
+        if (!snakeB.head || !snakeB.head.active) continue;
+
+        // 1. Head-to-Head Collision
+        const distHead = Phaser.Math.Distance.Between(snakeA.head.x, snakeA.head.y, snakeB.head.x, snakeB.head.y);
+        if (distHead < 40) {
+          const valA = snakeA.head.getData("value");
+          const valB = snakeB.head.getData("value");
+
+          if (valA > valB) {
+            this.createMergeParticles(snakeB.head.x, snakeB.head.y, valB);
+            this.destroySnake(snakeB);
+            return;
+          } else if (valB > valA) {
+            this.createMergeParticles(snakeA.head.x, snakeA.head.y, valA);
+            this.destroySnake(snakeA);
+            return;
+          } else {
+            this.updateHeadValue(snakeA, valA * 2);
+            this.createMergeParticles(snakeB.head.x, snakeB.head.y, valB);
+            this.destroySnake(snakeB);
+            return;
+          }
         }
-        return;
+
+        // 2. Head of snakeA vs trailing segments of snakeB
+        for (let k = 0; k < snakeB.segments.length; k++) {
+          const seg = snakeB.segments[k];
+          if (!seg.sprite || !seg.sprite.active) continue;
+
+          const distSeg = Phaser.Math.Distance.Between(snakeA.head.x, snakeA.head.y, seg.sprite.x, seg.sprite.y);
+          if (distSeg < 38) {
+            const valA = snakeA.head.getData("value");
+            const valSeg = seg.value;
+
+            if (valA > valSeg) {
+              this.createMergeParticles(seg.sprite.x, seg.sprite.y, valSeg);
+              
+              // Truncate and scatter B's chain from this point onwards as loose cubes
+              const cutSegments = snakeB.segments.splice(k);
+              cutSegments.forEach(cutSeg => {
+                if (cutSeg.sprite && cutSeg.sprite.active) {
+                  this.spawnSingleFood(
+                    cutSeg.sprite.x + Phaser.Math.Between(-15, 15), 
+                    cutSeg.sprite.y + Phaser.Math.Between(-15, 15), 
+                    cutSeg.value
+                  );
+                  cutSeg.sprite.destroy();
+                }
+              });
+              
+              return;
+            } else if (valA < valSeg) {
+              this.createMergeParticles(snakeA.head.x, snakeA.head.y, valA);
+              this.destroySnake(snakeA);
+              return;
+            } else {
+              this.updateHeadValue(snakeA, valA * 2);
+              this.createMergeParticles(seg.sprite.x, seg.sprite.y, valSeg);
+              
+              seg.sprite.destroy();
+              snakeB.segments.splice(k, 1);
+              
+              return;
+            }
+          }
+        }
       }
-
-      // Player head vs AI trailing segments
-      aiSnake.segments.forEach((seg, segIdx) => {
-        const dist = Phaser.Math.Distance.Between(this.playerSnake.head.x, this.playerSnake.head.y, seg.sprite.x, seg.sprite.y);
-        if (dist < 38) {
-          const playerVal = this.playerSnake.head.getData("value");
-          if (playerVal > seg.value) {
-            // Player eats tail segment
-            this.appendTailSegment(this.playerSnake, seg.value);
-            this.createMergeParticles(seg.sprite.x, seg.sprite.y, seg.value);
-            seg.sprite.destroy();
-            aiSnake.segments.splice(segIdx, 1);
-            this.cascadeMerge(this.playerSnake);
-          }
-        }
-      });
-    });
-
-    // Check AI head vs player segments
-    this.aiSnakes.forEach((aiSnake) => {
-      this.playerSnake.segments.forEach((seg, segIdx) => {
-        const dist = Phaser.Math.Distance.Between(aiSnake.head.x, aiSnake.head.y, seg.sprite.x, seg.sprite.y);
-        if (dist < 38) {
-          const aiVal = aiSnake.head.getData("value");
-          if (aiVal > seg.value) {
-            // AI eats player segment
-            this.appendTailSegment(aiSnake, seg.value);
-            this.createMergeParticles(seg.sprite.x, seg.sprite.y, seg.value);
-            seg.sprite.destroy();
-            this.playerSnake.segments.splice(segIdx, 1);
-            this.cascadeMerge(aiSnake);
-          }
-        }
-      });
-    });
+    }
   }
 
   private handleFoodEating(snake: Snake, food: Phaser.Physics.Arcade.Sprite) {
     const val = food.getData("value");
     food.destroy();
 
+    const headVal = snake.head.getData("value") as number;
+
     if (snake === this.playerSnake) {
-      this.appendTailSegment(snake, this.nextCubeVal);
+      const currentNext = this.nextCubeVal;
+      if (currentNext === headVal) {
+        this.updateHeadValue(snake, headVal * 2);
+      } else {
+        this.appendTailSegment(snake, currentNext);
+        this.cascadeMerge(snake);
+      }
       this.rollNextCube();
     } else {
-      this.appendTailSegment(snake, val);
+      if (val === headVal) {
+        this.updateHeadValue(snake, headVal * 2);
+      } else {
+        this.appendTailSegment(snake, val);
+        this.cascadeMerge(snake);
+      }
     }
-    this.cascadeMerge(snake);
   }
 
-  // division sign logic removed
+  private updateHeadValue(snake: Snake, newVal: number) {
+    snake.head.setData("value", newVal);
+    snake.head.setTexture(`cube_${newVal}`);
+    if (snake === this.playerSnake) {
+      this.cameras.main.shake(60, 0.003);
+      this.game.events.emit("score-changed", newVal);
+      this.game.events.emit("cube-merged", { scoreAwarded: newVal, mergedValue: newVal });
+      this.game.events.emit("coin-earned", 1);
+    }
+    this.updateArenaRankings();
+  }
 
-  private absorbSnake(hunter: Snake, prey: Snake) {
-    // Add prey's head value as segment
-    const headVal = prey.head.getData("value");
-    this.appendTailSegment(hunter, headVal);
+  private destroySnake(snake: Snake) {
+    const headVal = snake.head.getData("value");
+    if (headVal) {
+      this.spawnSingleFood(snake.head.x + Phaser.Math.Between(-30, 30), snake.head.y + Phaser.Math.Between(-30, 30), headVal);
+    }
     
-    // Add all trailing segments
-    prey.segments.forEach(seg => {
-      this.appendTailSegment(hunter, seg.value);
-      seg.sprite.destroy();
+    snake.segments.forEach(seg => {
+      if (seg.sprite && seg.sprite.active) {
+        this.spawnSingleFood(seg.sprite.x + Phaser.Math.Between(-20, 20), seg.sprite.y + Phaser.Math.Between(-20, 20), seg.value);
+        seg.sprite.destroy();
+      }
     });
+    snake.segments = [];
 
-    prey.head.destroy();
-    this.cascadeMerge(hunter);
-
-    if (hunter === this.playerSnake) {
-      this.cameras.main.flash(200, 168, 85, 247);
-      this.game.events.emit("toast-alert", `🔥 You completely consumed ${prey.name}!`);
+    if (snake.head && snake.head.active) {
+      snake.head.destroy();
     }
 
-    // Respawn AI snake
-    if (prey.isAI) {
+    if (snake === this.playerSnake) {
+      this.triggerGameOver();
+    } else {
+      const idx = this.aiSnakes.indexOf(snake);
+      if (idx !== -1) {
+        this.aiSnakes.splice(idx, 1);
+      }
+      
       this.time.delayedCall(3000, () => {
+        if (this.isGameOver) return;
         const rx = Phaser.Math.Between(100, this.mapWidth - 100);
         const ry = Phaser.Math.Between(100, this.mapHeight - 100);
-        const ai = this.spawnSnake(prey.name, true, rx, ry, 4);
+        const ai = this.spawnSnake(snake.name, true, rx, ry, 4);
         this.aiSnakes.push(ai);
       });
     }
@@ -537,10 +587,10 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     }
   }
 
-  private spawnSingleFood() {
-    const rx = Phaser.Math.Between(50, this.mapWidth - 50);
-    const ry = Phaser.Math.Between(50, this.mapHeight - 50);
-    const val = Phaser.Math.RND.pick([2, 2, 2, 4, 4, 8, 16]); // Weighted towards small values
+  private spawnSingleFood(x?: number, y?: number, value?: number) {
+    const rx = x !== undefined ? x : Phaser.Math.Between(50, this.mapWidth - 50);
+    const ry = y !== undefined ? y : Phaser.Math.Between(50, this.mapHeight - 50);
+    const val = value !== undefined ? value : Phaser.Math.RND.pick([2, 2, 2, 4, 4, 8, 16]);
 
     const food = this.foodGroup.create(rx, ry, `cube_${val}`);
     food.setData("value", val);
