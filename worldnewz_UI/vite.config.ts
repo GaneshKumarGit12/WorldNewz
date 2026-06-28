@@ -45,14 +45,35 @@ export default defineConfig({
   ],
   base: '/',   // 👈 required for Vercel/Custom domains (changed from GitHub Pages)
   build: {
-    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('react')) {
-              return 'react';
+            if (id.includes('react') || id.includes('scheduler')) {
+              return 'vendor-react';
             }
+            if (id.includes('@mui/material') || id.includes('@mui/icons-material') || id.includes('@mui/system')) {
+              return 'vendor-mui';
+            }
+            if (id.includes('@mui/x-data-grid')) {
+              return 'vendor-mui-datagrid';
+            }
+            if (id.includes('@emotion')) {
+              return 'vendor-emotion';
+            }
+            if (id.includes('axios')) {
+              return 'vendor-axios';
+            }
+            if (id.includes('phaser')) {
+              return 'vendor-phaser';
+            }
+            if (id.includes('@microsoft/signalr')) {
+              return 'vendor-signalr';
+            }
+            if (id.includes('slick-carousel') || id.includes('react-slick')) {
+              return 'vendor-slick';
+            }
+            return 'vendor-others';
           }
         }
       },

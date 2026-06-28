@@ -1,8 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Article } from "../types";
+
+const STORAGE_KEY = "worldnewz_bookmarks";
 
 export const useBookmarks = () => {
   const [bookmarks, setBookmarks] = useState<Article[]>([]);
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        setBookmarks(JSON.parse(stored));
+      } catch (error) {
+        console.error("Failed to parse bookmarks:", error);
+      }
+    }
+  }, []);
+
+  // Save to localStorage when bookmarks change
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
+  }, [bookmarks]);
 
   const addBookmark = (article: Article) => {
     if (!article.url) return; // Guard against undefined URL

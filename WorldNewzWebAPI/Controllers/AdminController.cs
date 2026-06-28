@@ -34,8 +34,12 @@ namespace WorldNewzWebAPI.Controllers
 
         private string GetExpectedToken()
         {
-            var adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME") ?? "ganeshd12";
-            var adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD") ?? "EndPointPG@293";
+            var adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME");
+            var adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
+            if (string.IsNullOrEmpty(adminUser) || string.IsNullOrEmpty(adminPass))
+            {
+                return Guid.NewGuid().ToString(); // Safety fallback: impossible token
+            }
             return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{adminUser}:{adminPass}"));
         }
 
@@ -58,8 +62,13 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Invalid request payload." });
             }
 
-            var adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME") ?? "ganeshd12";
-            var adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD") ?? "EndPointPG@293";
+            var adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME");
+            var adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
+
+            if (string.IsNullOrEmpty(adminUser) || string.IsNullOrEmpty(adminPass))
+            {
+                return Unauthorized(new { error = "Admin credentials are not configured on the server." });
+            }
 
             if (request.Username == adminUser && request.Password == adminPass)
             {

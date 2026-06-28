@@ -6,6 +6,7 @@ import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import ShareIcon from "@mui/icons-material/Share";
 import { fetchAdByPlacement } from "../api/apiClient";
+import { formatTimeAgo } from "../utils/formatTime";
 
 interface AdCardProps {
   placement?: string;
@@ -18,28 +19,21 @@ const SPONSORED_ADS = [
     source: "CloudSpace",
     imageUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=60",
     publishedAt: new Date(Date.now() - 4 * 3600000).toISOString(),
-    likes: 124,
-  },
-  {
-    title: "Upgrade Your Workspace: The Best Ergonomic Chairs of 2026",
-    source: "ErgoDesign",
-    imageUrl: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?w=500&auto=format&fit=crop&q=60",
-    publishedAt: new Date(Date.now() - 8 * 3600000).toISOString(),
-    likes: 85,
-  },
-  {
-    title: "Learn Python in 30 Days: Zero to Hero Software Engineering Bootcamp",
-    source: "CodeAcademy",
-    imageUrl: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&auto=format&fit=crop&q=60",
-    publishedAt: new Date(Date.now() - 12 * 3600000).toISOString(),
     likes: 342,
   },
   {
-    title: "Switch to Green Energy: Save Up to 40% on Your Monthly Electricity Bill",
-    source: "EcoPower",
-    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&auto=format&fit=crop&q=60",
+    title: "Upgrade to the Ultimate Noise-Canceling Wireless Earbuds Today",
+    source: "SoundTech",
+    imageUrl: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=60",
+    publishedAt: new Date(Date.now() - 12 * 3600000).toISOString(),
+    likes: 819,
+  },
+  {
+    title: "Start Your Premium Coding Journey with Certified Experts Online",
+    source: "CodeAcademy",
+    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&auto=format&fit=crop&q=60",
     publishedAt: new Date(Date.now() - 24 * 3600000).toISOString(),
-    likes: 93,
+    likes: 512,
   },
   {
     title: "Master the Art of Coffee Brewing with Premium Roast Beans",
@@ -49,23 +43,6 @@ const SPONSORED_ADS = [
     likes: 215,
   }
 ];
-
-const formatTimeAgo = (dateString?: string) => {
-  if (!dateString) return "";
-  const date = new Date(dateString);
-  if (isNaN(date.getTime())) return "";
-  const now = new Date();
-  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-
-  if (diffInSeconds < 60) return `${diffInSeconds}s`;
-  const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) return `${diffInMinutes}m`;
-  const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours}h`;
-  const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 7) return `${diffInDays}d`;
-  return "1d";
-};
 
 const isLocalhost = typeof window !== "undefined" && (
   window.location.hostname === "localhost" ||

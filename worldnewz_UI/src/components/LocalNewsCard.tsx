@@ -17,6 +17,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
+import { formatTimeAgoLong } from "../utils/formatTime";
 
 interface LocalNewsCardProps {
   article: Article;
@@ -33,27 +34,6 @@ interface LocalNewsCardProps {
   engagement?: any;
   loading?: "lazy" | "eager";
 }
-
-const formatTimeAgoLong = (dateString?: string) => {
-  if (!dateString) return '';
-  const date = new Date(dateString);
-  if (isNaN(date.getTime())) return '';
-  const now = new Date();
-  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-  
-  if (diffInSeconds < 60) return 'just now';
-  const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) return `${diffInMinutes} ${diffInMinutes === 1 ? 'min' : 'mins'} ago`;
-  const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours} ${diffInHours === 1 ? 'hour' : 'hours'} ago`;
-  const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 7) return `${diffInDays} ${diffInDays === 1 ? 'day' : 'days'} ago`;
-  const diffInWeeks = Math.floor(diffInDays / 7);
-  if (diffInWeeks < 4) return `${diffInWeeks} ${diffInWeeks === 1 ? 'week' : 'weeks'} ago`;
-  const diffInMonths = Math.floor(diffInDays / 30);
-  if (diffInMonths < 12) return `${diffInMonths} ${diffInMonths === 1 ? 'month' : 'months'} ago`;
-  return `${Math.floor(diffInDays / 365)} years ago`;
-};
 
 const LocalNewsCard: React.FC<LocalNewsCardProps> = ({
   article,

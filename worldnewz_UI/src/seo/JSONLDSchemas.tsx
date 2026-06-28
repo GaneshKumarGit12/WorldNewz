@@ -151,3 +151,26 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
     })}</script>
   </Helmet>
 );
+
+/* ── FAQPage schema ── */
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export const JSONLDFAQPage = ({ faqs }: { faqs: FAQItem[] }) => (
+  <Helmet>
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    })}</script>
+  </Helmet>
+);

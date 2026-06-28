@@ -85,31 +85,8 @@ namespace WorldNewzWebAPI.Controllers
             });
         }
 
-        private static readonly string[] BannedWords = new[] { 
-            "pornography", "pronography", "sexual", "sexsual", 
-            "porn", "sex", "xxx", "nsfw", "adult", "naked", 
-            "erotic", "prostitute", "bitch", "bastard" 
-        };
-
-        private bool ContainsBannedWords(string input)
-        {
-            if (string.IsNullOrEmpty(input)) return false;
-            var lower = input.ToLower();
-            return BannedWords.Any(word => lower.Contains(word));
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        private bool ContainsBannedWords(string input) => Shared.ValidationHelpers.ContainsBannedWords(input);
+        private bool IsValidEmail(string email) => Shared.ValidationHelpers.IsValidEmail(email);
 
         // GET: api/polls/check-attempt
         [HttpGet("check-attempt")]
@@ -252,14 +229,19 @@ namespace WorldNewzWebAPI.Controllers
 
         // GET: api/polls/leaderboard
         [HttpGet("leaderboard")]
-        public async Task<IActionResult> GetLeaderboard()
+        public async Task<IActionResult> GetLeaderboard([FromQuery] int page = 1, [FromQuery] int pageSize = 100)
         {
+            if (page < 1) page = 1;
+            if (pageSize < 1 || pageSize > 500) pageSize = 100;
+
             try
             {
                 // Retrieve leaderboard: all submissions ranked by score percentage then submitted date
                 var leaderboard = await _userDb.PollSubmissions
                     .OrderByDescending(s => s.Percentage)
                     .ThenByDescending(s => s.SubmittedAt)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
                     .ToListAsync();
 
                 var history = leaderboard.Select(s => new
@@ -282,10 +264,15 @@ namespace WorldNewzWebAPI.Controllers
         }
 
         [HttpGet("history")]
-        public async Task<IActionResult> GetPollsHistory()
+        public async Task<IActionResult> GetPollsHistory([FromQuery] int page = 1, [FromQuery] int pageSize = 100)
         {
+            if (page < 1) page = 1;
+            if (pageSize < 1 || pageSize > 500) pageSize = 100;
+
             var submissions = await _userDb.PollSubmissions
                 .OrderByDescending(s => s.SubmittedAt)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
 
             var history = submissions.Select(s => new

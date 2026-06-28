@@ -7,15 +7,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import VerifiedIcon from "@mui/icons-material/Verified";
-import ScienceIcon from "@mui/icons-material/Science";
-import LaptopIcon from "@mui/icons-material/Laptop";
-import ExploreIcon from "@mui/icons-material/Explore";
-import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import FlightIcon from "@mui/icons-material/Flight";
-import MovieIcon from "@mui/icons-material/Movie";
 import { useEffect, useState, useMemo } from "react";
 import type { Article } from "../types";
 import { fetchFullContent, fetchSearch, fetchDiscover } from "../api/apiClient";
@@ -27,37 +18,7 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import SectionStatus from "../components/SectionStatus";
 import NewsGrid from "../components/NewsGrid";
-
-const getCategoryConfig = (category?: string) => {
-  const cat = (category || '').toLowerCase().trim();
-  switch (cat) {
-    case 'science':
-      return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science' };
-    case 'tech':
-    case 'technology':
-      return { color: '#2196f3', icon: <LaptopIcon fontSize="inherit" />, name: 'Technology' };
-    case 'discover':
-    case 'general':
-    case 'news':
-      return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
-    case 'sports':
-      return { color: '#f44336', icon: <SportsSoccerIcon fontSize="inherit" />, name: 'Sports' };
-    case 'money':
-    case 'business':
-    case 'finance':
-      return { color: '#e91e63', icon: <MonetizationOnIcon fontSize="inherit" />, name: 'Money' };
-    case 'food':
-      return { color: '#9c27b0', icon: <RestaurantIcon fontSize="inherit" />, name: 'Food' };
-    case 'shopping':
-      return { color: '#00bcd4', icon: <ShoppingBagIcon fontSize="inherit" />, name: 'Shopping' };
-    case 'travel':
-      return { color: '#009688', icon: <FlightIcon fontSize="inherit" />, name: 'Travel' };
-    case 'entertainment':
-      return { color: '#673ab7', icon: <MovieIcon fontSize="inherit" />, name: 'Entertainment' };
-    default:
-      return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
-  }
-};
+import { getCategoryConfig } from "../utils/categoryConfig";
 
 const ReadFullArticles: React.FC = () => {
   const navigate = useNavigate();

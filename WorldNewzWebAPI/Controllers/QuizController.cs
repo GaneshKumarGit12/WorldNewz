@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
 
@@ -16,14 +17,22 @@ namespace WorldNewzWebAPI.Controllers
     public class QuizController : ControllerBase
     {
         private readonly UserPollsDbContext _userDb;
+        private readonly Microsoft.Extensions.Caching.Memory.IMemoryCache _cache;
 
-        public QuizController(UserPollsDbContext userDb)
+        public QuizController(UserPollsDbContext userDb, Microsoft.Extensions.Caching.Memory.IMemoryCache cache)
         {
             _userDb = userDb;
+            _cache = cache;
         }
 
         private List<QuizQuestion> LoadQuestionsPool()
         {
+            const string cacheKey = "QuizQuestionsPool";
+            if (_cache.TryGetValue(cacheKey, out object? cachedObj) && cachedObj is List<QuizQuestion> cachedQuestions)
+            {
+                return cachedQuestions;
+            }
+
             try
             {
                 // Try executing assembly directory
@@ -39,8 +48,10 @@ namespace WorldNewzWebAPI.Controllers
                     return new List<QuizQuestion>();
                 }
                 var json = System.IO.File.ReadAllText(path);
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                return JsonSerializer.Deserialize<List<QuizQuestion>>(json, options) ?? new List<QuizQuestion>();
+                var questions = JsonSerializer.Deserialize<List<QuizQuestion>>(json, Shared.JsonSettings.CaseInsensitiveOptions) ?? new List<QuizQuestion>();
+                
+                _cache.Set(cacheKey, questions);
+                return questions;
             }
             catch (Exception ex)
             {
@@ -49,31 +60,8 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
-        private static readonly string[] BannedWords = new[] { 
-            "pornography", "pronography", "sexual", "sexsual", 
-            "porn", "sex", "xxx", "nsfw", "adult", "naked", 
-            "erotic", "prostitute", "bitch", "bastard" 
-        };
-
-        private bool ContainsBannedWords(string input)
-        {
-            if (string.IsNullOrEmpty(input)) return false;
-            var lower = input.ToLower();
-            return BannedWords.Any(word => lower.Contains(word));
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        private bool ContainsBannedWords(string input) => Shared.ValidationHelpers.ContainsBannedWords(input);
+        private bool IsValidEmail(string email) => Shared.ValidationHelpers.IsValidEmail(email);
 
         // GET: api/quiz/questions
         [HttpGet("questions")]

@@ -5,17 +5,27 @@ using System.Text.Json;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
 using WorldNewzWebAPI.Models;
+using WorldNewzWebAPI.Services;
 
 namespace WorldNewzWebAPI.Controllers
 {
     [Route("rss/{feedType?}")]
     public class RssController : Controller
     {
+        private readonly INewsApiService _newsApiService;
+        private readonly INewsEnrichmentService _enrichmentService;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IMemoryCache _cache;
+        private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-        public RssController(IHttpClientFactory httpClientFactory, IMemoryCache cache)
+        public RssController(
+            INewsApiService newsApiService,
+            INewsEnrichmentService enrichmentService,
+            IHttpClientFactory httpClientFactory,
+            IMemoryCache cache)
         {
+            _newsApiService = newsApiService;
+            _enrichmentService = enrichmentService;
             _httpClientFactory = httpClientFactory;
             _cache = cache;
         }
@@ -23,45 +33,12 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetFeed(string feedType = "discover")
         {
-            var apiEndpoint = feedType?.ToLower() switch
-            {
-                "bing" => "https://worldnewz.onrender.com/api/news/bing",
-                "money" => "https://worldnewz.onrender.com/api/news/money",
-                "search" => "https://worldnewz.onrender.com/api/news/search",
-                "discover" or _ => "https://worldnewz.onrender.com/api/news/discover"
-            };
-
+            feedType = feedType?.ToLower() ?? "discover";
             var cacheKey = $"rss_feed_{feedType}";
 
             if (!_cache.TryGetValue(cacheKey, out List<Article> articles))
             {
-                var client = _httpClientFactory.CreateClient();
-                var response = await client.GetStringAsync(apiEndpoint);
-
-                using var doc = JsonDocument.Parse(response);
-                JsonElement root = doc.RootElement;
-
-                if (root.TryGetProperty("articles", out JsonElement articlesElement))
-                {
-                    articles = JsonSerializer.Deserialize<List<Article>>(articlesElement.GetRawText());
-                }
-                else if (root.TryGetProperty("value", out JsonElement valueElement))
-                {
-                    articles = JsonSerializer.Deserialize<List<Article>>(valueElement.GetRawText());
-                }
-                else
-                {
-                    articles = new List<Article>();
-                }
-
-                articles = articles
-                    .Where(a => !string.IsNullOrEmpty(a.Url))
-                    .GroupBy(a => a.Url)
-                    .Select(g => g.First())
-                    .OrderByDescending(a => a.PublishedAt ?? DateTime.MinValue)
-                    .Take(10)
-                    .ToList();
-
+                articles = await FetchArticlesInternal(feedType);
                 _cache.Set(cacheKey, articles, TimeSpan.FromMinutes(5));
             }
 
@@ -72,7 +49,7 @@ namespace WorldNewzWebAPI.Controllers
                 new XElement("link", "https://worldnewzs.in"),
                 new XElement("description", $"Latest {feedType} news from WorldNewzs"),
                 new XElement(atom + "link",
-                    new XAttribute("href", $"https://worldnewz.onrender.com/rss/{feedType}"),
+                    new XAttribute("href", $"https://worldnewzs.in/rss/{feedType}"),
                     new XAttribute("rel", "self"),
                     new XAttribute("type", "application/rss+xml"))
             );
@@ -113,5 +90,167 @@ namespace WorldNewzWebAPI.Controllers
             Response.Headers.CacheControl = "public, max-age=300";
             return Content(feed.ToString(), "application/rss+xml");
         }
+
+        private async Task<List<Article>> FetchArticlesInternal(string feedType)
+        {
+            var articles = new List<Article>();
+            try
+            {
+                if (feedType == "bing")
+                {
+                    var apiKey = Environment.GetEnvironmentVariable("BING_API_KEY");
+                    if (!string.IsNullOrEmpty(apiKey))
+                    {
+                        var client = _httpClientFactory.CreateClient();
+                        var url = "https://api.bing.microsoft.com/v7.0/news/search?q=latest news&mkt=en-IN";
+                        var request = new HttpRequestMessage(HttpMethod.Get, url);
+                        request.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
+                        var response = await client.SendAsync(request);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var json = await response.Content.ReadAsStringAsync();
+                            using var doc = JsonDocument.Parse(json);
+                            if (doc.RootElement.TryGetProperty("value", out var valueElement))
+                            {
+                                var bingArticles = JsonSerializer.Deserialize<List<BingArticleDto>>(valueElement.GetRawText(), _jsonOptions);
+                                if (bingArticles != null)
+                                {
+                                    articles = bingArticles.Select(b => new Article
+                                    {
+                                        Title = b.Name,
+                                        Description = b.Description,
+                                        Url = b.Url,
+                                        UrlToImage = b.Image?.Thumbnail?.ContentUrl,
+                                        PublishedAt = b.DatePublished,
+                                        Source = new Source { Name = b.Provider?.FirstOrDefault()?.Name ?? "Bing News" }
+                                    }).ToList();
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (feedType == "money")
+                {
+                    // Call news service business/money news directly
+                    var context = new NewsQueryContext
+                    {
+                        Country = "us",
+                        Category = "business",
+                        IsTopHeadlines = true,
+                        Page = 1,
+                        PageSize = 20
+                    };
+                    var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
+                    if (fetchResult.Success)
+                    {
+                        var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, _jsonOptions);
+                        var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                        var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Money");
+                        articles = enriched.Select(e => new Article
+                        {
+                            Title = e.Title,
+                            Description = e.Description,
+                            Url = e.Url,
+                            UrlToImage = e.UrlToImage,
+                            PublishedAt = e.PublishedAt,
+                            Source = new Source { Name = e.Source?.Name }
+                        }).ToList();
+                    }
+                }
+                else if (feedType == "search")
+                {
+                    var context = new NewsQueryContext
+                    {
+                        Query = "latest news",
+                        Page = 1,
+                        PageSize = 20,
+                        Country = "us",
+                        Language = "en",
+                        IsTopHeadlines = false
+                    };
+                    var fetchResult = await _newsApiService.FetchNewsAsync(context);
+                    if (fetchResult.Success)
+                    {
+                        var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, _jsonOptions);
+                        var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                        var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Search");
+                        articles = enriched.Select(e => new Article
+                        {
+                            Title = e.Title,
+                            Description = e.Description,
+                            Url = e.Url,
+                            UrlToImage = e.UrlToImage,
+                            PublishedAt = e.PublishedAt,
+                            Source = new Source { Name = e.Source?.Name }
+                        }).ToList();
+                    }
+                }
+                else // discover
+                {
+                    var context = new NewsQueryContext
+                    {
+                        Country = "us",
+                        Category = "general",
+                        IsTopHeadlines = true,
+                        Page = 1,
+                        PageSize = 20
+                    };
+                    var fetchResult = await _newsApiService.FetchCombinedNewsAsync(context);
+                    if (fetchResult.Success)
+                    {
+                        var apiResponse = JsonSerializer.Deserialize<NewsApiResponse>(fetchResult.Body, _jsonOptions);
+                        var rawArticles = apiResponse?.Articles ?? new List<Article>();
+                        var enriched = await _enrichmentService.FilterDeduplicateAndEnrichAsync(rawArticles, "Discover");
+                        articles = enriched.Select(e => new Article
+                        {
+                            Title = e.Title,
+                            Description = e.Description,
+                            Url = e.Url,
+                            UrlToImage = e.UrlToImage,
+                            PublishedAt = e.PublishedAt,
+                            Source = new Source { Name = e.Source?.Name }
+                        }).ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ RSS FetchArticlesInternal failed for feed '{feedType}': {ex.Message}");
+            }
+
+            return articles
+                .Where(a => !string.IsNullOrEmpty(a.Url))
+                .GroupBy(a => a.Url)
+                .Select(g => g.First())
+                .OrderByDescending(a => a.PublishedAt ?? DateTime.MinValue)
+                .Take(10)
+                .ToList();
+        }
+    }
+
+    // Helper classes for Bing API response mapping
+    public class BingArticleDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
+        public BingImageDto? Image { get; set; }
+        public DateTime DatePublished { get; set; }
+        public List<BingProviderDto>? Provider { get; set; }
+    }
+
+    public class BingImageDto
+    {
+        public BingThumbnailDto? Thumbnail { get; set; }
+    }
+
+    public class BingThumbnailDto
+    {
+        public string ContentUrl { get; set; } = string.Empty;
+    }
+
+    public class BingProviderDto
+    {
+        public string Name { get; set; } = string.Empty;
     }
 }
