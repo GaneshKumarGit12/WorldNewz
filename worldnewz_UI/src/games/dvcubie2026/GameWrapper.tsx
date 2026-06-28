@@ -607,7 +607,8 @@ const GameWrapper: React.FC = () => {
       >
         <Card
           sx={{
-            maxWidth: { xs: "100%", sm: "680px", md: "900px", lg: "1120px" },
+            width: "100%",
+            maxWidth: { xs: "100%", sm: "768px", md: "1024px" },
             height: { xs: "100vh", sm: "min(860px, 92vh)" },
             background: "rgba(20, 18, 50, 0.75)",
             backdropFilter: "blur(18px)",
