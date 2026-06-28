@@ -30,11 +30,11 @@ namespace WorldNewzWebAPI.Services
             "bbc.com", "bbc.co.uk", "reuters.com", "apnews.com"
         };
 
-        public NewsEnrichmentService(WorldNewsDbContext db, HttpClient httpClient)
+        public NewsEnrichmentService(WorldNewsDbContext db, HttpClient httpClient, Microsoft.Extensions.Configuration.IConfiguration config)
         {
             _db = db;
             _httpClient = httpClient;
-            _geminiApiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+            _geminiApiKey = config["GEMINI_API_KEY"] ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY");
         }
 
         public async Task<List<NewsArticleDto>> FilterDeduplicateAndEnrichAsync(List<Article> rawArticles, string category)
@@ -471,8 +471,8 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
                                 string.Equals(category, "politics", StringComparison.OrdinalIgnoreCase) ||
                                 string.Equals(category, "science-health", StringComparison.OrdinalIgnoreCase);
 
-                int targetMinWords = isPillar ? 1500 : 600;
-                int targetMaxWords = isPillar ? 2000 : 1000;
+                int targetMinWords = isPillar ? 1500 : 800;
+                int targetMaxWords = isPillar ? 2000 : 1200;
 
                 var prompt = $@"
 You are a senior professional journalist writing for WorldNewzs (https://worldnewzs.in). 
@@ -657,20 +657,26 @@ Requirements:
 
             // 1. Introduction / Executive Summary
             paragraphs.Add(expand(
-                $"The recent announcement concerning \"{cleanTitle}\" represents a major development in the field of {cat}. Industry stakeholders, policymakers, and consumers are closely monitoring these unfolding events as they carry broad implications for future operations. Observers note that this latest step could define the strategic directions of primary organizations and reshape consumer perceptions across multiple jurisdictions.",
+                $"The recent announcement concerning **\"{cleanTitle}\"** represents a major development in the field of **{cat}**. Industry stakeholders, policymakers, and consumers are closely monitoring these unfolding events as they carry broad implications for future operations. Observers note that this latest step could define the strategic directions of primary organizations and reshape consumer perceptions across multiple jurisdictions.",
                 "This shift is expected to trigger a cascade of structural adjustments, forcing competitors to re-evaluate their medium-term capital allocations and technology roadmaps. Analysts suggest that the initial shockwave will settle into a consolidated race for market dominance."
             ));
             paragraphs.Add(expand(
-                $"As news of \"{cleanTitle}\" continues to spread, experts are highlighting the timing of this announcement. In an era marked by rapid changes, this update serves as a key indicator of ongoing transitions in the {cat} sector. Furthermore, this trend reflects a deeper alignment of technological resources, market forces, and institutional support, laying down the groundwork for next-generation advancements.",
+                $"As news of **\"{cleanTitle}\"** continues to spread, experts are highlighting the timing of this announcement. In an era marked by rapid changes, this update serves as a key indicator of ongoing transitions in the **{cat}** sector. Furthermore, this trend reflects a deeper alignment of technological resources, market forces, and institutional support, laying down the groundwork for next-generation advancements.",
                 "Moreover, this transition highlights a growing consensus among global research networks and commercial syndicates who see this as a turning point for sustainable development. Strategic alliances are already forming to capitalize on these newly created synergies."
             ));
 
             // 2. Historical Background & Foundation
             paragraphs.Add("## Historical Context & Background");
             paragraphs.Add(expand(
-                $"Historically, developments like \"{cleanTitle}\" have been shaped by regulatory shifts and technological advancements over the past decade. Previously, organizations faced significant hurdles in infrastructure development, data integration, and compliance, which slowed down the pace of adoption. These persistent challenges meant that early pioneers had to commit significant upfront capital with high operational risks.",
+                $"Historically, developments like **\"{cleanTitle}\"** have been shaped by regulatory shifts and technological advancements over the past decade. Previously, organizations faced significant hurdles in infrastructure development, data integration, and compliance, which slowed down the pace of adoption. These persistent challenges meant that early pioneers had to commit significant upfront capital with high operational risks.",
                 "In the early phases, a lack of unified APIs and standard operating protocols created fragmented ecosystems, leaving many enterprises locked into incompatible proprietary vendor cycles. This historical fragmentation highlights why the current convergence is so historically significant."
             ));
+            
+            paragraphs.Add("### Key Historical Hurdles:");
+            paragraphs.Add("- **High Infrastructure Cost**: Early organizations faced massive barriers to entry due to high capital requirements.");
+            paragraphs.Add("- **Compliance Overhead**: Managing regulatory differences across regions slowed adoption rates.");
+            paragraphs.Add("- **Vendor Lock-in**: Proprietary closed loops limited cross-departmental coordination and updates.");
+
             paragraphs.Add(expand(
                 $"By analyzing previous benchmarks, we see a clear pattern of incremental progress leading to this moment. Industry analysts point out that while early iterations faced skepticism, the underlying framework has proved resilient, paving the way for current breakthroughs. Over time, collaborative ecosystems and standardized practices emerged, reducing entry barriers and allowing smaller players to participate in the value chain.",
                 "These cumulative historical lessons have taught modern planners to prioritize modular architecture and open standards. As a result, today's implementation is built on a foundation of interoperability that was entirely absent in previous cycles."
@@ -679,9 +685,15 @@ Requirements:
             // 3. Core Announcement & Immediate Impacts
             paragraphs.Add("## Core Announcement & Immediate Impacts");
             paragraphs.Add(expand(
-                $"At present, the situation surrounding \"{cleanTitle}\" is characterized by intense collaboration and strategic updates. Major organizations are adjusting their plans to align with these new findings, focusing on efficiency, customer satisfaction, and long-term sustainability. Initial field reports indicate that these measures are already yielding positive outcomes in productivity and resource allocation.",
+                $"At present, the situation surrounding **\"{cleanTitle}\"** is characterized by intense collaboration and strategic updates. Major organizations are adjusting their plans to align with these new findings, focusing on efficiency, customer satisfaction, and long-term sustainability. Initial field reports indicate that these measures are already yielding positive outcomes in productivity and resource allocation.",
                 "Operational directors report that the integration of these protocols has facilitated real-time telemetry sharing and cross-departmental coordination. This level of transparency is proving instrumental in optimizing legacy resource pipelines."
             ));
+
+            paragraphs.Add("### Primary Impacts Identified:");
+            paragraphs.Add("- **Improved Resource Allocation**: Optimized telemetry sharing yields up to a 40% reduction in downtime.");
+            paragraphs.Add("- **Enhanced Transparency**: Real-time cross-departmental data flows help streamline scheduling.");
+            paragraphs.Add("- **Collaborative Synergies**: Standardized platforms allow partnerships across local and international divisions.");
+
             paragraphs.Add(expand(
                 $"Furthermore, recent data indicates a growing adoption rate of these standards across multiple regions. This trend is accompanied by increased funding, strategic mergers, and public interest, making it one of the most talked-about subjects this quarter. As deployment speeds up, organizations that fail to integrate these models risk falling behind their peers in operational efficiency.",
                 "In addition, regulatory committees are fast-tracking approvals to support national competitiveness in these emerging digital domains. This regulatory tailwind is creating a highly favorable environment for early-stage commercial proof-of-concepts."
@@ -690,7 +702,7 @@ Requirements:
             // 4. Regional and Global Reach
             paragraphs.Add("## Regional & Global Reach");
             paragraphs.Add(expand(
-                $"The global implications of \"{cleanTitle}\" extend far beyond localized markets, affecting supply chains and consumer behaviors in North America, Europe, and Asia-Pacific. Regional regulators are responding with updated compliance frameworks to ensure safety and standardization across borders. This international coordination is crucial to avoiding fragmentation and promoting seamless integrations.",
+                $"The global implications of **\"{cleanTitle}\"** extend far beyond localized markets, affecting supply chains and consumer behaviors in North America, Europe, and Asia-Pacific. Regional regulators are responding with updated compliance frameworks to ensure safety and standardization across borders. This international coordination is crucial to avoiding fragmentation and promoting seamless integrations.",
                 "Trade representatives are calling for bilateral agreements that standardize data privacy and cloud sovereignty laws across borders. Without such frameworks, international trade could face compliance bottlenecks that hinder global distribution networks."
             ));
             paragraphs.Add(expand(
@@ -701,7 +713,7 @@ Requirements:
             // 5. Technological / Operational Advancements
             paragraphs.Add("## Technological & Operational Advancements");
             paragraphs.Add(expand(
-                $"From a technological perspective, \"{cleanTitle}\" leverages modern capabilities in cloud computing, data analytics, and decentralized systems. Engineers point out that the integration of automated workflows and real-time monitoring tools has minimized human error and increased reliability. These software innovations enable teams to respond to dynamic conditions with unprecedented agility.",
+                $"From a technological perspective, **\"{cleanTitle}\"** leverages modern capabilities in cloud computing, data analytics, and decentralized systems. Engineers point out that the integration of automated workflows and real-time monitoring tools has minimized human error and increased reliability. These software innovations enable teams to respond to dynamic conditions with unprecedented agility.",
                 "Specifically, modern machine learning models are being deployed at the edge to predict hardware failures before they occur, reducing unplanned downtime by up to forty percent. This predictive capability marks a massive leap forward in operational resilience."
             ));
             paragraphs.Add(expand(
@@ -712,9 +724,15 @@ Requirements:
             // 6. Key Challenges, Risks & Mitigation Strategies
             paragraphs.Add("## Key Challenges & Risk Mitigation");
             paragraphs.Add(expand(
-                $"Despite the optimistic outlook, the implementation of \"{cleanTitle}\" is not without significant hurdles and operational risks. Cybersecurity remains a top concern, as decentralized nodes and increased data exchange create new vectors for malicious attacks. Stakeholders must invest heavily in end-to-end encryption, multi-factor authentication, and regular security audits to protect sensitive information.",
+                $"Despite the optimistic outlook, the implementation of **\"{cleanTitle}\"** is not without significant hurdles and operational risks. Cybersecurity remains a top concern, as decentralized nodes and increased data exchange create new vectors for malicious attacks. Stakeholders must invest heavily in end-to-end encryption, multi-factor authentication, and regular security audits to protect sensitive information.",
                 "Furthermore, supply chain vulnerabilities for critical hardware components pose a risk to rollout schedules, with lead times for advanced processors remaining high. Organizations must cultivate diversified sourcing networks to mitigate these delays."
             ));
+            
+            paragraphs.Add("### Critical Mitigation Areas:");
+            paragraphs.Add("1. **Data Security**: Implement zero-trust network access and robust end-to-end data encryption.");
+            paragraphs.Add("2. **Workforce Training**: Run up-skilling bootcamps to bridge the digital skills gap for operational staff.");
+            paragraphs.Add("3. **Supply Diversification**: Partner with multiple components suppliers to avoid critical processor delays.");
+
             paragraphs.Add(expand(
                 $"Additionally, talent shortages and resistance to change within traditional organizations present cultural barriers to deployment. To mitigate these risks, industry leaders are establishing comprehensive training programs and change management initiatives. Up-skilling the workforce ensures a smoother transition and fosters a culture of continuous innovation and adaptability.",
                 "To bridge the skills gap, academic institutions are collaborating with industry consortia to launch specialized certifications and hands-on bootcamps. This educational alignment is expected to supply a steady pipeline of qualified professionals over the coming years."
@@ -723,11 +741,11 @@ Requirements:
             // 7. Expert Insights & Industry Commentaries
             paragraphs.Add("## Expert Insights & Industry Commentaries");
             paragraphs.Add(expand(
-                $"According to Dr. Aris Thorne, a senior research fellow in global trends: \"The announcement of {cleanTitle} is not just an isolated event; it represents a fundamental shift in how we approach {cat} challenges today.\" This sentiment is echoed by corporate leaders who emphasize the competitive advantages of early adoption.",
+                $"According to **Dr. Aris Thorne**, a senior research fellow in global trends: \"The announcement of {cleanTitle} is not just an isolated event; it represents a fundamental shift in how we approach {cat} challenges today.\" This sentiment is echoed by corporate leaders who emphasize the competitive advantages of early adoption.",
                 "He also points out that the long-term winners will be those who view this as a holistic business transformation rather than a simple IT upgrade. This systemic view requires breaking down traditional functional silos."
             ));
             paragraphs.Add(expand(
-                $"Furthermore, Sarah Jenkins, a leading policy consultant, remarks: \"Regulators must act swiftly to establish clear guidelines, or they risk stifling the potential of these innovations.\" Balancing consumer protection with industry growth remains a delicate but necessary task for modern policymakers.",
+                $"Furthermore, **Sarah Jenkins**, a leading policy consultant, remarks: \"Regulators must act swiftly to establish clear guidelines, or they risk stifling the potential of these innovations.\" Balancing consumer protection with industry growth remains a delicate but necessary task for modern policymakers.",
                 "She emphasizes that proactive engagement with regulators can help define rules that protect consumer privacy while allowing enough flexibility for product iteration. This collaborative approach benefits the entire ecosystem."
             ));
 
@@ -736,7 +754,7 @@ Requirements:
                 // 8. Market Reaction & Financial Forecasts
                 paragraphs.Add("## Market Reaction & Financial Forecasts");
                 paragraphs.Add(expand(
-                    $"Following the news of \"{cleanTitle}\", financial markets experienced immediate activity, with shares of leading companies in the {cat} sector showing steady upward movement. Investment banks are revising their growth forecasts, predicting a significant influx of venture capital and institutional funding over the next fiscal year. This financial backing is expected to accelerate research and development.",
+                    $"Following the news of **\"{cleanTitle}\"**, financial markets experienced immediate activity, with shares of leading companies in the **{cat}** sector showing steady upward movement. Investment banks are revising their growth forecasts, predicting a significant influx of venture capital and institutional funding over the next fiscal year. This financial backing is expected to accelerate research and development.",
                     "Leading brokerage firms are advising clients to focus on companies with robust balance sheets and clear IP portfolios, as they are best positioned to capture market share. This selective investing approach will likely characterize the coming quarters."
                 ));
                 paragraphs.Add(expand(
@@ -747,7 +765,7 @@ Requirements:
                 // 9. Geopolitical / Policy Implications
                 paragraphs.Add("## Geopolitical & Policy Implications");
                 paragraphs.Add(expand(
-                    $"On a geopolitical level, \"{cleanTitle}\" is becoming a focal point of technological sovereignty and national security policies. Major economies are competing to establish leadership in this domain, offering subsidies and tax incentives to attract top talent and manufacturing facilities. This race highlights the strategic value of control over critical digital infrastructure.",
+                    $"On a geopolitical level, **\"{cleanTitle}\"** is becoming a focal point of technological sovereignty and national security policies. Major economies are competing to establish leadership in this domain, offering subsidies and tax incentives to attract top talent and manufacturing facilities. This race highlights the strategic value of control over critical digital infrastructure.",
                     "This technology race is prompting countries to establish localized manufacturing hubs and secure raw materials through strategic trade partnerships. The resulting regionalization could rewrite the rules of global supply chains."
                 ));
                 paragraphs.Add(expand(
@@ -759,8 +777,12 @@ Requirements:
             // 10. Long-Term Strategic Outlook
             paragraphs.Add("## Long-Term Strategic Outlook");
             paragraphs.Add(expand(
-                $"Looking forward, the long-term impact of \"{cleanTitle}\" will depend on how quickly standards are standardized and integrated. Observers should keep a close watch on upcoming policy revisions and international agreements that could accelerate this transition. The coming decade will likely see this development become the default baseline for all operations in the {cat} sector.",
+                $"Looking forward, the long-term impact of **\"{cleanTitle}\"** will depend on how quickly standards are standardized and integrated. Observers should keep a close watch on upcoming policy revisions and international agreements that could accelerate this transition. The coming decade will likely see this development become the default baseline for all operations in the **{cat}** sector.",
                 "As national boundaries become less relevant for digital services, international consortia will play a critical role in maintaining global standards. Staying actively involved in these bodies will be vital for strategic planning."
+            ));
+            paragraphs.Add(expand(
+                $"Looking ahead, we can project several distinct phases of integration that will define the market:",
+                "1. **Phase 1 (Years 1-2)**: Early adoption, localized proof-of-concepts, and initial regulatory framework setup.\n2. **Phase 2 (Years 3-5)**: Scaled deployment, legacy migration, and standard stabilization across industries.\n3. **Phase 3 (Years 6-10)**: AI-driven optimization, autonomous execution, and standard baseline maturity."
             ));
             paragraphs.Add(expand(
                 $"Furthermore, the integration of artificial intelligence and machine learning could unlock new capabilities, leading to autonomous decision-making and hyper-personalized consumer experiences. Organizations that proactively build these skills into their roadmap will be best positioned to lead their industries in the next phase of development.",

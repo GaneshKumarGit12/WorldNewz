@@ -420,14 +420,15 @@ const ReadFullArticles: React.FC = () => {
         Back to Briefing
       </Button>
 
-      <Card sx={{ boxShadow: "0 8px 24px rgba(0,0,0,0.15)", borderRadius: 2, overflow: "hidden", mb: 4 }}>
+      <Card component="article" itemScope itemType="https://schema.org/NewsArticle" sx={{ boxShadow: "0 8px 24px rgba(0,0,0,0.15)", borderRadius: 2, overflow: "hidden", mb: 4 }}>
         {/* Hero banner image */}
         {(article.urlToImage || article.imageUrl) && (
           <CardMedia
             component="img"
             height={420}
             image={imgSrc || "/placeholder.svg"}
-            alt={article.title}
+            alt={article.headline || article.title}
+            itemProp="image"
             loading="eager"
             fetchPriority="high"
             onError={handleImageError}
@@ -443,6 +444,7 @@ const ReadFullArticles: React.FC = () => {
           <Typography
             variant="h4"
             component="h1"
+            itemProp="headline"
             sx={{
               fontWeight: 800,
               mb: 1,
@@ -456,6 +458,9 @@ const ReadFullArticles: React.FC = () => {
           {/* Author Byline */}
           <Typography
             variant="subtitle1"
+            itemProp="author"
+            itemScope
+            itemType="https://schema.org/Person"
             sx={{
               fontWeight: 650,
               mb: 2,
@@ -467,6 +472,7 @@ const ReadFullArticles: React.FC = () => {
             <MuiLink
               component={Link}
               to={`/author/${author.slug}`}
+              itemProp="url"
               sx={{
                 color: "primary.main",
                 textDecoration: "none",
@@ -476,15 +482,24 @@ const ReadFullArticles: React.FC = () => {
                 }
               }}
             >
-              {author.name}
+              <span itemProp="name">{author.name}</span>
             </MuiLink>
           </Typography>
 
           {/* Meta Information Bar */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, flexWrap: "wrap" }}>
             <Typography variant="body2" color="text.secondary">
-              📅 {formatDate(article.publishedAt)}
+              📅{" "}
+              <Box component="time" itemProp="datePublished" dateTime={article.publishedAt} sx={{ display: "inline" }}>
+                {formatDate(article.publishedAt)}
+              </Box>
+              <meta itemProp="dateModified" content={article.publishedAt || new Date().toISOString()} />
             </Typography>
+
+            <Box itemProp="publisher" itemScope itemType="https://schema.org/Organization" sx={{ display: "none" }}>
+              <meta itemProp="name" content="WorldNewz" />
+              <meta itemProp="logo" content={`${window.location.origin}/favicon.svg`} />
+            </Box>
 
             {article.category && (
               <Box
@@ -545,7 +560,7 @@ const ReadFullArticles: React.FC = () => {
           <Divider sx={{ my: 2 }} />
 
           {/* Scraped Content Area */}
-          <Box sx={{ mt: 4 }}>
+          <Box itemProp="articleBody" sx={{ mt: 4 }}>
             {scrapingLoading && (
               <Box sx={{ my: 6 }}>
                 <Typography variant="subtitle1" sx={{ mb: 2, fontStyle: "italic", textAlign: "center" }}>
@@ -610,38 +625,97 @@ const ReadFullArticles: React.FC = () => {
           {/* Editorial Oversight Box (E-E-A-T) */}
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 2,
-              p: 2,
+              p: { xs: 2.5, sm: 3.5 },
               border: "1px solid",
               borderColor: "divider",
-              borderRadius: 2,
-              mt: 4,
-              bgcolor: "background.paper"
+              borderRadius: 3,
+              mt: 5,
+              mb: 4,
+              bgcolor: "background.paper",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.05)"
             }}
           >
-            <Avatar sx={{ bgcolor: catConfig.color, width: 44, height: 44, fontWeight: 700 }}>{author.avatar}</Avatar>
-            <Box>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Verified Curation & Analysis
-              </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.25 }}>
-                Fact checked and compiled by{" "}
-                <MuiLink
-                  component={Link}
-                  to={`/author/${author.slug}`}
-                  sx={{
-                    fontWeight: 750,
-                    color: "primary.main",
-                    textDecoration: "none",
-                    "&:hover": { textDecoration: "underline" }
-                  }}
-                >
-                  {author.name}
-                </MuiLink>
-                , {author.title}. Aggregated from verified sources and annotated to support reporting transparency.
-              </Typography>
+            <Box sx={{ display: "flex", gap: 2.5, flexDirection: { xs: "column", sm: "row" }, alignItems: { xs: "center", sm: "flex-start" } }}>
+              <Avatar 
+                sx={{ 
+                  bgcolor: catConfig.color,
+                  width: { xs: 64, sm: 72 }, 
+                  height: { xs: 64, sm: 72 }, 
+                  fontSize: "1.75rem",
+                  fontWeight: 850,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+                }}
+              >
+                {author.avatar}
+              </Avatar>
+              <Box sx={{ flexGrow: 1, textAlign: { xs: "center", sm: "left" } }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, justifyContent: { xs: "center", sm: "flex-start" }, flexWrap: "wrap", mb: 0.5 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 800, fontSize: "1.1rem" }}>
+                    Verified Curator:{" "}
+                    <MuiLink
+                      component={Link}
+                      to={`/author/${author.slug}`}
+                      sx={{
+                        color: "primary.main",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" }
+                      }}
+                    >
+                      {author.name}
+                    </MuiLink>
+                  </Typography>
+                  <VerifiedIcon sx={{ fontSize: "1.1rem", color: "primary.main" }} />
+                </Box>
+
+                <Typography variant="body2" sx={{ color: "text.secondary", fontWeight: 600, mb: 1.5, fontSize: "0.85rem" }}>
+                  {author.title} • {author.education}
+                </Typography>
+
+                <Typography variant="body2" sx={{ color: "text.secondary", lineHeight: 1.6, mb: 2, fontSize: "0.9rem" }}>
+                  {author.bio}
+                </Typography>
+
+                <Box sx={{ display: "flex", gap: 2, justifyContent: { xs: "center", sm: "flex-start" }, alignItems: "center", flexWrap: "wrap" }}>
+                  {author.socials.linkedin && (
+                    <MuiLink
+                      href={author.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
+                        fontSize: "0.8rem",
+                        fontWeight: 700,
+                        color: "primary.main",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" }
+                      }}
+                    >
+                      <LinkedInIcon sx={{ fontSize: "1.1rem" }} /> Profile & Credentials
+                    </MuiLink>
+                  )}
+                  {author.socials.twitter && (
+                    <MuiLink
+                      href={author.socials.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
+                        fontSize: "0.8rem",
+                        fontWeight: 700,
+                        color: "text.primary",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" }
+                      }}
+                    >
+                      <XIcon sx={{ fontSize: "1rem" }} /> Twitter
+                    </MuiLink>
+                  )}
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Box>

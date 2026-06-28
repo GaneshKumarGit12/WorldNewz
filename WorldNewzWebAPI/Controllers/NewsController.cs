@@ -263,38 +263,35 @@ namespace WorldNewzWebAPI.Controllers
                     return Ok(new { success = true, content = paragraphs.Take(15).ToList() });
                 }
 
-                // 4. Content is thin or scraping failed. Call Gemini to generate a high-quality, unique 600+ word report!
-                if (!string.IsNullOrWhiteSpace(_geminiApiKey))
+                // 4. Content is thin or scraping failed. Call Gemini to generate a high-quality, unique 800+ word report!
+                // Fallback search in database if title is missing
+                if (string.IsNullOrWhiteSpace(title))
                 {
-                    // Fallback search in database if title is missing
-                    if (string.IsNullOrWhiteSpace(title))
+                    var dbArt = await _db.NewsArticles.AsNoTracking().FirstOrDefaultAsync(a => a.Url == url);
+                    if (dbArt != null)
                     {
-                        var dbArt = await _db.NewsArticles.AsNoTracking().FirstOrDefaultAsync(a => a.Url == url);
-                        if (dbArt != null)
+                        title = dbArt.Title;
+                        description ??= dbArt.Description;
+                    }
+                    else
+                    {
+                        // Try to parse title from HTML title tag
+                        var titleMatch = Regex.Match(html, @"<title>(.*?)</title>", RegexOptions.IgnoreCase);
+                        if (titleMatch.Success)
                         {
-                            title = dbArt.Title;
-                            description ??= dbArt.Description;
-                        }
-                        else
-                        {
-                            // Try to parse title from HTML title tag
-                            var titleMatch = Regex.Match(html, @"<title>(.*?)</title>", RegexOptions.IgnoreCase);
-                            if (titleMatch.Success)
-                            {
-                                title = System.Web.HttpUtility.HtmlDecode(titleMatch.Groups[1].Value.Replace(" - BBC News", "").Replace(" - Reuters", "").Trim());
-                            }
+                            title = System.Web.HttpUtility.HtmlDecode(titleMatch.Groups[1].Value.Replace(" - BBC News", "").Replace(" - Reuters", "").Trim());
                         }
                     }
+                }
 
-                    if (!string.IsNullOrWhiteSpace(title))
+                if (!string.IsNullOrWhiteSpace(title))
+                {
+                    var generatedParagraphs = await _enrichmentService.GenerateArticleWithGeminiAsync(title, description, category, paragraphs);
+                    if (generatedParagraphs != null && generatedParagraphs.Count > 0)
                     {
-                        var generatedParagraphs = await _enrichmentService.GenerateArticleWithGeminiAsync(title, description, category, paragraphs);
-                        if (generatedParagraphs != null && generatedParagraphs.Count > 0)
-                        {
-                            await SaveFullContentToCacheAsync(url, string.Join("\n\n", generatedParagraphs));
-                            Response.Headers.CacheControl = "public, max-age=86400";
-                            return Ok(new { success = true, content = generatedParagraphs });
-                        }
+                        await SaveFullContentToCacheAsync(url, string.Join("\n\n", generatedParagraphs));
+                        Response.Headers.CacheControl = "public, max-age=86400";
+                        return Ok(new { success = true, content = generatedParagraphs });
                     }
                 }
 
