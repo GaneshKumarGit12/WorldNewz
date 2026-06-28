@@ -184,6 +184,21 @@ const App: React.FC = () => {
     return () => {
       window.removeEventListener("dvcubie-settings-changed", handleSettingsChange);
     };
+  }, []);
+
+  // Lock body scroll on game path to prevent vertical scrolling distraction
+  useEffect(() => {
+    if (location.pathname === "/games/dvcubie2026") {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, [location.pathname]);
 
   const [verificationSnackbar, setVerificationSnackbar] = useState<{ open: boolean; message: string; severity: "success" | "error" }>({ 
@@ -832,19 +847,20 @@ const App: React.FC = () => {
       </Drawer>
 
       {/* ─── Search Bar + Category chips ─── */}
-      <Box
-        sx={{
-          position: "sticky",
-          top: 0,
-          zIndex: 1100,
-          backgroundColor: isDark ? "rgba(22,27,34,0.95)" : "rgba(236,239,255,0.95)",
-          backdropFilter: "blur(8px)",
-          py: { xs: 1.5, sm: 2 },
-          px: { xs: 2, sm: 4 },
-          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-        }}
-      >
-        <Box sx={{ maxWidth: 1200, mx: "auto" }}>
+      {!(location.pathname === "/games/dvcubie2026" && hideSearchInGame && hideBadgesInGame) && (
+        <Box
+          sx={{
+            position: "sticky",
+            top: 0,
+            zIndex: 1100,
+            backgroundColor: isDark ? "rgba(22,27,34,0.95)" : "rgba(236,239,255,0.95)",
+            backdropFilter: "blur(8px)",
+            py: { xs: 1.5, sm: 2 },
+            px: { xs: 2, sm: 4 },
+            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          }}
+        >
+          <Box sx={{ maxWidth: 1200, mx: "auto" }}>
           {/* Compact search section */}
           {!(location.pathname === "/games/dvcubie2026" && hideSearchInGame) && (
             <Box component="form" onSubmit={handleSearchSubmit} sx={{ display: "flex", justifyContent: "center", mb: 1.5 }}>
@@ -899,8 +915,9 @@ const App: React.FC = () => {
           )}
 
           {/* Compact category chips - horizontal scrollable on mobile */}
-          <Box 
-            sx={{ 
+          {!(location.pathname === "/games/dvcubie2026" && hideBadgesInGame) && (
+            <Box 
+              sx={{ 
               display: "flex", 
               flexWrap: { xs: "nowrap", md: "wrap" }, 
               gap: 1.0, 
@@ -959,9 +976,11 @@ const App: React.FC = () => {
                 </Box>
               );
             })}
+            </Box>
+          )}
           </Box>
         </Box>
-      </Box>
+      )}
 
       {/* ─── Page Content ─── */}
       <Box sx={{ flexGrow: 1 }}>
