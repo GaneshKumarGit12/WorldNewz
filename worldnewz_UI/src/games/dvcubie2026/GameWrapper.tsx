@@ -900,7 +900,7 @@ const GameWrapper: React.FC = () => {
         )}
 
         {/* --- SCREEN 3: GAMEPLAY SCREEN --- */}
-        {currentScreen === "playing" && (
+        {(currentScreen === "playing" || currentScreen === "paused") && (
           <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", flexGrow: 1 }}>
             {/* HUD Overlay */}
             <Box
