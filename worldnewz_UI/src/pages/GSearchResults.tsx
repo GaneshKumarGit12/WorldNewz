@@ -37,6 +37,20 @@ const GSearchResults: React.FC = () => {
   const [results, setResults] = useState<GoogleResultItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [useWidgetFallback, setUseWidgetFallback] = useState(false);
+
+  useEffect(() => {
+    if (useWidgetFallback) {
+      const existingScript = document.getElementById("google-cse-script");
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.id = "google-cse-script";
+        script.src = "https://cse.google.com/cse.js?cx=e44b68ef599eb4717";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }
+  }, [useWidgetFallback]);
 
   useEffect(() => {
     if (!query) {
@@ -47,6 +61,7 @@ const GSearchResults: React.FC = () => {
 
     setLoading(true);
     setError(null);
+    setUseWidgetFallback(false);
 
     fetchGoogleSearch(query)
       .then((res) => {
@@ -57,16 +72,8 @@ const GSearchResults: React.FC = () => {
         }
       })
       .catch((err: any) => {
-        console.error("Google search error:", err);
-        let msg = "Failed to load Google search results.";
-        if (err.response?.data?.details) {
-          msg = `${err.response.data.error} Details: ${err.response.data.details}`;
-        } else if (err.response?.data?.error) {
-          msg = err.response.data.error;
-        } else if (err.message) {
-          msg = err.message;
-        }
-        setError(msg);
+        console.warn("Google Search JSON API failed, falling back to Google Search Widget:", err);
+        setUseWidgetFallback(true);
       })
       .finally(() => {
         setLoading(false);
@@ -139,7 +146,7 @@ const GSearchResults: React.FC = () => {
         )}
 
         {/* Error State */}
-        {!loading && error && (
+        {!loading && error && !useWidgetFallback && (
           <Paper
             variant="outlined"
             sx={{
@@ -180,7 +187,7 @@ const GSearchResults: React.FC = () => {
         )}
 
         {/* Empty State */}
-        {!loading && !error && query && results.length === 0 && (
+        {!loading && !error && query && results.length === 0 && !useWidgetFallback && (
           <Paper
             variant="outlined"
             sx={{
@@ -219,7 +226,7 @@ const GSearchResults: React.FC = () => {
         )}
 
         {/* Results List */}
-        {!loading && !error && results.length > 0 && (
+        {!loading && !error && results.length > 0 && !useWidgetFallback && (
           <Grid container spacing={4}>
             {/* Main Content Area */}
             <Grid size={{ xs: 12, md: 8 }}>
@@ -430,6 +437,22 @@ const GSearchResults: React.FC = () => {
               </Box>
             </Grid>
           </Grid>
+        )}
+
+        {/* Google CSE Widget Fallback Container */}
+        {!loading && useWidgetFallback && (
+          <Paper
+            variant="outlined"
+            sx={{
+              p: 3,
+              borderRadius: 4,
+              borderColor: "divider",
+              backgroundColor: isDark ? "rgba(22, 27, 34, 0.4)" : "#ffffff",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.03)"
+            }}
+          >
+            <div className="gcse-searchresults-only" data-queryParameterName="q"></div>
+          </Paper>
         )}
       </Container>
     </Box>
