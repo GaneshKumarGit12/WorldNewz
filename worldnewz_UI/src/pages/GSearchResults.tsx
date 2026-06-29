@@ -42,12 +42,23 @@ const GSearchResults: React.FC = () => {
   useEffect(() => {
     if (useWidgetFallback) {
       const existingScript = document.getElementById("google-cse-script");
+      const triggerRender = () => {
+        setTimeout(() => {
+          if ((window as any).google?.search?.cse?.element) {
+            (window as any).google.search.cse.element.go();
+          }
+        }, 150);
+      };
+
       if (!existingScript) {
         const script = document.createElement("script");
         script.id = "google-cse-script";
         script.src = "https://cse.google.com/cse.js?cx=e44b68ef599eb4717";
         script.async = true;
+        script.onload = triggerRender;
         document.body.appendChild(script);
+      } else {
+        triggerRender();
       }
     }
   }, [useWidgetFallback]);
