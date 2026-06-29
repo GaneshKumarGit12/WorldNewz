@@ -57,7 +57,7 @@ import { useKeywords } from "../../seo/useKeywords";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://worldnewz.onrender.com/api";
 const HUB_URL = API_BASE_URL.replace("/api", "") + "/hubs/leaderboard";
 
-type ScreenState = "home" | "tutorial" | "playing" | "paused" | "gameover" | "leaderboard" | "shop" | "profile";
+type ScreenState = "home" | "tutorial" | "playing" | "paused" | "gameover" | "leaderboard" | "shop" | "profile" | "victory";
 
 interface Achievement {
   id: string;
@@ -104,6 +104,7 @@ const GameWrapper: React.FC = () => {
   const [showSettingsDialog, setShowSettingsDialog] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [victoryData, setVictoryData] = useState<{ winnerName: string; isPlayer: boolean; score: number } | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>(INITIAL_ACHIEVEMENTS);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -437,6 +438,16 @@ const GameWrapper: React.FC = () => {
         localStorage.setItem("dvcubie2026_highscore", finalScore.toString());
         setHighScore(finalScore);
       }
+    });
+
+    game.events.on("game-completed", (data: { winnerName: string; finalScore: number; isPlayer: boolean }) => {
+      playSound("merge");
+      setScore(data.finalScore);
+      localStorage.setItem("dvcubie2026_highscore", data.finalScore.toString());
+      setHighScore(data.finalScore);
+      setVictoryData({ winnerName: data.winnerName, isPlayer: data.isPlayer, score: data.finalScore });
+      setCurrentScreen("victory");
+      destroyPhaserGame();
     });
   };
 
@@ -1442,6 +1453,152 @@ const GameWrapper: React.FC = () => {
                 }}
               >
                 Share Score
+              </Button>
+            </Box>
+          </Box>
+        )}
+
+        {/* --- SCREEN 9: VICTORY SCREEN --- */}
+        {currentScreen === "victory" && victoryData && (
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              textAlign: "center",
+              animation: "fadeIn 0.4s ease-out",
+            }}
+          >
+            <Box>
+              <EmojiEventsIcon sx={{ fontSize: 56, color: "#fbbf24", mb: 1, filter: "drop-shadow(0 0 10px rgba(251, 191, 36, 0.6))" }} />
+              <Typography variant="h4" fontWeight="950" sx={{ background: "linear-gradient(to right, #fbbf24, #f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} mb={1}>
+                {victoryData.isPlayer ? "🏆 ARENA CHAMPION 🏆" : "🥈 DEFEAT"}
+              </Typography>
+              <Typography variant="body1" color="textPrimary" sx={{ mt: 1, mb: 3 }}>
+                {victoryData.isPlayer 
+                  ? "Congratulations! You reached the 550M end score and conquered the arena!" 
+                  : `Player ${victoryData.winnerName} reached the 550M end score first and conquered the arena!`}
+              </Typography>
+
+              <Grid container spacing={2} sx={{ mb: 4 }}>
+                <Grid size={6}>
+                  <Typography variant="caption" color="textSecondary">FINAL SCORE</Typography>
+                  <Typography variant="h5" fontWeight="900" color="#ec4899">{formatCubeValue(score)}</Typography>
+                </Grid>
+                <Grid size={6}>
+                  <Typography variant="caption" color="textSecondary">BEST SCORE</Typography>
+                  <Typography variant="h5" fontWeight="900" color="#fbbf24">{formatCubeValue(highScore)}</Typography>
+                </Grid>
+              </Grid>
+            </Box>
+
+            {/* Score Submission Form */}
+            {victoryData.isPlayer && (
+              <Box
+                component="form"
+                onSubmit={handleSubmitScore}
+                sx={{
+                  mb: 3,
+                  p: 2.5,
+                  borderRadius: "16px",
+                  background: "rgba(251, 191, 36, 0.08)",
+                  border: "1.5px solid rgba(251, 191, 36, 0.3)",
+                  boxShadow: "0 0 15px rgba(251, 191, 36, 0.15)",
+                }}
+              >
+                <Typography variant="subtitle2" fontWeight="700" color="#fbbf24" mb={1.5}>
+                  Submit your Champion score to global rankings!
+                </Typography>
+                <Box display="flex" gap={1.2}>
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    size="small"
+                    label="Champion Name"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Enter champion name"
+                    required
+                    id="victory-username-input"
+                    InputProps={{ style: { color: "#fff", backgroundColor: "rgba(0,0,0,0.2)" } }}
+                    InputLabelProps={{ style: { color: "#fbbf24" } }}
+                  />
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disabled={isSubmitting}
+                    sx={{
+                      background: "linear-gradient(to right, #fbbf24, #f57c00)",
+                      color: "#fff",
+                      textTransform: "none",
+                      fontWeight: "bold",
+                      px: 3,
+                      "&:hover": {
+                        background: "linear-gradient(to right, #ffca28, #f57c00)",
+                      }
+                    }}
+                  >
+                    {isSubmitting ? "..." : "Submit"}
+                  </Button>
+                </Box>
+              </Box>
+            )}
+
+            {/* Navigation buttons */}
+            <Box display="flex" flexDirection="column" gap={1.8}>
+              <Grid container spacing={2}>
+                <Grid size={6}>
+                  <Button
+                    onClick={handleRestart}
+                    fullWidth
+                    variant="outlined"
+                    sx={{
+                      borderColor: "#a855f7",
+                      color: "#a855f7",
+                      py: 1.5,
+                      borderRadius: "12px",
+                      fontWeight: "750",
+                      "&:hover": { borderColor: "#c084fc", background: "rgba(168, 85, 247, 0.1)" },
+                    }}
+                  >
+                    Play Again
+                  </Button>
+                </Grid>
+                <Grid size={6}>
+                  <Button
+                    onClick={handleBackToGameMenu}
+                    fullWidth
+                    variant="contained"
+                    sx={{
+                      background: "linear-gradient(to right, #fbbf24, #f57c00)",
+                      py: 1.5,
+                      borderRadius: "12px",
+                      fontWeight: "750",
+                    }}
+                  >
+                    Home
+                  </Button>
+                </Grid>
+              </Grid>
+
+              <Button
+                variant="outlined"
+                startIcon={<ShareIcon />}
+                onClick={() => {
+                  const text = `I completed the Cubes 2026 Arena with a Champion score of 550M points! Play now on WorldNewzs!`;
+                  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, "_blank");
+                }}
+                sx={{
+                  borderRadius: "12px",
+                  borderColor: "rgba(255,255,255,0.15)",
+                  color: "#cbd5e1",
+                  py: 1.2,
+                  textTransform: "none",
+                }}
+              >
+                Share Victory
               </Button>
             </Box>
           </Box>

@@ -486,6 +486,16 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private updateHeadValue(snake: Snake, newVal: number) {
+    if (newVal >= 500000000) {
+      this.isGameOver = true;
+      const finalScore = 550000000;
+      this.game.events.emit("game-completed", {
+        winnerName: snake.name,
+        finalScore: finalScore,
+        isPlayer: (snake === this.playerSnake)
+      });
+      return;
+    }
     this.ensureCubeTexture(newVal);
     snake.head.setData("value", newVal);
     snake.head.setTexture(`cube_${newVal}`);
