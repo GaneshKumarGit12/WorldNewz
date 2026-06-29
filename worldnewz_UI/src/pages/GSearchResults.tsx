@@ -452,18 +452,22 @@ const GSearchResults: React.FC = () => {
 
         {/* Google CSE Widget Fallback Container */}
         {!loading && useWidgetFallback && (
-          <Paper
-            variant="outlined"
-            sx={{
-              p: 3,
-              borderRadius: 4,
-              borderColor: "divider",
-              backgroundColor: isDark ? "rgba(22, 27, 34, 0.4)" : "#ffffff",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.03)"
-            }}
-          >
-            <div className="gcse-searchresults-only" data-queryParameterName="q" data-linktarget="_blank" data-linkTarget="_blank"></div>
-          </Paper>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 3, width: "100%", maxWidth: "900px", mx: "auto", mb: 5 }}>
+            <Paper
+              variant="outlined"
+              sx={{
+                p: { xs: 2, sm: 3, md: 4 },
+                borderRadius: 4,
+                borderColor: "divider",
+                backgroundColor: isDark ? "rgba(22, 27, 34, 0.4)" : "#ffffff",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                width: "100%",
+                overflow: "hidden"
+              }}
+            >
+              <div className="gcse-searchresults-only" data-queryParameterName="q" data-linktarget="_blank" data-linkTarget="_blank"></div>
+            </Paper>
+          </Box>
         )}
       </Container>
     </Box>
