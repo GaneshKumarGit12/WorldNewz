@@ -151,6 +151,9 @@ interface ArenaStateDelta {
   - Pause Screen "Main Menu" and Game Over "Home" buttons are bound to return the user to the **Game's Main Menu** (home screen state) rather than routing them out of the game page.
 - **M-Suffix Formatting**:
   - Number values $\ge 1,000,000$ are automatically formatted to the `M` suffix (e.g. `500M`).
-- **500M Gold Medal Milestone**:
-  - Merging to a value of $500\text{M}$ unlocks the "Name with Goldmedal" player achievement.
-  - Users with scores $\ge 500,000,000$ (500M) are displayed with a special `🥇 Gold Medal` badge next to their names on global and friends leaderboard lists.
+- **550M End-Score Victory Completion**:
+  - The victory condition/end-score is set to exactly $550\text{M}$ ($550,000,000$).
+  - When any player or bot reaches this threshold (by obtaining a double block value $\ge 500\text{M}$), the game loop freezes and triggers a special victory event.
+  - A premium Victory Overlay screen is displayed celebrating the Champion's achievement.
+  - Allows the winner to type their name and submit their Champion score of `550M` directly to the global database rankings.
+  - Users with scores $\ge 500\text{M}$ are marked with a `🥇 Gold Medal` badge on the leaderboards.
