@@ -141,9 +141,12 @@ interface ArenaStateDelta {
   - This simulates a 3D block projection that spins and turns along the snake's path.
 - **3D Isometric Blockers**:
   - Static square blockers are rendered as massive slate-gray 3D blocks with detailed face highlights.
-- **AI Obstacle Avoidance Steering**:
-  - AI snakes evaluate distances to nearby blocker sprites in real-time.
-  - If a blocker is within 140 pixels, the steering direction is overridden by a repulsion force vector pointing away from the blocker, preventing bots from getting stuck.
+- **Active AI Steering & Combat-Aware behavior**:
+  - **Obstacle Avoidance**: AI snakes scan distances to nearby blockers. If a blocker is within 140 pixels, a repulsion vector overrides steering to prevent them from getting stuck.
+  - **Combat Actions**: AI snakes evaluate all nearby active snakes (including both the player and other bots). If an opponent is within 320 pixels:
+    - If the opponent is smaller, the bot actively pursues them to consume their tail blocks.
+    - If the opponent is larger, the bot flees in the opposite direction, utilizing speed boost.
+  - **Booster & Food Harvesting**: If not in combat, bots prioritize steering towards nearby booster spheres to double their values or speed up, and seek out the closest food blocks. This ensures all bots actively participate in growth and merges.
 - **Back to Game Main Menu**:
   - Pause Screen "Main Menu" and Game Over "Home" buttons are bound to return the user to the **Game's Main Menu** (home screen state) rather than routing them out of the game page.
 - **M-Suffix Formatting**:
