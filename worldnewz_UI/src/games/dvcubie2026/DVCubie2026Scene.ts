@@ -275,6 +275,26 @@ export default class DVCubie2026Scene extends Phaser.Scene {
         snake.aiTargetY = Phaser.Math.Clamp(targetY, 50, this.mapHeight - 50);
       }
 
+      // Obstacle avoidance steer logic to prevent AI snakes from getting stuck on blockers
+      let avoidX = 0;
+      let avoidY = 0;
+      this.blockerGroup.getChildren().forEach(b => {
+        const blocker = b as Phaser.Physics.Arcade.Sprite;
+        const d = Phaser.Math.Distance.Between(head.x, head.y, blocker.x, blocker.y);
+        if (d < 140) {
+          const repelAngle = Phaser.Math.Angle.Between(blocker.x, blocker.y, head.x, head.y);
+          const force = (140 - d) * 3;
+          avoidX += Math.cos(repelAngle) * force;
+          avoidY += Math.sin(repelAngle) * force;
+        }
+      });
+
+      if (avoidX !== 0 || avoidY !== 0) {
+        snake.aiTargetX = Phaser.Math.Clamp(head.x + avoidX, 50, this.mapWidth - 50);
+        snake.aiTargetY = Phaser.Math.Clamp(head.y + avoidY, 50, this.mapHeight - 50);
+        snake.aiActionTimer = time + 100;
+      }
+
       if (snake.aiTargetX !== undefined && snake.aiTargetY !== undefined) {
         const dist = Phaser.Math.Distance.Between(head.x, head.y, snake.aiTargetX, snake.aiTargetY);
         if (dist > 15) {
@@ -428,6 +448,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private updateHeadValue(snake: Snake, newVal: number) {
+    this.ensureCubeTexture(newVal);
     snake.head.setData("value", newVal);
     snake.head.setTexture(`cube_${newVal}`);
     if (snake === this.playerSnake) {
@@ -492,6 +513,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     const spawnX = lastX - Math.cos(lastRotation) * size;
     const spawnY = lastY - Math.sin(lastRotation) * size;
 
+    this.ensureCubeTexture(val);
     const sprite = this.physics.add.sprite(spawnX, spawnY, `cube_${val}`);
     sprite.setData("value", val);
     
@@ -550,6 +572,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
           if (segToDouble) {
             segToDouble.value = newVal;
             segToDouble.sprite.setData("value", newVal);
+            this.ensureCubeTexture(newVal);
             segToDouble.sprite.setTexture(`cube_${newVal}`);
             this.createMergeParticles(segToDouble.sprite.x, segToDouble.sprite.y, newVal);
           }
@@ -573,6 +596,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private spawnSnake(name: string, isAI: boolean, x: number, y: number, startVal: number): Snake {
+    this.ensureCubeTexture(startVal);
     const head = this.physics.add.sprite(x, y, `cube_${startVal}`);
     head.setData("value", startVal);
     head.setData("name", name);
@@ -640,6 +664,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     const ry = y !== undefined ? y : Phaser.Math.Between(50, this.mapHeight - 50);
     const val = value !== undefined ? value : Phaser.Math.RND.pick([2, 2, 2, 4, 4, 8, 16]);
 
+    this.ensureCubeTexture(val);
     const food = this.foodGroup.create(rx, ry, `cube_${val}`);
     food.setData("value", val);
     const body = food.body as Phaser.Physics.Arcade.Body;
@@ -792,103 +817,183 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private formatValue(val: number): string {
+    if (val >= 1000000) {
+      return (val / 1000000).toFixed(0) + "M";
+    }
     if (val >= 1000) {
       return (val / 1000).toFixed(0) + "K";
     }
     return val.toString();
   }
 
+  private ensureCubeTexture(val: number) {
+    const key = `cube_${val}`;
+    if (this.textures.exists(key)) {
+      return;
+    }
+    const { size, colors } = this.getCubeProperties(val);
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d")!;
+
+    const cx = size / 2;
+    const cy = size / 2;
+    const r = size * 0.46;
+
+    const vCenter = { x: cx, y: cy + r * 0.1 };
+    const vTop = { x: cx, y: cy - r * 0.9 };
+    const vBottom = { x: cx, y: cy + r * 1.0 };
+    const vLeftTop = { x: cx - r * 0.866, y: cy - r * 0.4 };
+    const vRightTop = { x: cx + r * 0.866, y: cy - r * 0.4 };
+    const vLeftBottom = { x: cx - r * 0.866, y: cy + r * 0.5 };
+    const vRightBottom = { x: cx + r * 0.866, y: cy + r * 0.5 };
+
+    const adjustColor = (hexColor: string, percent: number) => {
+      let hex = hexColor.replace("#", "");
+      if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+      let rHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(0, 2), 16) * percent)));
+      let gHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(2, 4), 16) * percent)));
+      let bHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(4, 6), 16) * percent)));
+
+      return `#${rHexVal.toString(16).padStart(2, "0")}${gHexVal.toString(16).padStart(2, "0")}${bHexVal.toString(16).padStart(2, "0")}`;
+    };
+
+    const topColor = adjustColor(colors.bg, 1.25);
+    const leftColor = adjustColor(colors.bg, 0.95);
+    const rightColor = adjustColor(colors.bg, 0.70);
+
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.25)";
+    ctx.lineWidth = 1.0;
+
+    // Top Face
+    ctx.fillStyle = topColor;
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y);
+    ctx.lineTo(vLeftTop.x, vLeftTop.y);
+    ctx.lineTo(vTop.x, vTop.y);
+    ctx.lineTo(vRightTop.x, vRightTop.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Left Face
+    ctx.fillStyle = leftColor;
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y);
+    ctx.lineTo(vLeftTop.x, vLeftTop.y);
+    ctx.lineTo(vLeftBottom.x, vLeftBottom.y);
+    ctx.lineTo(vBottom.x, vBottom.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Right Face
+    ctx.fillStyle = rightColor;
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y);
+    ctx.lineTo(vRightTop.x, vRightTop.y);
+    ctx.lineTo(vRightBottom.x, vRightBottom.y);
+    ctx.lineTo(vBottom.x, vBottom.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Glossy Highlight outline for Top Face
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.35)";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y - 1);
+    ctx.lineTo(vLeftTop.x + 1, vLeftTop.y + 1);
+    ctx.lineTo(vTop.x, vTop.y + 1);
+    ctx.lineTo(vRightTop.x - 1, vRightTop.y + 1);
+    ctx.closePath();
+    ctx.stroke();
+
+    // Text on Top Face
+    ctx.fillStyle = colors.text;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const formattedText = this.formatValue(val);
+    const textLen = formattedText.length;
+    const textX = cx;
+    const textY = cy - r * 0.35;
+    const fontSize = size * (textLen > 3 ? 0.22 : 0.28);
+    ctx.font = `bold ${fontSize}px "Outfit", "Inter", sans-serif`;
+    ctx.fillText(formattedText, textX, textY);
+
+    this.textures.addCanvas(key, canvas);
+  }
+
   private generateCubeTextures() {
     const values = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768];
     values.forEach((val) => {
-      const key = `cube_${val}`;
-      if (this.textures.exists(key)) {
-        this.textures.remove(key);
-      }
-
-      const { size, colors } = this.getCubeProperties(val);
-      const canvas = document.createElement("canvas");
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext("2d")!;
-
-      const radius = size * 0.16;
-      const shift = Math.floor(size * 0.08);
-
-      // Oblique 3D Bevel style:
-      // 1. Draw darker shadow base
-      ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
-      ctx.beginPath();
-      ctx.roundRect(0, 0, size, size, radius);
-      ctx.fill();
-
-      // 2. Draw front side shadow panel
-      ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
-      ctx.beginPath();
-      ctx.roundRect(0, size - shift, size, shift, [0, 0, radius, radius]);
-      ctx.fill();
-
-      // 3. Draw raised top face (brighter, shifted up by shift)
-      ctx.fillStyle = colors.bg;
-      ctx.beginPath();
-      ctx.roundRect(0, 0, size, size - shift, radius);
-      ctx.fill();
-
-      // 4. Highlight bevel border
-      ctx.strokeStyle = val === 2048 ? "rgba(234, 179, 8, 0.9)" : "rgba(255, 255, 255, 0.4)";
-      ctx.lineWidth = val === 2048 ? 3.5 : 2;
-      ctx.beginPath();
-      ctx.roundRect(1, 1, size - 2, size - shift - 2, radius);
-      ctx.stroke();
-
-      // 5. Draw light reflection overlay
-      ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
-      ctx.beginPath();
-      ctx.roundRect(1.5, 1.5, size - 3, (size - shift) / 2.7, [radius, radius, 0, 0]);
-      ctx.fill();
-
-      // 6. Draw value text (centered on the raised face)
-      ctx.fillStyle = colors.text;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      const formattedText = this.formatValue(val);
-      const textLen = formattedText.length;
-      const fontSize = size * (textLen > 3 ? 0.28 : 0.36);
-      ctx.font = `bold ${fontSize}px "Outfit", "Inter", "Segoe UI", sans-serif`;
-      ctx.fillText(formattedText, size / 2, (size - shift) / 2 + 1);
-
-      this.textures.addCanvas(key, canvas);
+      this.ensureCubeTexture(val);
     });
   }
 
   private generateObstacleTextures() {
-    // 1. Static Square Blocker (Gray 3D Bevel Box)
-    if (!this.textures.exists("blocker")) {
-      const canvas = document.createElement("canvas");
-      canvas.width = 120;
-      canvas.height = 120;
-      const ctx = canvas.getContext("2d")!;
-
-      // Background Bevel / Shadow Frame
-      ctx.fillStyle = "#374151"; // Slate Gray Shadow
-      ctx.beginPath();
-      ctx.roundRect(0, 0, 120, 120, 16);
-      ctx.fill();
-
-      // Top Face slightly shifted
-      ctx.fillStyle = "#6b7280"; // Medium Slate Gray
-      ctx.beginPath();
-      ctx.roundRect(4, 4, 112, 112, 12);
-      ctx.fill();
-
-      // Reflective glass reflection highlight
-      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
-      ctx.beginPath();
-      ctx.roundRect(8, 8, 104, 52, [8, 8, 0, 0]);
-      ctx.fill();
-
-      this.textures.addCanvas("blocker", canvas);
+    if (this.textures.exists("blocker")) {
+      this.textures.remove("blocker");
     }
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 80;
+    canvas.height = 80;
+    const ctx = canvas.getContext("2d")!;
+
+    const size = 80;
+    const cx = size / 2;
+    const cy = size / 2;
+    const r = size * 0.46;
+
+    const vCenter = { x: cx, y: cy + r * 0.1 };
+    const vTop = { x: cx, y: cy - r * 0.9 };
+    const vBottom = { x: cx, y: cy + r * 1.0 };
+    const vLeftTop = { x: cx - r * 0.866, y: cy - r * 0.4 };
+    const vRightTop = { x: cx + r * 0.866, y: cy - r * 0.4 };
+    const vLeftBottom = { x: cx - r * 0.866, y: cy + r * 0.5 };
+    const vRightBottom = { x: cx + r * 0.866, y: cy + r * 0.5 };
+
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
+    ctx.lineWidth = 1.5;
+
+    // Top Face (Lighter Slate)
+    ctx.fillStyle = "#64748b";
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y);
+    ctx.lineTo(vLeftTop.x, vLeftTop.y);
+    ctx.lineTo(vTop.x, vTop.y);
+    ctx.lineTo(vRightTop.x, vRightTop.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Left Face (Medium Slate)
+    ctx.fillStyle = "#475569";
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y);
+    ctx.lineTo(vLeftTop.x, vLeftTop.y);
+    ctx.lineTo(vLeftBottom.x, vLeftBottom.y);
+    ctx.lineTo(vBottom.x, vBottom.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Right Face (Dark Slate)
+    ctx.fillStyle = "#334155";
+    ctx.beginPath();
+    ctx.moveTo(vCenter.x, vCenter.y);
+    ctx.lineTo(vRightTop.x, vRightTop.y);
+    ctx.lineTo(vRightBottom.x, vRightBottom.y);
+    ctx.lineTo(vBottom.x, vBottom.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    this.textures.addCanvas("blocker", canvas);
   }
 
   private triggerGameOver() {

@@ -87,6 +87,7 @@ const INITIAL_ACHIEVEMENTS: Achievement[] = [
   { id: "double_digit", name: "Double Digit", description: "Merge your head block to 16", unlocked: false },
   { id: "triple_digit", name: "Triple Digit", description: "Merge your head block to 128", unlocked: false },
   { id: "legendary_merge", name: "Arena Legend", description: "Merge your head block to 1024!", unlocked: false },
+  { id: "gold_medal_merge", name: "Name with Goldmedal", description: "Reach a score of 500M and earn your Gold Medal!", unlocked: false },
 ];
 
 const GameWrapper: React.FC = () => {
@@ -417,6 +418,7 @@ const GameWrapper: React.FC = () => {
       if (data.mergedValue >= 16) unlockAchievement("double_digit");
       if (data.mergedValue >= 128) unlockAchievement("triple_digit");
       if (data.mergedValue >= 1024) unlockAchievement("legendary_merge");
+      if (data.mergedValue >= 500000000) unlockAchievement("gold_medal_merge");
 
       // Mobile haptic vibration
       if (vibrationEnabled && window.navigator && window.navigator.vibrate) {
@@ -491,6 +493,12 @@ const GameWrapper: React.FC = () => {
     destroyPhaserGame();
     setCurrentScreen("home");
     navigate("/");
+  };
+
+  const handleBackToGameMenu = () => {
+    playSound("click");
+    destroyPhaserGame();
+    setCurrentScreen("home");
   };
 
   const handleBuySkin = (skin: Skin) => {
@@ -1237,7 +1245,7 @@ const GameWrapper: React.FC = () => {
               </Button>
 
               <Button
-                onClick={handleExitToHome}
+                onClick={handleBackToGameMenu}
                 variant="outlined"
                 sx={{
                   borderColor: "rgba(148, 163, 184, 0.3)",
@@ -1403,7 +1411,7 @@ const GameWrapper: React.FC = () => {
                 </Grid>
                 <Grid size={6}>
                   <Button
-                    onClick={handleExitToHome}
+                    onClick={handleBackToGameMenu}
                     fullWidth
                     variant="contained"
                     sx={{
@@ -1499,6 +1507,7 @@ const GameWrapper: React.FC = () => {
                         const colors = ["#fbbf24", "#cbd5e1", "#d97706"];
                         const lastSubmittedName = localStorage.getItem("dvcubie_submitted_name") || "";
                         const isSelf = row.username === lastSubmittedName;
+                        const hasGoldMedal = row.points >= 500000000;
                         return (
                           <TableRow 
                             key={row.id} 
@@ -1512,10 +1521,10 @@ const GameWrapper: React.FC = () => {
                               {isTop3 ? <StarIcon sx={{ color: colors[idx], fontSize: 16 }} /> : idx + 1}
                             </TableCell>
                             <TableCell sx={{ fontWeight: isTop3 || isSelf ? "900" : "500", color: isSelf ? "#fbbf24" : "#fff", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-                              {row.username} {isSelf && "(You)"}
+                              {row.username} {isSelf && "(You)"} {hasGoldMedal && <span style={{ color: "#fbbf24", fontWeight: "bold", marginLeft: "6px" }}>🥇 Gold Medal</span>}
                             </TableCell>
                             <TableCell align="right" sx={{ fontWeight: "800", color: isSelf ? "#fbbf24" : (isTop3 ? "#ec4899" : "#a855f7"), borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-                              {row.points}
+                              {formatCubeValue(row.points)}
                             </TableCell>
                           </TableRow>
                         );
@@ -1524,7 +1533,7 @@ const GameWrapper: React.FC = () => {
                       // Friends Tab List (Simulated / Highlighted)
                       [
                         { username: localStorage.getItem("dvcubie_submitted_name") || "You (Highlight)", points: Math.max(score, highScore), isSelf: true },
-                        { username: "Ganesh_Kumar", points: Math.max(score, highScore) * 0.9 + 40, isSelf: false },
+                        { username: "Ganesh_Kumar", points: 500000000, isSelf: false },
                         { username: "AlphaSnake", points: Math.max(score, highScore) * 0.7 + 20, isSelf: false },
                         { username: "BlitzCubes", points: Math.max(score, highScore) * 0.5 + 10, isSelf: false },
                       ]
@@ -1532,6 +1541,7 @@ const GameWrapper: React.FC = () => {
                         .map((row, idx) => {
                           const isTop3 = idx < 3;
                           const colors = ["#fbbf24", "#cbd5e1", "#d97706"];
+                          const hasGoldMedal = row.points >= 500000000;
                           return (
                             <TableRow 
                               key={row.username} 
@@ -1545,10 +1555,10 @@ const GameWrapper: React.FC = () => {
                                 {isTop3 ? <StarIcon sx={{ color: colors[idx], fontSize: 16 }} /> : idx + 1}
                               </TableCell>
                               <TableCell sx={{ fontWeight: "900", color: row.isSelf ? "#fbbf24" : "#fff", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-                                {row.username}
+                                {row.username} {hasGoldMedal && <span style={{ color: "#fbbf24", fontWeight: "bold", marginLeft: "6px" }}>🥇 Gold Medal</span>}
                               </TableCell>
                               <TableCell align="right" sx={{ fontWeight: "800", color: row.isSelf ? "#fbbf24" : (isTop3 ? "#ec4899" : "#a855f7"), borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-                                {Math.floor(row.points)}
+                                {formatCubeValue(Math.floor(row.points))}
                               </TableCell>
                             </TableRow>
                           );
