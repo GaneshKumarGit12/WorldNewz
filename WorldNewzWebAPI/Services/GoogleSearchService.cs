@@ -27,6 +27,7 @@ namespace WorldNewzWebAPI.Services
     public class GoogleSearchService : IGoogleSearchService
     {
         private readonly HttpClient _httpClient;
+        private readonly string? _apiKey;
         private readonly string? _serviceAccountEmail;
         private readonly string? _privateKeyPem;
         private readonly string? _searchEngineId;
@@ -36,6 +37,8 @@ namespace WorldNewzWebAPI.Services
         public GoogleSearchService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            _apiKey = Environment.GetEnvironmentVariable("GOOGLE_SEARCH_API_KEY")
+                ?.Replace("\"", "").Replace("'", "").Replace("\r", "").Replace("\n", "").Trim();
             _serviceAccountEmail = Environment.GetEnvironmentVariable("GOOGLE_SERVICE_ACCOUNT_EMAIL")
                 ?.Replace("\"", "").Replace("'", "").Replace("\r", "").Replace("\n", "").Trim();
             _privateKeyPem = Environment.GetEnvironmentVariable("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY");
@@ -143,24 +146,36 @@ namespace WorldNewzWebAPI.Services
                 return new List<GoogleSearchResult>();
             }
 
-            var token = await GetAccessTokenAsync();
-            if (string.IsNullOrEmpty(token))
-            {
-                throw new InvalidOperationException("Google Service Account authentication failed. Please verify GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY are correct.");
-            }
-
             if (string.IsNullOrEmpty(_searchEngineId))
             {
                 throw new InvalidOperationException("GOOGLE_SEARCH_CX is not configured in the backend environment variables.");
             }
 
-            var escapedQuery = Uri.EscapeDataString(query);
-            var url = $"https://www.googleapis.com/customsearch/v1?cx={_searchEngineId}&q={escapedQuery}";
+            string url;
+            HttpResponseMessage response;
 
-            using var request = new HttpRequestMessage(HttpMethod.Get, url);
-            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            if (!string.IsNullOrEmpty(_apiKey))
+            {
+                var escapedQuery = Uri.EscapeDataString(query);
+                url = $"https://www.googleapis.com/customsearch/v1?key={_apiKey}&cx={_searchEngineId}&q={escapedQuery}";
+                using var request = new HttpRequestMessage(HttpMethod.Get, url);
+                response = await _httpClient.SendAsync(request);
+            }
+            else
+            {
+                var token = await GetAccessTokenAsync();
+                if (string.IsNullOrEmpty(token))
+                {
+                    throw new InvalidOperationException("Google Service Account authentication failed. Please verify GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY are correct, or configure GOOGLE_SEARCH_API_KEY instead.");
+                }
 
-            var response = await _httpClient.SendAsync(request);
+                var escapedQuery = Uri.EscapeDataString(query);
+                url = $"https://www.googleapis.com/customsearch/v1?cx={_searchEngineId}&q={escapedQuery}";
+                using var request = new HttpRequestMessage(HttpMethod.Get, url);
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                response = await _httpClient.SendAsync(request);
+            }
+
             if (!response.IsSuccessStatusCode)
             {
                 var errBody = await response.Content.ReadAsStringAsync();
