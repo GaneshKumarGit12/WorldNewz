@@ -144,14 +144,12 @@ namespace WorldNewzWebAPI.Services
             var token = await GetAccessTokenAsync();
             if (string.IsNullOrEmpty(token))
             {
-                Console.WriteLine("[GoogleSearchService] Service account authentication failed.");
-                return new List<GoogleSearchResult>();
+                throw new InvalidOperationException("Google Service Account authentication failed. Please verify GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY are correct.");
             }
 
             if (string.IsNullOrEmpty(_searchEngineId))
             {
-                Console.WriteLine("[GoogleSearchService] GOOGLE_SEARCH_CX is not configured.");
-                return new List<GoogleSearchResult>();
+                throw new InvalidOperationException("GOOGLE_SEARCH_CX is not configured in the backend environment variables.");
             }
 
             var escapedQuery = Uri.EscapeDataString(query);
@@ -164,8 +162,7 @@ namespace WorldNewzWebAPI.Services
             if (!response.IsSuccessStatusCode)
             {
                 var errBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"[GoogleSearchService] Search API returned error: {response.StatusCode} - {errBody}");
-                return new List<GoogleSearchResult>();
+                throw new InvalidOperationException($"Google Custom Search API returned {response.StatusCode}: {errBody}");
             }
 
             var body = await response.Content.ReadAsStringAsync();
