@@ -221,45 +221,85 @@ export default class DVCubie2026Scene extends Phaser.Scene {
   }
 
   private updateAIMovement(time: number, _delta: number) {
+    const allSnakes = [this.playerSnake, ...this.aiSnakes].filter(s => s && s.head && s.head.active);
+
     this.aiSnakes.forEach(snake => {
       const head = snake.head;
+      if (!head || !head.active) return;
 
       // Choose a target direction periodically
       if (!snake.aiActionTimer || time > snake.aiActionTimer) {
-        snake.aiActionTimer = time + Phaser.Math.Between(800, 2000);
+        snake.aiActionTimer = time + Phaser.Math.Between(500, 1500);
 
-        // Simple decisions: Hunt smaller snake or wander to food
+        const myVal = head.getData("value") as number;
         let targetX = Phaser.Math.Between(100, this.mapWidth - 100);
         let targetY = Phaser.Math.Between(100, this.mapHeight - 100);
+        let actionChosen = false;
 
-        const myVal = head.getData("value");
+        // 1. Scan for closest other snake (Player or AI) to fight or flee
+        let closestOtherSnake: Snake | null = null;
+        let minSnakeDist = 320;
 
-        // Flee from player if player is bigger
-        const distToPlayer = Phaser.Math.Distance.Between(head.x, head.y, this.playerSnake.head.x, this.playerSnake.head.y);
-        const playerVal = this.playerSnake.head.getData("value");
+        allSnakes.forEach(other => {
+          if (other === snake || !other.head || !other.head.active) return;
+          const dist = Phaser.Math.Distance.Between(head.x, head.y, other.head.x, other.head.y);
+          if (dist < minSnakeDist) {
+            minSnakeDist = dist;
+            closestOtherSnake = other;
+          }
+        });
 
-        if (distToPlayer < 250) {
-          if (playerVal > myVal) {
-            // Run in opposite direction
-            const angle = Phaser.Math.Angle.Between(this.playerSnake.head.x, this.playerSnake.head.y, head.x, head.y);
-            targetX = head.x + Math.cos(angle) * 400;
-            targetY = head.y + Math.sin(angle) * 400;
+        if (closestOtherSnake) {
+          const otherHead = (closestOtherSnake as Snake).head;
+          const otherVal = otherHead.getData("value") as number;
+
+          if (otherVal > myVal) {
+            // Flee from bigger opponent!
+            const angle = Phaser.Math.Angle.Between(otherHead.x, otherHead.y, head.x, head.y);
+            targetX = head.x + Math.cos(angle) * 450;
+            targetY = head.y + Math.sin(angle) * 450;
             snake.boostActive = true;
           } else {
-            // Chase player
-            targetX = this.playerSnake.head.x;
-            targetY = this.playerSnake.head.y;
-            snake.boostActive = Phaser.Math.Between(0, 10) > 7;
+            // Chase smaller prey!
+            targetX = otherHead.x;
+            targetY = otherHead.y;
+            snake.boostActive = Phaser.Math.Between(0, 10) > 4;
           }
-        } else {
-          // Steer towards closest food
+          actionChosen = true;
+        }
+
+        // 2. Scan for nearby boosters to get stronger if not in combat
+        if (!actionChosen) {
+          let closestBooster: Phaser.Physics.Arcade.Sprite | null = null;
+          let minBoosterDist = 250;
+
+          this.boosterGroup.getChildren().forEach(b => {
+            const booster = b as Phaser.Physics.Arcade.Sprite;
+            const dist = Phaser.Math.Distance.Between(head.x, head.y, booster.x, booster.y);
+            if (dist < minBoosterDist) {
+              minBoosterDist = dist;
+              closestBooster = booster;
+            }
+          });
+
+          if (closestBooster) {
+            targetX = (closestBooster as Phaser.Physics.Arcade.Sprite).x;
+            targetY = (closestBooster as Phaser.Physics.Arcade.Sprite).y;
+            snake.boostActive = false;
+            actionChosen = true;
+          }
+        }
+
+        // 3. Scan for closest food to grow
+        if (!actionChosen) {
           let closestFood: Phaser.Physics.Arcade.Sprite | null = null;
-          let minDist = 400;
+          let minFoodDist = 500;
+
           this.foodGroup.getChildren().forEach(f => {
             const food = f as Phaser.Physics.Arcade.Sprite;
-            const d = Phaser.Math.Distance.Between(head.x, head.y, food.x, food.y);
-            if (d < minDist) {
-              minDist = d;
+            const dist = Phaser.Math.Distance.Between(head.x, head.y, food.x, food.y);
+            if (dist < minFoodDist) {
+              minFoodDist = dist;
               closestFood = food;
             }
           });
@@ -316,7 +356,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
           head.setVelocity(Math.cos(angle) * speed, Math.sin(angle) * speed);
         } else {
           head.setVelocity(0, 0);
-          snake.aiActionTimer = 0; // Trigger new path decision
+          snake.aiActionTimer = 0;
         }
       }
     });
