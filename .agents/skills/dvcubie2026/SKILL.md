@@ -128,3 +128,26 @@ interface ArenaStateDelta {
 - **Antialiasing**: Disable antialiasing on mobile viewports to prevent GPU throttling.
 - **DPR Limit**: Cap device pixel ratio: `Math.min(window.devicePixelRatio, 2)`.
 - **Orthographic Camera**: Align perspective using an orthographic camera at `position={[40, 50, 40]}` and `zoom={14}` for isometric projection.
+
+---
+
+## 5. Gameplay & Graphic Enhancements (3D isometric rendering & AI steering)
+
+- **3D Isometric Cubes**:
+  - Dynamically draws cubes on 2D HTML canvas using isometric projections. Each cube comprises three distinct faces:
+    - **Top Face**: Bright base color with glossy outline and centered value text.
+    - **Left Face**: Slightly darkened shading.
+    - **Right Face**: Darkened side panel shading.
+  - This simulates a 3D block projection that spins and turns along the snake's path.
+- **3D Isometric Blockers**:
+  - Static square blockers are rendered as massive slate-gray 3D blocks with detailed face highlights.
+- **AI Obstacle Avoidance Steering**:
+  - AI snakes evaluate distances to nearby blocker sprites in real-time.
+  - If a blocker is within 140 pixels, the steering direction is overridden by a repulsion force vector pointing away from the blocker, preventing bots from getting stuck.
+- **Back to Game Main Menu**:
+  - Pause Screen "Main Menu" and Game Over "Home" buttons are bound to return the user to the **Game's Main Menu** (home screen state) rather than routing them out of the game page.
+- **M-Suffix Formatting**:
+  - Number values $\ge 1,000,000$ are automatically formatted to the `M` suffix (e.g. `500M`).
+- **500M Gold Medal Milestone**:
+  - Merging to a value of $500\text{M}$ unlocks the "Name with Goldmedal" player achievement.
+  - Users with scores $\ge 500,000,000$ (500M) are displayed with a special `🥇 Gold Medal` badge next to their names on global and friends leaderboard lists.
