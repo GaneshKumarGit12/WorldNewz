@@ -91,6 +91,7 @@ export const fetchTrending = (params?: SearchParams) => apiClient.get("/news/tre
 export const fetchPodcastsVideos = (params?: SearchParams) => apiClient.get("/news/podcasts-videos", { params });
 export const fetchLocalNews = (params?: SearchParams) => apiClient.get("/news/local-news", { params });
 export const fetchSearch = (params: SearchParams) => apiClient.get("/news/search", { params });
+export const fetchGoogleSearch = (query: string) => apiClient.get("/googlesearch", { params: { q: query } });
 export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${placement}`);
 export const fetchFullContent = (url: string, title?: string, description?: string, category?: string) => apiClient.get("/news/full-content", { params: { url, title, description, category } });
 export const fetchJobs = (page: number = 1) => apiClient.get("/news/jobs", { params: { page } });

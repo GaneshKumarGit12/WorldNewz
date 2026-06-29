@@ -151,11 +151,15 @@ const App: React.FC = () => {
 
   const performSearch = useCallback((value: string, category?: string) => {
     const trimmed = value.trim();
-    if (!trimmed && !category) { navigate("/search"); return; }
-    const queryParam = trimmed ? `q=${encodeURIComponent(trimmed)}` : "";
-    const categoryParam = category ? `category=${encodeURIComponent(category)}` : "";
-    const combined = [queryParam, categoryParam].filter(Boolean).join("&");
-    navigate(`/search?${combined}`);
+    if (!trimmed) {
+      if (category) {
+        navigate(`/search?category=${encodeURIComponent(category)}`);
+      } else {
+        navigate("/search");
+      }
+      return;
+    }
+    navigate(`/gsearch?q=${encodeURIComponent(trimmed)}`);
   }, [navigate]);
 
   const handleSearchSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {

@@ -62,6 +62,7 @@ const JobDetails = React.lazy(() => import("./pages/JobDetails"));
 const PostJob = React.lazy(() => import("./pages/PostJob"));
 const AdminDashboard = React.lazy(() => import("./pages/AdminDashboard"));
 const GameWrapper = React.lazy(() => import("./games/dvcubie2026/GameWrapper"));
+const GSearchResults = React.lazy(() => import("./pages/GSearchResults"));
 
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -111,6 +112,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="jobs/detail/:slug" element={<JobDetails />} />
                   <Route path="jobs/post-job" element={<PostJob />} />
                   <Route path="search" element={<Search />} />
+                  <Route path="gsearch" element={<GSearchResults />} />
                   <Route path="bookmarks" element={<Bookmarks />} />
                   <Route path="comments" element={<CommentHistory />} />
                   <Route path="article/:id" element={<ResultPage />} />
