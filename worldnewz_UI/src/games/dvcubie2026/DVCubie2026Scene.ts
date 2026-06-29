@@ -315,31 +315,10 @@ export default class DVCubie2026Scene extends Phaser.Scene {
         snake.aiTargetY = Phaser.Math.Clamp(targetY, 50, this.mapHeight - 50);
       }
 
-      // Obstacle avoidance steer logic to prevent AI snakes from getting stuck on blockers
-      let avoidX = 0;
-      let avoidY = 0;
-      this.blockerGroup.getChildren().forEach(b => {
-        const blocker = b as Phaser.Physics.Arcade.Sprite;
-        const d = Phaser.Math.Distance.Between(head.x, head.y, blocker.x, blocker.y);
-        if (d < 140) {
-          const repelAngle = Phaser.Math.Angle.Between(blocker.x, blocker.y, head.x, head.y);
-          const force = (140 - d) * 3;
-          avoidX += Math.cos(repelAngle) * force;
-          avoidY += Math.sin(repelAngle) * force;
-        }
-      });
-
-      if (avoidX !== 0 || avoidY !== 0) {
-        snake.aiTargetX = Phaser.Math.Clamp(head.x + avoidX, 50, this.mapWidth - 50);
-        snake.aiTargetY = Phaser.Math.Clamp(head.y + avoidY, 50, this.mapHeight - 50);
-        snake.aiActionTimer = time + 100;
-      }
-
       if (snake.aiTargetX !== undefined && snake.aiTargetY !== undefined) {
         const dist = Phaser.Math.Distance.Between(head.x, head.y, snake.aiTargetX, snake.aiTargetY);
         if (dist > 15) {
           const angle = Phaser.Math.Angle.Between(head.x, head.y, snake.aiTargetX, snake.aiTargetY);
-          head.setRotation(angle);
 
           let speed = snake.speed;
           if (snake.boostActive) speed *= 1.8;
@@ -353,7 +332,26 @@ export default class DVCubie2026Scene extends Phaser.Scene {
             }
           }
 
-          head.setVelocity(Math.cos(angle) * speed, Math.sin(angle) * speed);
+          // Compute desired heading velocity towards target
+          let vx = Math.cos(angle) * speed;
+          let vy = Math.sin(angle) * speed;
+
+          // Add obstacle avoidance repulsion forces directly to velocity vector
+          this.blockerGroup.getChildren().forEach(b => {
+            const blocker = b as Phaser.Physics.Arcade.Sprite;
+            const d = Phaser.Math.Distance.Between(head.x, head.y, blocker.x, blocker.y);
+            if (d < 120) {
+              const repelAngle = Phaser.Math.Angle.Between(blocker.x, blocker.y, head.x, head.y);
+              const force = (120 - d) * 3.5;
+              vx += Math.cos(repelAngle) * force;
+              vy += Math.sin(repelAngle) * force;
+            }
+          });
+
+          // Compute final combined heading angle and apply velocity
+          const finalAngle = Phaser.Math.Angle.Between(0, 0, vx, vy);
+          head.setRotation(finalAngle);
+          head.setVelocity(Math.cos(finalAngle) * speed, Math.sin(finalAngle) * speed);
         } else {
           head.setVelocity(0, 0);
           snake.aiActionTimer = 0;
