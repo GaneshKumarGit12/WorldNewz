@@ -36,9 +36,11 @@ namespace WorldNewzWebAPI.Services
         public GoogleSearchService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serviceAccountEmail = Environment.GetEnvironmentVariable("GOOGLE_SERVICE_ACCOUNT_EMAIL");
+            _serviceAccountEmail = Environment.GetEnvironmentVariable("GOOGLE_SERVICE_ACCOUNT_EMAIL")
+                ?.Replace("\"", "").Replace("'", "").Replace("\r", "").Replace("\n", "").Trim();
             _privateKeyPem = Environment.GetEnvironmentVariable("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY");
-            _searchEngineId = Environment.GetEnvironmentVariable("GOOGLE_SEARCH_CX");
+            _searchEngineId = Environment.GetEnvironmentVariable("GOOGLE_SEARCH_CX")
+                ?.Replace("\"", "").Replace("'", "").Replace("\r", "").Replace("\n", "").Trim();
         }
 
         private async Task<string?> GetAccessTokenAsync()
