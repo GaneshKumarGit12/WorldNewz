@@ -142,7 +142,7 @@ interface ArenaStateDelta {
 - **3D Isometric Blockers**:
   - Static square blockers are rendered as massive slate-gray 3D blocks with detailed face highlights.
 - **Active AI Steering & Combat-Aware behavior**:
-  - **Obstacle Avoidance**: AI snakes scan distances to nearby blockers. If a blocker is within 140 pixels, a repulsion vector overrides steering to prevent them from getting stuck.
+  - **Obstacle Avoidance**: AI snakes scan distances to nearby blockers. If a blocker is within 120 pixels, a repulsion force vector is added directly to their desired velocity vector. This ensures smooth steering around obstacles and resolves distance-based freezing bugs.
   - **Combat Actions**: AI snakes evaluate all nearby active snakes (including both the player and other bots). If an opponent is within 320 pixels:
     - If the opponent is smaller, the bot actively pursues them to consume their tail blocks.
     - If the opponent is larger, the bot flees in the opposite direction, utilizing speed boost.
