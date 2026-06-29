@@ -462,7 +462,7 @@ const GSearchResults: React.FC = () => {
               boxShadow: "0 4px 12px rgba(0,0,0,0.03)"
             }}
           >
-            <div className="gcse-searchresults-only" data-queryParameterName="q"></div>
+            <div className="gcse-searchresults-only" data-queryParameterName="q" data-linktarget="_blank" data-linkTarget="_blank"></div>
           </Paper>
         )}
       </Container>
