@@ -59,7 +59,9 @@ const GSearchResults: React.FC = () => {
       .catch((err: any) => {
         console.error("Google search error:", err);
         let msg = "Failed to load Google search results.";
-        if (err.response?.data?.error) {
+        if (err.response?.data?.details) {
+          msg = `${err.response.data.error} Details: ${err.response.data.details}`;
+        } else if (err.response?.data?.error) {
           msg = err.response.data.error;
         } else if (err.message) {
           msg = err.message;
