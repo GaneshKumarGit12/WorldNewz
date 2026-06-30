@@ -29,7 +29,7 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             var openRouterKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY");
-            var openRouterModel = Environment.GetEnvironmentVariable("OPENROUTER_MODEL") ?? "meta-llama/llama-3-8b-instruct:free";
+            var openRouterModel = Environment.GetEnvironmentVariable("OPENROUTER_MODEL") ?? "openrouter/free";
 
             // Construct the system instruction / persona
             var systemInstructionText = 
