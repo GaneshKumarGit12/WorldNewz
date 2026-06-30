@@ -78,10 +78,15 @@ export const ChatbotPage: React.FC = () => {
         setMessages(prev => [...prev, botMsg]);
       })
       .catch(err => {
+        let errorText = err.message || "Failed to communicate with NewsBot. Please try again.";
+        const statusCode = (err as any).response?.status;
+        if (statusCode === 429) {
+          errorText = "**Rate Limit Exceeded (429)**: The Gemini API free tier rate limit was reached. If you are the administrator, you can update the **GEMINI_API_KEY** environment variable in your **Render.com dashboard** to a key with higher quota limits. Otherwise, please wait 60 seconds before sending another message.";
+        }
         const errMsg: Message = {
           id: `msg-${Date.now()}-err`,
           sender: "bot",
-          text: `⚠️ **System Error**: ${err.message || "Failed to communicate with NewsBot. Please try again."}`,
+          text: `⚠️ **System Error**: ${errorText}`,
           timestamp: new Date()
         };
         setMessages(prev => [...prev, errMsg]);
