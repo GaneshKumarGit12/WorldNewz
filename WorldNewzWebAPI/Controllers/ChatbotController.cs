@@ -30,6 +30,10 @@ namespace WorldNewzWebAPI.Controllers
 
             var openRouterKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY");
             var openRouterModel = Environment.GetEnvironmentVariable("OPENROUTER_MODEL") ?? "openrouter/free";
+            if (openRouterModel == "meta-llama/llama-3-8b-instruct:free")
+            {
+                openRouterModel = "openrouter/free";
+            }
 
             // Construct the system instruction / persona
             var systemInstructionText = 
