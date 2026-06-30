@@ -509,7 +509,14 @@ export default async function handler(req, res) {
           "logo": {
             "@type": "ImageObject",
             "url": "https://worldnewzs.in/logo.svg"
-          }
+          },
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61589266599006",
+            "https://x.com/ganeshkumard1",
+            "https://www.youtube.com/@ganeshkumar56",
+            "https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/",
+            "https://www.instagram.com/ganeshkumard12/"
+          ]
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
@@ -608,6 +615,26 @@ export default async function handler(req, res) {
 
   // 7. Inject Body Fallback
   if (bodyFallback) {
+    const footerHtml = `
+      <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 0.9rem;">
+        <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+          <a href="/about" style="color: #666;">About Us</a> |
+          <a href="/contact" style="color: #666;">Contact Us</a> |
+          <a href="/privacy-policy" style="color: #666;">Privacy Policy</a> |
+          <a href="/terms" style="color: #666;">Terms & Conditions</a>
+        </div>
+        <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 15px;">
+          <a href="https://www.youtube.com/@ganeshkumar56" target="_blank" rel="noopener noreferrer" style="color: #c83a15; font-weight: bold; text-decoration: none; margin: 0 5px;">YouTube</a>
+          <a href="https://x.com/ganeshkumard1" target="_blank" rel="noopener noreferrer" style="color: #c83a15; font-weight: bold; text-decoration: none; margin: 0 5px;">X (Twitter)</a>
+          <a href="https://www.facebook.com/profile.php?id=61589266599006" target="_blank" rel="noopener noreferrer" style="color: #c83a15; font-weight: bold; text-decoration: none; margin: 0 5px;">Facebook</a>
+          <a href="https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/" target="_blank" rel="noopener noreferrer" style="color: #c83a15; font-weight: bold; text-decoration: none; margin: 0 5px;">LinkedIn</a>
+          <a href="https://www.instagram.com/ganeshkumard12/" target="_blank" rel="noopener noreferrer" style="color: #c83a15; font-weight: bold; text-decoration: none; margin: 0 5px;">Instagram</a>
+        </div>
+        <p>&copy; 2026 WorldNewzs. All rights reserved. Powered by Ganesh CO.</p>
+      </footer>
+    `;
+    bodyFallback = bodyFallback.replace(/<\/div>\s*$/, `${footerHtml}</div>`);
+
     const fallbackRegex = /<div id="semantic-fallback-container"[\s\S]*?<\/div>/i;
     if (fallbackRegex.test(html)) {
       html = html.replace(fallbackRegex, bodyFallback);

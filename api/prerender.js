@@ -714,7 +714,14 @@ export default async function handler(req, res) {
           "logo": {
             "@type": "ImageObject",
             "url": "https://worldnewzs.in/favicon.svg"
-          }
+          },
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61589266599006",
+            "https://x.com/ganeshkumard1",
+            "https://www.youtube.com/@ganeshkumar56",
+            "https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/",
+            "https://www.instagram.com/ganeshkumard12/"
+          ]
         },
         "mainEntityOfPage": {
           "@type": "WebPage",

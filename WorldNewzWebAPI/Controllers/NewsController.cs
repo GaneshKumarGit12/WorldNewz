@@ -200,10 +200,17 @@ namespace WorldNewzWebAPI.Controllers
                         .Where(p => p.Length > 0)
                         .ToList();
 
-                    if (cachedParagraphs.Count > 0)
+                    var cachedWordCount = cachedParagraphs.Sum(p => p.Split(new[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length);
+
+                    // Only return cached content if it is NOT thin (at least 5 paragraphs and 600 words)
+                    if (cachedParagraphs.Count >= 5 && cachedWordCount >= 600)
                     {
                         Response.Headers.CacheControl = "public, max-age=86400"; // Cache dynamic article for 24 hours at edge
                         return Ok(new { success = true, content = cachedParagraphs });
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[FullContent] Cached content for {url} is thin ({cachedParagraphs.Count} paras, {cachedWordCount} words). Re-enriching...");
                     }
                 }
 
@@ -282,6 +289,12 @@ namespace WorldNewzWebAPI.Controllers
                             title = System.Web.HttpUtility.HtmlDecode(titleMatch.Groups[1].Value.Replace(" - BBC News", "").Replace(" - Reuters", "").Trim());
                         }
                     }
+                }
+
+                // If title is still missing/null, create a dynamic category fallback to guarantee enrichment runs
+                if (string.IsNullOrWhiteSpace(title))
+                {
+                    title = "Latest " + (string.IsNullOrWhiteSpace(category) ? "News" : category) + " Update";
                 }
 
                 if (!string.IsNullOrWhiteSpace(title))

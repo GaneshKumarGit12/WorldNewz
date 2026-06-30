@@ -24,7 +24,14 @@ export const JSONLDWebSite = () => (
         "logo": {
           "@type": "ImageObject",
           "url": LOGO_URL
-        }
+        },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61589266599006",
+          "https://x.com/ganeshkumard1",
+          "https://www.youtube.com/@ganeshkumar56",
+          "https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/",
+          "https://www.instagram.com/ganeshkumard12/"
+        ]
       }
     })}</script>
   </Helmet>
@@ -134,7 +141,14 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
       "publisher": {
         "@type": "Organization",
         "name": SITE_NAME,
-        "logo": { "@type": "ImageObject", "url": LOGO_URL }
+        "logo": { "@type": "ImageObject", "url": LOGO_URL },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61589266599006",
+          "https://x.com/ganeshkumard1",
+          "https://www.youtube.com/@ganeshkumar56",
+          "https://www.linkedin.com/in/ganesh-kumar-devarasetty-b4743621/recent-activity/all/",
+          "https://www.instagram.com/ganeshkumard12/"
+        ]
       },
       "speakable": {
         "@type": "SpeakableSpecification",

@@ -79,7 +79,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseHsts();
-    app.UseHttpsRedirection();
+    // app.UseHttpsRedirection(); // Disabled to prevent 307 preflight CORS redirect failures behind reverse proxy (Render load balancer terminates SSL)
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
