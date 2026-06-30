@@ -18,6 +18,8 @@ export const primaryNavLinks: NavLink[] = [
   { label: "Deals 🛍️", path: "/amazon-products", highlight: true, highlightColor: "linear-gradient(135deg, #ff8a00, #ff5500)" },
   { label: "Jobs 💼", path: "/jobs", highlight: true, highlightColor: "linear-gradient(135deg, #10b981, #059669)" },
   { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", highlight: true, highlightColor: "linear-gradient(135deg, #a855f7, #ec4899)", badge: "NEW" },
+  { label: "Book Cab 🚗", path: "/transportation", highlight: true, highlightColor: "linear-gradient(135deg, #f59e0b, #d97706)", badge: "NEW" },
+  { label: "NewsBot 🤖", path: "/chatbot", highlight: true, highlightColor: "linear-gradient(135deg, #3b82f6, #1d4ed8)", badge: "NEW" },
 ];
 
 export const secondaryNavLinks: NavLink[] = [
@@ -68,7 +70,9 @@ export const categories: string[] = [
   "badge quiz",
   "stocks",
   "movies",
-  "jobs"
+  "jobs",
+  "transportation",
+  "chatbot"
 ];
 
 export const getCategoryPath = (cat: string): string => {
@@ -101,6 +105,8 @@ export const getCategoryPath = (cat: string): string => {
     case "deals": return "/amazon-products";
     case "amazon products": return "/amazon-products";
     case "jobs": return "/jobs";
+    case "transportation": return "/transportation";
+    case "chatbot": return "/chatbot";
     default: return "/";
   }
 };

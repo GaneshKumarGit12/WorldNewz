@@ -188,6 +188,36 @@ namespace WorldNewzWebAPI.Extensions
                             );
                         ");
 
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""CabDrivers"" (
+                                ""Id"" SERIAL PRIMARY KEY,
+                                ""Name"" TEXT NOT NULL,
+                                ""VehicleType"" TEXT NOT NULL,
+                                ""VehicleNumber"" TEXT NOT NULL,
+                                ""Latitude"" DOUBLE PRECISION NOT NULL,
+                                ""Longitude"" DOUBLE PRECISION NOT NULL,
+                                ""IsAvailable"" BOOLEAN NOT NULL DEFAULT TRUE,
+                                ""Rating"" DOUBLE PRECISION NOT NULL DEFAULT 4.5
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""RideBookings"" (
+                                ""Id"" SERIAL PRIMARY KEY,
+                                ""UserEmail"" TEXT NOT NULL,
+                                ""PickupLocation"" TEXT NOT NULL,
+                                ""Destination"" TEXT NOT NULL,
+                                ""VehicleType"" TEXT NOT NULL,
+                                ""Price"" DOUBLE PRECISION NOT NULL,
+                                ""Status"" TEXT NOT NULL,
+                                ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL,
+                                ""ETA"" INTEGER NOT NULL,
+                                ""MatchedDriverId"" INTEGER NULL,
+                                ""DriverName"" TEXT NULL,
+                                ""VehicleNumber"" TEXT NULL
+                            );
+                        ");
+
                         logger.LogInformation("✓ PostgreSQL tables verified successfully.");
                     }
                 }
@@ -347,6 +377,36 @@ namespace WorldNewzWebAPI.Extensions
                                 CreatedAt TEXT NOT NULL
                             );
                         ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS CabDrivers (
+                                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                Name TEXT NOT NULL,
+                                VehicleType TEXT NOT NULL,
+                                VehicleNumber TEXT NOT NULL,
+                                Latitude REAL NOT NULL,
+                                Longitude REAL NOT NULL,
+                                IsAvailable INTEGER NOT NULL DEFAULT 1,
+                                Rating REAL NOT NULL DEFAULT 4.5
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS RideBookings (
+                                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                UserEmail TEXT NOT NULL,
+                                PickupLocation TEXT NOT NULL,
+                                Destination TEXT NOT NULL,
+                                VehicleType TEXT NOT NULL,
+                                Price REAL NOT NULL,
+                                Status TEXT NOT NULL,
+                                CreatedAt TEXT NOT NULL,
+                                ETA INTEGER NOT NULL,
+                                MatchedDriverId INTEGER NULL,
+                                DriverName TEXT NULL,
+                                VehicleNumber TEXT NULL
+                            );
+                        ");
                     }
                 }
                 catch (Exception ex)
@@ -390,6 +450,21 @@ namespace WorldNewzWebAPI.Extensions
                     }
                 }
                 db.SaveChanges();
+
+                // Seed Default Cab Drivers
+                if (!db.CabDrivers.Any())
+                {
+                    db.CabDrivers.AddRange(new[]
+                    {
+                        new CabDriver { Name = "Ramesh Kumar", VehicleType = "Bike", VehicleNumber = "DL-3C-AB-1234", Latitude = 28.6139, Longitude = 77.2090, IsAvailable = true, Rating = 4.8 },
+                        new CabDriver { Name = "Amit Singh", VehicleType = "Auto", VehicleNumber = "HR-26-XY-5678", Latitude = 28.6250, Longitude = 77.2150, IsAvailable = true, Rating = 4.6 },
+                        new CabDriver { Name = "Sanjay Dutt", VehicleType = "Sedan", VehicleNumber = "UP-16-CD-9012", Latitude = 28.6100, Longitude = 77.2300, IsAvailable = true, Rating = 4.7 },
+                        new CabDriver { Name = "Vikram Aditya", VehicleType = "Premium", VehicleNumber = "DL-1C-ZZ-0007", Latitude = 28.5900, Longitude = 77.2000, IsAvailable = true, Rating = 4.9 },
+                        new CabDriver { Name = "Priya Sharma", VehicleType = "Bike", VehicleNumber = "MH-02-AA-1111", Latitude = 28.6012, Longitude = 77.2250, IsAvailable = true, Rating = 4.9 },
+                        new CabDriver { Name = "Rahul Mehta", VehicleType = "Sedan", VehicleNumber = "KA-03-BB-2222", Latitude = 28.6300, Longitude = 77.1950, IsAvailable = true, Rating = 4.5 }
+                    });
+                    db.SaveChanges();
+                }
 
                 // Seed Default Polls
                 if (db.Polls.Count() < 10 || !db.PollOptions.Any(o => o.IsCorrect))

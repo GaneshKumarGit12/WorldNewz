@@ -63,6 +63,8 @@ const PostJob = React.lazy(() => import("./pages/PostJob"));
 const AdminDashboard = React.lazy(() => import("./pages/AdminDashboard"));
 const GameWrapper = React.lazy(() => import("./games/dvcubie2026/GameWrapper"));
 const GSearchResults = React.lazy(() => import("./pages/GSearchResults"));
+const TransportationPage = React.lazy(() => import("./pages/TransportationPage"));
+const ChatbotPage = React.lazy(() => import("./pages/ChatbotPage"));
 
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -127,6 +129,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="facebook-settings" element={<FacebookSettings />} />
                   <Route path="admin" element={<AdminDashboard />} />
                   <Route path="games/dvcubie2026" element={<GameWrapper />} />
+                  <Route path="transportation" element={<TransportationPage />} />
+                  <Route path="chatbot" element={<ChatbotPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

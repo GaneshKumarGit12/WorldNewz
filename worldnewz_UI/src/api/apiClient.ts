@@ -596,3 +596,53 @@ export const testSmtpSettings = (email: string, token: string) =>
     }
   });
 
+// --- Transportation Booking API ---
+export interface CabDriver {
+  id: number;
+  name: string;
+  vehicleType: string;
+  vehicleNumber: string;
+  latitude: number;
+  longitude: number;
+  isAvailable: boolean;
+  rating: number;
+}
+
+export interface RideBooking {
+  id: number;
+  pickupLocation: string;
+  destination: string;
+  vehicleType: string;
+  price: number;
+  status: string;
+  eta: number;
+  createdAt: string;
+  driverName?: string;
+  vehicleNumber?: string;
+  currentCoords?: { lat: number; lng: number };
+  pickupCoords?: { lat: number; lng: number };
+  destinationCoords?: { lat: number; lng: number };
+}
+
+export const fetchCabs = () => apiClient.get<CabDriver[]>("/transportation/cabs");
+export const fetchLocations = () => apiClient.get<string[]>("/transportation/locations");
+export const bookRide = (data: { pickupLocation: string; destination: string; vehicleType: string; userEmail?: string }) =>
+  apiClient.post<RideBooking>("/transportation/book", data);
+export const fetchRideStatus = (id: number) => apiClient.get<RideBooking>(`/transportation/ride/${id}`);
+export const fetchRideHistory = (email: string) => apiClient.get<RideBooking[]>("/transportation/history", { params: { email } });
+
+// --- Chatbot API ---
+export interface ChatMessageDto {
+  sender: string;
+  text: string;
+}
+
+export interface ChatbotResponse {
+  reply: string;
+  visualMockPrompt?: string;
+}
+
+export const askChatbot = (query: string, history: ChatMessageDto[]) =>
+  apiClient.post<ChatbotResponse>("/chatbot/ask", { query, history });
+
+

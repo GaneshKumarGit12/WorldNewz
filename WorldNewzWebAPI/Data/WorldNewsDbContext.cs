@@ -17,6 +17,8 @@ namespace WorldNewzWebAPI.Data
         public DbSet<PollOption> PollOptions { get; set; }
         public DbSet<AmazonProduct> AmazonProducts { get; set; }
         public DbSet<JobPosting> JobPostings { get; set; }
+        public DbSet<CabDriver> CabDrivers { get; set; }
+        public DbSet<RideBooking> RideBookings { get; set; }
     }
 
 }
