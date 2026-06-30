@@ -37,11 +37,16 @@ export const ChatbotPage: React.FC = () => {
   const [input, setInput] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [isListening, setIsListening] = useState<boolean>(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom of chat
+  // Auto-scroll to bottom of chat container locally
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: "smooth"
+      });
+    }
   }, [messages, loading]);
 
   const handleSend = (textToSend: string) => {
@@ -276,7 +281,7 @@ export const ChatbotPage: React.FC = () => {
               </Box>
 
               {/* Chat Message Window */}
-              <Box sx={{ flexGrow: 1, overflowY: "auto", p: 3, display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box ref={chatContainerRef} sx={{ flexGrow: 1, overflowY: "auto", p: 3, display: "flex", flexDirection: "column", gap: 2 }}>
                 <List disablePadding>
                   {messages.map((msg) => {
                     const isBot = msg.sender === "bot";
@@ -407,8 +412,6 @@ export const ChatbotPage: React.FC = () => {
                     </Box>
                   </Box>
                 )}
-                
-                <div ref={messagesEndRef} />
               </Box>
 
               {/* Chat Input controls */}
