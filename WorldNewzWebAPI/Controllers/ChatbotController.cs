@@ -20,6 +20,52 @@ namespace WorldNewzWebAPI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+        private async Task<string?> GenerateImageWithCloudflareAsync(string prompt)
+        {
+            var accountId = Environment.GetEnvironmentVariable("CLOUDFLARE_ACCOUNT_ID");
+            var apiKey = Environment.GetEnvironmentVariable("CLOUDFLARE_API_KEY");
+
+            if (string.IsNullOrWhiteSpace(accountId) || string.IsNullOrWhiteSpace(apiKey))
+            {
+                Console.WriteLine("⚠️ Cloudflare account credentials not found in env vars. Skipping image generation.");
+                return null;
+            }
+
+            try
+            {
+                var client = _httpClientFactory.CreateClient();
+                var url = $"https://api.cloudflare.com/client/v4/accounts/{accountId}/ai/run/@cf/bytedance/stable-diffusion-xl-lightning";
+
+                var requestBody = new { prompt = prompt };
+                var jsonContent = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
+
+                var requestMsg = new HttpRequestMessage(HttpMethod.Post, url)
+                {
+                    Content = jsonContent
+                };
+                requestMsg.Headers.Add("Authorization", $"Bearer {apiKey}");
+
+                var response = await client.SendAsync(requestMsg);
+                if (response.IsSuccessStatusCode)
+                {
+                    var imageBytes = await response.Content.ReadAsByteArrayAsync();
+                    var base64String = Convert.ToBase64String(imageBytes);
+                    return $"data:image/png;base64,{base64String}";
+                }
+                else
+                {
+                    var errorDetails = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"❌ Cloudflare Image generation failed with status {response.StatusCode}. Details: {errorDetails}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Exception during Cloudflare Image generation: {ex.Message}");
+            }
+
+            return null;
+        }
+
         [HttpPost("ask")]
         public async Task<IActionResult> AskChatbot([FromBody] ChatbotRequest request)
         {
@@ -119,17 +165,20 @@ namespace WorldNewzWebAPI.Controllers
 
                             // Parse out VisualMock tag if present
                             string? visualMockPrompt = null;
+                            string? generatedImage = null;
                             var match = Regex.Match(text, @"\[VisualMock:\s*(.*?)\]");
                             if (match.Success)
                             {
                                 visualMockPrompt = match.Groups[1].Value.Trim();
                                 text = Regex.Replace(text, @"\[VisualMock:\s*.*?\]", "").Trim();
+                                generatedImage = await GenerateImageWithCloudflareAsync(visualMockPrompt);
                             }
 
                             return Ok(new
                             {
                                 reply = text,
-                                visualMockPrompt = visualMockPrompt
+                                visualMockPrompt = visualMockPrompt,
+                                generatedImage = generatedImage
                             });
                         }
                     }
@@ -227,17 +276,20 @@ namespace WorldNewzWebAPI.Controllers
 
                             // Parse out VisualMock tag if present
                             string? visualMockPrompt = null;
+                            string? generatedImage = null;
                             var match = Regex.Match(text, @"\[VisualMock:\s*(.*?)\]");
                             if (match.Success)
                             {
                                 visualMockPrompt = match.Groups[1].Value.Trim();
                                 text = Regex.Replace(text, @"\[VisualMock:\s*.*?\]", "").Trim();
+                                generatedImage = await GenerateImageWithCloudflareAsync(visualMockPrompt);
                             }
 
                             return Ok(new
                             {
                                 reply = text,
-                                visualMockPrompt = visualMockPrompt
+                                visualMockPrompt = visualMockPrompt,
+                                generatedImage = generatedImage
                             });
                         }
                     }

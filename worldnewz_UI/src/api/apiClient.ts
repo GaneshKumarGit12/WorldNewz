@@ -640,6 +640,7 @@ export interface ChatMessageDto {
 export interface ChatbotResponse {
   reply: string;
   visualMockPrompt?: string;
+  generatedImage?: string;
 }
 
 export const askChatbot = (query: string, history: ChatMessageDto[]) =>

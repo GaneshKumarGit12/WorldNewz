@@ -23,6 +23,7 @@ interface Message {
   text: string;
   timestamp: Date;
   visualMockPrompt?: string;
+  generatedImage?: string;
 }
 
 export const ChatbotPage: React.FC = () => {
@@ -78,7 +79,8 @@ export const ChatbotPage: React.FC = () => {
           sender: "bot",
           text: res.data.reply,
           timestamp: new Date(),
-          visualMockPrompt: res.data.visualMockPrompt
+          visualMockPrompt: res.data.visualMockPrompt,
+          generatedImage: res.data.generatedImage
         };
         setMessages(prev => [...prev, botMsg]);
       })
@@ -352,28 +354,44 @@ export const ChatbotPage: React.FC = () => {
                                       Prompt: "{msg.visualMockPrompt}"
                                     </Typography>
 
-                                    {/* Mock Image Placeholder */}
-                                    <Box 
-                                      sx={{ 
-                                        height: 180, 
-                                        borderRadius: 2, 
-                                        border: "2px dashed rgba(255,255,255,0.1)",
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        gap: 1,
-                                        backgroundColor: "rgba(255,255,255,0.02)"
-                                      }}
-                                    >
-                                      <PhotoLibraryIcon sx={{ fontSize: 40, color: "rgba(255,255,255,0.15)" }} />
-                                      <Typography variant="caption" sx={{ fontWeight: 700, color: "rgba(255,255,255,0.6)" }}>
-                                        Structural Placeholder
-                                      </Typography>
-                                      <Typography variant="caption" sx={{ px: 2, textAlign: "center", color: "rgba(255,255,255,0.4)" }}>
-                                        Custom image generation service integration pending configuration.
-                                      </Typography>
-                                    </Box>
+                                    {/* Mock Image Placeholder or Real Generated Image */}
+                                    {msg.generatedImage ? (
+                                      <Box 
+                                        component="img"
+                                        src={msg.generatedImage}
+                                        alt={msg.visualMockPrompt}
+                                        sx={{ 
+                                          width: "100%", 
+                                          maxHeight: 350, 
+                                          borderRadius: 2, 
+                                          objectFit: "contain",
+                                          backgroundColor: "#161b22",
+                                          border: "1px solid rgba(255,255,255,0.1)"
+                                        }}
+                                      />
+                                    ) : (
+                                      <Box 
+                                        sx={{ 
+                                          height: 180, 
+                                          borderRadius: 2, 
+                                          border: "2px dashed rgba(255,255,255,0.1)",
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          justifyContent: "center",
+                                          gap: 1,
+                                          backgroundColor: "rgba(255,255,255,0.02)"
+                                        }}
+                                      >
+                                        <PhotoLibraryIcon sx={{ fontSize: 40, color: "rgba(255,255,255,0.15)" }} />
+                                        <Typography variant="caption" sx={{ fontWeight: 700, color: "rgba(255,255,255,0.6)" }}>
+                                          Image Generation Failed
+                                        </Typography>
+                                        <Typography variant="caption" sx={{ px: 2, textAlign: "center", color: "rgba(255,255,255,0.4)" }}>
+                                          Cloudflare Workers AI failed to render this visual.
+                                        </Typography>
+                                      </Box>
+                                    )}
                                   </CardContent>
                                 </Card>
                               </Fade>
