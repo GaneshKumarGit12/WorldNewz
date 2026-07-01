@@ -22,8 +22,11 @@ namespace WorldNewzWebAPI.Controllers
 
         private async Task<string?> GenerateImageWithCloudflareAsync(string prompt)
         {
-            var accountId = Environment.GetEnvironmentVariable("CLOUDFLARE_ACCOUNT_ID");
-            var apiKey = Environment.GetEnvironmentVariable("CLOUDFLARE_API_KEY");
+            var accountId = Environment.GetEnvironmentVariable("CLOUDFLARE_ACCOUNT_ID")
+                            ?? Environment.GetEnvironmentVariable("ImageGenerator_Account_ID");
+            var apiKey = Environment.GetEnvironmentVariable("CLOUDFLARE_API_KEY")
+                         ?? Environment.GetEnvironmentVariable("key")
+                         ?? Environment.GetEnvironmentVariable("CLOUDFLARE_API_TOKEN");
 
             if (string.IsNullOrWhiteSpace(accountId) || string.IsNullOrWhiteSpace(apiKey))
             {
