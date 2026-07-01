@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SEOMeta } from '../seo/SEOMeta';
 import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
 import { Container, Typography, Box, Grid, Card, CardContent, Avatar, Divider, List, ListItem, ListItemText, ListItemIcon, Button } from '@mui/material';
@@ -194,6 +195,95 @@ export const AboutPage = () => {
               </Card>
             </Grid>
           </Grid>
+
+          <Divider sx={{ my: 6 }} />
+
+          {/* Curation Pipeline & E-E-A-T Curation Essay */}
+          <Box sx={{ mt: 6 }}>
+            <Typography 
+              variant="h4" 
+              component="h2" 
+              gutterBottom 
+              sx={{ 
+                fontWeight: 900, 
+                letterSpacing: -0.5,
+                background: 'linear-gradient(45deg, #c83a15, #ff7043)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 3
+              }}
+            >
+              The Modern Frontier of Digital Journalism & Algorithmic News Curation
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.8, mb: 3 }}>
+              In the contemporary digital landscape, information is generated at a pace never seen before in human history. Every second, thousands of articles, reports, opinions, and breaking updates are published across the globe. While this vast flow of data ensures unprecedented access to information, it also introduces significant challenges: echo chambers, media bias, sensationalized clickbait, and duplicate stories that clutter reader feeds. Finding objective, high-quality, and transparent news has become a complex task.
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.8, mb: 4 }}>
+              WorldNewzs was established to address this challenge. As a premier global news aggregator, our core mission is to serve as an objective, clear, and comprehensive lens through which readers can view international events. We believe that access to verified, diverse, and well-contextualized news is a fundamental pillar of an informed global society. By combining advanced natural language processing (NLP) algorithms with strict editorial standards, WorldNewzs curates a streamlined stream of headlines that matter, free from the noise and clutter of the raw internet.
+            </Typography>
+
+            <Grid container spacing={4} sx={{ mb: 6 }}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 800 }}>
+                  Intelligent Curation Architecture
+                </Typography>
+                <Typography variant="body2" color="text.secondary" paragraph sx={{ lineHeight: 1.8 }}>
+                  At the heart of WorldNewzs is a sophisticated, multi-layered curation engine. We do not simply syndicate raw feeds or display unfiltered RSS streams. Instead, our technology stack works in real-time to ingest, filter, categorize, and prioritize content from thousands of whitelisted, reputable sources.
+                </Typography>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Box sx={{ pl: 2.5, borderLeft: '3px solid #c83a15' }}>
+                  <Typography variant="body2" color="text.secondary" component="div">
+                    <ul style={{ paddingLeft: '1.2rem', margin: 0 }}>
+                      <li style={{ marginBottom: '8px' }}>
+                        <strong>Reputable Source Auditing:</strong> Processing only from publishers with public editorial boards, transparent authorship, and a documented history of accuracy.
+                      </li>
+                      <li style={{ marginBottom: '8px' }}>
+                        <strong>Algorithmic Deduplication:</strong> Analyzing semantic similarity across titles and bodies to group duplicate articles and maintain homepage cleanliness.
+                      </li>
+                      <li style={{ marginBottom: '8.18' }}>
+                        <strong>Contextual Enrichment:</strong> Fetching rich metadata, structured JSON-LD data, and optimized image URLs for proper attribution.
+                      </li>
+                    </ul>
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+
+            <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 800, mt: 4, mb: 2 }}>
+              Combating Clickbait, Misinformation, and Sensationalism
+            </Typography>
+            <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.8, mb: 3 }}>
+              One of the greatest threats to digital media is the rise of sensationalism. Headlines are frequently designed to provoke emotional reactions rather than convey factual summaries. WorldNewzs uses advanced filtering to combat this trend. Our sentiment analysis models evaluate headlines for emotionally charged language, clickbait patterns (such as exaggerated questions or incomplete statements designed to force a click), and extreme political bias. Articles that fail these checks are automatically downranked or flagged for manual review. This ensures that the stories displayed on our home page are informative, direct, and balanced, providing a quiet and focused environment for news consumption.
+            </Typography>
+            <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.8, mb: 4 }}>
+              Furthermore, we continuously update our vocabulary database to recognize emerging clickbait styles and manipulative phrases. Journalistic integrity is a moving target in the digital age, and our engineering systems evolve dynamically to ensure that sensationalized editorial practices do not contaminate our index, preserving our reputation as a trusted primary news resource.
+            </Typography>
+
+            <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 800, mt: 4, mb: 2 }}>
+              Active Reader Community
+            </Typography>
+            <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.8, mb: 3 }}>
+              We believe that news should not be a one-way street. WorldNewzs is designed to be an interactive platform where global citizens can engage with content, bookmark key reports for future reference, and participate in civilized, moderated discussions. Our built-in bookmarking system allows you to save articles locally so you never lose track of important investigations or ongoing stories. Additionally, our comment sections foster healthy community engagement. We actively moderate all comment boards to prevent harassment, hate speech, and spam, ensuring that the dialogue remains constructive, educational, and respectful. By giving readers a voice, we transform passive news consumption into an active, collaborative discovery process.
+            </Typography>
+            <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.8, mb: 4 }}>
+              Our user feedback loops also play an important role. When readers flag incorrect titles or broken links in the comment sections, our editorial team immediately reviews the reports, validating that our automated system remains aligned with user expectations and high-quality browsing.
+            </Typography>
+
+            <Box sx={{ p: 3, bgcolor: 'action.hover', borderRadius: 2, border: '1px solid', borderColor: 'divider', mt: 4 }}>
+              <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+                Contact & Inquiries
+              </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph sx={{ mb: 2 }}>
+                We highly value feedback, corrections, and inquiries from our global audience. If you spot a factual error in an indexed article, have a business proposal, or need technical support, you can easily reach us via our Contact Us page.
+              </Typography>
+              <Button variant="contained" component={Link} to="/contact" color="primary" sx={{ borderRadius: 2, textTransform: 'none' }}>
+                Get In Touch
+              </Button>
+            </Box>
+          </Box>
         </Box>
       </Container>
     </>

@@ -6,43 +6,50 @@ export interface NavLink {
   badge?: string;
 }
 
-export const primaryNavLinks: NavLink[] = [
+export const coreNewsLinks: NavLink[] = [
   { label: "Discover", path: "/" },
   { label: "Politics", path: "/politics" },
   { label: "Technology", path: "/technology" },
   { label: "Business", path: "/business" },
-  { label: "Trending Videos 🎥", path: "/trending-videos", highlight: true, highlightColor: "linear-gradient(135deg, #ef4444, #b91c1c)", badge: "HOT" },
-  { label: "Polls 🗳️", path: "/polls", highlight: true, highlightColor: "linear-gradient(135deg, #00c6ff, #0072ff)" },
-  { label: "GK Quiz 🏆", path: "/badge-quiz", highlight: true, highlightColor: "linear-gradient(135deg, #f857a6, #ff5858)" },
-  { label: "MoviesDB 🎬", path: "/movies", highlight: true, highlightColor: "linear-gradient(135deg, #e11d48, #be123c)" },
-  { label: "Deals 🛍️", path: "/amazon-products", highlight: true, highlightColor: "linear-gradient(135deg, #ff8a00, #ff5500)" },
-  { label: "Jobs 💼", path: "/jobs", highlight: true, highlightColor: "linear-gradient(135deg, #10b981, #059669)" },
-  { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", highlight: true, highlightColor: "linear-gradient(135deg, #a855f7, #ec4899)", badge: "NEW" },
-  { label: "Book Cab 🚗", path: "/transportation", highlight: true, highlightColor: "linear-gradient(135deg, #f59e0b, #d97706)", badge: "NEW" },
-  { label: "NewsBot 🤖", path: "/chatbot", highlight: true, highlightColor: "linear-gradient(135deg, #3b82f6, #1d4ed8)", badge: "NEW" },
+  { label: "Entertainment", path: "/entertainment" },
 ];
 
-export const secondaryNavLinks: NavLink[] = [
+export const exploreLinks: NavLink[] = [
+  { label: "GK Quiz 🏆", path: "/badge-quiz" },
+  { label: "Interactive Polls 🗳️", path: "/polls" },
+  { label: "MoviesDB 🎬", path: "/movies" },
+  { label: "Cartoons 🧸", path: "/cartoons" },
+  { label: "Trending Videos 🎥", path: "/trending-videos", badge: "HOT" },
+  { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", badge: "NEW" },
+  { label: "Book Cab 🚗", path: "/transportation" },
+  { label: "NewsBot 🤖", path: "/chatbot" },
+  { label: "Gaming 🎮", path: "/gaming" },
+  { label: "Podcasts & Videos 🎙️", path: "/podcasts-videos" },
+];
+
+export const utilityLinks: NavLink[] = [
+  { label: "Weather ⛅", path: "/weather" },
+  { label: "Stocks 📈", path: "/stocks" },
+  { label: "Jobs 💼", path: "/jobs" },
+  { label: "Deals 🛍️", path: "/amazon-products" },
+];
+
+export const moreNewsLinks: NavLink[] = [
   { label: "Science & Health", path: "/science-health" },
   { label: "Local News (India)", path: "/local-news" },
   { label: "Sports", path: "/sports" },
   { label: "Money", path: "/money" },
-  { label: "Weather", path: "/weather" },
-  { label: "Shopping", path: "/shopping" },
-  { label: "Travel", path: "/travel" },
-  { label: "Food", path: "/food" },
-  { label: "Entertainment", path: "/entertainment" },
-  { label: "Services", path: "/services" },
-  { label: "Gaming", path: "/gaming" },
-  { label: "Cartoons", path: "/cartoons" },
-  { label: "Stocks", path: "/stocks" },
   { label: "Lifestyle", path: "/lifestyle" },
   { label: "Education", path: "/education" },
   { label: "Opinion", path: "/opinion" },
   { label: "Trending", path: "/trending" },
-  { label: "Podcasts & Videos", path: "/podcasts-videos" },
   { label: "Editorial Briefings", path: "/editorial-briefings" },
 ];
+
+// Fallback compatibility variables for legacy imports
+export const primaryNavLinks: NavLink[] = [];
+export const secondaryNavLinks: NavLink[] = [];
+
 
 export const categories: string[] = [
   "general", 

@@ -210,7 +210,7 @@ export const ShoppingWidget: React.FC = () => {
             component="a"
             href={activeProduct.productUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored noopener noreferrer"
             id={`shopping-product-link-${activeProduct.id}`}
             sx={{
               display: "flex",

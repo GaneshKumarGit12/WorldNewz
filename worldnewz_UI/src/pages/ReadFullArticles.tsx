@@ -15,6 +15,9 @@ import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
 import { getAuthorForCategory } from "../utils/authors";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { Grid } from "@mui/material";
+import { DailyNewsQuizWidget } from "../components/DailyNewsQuizWidget";
+import { WeatherWidget } from "../components/WeatherWidget";
 import { useComments } from "../hooks/useComments";
 import SectionStatus from "../components/SectionStatus";
 import NewsGrid from "../components/NewsGrid";
@@ -380,7 +383,7 @@ const ReadFullArticles: React.FC = () => {
   const catConfig = getCategoryConfig(article.category);
 
   return (
-    <Container maxWidth="md" sx={{ py: 4, minHeight: "75vh" }}>
+    <Container maxWidth="lg" sx={{ py: 4, minHeight: "75vh" }}>
       <SEOMeta
         title={article.headline || article.title}
         description={article.summary || article.description || ""}
@@ -422,7 +425,10 @@ const ReadFullArticles: React.FC = () => {
         Back to Briefing
       </Button>
 
-      <Card component="article" itemScope itemType="https://schema.org/NewsArticle" sx={{ boxShadow: "0 8px 24px rgba(0,0,0,0.15)", borderRadius: 2, overflow: "hidden", mb: 4 }}>
+      {/* Grid container for two-column desktop layout */}
+      <Grid container spacing={4}>
+        <Grid size={{ xs: 12, md: 8 }}>
+          <Card component="article" itemScope itemType="https://schema.org/NewsArticle" sx={{ boxShadow: "0 8px 24px rgba(0,0,0,0.15)", borderRadius: 2, overflow: "hidden", mb: 4 }}>
         {/* Hero banner image */}
         {(article.urlToImage || article.imageUrl) && (
           <CardMedia
@@ -722,6 +728,14 @@ const ReadFullArticles: React.FC = () => {
           </Box>
         </Box>
       </Card>
+        </Grid>
+
+        {/* Sidebar Column */}
+        <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <DailyNewsQuizWidget />
+          <WeatherWidget />
+        </Grid>
+      </Grid>
 
       {/* Related Stories */}
       <Box sx={{ mt: 6 }}>

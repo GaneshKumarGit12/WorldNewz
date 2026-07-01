@@ -118,11 +118,36 @@ const BadgeQuiz: React.FC = () => {
       setLoading(true);
       setError(null);
       const response = await fetchQuizQuestions();
-      setQuestions(response.data);
-      setSelections({});
-      setAnsweredQuestions({});
+      const loadedQuestions = response.data || [];
+      setQuestions(loadedQuestions);
+      
+      const savedFirstAnswerStr = sessionStorage.getItem("quiz_sidebar_first_answer");
+      if (savedFirstAnswerStr && loadedQuestions.length > 0) {
+        try {
+          const firstAnswer = JSON.parse(savedFirstAnswerStr);
+          if (firstAnswer.questionId === loadedQuestions[0].id) {
+            setSelections({ [loadedQuestions[0].id]: firstAnswer.optionId });
+            setAnsweredQuestions({ [loadedQuestions[0].id]: true });
+            setCurrentQuestionIndex(1);
+          } else {
+            setSelections({});
+            setAnsweredQuestions({});
+            setCurrentQuestionIndex(0);
+          }
+        } catch (e) {
+          console.error("Error parsing sidebar quiz answer", e);
+          setSelections({});
+          setAnsweredQuestions({});
+          setCurrentQuestionIndex(0);
+        }
+        // Remove it from sessionStorage so subsequent refreshes don't auto-skip
+        sessionStorage.removeItem("quiz_sidebar_first_answer");
+      } else {
+        setSelections({});
+        setAnsweredQuestions({});
+        setCurrentQuestionIndex(0);
+      }
       setIsTimedOutState({});
-      setCurrentQuestionIndex(0);
     } catch (err: any) {
       setError("Failed to load quiz questions. Please try again later.");
       console.error(err);

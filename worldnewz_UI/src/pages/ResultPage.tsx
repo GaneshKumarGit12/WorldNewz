@@ -27,6 +27,8 @@ import IconButton from "@mui/material/IconButton";
 import { JSONLDNewsArticle, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { SEOMeta } from "../seo/SEOMeta";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { DailyNewsQuizWidget } from "../components/DailyNewsQuizWidget";
+import { WeatherWidget } from "../components/WeatherWidget";
 
 const SITE_URL = "https://worldnewzs.in";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
@@ -283,7 +285,7 @@ const ResultPage: React.FC = () => {
   const author = getAuthorForCategory(article.category);
 
   return (
-    <Container maxWidth="md" sx={{ py: 4, minHeight: "70vh" }}>
+    <Container maxWidth="lg" sx={{ py: 4, minHeight: "70vh" }}>
       <SEOMeta
         title={article.headline || article.title}
         description={article.summary || article.description || ""}
@@ -324,8 +326,11 @@ const ResultPage: React.FC = () => {
         Back
       </Button>
 
-      {/* Main Article Card */}
-      <Card component="article" itemScope itemType="https://schema.org/NewsArticle" sx={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)", borderRadius: 2, overflow: "hidden" }}>
+      {/* Grid container for two-column desktop layout */}
+      <Grid container spacing={4}>
+        <Grid size={{ xs: 12, md: 8 }}>
+          {/* Main Article Card */}
+          <Card component="article" itemScope itemType="https://schema.org/NewsArticle" sx={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)", borderRadius: 2, overflow: "hidden" }}>
         {/* Article Image */}
         {(article.urlToImage || article.imageUrl) && (
           <CardMedia
@@ -703,6 +708,14 @@ const ResultPage: React.FC = () => {
           )}
         </Box>
       </Card>
+        </Grid>
+
+        {/* Sidebar Column */}
+        <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <DailyNewsQuizWidget />
+          <WeatherWidget />
+        </Grid>
+      </Grid>
 
       {/* Share Menu */}
       <Menu

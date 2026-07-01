@@ -52,7 +52,7 @@ export const AmazonStrip: React.FC = () => {
         <a
           href="https://www.amazon.in?&linkCode=ll2&tag=ganeshd12-21&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="sponsored noopener noreferrer"
           style={{ color: "#FF9900", textDecoration: "underline", fontSize: "0.8rem", display: "inline-flex", alignItems: "center" }}
         >
           Shop Direct on Amazon India ↗

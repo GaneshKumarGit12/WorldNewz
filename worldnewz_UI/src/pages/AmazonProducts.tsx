@@ -429,7 +429,7 @@ const AmazonProducts: React.FC = () => {
                       variant="contained"
                       href={scratchDealProduct.productUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="sponsored noopener noreferrer"
                       fullWidth
                       endIcon={<ArrowForwardIcon />}
                       sx={{
@@ -703,7 +703,7 @@ const AmazonProducts: React.FC = () => {
                                 variant="contained"
                                 href={product.productUrl}
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="sponsored noopener noreferrer"
                                 startIcon={<ShoppingBagIcon />}
                                 sx={{
                                   borderRadius: 2.5,

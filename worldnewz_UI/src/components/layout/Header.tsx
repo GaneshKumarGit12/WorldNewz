@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AppBar, Toolbar, Box, Typography, Button, Menu, MenuItem, Tooltip, IconButton, Badge } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -10,7 +10,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import { primaryNavLinks, secondaryNavLinks } from "../../utils/navigationConfig";
+import { coreNewsLinks, exploreLinks, utilityLinks, moreNewsLinks } from "../../utils/navigationConfig";
 
 interface HeaderProps {
   isDark: boolean;
@@ -31,13 +31,38 @@ export const Header: React.FC<HeaderProps> = ({
   bookmarksCount,
   totalComments,
   hideBadgesInGame,
-  onMenuClick,
-  onMenuClose,
-  anchorEl,
-  menuOpen,
   onDrawerOpen
 }) => {
   const location = useLocation();
+
+  const [exploreAnchorEl, setExploreAnchorEl] = useState<null | HTMLElement>(null);
+  const [utilityAnchorEl, setUtilityAnchorEl] = useState<null | HTMLElement>(null);
+  const [moreAnchorEl, setMoreAnchorEl] = useState<null | HTMLElement>(null);
+
+  const exploreOpen = Boolean(exploreAnchorEl);
+  const utilityOpen = Boolean(utilityAnchorEl);
+  const moreOpen = Boolean(moreAnchorEl);
+
+  const handleExploreClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setExploreAnchorEl(event.currentTarget);
+  };
+  const handleExploreClose = () => {
+    setExploreAnchorEl(null);
+  };
+
+  const handleUtilityClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setUtilityAnchorEl(event.currentTarget);
+  };
+  const handleUtilityClose = () => {
+    setUtilityAnchorEl(null);
+  };
+
+  const handleMoreClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setMoreAnchorEl(event.currentTarget);
+  };
+  const handleMoreClose = () => {
+    setMoreAnchorEl(null);
+  };
 
   return (
     <AppBar
@@ -95,8 +120,8 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Desktop nav */}
         <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
-          {primaryNavLinks.filter((link) => !link.highlight).map((link) => {
-            const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
+          {coreNewsLinks.map((link) => {
+            const isActive = location.pathname === link.path;
             return (
               <Button
                 key={link.path}
@@ -107,6 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
                   fontWeight: isActive ? "bold" : "normal",
                   borderBottom: isActive ? "2px solid #c83a15" : "none",
                   borderRadius: 0,
+                  textTransform: "none",
                   "&:hover": { color: "#ff8a65" },
                 }}
               >
@@ -115,31 +141,29 @@ export const Header: React.FC<HeaderProps> = ({
             );
           })}
 
-          {/* Dropdown for other categories */}
+          {/* Explore Dropdown */}
           <Button
-            aria-controls={menuOpen ? "more-categories-menu" : undefined}
+            aria-controls={exploreOpen ? "explore-menu" : undefined}
             aria-haspopup="true"
-            aria-expanded={menuOpen ? "true" : undefined}
-            onClick={onMenuClick}
+            aria-expanded={exploreOpen ? "true" : undefined}
+            onClick={handleExploreClick}
             endIcon={<KeyboardArrowDownIcon />}
             sx={{
               color: "white",
-              fontWeight: secondaryNavLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
-              borderBottom: secondaryNavLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
+              fontWeight: exploreLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
+              borderBottom: exploreLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
               borderRadius: 0,
+              textTransform: "none",
               "&:hover": { color: "#ff8a65" },
             }}
           >
-            More
+            Explore
           </Button>
           <Menu
-            id="more-categories-menu"
-            anchorEl={anchorEl}
-            open={menuOpen}
-            onClose={onMenuClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
-            }}
+            id="explore-menu"
+            anchorEl={exploreAnchorEl}
+            open={exploreOpen}
+            onClose={handleExploreClose}
             PaperProps={{
               sx: {
                 backgroundColor: isDark ? "#161b22" : "#ffffff",
@@ -150,15 +174,133 @@ export const Header: React.FC<HeaderProps> = ({
               }
             }}
           >
-            {secondaryNavLinks.map((link) => (
+            {exploreLinks.map((link) => (
               <MenuItem
                 key={link.path}
                 component={Link}
                 to={link.path}
-                onClick={onMenuClose}
+                onClick={handleExploreClose}
                 selected={location.pathname === link.path}
                 sx={{
-                  minWidth: 140,
+                  minWidth: 160,
+                  fontWeight: location.pathname === link.path ? "bold" : "normal",
+                  color: location.pathname === link.path ? "#c83a15" : "inherit",
+                  "&.Mui-selected": {
+                    backgroundColor: isDark ? "rgba(200, 58, 21, 0.15)" : "rgba(200, 58, 21, 0.08)",
+                    color: "#c83a15",
+                    fontWeight: "bold",
+                  },
+                  "&:hover": {
+                    backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
+                  }
+                }}
+              >
+                {link.label}
+              </MenuItem>
+            ))}
+          </Menu>
+
+          {/* Utilities Dropdown */}
+          <Button
+            aria-controls={utilityOpen ? "utility-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={utilityOpen ? "true" : undefined}
+            onClick={handleUtilityClick}
+            endIcon={<KeyboardArrowDownIcon />}
+            sx={{
+              color: "white",
+              fontWeight: utilityLinks.some(l => location.pathname === l.path || (l.path === "/jobs" && location.pathname.startsWith("/jobs"))) ? "bold" : "normal",
+              borderBottom: utilityLinks.some(l => location.pathname === l.path || (l.path === "/jobs" && location.pathname.startsWith("/jobs"))) ? "2px solid #c83a15" : "none",
+              borderRadius: 0,
+              textTransform: "none",
+              "&:hover": { color: "#ff8a65" },
+            }}
+          >
+            Utilities
+          </Button>
+          <Menu
+            id="utility-menu"
+            anchorEl={utilityAnchorEl}
+            open={utilityOpen}
+            onClose={handleUtilityClose}
+            PaperProps={{
+              sx: {
+                backgroundColor: isDark ? "#161b22" : "#ffffff",
+                color: isDark ? "white" : "black",
+                boxShadow: "0px 8px 16px rgba(0,0,0,0.15)",
+                border: "1px solid",
+                borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+              }
+            }}
+          >
+            {utilityLinks.map((link) => (
+              <MenuItem
+                key={link.path}
+                component={Link}
+                to={link.path}
+                onClick={handleUtilityClose}
+                selected={location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"))}
+                sx={{
+                  minWidth: 160,
+                  fontWeight: location.pathname === link.path ? "bold" : "normal",
+                  color: location.pathname === link.path ? "#c83a15" : "inherit",
+                  "&.Mui-selected": {
+                    backgroundColor: isDark ? "rgba(200, 58, 21, 0.15)" : "rgba(200, 58, 21, 0.08)",
+                    color: "#c83a15",
+                    fontWeight: "bold",
+                  },
+                  "&:hover": {
+                    backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
+                  }
+                }}
+              >
+                {link.label}
+              </MenuItem>
+            ))}
+          </Menu>
+
+          {/* More Categories Dropdown */}
+          <Button
+            aria-controls={moreOpen ? "more-news-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={moreOpen ? "true" : undefined}
+            onClick={handleMoreClick}
+            endIcon={<KeyboardArrowDownIcon />}
+            sx={{
+              color: "white",
+              fontWeight: moreNewsLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
+              borderBottom: moreNewsLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
+              borderRadius: 0,
+              textTransform: "none",
+              "&:hover": { color: "#ff8a65" },
+            }}
+          >
+            Categories
+          </Button>
+          <Menu
+            id="more-news-menu"
+            anchorEl={moreAnchorEl}
+            open={moreOpen}
+            onClose={handleMoreClose}
+            PaperProps={{
+              sx: {
+                backgroundColor: isDark ? "#161b22" : "#ffffff",
+                color: isDark ? "white" : "black",
+                boxShadow: "0px 8px 16px rgba(0,0,0,0.15)",
+                border: "1px solid",
+                borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+              }
+            }}
+          >
+            {moreNewsLinks.map((link) => (
+              <MenuItem
+                key={link.path}
+                component={Link}
+                to={link.path}
+                onClick={handleMoreClose}
+                selected={location.pathname === link.path}
+                sx={{
+                  minWidth: 160,
                   fontWeight: location.pathname === link.path ? "bold" : "normal",
                   color: location.pathname === link.path ? "#c83a15" : "inherit",
                   "&.Mui-selected": {
@@ -277,81 +419,6 @@ export const Header: React.FC<HeaderProps> = ({
           </IconButton>
         </Box>
       </Toolbar>
-
-      {/* Centered responsive navigation buttons (Polls, GK Quiz, MoviesDB, Deals, Jobs) */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 1.5,
-          py: 1.5,
-          px: 2,
-          backgroundColor: isDark ? "#12161a" : "#050505",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        {primaryNavLinks.filter((link) => link.highlight).map((link) => {
-          const isActive = location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"));
-          const buttonContent = (
-            <Button
-              key={link.path}
-              component={Link}
-              to={link.path}
-              sx={{
-                background: link.highlightColor || "linear-gradient(135deg, #00c6ff, #0072ff)",
-                color: "white",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                px: 2.2,
-                mx: 0.5,
-                fontSize: "0.85rem",
-                textTransform: "none",
-                whiteSpace: "nowrap",
-                height: "36px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: isActive ? "0 0 10px rgba(255,255,255,0.4)" : "none",
-                border: isActive ? "1px solid #fff" : "1px solid transparent",
-                transition: "all 0.3s ease-in-out",
-                "&:hover": {
-                  transform: "translateY(-1px)",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-                  filter: "brightness(1.1)",
-                },
-              }}
-            >
-              {link.label}
-            </Button>
-          );
-
-          if (link.badge) {
-            return (
-              <Badge
-                key={link.path}
-                badgeContent={link.badge}
-                color="error"
-                sx={{
-                  "& .MuiBadge-badge": {
-                    fontSize: "0.6rem",
-                    fontWeight: "bold",
-                    height: 14,
-                    minWidth: 14,
-                    top: 4,
-                    right: 12,
-                    px: 0.5,
-                  },
-                }}
-              >
-                {buttonContent}
-              </Badge>
-            );
-          }
-          return buttonContent;
-        })}
-      </Box>
     </AppBar>
   );
 };

@@ -301,7 +301,7 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                     component="a"
                     href={deal.link}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="sponsored noopener noreferrer"
                     endIcon={<LaunchIcon sx={{ fontSize: "0.9rem !important" }} />}
                     sx={{
                       borderRadius: 2.5,
