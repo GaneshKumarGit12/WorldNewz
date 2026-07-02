@@ -363,6 +363,84 @@ namespace WorldNewzWebAPI.Services
                     ReviewCount = 780,
                     Category = "Lifestyle",
                     ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DSKNHX1T",
+                    Title = "Samsung Galaxy S25+ 5G AI Smartphone",
+                    Description = "Flagship Samsung Galaxy smartphone featuring Galaxy AI camera capabilities, stunning AMOLED display, and ultra-fast performance.",
+                    ImageUrl = "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop&q=60",
+                    Price = 79999.00m,
+                    OriginalPrice = 89999.00m,
+                    Rating = 4.7,
+                    ReviewCount = 4120,
+                    Category = "Electronics",
+                    ProductUrl = "https://amzn.to/4gOPB8j"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C8SZJ4DR",
+                    Title = "Amazon Pay eGift Card - Office & Workplace Celebrations",
+                    Description = "Ideal digital eGift Card for colleagues, employees, and achievements. Instant digital delivery and hassle-free redemption.",
+                    ImageUrl = "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=500&auto=format&fit=crop&q=60",
+                    Price = 1000.00m,
+                    OriginalPrice = 1000.00m,
+                    Rating = 4.8,
+                    ReviewCount = 15400,
+                    Category = "Gift Cards",
+                    ProductUrl = "https://amzn.to/4p3pGfl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FLD3V5BZ",
+                    Title = "DALUCI Wooden Piggy Bank Money Saving Box (1 Lakh Challenge)",
+                    Description = "Wooden savings box with denomination grid for cash savings challenge. Great budget organizer and unique gift for kids & adults.",
+                    ImageUrl = "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&auto=format&fit=crop&q=60",
+                    Price = 399.00m,
+                    OriginalPrice = 799.00m,
+                    Rating = 4.4,
+                    ReviewCount = 2890,
+                    Category = "Gadgets",
+                    ProductUrl = "https://amzn.to/4eEZGU1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CFYPQVXH",
+                    Title = "Zilloquil 4-in-1 Star Galaxy Aurora Night Lamp & Speaker",
+                    Description = "Starry nebula galaxy projector with built-in Bluetooth speaker, white noise, and remote control for bedroom decoration.",
+                    ImageUrl = "https://images.unsplash.com/photo-1507499739999-097706ad8914?w=500&auto=format&fit=crop&q=60",
+                    Price = 1499.00m,
+                    OriginalPrice = 2999.00m,
+                    Rating = 4.5,
+                    ReviewCount = 6120,
+                    Category = "Electronics",
+                    ProductUrl = "https://amzn.to/4eZTFQR"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D6ZCLZZV",
+                    Title = "Crystomist CM Acrylic Crystal Beads Curtain (4 Feet Height)",
+                    Description = "Transparent glass drops acrylic crystal beads curtain. Adds elegance, sparkle, and stylish divider aesthetic to living spaces.",
+                    ImageUrl = "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500&auto=format&fit=crop&q=60",
+                    Price = 899.00m,
+                    OriginalPrice = 1599.00m,
+                    Rating = 4.2,
+                    ReviewCount = 1840,
+                    Category = "Home & Decor",
+                    ProductUrl = "https://amzn.to/4gLPtGI"
+                },
+                new AmazonProduct
+                {
+                    Asin = "9360232688",
+                    Title = "MTG Olympiad Prep-Guide Mathematics Class - 4 Book",
+                    Description = "Comprehensive preparatory guide for NIMO/IMO Class 4 Mathematics Olympiad containing theory, practice questions & sample papers.",
+                    ImageUrl = "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60",
+                    Price = 299.00m,
+                    OriginalPrice = 450.00m,
+                    Rating = 4.6,
+                    ReviewCount = 3750,
+                    Category = "Education",
+                    ProductUrl = "https://amzn.to/4vMKEBG"
                 }
             };
 

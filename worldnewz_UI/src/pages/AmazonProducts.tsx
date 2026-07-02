@@ -236,7 +236,7 @@ const AmazonProducts: React.FC = () => {
   };
 
   // Categories list
-  const categories = ["All", "Electronics", "Kitchen & Home", "Home & Decor", "Home Appliances", "Gadgets", "Lifestyle", "Services", "Shopping"];
+  const categories = ["All", "Electronics", "Kitchen & Home", "Home & Decor", "Home Appliances", "Gadgets", "Lifestyle", "Services", "Shopping", "Gift Cards", "Education"];
 
   // Filter products based on selected category tab
   const filteredProducts = selectedTab === "All"
