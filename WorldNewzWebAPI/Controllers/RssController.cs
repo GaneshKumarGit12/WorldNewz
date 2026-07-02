@@ -43,6 +43,7 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             XNamespace atom = "http://www.w3.org/2005/Atom";
+            XNamespace contentNs = "http://purl.org/rss/1.0/modules/content/";
 
             var channel = new XElement("channel",
                 new XElement("title", $"WorldNewzs {feedType}"),
@@ -65,11 +66,14 @@ namespace WorldNewzWebAPI.Controllers
                     _ => "#WorldNewzs"
                 };
 
+                var fullHtmlSummary = $"<p>{System.Net.WebUtility.HtmlEncode(a.Description ?? "")}</p><p><a href=\"{a.Url}\">Read full story on WorldNewzs</a></p><p><em>Keywords: {hashtags}</em></p>";
+
                 channel.Add(new XElement("item",
                     new XElement("title", (a.Title ?? "Untitled").Trim()),
                     new XElement("link", (a.Url ?? string.Empty).Trim()),
                     new XElement("guid", (a.Url ?? string.Empty).Trim()),
                     new XElement("description", new XText($"{(a.Description ?? "").Trim()} {hashtags}")),
+                    new XElement(contentNs + "encoded", new XCData(fullHtmlSummary)),
                     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
                     new XElement("category", (a.Source?.Name ?? "General").Trim()),
                     new XElement("enclosure",
@@ -83,6 +87,7 @@ namespace WorldNewzWebAPI.Controllers
                 new XElement("rss",
                     new XAttribute("version", "2.0"),
                     new XAttribute(XNamespace.Xmlns + "atom", atom),
+                    new XAttribute(XNamespace.Xmlns + "content", contentNs),
                     channel
                 )
             );

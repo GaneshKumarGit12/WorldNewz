@@ -10,7 +10,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import { coreNewsLinks, exploreLinks, utilityLinks, moreNewsLinks } from "../../utils/navigationConfig";
+import { newsPillarLinks, lifestylePillarLinks, explorePillarLinks, playPillarLinks } from "../../utils/navigationConfig";
 
 interface HeaderProps {
   isDark: boolean;
@@ -35,34 +35,22 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const location = useLocation();
 
+  const [lifestyleAnchorEl, setLifestyleAnchorEl] = useState<null | HTMLElement>(null);
   const [exploreAnchorEl, setExploreAnchorEl] = useState<null | HTMLElement>(null);
-  const [utilityAnchorEl, setUtilityAnchorEl] = useState<null | HTMLElement>(null);
-  const [moreAnchorEl, setMoreAnchorEl] = useState<null | HTMLElement>(null);
+  const [playAnchorEl, setPlayAnchorEl] = useState<null | HTMLElement>(null);
 
+  const lifestyleOpen = Boolean(lifestyleAnchorEl);
   const exploreOpen = Boolean(exploreAnchorEl);
-  const utilityOpen = Boolean(utilityAnchorEl);
-  const moreOpen = Boolean(moreAnchorEl);
+  const playOpen = Boolean(playAnchorEl);
 
-  const handleExploreClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setExploreAnchorEl(event.currentTarget);
-  };
-  const handleExploreClose = () => {
-    setExploreAnchorEl(null);
-  };
+  const handleLifestyleClick = (event: React.MouseEvent<HTMLButtonElement>) => setLifestyleAnchorEl(event.currentTarget);
+  const handleLifestyleClose = () => setLifestyleAnchorEl(null);
 
-  const handleUtilityClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setUtilityAnchorEl(event.currentTarget);
-  };
-  const handleUtilityClose = () => {
-    setUtilityAnchorEl(null);
-  };
+  const handleExploreClick = (event: React.MouseEvent<HTMLButtonElement>) => setExploreAnchorEl(event.currentTarget);
+  const handleExploreClose = () => setExploreAnchorEl(null);
 
-  const handleMoreClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setMoreAnchorEl(event.currentTarget);
-  };
-  const handleMoreClose = () => {
-    setMoreAnchorEl(null);
-  };
+  const handlePlayClick = (event: React.MouseEvent<HTMLButtonElement>) => setPlayAnchorEl(event.currentTarget);
+  const handlePlayClose = () => setPlayAnchorEl(null);
 
   return (
     <AppBar
@@ -120,7 +108,8 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Desktop nav */}
         <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
-          {coreNewsLinks.map((link) => {
+          {/* News Pillar Links */}
+          {newsPillarLinks.slice(0, 4).map((link) => {
             const isActive = location.pathname === link.path;
             return (
               <Button
@@ -141,6 +130,65 @@ export const Header: React.FC<HeaderProps> = ({
             );
           })}
 
+          {/* Lifestyle Dropdown */}
+          <Button
+            aria-controls={lifestyleOpen ? "lifestyle-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={lifestyleOpen ? "true" : undefined}
+            onClick={handleLifestyleClick}
+            endIcon={<KeyboardArrowDownIcon />}
+            sx={{
+              color: "white",
+              fontWeight: lifestylePillarLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
+              borderBottom: lifestylePillarLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
+              borderRadius: 0,
+              textTransform: "none",
+              "&:hover": { color: "#ff8a65" },
+            }}
+          >
+            Lifestyle
+          </Button>
+          <Menu
+            id="lifestyle-menu"
+            anchorEl={lifestyleAnchorEl}
+            open={lifestyleOpen}
+            onClose={handleLifestyleClose}
+            PaperProps={{
+              sx: {
+                backgroundColor: isDark ? "#161b22" : "#ffffff",
+                color: isDark ? "white" : "black",
+                boxShadow: "0px 8px 16px rgba(0,0,0,0.15)",
+                border: "1px solid",
+                borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+              }
+            }}
+          >
+            {lifestylePillarLinks.map((link) => (
+              <MenuItem
+                key={link.path}
+                component={Link}
+                to={link.path}
+                onClick={handleLifestyleClose}
+                selected={location.pathname === link.path}
+                sx={{
+                  minWidth: 160,
+                  fontWeight: location.pathname === link.path ? "bold" : "normal",
+                  color: location.pathname === link.path ? "#c83a15" : "inherit",
+                  "&.Mui-selected": {
+                    backgroundColor: isDark ? "rgba(200, 58, 21, 0.15)" : "rgba(200, 58, 21, 0.08)",
+                    color: "#c83a15",
+                    fontWeight: "bold",
+                  },
+                  "&:hover": {
+                    backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
+                  }
+                }}
+              >
+                {link.label}
+              </MenuItem>
+            ))}
+          </Menu>
+
           {/* Explore Dropdown */}
           <Button
             aria-controls={exploreOpen ? "explore-menu" : undefined}
@@ -150,8 +198,8 @@ export const Header: React.FC<HeaderProps> = ({
             endIcon={<KeyboardArrowDownIcon />}
             sx={{
               color: "white",
-              fontWeight: exploreLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
-              borderBottom: exploreLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
+              fontWeight: explorePillarLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
+              borderBottom: explorePillarLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
               borderRadius: 0,
               textTransform: "none",
               "&:hover": { color: "#ff8a65" },
@@ -174,7 +222,7 @@ export const Header: React.FC<HeaderProps> = ({
               }
             }}
           >
-            {exploreLinks.map((link) => (
+            {explorePillarLinks.map((link) => (
               <MenuItem
                 key={link.path}
                 component={Link}
@@ -200,29 +248,29 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </Menu>
 
-          {/* Utilities Dropdown */}
+          {/* Play Dropdown */}
           <Button
-            aria-controls={utilityOpen ? "utility-menu" : undefined}
+            aria-controls={playOpen ? "play-menu" : undefined}
             aria-haspopup="true"
-            aria-expanded={utilityOpen ? "true" : undefined}
-            onClick={handleUtilityClick}
+            aria-expanded={playOpen ? "true" : undefined}
+            onClick={handlePlayClick}
             endIcon={<KeyboardArrowDownIcon />}
             sx={{
               color: "white",
-              fontWeight: utilityLinks.some(l => location.pathname === l.path || (l.path === "/jobs" && location.pathname.startsWith("/jobs"))) ? "bold" : "normal",
-              borderBottom: utilityLinks.some(l => location.pathname === l.path || (l.path === "/jobs" && location.pathname.startsWith("/jobs"))) ? "2px solid #c83a15" : "none",
+              fontWeight: playPillarLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
+              borderBottom: playPillarLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
               borderRadius: 0,
               textTransform: "none",
               "&:hover": { color: "#ff8a65" },
             }}
           >
-            Utilities
+            Play & Media
           </Button>
           <Menu
-            id="utility-menu"
-            anchorEl={utilityAnchorEl}
-            open={utilityOpen}
-            onClose={handleUtilityClose}
+            id="play-menu"
+            anchorEl={playAnchorEl}
+            open={playOpen}
+            onClose={handlePlayClose}
             PaperProps={{
               sx: {
                 backgroundColor: isDark ? "#161b22" : "#ffffff",
@@ -233,71 +281,12 @@ export const Header: React.FC<HeaderProps> = ({
               }
             }}
           >
-            {utilityLinks.map((link) => (
+            {playPillarLinks.map((link) => (
               <MenuItem
                 key={link.path}
                 component={Link}
                 to={link.path}
-                onClick={handleUtilityClose}
-                selected={location.pathname === link.path || (link.path === "/jobs" && location.pathname.startsWith("/jobs"))}
-                sx={{
-                  minWidth: 160,
-                  fontWeight: location.pathname === link.path ? "bold" : "normal",
-                  color: location.pathname === link.path ? "#c83a15" : "inherit",
-                  "&.Mui-selected": {
-                    backgroundColor: isDark ? "rgba(200, 58, 21, 0.15)" : "rgba(200, 58, 21, 0.08)",
-                    color: "#c83a15",
-                    fontWeight: "bold",
-                  },
-                  "&:hover": {
-                    backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
-                  }
-                }}
-              >
-                {link.label}
-              </MenuItem>
-            ))}
-          </Menu>
-
-          {/* More Categories Dropdown */}
-          <Button
-            aria-controls={moreOpen ? "more-news-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={moreOpen ? "true" : undefined}
-            onClick={handleMoreClick}
-            endIcon={<KeyboardArrowDownIcon />}
-            sx={{
-              color: "white",
-              fontWeight: moreNewsLinks.some(l => location.pathname === l.path) ? "bold" : "normal",
-              borderBottom: moreNewsLinks.some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
-              borderRadius: 0,
-              textTransform: "none",
-              "&:hover": { color: "#ff8a65" },
-            }}
-          >
-            Categories
-          </Button>
-          <Menu
-            id="more-news-menu"
-            anchorEl={moreAnchorEl}
-            open={moreOpen}
-            onClose={handleMoreClose}
-            PaperProps={{
-              sx: {
-                backgroundColor: isDark ? "#161b22" : "#ffffff",
-                color: isDark ? "white" : "black",
-                boxShadow: "0px 8px 16px rgba(0,0,0,0.15)",
-                border: "1px solid",
-                borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
-              }
-            }}
-          >
-            {moreNewsLinks.map((link) => (
-              <MenuItem
-                key={link.path}
-                component={Link}
-                to={link.path}
-                onClick={handleMoreClose}
+                onClick={handlePlayClose}
                 selected={location.pathname === link.path}
                 sx={{
                   minWidth: 160,

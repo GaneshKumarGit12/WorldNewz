@@ -7,7 +7,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import VerifiedIcon from "@mui/icons-material/Verified";
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, Fragment } from "react";
 import type { Article } from "../types";
 import { fetchFullContent, fetchSearch, fetchDiscover } from "../api/apiClient";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
@@ -21,6 +21,8 @@ import { WeatherWidget } from "../components/WeatherWidget";
 import { useComments } from "../hooks/useComments";
 import SectionStatus from "../components/SectionStatus";
 import NewsGrid from "../components/NewsGrid";
+import { ContextualPollWidget } from "../components/ContextualPollWidget";
+import { ContextualDealsWidget } from "../components/ContextualDealsWidget";
 import { getCategoryConfig } from "../utils/categoryConfig";
 
 const SITE_URL = "https://worldnewzs.in";
@@ -538,6 +540,26 @@ const ReadFullArticles: React.FC = () => {
                 Source: {typeof article.source === "string" ? article.source : (article.source?.name || 'News')}
               </Typography>
             </Box>
+
+            {/* Sentiment & Bias Curation Tag */}
+            <Box
+              sx={{
+                bgcolor: "action.hover",
+                color: "text.primary",
+                px: 1.2,
+                py: 0.4,
+                borderRadius: 4,
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5,
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                border: "1px solid",
+                borderColor: "divider"
+              }}
+            >
+              ⚖️ Tone: Fact-Based / Neutral Briefing
+            </Box>
           </Box>
 
           <Divider sx={{ my: 2 }} />
@@ -580,7 +602,20 @@ const ReadFullArticles: React.FC = () => {
 
             {!scrapingLoading && paragraphs.length > 0 && (
               <Box>
-                {paragraphs.map((para, index) => renderParagraph(para, index))}
+                {paragraphs.map((para, index) => (
+                  <Fragment key={index}>
+                    {renderParagraph(para, index)}
+                    {index === 2 && (
+                      <ContextualPollWidget
+                        category={article.category}
+                        title={`Poll: What is your take on "${article.headline || article.title}"?`}
+                      />
+                    )}
+                    {index === 5 && (
+                      <ContextualDealsWidget category={article.category} />
+                    )}
+                  </Fragment>
+                ))}
                 
                 <Box sx={{ mt: 5, p: 2, bgcolor: "action.hover", borderRadius: 1, borderLeft: `4px solid ${catConfig.color}` }}>
                   <Typography variant="body2" color="text.secondary">

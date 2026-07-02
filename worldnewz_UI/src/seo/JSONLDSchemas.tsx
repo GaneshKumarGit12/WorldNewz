@@ -131,6 +131,7 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
       "datePublished": article.publishedAt,
       "dateModified": article.dateModified || article.publishedAt,
       "url": article.url,
+      "isBasedOn": article.url, // Curator attribution link
       "articleSection": article.category,
       "inLanguage": "en-US",
       "author": {
@@ -161,6 +162,49 @@ export const JSONLDNewsArticle = ({ article }: { article: Article }) => (
           "name": SITE_NAME,
           "url": SITE_URL
         }
+      }
+    })}</script>
+  </Helmet>
+);
+
+/* ── CollectionPage / Hub Schema (for category & entity hubs) ── */
+interface ItemListItem {
+  title: string;
+  url: string;
+}
+
+export const JSONLDCollectionPage = ({
+  title,
+  description,
+  url,
+  articles
+}: {
+  title: string;
+  description: string;
+  url: string;
+  articles: ItemListItem[];
+}) => (
+  <Helmet>
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": title,
+      "description": description,
+      "url": url,
+      "publisher": {
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "logo": { "@type": "ImageObject", "url": LOGO_URL }
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": articles.length,
+        "itemListElement": articles.map((art, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "url": art.url,
+          "name": art.title
+        }))
       }
     })}</script>
   </Helmet>

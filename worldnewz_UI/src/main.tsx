@@ -64,6 +64,7 @@ const AdminDashboard = React.lazy(() => import("./pages/AdminDashboard"));
 const GameWrapper = React.lazy(() => import("./games/dvcubie2026/GameWrapper"));
 const GSearchResults = React.lazy(() => import("./pages/GSearchResults"));
 const TransportationPage = React.lazy(() => import("./pages/TransportationPage"));
+const EntityHubPage = React.lazy(() => import("./pages/EntityHubPage"));
 const ChatbotPage = React.lazy(() => import("./pages/ChatbotPage"));
 
 const PageLoader = () => (
@@ -131,6 +132,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="games/dvcubie2026" element={<GameWrapper />} />
                   <Route path="transportation" element={<TransportationPage />} />
                   <Route path="chatbot" element={<ChatbotPage />} />
+                  <Route path="company/:entityName" element={<EntityHubPage />} />
+                  <Route path="person/:entityName" element={<EntityHubPage />} />
+                  <Route path="topic/:entityName" element={<EntityHubPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

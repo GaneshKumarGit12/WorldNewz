@@ -6,44 +6,58 @@ export interface NavLink {
   badge?: string;
 }
 
-export const coreNewsLinks: NavLink[] = [
+export const newsPillarLinks: NavLink[] = [
   { label: "Discover", path: "/" },
   { label: "Politics", path: "/politics" },
   { label: "Technology", path: "/technology" },
   { label: "Business", path: "/business" },
-  { label: "Entertainment", path: "/entertainment" },
+  { label: "Sports", path: "/sports" },
+  { label: "Science & Health", path: "/science-health" },
+  { label: "Money", path: "/money" },
+  { label: "Local News (India)", path: "/local-news" },
+  { label: "Editorial Briefings", path: "/editorial-briefings" },
 ];
 
-export const exploreLinks: NavLink[] = [
-  { label: "GK Quiz 🏆", path: "/badge-quiz" },
-  { label: "Interactive Polls 🗳️", path: "/polls" },
+export const lifestylePillarLinks: NavLink[] = [
+  { label: "Lifestyle", path: "/lifestyle" },
+  { label: "Education", path: "/education" },
+  { label: "Travel", path: "/travel" },
+  { label: "Food", path: "/food" },
+  { label: "Weather ⛅", path: "/weather" },
+  { label: "Opinion", path: "/opinion" },
+];
+
+export const explorePillarLinks: NavLink[] = [
   { label: "MoviesDB 🎬", path: "/movies" },
   { label: "Cartoons 🧸", path: "/cartoons" },
-  { label: "Trending Videos 🎥", path: "/trending-videos", badge: "HOT" },
-  { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", badge: "NEW" },
+  { label: "Jobs 💼", path: "/jobs" },
+  { label: "Stocks 📈", path: "/stocks" },
   { label: "Book Cab 🚗", path: "/transportation" },
-  { label: "NewsBot 🤖", path: "/chatbot" },
+  { label: "Deals 🛍️", path: "/amazon-products" },
+  { label: "NewsBot AI 🤖", path: "/chatbot" },
+];
+
+export const playPillarLinks: NavLink[] = [
+  { label: "GK Quiz 🏆", path: "/badge-quiz" },
+  { label: "Interactive Polls 🗳️", path: "/polls" },
+  { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", badge: "NEW" },
   { label: "Gaming 🎮", path: "/gaming" },
+  { label: "Trending Videos 🎥", path: "/trending-videos", badge: "HOT" },
   { label: "Podcasts & Videos 🎙️", path: "/podcasts-videos" },
 ];
 
+// Aliases for backward compatibility
+export const coreNewsLinks: NavLink[] = newsPillarLinks.slice(0, 5);
+export const exploreLinks: NavLink[] = explorePillarLinks;
 export const utilityLinks: NavLink[] = [
   { label: "Weather ⛅", path: "/weather" },
   { label: "Stocks 📈", path: "/stocks" },
   { label: "Jobs 💼", path: "/jobs" },
   { label: "Deals 🛍️", path: "/amazon-products" },
 ];
-
 export const moreNewsLinks: NavLink[] = [
-  { label: "Science & Health", path: "/science-health" },
-  { label: "Local News (India)", path: "/local-news" },
-  { label: "Sports", path: "/sports" },
-  { label: "Money", path: "/money" },
-  { label: "Lifestyle", path: "/lifestyle" },
-  { label: "Education", path: "/education" },
-  { label: "Opinion", path: "/opinion" },
-  { label: "Trending", path: "/trending" },
-  { label: "Editorial Briefings", path: "/editorial-briefings" },
+  ...newsPillarLinks.slice(5),
+  ...lifestylePillarLinks
 ];
 
 // Fallback compatibility variables for legacy imports

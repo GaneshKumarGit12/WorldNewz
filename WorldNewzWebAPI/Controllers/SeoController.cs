@@ -207,6 +207,11 @@ namespace WorldNewzWebAPI.Controllers
 Allow: /
 Disallow: /api/
 Disallow: /swagger/
+Disallow: /admin/
+Disallow: /search
+Disallow: /gsearch
+Disallow: /bookmarks
+Disallow: /comments
 
 Sitemap: {siteUrl}/sitemap.xml
 Sitemap: {siteUrl}/news-sitemap.xml";
