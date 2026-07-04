@@ -624,6 +624,55 @@ export interface RideBooking {
   destinationCoords?: { lat: number; lng: number };
 }
 
+export interface MapsConfig {
+  apiKey: string;
+  hasValidKey: boolean;
+  defaultCenter: { lat: number; lng: number };
+  defaultZoom: number;
+}
+
+export interface PlaceSuggestion {
+  description: string;
+  place_id: string;
+  main_text: string;
+  secondary_text: string;
+}
+
+export interface DistanceMatrixResult {
+  distanceText: string;
+  distanceMeters: number;
+  durationText: string;
+  durationSeconds: number;
+  mode: string;
+}
+
+export interface DirectionsStep {
+  instruction: string;
+  distance: string;
+  duration: string;
+  travelMode: string;
+}
+
+export interface DirectionsResult {
+  status: string;
+  originCoords: { lat: number; lng: number };
+  destinationCoords: { lat: number; lng: number };
+  overviewPolyline: string;
+  distanceText?: string;
+  distanceMeters?: number;
+  durationText?: string;
+  durationSeconds?: number;
+  steps: DirectionsStep[];
+  mode: string;
+}
+
+export const fetchMapsConfig = () => apiClient.get<MapsConfig>("/transportation/maps-config");
+export const fetchPlacesAutocomplete = (input: string) => apiClient.get<PlaceSuggestion[]>("/transportation/places-autocomplete", { params: { input } });
+export const fetchDistanceMatrix = (origin: string, destination: string, mode: string = "driving") =>
+  apiClient.post<DistanceMatrixResult>("/transportation/matrix", { origin, destination, mode });
+export const fetchDirections = (origin: string, destination: string, mode: string = "driving") =>
+  apiClient.post<DirectionsResult>("/transportation/directions", { origin, destination, mode });
+
 export const fetchCabs = () => apiClient.get<CabDriver[]>("/transportation/cabs");
 export const fetchLocations = () => apiClient.get<string[]>("/transportation/locations");
 export const bookRide = (data: { pickupLocation: string; destination: string; vehicleType: string; userEmail?: string }) =>
