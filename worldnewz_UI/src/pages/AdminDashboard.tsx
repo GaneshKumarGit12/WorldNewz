@@ -662,9 +662,14 @@ const AdminDashboard: React.FC = () => {
                   <Box sx={{ p: 1, borderRadius: 2, backgroundColor: "primary.main", color: "white", display: "flex" }}>
                     <LockIcon />
                   </Box>
-                  <Typography variant="h5" sx={{ fontWeight: 900, fontFamily: "'Outfit', sans-serif" }}>
-                    Administrator Login
-                  </Typography>
+                  <Box>
+                    <Typography variant="h5" sx={{ fontWeight: 900, fontFamily: "'Outfit', sans-serif" }}>
+                      Administrator Login
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Default Credentials: Username: <b>admin</b> | Password: <b>admin123</b>
+                    </Typography>
+                  </Box>
                 </Box>
 
                 {loginError && (

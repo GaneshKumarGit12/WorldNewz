@@ -206,18 +206,29 @@ const TrendingVideos: React.FC = () => {
                       sx={{
                         width: "100%",
                         height: "100%",
-                        backgroundImage: `url(${video.thumbnail || (video.id && video.id.length === 11 ? `https://img.youtube.com/vi/${video.id}/mqdefault.jpg` : "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800")})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        position: "relative",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        opacity: 0.85,
-                        transition: "opacity 0.2s",
-                        "&:hover": { opacity: 1 },
+                        overflow: "hidden"
                       }}
                     >
-                      <PlayArrowIcon sx={{ fontSize: 60, color: "#fff", filter: "drop-shadow(0px 2px 10px rgba(0,0,0,0.5))" }} />
+                      <img
+                        src={video.authorAvatar || video.thumbnail || (video.id && video.id.length === 11 ? `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg` : "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800")}
+                        alt={video.title}
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800";
+                        }}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          opacity: 0.85,
+                          transition: "opacity 0.2s"
+                        }}
+                      />
+                      <PlayArrowIcon sx={{ position: "absolute", fontSize: 60, color: "#fff", filter: "drop-shadow(0px 2px 10px rgba(0,0,0,0.5))" }} />
                     </Box>
 
                     {/* Views Count */}
