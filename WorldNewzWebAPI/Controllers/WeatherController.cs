@@ -36,17 +36,21 @@ namespace WorldNewzWebAPI.Controllers
                 {
                     try
                     {
-                        var geoResponse = await _httpClient.GetStringAsync("https://ipapi.co/json/");
+                        using var cts = new System.Threading.CancellationTokenSource(2500);
+                        var geoResponse = await _httpClient.GetStringAsync("https://ipapi.co/json/", cts.Token);
                         var geoData = JsonDocument.Parse(geoResponse);
-                        cityFromIp = geoData.RootElement.GetProperty("city").GetString();
-                        if (!string.IsNullOrWhiteSpace(cityFromIp))
+                        if (geoData.RootElement.TryGetProperty("city", out var cityProp))
                         {
-                            _cache.Set("geolocated_ip_city", cityFromIp, TimeSpan.FromHours(24));
+                            cityFromIp = cityProp.GetString();
+                            if (!string.IsNullOrWhiteSpace(cityFromIp))
+                            {
+                                _cache.Set("geolocated_ip_city", cityFromIp, TimeSpan.FromHours(24));
+                            }
                         }
                     }
                     catch
                     {
-                        // If IP geolocation fails, do not cache and continue with default city.
+                        // If IP geolocation fails or 429 rate limit occurs, continue with default city.
                     }
                 }
 
@@ -57,9 +61,10 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             var weatherResult = await _weatherService.GetWeather(lookupCity);
-            if (weatherResult.HasError)
+            if (weatherResult.HasError && !lookupCity.Equals(defaultCity, StringComparison.OrdinalIgnoreCase))
             {
-                return BadRequest(new { error = weatherResult.Error });
+                // Fall back quietly to default city if lookup city fails
+                weatherResult = await _weatherService.GetWeather(defaultCity);
             }
 
             Response.Headers.CacheControl = "public, max-age=900";

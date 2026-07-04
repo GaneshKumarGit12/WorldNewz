@@ -110,6 +110,16 @@ namespace WorldNewzWebAPI.Extensions
                 {
                     Console.WriteLine($"❌ Exception: {ex.GetType().Name} - {ex.Message}");
                     
+                    if (context.Request.Headers.TryGetValue("Origin", out var originValues) && originValues.Count > 0)
+                    {
+                        context.Response.Headers["Access-Control-Allow-Origin"] = originValues[0];
+                        context.Response.Headers["Access-Control-Allow-Credentials"] = "true";
+                    }
+                    else
+                    {
+                        context.Response.Headers["Access-Control-Allow-Origin"] = "*";
+                    }
+
                     context.Response.ContentType = "application/json";
                     context.Response.StatusCode = StatusCodes.Status500InternalServerError;
 

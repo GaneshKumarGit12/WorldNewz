@@ -585,6 +585,7 @@ export interface ShortVideo {
   authorAvatar: string;
   category: string;
   duration: string;
+  thumbnail?: string;
 }
 
 export interface ShortVideosResponse {

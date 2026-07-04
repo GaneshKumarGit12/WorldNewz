@@ -29,17 +29,25 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetActivePolls()
         {
-            var allPolls = await _context.Polls
-                .Include(p => p.Options)
-                .ToListAsync();
+            try
+            {
+                var allPolls = await _context.Polls
+                    .Include(p => p.Options)
+                    .ToListAsync();
 
-            // Randomly shuffle using Guid.NewGuid() and take 5
-            var randomized = allPolls
-                .OrderBy(p => Guid.NewGuid())
-                .Take(5)
-                .ToList();
+                // Randomly shuffle using Guid.NewGuid() and take 5
+                var randomized = allPolls
+                    .OrderBy(p => Guid.NewGuid())
+                    .Take(5)
+                    .ToList();
 
-            return Ok(randomized);
+                return Ok(randomized);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ GetActivePolls exception: {ex.Message}");
+                return Ok(new List<Poll>());
+            }
         }
 
         // POST: api/polls/{id}/vote

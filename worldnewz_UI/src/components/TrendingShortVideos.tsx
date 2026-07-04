@@ -293,7 +293,7 @@ export const TrendingShortVideos: React.FC = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    backgroundImage: `url(https://img.youtube.com/vi/${video.id}/hqdefault.jpg)`,
+                    backgroundImage: `url(${video.thumbnail || (video.id && video.id.length === 11 ? `https://img.youtube.com/vi/${video.id}/mqdefault.jpg` : "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800")})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     display: "flex",

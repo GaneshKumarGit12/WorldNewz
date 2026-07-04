@@ -280,6 +280,18 @@ namespace WorldNewzWebAPI.Extensions
                         }
                         catch { /* Column already exists */ }
 
+                        try
+                        {
+                            db.Database.ExecuteSqlRaw("ALTER TABLE Polls ADD COLUMN Category TEXT NOT NULL DEFAULT 'General';");
+                        }
+                        catch { /* Column already exists */ }
+
+                        try
+                        {
+                            db.Database.ExecuteSqlRaw("ALTER TABLE Polls ADD COLUMN Subcategory TEXT NOT NULL DEFAULT 'General';");
+                        }
+                        catch { /* Column already exists */ }
+
                         userDb.Database.ExecuteSqlRaw(@"
                             CREATE TABLE IF NOT EXISTS PollSubmissions (
                                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
