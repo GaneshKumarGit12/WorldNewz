@@ -9,7 +9,9 @@ import AddIcon from "@mui/icons-material/Add";
 import CheckIcon from "@mui/icons-material/Check";
 import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import Collapse from "@mui/material/Collapse";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { fetchStocks } from "../api/apiClient";
 
 interface WatchlistItem {
@@ -64,26 +66,33 @@ const defaultWatchlist: WatchlistItem[] = [
 export const WatchlistWidget: React.FC = () => {
   const [items, setItems] = useState<WatchlistItem[]>(defaultWatchlist);
   const [activeDot, setActiveDot] = useState(0);
+  const [expanded, setExpanded] = useState<boolean>(() => {
+    const saved = localStorage.getItem("watchlist_expanded");
+    return saved !== null ? JSON.parse(saved) : true;
+  });
+
+  const toggleExpanded = () => {
+    setExpanded((prev) => {
+      const next = !prev;
+      localStorage.setItem("watchlist_expanded", JSON.stringify(next));
+      return next;
+    });
+  };
 
   useEffect(() => {
     // Attempt to load live stocks data from backend
     fetchStocks("NYSE")
       .then((res) => {
-        if (res.data && res.data.stocks && res.data.stocks.length > 0) {
+        if (res.data && res.data.stocks && Array.isArray(res.data.stocks) && res.data.stocks.length > 0) {
           const apiStocks = res.data.stocks.slice(0, 3);
           const updatedItems = items.map((item) => {
-            const match = apiStocks.find(s => s.symbol.includes(item.symbol) || item.symbol.includes(s.symbol));
+            const match = apiStocks.find((s: any) => s.symbol?.includes(item.symbol) || item.symbol?.includes(s.symbol));
             if (match) {
-              const spark = [...item.sparkline];
-              // slightly shift sparkline based on change
-              spark.push(spark[spark.length - 1] + (match.changePercent > 0 ? 2 : -2));
-              spark.shift();
               return {
                 ...item,
-                price: match.price.toLocaleString(undefined, { minimumFractionDigits: 2 }),
-                change: `${match.changePercent >= 0 ? "+" : ""}${match.changePercent.toFixed(2)}%`,
-                isPositive: match.changePercent >= 0,
-                sparkline: spark,
+                price: match.price ? `$${match.price.toFixed(2)}` : item.price,
+                change: match.changePercent ? `${match.changePercent >= 0 ? "+" : ""}${match.changePercent.toFixed(2)}%` : item.change,
+                isPositive: match.changePercent ? match.changePercent >= 0 : item.isPositive,
               };
             }
             return item;
@@ -91,8 +100,8 @@ export const WatchlistWidget: React.FC = () => {
           setItems(updatedItems);
         }
       })
-      .catch((err) => {
-        console.warn("Could not load live stocks for watchlist, using cached defaults.", err);
+      .catch(() => {
+        // keep default fallbacks
       });
   }, []);
 
@@ -106,7 +115,7 @@ export const WatchlistWidget: React.FC = () => {
 
   const renderSparkline = (data: number[], isPositive: boolean) => {
     const width = 60;
-    const height = 24;
+    const height = 20;
     const padding = 2;
     const maxVal = Math.max(...data);
     const minVal = Math.min(...data);
@@ -142,146 +151,156 @@ export const WatchlistWidget: React.FC = () => {
         borderRadius: 4,
         display: "flex",
         flexDirection: "column",
-        height: 380,
+        height: expanded ? 380 : "auto",
         boxShadow: "none",
+        transition: "height 0.3s ease",
         "&:hover": { transform: "none", boxShadow: "0 4px 15px rgba(0,0,0,0.05)" },
       }}
     >
-      <CardContent sx={{ p: 2.5, pb: "16px !important", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+      <CardContent sx={{ p: 2.5, pb: expanded ? "16px !important" : 2.5, flex: 1, display: "flex", flexDirection: "column" }}>
         {/* Header */}
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: expanded ? 2 : 0 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <TrendingUpIcon sx={{ color: "success.main" }} />
+            <Typography variant="body1" component="span" sx={{ fontSize: "1.2rem" }}>
+              📈
+            </Typography>
             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-              Watchlist suggestions
+              Watchlist Suggestions
             </Typography>
           </Box>
-          <IconButton size="small" id="watchlist-menu-btn">
-            <MoreHorizIcon fontSize="small" />
-          </IconButton>
-        </Box>
-
-        {/* Currency Pair */}
-        <Box sx={{ mb: 2, p: 1.5, borderRadius: 2, bgcolor: "action.hover", border: "1px solid", borderColor: "divider" }}>
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Typography variant="body2" sx={{ fontWeight: 800 }}>
-              {items[0].symbol}
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{
-                fontWeight: 700,
-                color: items[0].isPositive ? "success.main" : "error.main",
-              }}
-            >
-              {items[0].change}
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", mt: 0.5 }}>
-            <Typography variant="caption" color="text.secondary">
-              {items[0].name}
-            </Typography>
-            <Typography variant="body2" sx={{ fontWeight: 800 }}>
-              {items[0].price}
-            </Typography>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <IconButton size="small" onClick={toggleExpanded} id="watchlist-toggle-btn" aria-label="Toggle Watchlist">
+              {expanded ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />}
+            </IconButton>
+            <IconButton size="small" id="watchlist-menu-btn">
+              <MoreHorizIcon fontSize="small" />
+            </IconButton>
           </Box>
         </Box>
 
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1, fontWeight: 700 }}>
-          Suggested for you
-        </Typography>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          {/* Currency Pair */}
+          <Box sx={{ mb: 2, mt: 1, p: 1.5, borderRadius: 2, bgcolor: "action.hover", border: "1px solid", borderColor: "divider" }}>
+            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <Typography variant="body2" sx={{ fontWeight: 800 }}>
+                {items[0].symbol}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{
+                  fontWeight: 700,
+                  color: items[0].isPositive ? "success.main" : "error.main",
+                }}
+              >
+                {items[0].change}
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", mt: 0.5 }}>
+              <Typography variant="caption" color="text.secondary">
+                {items[0].name}
+              </Typography>
+              <Typography variant="body2" sx={{ fontWeight: 800 }}>
+                {items[0].price}
+              </Typography>
+            </Box>
+          </Box>
 
-        {/* Suggested Stocks List */}
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, flex: 1, overflowY: "auto", pr: 0.5 }}>
-          {items.slice(1).map((stock) => (
-            <Box
-              key={stock.symbol}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                pb: 1,
-                borderBottom: "1px solid",
-                borderColor: "divider",
-              }}
-            >
-              <Box sx={{ minWidth: 80 }}>
-                <Typography variant="body2" sx={{ fontWeight: 800, fontSize: "0.85rem" }}>
-                  {stock.symbol}
-                </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ display: "block", fontSize: "0.7rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 110 }}>
-                  {stock.name}
-                </Typography>
-              </Box>
+          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1, fontWeight: 700 }}>
+            Suggested for you
+          </Typography>
 
-              {/* Sparkline */}
-              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mx: 1 }}>
-                {renderSparkline(stock.sparkline, stock.isPositive)}
-              </Box>
-
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1, minWidth: 80, justifyContent: "flex-end" }}>
-                <Box sx={{ textAlign: "right" }}>
-                  <Typography variant="body2" sx={{ fontWeight: 700, fontSize: "0.8rem", color: stock.isPositive ? "success.main" : "error.main", display: "block" }}>
-                    {stock.change}
+          {/* Suggested Stocks List */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, maxHeight: 160, overflowY: "auto", pr: 0.5 }}>
+            {items.slice(1).map((stock) => (
+              <Box
+                key={stock.symbol}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  pb: 1,
+                  borderBottom: "1px solid",
+                  borderColor: "divider",
+                }}
+              >
+                <Box sx={{ minWidth: 80 }}>
+                  <Typography variant="body2" sx={{ fontWeight: 800, fontSize: "0.85rem" }}>
+                    {stock.symbol}
                   </Typography>
-                  <Typography variant="caption" color="text.secondary" sx={{ fontSize: "0.7rem" }}>
-                    {stock.price}
+                  <Typography variant="caption" color="text.secondary" sx={{ display: "block", fontSize: "0.7rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 110 }}>
+                    {stock.name}
                   </Typography>
                 </Box>
-                <IconButton
-                  size="small"
-                  onClick={() => handleFollowToggle(stock.symbol)}
-                  id={`follow-btn-${stock.symbol.replace(/\s+/g, "")}`}
-                  sx={{
-                    bgcolor: stock.followed ? "primary.main" : "action.hover",
-                    color: stock.followed ? "primary.contrastText" : "text.primary",
-                    border: "1px solid",
-                    borderColor: stock.followed ? "primary.main" : "divider",
-                    p: 0.25,
-                    "&:hover": { bgcolor: stock.followed ? "primary.dark" : "action.selected" },
-                  }}
-                >
-                  {stock.followed ? <CheckIcon sx={{ fontSize: 14 }} /> : <AddIcon sx={{ fontSize: 14 }} />}
-                </IconButton>
-              </Box>
-            </Box>
-          ))}
-        </Box>
 
-        {/* Footer Carousel Dots & See Watchlist Link */}
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mt: 2, pt: 1, borderTop: "1px solid", borderColor: "divider" }}>
-          {/* Carousel dots */}
-          <Box sx={{ display: "flex", gap: 0.75 }}>
-            {[0, 1, 2, 3].map((dot) => (
-              <Box
-                key={dot}
-                onClick={() => setActiveDot(dot)}
-                sx={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: "50%",
-                  bgcolor: activeDot === dot ? "text.primary" : "text.disabled",
-                  cursor: "pointer",
-                  transition: "background-color 0.2s",
-                }}
-              />
+                {/* Sparkline */}
+                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mx: 1 }}>
+                  {renderSparkline(stock.sparkline, stock.isPositive)}
+                </Box>
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1, minWidth: 80, justifyContent: "flex-end" }}>
+                  <Box sx={{ textAlign: "right" }}>
+                    <Typography variant="body2" sx={{ fontWeight: 700, fontSize: "0.8rem", color: stock.isPositive ? "success.main" : "error.main", display: "block" }}>
+                      {stock.change}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary" sx={{ fontSize: "0.7rem" }}>
+                      {stock.price}
+                    </Typography>
+                  </Box>
+                  <IconButton
+                    size="small"
+                    onClick={() => handleFollowToggle(stock.symbol)}
+                    id={`follow-btn-${stock.symbol.replace(/\s+/g, "")}`}
+                    sx={{
+                      bgcolor: stock.followed ? "primary.main" : "action.hover",
+                      color: stock.followed ? "primary.contrastText" : "text.primary",
+                      border: "1px solid",
+                      borderColor: stock.followed ? "primary.main" : "divider",
+                      p: 0.25,
+                      "&:hover": { bgcolor: stock.followed ? "primary.dark" : "action.selected" },
+                    }}
+                  >
+                    {stock.followed ? <CheckIcon sx={{ fontSize: 14 }} /> : <AddIcon sx={{ fontSize: 14 }} />}
+                  </IconButton>
+                </Box>
+              </Box>
             ))}
           </Box>
 
-          <Link
-            component={RouterLink}
-            to="/stocks"
-            id="see-watchlist-link"
-            sx={{
-              fontSize: "0.8rem",
-              fontWeight: 700,
-              color: "primary.main",
-              "&:hover": { textDecoration: "underline" },
-            }}
-          >
-            See watchlist suggestions
-          </Link>
-        </Box>
+          {/* Footer Carousel Dots & See Watchlist Link */}
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mt: 2, pt: 1, borderTop: "1px solid", borderColor: "divider" }}>
+            {/* Carousel dots */}
+            <Box sx={{ display: "flex", gap: 0.75 }}>
+              {[0, 1, 2, 3].map((dot) => (
+                <Box
+                  key={dot}
+                  onClick={() => setActiveDot(dot)}
+                  sx={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    bgcolor: activeDot === dot ? "text.primary" : "text.disabled",
+                    cursor: "pointer",
+                    transition: "background-color 0.2s",
+                  }}
+                />
+              ))}
+            </Box>
+
+            <Link
+              component={RouterLink}
+              to="/stocks"
+              id="see-watchlist-link"
+              sx={{
+                fontSize: "0.8rem",
+                fontWeight: 700,
+                color: "primary.main",
+                "&:hover": { textDecoration: "underline" },
+              }}
+            >
+              See watchlist suggestions
+            </Link>
+          </Box>
+        </Collapse>
       </CardContent>
     </Card>
   );

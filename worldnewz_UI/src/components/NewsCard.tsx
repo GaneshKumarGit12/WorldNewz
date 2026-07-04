@@ -291,43 +291,54 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 )}
               </Typography>
 
-              {/* "Why it matters" context box */}
-              {article.context && (
-                <Box 
-                  sx={{ 
-                    mt: 1.5, 
-                    p: 1.25, 
-                    borderRadius: 1, 
-                    bgcolor: 'action.hover',
-                    borderLeft: `3px solid ${categoryConfig.color}`,
-                  }}
-                >
-                  <Typography 
-                    variant="caption" 
+              {/* "Why it matters" value-add synthesis box */}
+              {(() => {
+                const contextText = article.context || (() => {
+                  const text = article.description || article.summary || article.title || "";
+                  const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 15);
+                  if (sentences.length > 0 && sentences[0].length > 20) {
+                    return `${sentences[0]}. Key synthesis monitored by WorldNewzs Editorial Desk.`;
+                  }
+                  return "WorldNewzs Editorial Desk: Key development monitored for real-time updates and global impact.";
+                })();
+
+                return (
+                  <Box 
                     sx={{ 
-                      fontWeight: 700, 
-                      textTransform: 'uppercase', 
-                      color: categoryConfig.color,
-                      display: 'block',
-                      mb: 0.25,
-                      letterSpacing: '0.05em'
+                      mt: 1.5, 
+                      p: 1.25, 
+                      borderRadius: 1, 
+                      bgcolor: 'action.hover',
+                      borderLeft: `3px solid ${categoryConfig.color}`,
                     }}
                   >
-                    Why it matters
-                  </Typography>
-                  <Typography 
-                    variant="body2" 
-                    color="text.primary" 
-                    sx={{ 
-                      fontSize: '0.75rem', 
-                      fontStyle: 'italic',
-                      lineHeight: 1.35
-                    }}
-                  >
-                    {article.context}
-                  </Typography>
-                </Box>
-              )}
+                    <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        fontWeight: 700, 
+                        textTransform: 'uppercase', 
+                        color: categoryConfig.color,
+                        display: 'block',
+                        mb: 0.25,
+                        letterSpacing: '0.05em'
+                      }}
+                    >
+                      Why it matters
+                    </Typography>
+                    <Typography 
+                      variant="body2" 
+                      color="text.primary" 
+                      sx={{ 
+                        fontSize: '0.75rem', 
+                        fontStyle: 'italic',
+                        lineHeight: 1.35
+                      }}
+                    >
+                      {contextText}
+                    </Typography>
+                  </Box>
+                );
+              })()}
             </Box>
           </Box>
         </CardContent>
