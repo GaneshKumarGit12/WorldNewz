@@ -181,42 +181,12 @@ namespace WorldNewzWebAPI.Services
         {
             if (string.IsNullOrWhiteSpace(url))
             {
-                return "https://via.placeholder.com/600x400?text=Amazon+Product";
+                return "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60";
             }
 
             url = url.Trim();
 
-            // Map broken/expired Amazon image paths/filenames to active Amazon images dynamically
-            if (url.Contains("61-+Q6eGzDL") || url.Contains("61-+Q6egZDL"))
-            {
-                return "https://m.media-amazon.com/images/I/61l9ppRIiqL._SX342_.jpg"; // Realme Buds -> iPhone 13
-            }
-            if (url.Contains("51w7wVz5QkL"))
-            {
-                return "https://m.media-amazon.com/images/I/71WS-0ITj7L._SX342_.jpg"; // Wipro Smart Bulb -> SanDisk MicroSD
-            }
-            if (url.Contains("61t18g+hIEL"))
-            {
-                return "https://images-eu.ssl-images-amazon.com/images/I/61+SW9nDTEL._AC_UL116_SR116,116_.jpg"; // Philips Trimmer -> boAt Rockerz
-            }
-            if (url.Contains("61MsiP4aBML"))
-            {
-                return "https://images-eu.ssl-images-amazon.com/images/I/611J+4ry-vL._AC_UL116_SR116,116_.jpg"; // Echo Dot -> Mi Power Bank
-            }
-            if (url.Contains("614zXJ77NqL"))
-            {
-                return "https://m.media-amazon.com/images/I/81YnoWjesnL._SY355_.jpg"; // Safari Suitcase -> ZICOTO Baskets
-            }
-            if (url.Contains("51AdCD9tNuL"))
-            {
-                return "https://images-eu.ssl-images-amazon.com/images/I/61IOb4Nu6AL._AC_UL165_SR165,165_.jpg"; // Pigeon Kettle -> Styleys Net
-            }
-            if (url.Contains("61K7Q-N+7tL"))
-            {
-                return "https://m.media-amazon.com/images/I/81YnoWjesnL._SY355_.jpg"; // OnePlus Nord -> ZICOTO Baskets
-            }
-
-            // If it's already an absolute URL, return it
+            // If it's already an absolute URL, return it directly
             if (url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || 
                 url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
@@ -471,6 +441,19 @@ namespace WorldNewzWebAPI.Services
             };
 
             bool changed = false;
+            var validAsins = new HashSet<string>(seedData.Select(s => s.Asin), StringComparer.OrdinalIgnoreCase);
+            var existingDbProducts = await _context.AmazonProducts.ToListAsync();
+
+            // Purge any legacy database entries that are not part of the 18 official target products
+            foreach (var dbProd in existingDbProducts)
+            {
+                if (!validAsins.Contains(dbProd.Asin))
+                {
+                    _context.AmazonProducts.Remove(dbProd);
+                    changed = true;
+                }
+            }
+
             foreach (var seed in seedData)
             {
                 var existing = await _context.AmazonProducts.FirstOrDefaultAsync(p => p.Asin == seed.Asin);
