@@ -48,6 +48,19 @@ export class HitGoalSoccerEngine {
     this.resetBall();
   }
 
+  public setCurve(val: number): void {
+    this.ball.curve = val;
+  }
+
+  public reset(): void {
+    this.score = 0;
+    this.goals = 0;
+    this.shotsCount = 0;
+    this.streak = 0;
+    this.lastResult = "";
+    this.resetBall();
+  }
+
   public resetBall(): void {
     this.ball = {
       x: 0,

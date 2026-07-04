@@ -49,6 +49,20 @@ export class MarioCanvasEngine {
     this.initLevel();
   }
 
+  public reset(): void {
+    this.lives = 3;
+    this.isGameOver = false;
+    this.isGameWon = false;
+    this.initLevel();
+  }
+
+  public handleMobileInput(action: 'left' | 'right' | 'jump' | 'stop'): void {
+    if (action === 'left') { this.keys['ArrowLeft'] = true; this.keys['ArrowRight'] = false; }
+    else if (action === 'right') { this.keys['ArrowRight'] = true; this.keys['ArrowLeft'] = false; }
+    else if (action === 'jump') { if (this.isGrounded) this.vy = -13; }
+    else if (action === 'stop') { this.keys['ArrowLeft'] = false; this.keys['ArrowRight'] = false; }
+  }
+
   public initLevel(): void {
     this.x = 60;
     this.y = 280;
