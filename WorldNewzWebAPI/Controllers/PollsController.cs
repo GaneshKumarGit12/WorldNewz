@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
+using WorldNewzWebAPI.Hubs;
 
 namespace WorldNewzWebAPI.Controllers
 {
@@ -14,11 +16,13 @@ namespace WorldNewzWebAPI.Controllers
     {
         private readonly WorldNewsDbContext _context;
         private readonly UserPollsDbContext _userDb;
+        private readonly IHubContext<PollsHub> _hubContext;
 
-        public PollsController(WorldNewsDbContext context, UserPollsDbContext userDb)
+        public PollsController(WorldNewsDbContext context, UserPollsDbContext userDb, IHubContext<PollsHub> hubContext)
         {
             _context = context;
             _userDb = userDb;
+            _hubContext = hubContext;
         }
 
         // GET: api/polls
@@ -76,6 +80,25 @@ namespace WorldNewzWebAPI.Controllers
                 Percentage = totalVotes > 0 ? Math.Round((double)o.Votes / totalVotes * 100, 1) : 0.0
             }).ToList();
 
+            var updatePayload = new
+            {
+                pollId = poll.Id,
+                question = poll.Question,
+                totalVotes,
+                results
+            };
+
+            // Broadcast live voting stream update to all connected SignalR WebSocket clients!
+            try
+            {
+                await _hubContext.Clients.All.SendAsync("PollUpdated", updatePayload);
+                await _hubContext.Clients.Group($"Poll_{poll.Id}").SendAsync("PollUpdated", updatePayload);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ SignalR Broadcast warning: {ex.Message}");
+            }
+
             return Ok(new
             {
                 status = "success",
@@ -83,6 +106,53 @@ namespace WorldNewzWebAPI.Controllers
                 totalVotes,
                 results
             });
+        }
+
+        // GET: api/polls/contextual?category=Technology&subcategory=AI
+        [HttpGet("contextual")]
+        public async Task<IActionResult> GetContextualPoll([FromQuery] string? category = null, [FromQuery] string? subcategory = null)
+        {
+            var allPolls = await _context.Polls.Include(p => p.Options).ToListAsync();
+
+            if (!allPolls.Any())
+            {
+                return Ok(null);
+            }
+
+            // Find matching poll by subcategory or category
+            Poll? matched = null;
+            if (!string.IsNullOrEmpty(subcategory))
+            {
+                matched = allPolls.FirstOrDefault(p => p.Subcategory.Equals(subcategory, StringComparison.OrdinalIgnoreCase));
+            }
+            if (matched == null && !string.IsNullOrEmpty(category))
+            {
+                matched = allPolls.FirstOrDefault(p => p.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+            }
+
+            // Fallback to first or random active poll
+            matched ??= allPolls.OrderBy(p => Guid.NewGuid()).FirstOrDefault();
+
+            if (matched == null)
+            {
+                return Ok(null);
+            }
+
+            int totalVotes = matched.Options.Sum(o => o.Votes);
+            var contextualDto = new ContextualPollDto
+            {
+                PollId = matched.Id,
+                Question = matched.Question,
+                TotalVotes = totalVotes,
+                Options = matched.Options.Select(o => new ContextualPollOptionDto
+                {
+                    OptionId = o.Id,
+                    Text = o.OptionText,
+                    Votes = o.Votes
+                }).ToList()
+            };
+
+            return Ok(contextualDto);
         }
 
         private bool ContainsBannedWords(string input) => Shared.ValidationHelpers.ContainsBannedWords(input);

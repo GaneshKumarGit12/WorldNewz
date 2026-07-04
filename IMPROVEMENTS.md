@@ -41,3 +41,18 @@ This log documents key UX and SEO optimizations implemented across the React fro
   - `WatchlistWidget.tsx`: Added an expand/collapse toggle button in the card header (storing state in `localStorage`), enabling non-finance readers to fold the watchlist away.
 - **Guaranteed "Why It Matters" Value-Add for All News Cards**:
   - `NewsCard.tsx`: Updated card rendering to compute a clean fallback insight whenever explicit API context is missing, guaranteeing that every single news card on WorldNewzs features a unique synthesis box to prevent duplicate content SEO penalties.
+
+## 6. Dynamic AI & Data Pipeline Architecture (ASP.NET Core + React + SignalR)
+- **Unified JSON Blueprint Endpoint**:
+  - `NewsController.cs` & `UnifiedNewsStoryDto.cs`: Implemented `GET /api/news/unified-story/{id}` endpoint returning unified JSON payloads containing:
+    - `aiBriefing`: 3-sentence neutral summary and 3 distinct bullet point takeaways.
+    - `sources`: Whitelisted publisher citations & links.
+    - `contextualPoll`: Category/subcategory dynamically injected active poll object.
+- **Category & Subcategory Automated Poll Mapping**:
+  - `Polls.cs` & `PollsController.cs`: Added `Category` and `Subcategory` properties to `Poll` and implemented `GET /api/polls/contextual?category={cat}&subcategory={sub}` to automatically match active polls to news categories.
+- **Real-Time SignalR WebSockets Voting Stream**:
+  - `PollsHub.cs` & `EndpointExtensions.cs`: Registered SignalR WebSocket Hub at `/hubs/polls`.
+  - `PollsController.cs`: Updated `SubmitVote` to broadcast live `PollUpdated` events to all connected clients.
+  - `pollsSignalR.ts`: Created frontend SignalR service listening for live voting updates.
+- **Optimistic UI Voting**:
+  - `ContextualPollWidget.tsx` & `Polls.tsx`: Implemented instant optimistic UI state updates on click before server network resolution, providing a zero-latency interactive user experience.

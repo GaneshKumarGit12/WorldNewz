@@ -8,6 +8,8 @@ namespace WorldNewzWebAPI.Models
         public int Id { get; set; }
         public string Question { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
+        public string Category { get; set; } = "General";
+        public string Subcategory { get; set; } = "General";
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public ICollection<PollOption> Options { get; set; } = new List<PollOption>();
     }

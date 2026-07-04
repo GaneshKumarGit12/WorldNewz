@@ -1,7 +1,9 @@
 import axios from "axios";
 
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://worldnewz.onrender.com/api";
+
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? "https://worldnewz.onrender.com/api",
+  baseURL: API_BASE_URL,
 });
 
 apiClient.interceptors.response.use(
@@ -268,6 +270,45 @@ export interface CheckUserAttemptResponse {
 
 export const checkUserAttempt = (name: string, email: string, timezoneOffset: number) => 
   apiClient.get<CheckUserAttemptResponse>(`/polls/check-attempt?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&timezoneOffset=${timezoneOffset}&t=${new Date().getTime()}`);
+
+// Dynamic AI & Data Pipeline Interfaces
+export interface ContextualPollOption {
+  optionId: number;
+  text: string;
+  votes: number;
+}
+
+export interface ContextualPollData {
+  pollId: number;
+  question: string;
+  totalVotes: number;
+  options: ContextualPollOption[];
+}
+
+export interface UnifiedNewsStoryData {
+  storyId: string;
+  category: string;
+  subcategory: string;
+  title: string;
+  imageUrl?: string;
+  publishedAt: string;
+  aiBriefing: {
+    summary: string;
+    takeaways: string[];
+  };
+  sources: Array<{ publisher: string; url: string }>;
+  contextualPoll?: ContextualPollData;
+}
+
+export const fetchUnifiedStory = (id: string, category?: string, subcategory?: string) =>
+  apiClient.get<UnifiedNewsStoryData>(`/news/unified-story/${encodeURIComponent(id)}`, {
+    params: { category, subcategory }
+  });
+
+export const fetchContextualPoll = (category?: string, subcategory?: string) =>
+  apiClient.get<ContextualPollData>("/polls/contextual", {
+    params: { category, subcategory }
+  });
 
 // Quiz API Types & Clients
 export interface QuizOptionItem {

@@ -29,6 +29,9 @@ import { SEOMeta } from "../seo/SEOMeta";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { DailyNewsQuizWidget } from "../components/DailyNewsQuizWidget";
 import { WeatherWidget } from "../components/WeatherWidget";
+import { ContextualPollWidget } from "../components/ContextualPollWidget";
+import { fetchContextualPoll } from "../api/apiClient";
+import type { ContextualPollData } from "../api/apiClient";
 
 const SITE_URL = "https://worldnewzs.in";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
@@ -76,6 +79,7 @@ const ResultPage: React.FC = () => {
   const location = useLocation();
   const { id } = useParams<{ id: string }>();
   const [article, setArticle] = useState<Article | null>(null);
+  const [contextualPoll, setContextualPoll] = useState<ContextualPollData | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
   const [relatedLoading, setRelatedLoading] = useState(true);
@@ -158,6 +162,16 @@ const ResultPage: React.FC = () => {
       setLoading(false);
     }
   }, [location, id]);
+
+  useEffect(() => {
+    if (article) {
+      fetchContextualPoll(article.category, (article as any).subcategory)
+        .then((res) => {
+          if (res.data) setContextualPoll(res.data);
+        })
+        .catch(() => {});
+    }
+  }, [article]);
 
   useEffect(() => {
     if (!article) {
@@ -712,6 +726,7 @@ const ResultPage: React.FC = () => {
 
         {/* Sidebar Column */}
         <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <ContextualPollWidget initialPoll={contextualPoll} category={article.category} />
           <DailyNewsQuizWidget />
           <WeatherWidget />
         </Grid>

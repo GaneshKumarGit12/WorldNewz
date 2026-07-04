@@ -28,6 +28,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
 import { fetchActivePolls, submitPollAnswers, checkUserAttempt } from "../api/apiClient";
 import type { PollItem } from "../api/apiClient";
+import { startPollsSignalR } from "../services/pollsSignalR";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
@@ -91,6 +92,26 @@ const Polls: React.FC = () => {
       if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (polls.length > 0) {
+      startPollsSignalR((liveData) => {
+        if (!liveData) return;
+        setPolls((prevPolls) =>
+          prevPolls.map((poll) => {
+            if (poll.id === liveData.pollId || poll.id === liveData.id) {
+              const updatedOptions = poll.options.map((opt) => {
+                const match = liveData.results?.find((r: any) => r.optionId === opt.id || r.id === opt.id);
+                return match ? { ...opt, votes: match.votes } : opt;
+              });
+              return { ...poll, options: updatedOptions };
+            }
+            return poll;
+          })
+        );
+      });
+    }
+  }, [polls.length]);
 
   // Timer countdown logic when current question changes
   useEffect(() => {

@@ -8,6 +8,7 @@ namespace WorldNewzWebAPI.Extensions
         {
             app.MapControllers();
             app.MapHub<LeaderboardHub>("/hubs/leaderboard");
+            app.MapHub<PollsHub>("/hubs/polls");
 
             // Root route for Render
             app.MapGet("/", () => "WorldNewz API is running. Use /api/... endpoints.");

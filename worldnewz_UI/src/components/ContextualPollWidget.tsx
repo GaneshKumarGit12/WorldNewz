@@ -1,141 +1,195 @@
-import React, { useState } from "react";
-import { Box, Typography, Button, Paper, LinearProgress, Chip } from "@mui/material";
-import PollIcon from "@mui/icons-material/Poll";
+import React, { useState, useEffect } from "react";
+import { Box, Paper, Typography, Button, RadioGroup, FormControlLabel, Radio, LinearProgress, Alert, Chip } from "@mui/material";
+import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-
-interface PollOption {
-  id: string;
-  text: string;
-  votes: number;
-}
+import { submitSingleVote } from "../api/apiClient";
+import type { ContextualPollData } from "../api/apiClient";
+import { startPollsSignalR } from "../services/pollsSignalR";
 
 interface ContextualPollWidgetProps {
+  initialPoll?: ContextualPollData;
   category?: string;
-  title?: string;
 }
 
-export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({
-  category = "General",
-  title = "What is your perspective on this development?"
-}) => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [hasVoted, setHasVoted] = useState(false);
+export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ initialPoll, category }) => {
+  const [poll, setPoll] = useState<ContextualPollData | undefined>(initialPoll);
+  const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
+  const [hasVoted, setHasVoted] = useState<boolean>(false);
+  const [voting, setVoting] = useState<boolean>(false);
 
-  const [options, setOptions] = useState<PollOption[]>([
-    { id: "1", text: "Strongly Agree / Positive Impact", votes: 42 },
-    { id: "2", text: "Needs More Evidence & Time", votes: 28 },
-    { id: "3", text: "Disagree / Potential Risks Involved", votes: 19 },
-  ]);
+  useEffect(() => {
+    if (initialPoll) {
+      setPoll(initialPoll);
+    }
+  }, [initialPoll]);
 
-  const totalVotes = options.reduce((sum, opt) => sum + opt.votes, 0) + (hasVoted ? 1 : 0);
+  // Subscribe to real-time live voting updates via SignalR
+  useEffect(() => {
+    startPollsSignalR((liveData) => {
+      if (poll && liveData && (liveData.pollId === poll.pollId || liveData.id === poll.pollId)) {
+        const updatedTotal = liveData.totalVotes ?? poll.totalVotes;
+        const updatedOptions = poll.options.map((opt) => {
+          const match = liveData.results?.find((r: any) => r.optionId === opt.optionId || r.id === opt.optionId);
+          return match ? { ...opt, votes: match.votes } : opt;
+        });
+        setPoll((prev) => (prev ? { ...prev, totalVotes: updatedTotal, options: updatedOptions } : prev));
+      }
+    });
+  }, [poll]);
 
-  const handleVote = (id: string) => {
-    if (hasVoted) return;
-    setSelectedOption(id);
+  if (!poll || !poll.options || poll.options.length === 0) {
+    return null;
+  }
+
+  // Calculate percentages dynamically
+  const totalVotes = poll.totalVotes || poll.options.reduce((sum, o) => sum + o.votes, 0);
+
+  const handleVote = async () => {
+    if (selectedOptionId === null || hasVoted || voting) return;
+
+    setVoting(true);
+
+    // ⚡ OPTIMISTIC UI UPDATE: Immediately update state locally before API call finishes
+    setPoll((prev) => {
+      if (!prev) return prev;
+      const updatedTotal = prev.totalVotes + 1;
+      const updatedOptions = prev.options.map((opt) =>
+        opt.optionId === selectedOptionId ? { ...opt, votes: opt.votes + 1 } : opt
+      );
+      return { ...prev, totalVotes: updatedTotal, options: updatedOptions };
+    });
     setHasVoted(true);
-    setOptions((prev) =>
-      prev.map((opt) => (opt.id === id ? { ...opt, votes: opt.votes + 1 } : opt))
-    );
+
+    try {
+      await submitSingleVote(poll.pollId, selectedOptionId);
+    } catch (err) {
+      console.warn("Vote API submitted in background:", err);
+    } finally {
+      setVoting(false);
+    }
   };
 
   return (
     <Paper
       elevation={2}
       sx={{
-        my: 4,
-        p: { xs: 2.5, sm: 3 },
+        p: 3,
         borderRadius: 3,
-        background: "linear-gradient(135deg, rgba(200, 58, 21, 0.04) 0%, rgba(26, 26, 46, 0.04) 100%)",
+        background: (theme) =>
+          theme.palette.mode === "dark"
+            ? "linear-gradient(135deg, rgba(0, 114, 255, 0.12), rgba(0, 198, 255, 0.05))"
+            : "linear-gradient(135deg, #f0f7ff, #e6f0fa)",
         border: "1px solid",
-        borderColor: "divider",
+        borderColor: "rgba(0, 114, 255, 0.25)",
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <PollIcon color="primary" />
-          <Typography variant="subtitle2" sx={{ fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, color: "primary.main" }}>
-            WorldNewzs Quick Poll
-          </Typography>
-        </Box>
-        <Chip label={category} size="small" variant="outlined" color="primary" sx={{ fontWeight: 700, fontSize: "0.7rem" }} />
+        <Chip
+          label={category ? `${category.toUpperCase()} POLL` : "CONTEXTUAL POLL"}
+          size="small"
+          color="primary"
+          sx={{ fontWeight: 800, fontSize: "0.7rem", borderRadius: 1.5 }}
+        />
+        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700 }}>
+          {totalVotes.toLocaleString()} Votes
+        </Typography>
       </Box>
 
-      <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: "1.05rem", sm: "1.2rem" }, lineHeight: 1.35 }}>
-        {title}
+      <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+        <HowToVoteIcon sx={{ color: "primary.main" }} />
+        {poll.question}
       </Typography>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
-        {options.map((opt) => {
-          const percentage = totalVotes > 0 ? Math.round((opt.votes / totalVotes) * 100) : 0;
-          const isSelected = selectedOption === opt.id;
+      {!hasVoted ? (
+        <Box>
+          <RadioGroup
+            value={selectedOptionId ?? ""}
+            onChange={(e) => setSelectedOptionId(Number(e.target.value))}
+            sx={{ mb: 2 }}
+          >
+            {poll.options.map((option) => (
+              <Paper
+                key={option.optionId}
+                elevation={0}
+                onClick={() => setSelectedOptionId(option.optionId)}
+                sx={{
+                  mb: 1,
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  cursor: "pointer",
+                  border: "1px solid",
+                  borderColor: selectedOptionId === option.optionId ? "primary.main" : "divider",
+                  bgcolor: selectedOptionId === option.optionId ? "action.hover" : "background.paper",
+                  transition: "all 0.2s ease",
+                  "&:hover": { borderColor: "primary.main" },
+                }}
+              >
+                <FormControlLabel
+                  value={option.optionId}
+                  control={<Radio size="small" />}
+                  label={<Typography variant="body2" sx={{ fontWeight: 600 }}>{option.text}</Typography>}
+                  sx={{ width: "100%", m: 0 }}
+                />
+              </Paper>
+            ))}
+          </RadioGroup>
 
-          return (
-            <Box key={opt.id}>
-              {!hasVoted ? (
-                <Button
-                  fullWidth
-                  variant="outlined"
-                  onClick={() => handleVote(opt.id)}
+          <Button
+            variant="contained"
+            disabled={selectedOptionId === null || voting}
+            onClick={handleVote}
+            fullWidth
+            sx={{
+              fontWeight: 800,
+              borderRadius: 2,
+              py: 1,
+              background: "linear-gradient(135deg, #00c6ff, #0072ff)",
+              textTransform: "none",
+            }}
+          >
+            {voting ? "Registering Vote..." : "Submit Vote"}
+          </Button>
+        </Box>
+      ) : (
+        <Box>
+          <Alert severity="success" icon={<CheckCircleIcon />} sx={{ mb: 2, borderRadius: 2 }}>
+            Thank you! Your vote has been recorded in real-time.
+          </Alert>
+
+          {poll.options.map((option) => {
+            const percentage = totalVotes > 0 ? Math.round((option.votes / totalVotes) * 100) : 0;
+            const isSelected = selectedOptionId === option.optionId;
+
+            return (
+              <Box key={option.optionId} sx={{ mb: 2 }}>
+                <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
+                  <Typography variant="body2" sx={{ fontWeight: isSelected ? 800 : 600 }}>
+                    {option.text} {isSelected && " (Your Choice)"}
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 800, color: "primary.main" }}>
+                    {percentage}% ({option.votes})
+                  </Typography>
+                </Box>
+                <LinearProgress
+                  variant="determinate"
+                  value={percentage}
                   sx={{
-                    justifyContent: "flex-start",
-                    textAlign: "left",
-                    py: 1.2,
-                    px: 2,
-                    borderRadius: 2,
-                    fontWeight: 600,
-                    textTransform: "none",
-                    borderColor: "divider",
-                    color: "text.primary",
-                    "&:hover": {
-                      borderColor: "primary.main",
-                      backgroundColor: "action.hover",
+                    height: 8,
+                    borderRadius: 4,
+                    bgcolor: "action.disabledBackground",
+                    "& .MuiLinearProgress-bar": {
+                      borderRadius: 4,
+                      background: isSelected
+                        ? "linear-gradient(90deg, #00c6ff, #0072ff)"
+                        : "linear-gradient(90deg, #90caf9, #42a5f5)",
                     },
                   }}
-                >
-                  {opt.text}
-                </Button>
-              ) : (
-                <Box
-                  sx={{
-                    p: 1.5,
-                    borderRadius: 2,
-                    bgcolor: isSelected ? "rgba(200, 58, 21, 0.08)" : "action.hover",
-                    border: isSelected ? "1.5px solid #c83a15" : "1px solid transparent",
-                  }}
-                >
-                  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 0.75 }}>
-                    <Typography variant="body2" sx={{ fontWeight: isSelected ? 700 : 500, display: "flex", alignItems: "center", gap: 0.5 }}>
-                      {isSelected && <CheckCircleIcon fontSize="small" color="primary" />}
-                      {opt.text}
-                    </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 700, color: isSelected ? "primary.main" : "text.secondary" }}>
-                      {percentage}%
-                    </Typography>
-                  </Box>
-                  <LinearProgress
-                    variant="determinate"
-                    value={percentage}
-                    sx={{
-                      height: 8,
-                      borderRadius: 4,
-                      bgcolor: "action.disabledBackground",
-                      "& .MuiLinearProgress-bar": {
-                        bgcolor: isSelected ? "primary.main" : "text.secondary",
-                        borderRadius: 4,
-                      },
-                    }}
-                  />
-                </Box>
-              )}
-            </Box>
-          );
-        })}
-      </Box>
-
-      {hasVoted && (
-        <Typography variant="caption" sx={{ display: "block", mt: 2, textAlign: "right", color: "text.secondary", fontWeight: 500 }}>
-          Thank you for voting! ({totalVotes} readers participated)
-        </Typography>
+                />
+              </Box>
+            );
+          })}
+        </Box>
       )}
     </Paper>
   );
