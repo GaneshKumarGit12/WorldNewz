@@ -66,6 +66,7 @@ const GSearchResults = React.lazy(() => import("./pages/GSearchResults"));
 const TransportationPage = React.lazy(() => import("./pages/TransportationPage"));
 const EntityHubPage = React.lazy(() => import("./pages/EntityHubPage"));
 const ChatbotPage = React.lazy(() => import("./pages/ChatbotPage"));
+const PlayGamesPage = React.lazy(() => import("./pages/PlayGamesPage"));
 
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -130,6 +131,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="facebook-settings" element={<FacebookSettings />} />
                   <Route path="admin" element={<AdminDashboard />} />
                   <Route path="games/dvcubie2026" element={<GameWrapper />} />
+                  <Route path="play-games" element={<PlayGamesPage />} />
                   <Route path="transportation" element={<TransportationPage />} />
                   <Route path="chatbot" element={<ChatbotPage />} />
                   <Route path="company/:entityName" element={<EntityHubPage />} />

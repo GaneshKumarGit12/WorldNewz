@@ -38,6 +38,7 @@ export const explorePillarLinks: NavLink[] = [
 ];
 
 export const playPillarLinks: NavLink[] = [
+  { label: "Play Games Services 🎮", path: "/play-games", badge: "SPECIAL" },
   { label: "GK Quiz 🏆", path: "/badge-quiz" },
   { label: "Interactive Polls 🗳️", path: "/polls" },
   { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", badge: "NEW" },

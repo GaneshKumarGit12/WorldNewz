@@ -148,6 +148,7 @@ namespace WorldNewzWebAPI.Extensions
             services.AddScoped<SeoKeywordService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IGoogleSearchService, GoogleSearchService>();
+            services.AddScoped<IPlayGamesService, PlayGamesService>();
 
             // Singletons
             services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
