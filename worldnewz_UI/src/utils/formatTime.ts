@@ -12,7 +12,12 @@ export const formatTimeAgo = (dateString?: string): string => {
   if (diffInHours < 24) return `${diffInHours}h`;
   const diffInDays = Math.floor(diffInHours / 24);
   if (diffInDays < 7) return `${diffInDays}d`;
-  return "1d";
+  const diffInWeeks = Math.floor(diffInDays / 7);
+  if (diffInWeeks < 5) return `${diffInWeeks}w`;
+  const diffInMonths = Math.floor(diffInDays / 30);
+  if (diffInMonths < 12) return `${diffInMonths}mo`;
+  const diffInYears = Math.floor(diffInDays / 365);
+  return `${diffInYears}y`;
 };
 
 export const formatTimeAgoLong = (dateString?: string): string => {

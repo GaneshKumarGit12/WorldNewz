@@ -155,7 +155,7 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
 
   return (
     <Box sx={{ mb: 5, mt: 1 }}>
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.5 }}>
         <LocalOfferIcon sx={{ color: "#ff8a65" }} />
         <Typography
           variant="h6"
@@ -170,6 +170,9 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
           Trending Deals & Recommendations
         </Typography>
       </Box>
+      <Typography variant="caption" sx={{ display: 'block', mb: 2, color: 'text.secondary', fontStyle: 'italic' }}>
+        Affiliate Disclosure: WorldNewzs may earn a small commission on qualifying purchases made through links on our site.
+      </Typography>
 
       <Grid container spacing={3}>
         {selectedDeals.map((deal) => (

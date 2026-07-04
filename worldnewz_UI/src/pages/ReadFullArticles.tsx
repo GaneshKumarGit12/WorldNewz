@@ -328,8 +328,8 @@ const ReadFullArticles: React.FC = () => {
       return (
         <Typography 
           key={index} 
-          variant="h3" 
-          component="h1" 
+          variant="h4" 
+          component="h2" 
           sx={{ fontWeight: 800, mt: 4, mb: 2, color: "text.primary" }}
         >
           {trimmed.substring(2)}

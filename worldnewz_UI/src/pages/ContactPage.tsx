@@ -182,6 +182,7 @@ export const ContactPage = () => {
                 <Grid container spacing={2}>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
+                      id="contact-name"
                       fullWidth
                       label="Your Name"
                       variant="outlined"
@@ -192,6 +193,7 @@ export const ContactPage = () => {
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
+                      id="contact-email"
                       fullWidth
                       label="Your Email"
                       variant="outlined"
@@ -203,6 +205,7 @@ export const ContactPage = () => {
                   </Grid>
                   <Grid size={{ xs: 12 }}>
                     <TextField
+                      id="contact-subject"
                       fullWidth
                       label="Subject"
                       variant="outlined"
@@ -213,6 +216,7 @@ export const ContactPage = () => {
                   </Grid>
                   <Grid size={{ xs: 12 }}>
                     <TextField
+                      id="contact-message"
                       fullWidth
                       label="Message"
                       variant="outlined"
@@ -224,6 +228,7 @@ export const ContactPage = () => {
                   </Grid>
                   <Grid size={{ xs: 12 }}>
                     <Button
+                      id="contact-submit-btn"
                       type="submit"
                       variant="contained"
                       color="primary"

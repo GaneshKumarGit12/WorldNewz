@@ -152,6 +152,7 @@ namespace WorldNewzWebAPI.Extensions
 
             // Singletons
             services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
+            services.AddSingleton<SitemapPingService>();
 
             // Hosted Services
             services.AddHostedService<FacebookWorkerService>();
@@ -160,7 +161,7 @@ namespace WorldNewzWebAPI.Extensions
             services.AddHttpClient();
             services.AddHttpClient("NewsApiClient", client =>
             {
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewzs.in)");
             });
             services.AddHttpClient<INewsApiService, NewsApiService>(client =>
             {

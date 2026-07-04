@@ -129,6 +129,7 @@ const GSearchResults: React.FC = () => {
         <Box sx={{ mb: 4 }}>
           <Typography
             variant="h4"
+            component="h1"
             sx={{
               fontWeight: 800,
               fontFamily: "'Outfit', 'Inter', 'Roboto', sans-serif",

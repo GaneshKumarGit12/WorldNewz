@@ -127,7 +127,7 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
               >
                 <FormControlLabel
                   value={option.optionId}
-                  control={<Radio size="small" />}
+                  control={<Radio size="small" inputProps={{ "aria-label": `Vote for ${option.text}` }} />}
                   label={<Typography variant="body2" sx={{ fontWeight: 600 }}>{option.text}</Typography>}
                   sx={{ width: "100%", m: 0 }}
                 />
@@ -136,6 +136,8 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
           </RadioGroup>
 
           <Button
+            id="contextual-poll-submit-btn"
+            aria-label="Submit your poll vote"
             variant="contained"
             disabled={selectedOptionId === null || voting}
             onClick={handleVote}

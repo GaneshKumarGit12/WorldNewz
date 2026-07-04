@@ -135,6 +135,7 @@ const JobDetails: React.FC = () => {
 
       {/* Action Button: Back */}
       <Button 
+        id="job-details-back-btn"
         variant="text" 
         color="success" 
         startIcon={<ArrowBackIcon />} 
@@ -151,7 +152,7 @@ const JobDetails: React.FC = () => {
           {/* Header Info */}
           <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 2, mb: 3 }}>
             <Box>
-              <Typography variant="h4" sx={{ fontWeight: 800, mb: 1, color: "text.primary", lineHeight: 1.2 }}>
+              <Typography variant="h4" component="h1" sx={{ fontWeight: 800, mb: 1, color: "text.primary", lineHeight: 1.2 }}>
                 {job.title}
               </Typography>
               

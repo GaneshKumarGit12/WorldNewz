@@ -142,7 +142,7 @@ const Weather: React.FC = () => {
         { name: "Home", url: "https://worldnewzs.in" },
         { name: "Weather", url: "https://worldnewzs.in/weather" }
       ]} />
-      <Typography variant="h4" sx={{ mb: 2 }}>
+      <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
         Weather Dashboard
       </Typography>
 

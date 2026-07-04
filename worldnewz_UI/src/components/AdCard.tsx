@@ -335,7 +335,7 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <IconButton size="small" disabled aria-label="Sponsored like metric" sx={{ p: 0.5 }}>
                 <ThumbUpOutlinedIcon fontSize="small" />
               </IconButton>
               <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
@@ -343,22 +343,22 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <IconButton size="small" disabled aria-label="Sponsored dislike metric" sx={{ p: 0.5 }}>
                 <ThumbDownOutlinedIcon fontSize="small" />
               </IconButton>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-              <IconButton size="small" disabled sx={{ p: 0.5 }}>
+              <IconButton size="small" disabled aria-label="Sponsored comments disabled" sx={{ p: 0.5 }}>
                 <ChatBubbleOutlineIcon fontSize="small" />
               </IconButton>
             </Box>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+            <IconButton size="small" disabled aria-label="Sponsored share disabled" sx={{ p: 0.5 }}>
               <ShareIcon fontSize="small" />
             </IconButton>
-            <IconButton size="small" disabled sx={{ p: 0.5 }}>
+            <IconButton size="small" disabled aria-label="Sponsored bookmark disabled" sx={{ p: 0.5 }}>
               <BookmarkBorderIcon fontSize="small" />
             </IconButton>
           </Box>

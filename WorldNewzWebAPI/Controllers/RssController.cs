@@ -68,19 +68,30 @@ namespace WorldNewzWebAPI.Controllers
 
                 var fullHtmlSummary = $"<p>{System.Net.WebUtility.HtmlEncode(a.Description ?? "")}</p><p><a href=\"{a.Url}\">Read full story on WorldNewzs</a></p><p><em>Keywords: {hashtags}</em></p>";
 
-                channel.Add(new XElement("item",
+                var imgUrl = (a.UrlToImage ?? string.Empty).Trim();
+                var mimeType = imgUrl.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ? "image/png" :
+                               imgUrl.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ? "image/webp" : "image/jpeg";
+
+                var itemElements = new List<object>
+                {
                     new XElement("title", (a.Title ?? "Untitled").Trim()),
                     new XElement("link", (a.Url ?? string.Empty).Trim()),
-                    new XElement("guid", (a.Url ?? string.Empty).Trim()),
+                    new XElement("guid", new XAttribute("isPermaLink", "true"), (a.Url ?? string.Empty).Trim()),
                     new XElement("description", new XText($"{(a.Description ?? "").Trim()} {hashtags}")),
                     new XElement(contentNs + "encoded", new XCData(fullHtmlSummary)),
                     new XElement("pubDate", (a.PublishedAt ?? DateTime.UtcNow).ToString("r")),
-                    new XElement("category", (a.Source?.Name ?? "General").Trim()),
-                    new XElement("enclosure",
-                        new XAttribute("url", (a.UrlToImage ?? string.Empty).Trim()),
-                        new XAttribute("type", "image/jpeg"),
-                        new XAttribute("length", "0"))
-                ));
+                    new XElement("category", (a.Source?.Name ?? "General").Trim())
+                };
+
+                if (!string.IsNullOrEmpty(imgUrl))
+                {
+                    itemElements.Add(new XElement("enclosure",
+                        new XAttribute("url", imgUrl),
+                        new XAttribute("type", mimeType),
+                        new XAttribute("length", "50000")));
+                }
+
+                channel.Add(new XElement("item", itemElements.ToArray()));
             }
 
             var feed = new XDocument(

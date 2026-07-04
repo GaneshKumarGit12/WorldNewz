@@ -261,6 +261,7 @@ const Stocks: React.FC = () => {
                 {exchange} Listings
               </Typography>
               <TextField
+                id="stocks-filter-input"
                 placeholder="Filter symbol or company..."
                 value={searchQuery}
                 onChange={handleSearchChange}

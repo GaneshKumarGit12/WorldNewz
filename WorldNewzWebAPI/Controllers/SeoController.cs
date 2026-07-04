@@ -83,9 +83,9 @@ namespace WorldNewzWebAPI.Controllers
                 ("polls-history", "0.8", "hourly"),
                 ("badge-quiz", "0.8", "hourly"),
                 ("quiz-history", "0.8", "hourly"),
-                ("search", "0.5", "daily"),
-                ("bookmarks", "0.3", "monthly"),
-                ("comments", "0.3", "monthly"),
+                ("jobs", "0.6", "daily"),
+                ("movies", "0.6", "daily"),
+                ("stocks", "0.6", "hourly"),
                 ("privacy-policy", "0.3", "yearly"),
                 ("terms", "0.3", "yearly"),
                 ("about", "0.7", "monthly"),
@@ -98,7 +98,7 @@ namespace WorldNewzWebAPI.Controllers
             {
                 var url = string.IsNullOrEmpty(path) ? siteUrl : $"{siteUrl}/{path}";
                 sb.AppendLine($@"  <url>
-    <loc>{url}</loc>
+    <loc>{System.Security.SecurityElement.Escape(url)}</loc>
     <changefreq>{freq}</changefreq>
     <priority>{priority}</priority>
     <lastmod>{DateTime.UtcNow:yyyy-MM-dd}</lastmod>
@@ -120,7 +120,7 @@ namespace WorldNewzWebAPI.Controllers
                     var url = $"{siteUrl}/article/{slug}";
                     var lastMod = (a.PublishedAt ?? DateTime.UtcNow).ToString("yyyy-MM-dd");
                     sb.AppendLine($@"  <url>
-    <loc>{url}</loc>
+    <loc>{System.Security.SecurityElement.Escape(url)}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <lastmod>{lastMod}</lastmod>
@@ -173,11 +173,12 @@ namespace WorldNewzWebAPI.Controllers
                 {
                     var slug = GenerateSlug(a.Title);
                     var url = $"{siteUrl}/article/{slug}";
-                    var pubDate = (a.PublishedAt ?? DateTime.UtcNow).ToString("yyyy-MM-ddTHH:mm:sszzz");
+                    var pubDate = (a.PublishedAt ?? DateTime.UtcNow).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss+00:00");
                     var escapedTitle = System.Security.SecurityElement.Escape(a.Title);
+                    var escapedUrl = System.Security.SecurityElement.Escape(url);
 
                     sb.AppendLine($@"  <url>
-    <loc>{url}</loc>
+    <loc>{escapedUrl}</loc>
     <news:news>
       <news:publication>
         <news:name>WorldNewzs</news:name>
@@ -208,6 +209,8 @@ Allow: /
 Disallow: /api/
 Disallow: /swagger/
 Disallow: /admin/
+Disallow: /hubs/
+Disallow: /health
 Disallow: /search
 Disallow: /gsearch
 Disallow: /bookmarks

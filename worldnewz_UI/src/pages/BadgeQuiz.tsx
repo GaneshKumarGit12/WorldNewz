@@ -430,6 +430,7 @@ const BadgeQuiz: React.FC = () => {
 
               <Box component="form" onSubmit={handleIdentificationSubmit} sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
                 <TextField
+                  id="quiz-player-name"
                   label="Your Player Name"
                   variant="outlined"
                   value={name}
@@ -442,6 +443,7 @@ const BadgeQuiz: React.FC = () => {
                   }}
                 />
                 <TextField
+                  id="quiz-player-email"
                   label="Email Address"
                   type="email"
                   variant="outlined"
@@ -456,6 +458,7 @@ const BadgeQuiz: React.FC = () => {
                 />
 
                 <Button
+                  id="quiz-start-btn"
                   type="submit"
                   variant="contained"
                   size="large"

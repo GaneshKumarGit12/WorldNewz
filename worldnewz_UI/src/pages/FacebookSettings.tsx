@@ -223,7 +223,7 @@ const FacebookSettings: React.FC = () => {
       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 4, flexWrap: "wrap" }}>
         <FacebookIcon color="primary" sx={{ fontSize: 40 }} />
         <Box>
-          <Typography variant="h4" sx={{ fontWeight: 800, letterSpacing: 0.5 }}>
+          <Typography variant="h4" component="h1" sx={{ fontWeight: 800, letterSpacing: 0.5 }}>
             Facebook Automation Settings
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -231,6 +231,7 @@ const FacebookSettings: React.FC = () => {
           </Typography>
         </Box>
         <Button
+          id="fb-settings-refresh-btn"
           startIcon={<RefreshIcon />}
           variant="outlined"
           size="small"

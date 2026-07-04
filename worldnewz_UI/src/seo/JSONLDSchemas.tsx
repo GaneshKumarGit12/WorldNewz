@@ -49,8 +49,9 @@ export const JSONLDOrganization = () => (
       "description": "Multi-category news aggregator with original editorial analysis and verified reporting",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+1-800-555-0199",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "url": `${SITE_URL}/contact`,
+        "availableLanguage": ["English", "Hindi"]
       },
       "publisher": {
         "@type": "Organization",
@@ -63,22 +64,23 @@ export const JSONLDOrganization = () => (
         "url": SITE_URL,
         "logo": LOGO_URL,
         "description": "Breaking news aggregator with original editorial analysis across sports, business, technology, health, and world events",
-        "foundingDate": "2024",
-        "editorial": {
-          "@type": "Text",
-          "text": "Verified news from 10,000+ sources with multi-layer fact-checking and original editorial briefings"
+        "foundingDate": "2024-01-01",
+        "knowsAbout": ["World News", "Technology", "Business", "Sports", "Politics", "Science & Health"]
+      },
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Editorial Briefings",
+          "url": `${SITE_URL}/editorial-briefings`,
+          "description": "Original editorial analysis synthesized from multiple credible sources"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Editorial Guidelines",
+          "url": `${SITE_URL}/editorial-guidelines`,
+          "description": "Comprehensive editorial standards covering source verification, content originality, and factual accuracy"
         }
-      },
-      "editorialBriefings": {
-        "@type": "Thing",
-        "url": `${SITE_URL}/editorial-briefings`,
-        "description": "Original editorial analysis synthesized from multiple credible sources"
-      },
-      "editorialGuidelines": {
-        "@type": "Thing",
-        "url": `${SITE_URL}/editorial-guidelines`,
-        "description": "Comprehensive editorial standards covering source verification, content originality, and factual accuracy"
-      },
+      ],
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61589266599006",
         "https://x.com/ganeshkumard1",

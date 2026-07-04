@@ -184,10 +184,12 @@ const CommentHistory: React.FC = () => {
       <SEOMeta
         title="Comment History"
         description="View, search, and manage your complete comment history across WorldNewzs articles."
+        keywords="comment history, user comments, discussion history, article replies"
         canonical="https://worldnewzs.in/comments"
       />
       {/* Back Button */}
       <Button
+        id="comments-back-btn"
         startIcon={<ArrowBackIcon />}
         variant="outlined"
         onClick={() => navigate(-1)}
@@ -198,7 +200,7 @@ const CommentHistory: React.FC = () => {
 
       {/* Header */}
       <Box sx={{ mb: 3 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 1 }}>
+        <Typography variant="h4" component="h1" fontWeight="bold" sx={{ mb: 1 }}>
           Comment History
         </Typography>
         <Typography variant="body2" color="text.secondary">

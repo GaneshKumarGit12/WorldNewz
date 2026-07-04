@@ -341,7 +341,7 @@ const PlayGamesPage: React.FC = () => {
                   sx={{ width: 56, height: 56, bgcolor: "rgba(255,255,255,0.2)", p: 0.5 }}
                 />
                 <Box>
-                  <Typography variant="h3" fontWeight={800} sx={{ letterSpacing: "-0.5px", fontSize: { xs: "1.8rem", md: "2.5rem" } }}>
+                  <Typography variant="h3" component="h1" fontWeight={800} sx={{ letterSpacing: "-0.5px", fontSize: { xs: "1.8rem", md: "2.5rem" } }}>
                     Google Play Games Services
                   </Typography>
                   <Typography variant="subtitle1" sx={{ color: "rgba(255,255,255,0.85)" }}>

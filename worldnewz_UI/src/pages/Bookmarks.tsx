@@ -38,15 +38,17 @@ const Bookmarks: React.FC = () => {
       <SEOMeta
         title="My Bookmarks"
         description="Access and read your saved news articles and stories on WorldNewzs."
+        keywords="saved articles, bookmarked news, reading list, saved headlines"
         canonical="https://worldnewzs.in/bookmarks"
       />
       <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, flexWrap: "wrap" }}>
         <BookmarkIcon color="warning" sx={{ fontSize: 32 }} />
-        <Typography variant="h4" sx={{ fontWeight: 700, flexGrow: 1 }}>
+        <Typography variant="h4" component="h1" sx={{ fontWeight: 700, flexGrow: 1 }}>
           My Bookmarks
         </Typography>
         {bookmarks.length > 0 && (
           <Button
+            id="bookmarks-clear-all-btn"
             startIcon={<DeleteSweepIcon />}
             variant="outlined"
             color="error"

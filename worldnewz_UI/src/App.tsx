@@ -257,7 +257,7 @@ const App: React.FC = () => {
       />
 
       {/* Page Content */}
-      <Box sx={{ flexGrow: 1 }}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <Outlet context={{ searchTerm }} />
       </Box>
 

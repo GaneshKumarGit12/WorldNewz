@@ -146,11 +146,12 @@ const Jobs: React.FC = () => {
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3, flexWrap: "wrap", gap: 2 }}>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
           <WorkIcon color="success" sx={{ fontSize: 36 }} />
-          <Typography variant="h4" sx={{ fontWeight: 800 }}>
+          <Typography variant="h4" component="h1" sx={{ fontWeight: 800 }}>
             Latest Job Opportunities
           </Typography>
         </Box>
         <Button
+          id="jobs-post-job-btn"
           variant="contained"
           color="success"
           startIcon={<WorkIcon />}

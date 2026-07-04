@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 export interface SEOMetaProps {
   title?: string;
   description?: string;
-  keywords?: string[];
+  keywords?: string[] | string;
   canonical?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
@@ -29,13 +29,14 @@ export const SEOMeta = (props: SEOMetaProps) => {
   const p = { ...DEFAULTS, ...props };
   const fullTitle = p.title === DEFAULTS.title ? p.title : `${p.title} | ${SITE_NAME}`;
   const canonical = p.canonical ?? (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname.replace(/\/$/, '')}` : SITE_URL);
+  const keywordsStr = Array.isArray(p.keywords) ? p.keywords.join(', ') : (p.keywords ?? '');
 
   return (
     <Helmet prioritizeSeoTags>
       {/* Primary */}
       <title>{fullTitle}</title>
       <meta name="description" content={p.description!} />
-      <meta name="keywords" content={p.keywords!.join(', ')} />
+      <meta name="keywords" content={keywordsStr} />
       <link rel="canonical" href={canonical} />
       {p.noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
@@ -50,6 +51,7 @@ export const SEOMeta = (props: SEOMetaProps) => {
       <meta property="og:url" content={canonical} />
       <meta property="og:type" content={p.ogType!} />
       <meta property="og:image" content={p.ogImage!} />
+      <meta property="og:image:alt" content={fullTitle} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content="en_US" />
@@ -60,6 +62,7 @@ export const SEOMeta = (props: SEOMetaProps) => {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={p.description!} />
       <meta name="twitter:image" content={p.ogImage!} />
+      <meta name="author" content="WorldNewzs Editorial Team" />
 
       {/* Article-specific */}
       {p.ogType === 'article' && p.articlePublishedTime && (

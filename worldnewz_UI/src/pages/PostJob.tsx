@@ -166,7 +166,7 @@ const PostJob: React.FC = () => {
 
       {/* Title */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
+        <Typography variant="h4" component="h1" sx={{ fontWeight: 800, mb: 1 }}>
           Post a Job Opening
         </Typography>
         <Typography variant="body1" color="text.secondary">
@@ -214,6 +214,7 @@ const PostJob: React.FC = () => {
 
               <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
                 <TextField
+                  id="postjob-title"
                   required
                   fullWidth
                   label="Job Title"
@@ -224,6 +225,7 @@ const PostJob: React.FC = () => {
                 />
 
                 <TextField
+                  id="postjob-company"
                   required
                   fullWidth
                   label="Company Name"
@@ -236,6 +238,7 @@ const PostJob: React.FC = () => {
                 <Grid container spacing={2}>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
+                      id="postjob-location"
                       required
                       fullWidth
                       label="Location"
@@ -247,6 +250,7 @@ const PostJob: React.FC = () => {
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
+                      id="postjob-jobtype"
                       select
                       fullWidth
                       label="Job Type"
@@ -264,6 +268,7 @@ const PostJob: React.FC = () => {
                 </Grid>
 
                 <TextField
+                  id="postjob-url"
                   required
                   fullWidth
                   label="Application Link or Contact Email"
@@ -275,6 +280,7 @@ const PostJob: React.FC = () => {
                 />
 
                 <TextField
+                  id="postjob-tags"
                   fullWidth
                   label="Skills / Tags"
                   placeholder="e.g. React, TypeScript, Node.js (comma-separated)"
@@ -287,6 +293,7 @@ const PostJob: React.FC = () => {
                 <FormControlLabel
                   control={
                     <Switch
+                      id="postjob-remote-switch"
                       checked={remote}
                       onChange={(e) => setRemote(e.target.checked)}
                       color="success"
@@ -296,6 +303,7 @@ const PostJob: React.FC = () => {
                 />
 
                 <TextField
+                  id="postjob-description"
                   required
                   fullWidth
                   multiline
@@ -308,6 +316,7 @@ const PostJob: React.FC = () => {
                 />
 
                 <Button
+                  id="postjob-submit-btn"
                   type="submit"
                   variant="contained"
                   color="success"

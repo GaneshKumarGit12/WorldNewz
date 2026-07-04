@@ -529,6 +529,7 @@ const DEFAULT_FALLBACK_POLLS: PollItem[] = [
 
               <Box component="form" onSubmit={handleIdentificationSubmit} sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
                 <TextField
+                  id="poll-voter-name"
                   label="Your Full Name"
                   variant="outlined"
                   value={name}
@@ -541,6 +542,7 @@ const DEFAULT_FALLBACK_POLLS: PollItem[] = [
                   }}
                 />
                 <TextField
+                  id="poll-voter-email"
                   label="Email Address"
                   type="email"
                   variant="outlined"
@@ -555,6 +557,7 @@ const DEFAULT_FALLBACK_POLLS: PollItem[] = [
                 />
 
                 <Button
+                  id="poll-id-submit-btn"
                   type="submit"
                   variant="contained"
                   size="large"

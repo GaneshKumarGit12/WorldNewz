@@ -91,8 +91,10 @@ const Search: React.FC = () => {
       <SEOMeta
         title={headingText ? `Search: ${headingText}` : "Search News"}
         description={headingText ? `Browse current news and headlines for ${headingText} on WorldNewzs.` : "Search across sports, technology, business, food, and travel news on WorldNewzs."}
+        keywords="search news, latest news search, WorldNewzs news lookup, world news query"
+        canonical="https://worldnewzs.in/search"
       />
-      <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
+      <Typography variant="h4" component="h1" sx={{ mb: 1, fontWeight: 700 }}>
         🔍 Search Results
       </Typography>
       <Typography variant="subtitle1" sx={{ mb: 3, color: "text.secondary" }}>
