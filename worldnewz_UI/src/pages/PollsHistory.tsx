@@ -122,7 +122,8 @@ const PollsHistory: React.FC = () => {
       }
     } catch (err: any) {
       console.error(err);
-      setLoginError(err.message || "Invalid admin credentials.");
+      const msg = err.response?.data?.error || err.message || "Invalid administrator credentials.";
+      setLoginError(msg);
     }
   };
 

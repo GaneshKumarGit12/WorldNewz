@@ -32,14 +32,34 @@ namespace WorldNewzWebAPI.Controllers
             public string Password { get; set; } = string.Empty;
         }
 
+        private (string username, string password) GetAdminCredentials()
+        {
+            var adminUser = _configuration["ADMIN_USERNAME"];
+            if (string.IsNullOrWhiteSpace(adminUser))
+            {
+                adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME");
+            }
+            if (string.IsNullOrWhiteSpace(adminUser))
+            {
+                adminUser = "admin";
+            }
+
+            var adminPass = _configuration["ADMIN_PASSWORD"];
+            if (string.IsNullOrWhiteSpace(adminPass))
+            {
+                adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
+            }
+            if (string.IsNullOrWhiteSpace(adminPass))
+            {
+                adminPass = "admin123";
+            }
+
+            return (adminUser, adminPass);
+        }
+
         private string GetExpectedToken()
         {
-            var adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME");
-            var adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
-            if (string.IsNullOrEmpty(adminUser) || string.IsNullOrEmpty(adminPass))
-            {
-                return Guid.NewGuid().ToString(); // Safety fallback: impossible token
-            }
+            var (adminUser, adminPass) = GetAdminCredentials();
             return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{adminUser}:{adminPass}"));
         }
 
@@ -62,13 +82,7 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Invalid request payload." });
             }
 
-            var adminUser = Environment.GetEnvironmentVariable("ADMIN_USERNAME");
-            var adminPass = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
-
-            if (string.IsNullOrEmpty(adminUser) || string.IsNullOrEmpty(adminPass))
-            {
-                return Unauthorized(new { error = "Admin credentials are not configured on the server." });
-            }
+            var (adminUser, adminPass) = GetAdminCredentials();
 
             if (request.Username == adminUser && request.Password == adminPass)
             {
@@ -76,7 +90,7 @@ namespace WorldNewzWebAPI.Controllers
                 return Ok(new { success = true, token });
             }
 
-            return Unauthorized(new { error = "Invalid admin credentials." });
+            return Unauthorized(new { error = "Invalid admin username or password." });
         }
 
         [HttpGet("storage")]
