@@ -107,12 +107,20 @@ const Footer: React.FC = () => {
         // Clamp width: minimum 196px, maximum 380px (original style)
         const buttonWidth = Math.max(196, Math.min(380, Math.floor(containerWidth)));
 
-        // Initialize Google Sign-In only once globally to prevent console warnings
+        // Initialize Google Sign-In only once globally with ux_mode popup to prevent CSP frame-ancestors warnings
         if (!(window as any).__google_gsi_initialized) {
           googleObj.accounts.id.initialize({
             client_id: "39502935670-j17fuc8sb87tv7ds2efs97crcdu1vrbm.apps.googleusercontent.com",
+            ux_mode: "popup",
+            auto_select: false,
+            itp_support: true,
             callback: (res: any) => credentialCallbackRef.current(res),
           });
+          try {
+            googleObj.accounts.id.cancel(); // Cancel automatic iframe prompt
+          } catch (e) {
+            // Ignore cancel errors if prompt not active
+          }
           (window as any).__google_gsi_initialized = true;
         }
 
