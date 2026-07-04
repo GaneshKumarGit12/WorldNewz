@@ -68,6 +68,7 @@ export const secondaryNavLinks: NavLink[] = [];
 
 export const categories: string[] = [
   "general", 
+  "play games 🎮",
   "politics", 
   "technology", 
   "business", 
@@ -100,6 +101,8 @@ export const categories: string[] = [
 export const getCategoryPath = (cat: string): string => {
   switch (cat.toLowerCase().trim()) {
     case "general": return "/";
+    case "play games": return "/play-games";
+    case "play games 🎮": return "/play-games";
     case "politics": return "/politics";
     case "technology": return "/technology";
     case "business": return "/business";

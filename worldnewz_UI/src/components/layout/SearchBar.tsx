@@ -233,6 +233,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 gap: 1.0, 
                 rowGap: 1.25,
                 justifyContent: { xs: "flex-start", md: "center" },
+                alignItems: "center",
                 overflowX: "auto",
                 width: "100%",
                 maxWidth: "100%",
@@ -245,6 +246,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               {categories.map((cat) => {
                 const path = getCategoryPath(cat);
                 const isActive = location.pathname === path || (path === "/jobs" && location.pathname.startsWith("/jobs")) || (location.pathname === "/search" && searchParams.get("category") === cat);
+                const isPlayGames = cat.toLowerCase().includes("play games");
+
                 return (
                   <Box
                     key={cat}
@@ -252,30 +255,35 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                     onClick={() => navigate(path)}
                     sx={{
                       textTransform: "capitalize",
-                      fontSize: "0.85rem",
-                      fontWeight: 700,
+                      fontSize: isPlayGames ? "0.88rem" : "0.85rem",
+                      fontWeight: isPlayGames || isActive ? 800 : 700,
                       fontFamily: "'Outfit', 'Inter', 'Roboto', sans-serif",
-                      height: 30,
-                      px: 1.75,
-                      border: "1px solid",
-                      borderColor: isActive ? "#c83a15" : (isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)"),
-                      borderRadius: "4px",
+                      height: 32,
+                      px: isPlayGames ? 2.25 : 1.75,
+                      border: isPlayGames 
+                        ? "2px solid #00e676"
+                        : "1px solid",
+                      borderColor: isPlayGames 
+                        ? "#00e676" 
+                        : (isActive ? "#c83a15" : (isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)")),
+                      borderRadius: "6px",
                       cursor: "pointer",
                       whiteSpace: "nowrap",
                       flexShrink: 0,
-                      backgroundColor: isActive 
-                        ? "#c83a15" 
-                        : (isDark ? "#161b22" : "#ffffff"),
-                      color: isActive 
+                      background: isPlayGames
+                        ? "linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #006064 100%)"
+                        : (isActive ? "#c83a15" : (isDark ? "#161b22" : "#ffffff")),
+                      color: isPlayGames || isActive 
                         ? "#ffffff" 
                         : (isDark ? "rgba(255, 255, 255, 0.85)" : "#1f2937"),
-                      boxShadow: "none",
-                      transition: "all 0.15s ease-in-out",
+                      boxShadow: isPlayGames ? "0 2px 8px rgba(13, 71, 161, 0.4)" : "none",
+                      transition: "all 0.2s ease-in-out",
                       "&:hover": {
-                        backgroundColor: isActive 
-                          ? "#d84315" 
-                          : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.04)"),
-                        borderColor: isActive ? "#d84315" : (isDark ? "rgba(255, 255, 255, 0.35)" : "rgba(0, 0, 0, 0.35)"),
+                        transform: isPlayGames ? "scale(1.04)" : "none",
+                        backgroundColor: isPlayGames
+                          ? "#0d47a1"
+                          : (isActive ? "#d84315" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.04)")),
+                        borderColor: isPlayGames ? "#00c853" : (isActive ? "#d84315" : (isDark ? "rgba(255, 255, 255, 0.35)" : "rgba(0, 0, 0, 0.35)")),
                       },
                       "&:focus": {
                         outline: "none",
