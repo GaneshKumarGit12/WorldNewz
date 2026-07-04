@@ -67,6 +67,9 @@ const TransportationPage = React.lazy(() => import("./pages/TransportationPage")
 const EntityHubPage = React.lazy(() => import("./pages/EntityHubPage"));
 const ChatbotPage = React.lazy(() => import("./pages/ChatbotPage"));
 const PlayGamesPage = React.lazy(() => import("./pages/PlayGamesPage"));
+const ChessGameWrapper = React.lazy(() => import("./games/chess/ChessGameWrapper"));
+const MarioGameWrapper = React.lazy(() => import("./games/mario/MarioGameWrapper"));
+const HitGoalGameWrapper = React.lazy(() => import("./games/hitgoal/HitGoalGameWrapper"));
 
 const PageLoader = () => (
   <Box sx={{ width: "100%", p: 4, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -131,6 +134,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="facebook-settings" element={<FacebookSettings />} />
                   <Route path="admin" element={<AdminDashboard />} />
                   <Route path="games/dvcubie2026" element={<GameWrapper />} />
+                  <Route path="games/chess" element={<ChessGameWrapper />} />
+                  <Route path="games/mario" element={<MarioGameWrapper />} />
+                  <Route path="games/hit-goal" element={<HitGoalGameWrapper />} />
                   <Route path="play-games" element={<PlayGamesPage />} />
                   <Route path="transportation" element={<TransportationPage />} />
                   <Route path="chatbot" element={<ChatbotPage />} />

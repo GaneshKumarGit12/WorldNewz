@@ -484,17 +484,109 @@ const PlayGamesPage: React.FC = () => {
             </Typography>
 
             <Grid container spacing={3}>
-              {/* Game 1: Snake Arena 2026 */}
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              {/* Game 1: Grandmaster Chess */}
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
+                  <Box
+                    component="img"
+                    src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=500&q=80"
+                    alt="Grandmaster Chess"
+                    sx={{ height: 160, objectFit: "cover" }}
+                  />
+                  <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                    <Chip label="Strategy & Board" size="small" color="primary" sx={{ width: "fit-content", mb: 1, fontWeight: 700 }} />
+                    <Typography variant="h6" fontWeight={700}>
+                      ♟️ Grandmaster Chess
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
+                      Play against Stockfish AI or 2-player mode with legal move validation & timer.
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      href="/games/chess"
+                      startIcon={<PlayArrow />}
+                      fullWidth
+                      sx={{ borderRadius: 2, fontWeight: 700, bgcolor: "#1976d2" }}
+                    >
+                      Play Chess
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Game 2: Super Mario Retro Runner */}
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                 <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
                   <Box
                     component="img"
                     src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80"
+                    alt="Super Mario Retro Runner"
+                    sx={{ height: 160, objectFit: "cover" }}
+                  />
+                  <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                    <Chip label="2D Platformer" size="small" color="error" sx={{ width: "fit-content", mb: 1, fontWeight: 700 }} />
+                    <Typography variant="h6" fontWeight={700}>
+                      🍄 Super Mario Retro World
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
+                      Classic 2D platforming, coin blocks, Goombas, high scores & cloud saves.
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      href="/games/mario"
+                      startIcon={<PlayArrow />}
+                      fullWidth
+                      color="error"
+                      sx={{ borderRadius: 2, fontWeight: 700 }}
+                    >
+                      Play Super Mario
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Game 3: Hit Goal Soccer Shootout */}
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
+                  <Box
+                    component="img"
+                    src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=500&q=80"
+                    alt="Hit Goal Soccer Shootout"
+                    sx={{ height: 160, objectFit: "cover" }}
+                  />
+                  <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                    <Chip label="Sports & Physics" size="small" color="success" sx={{ width: "fit-content", mb: 1, fontWeight: 700 }} />
+                    <Typography variant="h6" fontWeight={700}>
+                      ⚽ Hit Goal Soccer Shootout
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
+                      Free kick penalty shootout with trajectory curve controls & goalkeeper AI.
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      href="/games/hit-goal"
+                      startIcon={<PlayArrow />}
+                      fullWidth
+                      color="success"
+                      sx={{ borderRadius: 2, fontWeight: 700 }}
+                    >
+                      Play Soccer
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Game 4: Snake Arena 2026 */}
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
+                  <Box
+                    component="img"
+                    src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80"
                     alt="Snake Arena 2026"
                     sx={{ height: 160, objectFit: "cover" }}
                   />
                   <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                    <Chip label="Realtime Arcade" size="small" color="primary" sx={{ width: "fit-content", mb: 1 }} />
+                    <Chip label="Realtime Arcade" size="small" color="warning" sx={{ width: "fit-content", mb: 1, fontWeight: 700 }} />
                     <Typography variant="h6" fontWeight={700}>
                       🐍 Snake Arena 2026
                     </Typography>
@@ -506,16 +598,17 @@ const PlayGamesPage: React.FC = () => {
                       href="/games/dvcubie2026"
                       startIcon={<PlayArrow />}
                       fullWidth
+                      color="warning"
                       sx={{ borderRadius: 2, fontWeight: 700 }}
                     >
-                      Play Now
+                      Play Snake Arena
                     </Button>
                   </CardContent>
                 </Card>
               </Grid>
 
-              {/* Game 2: World Trivia Challenge */}
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              {/* Game 5: World Trivia Challenge */}
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                 <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
                   <Box
                     component="img"
@@ -524,7 +617,7 @@ const PlayGamesPage: React.FC = () => {
                     sx={{ height: 160, objectFit: "cover" }}
                   />
                   <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                    <Chip label="Puzzle & News" size="small" color="secondary" sx={{ width: "fit-content", mb: 1 }} />
+                    <Chip label="Puzzle & News" size="small" color="secondary" sx={{ width: "fit-content", mb: 1, fontWeight: 700 }} />
                     <Typography variant="h6" fontWeight={700}>
                       🧠 World Trivia Quiz
                     </Typography>
@@ -545,39 +638,8 @@ const PlayGamesPage: React.FC = () => {
                 </Card>
               </Grid>
 
-              {/* Game 3: Cyber Retro Shooter */}
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-                <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
-                  <Box
-                    component="img"
-                    src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80"
-                    alt="Cyber Retro Shooter"
-                    sx={{ height: 160, objectFit: "cover" }}
-                  />
-                  <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                    <Chip label="Action" size="small" color="error" sx={{ width: "fit-content", mb: 1 }} />
-                    <Typography variant="h6" fontWeight={700}>
-                      ⚡ Cyber Shooter
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
-                      Fast-paced retro space shooter with high scores and cloud save states.
-                    </Typography>
-                    <Button
-                      variant="outlined"
-                      onClick={() => handleSaveGameState("cyber_shooter", "Cyber Shooter")}
-                      startIcon={<CloudUpload />}
-                      fullWidth
-                      color="error"
-                      sx={{ borderRadius: 2, fontWeight: 700 }}
-                    >
-                      Cloud Save
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Grid>
-
-              {/* Game 4: Free Games Directory */}
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              {/* Game 6: Free Games Directory */}
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                 <Card sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: 3, transition: "transform 0.2s", "&:hover": { transform: "translateY(-4px)" } }}>
                   <Box
                     component="img"
@@ -586,7 +648,7 @@ const PlayGamesPage: React.FC = () => {
                     sx={{ height: 160, objectFit: "cover" }}
                   />
                   <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                    <Chip label="Catalog" size="small" color="info" sx={{ width: "fit-content", mb: 1 }} />
+                    <Chip label="Catalog" size="small" color="info" sx={{ width: "fit-content", mb: 1, fontWeight: 700 }} />
                     <Typography variant="h6" fontWeight={700}>
                       🎮 Gaming News & Store
                     </Typography>
@@ -769,9 +831,20 @@ const PlayGamesPage: React.FC = () => {
         {/* TAB 3: CLOUD SAVE STATES */}
         {activeTab === 3 && (
           <Box id="section-cloud-saves">
-            <Typography variant="h5" fontWeight={800} sx={{ mb: 3, display: "flex", alignItems: "center", gap: 1 }}>
-              <CloudUpload color="secondary" /> Cloud Saved Game States
-            </Typography>
+            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
+              <Typography variant="h5" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <CloudUpload color="secondary" /> Cloud Saved Game States
+              </Typography>
+              <Button
+                variant="contained"
+                color="secondary"
+                startIcon={<CloudUpload />}
+                onClick={() => handleSaveGameState("quick_save", "WorldNewzs Arcade")}
+                sx={{ borderRadius: 2, fontWeight: 700 }}
+              >
+                Sync Quick Save
+              </Button>
+            </Box>
 
             {savedGames.length === 0 ? (
               <Paper sx={{ p: 4, textAlign: "center", borderRadius: 3 }}>

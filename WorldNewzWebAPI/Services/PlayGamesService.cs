@@ -236,6 +236,30 @@ namespace WorldNewzWebAPI.Services
                         GameCategory = "Action & Arcade",
                         IconUrl = "https://img.icons8.com/color/96/space-ship.png",
                         SortOrder = "HighToLow"
+                    },
+                    new PlayGamesLeaderboard
+                    {
+                        Id = "leaderboard_chess_grandmaster",
+                        Title = "♟️ Grandmaster Chess Arena",
+                        GameCategory = "Board & Strategy",
+                        IconUrl = "https://img.icons8.com/color/96/chess-king.png",
+                        SortOrder = "HighToLow"
+                    },
+                    new PlayGamesLeaderboard
+                    {
+                        Id = "leaderboard_mario_runner",
+                        Title = "🍄 Super Mario Retro World",
+                        GameCategory = "2D Platformer",
+                        IconUrl = "https://img.icons8.com/color/96/super-mario.png",
+                        SortOrder = "HighToLow"
+                    },
+                    new PlayGamesLeaderboard
+                    {
+                        Id = "leaderboard_hit_goal_soccer",
+                        Title = "⚽ Hit Goal Soccer Shootout",
+                        GameCategory = "Sports & Arcade",
+                        IconUrl = "https://img.icons8.com/color/96/soccer-ball.png",
+                        SortOrder = "HighToLow"
                     }
                 };
                 _dbContext.PlayGamesLeaderboards.AddRange(initialLeaderboards);
@@ -277,6 +301,39 @@ namespace WorldNewzWebAPI.Services
                         Rarity = "Epic",
                         TotalSteps = 10,
                         XpReward = 500
+                    },
+                    new PlayGamesAchievement
+                    {
+                        Id = "ach_chess_checkmate",
+                        Title = "♟️ Checkmate Master",
+                        Description = "Achieve a checkmate victory against AI or Player in Grandmaster Chess.",
+                        IconUrl = "https://img.icons8.com/color/96/chess-king.png",
+                        UnlockedIconUrl = "https://img.icons8.com/color/96/trophy.png",
+                        Rarity = "Epic",
+                        TotalSteps = 1,
+                        XpReward = 400
+                    },
+                    new PlayGamesAchievement
+                    {
+                        Id = "ach_mario_coin_master",
+                        Title = "🍄 Coin Collector",
+                        Description = "Collect 100+ coins in Super Mario Retro Runner.",
+                        IconUrl = "https://img.icons8.com/color/96/super-mario.png",
+                        UnlockedIconUrl = "https://img.icons8.com/color/96/star.png",
+                        Rarity = "Rare",
+                        TotalSteps = 1,
+                        XpReward = 300
+                    },
+                    new PlayGamesAchievement
+                    {
+                        Id = "ach_hit_goal_hattrick",
+                        Title = "⚽ Golden Boot Hattrick",
+                        Description = "Score 3 consecutive bullseye goals in Hit Goal Soccer Shootout.",
+                        IconUrl = "https://img.icons8.com/color/96/soccer-ball.png",
+                        UnlockedIconUrl = "https://img.icons8.com/color/96/medal.png",
+                        Rarity = "Rare",
+                        TotalSteps = 1,
+                        XpReward = 350
                     },
                     new PlayGamesAchievement
                     {
