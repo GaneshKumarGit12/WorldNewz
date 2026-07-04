@@ -10,7 +10,8 @@ import {
   DialogContent,
   DialogActions,
   Card,
-  Chip
+  Chip,
+  Grid
 } from "@mui/material";
 import {
   RestartAlt,
@@ -21,7 +22,10 @@ import {
   VolumeOff,
   ArrowLeft,
   ArrowRight,
-  Close
+  Close,
+  HelpOutline,
+  LocalFireDepartment,
+  Timer
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { MarioCanvasEngine } from "./MarioScene";
@@ -36,11 +40,16 @@ const MarioGameWrapper: React.FC = () => {
   const [score, setScore] = useState(0);
   const [coins, setCoins] = useState(0);
   const [lives, setLives] = useState(3);
+  const [timeLeft, setTimeLeft] = useState(300);
+  const [isBig, setIsBig] = useState(false);
+  const [hasFire, setHasFire] = useState(false);
+  const [isInvincible, setIsInvincible] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
+  const [rulesDialogOpen, setRulesDialogOpen] = useState(false);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
 
@@ -54,6 +63,10 @@ const MarioGameWrapper: React.FC = () => {
         setScore(engine.score);
         setCoins(engine.coins);
         setLives(engine.lives);
+        setTimeLeft(engine.timeLeft);
+        setIsBig(engine.isBig);
+        setHasFire(engine.hasFire);
+        setIsInvincible(engine.isInvincible);
         if (engine.isGameOver) setGameOver(true);
         if (engine.isGameWon) setGameWon(true);
       }, 100);
@@ -73,7 +86,7 @@ const MarioGameWrapper: React.FC = () => {
     }
   };
 
-  const handleMobileInput = (action: "left" | "right" | "jump" | "stop") => {
+  const handleMobileInput = (action: "left" | "right" | "jump" | "fire" | "stop") => {
     if (engineRef.current) {
       engineRef.current.handleMobileInput(action);
     }
@@ -118,7 +131,7 @@ const MarioGameWrapper: React.FC = () => {
     <>
       <SEOMeta
         title="Super Mario Retro Runner 🍄 | WorldNewzs Play Games"
-        description="Play Super Mario Retro Runner on WorldNewzs! Experience 2D platforming, coin blocks, enemy Goombas, high scores, cloud save states, and mobile touch D-Pad controls."
+        description="Official Super Mario Retro Runner on WorldNewzs! Experience 2D platforming, coin blocks, mushrooms, fire flowers, invincibility stars, Bowser castle boss fights, and Princess Peach rescue."
         canonical="https://worldnewzs.in/games/mario"
       />
 
@@ -179,7 +192,7 @@ const MarioGameWrapper: React.FC = () => {
           </IconButton>
 
           {/* Header Title Bar */}
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2, pr: 6 }}>
+          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1.5, pr: 6 }}>
             <Typography
               variant="h5"
               fontWeight={900}
@@ -194,6 +207,16 @@ const MarioGameWrapper: React.FC = () => {
             </Typography>
 
             <Box sx={{ display: "flex", gap: 1 }}>
+              <Button
+                variant="outlined"
+                color="warning"
+                size="small"
+                startIcon={<HelpOutline />}
+                onClick={() => setRulesDialogOpen(true)}
+                sx={{ borderRadius: 2, fontWeight: 700 }}
+              >
+                Rules & Guide
+              </Button>
               <IconButton onClick={() => setSoundEnabled(!soundEnabled)} sx={{ color: "#fff" }}>
                 {soundEnabled ? <VolumeUp /> : <VolumeOff />}
               </IconButton>
@@ -204,8 +227,8 @@ const MarioGameWrapper: React.FC = () => {
           </Box>
 
           {/* HUD Bar */}
-          <Paper elevation={4} sx={{ p: 1.5, mb: 2, bgcolor: "rgba(30, 41, 59, 0.9)", borderRadius: 3, color: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+          <Paper elevation={4} sx={{ p: 1.5, mb: 1.5, bgcolor: "rgba(30, 41, 59, 0.9)", borderRadius: 3, color: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 1 }}>
+            <Box sx={{ display: "flex", gap: 1.5, alignItems: "center", flexWrap: "wrap" }}>
               <Typography variant="body2" fontWeight={800} color="warning.main">
                 SCORE: {score}
               </Typography>
@@ -215,6 +238,18 @@ const MarioGameWrapper: React.FC = () => {
               <Typography variant="body2" fontWeight={800} color="error.main">
                 ❤️ LIVES: {lives}
               </Typography>
+              <Chip
+                icon={<Timer sx={{ color: "#fff !important" }} />}
+                label={`TIME: ${timeLeft}s`}
+                size="small"
+                color={timeLeft < 60 ? "error" : "primary"}
+                sx={{ fontWeight: 800 }}
+              />
+
+              {/* Power-Up Status Badges */}
+              {isBig && <Chip label="🍄 Big Mario" size="small" color="error" sx={{ fontWeight: 700 }} />}
+              {hasFire && <Chip label="🔥 Fire Suit" size="small" color="warning" sx={{ fontWeight: 700 }} />}
+              {isInvincible && <Chip label="⭐ Invincible" size="small" color="success" sx={{ fontWeight: 700 }} />}
             </Box>
 
             <Box sx={{ display: "flex", gap: 1 }}>
@@ -226,7 +261,7 @@ const MarioGameWrapper: React.FC = () => {
                 onClick={saveGameStateToCloud}
                 sx={{ borderRadius: 2, fontWeight: 700 }}
               >
-                Save Cloud
+                Cloud Save
               </Button>
               <Button
                 variant="contained"
@@ -242,7 +277,7 @@ const MarioGameWrapper: React.FC = () => {
           </Paper>
 
           {statusMsg && (
-            <Chip label={statusMsg} color="success" sx={{ mb: 2, fontWeight: 700, width: "fit-content", mx: "auto" }} />
+            <Chip label={statusMsg} color="success" sx={{ mb: 1.5, fontWeight: 700, width: "fit-content", mx: "auto" }} />
           )}
 
           {/* GAME CANVAS DISPLAY */}
@@ -267,8 +302,8 @@ const MarioGameWrapper: React.FC = () => {
             />
           </Paper>
 
-          {/* TOUCH D-PAD CONTROLS FOR MOBILE / TABLET */}
-          <Box sx={{ display: { xs: "flex", sm: "none" }, justifyContent: "space-between", alignItems: "center", mt: 2, px: 2 }}>
+          {/* TOUCH D-PAD & FIRE CONTROLS FOR MOBILE / TABLET */}
+          <Box sx={{ display: { xs: "flex", sm: "none" }, justifyContent: "space-between", alignItems: "center", mt: 1.5, px: 1 }}>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Button
                 variant="contained"
@@ -277,7 +312,7 @@ const MarioGameWrapper: React.FC = () => {
                 onMouseUp={() => handleMobileInput("stop")}
                 onTouchStart={() => handleMobileInput("left")}
                 onTouchEnd={() => handleMobileInput("stop")}
-                sx={{ borderRadius: "50%", minWidth: 60, height: 60, bgcolor: "#334155" }}
+                sx={{ borderRadius: "50%", minWidth: 52, height: 52, bgcolor: "#334155" }}
               >
                 <ArrowLeft />
               </Button>
@@ -288,25 +323,157 @@ const MarioGameWrapper: React.FC = () => {
                 onMouseUp={() => handleMobileInput("stop")}
                 onTouchStart={() => handleMobileInput("right")}
                 onTouchEnd={() => handleMobileInput("stop")}
-                sx={{ borderRadius: "50%", minWidth: 60, height: 60, bgcolor: "#334155" }}
+                sx={{ borderRadius: "50%", minWidth: 52, height: 52, bgcolor: "#334155" }}
               >
                 <ArrowRight />
               </Button>
             </Box>
 
-            <Button
-              variant="contained"
-              color="error"
-              size="large"
-              onMouseDown={() => handleMobileInput("jump")}
-              onTouchStart={() => handleMobileInput("jump")}
-              sx={{ borderRadius: "50%", minWidth: 70, height: 70, fontWeight: 900 }}
-            >
-              JUMP
-            </Button>
+            <Box sx={{ display: "flex", gap: 1 }}>
+              {hasFire && (
+                <Button
+                  variant="contained"
+                  color="warning"
+                  size="large"
+                  onClick={() => handleMobileInput("fire")}
+                  sx={{ borderRadius: "50%", minWidth: 56, height: 56, fontWeight: 900 }}
+                >
+                  <LocalFireDepartment />
+                </Button>
+              )}
+              <Button
+                variant="contained"
+                color="error"
+                size="large"
+                onMouseDown={() => handleMobileInput("jump")}
+                onTouchStart={() => handleMobileInput("jump")}
+                sx={{ borderRadius: "50%", minWidth: 56, height: 56, fontWeight: 900 }}
+              >
+                JUMP
+              </Button>
+            </Box>
           </Box>
         </Card>
       </Box>
+
+      {/* SUPER MARIO QUICK-START INFOGRAPHIC RULES GUIDE MODAL */}
+      <Dialog
+        open={rulesDialogOpen}
+        onClose={() => setRulesDialogOpen(false)}
+        maxWidth="md"
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 4,
+            background: "linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)",
+            color: "#fff",
+            p: 1
+          }
+        }}
+      >
+        <DialogTitle sx={{ textAlign: "center", pb: 1 }}>
+          <Typography
+            variant="h4"
+            fontWeight={900}
+            sx={{
+              background: "linear-gradient(90deg, #ef4444, #f59e0b, #10b981)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}
+          >
+            🎮 Super Mario – Rules & How to Play
+          </Typography>
+          <Typography variant="subtitle2" color="grey.400">
+            Quick-Start Blueprint & Infographic Guide
+          </Typography>
+        </DialogTitle>
+
+        <DialogContent dividers sx={{ borderColor: "rgba(255,255,255,0.12)" }}>
+          <Grid container spacing={2.5}>
+            {/* 1. Objective Block (Blue) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#2563eb", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  🏰 1. Objective
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  Complete World 1-1 levels and rescue <strong>Princess Peach</strong> from Bowser! Reach the castle flagpole at the end of the stage.
+                </Typography>
+              </Paper>
+            </Grid>
+
+            {/* 2. Lives & Coins Block (Yellow) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#ca8a04", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  💰 2. Lives & Coins
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  Start with 3 Lives. Falling into pits or taking hits loses 1 Life. Collect <strong>100 Coins</strong> to earn an <strong>Extra Life (+1 ❤️)</strong>!
+                </Typography>
+              </Paper>
+            </Grid>
+
+            {/* 3. Power-Ups Block (Green) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#16a34a", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  ⭐ 3. Power-Ups
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  • 🍄 <strong>Mushroom</strong>: Mario grows big!<br />
+                  • 🔥 <strong>Fire Flower</strong>: Shoot fireballs with <code>Shift</code> or Fire button.<br />
+                  • ⭐ <strong>Star</strong>: 10 seconds of invincibility!
+                </Typography>
+              </Paper>
+            </Grid>
+
+            {/* 4. Enemies Block (Orange) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#ea580c", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  👾 4. Enemies & Combat
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  Avoid Goombas & Koopas. Jump on top of enemies to stomp them, or blast them with Fireballs when Fire Flower suit is equipped!
+                </Typography>
+              </Paper>
+            </Grid>
+
+            {/* 5. Controls Block (Purple) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#9333ea", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  🎮 5. Controls
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  • <strong>Move</strong>: Arrow Keys / <code>A</code> & <code>D</code> / Touch D-Pad<br />
+                  • <strong>Jump</strong>: Space / <code>W</code> / Touch Jump<br />
+                  • <strong>Fireball</strong>: <code>Shift</code> / <code>F</code> / Touch Fire
+                </Typography>
+              </Paper>
+            </Grid>
+
+            {/* 6. Winning Block (Red) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#dc2626", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  🎉 6. Winning & Castle Boss
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  Reach the Castle, defeat Bowser with Fireballs or Invincibility Star, slide down the Flagpole, and rescue Princess Peach!
+                </Typography>
+              </Paper>
+            </Grid>
+          </Grid>
+        </DialogContent>
+
+        <DialogActions sx={{ justifyContent: "center", py: 2 }}>
+          <Button variant="contained" color="error" onClick={() => setRulesDialogOpen(false)} sx={{ borderRadius: 2, fontWeight: 700, px: 4 }}>
+            Got It! Start Playing 🍄
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       {/* Game Over Dialog */}
       <Dialog open={gameOver} onClose={handleRestart} maxWidth="xs" fullWidth>
@@ -328,11 +495,14 @@ const MarioGameWrapper: React.FC = () => {
       {/* Game Won Dialog */}
       <Dialog open={gameWon} onClose={handleRestart} maxWidth="xs" fullWidth>
         <DialogTitle sx={{ textAlign: "center", fontWeight: 900, color: "success.main" }}>
-          🚩 Course Cleared!
+          🚩 Course Cleared & Peach Rescued!
         </DialogTitle>
         <DialogContent sx={{ textAlign: "center" }}>
-          <Typography variant="body1" fontWeight={700}>
-            Awesome! You reached the Flagpole with {score} Points!
+          <Typography variant="body1" fontWeight={700} sx={{ mb: 1 }}>
+            🎉 Awesome! You defeated Bowser and rescued Princess Peach!
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Score: {score} | Coins: {coins} | Bonus Time: {timeLeft * 50} pts
           </Typography>
         </DialogContent>
         <DialogActions sx={{ justifyContent: "center", pb: 3 }}>
