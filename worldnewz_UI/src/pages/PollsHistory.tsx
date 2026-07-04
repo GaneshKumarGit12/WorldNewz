@@ -648,7 +648,7 @@ const PollsHistory: React.FC = () => {
         >
           <DialogTitle sx={{ fontWeight: 900, pb: 0.5 }}>Admin Authentication</DialogTitle>
           <Typography variant="caption" color="text.secondary" sx={{ px: 3, display: "block", mb: 1 }}>
-            Credentials: <b>ganeshd12</b> / <b>EndPointPG@293</b>
+            Enter your administrator credentials to manage records.
           </Typography>
           <form onSubmit={handleLoginSubmit}>
             <DialogContent sx={{ py: 1 }}>

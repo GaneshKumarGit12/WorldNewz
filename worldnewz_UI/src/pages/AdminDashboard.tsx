@@ -667,7 +667,7 @@ const AdminDashboard: React.FC = () => {
                       Administrator Login
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
-                      Default Credentials: Username: <b>ganeshd12</b> | Password: <b>EndPointPG@293</b>
+                      Enter your authorized administrator credentials to access database options.
                     </Typography>
                   </Box>
                 </Box>
