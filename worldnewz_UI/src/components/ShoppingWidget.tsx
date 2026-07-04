@@ -171,6 +171,26 @@ const fallbackProducts: Partial<AmazonProduct>[] = [
     originalPrice: 450,
     productUrl: "https://amzn.to/4vMKEBG",
     category: "Education",
+  },
+  {
+    id: 17,
+    asin: "B00FLYWNYQ",
+    title: "Instant Pot Multi-Use Programmable Pressure Cooker",
+    imageUrl: "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=300&auto=format&fit=crop&q=60",
+    price: 5999,
+    originalPrice: 8999,
+    productUrl: "https://amzn.to/4az7jZE",
+    category: "Home Appliances",
+  },
+  {
+    id: 18,
+    asin: "B0DSQ7F2YR",
+    title: "Divyakosh Toran Entrance Bandanwar Festival Decor",
+    imageUrl: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=300&auto=format&fit=crop&q=60",
+    price: 499,
+    originalPrice: 999,
+    productUrl: "https://amzn.to/4v9MqLS",
+    category: "Home & Decor",
   }
 ];
 

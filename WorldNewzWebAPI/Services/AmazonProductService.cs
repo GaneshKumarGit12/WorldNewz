@@ -441,6 +441,32 @@ namespace WorldNewzWebAPI.Services
                     ReviewCount = 3750,
                     Category = "Education",
                     ProductUrl = "https://amzn.to/4vMKEBG"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B00FLYWNYQ",
+                    Title = "Instant Pot Multi-Use Programmable Pressure Cooker",
+                    Description = "7-in-1 multi-functional electric pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker and warmer.",
+                    ImageUrl = "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=500&auto=format&fit=crop&q=60",
+                    Price = 5999.00m,
+                    OriginalPrice = 8999.00m,
+                    Rating = 4.7,
+                    ReviewCount = 9480,
+                    Category = "Home Appliances",
+                    ProductUrl = "https://amzn.to/4az7jZE"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DSQ7F2YR",
+                    Title = "Divyakosh Toran Entrance Bandanwar Festival Decor",
+                    Description = "Traditional handcrafted door hangings (Toran Bandanwar) embellished with beads, pearls and floral motifs for festive entrance decor.",
+                    ImageUrl = "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=60",
+                    Price = 499.00m,
+                    OriginalPrice = 999.00m,
+                    Rating = 4.5,
+                    ReviewCount = 1290,
+                    Category = "Home & Decor",
+                    ProductUrl = "https://amzn.to/4v9MqLS"
                 }
             };
 
