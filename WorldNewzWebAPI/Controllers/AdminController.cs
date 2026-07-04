@@ -41,7 +41,7 @@ namespace WorldNewzWebAPI.Controllers
             }
             if (string.IsNullOrWhiteSpace(adminUser))
             {
-                adminUser = "admin";
+                adminUser = "ganeshd12";
             }
 
             var adminPass = _configuration["ADMIN_PASSWORD"];
@@ -51,7 +51,7 @@ namespace WorldNewzWebAPI.Controllers
             }
             if (string.IsNullOrWhiteSpace(adminPass))
             {
-                adminPass = "admin123";
+                adminPass = "EndPointPG@293";
             }
 
             return (adminUser, adminPass);

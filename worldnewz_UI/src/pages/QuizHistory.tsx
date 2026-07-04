@@ -657,7 +657,10 @@ const QuizHistory: React.FC = () => {
             sx: { borderRadius: 4, p: 2, maxWidth: 400, width: "100%" }
           }}
         >
-          <DialogTitle sx={{ fontWeight: 900, pb: 1 }}>Admin Authentication</DialogTitle>
+          <DialogTitle sx={{ fontWeight: 900, pb: 0.5 }}>Admin Authentication</DialogTitle>
+          <Typography variant="caption" color="text.secondary" sx={{ px: 3, display: "block", mb: 1 }}>
+            Credentials: <b>ganeshd12</b> / <b>EndPointPG@293</b>
+          </Typography>
           <form onSubmit={handleLoginSubmit}>
             <DialogContent sx={{ py: 1 }}>
               {loginError && (
