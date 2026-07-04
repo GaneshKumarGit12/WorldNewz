@@ -387,9 +387,9 @@ namespace WorldNewzWebAPI.Controllers
 
                 string storyTitle = cached?.Headline ?? newsItem?.Title ?? "Apple AI Launch: New Privacy Features Set to Disrupt Smartphone Industry";
                 string summaryText = cached?.Summary ?? newsItem?.Description ?? "Apple has officially unveiled its latest artificial intelligence suite, focusing heavily on on-device processing and data privacy. The announcement marks a significant shift towards hardware-level security, setting new benchmarks for competitor mobile ecosystems.";
-                string imageUrl = newsItem?.UrlToImage ?? "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800";
+                string imageUrl = newsItem?.ImageUrl ?? "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800";
                 string sourceUrl = cached?.Url ?? newsItem?.Url ?? "https://www.apple.com/newsroom";
-                string publisherName = newsItem?.SourceName ?? "Tech Desk";
+                string publisherName = newsItem?.Category?.Name ?? "Tech Desk";
 
                 // 2. Build 3 distinct bullet point takeaways
                 var takeaways = new List<string>
