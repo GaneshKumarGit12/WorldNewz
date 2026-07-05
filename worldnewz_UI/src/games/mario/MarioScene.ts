@@ -343,7 +343,7 @@ export class MarioCanvasEngine {
 
   private handleKeyDown = (e: KeyboardEvent) => {
     this.keys[e.key] = true;
-    if (e.key === 'Shift' || e.key === 'f' || e.key === 'F') {
+    if (e.key === 'Control' || e.code === 'ControlLeft' || e.key === 'ControlLeft' || e.key === 'f' || e.key === 'F') {
       this.shootFireball();
     }
     if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {

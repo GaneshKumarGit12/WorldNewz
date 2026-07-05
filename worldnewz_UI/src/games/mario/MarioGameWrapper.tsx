@@ -479,7 +479,7 @@ const MarioGameWrapper: React.FC = () => {
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
                   • 🍄 <strong>Mushroom</strong>: Mario grows big!<br />
-                  • 🔥 <strong>Fire Flower</strong>: Shoot fireballs with <code>Shift</code> or Fire button.<br />
+                  • 🔥 <strong>Fire Flower</strong>: Shoot fireballs with <code>Left Ctrl</code> or Fire button.<br />
                   • ⭐ <strong>Star</strong>: 10 seconds of invincibility!<br />
                   • 🪙 Collect 100 Coins for an Extra Life (+1 ❤️).
                 </Typography>
@@ -508,7 +508,7 @@ const MarioGameWrapper: React.FC = () => {
                   • <strong>Move</strong>: Arrow Keys / <code>A</code> & <code>D</code> / Touch D-Pad<br />
                   • <strong>Jump</strong>: Space / <code>W</code> / Touch Jump<br />
                   • <strong>Warp Down</strong>: <code>ArrowDown</code> / Touch Down<br />
-                  • <strong>Fireball</strong>: <code>Shift</code> / <code>F</code> / Touch Fire
+                  • <strong>Fireball</strong>: <code>Left Ctrl</code> / <code>F</code> / Touch Fire
                 </Typography>
               </Paper>
             </Grid>
