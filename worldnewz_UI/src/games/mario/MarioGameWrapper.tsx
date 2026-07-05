@@ -25,11 +25,24 @@ import {
   Close,
   HelpOutline,
   LocalFireDepartment,
-  Timer
+  Timer,
+  Public
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { MarioCanvasEngine } from "./MarioScene";
+import { MarioCanvasEngine, type MarioTheme, type TimeOfDay } from "./MarioScene";
 import { SEOMeta } from "../../seo/SEOMeta";
+
+const WORLD_VARIATIONS = [
+  { world: "World 1", theme: "Overworld" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W1: Overworld 🌳" },
+  { world: "World 2", theme: "Desert" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W2: Desert 🏜️" },
+  { world: "World 3", theme: "Snow" as MarioTheme, time: "Day" as TimeOfDay, particles: 1, label: "W3: Snow ❄️" },
+  { world: "World 4", theme: "Beach" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W4: Beach 🏖️" },
+  { world: "World 5", theme: "Jungle" as MarioTheme, time: "Day" as TimeOfDay, particles: 2, label: "W5: Jungle 🌴" },
+  { world: "World 6", theme: "Mountain" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W6: Mountain ⛰️" },
+  { world: "World 7", theme: "Autumn" as MarioTheme, time: "Day" as TimeOfDay, particles: 2, label: "W7: Autumn 🍂" },
+  { world: "World 8", theme: "Volcano" as MarioTheme, time: "Day" as TimeOfDay, particles: 3, label: "W8: Volcano 🔥" },
+  { world: "World 9", theme: "Space" as MarioTheme, time: "Night" as TimeOfDay, particles: 0, label: "W9: Space 🌌" }
+];
 
 const MarioGameWrapper: React.FC = () => {
   const navigate = useNavigate();
@@ -37,6 +50,7 @@ const MarioGameWrapper: React.FC = () => {
   const engineRef = useRef<MarioCanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [selectedWorldIndex, setSelectedWorldIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [coins, setCoins] = useState(0);
   const [lives, setLives] = useState(3);
@@ -78,9 +92,19 @@ const MarioGameWrapper: React.FC = () => {
     }
   }, []);
 
+  const handleSelectWorldTheme = (index: number) => {
+    setSelectedWorldIndex(index);
+    const varItem = WORLD_VARIATIONS[index];
+    if (engineRef.current) {
+      engineRef.current.setWorldTheme(varItem.theme, varItem.time, varItem.particles);
+    }
+  };
+
   const handleRestart = () => {
     if (engineRef.current) {
       engineRef.current.reset();
+      const varItem = WORLD_VARIATIONS[selectedWorldIndex];
+      engineRef.current.setWorldTheme(varItem.theme, varItem.time, varItem.particles);
       setGameOver(false);
       setGameWon(false);
     }
@@ -98,9 +122,9 @@ const MarioGameWrapper: React.FC = () => {
 
     const saveData = {
       playerId,
-      saveName: "Super Mario Progress",
+      saveName: `Super Mario ${WORLD_VARIATIONS[selectedWorldIndex].world}`,
       gameId: "mario_runner",
-      dataJson: JSON.stringify({ score, coins, lives, stage: "World 1-1" }),
+      dataJson: JSON.stringify({ score, coins, lives, stage: WORLD_VARIATIONS[selectedWorldIndex].world }),
       coverImageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80"
     };
 
@@ -131,7 +155,7 @@ const MarioGameWrapper: React.FC = () => {
     <>
       <SEOMeta
         title="Super Mario Retro Runner 🍄 | WorldNewzs Play Games"
-        description="Official Super Mario Retro Runner on WorldNewzs! Experience 2D platforming, coin blocks, mushrooms, fire flowers, invincibility stars, Bowser castle boss fights, and Princess Peach rescue."
+        description="Official Super Mario Retro Runner on WorldNewzs! Experience 2D platforming across 9 Worlds (Overworld, Desert, Snow, Jungle, Volcano, Space), mushroom growth, fire flowers, invincibility stars, Bowser boss fight, and Princess Peach rescue."
         canonical="https://worldnewzs.in/games/mario"
       />
 
@@ -225,6 +249,26 @@ const MarioGameWrapper: React.FC = () => {
               </IconButton>
             </Box>
           </Box>
+
+          {/* WORLD THEME VARIATIONS SELECTOR BAR (From User Spec) */}
+          <Paper elevation={4} sx={{ p: 1, mb: 1.5, bgcolor: "rgba(30, 41, 59, 0.9)", borderRadius: 3, color: "#fff" }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
+              <Public color="error" fontSize="small" />
+              <Typography variant="caption" fontWeight={700}>Select World Theme:</Typography>
+              <Box sx={{ display: "flex", gap: 0.8, overflowX: "auto", py: 0.5, maxWidth: "100%" }}>
+                {WORLD_VARIATIONS.map((w, idx) => (
+                  <Chip
+                    key={w.world}
+                    label={w.label}
+                    onClick={() => handleSelectWorldTheme(idx)}
+                    color={selectedWorldIndex === idx ? "error" : "default"}
+                    size="small"
+                    sx={{ cursor: "pointer", fontWeight: 700, flexShrink: 0 }}
+                  />
+                ))}
+              </Box>
+            </Box>
+          </Paper>
 
           {/* HUD Bar */}
           <Paper elevation={4} sx={{ p: 1.5, mb: 1.5, bgcolor: "rgba(30, 41, 59, 0.9)", borderRadius: 3, color: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 1 }}>
@@ -356,17 +400,20 @@ const MarioGameWrapper: React.FC = () => {
         </Card>
       </Box>
 
-      {/* SUPER MARIO QUICK-START INFOGRAPHIC RULES GUIDE MODAL */}
+      {/* SUPER MARIO QUICK-START INFOGRAPHIC RULES GUIDE MODAL (Z-INDEX 2500 FOR FULL POPUP VISIBILITY) */}
       <Dialog
         open={rulesDialogOpen}
         onClose={() => setRulesDialogOpen(false)}
         maxWidth="md"
         fullWidth
+        sx={{ zIndex: 2500 }}
         PaperProps={{
           sx: {
             borderRadius: 4,
             background: "linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)",
             color: "#fff",
+            maxHeight: "90vh",
+            overflowY: "auto",
             p: 1
           }
         }}
@@ -397,7 +444,7 @@ const MarioGameWrapper: React.FC = () => {
                   🏰 1. Objective
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
-                  Complete World 1-1 levels and rescue <strong>Princess Peach</strong> from Bowser! Reach the castle flagpole at the end of the stage.
+                  Complete World levels and rescue <strong>Princess Peach</strong> from Bowser! Reach the castle flagpole at the end of each stage.
                 </Typography>
               </Paper>
             </Grid>
@@ -476,7 +523,14 @@ const MarioGameWrapper: React.FC = () => {
       </Dialog>
 
       {/* Game Over Dialog */}
-      <Dialog open={gameOver} onClose={handleRestart} maxWidth="xs" fullWidth>
+      <Dialog
+        open={gameOver}
+        onClose={handleRestart}
+        maxWidth="xs"
+        fullWidth
+        sx={{ zIndex: 2500 }}
+        PaperProps={{ sx: { maxHeight: "90vh", overflowY: "auto" } }}
+      >
         <DialogTitle sx={{ textAlign: "center", fontWeight: 900, color: "error.main" }}>
           💀 Game Over!
         </DialogTitle>
@@ -493,7 +547,14 @@ const MarioGameWrapper: React.FC = () => {
       </Dialog>
 
       {/* Game Won Dialog */}
-      <Dialog open={gameWon} onClose={handleRestart} maxWidth="xs" fullWidth>
+      <Dialog
+        open={gameWon}
+        onClose={handleRestart}
+        maxWidth="xs"
+        fullWidth
+        sx={{ zIndex: 2500 }}
+        PaperProps={{ sx: { maxHeight: "90vh", overflowY: "auto" } }}
+      >
         <DialogTitle sx={{ textAlign: "center", fontWeight: 900, color: "success.main" }}>
           🚩 Course Cleared & Peach Rescued!
         </DialogTitle>

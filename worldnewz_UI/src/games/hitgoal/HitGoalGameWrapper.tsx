@@ -352,11 +352,14 @@ const HitGoalGameWrapper: React.FC = () => {
         onClose={() => setRulesDialogOpen(false)}
         maxWidth="md"
         fullWidth
+        sx={{ zIndex: 2500 }}
         PaperProps={{
           sx: {
             borderRadius: 4,
             background: "linear-gradient(135deg, #064e3b 0%, #0f172a 100%)",
             color: "#fff",
+            maxHeight: "90vh",
+            overflowY: "auto",
             p: 1
           }
         }}
@@ -462,7 +465,14 @@ const HitGoalGameWrapper: React.FC = () => {
       </Dialog>
 
       {/* Shootout Over Dialog */}
-      <Dialog open={isShootoutOver} onClose={handleReset} maxWidth="xs" fullWidth>
+      <Dialog
+        open={isShootoutOver}
+        onClose={handleReset}
+        maxWidth="xs"
+        fullWidth
+        sx={{ zIndex: 2500 }}
+        PaperProps={{ sx: { maxHeight: "90vh", overflowY: "auto" } }}
+      >
         <DialogTitle sx={{ textAlign: "center", fontWeight: 900, color: "success.main" }}>
           🏆 Shootout Victory!
         </DialogTitle>

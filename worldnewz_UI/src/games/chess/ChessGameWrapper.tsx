@@ -595,7 +595,14 @@ const ChessGameWrapper: React.FC = () => {
       </Box>
 
       {/* FIDE Pawn Promotion Choice Dialog */}
-      <Dialog open={promotionDialogOpen} onClose={() => setPromotionDialogOpen(false)} maxWidth="xs" fullWidth>
+      <Dialog
+        open={promotionDialogOpen}
+        onClose={() => setPromotionDialogOpen(false)}
+        maxWidth="xs"
+        fullWidth
+        sx={{ zIndex: 2500 }}
+        PaperProps={{ sx: { maxHeight: "90vh", overflowY: "auto" } }}
+      >
         <DialogTitle sx={{ textAlign: "center", fontWeight: 800 }}>
           ♕ FIDE Pawn Promotion
         </DialogTitle>
@@ -621,7 +628,14 @@ const ChessGameWrapper: React.FC = () => {
       </Dialog>
 
       {/* Game Over / Concluded Dialog */}
-      <Dialog open={gameOverDialog} onClose={() => setGameOverDialog(false)} maxWidth="xs" fullWidth>
+      <Dialog
+        open={gameOverDialog}
+        onClose={() => setGameOverDialog(false)}
+        maxWidth="xs"
+        fullWidth
+        sx={{ zIndex: 2500 }}
+        PaperProps={{ sx: { maxHeight: "90vh", overflowY: "auto" } }}
+      >
         <DialogTitle sx={{ textAlign: "center", fontWeight: 900, fontSize: "1.5rem" }}>
           🏆 Match Concluded
         </DialogTitle>
