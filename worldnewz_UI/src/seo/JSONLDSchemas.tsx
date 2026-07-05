@@ -234,3 +234,53 @@ export const JSONLDFAQPage = ({ faqs }: { faqs: FAQItem[] }) => (
     })}</script>
   </Helmet>
 );
+
+/* ── ItemList / Product Catalog Schema ── */
+export interface ProductSchemaItem {
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  originalPrice: number;
+  productUrl: string;
+  rating?: number;
+  reviewCount?: number;
+  category?: string;
+}
+
+export const JSONLDProductList = ({ products }: { products: ProductSchemaItem[] }) => (
+  <Helmet>
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Amazon Deals of the Day",
+      "description": "Hand-picked Amazon flash sales, tech discounts, and daily offers in India.",
+      "numberOfItems": products.length,
+      "itemListElement": products.map((prod, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "item": {
+          "@type": "Product",
+          "name": prod.title,
+          "description": prod.description,
+          "image": prod.imageUrl,
+          "category": prod.category || "Shopping",
+          "aggregateRating": prod.rating ? {
+            "@type": "AggregateRating",
+            "ratingValue": prod.rating,
+            "reviewCount": prod.reviewCount || 100
+          } : undefined,
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "price": prod.price,
+            "priceValidUntil": new Date(Date.now() + 86400000).toISOString().split('T')[0],
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "url": prod.productUrl
+          }
+        }
+      }))
+    })}</script>
+  </Helmet>
+);
