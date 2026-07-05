@@ -71,12 +71,15 @@ export class MarioCanvasEngine {
   public height: number = 44;
   public isGrounded: boolean = false;
   public facing: 'right' | 'left' = 'right';
+  public animFrame: number = 0;
 
-  // Power-Ups
+  // Power-Ups & Transformations
   public isBig: boolean = false;
   public hasFire: boolean = false;
   public isInvincible: boolean = false;
   public invincibleTimer: number = 0;
+  public isGrowingTimer: number = 0; // Small -> Big Growth Animation Timer
+  public isFireTransformTimer: number = 0; // Fire Suit Animation Timer
 
   // Themes & Environment
   public currentTheme: MarioTheme = 'Overworld';
@@ -89,6 +92,7 @@ export class MarioCanvasEngine {
   public levelNum: number = 1;
   public isUnderground: boolean = false;
   public canWarpDown: boolean = false;
+  public transformMsg: string = '';
 
   // Game Stats
   public score: number = 0;
@@ -196,9 +200,10 @@ export class MarioCanvasEngine {
     this.hasFire = false;
     this.isInvincible = false;
     this.invincibleTimer = 0;
+    this.isGrowingTimer = 0;
+    this.isFireTransformTimer = 0;
     this.fireballs = [];
 
-    // Themes based on Level
     if (level === 2) {
       this.setWorldTheme('Underground', 'Day', 0);
     } else if (level === 3) {
@@ -209,11 +214,9 @@ export class MarioCanvasEngine {
       this.setWorldTheme('Overworld', 'Day', 0);
     }
 
-    // Reset Entities & Level Architecture
     this.bowser = { x: 2360, y: 310, w: 64, h: 64, hp: 5, maxHp: 5, vx: -1.5, fireCooldown: 0, alive: true };
     this.peach = { x: 2460, y: 310, w: 32, h: 48, rescued: false };
 
-    // Background Hills & Clouds
     this.hillsList = [
       { x: 50, y: 280, w: 160, h: 100 },
       { x: 480, y: 260, w: 220, h: 120 },
@@ -231,23 +234,19 @@ export class MarioCanvasEngine {
       { x: 1720, y: 80, scale: 1 }
     ];
 
-    // Platforms (Grounds & Pit Gaps)
     this.platforms = [
       { x: 0, y: 380, w: 900, h: 100 },
       { x: 980, y: 380, w: 650, h: 100 },
       { x: 1700, y: 380, w: 1100, h: 100 },
-      // Floating Brick Platforms
       { x: 260, y: 260, w: 120, h: 30, type: 'brick' },
       { x: 620, y: 220, w: 160, h: 30, type: 'brick' },
       { x: 1180, y: 240, w: 200, h: 30, type: 'brick' },
       { x: 1550, y: 200, w: 180, h: 30, type: 'brick' }
     ];
 
-    // Staircase Pyramid Blocks (Before Flagpole)
     this.createStaircase(1820, 380, 5, 'up');
     this.createStaircase(1980, 380, 5, 'down');
 
-    // Warp Pipes (Authentic SMB Green Warp Pipes)
     this.pipesList = [
       { x: 380, y: 320, w: 56, h: 60 },
       { x: 580, y: 290, w: 56, h: 90, isEnterable: true, warpTarget: 'underground', returnX: 1750, returnY: 330 },
@@ -255,7 +254,6 @@ export class MarioCanvasEngine {
       { x: 1450, y: 290, w: 56, h: 90 }
     ];
 
-    // Underground Coins Bonus Room Setup
     this.undergroundCoins = [];
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 5; col++) {
@@ -264,7 +262,6 @@ export class MarioCanvasEngine {
     }
     this.undergroundExitPipe = { x: 500, y: 280, w: 56, h: 100, isEnterable: true, warpTarget: 'overworld', returnX: 1750, returnY: 330 };
 
-    // Coins
     this.coinsList = [
       { x: 280, y: 220, collected: false },
       { x: 310, y: 220, collected: false },
@@ -276,7 +273,6 @@ export class MarioCanvasEngine {
       { x: 1280, y: 200, collected: false }
     ];
 
-    // Question Blocks
     this.questionBlocks = [
       { x: 200, y: 260, w: 32, h: 32, hit: false, type: 'mushroom' },
       { x: 660, y: 220, w: 32, h: 32, hit: false, type: 'flower' },
@@ -286,7 +282,6 @@ export class MarioCanvasEngine {
 
     this.powerUpItems = [];
 
-    // Enemies
     this.enemies = [
       { x: 460, y: 348, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
       { x: 740, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'goomba' },
@@ -371,7 +366,6 @@ export class MarioCanvasEngine {
 
   public tryEnterWarpPipe(): void {
     if (this.isUnderground) {
-      // Exit Underground back to Overworld
       if (Math.abs(this.x - (this.undergroundExitPipe.x + 12)) < 30) {
         this.isUnderground = false;
         this.x = 1750;
@@ -379,7 +373,6 @@ export class MarioCanvasEngine {
         this.cameraX = 1550;
       }
     } else {
-      // Check Overworld enterable pipes
       for (const p of this.pipesList) {
         if (p.isEnterable && this.x + 16 > p.x && this.x + 16 < p.x + p.w && Math.abs(this.y + 44 - p.y) < 10) {
           this.isUnderground = true;
@@ -408,6 +401,12 @@ export class MarioCanvasEngine {
   private update(): void {
     if (this.isGameOver || this.isGameWon) return;
 
+    this.animFrame++;
+
+    // Decrement Growth & Fire Transformation Timers
+    if (this.isGrowingTimer > 0) this.isGrowingTimer--;
+    if (this.isFireTransformTimer > 0) this.isFireTransformTimer--;
+
     // Movement Physics
     if (this.keys['ArrowRight'] || this.keys['d'] || this.keys['D']) {
       this.vx = 4.5;
@@ -433,20 +432,17 @@ export class MarioCanvasEngine {
     if (this.x < 0) this.x = 0;
     this.cameraX = Math.max(0, this.x - 200);
 
-    const mHeight = this.isBig ? 54 : 44;
+    const mHeight = (this.isBig || this.hasFire) ? 54 : 44;
 
-    // UNDERGROUND BONUS ROOM UPDATE
     if (this.isUnderground) {
       this.isGrounded = false;
 
-      // Underground Floor
       if (this.y + mHeight >= 380) {
         this.y = 380 - mHeight;
         this.vy = 0;
         this.isGrounded = true;
       }
 
-      // Collect Underground Golden Coins
       for (const c of this.undergroundCoins) {
         if (!c.collected && Math.hypot(this.x + 16 - c.x, this.y + 22 - c.y) < 28) {
           c.collected = true;
@@ -457,8 +453,6 @@ export class MarioCanvasEngine {
       return;
     }
 
-    // OVERWORLD UPDATE
-    // Check Warp Pipe Prompt
     this.canWarpDown = false;
     for (const p of this.pipesList) {
       if (p.isEnterable && this.x + 16 > p.x && this.x + 16 < p.x + p.w && Math.abs(this.y + mHeight - p.y) < 12) {
@@ -466,7 +460,6 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Platform & Pipe Collisions
     this.isGrounded = false;
 
     for (const p of this.platforms) {
@@ -517,23 +510,29 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Power-Up Item Collection
+    // Power-Up Item Collection & Growth Transformation
     for (const item of this.powerUpItems) {
       if (!item.collected && this.checkCollision({ x: this.x, y: this.y, w: this.width, h: mHeight }, { x: item.x, y: item.y, w: 28, h: 28 })) {
         item.collected = true;
         this.score += 1000;
         if (item.type === 'mushroom') {
+          this.isGrowingTimer = 30; // 0.5-second growing animation sequence
           this.isBig = true;
+          this.transformMsg = '🍄 Small Mario grew into Big Mario!';
         } else if (item.type === 'flower') {
+          this.isFireTransformTimer = 20;
           this.hasFire = true;
+          this.isBig = true;
+          this.transformMsg = '🔥 Equipped Fire Mario Suit!';
         } else if (item.type === 'star') {
           this.isInvincible = true;
           this.invincibleTimer = 10;
+          this.transformMsg = '⭐ Invincibility Star Activated!';
         }
+        setTimeout(() => { this.transformMsg = ''; }, 3000);
       }
     }
 
-    // Coins Collection
     for (const c of this.coinsList) {
       if (!c.collected && Math.hypot(this.x + 16 - c.x, this.y + 22 - c.y) < 28) {
         c.collected = true;
@@ -541,7 +540,6 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Update Fireballs Physics
     for (const f of this.fireballs) {
       if (!f.active) continue;
       f.x += f.vx;
@@ -571,7 +569,6 @@ export class MarioCanvasEngine {
       if (f.x > this.cameraX + 850 || f.x < this.cameraX - 100) f.active = false;
     }
 
-    // Update Enemies
     for (const e of this.enemies) {
       if (!e.alive) continue;
       e.x += e.vx;
@@ -597,7 +594,6 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Update Bowser Boss
     if (this.bowser.alive) {
       this.bowser.x += this.bowser.vx;
       if (this.bowser.x < 2250 || this.bowser.x > 2400) this.bowser.vx *= -1;
@@ -616,7 +612,6 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Flagpole / Castle Victory
     if (this.x >= this.flagPole.x && !this.isGameWon) {
       if (!this.bowser.alive || this.x >= this.peach.x) {
         this.isGameWon = true;
@@ -660,7 +655,6 @@ export class MarioCanvasEngine {
     const w = this.canvas.width;
     const h = this.canvas.height;
 
-    // UNDERGROUND BONUS ROOM DRAWING
     if (this.isUnderground) {
       this.ctx.fillStyle = '#0f172a';
       this.ctx.fillRect(0, 0, w, h);
@@ -670,13 +664,10 @@ export class MarioCanvasEngine {
       this.ctx.fillText('🪙 UNDERGROUND COIN HEAVEN BONUS ROOM', 200, 40);
       this.ctx.fillText('Press [DOWN] at Exit Pipe to return!', 230, 70);
 
-      // Underground Floor & Walls
       this.ctx.fillStyle = '#1e293b';
       this.ctx.fillRect(0, 380, w, 100);
       this.ctx.fillRect(0, 0, 40, 400);
 
-      // Underground Coins
-      this.ctx.fillStyle = '#eab308';
       for (const c of this.undergroundCoins) {
         if (!c.collected) {
           this.ctx.beginPath();
@@ -685,17 +676,12 @@ export class MarioCanvasEngine {
         }
       }
 
-      // Exit Pipe
       this.drawWarpPipe(this.undergroundExitPipe.x, this.undergroundExitPipe.y, this.undergroundExitPipe.w, this.undergroundExitPipe.h, true);
 
-      // Draw Mario in Underground
-      const mHeight = this.isBig ? 54 : 44;
-      this.ctx.fillStyle = '#dc2626';
-      this.ctx.fillRect(this.x, this.y, this.width, mHeight);
+      this.drawMarioCharacter(this.x, this.y);
       return;
     }
 
-    // OVERWORLD STAGE DRAWING
     let skyColor = '#60a5fa';
     let groundColor = '#15803d';
     let dirtColor = '#78350f';
@@ -735,18 +721,15 @@ export class MarioCanvasEngine {
     this.ctx.save();
     this.ctx.translate(-this.cameraX, 0);
 
-    // Draw Background Clouds
     this.ctx.fillStyle = '#ffffff';
     for (const c of this.cloudsList) {
       this.drawCloud(c.x, c.y, c.scale);
     }
 
-    // Draw Background Green Hills with Textured Gradients
     for (const hill of this.hillsList) {
       this.drawGreenHill(hill.x, hill.y, hill.w, hill.h);
     }
 
-    // Draw Platforms
     for (const p of this.platforms) {
       if (p.type === 'brick') {
         this.ctx.fillStyle = '#b45309';
@@ -762,48 +745,22 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Draw Authentic Green Warp Pipes
     for (const pipe of this.pipesList) {
       this.drawWarpPipe(pipe.x, pipe.y, pipe.w, pipe.h, pipe.isEnterable);
     }
 
-    // Draw Question Blocks
     for (const q of this.questionBlocks) {
-      this.ctx.fillStyle = q.hit ? '#94a3b8' : '#f59e0b';
-      this.ctx.fillRect(q.x, q.y, q.w, q.h);
-      this.ctx.strokeStyle = '#fff';
-      this.ctx.lineWidth = 2;
-      this.ctx.strokeRect(q.x, q.y, q.w, q.h);
-      if (!q.hit) {
-        this.ctx.fillStyle = '#fff';
-        this.ctx.font = 'bold 20px sans-serif';
-        this.ctx.fillText('?', q.x + 10, q.y + 24);
-      }
+      this.drawQuestionBlock(q.x, q.y, q.hit);
     }
 
-    // Draw Power-Up Items
     for (const item of this.powerUpItems) {
       if (!item.collected) {
-        if (item.type === 'mushroom') {
-          this.ctx.fillStyle = '#ef4444';
-          this.ctx.beginPath();
-          this.ctx.arc(item.x + 14, item.y + 14, 14, 0, Math.PI * 2);
-          this.ctx.fill();
-        } else if (item.type === 'flower') {
-          this.ctx.fillStyle = '#f97316';
-          this.ctx.beginPath();
-          this.ctx.arc(item.x + 14, item.y + 14, 14, 0, Math.PI * 2);
-          this.ctx.fill();
-        } else if (item.type === 'star') {
-          this.ctx.fillStyle = '#eab308';
-          this.ctx.beginPath();
-          this.ctx.arc(item.x + 14, item.y + 14, 14, 0, Math.PI * 2);
-          this.ctx.fill();
-        }
+        if (item.type === 'mushroom') this.drawSuperMushroom(item.x, item.y);
+        else if (item.type === 'flower') this.drawFireFlower(item.x, item.y);
+        else if (item.type === 'star') this.drawSuperStar(item.x, item.y);
       }
     }
 
-    // Draw Coins
     this.ctx.fillStyle = '#eab308';
     for (const c of this.coinsList) {
       if (!c.collected) {
@@ -815,7 +772,6 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Draw Fireballs
     this.ctx.fillStyle = '#ef4444';
     for (const f of this.fireballs) {
       if (f.active) {
@@ -825,18 +781,13 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Draw Enemies
     for (const e of this.enemies) {
       if (e.alive) {
-        this.ctx.fillStyle = e.type === 'koopa' ? '#16a34a' : '#78350f';
-        this.ctx.fillRect(e.x, e.y, e.w, e.h);
-        this.ctx.fillStyle = '#fff';
-        this.ctx.fillRect(e.x + 6, e.y + 6, 6, 8);
-        this.ctx.fillRect(e.x + 20, e.y + 6, 6, 8);
+        if (e.type === 'koopa') this.drawKoopa(e.x, e.y);
+        else this.drawGoomba(e.x, e.y);
       }
     }
 
-    // Draw Bowser Boss
     if (this.bowser.alive) {
       this.ctx.fillStyle = '#15803d';
       this.ctx.fillRect(this.bowser.x, this.bowser.y, this.bowser.w, this.bowser.h);
@@ -844,26 +795,22 @@ export class MarioCanvasEngine {
       this.ctx.fillRect(this.bowser.x + 10, this.bowser.y - 12, 12, 12);
       this.ctx.fillRect(this.bowser.x + 40, this.bowser.y - 12, 12, 12);
 
-      // Boss Health Bar
       this.ctx.fillStyle = 'rgba(0,0,0,0.5)';
       this.ctx.fillRect(this.bowser.x, this.bowser.y - 24, 64, 8);
       this.ctx.fillStyle = '#dc2626';
       this.ctx.fillRect(this.bowser.x, this.bowser.y - 24, (this.bowser.hp / this.bowser.maxHp) * 64, 8);
     }
 
-    // Draw Castle & Princess Peach
     this.ctx.fillStyle = '#475569';
     this.ctx.fillRect(this.castle.x, this.castle.y, this.castle.w, this.castle.h);
     this.ctx.fillStyle = '#0f172a';
     this.ctx.fillRect(this.castle.x + 80, this.castle.y + 140, 60, 80);
 
-    // Princess Peach
     this.ctx.fillStyle = '#ec4899';
     this.ctx.fillRect(this.peach.x, this.peach.y, this.peach.w, this.peach.h);
     this.ctx.fillStyle = '#eab308';
     this.ctx.fillRect(this.peach.x + 8, this.peach.y - 10, 16, 10);
 
-    // Draw Flagpole
     this.ctx.fillStyle = '#94a3b8';
     this.ctx.fillRect(this.flagPole.x, this.flagPole.y, this.flagPole.w, this.flagPole.h);
     this.ctx.fillStyle = '#22c55e';
@@ -874,57 +821,226 @@ export class MarioCanvasEngine {
     this.ctx.fillStyle = '#dc2626';
     this.ctx.fillRect(this.flagPole.x + 20, this.flagPole.y + 10, 40, 24);
 
-    // Warp Down Prompt Banner
     if (this.canWarpDown) {
       this.ctx.fillStyle = '#f59e0b';
       this.ctx.font = 'bold 16px sans-serif';
       this.ctx.fillText('⬇️ Press DOWN to Enter Warp Pipe!', this.x - 60, this.y - 20);
     }
 
-    // Draw Mario Character
-    const mHeight = this.isBig ? 54 : 44;
-    const mY = this.isBig ? this.y - 10 : this.y;
-
-    if (this.isInvincible) {
-      this.ctx.fillStyle = `hsl(${(Date.now() / 4) % 360}, 100%, 50%)`;
-    } else if (this.hasFire) {
-      this.ctx.fillStyle = '#ffffff';
-    } else {
-      this.ctx.fillStyle = '#dc2626';
-    }
-    this.ctx.fillRect(this.x, mY, this.width, mHeight);
-
-    this.ctx.fillStyle = '#2563eb';
-    this.ctx.fillRect(this.x + 4, mY + 20, 24, mHeight - 20);
-
-    this.ctx.fillStyle = '#dc2626';
-    this.ctx.fillRect(this.x + (this.facing === 'right' ? 8 : 0), mY, 24, 10);
+    // DRAW MARIO CHARACTER WITH GROWING TRANSFORMATION ANIMATION
+    this.drawMarioCharacter(this.x, this.y);
 
     this.ctx.restore();
   }
 
+  private drawMarioCharacter(mx: number, my: number): void {
+    // Check if Mario is currently in Growing Transformation (Small -> Big)
+    let mHeight = (this.isBig || this.hasFire) ? 54 : 44;
+
+    if (this.isGrowingTimer > 0) {
+      // Rapid height pulsation (44px <-> 54px) for authentic NES growth sequence!
+      const isPulseBig = Math.floor(this.isGrowingTimer / 4) % 2 === 0;
+      mHeight = isPulseBig ? 54 : 44;
+
+      // Draw Glowing Transformation Aura
+      this.ctx.fillStyle = `rgba(251, 191, 36, ${0.4 + (this.isGrowingTimer % 5) * 0.1})`;
+      this.ctx.fillRect(mx - 8, my - (mHeight - 44) - 4, this.width + 16, mHeight + 8);
+    }
+
+    const renderY = my - (mHeight - 44);
+
+    // Color Palettes
+    let capColor = '#dc2626';
+    let shirtColor = '#dc2626';
+    let overallsColor = '#2563eb';
+
+    if (this.isInvincible) {
+      capColor = `hsl(${(Date.now() / 3) % 360}, 100%, 50%)`;
+      shirtColor = capColor;
+      overallsColor = `hsl(${(Date.now() / 3 + 120) % 360}, 100%, 50%)`;
+    } else if (this.hasFire) {
+      capColor = '#ffffff';
+      shirtColor = '#ffffff';
+      overallsColor = '#dc2626';
+    }
+
+    // Cap
+    this.ctx.fillStyle = capColor;
+    this.ctx.fillRect(mx + (this.facing === 'right' ? 6 : 0), renderY, 22, 10);
+    this.ctx.fillRect(mx + (this.facing === 'right' ? 12 : 2), renderY + 4, 18, 6);
+
+    // Face / Skin
+    this.ctx.fillStyle = '#fed7aa';
+    this.ctx.fillRect(mx + 6, renderY + 10, 18, 12);
+
+    // Mustache & Eye
+    this.ctx.fillStyle = '#451a03';
+    this.ctx.fillRect(mx + (this.facing === 'right' ? 16 : 4), renderY + 12, 4, 4); // Eye
+    this.ctx.fillRect(mx + (this.facing === 'right' ? 14 : 2), renderY + 18, 12, 4); // Mustache
+
+    // Shirt & Torso
+    this.ctx.fillStyle = shirtColor;
+    this.ctx.fillRect(mx + 4, renderY + 22, 24, 14);
+
+    // Blue Overalls & Straps
+    this.ctx.fillStyle = overallsColor;
+    this.ctx.fillRect(mx + 6, renderY + 28, 20, mHeight - 34);
+
+    // Yellow Overall Buttons
+    this.ctx.fillStyle = '#f59e0b';
+    this.ctx.fillRect(mx + 8, renderY + 30, 3, 3);
+    this.ctx.fillRect(mx + 19, renderY + 30, 3, 3);
+
+    // Boots / Feet with Walking Motion
+    const isMoving = Math.abs(this.vx) > 0.5;
+    const legOffset = isMoving ? Math.sin(this.animFrame * 0.4) * 4 : 0;
+
+    this.ctx.fillStyle = '#78350f';
+    this.ctx.fillRect(mx + 2 + legOffset, renderY + mHeight - 8, 12, 8);
+    this.ctx.fillRect(mx + 16 - legOffset, renderY + mHeight - 8, 12, 8);
+  }
+
+  private drawQuestionBlock(x: number, y: number, hit: boolean): void {
+    this.ctx.fillStyle = hit ? '#94a3b8' : '#f59e0b';
+    this.ctx.fillRect(x, y, 32, 32);
+    this.ctx.strokeStyle = '#fff';
+    this.ctx.lineWidth = 2;
+    this.ctx.strokeRect(x, y, 32, 32);
+    if (!hit) {
+      this.ctx.fillStyle = '#fff';
+      this.ctx.font = 'bold 20px sans-serif';
+      this.ctx.fillText('?', x + 10, y + 24);
+    }
+  }
+
+  private drawSuperMushroom(x: number, y: number): void {
+    // Red Cap
+    this.ctx.fillStyle = '#ef4444';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 14, y + 12, 14, Math.PI, 0);
+    this.ctx.fill();
+
+    // White Spots
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 14, y + 6, 4, 0, Math.PI * 2);
+    this.ctx.arc(x + 6, y + 10, 3, 0, Math.PI * 2);
+    this.ctx.arc(x + 22, y + 10, 3, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // Stem & Eyes
+    this.ctx.fillStyle = '#fde047';
+    this.ctx.fillRect(x + 6, y + 12, 16, 14);
+    this.ctx.fillStyle = '#000000';
+    this.ctx.fillRect(x + 9, y + 14, 2, 6);
+    this.ctx.fillRect(x + 17, y + 14, 2, 6);
+  }
+
+  private drawFireFlower(x: number, y: number): void {
+    // Green Stem & Leaves
+    this.ctx.fillStyle = '#22c55e';
+    this.ctx.fillRect(x + 12, y + 14, 4, 14);
+    this.ctx.fillRect(x + 6, y + 20, 16, 4);
+
+    // Orange Petals
+    this.ctx.fillStyle = '#f97316';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 14, y + 10, 10, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // Yellow Center & Eyes
+    this.ctx.fillStyle = '#fef08a';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 14, y + 10, 5, 0, Math.PI * 2);
+    this.ctx.fill();
+    this.ctx.fillStyle = '#000';
+    this.ctx.fillRect(x + 12, y + 9, 1.5, 3);
+    this.ctx.fillRect(x + 15, y + 9, 1.5, 3);
+  }
+
+  private drawSuperStar(x: number, y: number): void {
+    this.ctx.fillStyle = '#eab308';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 14, y + 14, 12, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // Star Eyes
+    this.ctx.fillStyle = '#000000';
+    this.ctx.fillRect(x + 10, y + 10, 2, 6);
+    this.ctx.fillRect(x + 16, y + 10, 2, 6);
+  }
+
+  private drawGoomba(x: number, y: number): void {
+    const walkFrame = Math.floor(this.animFrame / 10) % 2;
+
+    // Head
+    this.ctx.fillStyle = '#78350f';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 16, y + 14, 14, Math.PI, 0);
+    this.ctx.fillRect(x + 2, y + 14, 28, 10);
+    this.ctx.fill();
+
+    // Eyes & Pupils
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillRect(x + 8, y + 10, 5, 8);
+    this.ctx.fillRect(x + 19, y + 10, 5, 8);
+    this.ctx.fillStyle = '#000000';
+    this.ctx.fillRect(x + 10, y + 12, 3, 4);
+    this.ctx.fillRect(x + 19, y + 12, 3, 4);
+
+    // Walking Feet
+    this.ctx.fillStyle = '#000000';
+    if (walkFrame === 0) {
+      this.ctx.fillRect(x + 2, y + 24, 10, 8);
+      this.ctx.fillRect(x + 20, y + 24, 10, 8);
+    } else {
+      this.ctx.fillRect(x + 4, y + 24, 10, 8);
+      this.ctx.fillRect(x + 18, y + 24, 10, 8);
+    }
+  }
+
+  private drawKoopa(x: number, y: number): void {
+    const walkFrame = Math.floor(this.animFrame / 10) % 2;
+
+    // Green Shell
+    this.ctx.fillStyle = '#16a34a';
+    this.ctx.beginPath();
+    this.ctx.arc(x + 16, y + 16, 12, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // Yellow Head & Feet
+    this.ctx.fillStyle = '#fde047';
+    this.ctx.fillRect(x + 20, y + 4, 10, 10);
+    this.ctx.fillStyle = '#000';
+    this.ctx.fillRect(x + 26, y + 6, 2, 4);
+
+    this.ctx.fillStyle = '#ea580c';
+    if (walkFrame === 0) {
+      this.ctx.fillRect(x + 4, y + 24, 10, 8);
+      this.ctx.fillRect(x + 18, y + 24, 10, 8);
+    } else {
+      this.ctx.fillRect(x + 8, y + 24, 10, 8);
+      this.ctx.fillRect(x + 14, y + 24, 10, 8);
+    }
+  }
+
   private drawWarpPipe(x: number, y: number, w: number, h: number, isEnterable?: boolean): void {
-    // Pipe Lip / Rim Top
     this.ctx.fillStyle = '#22c55e';
     this.ctx.fillRect(x - 4, y, w + 8, 20);
     this.ctx.fillStyle = '#15803d';
     this.ctx.fillRect(x - 4, y + 16, w + 8, 4);
 
-    // Pipe Lip Highlight
     this.ctx.fillStyle = '#4ade80';
     this.ctx.fillRect(x, y + 2, 8, 14);
 
-    // Pipe Body
     this.ctx.fillStyle = '#166534';
     this.ctx.fillRect(x, y + 20, w, h - 20);
     this.ctx.fillStyle = '#22c55e';
     this.ctx.fillRect(x + 4, y + 20, w - 8, h - 20);
 
-    // Pipe Body Highlight
     this.ctx.fillStyle = '#4ade80';
     this.ctx.fillRect(x + 4, y + 20, 8, h - 20);
 
-    // Enterable Indicator Arrow
     if (isEnterable) {
       this.ctx.fillStyle = '#fef08a';
       this.ctx.font = 'bold 16px sans-serif';
@@ -943,7 +1059,6 @@ export class MarioCanvasEngine {
     this.ctx.ellipse(x + w / 2, y + h, w / 2.4, h / 1.2, 0, Math.PI, 0);
     this.ctx.fill();
 
-    // Smiling Eyes detail
     this.ctx.fillStyle = '#052e16';
     this.ctx.fillRect(x + w / 2 - 12, y + h / 2, 4, 12);
     this.ctx.fillRect(x + w / 2 + 8, y + h / 2, 4, 12);

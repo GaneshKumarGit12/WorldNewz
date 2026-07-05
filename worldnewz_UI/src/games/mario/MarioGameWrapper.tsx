@@ -81,6 +81,7 @@ const MarioGameWrapper: React.FC = () => {
         setIsInvincible(engine.isInvincible);
         setIsUnderground(engine.isUnderground);
         setCanWarpDown(engine.canWarpDown);
+        if (engine.transformMsg) setStatusMsg(engine.transformMsg);
         if (engine.isGameOver) setGameOver(true);
         if (engine.isGameWon) setGameWon(true);
       }, 100);
