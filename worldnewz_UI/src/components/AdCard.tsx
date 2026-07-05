@@ -368,7 +368,7 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
   };
 
   return (
-    <Box ref={containerRef} sx={{ width: "100%", height: "100%", minHeight: 320 }}>
+    <Box ref={containerRef} role="region" aria-label="Advertisement" sx={{ width: "100%", height: "100%", minHeight: 320, my: 2, backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 2, p: 1 }}>
       {renderContent()}
     </Box>
   );

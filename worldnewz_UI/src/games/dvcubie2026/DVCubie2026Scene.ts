@@ -1060,7 +1060,14 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     });
 
     const score = this.getSnakeScore(this.playerSnake);
+    // Emit game over with the final score
     this.game.events.emit("game-over", score);
+    // Reset player head value to zero to clear any lingering high score
+    if (this.playerSnake.head) {
+      this.playerSnake.head.setData("value", 0);
+    }
+    // Update arena rankings so UI reflects reset score
+    this.updateArenaRankings();
   }
 
   private rollNextCube() {

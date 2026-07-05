@@ -431,6 +431,7 @@ const GameWrapper: React.FC = () => {
       playSound("gameover");
       setCurrentScreen("gameover");
       destroyPhaserGame();
+        setScore(0);
 
       const savedHighScore = localStorage.getItem("dvcubie2026_highscore");
       const currentHigh = savedHighScore ? parseInt(savedHighScore, 10) : 0;

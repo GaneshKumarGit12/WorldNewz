@@ -16,6 +16,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { getAuthorForCategory } from "../utils/authors";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { Grid } from "@mui/material";
+import { AffiliateDisclosure } from "../components/AffiliateDisclosure";
 import { DailyNewsQuizWidget } from "../components/DailyNewsQuizWidget";
 import { WeatherWidget } from "../components/WeatherWidget";
 import { useComments } from "../hooks/useComments";
@@ -797,7 +798,7 @@ const ReadFullArticles: React.FC = () => {
           />
         </SectionStatus>
       </Box>
-
+<AffiliateDisclosure />
       {/* Share Menu */}
       <Menu
         anchorEl={shareAnchorEl}
