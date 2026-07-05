@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 /**
  * Affiliate disclosure banner as per user-provided wording.
  */
-const AffiliateDisclosure: React.FC = () => (
+export const AffiliateDisclosure: React.FC = () => (
   <Box
     sx={{
       width: '100%',
