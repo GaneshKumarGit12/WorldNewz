@@ -22,26 +22,22 @@ import {
   VolumeOff,
   ArrowLeft,
   ArrowRight,
+  ArrowDownward,
   Close,
   HelpOutline,
   LocalFireDepartment,
   Timer,
-  Public
+  SportsEsports
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { MarioCanvasEngine, type MarioTheme, type TimeOfDay } from "./MarioScene";
+import { MarioCanvasEngine } from "./MarioScene";
 import { SEOMeta } from "../../seo/SEOMeta";
 
-const WORLD_VARIATIONS = [
-  { world: "World 1", theme: "Overworld" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W1: Overworld 🌳" },
-  { world: "World 2", theme: "Desert" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W2: Desert 🏜️" },
-  { world: "World 3", theme: "Snow" as MarioTheme, time: "Day" as TimeOfDay, particles: 1, label: "W3: Snow ❄️" },
-  { world: "World 4", theme: "Beach" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W4: Beach 🏖️" },
-  { world: "World 5", theme: "Jungle" as MarioTheme, time: "Day" as TimeOfDay, particles: 2, label: "W5: Jungle 🌴" },
-  { world: "World 6", theme: "Mountain" as MarioTheme, time: "Day" as TimeOfDay, particles: 0, label: "W6: Mountain ⛰️" },
-  { world: "World 7", theme: "Autumn" as MarioTheme, time: "Day" as TimeOfDay, particles: 2, label: "W7: Autumn 🍂" },
-  { world: "World 8", theme: "Volcano" as MarioTheme, time: "Day" as TimeOfDay, particles: 3, label: "W8: Volcano 🔥" },
-  { world: "World 9", theme: "Space" as MarioTheme, time: "Night" as TimeOfDay, particles: 0, label: "W9: Space 🌌" }
+const SMB_LEVELS = [
+  { world: 1, level: 1, label: "World 1-1 🌳 (Overworld)", desc: "Classic NES 1-1 stage with Warp Pipe to Underground Bonus Room & Pyramids" },
+  { world: 1, level: 2, label: "World 1-2 🟦 (Underground)", desc: "Subterranean brick cave, blue background, warp zone pipes" },
+  { world: 1, level: 3, label: "World 1-3 ☁️ (Athletic Sky)", desc: "High-altitude mushroom platforms, athletic sky jumps" },
+  { world: 1, level: 4, label: "World 1-4 🏰 (Bowser Castle)", desc: "Lava pits, fire bars, stone bridge, Bowser boss battle" }
 ];
 
 const MarioGameWrapper: React.FC = () => {
@@ -50,7 +46,7 @@ const MarioGameWrapper: React.FC = () => {
   const engineRef = useRef<MarioCanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [selectedWorldIndex, setSelectedWorldIndex] = useState(0);
+  const [selectedLevelIdx, setSelectedLevelIdx] = useState(0);
   const [score, setScore] = useState(0);
   const [coins, setCoins] = useState(0);
   const [lives, setLives] = useState(3);
@@ -58,6 +54,8 @@ const MarioGameWrapper: React.FC = () => {
   const [isBig, setIsBig] = useState(false);
   const [hasFire, setHasFire] = useState(false);
   const [isInvincible, setIsInvincible] = useState(false);
+  const [isUnderground, setIsUnderground] = useState(false);
+  const [canWarpDown, setCanWarpDown] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -81,6 +79,8 @@ const MarioGameWrapper: React.FC = () => {
         setIsBig(engine.isBig);
         setHasFire(engine.hasFire);
         setIsInvincible(engine.isInvincible);
+        setIsUnderground(engine.isUnderground);
+        setCanWarpDown(engine.canWarpDown);
         if (engine.isGameOver) setGameOver(true);
         if (engine.isGameWon) setGameWon(true);
       }, 100);
@@ -92,25 +92,23 @@ const MarioGameWrapper: React.FC = () => {
     }
   }, []);
 
-  const handleSelectWorldTheme = (index: number) => {
-    setSelectedWorldIndex(index);
-    const varItem = WORLD_VARIATIONS[index];
+  const handleSelectLevel = (index: number) => {
+    setSelectedLevelIdx(index);
+    const lvl = SMB_LEVELS[index];
     if (engineRef.current) {
-      engineRef.current.setWorldTheme(varItem.theme, varItem.time, varItem.particles);
+      engineRef.current.loadLevel(lvl.world, lvl.level);
     }
   };
 
   const handleRestart = () => {
     if (engineRef.current) {
       engineRef.current.reset();
-      const varItem = WORLD_VARIATIONS[selectedWorldIndex];
-      engineRef.current.setWorldTheme(varItem.theme, varItem.time, varItem.particles);
       setGameOver(false);
       setGameWon(false);
     }
   };
 
-  const handleMobileInput = (action: "left" | "right" | "jump" | "fire" | "stop") => {
+  const handleMobileInput = (action: "left" | "right" | "jump" | "fire" | "down" | "stop") => {
     if (engineRef.current) {
       engineRef.current.handleMobileInput(action);
     }
@@ -122,9 +120,9 @@ const MarioGameWrapper: React.FC = () => {
 
     const saveData = {
       playerId,
-      saveName: `Super Mario ${WORLD_VARIATIONS[selectedWorldIndex].world}`,
+      saveName: `Super Mario ${SMB_LEVELS[selectedLevelIdx].label}`,
       gameId: "mario_runner",
-      dataJson: JSON.stringify({ score, coins, lives, stage: WORLD_VARIATIONS[selectedWorldIndex].world }),
+      dataJson: JSON.stringify({ score, coins, lives, stage: SMB_LEVELS[selectedLevelIdx].label }),
       coverImageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=300&q=80"
     };
 
@@ -154,8 +152,8 @@ const MarioGameWrapper: React.FC = () => {
   return (
     <>
       <SEOMeta
-        title="Super Mario Retro Runner 🍄 | WorldNewzs Play Games"
-        description="Official Super Mario Retro Runner on WorldNewzs! Experience 2D platforming across 9 Worlds (Overworld, Desert, Snow, Jungle, Volcano, Space), mushroom growth, fire flowers, invincibility stars, Bowser boss fight, and Princess Peach rescue."
+        title="Super Mario Bros 🍄 | WorldNewzs Play Games"
+        description="Play authentic Super Mario Bros NES levels on WorldNewzs! Experience World 1-1 to 1-4 with green Warp Pipes to Underground Bonus Rooms, green hills, staircase pyramids, Bowser castle bridge, mushroom growth, fire flowers, and Princess Peach rescue."
         canonical="https://worldnewzs.in/games/mario"
       />
 
@@ -227,7 +225,7 @@ const MarioGameWrapper: React.FC = () => {
                 fontSize: { xs: "1.2rem", sm: "1.6rem" }
               }}
             >
-              🍄 Super Mario Retro World
+              🍄 Super Mario Bros NES Edition
             </Typography>
 
             <Box sx={{ display: "flex", gap: 1 }}>
@@ -250,18 +248,18 @@ const MarioGameWrapper: React.FC = () => {
             </Box>
           </Box>
 
-          {/* WORLD THEME VARIATIONS SELECTOR BAR (From User Spec) */}
+          {/* AUTHENTIC SMB LEVEL SELECTOR BAR */}
           <Paper elevation={4} sx={{ p: 1, mb: 1.5, bgcolor: "rgba(30, 41, 59, 0.9)", borderRadius: 3, color: "#fff" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
-              <Public color="error" fontSize="small" />
-              <Typography variant="caption" fontWeight={700}>Select World Theme:</Typography>
+              <SportsEsports color="error" fontSize="small" />
+              <Typography variant="caption" fontWeight={700}>Select Stage Level:</Typography>
               <Box sx={{ display: "flex", gap: 0.8, overflowX: "auto", py: 0.5, maxWidth: "100%" }}>
-                {WORLD_VARIATIONS.map((w, idx) => (
+                {SMB_LEVELS.map((lvl, idx) => (
                   <Chip
-                    key={w.world}
-                    label={w.label}
-                    onClick={() => handleSelectWorldTheme(idx)}
-                    color={selectedWorldIndex === idx ? "error" : "default"}
+                    key={lvl.label}
+                    label={lvl.label}
+                    onClick={() => handleSelectLevel(idx)}
+                    color={selectedLevelIdx === idx ? "error" : "default"}
                     size="small"
                     sx={{ cursor: "pointer", fontWeight: 700, flexShrink: 0 }}
                   />
@@ -290,7 +288,9 @@ const MarioGameWrapper: React.FC = () => {
                 sx={{ fontWeight: 800 }}
               />
 
-              {/* Power-Up Status Badges */}
+              {/* Power-Up & Warp Status Badges */}
+              {isUnderground && <Chip label="🟦 Underground Bonus Room" size="small" color="info" sx={{ fontWeight: 800 }} />}
+              {canWarpDown && <Chip label="⬇️ Enter Warp Pipe Ready" size="small" color="warning" sx={{ fontWeight: 800 }} />}
               {isBig && <Chip label="🍄 Big Mario" size="small" color="error" sx={{ fontWeight: 700 }} />}
               {hasFire && <Chip label="🔥 Fire Suit" size="small" color="warning" sx={{ fontWeight: 700 }} />}
               {isInvincible && <Chip label="⭐ Invincible" size="small" color="success" sx={{ fontWeight: 700 }} />}
@@ -346,7 +346,7 @@ const MarioGameWrapper: React.FC = () => {
             />
           </Paper>
 
-          {/* TOUCH D-PAD & FIRE CONTROLS FOR MOBILE / TABLET */}
+          {/* TOUCH D-PAD & CONTROLS FOR MOBILE / TABLET */}
           <Box sx={{ display: { xs: "flex", sm: "none" }, justifyContent: "space-between", alignItems: "center", mt: 1.5, px: 1 }}>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Button
@@ -356,7 +356,7 @@ const MarioGameWrapper: React.FC = () => {
                 onMouseUp={() => handleMobileInput("stop")}
                 onTouchStart={() => handleMobileInput("left")}
                 onTouchEnd={() => handleMobileInput("stop")}
-                sx={{ borderRadius: "50%", minWidth: 52, height: 52, bgcolor: "#334155" }}
+                sx={{ borderRadius: "50%", minWidth: 50, height: 50, bgcolor: "#334155" }}
               >
                 <ArrowLeft />
               </Button>
@@ -367,9 +367,18 @@ const MarioGameWrapper: React.FC = () => {
                 onMouseUp={() => handleMobileInput("stop")}
                 onTouchStart={() => handleMobileInput("right")}
                 onTouchEnd={() => handleMobileInput("stop")}
-                sx={{ borderRadius: "50%", minWidth: 52, height: 52, bgcolor: "#334155" }}
+                sx={{ borderRadius: "50%", minWidth: 50, height: 50, bgcolor: "#334155" }}
               >
                 <ArrowRight />
+              </Button>
+              <Button
+                variant="contained"
+                color="warning"
+                size="large"
+                onClick={() => handleMobileInput("down")}
+                sx={{ borderRadius: "50%", minWidth: 50, height: 50, fontWeight: 900 }}
+              >
+                <ArrowDownward />
               </Button>
             </Box>
 
@@ -380,7 +389,7 @@ const MarioGameWrapper: React.FC = () => {
                   color="warning"
                   size="large"
                   onClick={() => handleMobileInput("fire")}
-                  sx={{ borderRadius: "50%", minWidth: 56, height: 56, fontWeight: 900 }}
+                  sx={{ borderRadius: "50%", minWidth: 52, height: 52, fontWeight: 900 }}
                 >
                   <LocalFireDepartment />
                 </Button>
@@ -428,7 +437,7 @@ const MarioGameWrapper: React.FC = () => {
               WebkitTextFillColor: "transparent"
             }}
           >
-            🎮 Super Mario – Rules & How to Play
+            🎮 Super Mario Bros NES – Rules & How to Play
           </Typography>
           <Typography variant="subtitle2" color="grey.400">
             Quick-Start Blueprint & Infographic Guide
@@ -441,48 +450,49 @@ const MarioGameWrapper: React.FC = () => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#2563eb", color: "#fff", height: "100%" }}>
                 <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-                  🏰 1. Objective
+                  🏰 1. Objective & Stages
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
-                  Complete World levels and rescue <strong>Princess Peach</strong> from Bowser! Reach the castle flagpole at the end of each stage.
+                  Complete World levels (1-1 Overworld, 1-2 Underground, 1-3 Athletic, 1-4 Bowser Castle) and rescue <strong>Princess Peach</strong>!
                 </Typography>
               </Paper>
             </Grid>
 
-            {/* 2. Lives & Coins Block (Yellow) */}
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#ca8a04", color: "#fff", height: "100%" }}>
-                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-                  💰 2. Lives & Coins
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
-                  Start with 3 Lives. Falling into pits or taking hits loses 1 Life. Collect <strong>100 Coins</strong> to earn an <strong>Extra Life (+1 ❤️)</strong>!
-                </Typography>
-              </Paper>
-            </Grid>
-
-            {/* 3. Power-Ups Block (Green) */}
+            {/* 2. Warp Pipe System (Green) */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#16a34a", color: "#fff", height: "100%" }}>
                 <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-                  ⭐ 3. Power-Ups
+                  🧪 2. Green Warp Pipes
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
+                  Stand on top of enterable Green Warp Pipes (marked with ⬇️) and press <strong>ArrowDown</strong> to warp into the Underground Coin Heaven Bonus Room!
+                </Typography>
+              </Paper>
+            </Grid>
+
+            {/* 3. Power-Ups Block (Yellow) */}
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#ca8a04", color: "#fff", height: "100%" }}>
+                <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                  ⭐ 3. Power-Ups & Coins
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
                   • 🍄 <strong>Mushroom</strong>: Mario grows big!<br />
                   • 🔥 <strong>Fire Flower</strong>: Shoot fireballs with <code>Shift</code> or Fire button.<br />
-                  • ⭐ <strong>Star</strong>: 10 seconds of invincibility!
+                  • ⭐ <strong>Star</strong>: 10 seconds of invincibility!<br />
+                  • 🪙 Collect 100 Coins for an Extra Life (+1 ❤️).
                 </Typography>
               </Paper>
             </Grid>
 
-            {/* 4. Enemies Block (Orange) */}
+            {/* 4. Staircases & Flagpole (Orange) */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#ea580c", color: "#fff", height: "100%" }}>
                 <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-                  👾 4. Enemies & Combat
+                  🚩 4. Staircase Pyramids & Flagpole
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
-                  Avoid Goombas & Koopas. Jump on top of enemies to stomp them, or blast them with Fireballs when Fire Flower suit is equipped!
+                  Climb the staircase pyramid blocks at the end of stage 1-1, jump for the top of the flagpole to earn maximum score, and enter the castle!
                 </Typography>
               </Paper>
             </Grid>
@@ -496,19 +506,20 @@ const MarioGameWrapper: React.FC = () => {
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
                   • <strong>Move</strong>: Arrow Keys / <code>A</code> & <code>D</code> / Touch D-Pad<br />
                   • <strong>Jump</strong>: Space / <code>W</code> / Touch Jump<br />
+                  • <strong>Warp Down</strong>: <code>ArrowDown</code> / Touch Down<br />
                   • <strong>Fireball</strong>: <code>Shift</code> / <code>F</code> / Touch Fire
                 </Typography>
               </Paper>
             </Grid>
 
-            {/* 6. Winning Block (Red) */}
+            {/* 6. Bowser Castle Boss Fight (Red) */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Paper sx={{ p: 2.5, borderRadius: 3, bgcolor: "#dc2626", color: "#fff", height: "100%" }}>
                 <Typography variant="h6" fontWeight={800} sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-                  🎉 6. Winning & Castle Boss
+                  🔥 6. Bowser Castle Battle
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.95, lineHeight: 1.6 }}>
-                  Reach the Castle, defeat Bowser with Fireballs or Invincibility Star, slide down the Flagpole, and rescue Princess Peach!
+                  In World 1-4, cross the lava bridge and defeat Bowser using Fireballs or Star invincibility to rescue Princess Peach!
                 </Typography>
               </Paper>
             </Grid>

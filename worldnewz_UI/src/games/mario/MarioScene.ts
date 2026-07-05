@@ -27,6 +27,17 @@ export interface Particle {
   color: string;
 }
 
+export interface WarpPipe {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  isEnterable?: boolean;
+  warpTarget?: 'underground' | 'overworld';
+  returnX?: number;
+  returnY?: number;
+}
+
 export type MarioTheme =
   | 'Overworld'
   | 'Underground'
@@ -51,7 +62,7 @@ export class MarioCanvasEngine {
   private animationFrameId: number | null = null;
   private timerInterval: number | null = null;
 
-  // Mario physics & power-up state
+  // Mario physics & state
   public x: number = 60;
   public y: number = 280;
   public vx: number = 0;
@@ -67,47 +78,57 @@ export class MarioCanvasEngine {
   public isInvincible: boolean = false;
   public invincibleTimer: number = 0;
 
-  // Theme & Variations Engine (From Spec)
+  // Themes & Environment
   public currentTheme: MarioTheme = 'Overworld';
   public timeOfDay: TimeOfDay = 'Day';
-  public particlesType: number = 0; // 0: None, 1: Snowflakes, 2: Leaves, 3: Embers
+  public particlesType: number = 0;
   public particlesList: Particle[] = [];
 
-  // Game stats
+  // Level & World State
+  public worldNum: number = 1;
+  public levelNum: number = 1;
+  public isUnderground: boolean = false;
+  public canWarpDown: boolean = false;
+
+  // Game Stats
   public score: number = 0;
   public coins: number = 0;
   public lives: number = 3;
   public timeLeft: number = 300;
   public isGameOver: boolean = false;
   public isGameWon: boolean = false;
-  public level: number = 1;
 
-  // Key states
+  // Key States
   public keys: Record<string, boolean> = {};
 
-  // Projectiles
+  // Projectiles & Entities
   public fireballs: Fireball[] = [];
+  public platforms: { x: number; y: number; w: number; h: number; type?: string }[] = [];
+  public pipesList: WarpPipe[] = [];
+  public coinsList: { x: number; y: number; collected: boolean }[] = [];
+  public enemies: { x: number; y: number; w: number; h: number; vx: number; alive: boolean; type?: string }[] = [];
+  public powerUpItems: { x: number; y: number; type: 'mushroom' | 'flower' | 'star'; collected: boolean }[] = [];
+  public questionBlocks: { x: number; y: number; w: number; h: number; hit: boolean; type: 'coin' | 'mushroom' | 'flower' | 'star' }[] = [];
+  public hillsList: { x: number; y: number; w: number; h: number }[] = [];
+  public cloudsList: { x: number; y: number; scale: number }[] = [];
 
-  // Entities
-  private platforms: { x: number; y: number; w: number; h: number; type?: string }[] = [];
-  private coinsList: { x: number; y: number; collected: boolean }[] = [];
-  private enemies: { x: number; y: number; w: number; h: number; vx: number; alive: boolean; type?: string }[] = [];
-  private powerUpItems: { x: number; y: number; type: 'mushroom' | 'flower' | 'star'; collected: boolean }[] = [];
-  private questionBlocks: { x: number; y: number; w: number; h: number; hit: boolean; type: 'coin' | 'mushroom' | 'flower' | 'star' }[] = [];
+  // Underground Bonus Room Entities
+  public undergroundCoins: { x: number; y: number; collected: boolean }[] = [];
+  public undergroundExitPipe: WarpPipe = { x: 450, y: 280, w: 56, h: 100, isEnterable: true, warpTarget: 'overworld' };
 
   // Goal & Boss
-  public flagPole = { x: 2100, y: 120, w: 20, h: 260 };
-  public castle = { x: 2250, y: 160, w: 220, h: 220 };
-  public bowser: BowserBoss = { x: 2320, y: 300, w: 64, h: 64, hp: 5, maxHp: 5, vx: -1.5, fireCooldown: 0, alive: true };
-  public peach = { x: 2420, y: 310, w: 32, h: 48, rescued: false };
+  public flagPole = { x: 2150, y: 120, w: 20, h: 260 };
+  public castle = { x: 2280, y: 160, w: 220, h: 220 };
+  public bowser: BowserBoss = { x: 2360, y: 310, w: 64, h: 64, hp: 5, maxHp: 5, vx: -1.5, fireCooldown: 0, alive: true };
+  public peach = { x: 2460, y: 310, w: 32, h: 48, rescued: false };
 
-  // World Camera offset
+  // Camera Offset
   public cameraX: number = 0;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d')!;
-    this.initLevel();
+    this.loadLevel(1, 1);
   }
 
   public setWorldTheme(theme: MarioTheme, time: TimeOfDay = 'Day', particles: number = 0): void {
@@ -121,26 +142,22 @@ export class MarioCanvasEngine {
     this.particlesList = [];
     if (this.particlesType === 0) return;
 
-    const count = 40;
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < 40; i++) {
       let pColor = '#ffffff';
       let vy = 1;
       let vx = 0;
 
       if (this.particlesType === 1) {
-        // Snowflakes
         pColor = '#ffffff';
         vy = Math.random() * 1.5 + 0.8;
         vx = (Math.random() - 0.5) * 0.6;
       } else if (this.particlesType === 2) {
-        // Autumn / Jungle Leaves
         pColor = this.currentTheme === 'Autumn' ? '#f97316' : '#22c55e';
         vy = Math.random() * 1.2 + 0.5;
         vx = (Math.random() - 0.5) * 1.2;
       } else if (this.particlesType === 3) {
-        // Volcano / Lava Embers
         pColor = '#ef4444';
-        vy = -(Math.random() * 2 + 1); // Rise up!
+        vy = -(Math.random() * 2 + 1);
         vx = (Math.random() - 0.5) * 0.8;
       }
 
@@ -161,10 +178,13 @@ export class MarioCanvasEngine {
     this.coins = 0;
     this.isGameOver = false;
     this.isGameWon = false;
-    this.initLevel();
+    this.loadLevel(this.worldNum, this.levelNum);
   }
 
-  public initLevel(): void {
+  public loadLevel(world: number, level: number): void {
+    this.worldNum = world;
+    this.levelNum = level;
+    this.isUnderground = false;
     this.x = 60;
     this.y = 280;
     this.vx = 0;
@@ -178,54 +198,117 @@ export class MarioCanvasEngine {
     this.invincibleTimer = 0;
     this.fireballs = [];
 
-    this.initParticles();
+    // Themes based on Level
+    if (level === 2) {
+      this.setWorldTheme('Underground', 'Day', 0);
+    } else if (level === 3) {
+      this.setWorldTheme('Skyland', 'Day', 0);
+    } else if (level === 4) {
+      this.setWorldTheme('Castle', 'Day', 3);
+    } else {
+      this.setWorldTheme('Overworld', 'Day', 0);
+    }
 
-    // Reset Boss & Peach
-    this.bowser = { x: 2320, y: 310, w: 64, h: 64, hp: 5, maxHp: 5, vx: -1.5, fireCooldown: 0, alive: true };
-    this.peach = { x: 2420, y: 310, w: 32, h: 48, rescued: false };
+    // Reset Entities & Level Architecture
+    this.bowser = { x: 2360, y: 310, w: 64, h: 64, hp: 5, maxHp: 5, vx: -1.5, fireCooldown: 0, alive: true };
+    this.peach = { x: 2460, y: 310, w: 32, h: 48, rescued: false };
 
-    // Platforms (Ground & Elevated)
-    this.platforms = [
-      { x: 0, y: 380, w: 1000, h: 100 },
-      { x: 1080, y: 380, w: 800, h: 100 },
-      { x: 1940, y: 380, w: 700, h: 100 },
-      { x: 300, y: 260, w: 120, h: 30, type: 'brick' },
-      { x: 600, y: 220, w: 160, h: 30, type: 'brick' },
-      { x: 1200, y: 240, w: 200, h: 30, type: 'brick' },
-      { x: 1600, y: 200, w: 180, h: 30, type: 'brick' }
+    // Background Hills & Clouds
+    this.hillsList = [
+      { x: 50, y: 280, w: 160, h: 100 },
+      { x: 480, y: 260, w: 220, h: 120 },
+      { x: 920, y: 280, w: 160, h: 100 },
+      { x: 1400, y: 250, w: 240, h: 130 },
+      { x: 1950, y: 260, w: 200, h: 120 }
     ];
+
+    this.cloudsList = [
+      { x: 120, y: 60, scale: 1 },
+      { x: 340, y: 80, scale: 0.8 },
+      { x: 620, y: 50, scale: 1.2 },
+      { x: 980, y: 70, scale: 0.9 },
+      { x: 1350, y: 60, scale: 1.1 },
+      { x: 1720, y: 80, scale: 1 }
+    ];
+
+    // Platforms (Grounds & Pit Gaps)
+    this.platforms = [
+      { x: 0, y: 380, w: 900, h: 100 },
+      { x: 980, y: 380, w: 650, h: 100 },
+      { x: 1700, y: 380, w: 1100, h: 100 },
+      // Floating Brick Platforms
+      { x: 260, y: 260, w: 120, h: 30, type: 'brick' },
+      { x: 620, y: 220, w: 160, h: 30, type: 'brick' },
+      { x: 1180, y: 240, w: 200, h: 30, type: 'brick' },
+      { x: 1550, y: 200, w: 180, h: 30, type: 'brick' }
+    ];
+
+    // Staircase Pyramid Blocks (Before Flagpole)
+    this.createStaircase(1820, 380, 5, 'up');
+    this.createStaircase(1980, 380, 5, 'down');
+
+    // Warp Pipes (Authentic SMB Green Warp Pipes)
+    this.pipesList = [
+      { x: 380, y: 320, w: 56, h: 60 },
+      { x: 580, y: 290, w: 56, h: 90, isEnterable: true, warpTarget: 'underground', returnX: 1750, returnY: 330 },
+      { x: 840, y: 310, w: 56, h: 70 },
+      { x: 1450, y: 290, w: 56, h: 90 }
+    ];
+
+    // Underground Coins Bonus Room Setup
+    this.undergroundCoins = [];
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 5; col++) {
+        this.undergroundCoins.push({ x: 200 + col * 40, y: 160 + row * 40, collected: false });
+      }
+    }
+    this.undergroundExitPipe = { x: 500, y: 280, w: 56, h: 100, isEnterable: true, warpTarget: 'overworld', returnX: 1750, returnY: 330 };
 
     // Coins
     this.coinsList = [
-      { x: 320, y: 220, collected: false },
-      { x: 350, y: 220, collected: false },
-      { x: 380, y: 220, collected: false },
-      { x: 620, y: 180, collected: false },
-      { x: 660, y: 180, collected: false },
-      { x: 1220, y: 200, collected: false },
-      { x: 1260, y: 200, collected: false },
-      { x: 1300, y: 200, collected: false },
-      { x: 1620, y: 160, collected: false },
-      { x: 1660, y: 160, collected: false }
+      { x: 280, y: 220, collected: false },
+      { x: 310, y: 220, collected: false },
+      { x: 340, y: 220, collected: false },
+      { x: 640, y: 180, collected: false },
+      { x: 680, y: 180, collected: false },
+      { x: 1200, y: 200, collected: false },
+      { x: 1240, y: 200, collected: false },
+      { x: 1280, y: 200, collected: false }
     ];
 
-    // Question Blocks with Power-Ups
+    // Question Blocks
     this.questionBlocks = [
-      { x: 220, y: 260, w: 32, h: 32, hit: false, type: 'mushroom' },
-      { x: 640, y: 220, w: 32, h: 32, hit: false, type: 'flower' },
-      { x: 1240, y: 240, w: 32, h: 32, hit: false, type: 'star' },
-      { x: 1640, y: 200, w: 32, h: 32, hit: false, type: 'coin' }
+      { x: 200, y: 260, w: 32, h: 32, hit: false, type: 'mushroom' },
+      { x: 660, y: 220, w: 32, h: 32, hit: false, type: 'flower' },
+      { x: 1220, y: 240, w: 32, h: 32, hit: false, type: 'star' },
+      { x: 1580, y: 200, w: 32, h: 32, hit: false, type: 'coin' }
     ];
 
     this.powerUpItems = [];
 
-    // Enemies (Goombas & Koopas)
+    // Enemies
     this.enemies = [
-      { x: 450, y: 348, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
-      { x: 800, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'goomba' },
-      { x: 1350, y: 348, w: 32, h: 32, vx: -1.8, alive: true, type: 'koopa' },
-      { x: 1750, y: 348, w: 32, h: 32, vx: -2.0, alive: true, type: 'goomba' }
+      { x: 460, y: 348, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
+      { x: 740, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'goomba' },
+      { x: 1100, y: 348, w: 32, h: 32, vx: -1.8, alive: true, type: 'koopa' },
+      { x: 1650, y: 348, w: 32, h: 32, vx: -2.0, alive: true, type: 'goomba' }
     ];
+  }
+
+  private createStaircase(startX: number, groundY: number, steps: number, dir: 'up' | 'down'): void {
+    const size = 30;
+    for (let col = 0; col < steps; col++) {
+      const colHeight = dir === 'up' ? col + 1 : steps - col;
+      for (let row = 0; row < colHeight; row++) {
+        this.platforms.push({
+          x: startX + col * size,
+          y: groundY - (row + 1) * size,
+          w: size,
+          h: size,
+          type: 'brick'
+        });
+      }
+    }
   }
 
   public start(): void {
@@ -268,18 +351,45 @@ export class MarioCanvasEngine {
     if (e.key === 'Shift' || e.key === 'f' || e.key === 'F') {
       this.shootFireball();
     }
+    if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+      this.tryEnterWarpPipe();
+    }
   };
 
   private handleKeyUp = (e: KeyboardEvent) => {
     this.keys[e.key] = false;
   };
 
-  public handleMobileInput(action: 'left' | 'right' | 'jump' | 'fire' | 'stop'): void {
+  public handleMobileInput(action: 'left' | 'right' | 'jump' | 'fire' | 'down' | 'stop'): void {
     if (action === 'left') { this.keys['ArrowLeft'] = true; this.keys['ArrowRight'] = false; this.facing = 'left'; }
     else if (action === 'right') { this.keys['ArrowRight'] = true; this.keys['ArrowLeft'] = false; this.facing = 'right'; }
     else if (action === 'jump') { if (this.isGrounded) this.vy = -13.5; }
     else if (action === 'fire') { this.shootFireball(); }
+    else if (action === 'down') { this.tryEnterWarpPipe(); }
     else if (action === 'stop') { this.keys['ArrowLeft'] = false; this.keys['ArrowRight'] = false; }
+  }
+
+  public tryEnterWarpPipe(): void {
+    if (this.isUnderground) {
+      // Exit Underground back to Overworld
+      if (Math.abs(this.x - (this.undergroundExitPipe.x + 12)) < 30) {
+        this.isUnderground = false;
+        this.x = 1750;
+        this.y = 280;
+        this.cameraX = 1550;
+      }
+    } else {
+      // Check Overworld enterable pipes
+      for (const p of this.pipesList) {
+        if (p.isEnterable && this.x + 16 > p.x && this.x + 16 < p.x + p.w && Math.abs(this.y + 44 - p.y) < 10) {
+          this.isUnderground = true;
+          this.x = 100;
+          this.y = 280;
+          this.cameraX = 0;
+          break;
+        }
+      }
+    }
   }
 
   public shootFireball(): void {
@@ -323,19 +433,41 @@ export class MarioCanvasEngine {
     if (this.x < 0) this.x = 0;
     this.cameraX = Math.max(0, this.x - 200);
 
-    // Update Particles
-    for (const p of this.particlesList) {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.y > 450) p.y = -10;
-      if (p.y < -10) p.y = 450;
-      if (p.x < 0) p.x = 2800;
-      if (p.x > 2800) p.x = 0;
+    const mHeight = this.isBig ? 54 : 44;
+
+    // UNDERGROUND BONUS ROOM UPDATE
+    if (this.isUnderground) {
+      this.isGrounded = false;
+
+      // Underground Floor
+      if (this.y + mHeight >= 380) {
+        this.y = 380 - mHeight;
+        this.vy = 0;
+        this.isGrounded = true;
+      }
+
+      // Collect Underground Golden Coins
+      for (const c of this.undergroundCoins) {
+        if (!c.collected && Math.hypot(this.x + 16 - c.x, this.y + 22 - c.y) < 28) {
+          c.collected = true;
+          this.coins++;
+          this.score += 200;
+        }
+      }
+      return;
     }
 
-    // Platform Collisions
+    // OVERWORLD UPDATE
+    // Check Warp Pipe Prompt
+    this.canWarpDown = false;
+    for (const p of this.pipesList) {
+      if (p.isEnterable && this.x + 16 > p.x && this.x + 16 < p.x + p.w && Math.abs(this.y + mHeight - p.y) < 12) {
+        this.canWarpDown = true;
+      }
+    }
+
+    // Platform & Pipe Collisions
     this.isGrounded = false;
-    const mHeight = this.isBig ? 54 : 44;
 
     for (const p of this.platforms) {
       if (
@@ -345,6 +477,19 @@ export class MarioCanvasEngine {
         this.y + mHeight <= p.y + p.h + this.vy
       ) {
         this.y = p.y - mHeight;
+        this.vy = 0;
+        this.isGrounded = true;
+      }
+    }
+
+    for (const pipe of this.pipesList) {
+      if (
+        this.x + this.width > pipe.x &&
+        this.x < pipe.x + pipe.w &&
+        this.y + mHeight >= pipe.y &&
+        this.y + mHeight <= pipe.y + pipe.h + this.vy
+      ) {
+        this.y = pipe.y - mHeight;
         this.vy = 0;
         this.isGrounded = true;
       }
@@ -515,7 +660,42 @@ export class MarioCanvasEngine {
     const w = this.canvas.width;
     const h = this.canvas.height;
 
-    // DYNAMIC THEME & TIME SKY BACKGROUND (From User Spec)
+    // UNDERGROUND BONUS ROOM DRAWING
+    if (this.isUnderground) {
+      this.ctx.fillStyle = '#0f172a';
+      this.ctx.fillRect(0, 0, w, h);
+
+      this.ctx.fillStyle = '#38bdf8';
+      this.ctx.font = 'bold 16px sans-serif';
+      this.ctx.fillText('🪙 UNDERGROUND COIN HEAVEN BONUS ROOM', 200, 40);
+      this.ctx.fillText('Press [DOWN] at Exit Pipe to return!', 230, 70);
+
+      // Underground Floor & Walls
+      this.ctx.fillStyle = '#1e293b';
+      this.ctx.fillRect(0, 380, w, 100);
+      this.ctx.fillRect(0, 0, 40, 400);
+
+      // Underground Coins
+      this.ctx.fillStyle = '#eab308';
+      for (const c of this.undergroundCoins) {
+        if (!c.collected) {
+          this.ctx.beginPath();
+          this.ctx.arc(c.x, c.y, 10, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+      }
+
+      // Exit Pipe
+      this.drawWarpPipe(this.undergroundExitPipe.x, this.undergroundExitPipe.y, this.undergroundExitPipe.w, this.undergroundExitPipe.h, true);
+
+      // Draw Mario in Underground
+      const mHeight = this.isBig ? 54 : 44;
+      this.ctx.fillStyle = '#dc2626';
+      this.ctx.fillRect(this.x, this.y, this.width, mHeight);
+      return;
+    }
+
+    // OVERWORLD STAGE DRAWING
     let skyColor = '#60a5fa';
     let groundColor = '#15803d';
     let dirtColor = '#78350f';
@@ -537,74 +717,33 @@ export class MarioCanvasEngine {
         groundColor = '#f8fafc';
         dirtColor = '#38bdf8';
         break;
-      case 'Jungle':
-        skyColor = this.timeOfDay === 'Night' ? '#052e16' : '#4ade80';
-        groundColor = '#166534';
-        dirtColor = '#3f6212';
-        break;
-      case 'Beach':
-        skyColor = this.timeOfDay === 'Night' ? '#0f172a' : '#38bdf8';
-        groundColor = '#fde047';
-        dirtColor = '#d97706';
-        break;
-      case 'Mountain':
-        skyColor = this.timeOfDay === 'Night' ? '#1e293b' : '#cbd5e1';
-        groundColor = '#475569';
-        dirtColor = '#334155';
-        break;
-      case 'Autumn':
-        skyColor = this.timeOfDay === 'Night' ? '#312e81' : '#ffedd5';
-        groundColor = '#ea580c';
-        dirtColor = '#9a3412';
-        break;
-      case 'Volcano':
-        skyColor = '#451a03';
-        groundColor = '#b91c1c';
-        dirtColor = '#7f1d1d';
+      case 'Underground':
+        skyColor = '#0f172a';
+        groundColor = '#1e293b';
+        dirtColor = '#090d16';
         break;
       case 'Castle':
         skyColor = '#18181b';
         groundColor = '#3f3f46';
         dirtColor = '#27272a';
         break;
-      case 'Space':
-        skyColor = '#030712';
-        groundColor = '#581c87';
-        dirtColor = '#3b0764';
-        break;
-      case 'Underwater':
-        skyColor = '#0369a1';
-        groundColor = '#0284c7';
-        dirtColor = '#075985';
-        break;
     }
 
     this.ctx.fillStyle = skyColor;
     this.ctx.fillRect(0, 0, w, h);
 
-    // Save Context for Camera Translation
     this.ctx.save();
     this.ctx.translate(-this.cameraX, 0);
 
-    // Draw Dynamic Environmental Background Elements (Sun / Moon / Stars)
-    if (this.timeOfDay === 'Night' || this.currentTheme === 'Space') {
-      this.ctx.fillStyle = '#fef08a';
-      this.ctx.beginPath();
-      this.ctx.arc(this.cameraX + 700, 60, 24, 0, Math.PI * 2);
-      this.ctx.fill();
-    } else {
-      this.ctx.fillStyle = '#fde047';
-      this.ctx.beginPath();
-      this.ctx.arc(this.cameraX + 700, 70, 36, 0, Math.PI * 2);
-      this.ctx.fill();
+    // Draw Background Clouds
+    this.ctx.fillStyle = '#ffffff';
+    for (const c of this.cloudsList) {
+      this.drawCloud(c.x, c.y, c.scale);
     }
 
-    // Draw Particles (Snowflakes, Leaves, Embers)
-    for (const p of this.particlesList) {
-      this.ctx.fillStyle = p.color;
-      this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      this.ctx.fill();
+    // Draw Background Green Hills with Textured Gradients
+    for (const hill of this.hillsList) {
+      this.drawGreenHill(hill.x, hill.y, hill.w, hill.h);
     }
 
     // Draw Platforms
@@ -616,12 +755,16 @@ export class MarioCanvasEngine {
         this.ctx.lineWidth = 2;
         this.ctx.strokeRect(p.x, p.y, p.w, p.h);
       } else {
-        // Ground
         this.ctx.fillStyle = groundColor;
         this.ctx.fillRect(p.x, p.y, p.w, 16);
         this.ctx.fillStyle = dirtColor;
         this.ctx.fillRect(p.x, p.y + 16, p.w, p.h - 16);
       }
+    }
+
+    // Draw Authentic Green Warp Pipes
+    for (const pipe of this.pipesList) {
+      this.drawWarpPipe(pipe.x, pipe.y, pipe.w, pipe.h, pipe.isEnterable);
     }
 
     // Draw Question Blocks
@@ -682,7 +825,7 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Draw Enemies (Goombas & Koopas)
+    // Draw Enemies
     for (const e of this.enemies) {
       if (e.alive) {
         this.ctx.fillStyle = e.type === 'koopa' ? '#16a34a' : '#78350f';
@@ -723,8 +866,20 @@ export class MarioCanvasEngine {
     // Draw Flagpole
     this.ctx.fillStyle = '#94a3b8';
     this.ctx.fillRect(this.flagPole.x, this.flagPole.y, this.flagPole.w, this.flagPole.h);
+    this.ctx.fillStyle = '#22c55e';
+    this.ctx.beginPath();
+    this.ctx.arc(this.flagPole.x + 10, this.flagPole.y - 10, 12, 0, Math.PI * 2);
+    this.ctx.fill();
+
     this.ctx.fillStyle = '#dc2626';
     this.ctx.fillRect(this.flagPole.x + 20, this.flagPole.y + 10, 40, 24);
+
+    // Warp Down Prompt Banner
+    if (this.canWarpDown) {
+      this.ctx.fillStyle = '#f59e0b';
+      this.ctx.font = 'bold 16px sans-serif';
+      this.ctx.fillText('⬇️ Press DOWN to Enter Warp Pipe!', this.x - 60, this.y - 20);
+    }
 
     // Draw Mario Character
     const mHeight = this.isBig ? 54 : 44;
@@ -746,5 +901,60 @@ export class MarioCanvasEngine {
     this.ctx.fillRect(this.x + (this.facing === 'right' ? 8 : 0), mY, 24, 10);
 
     this.ctx.restore();
+  }
+
+  private drawWarpPipe(x: number, y: number, w: number, h: number, isEnterable?: boolean): void {
+    // Pipe Lip / Rim Top
+    this.ctx.fillStyle = '#22c55e';
+    this.ctx.fillRect(x - 4, y, w + 8, 20);
+    this.ctx.fillStyle = '#15803d';
+    this.ctx.fillRect(x - 4, y + 16, w + 8, 4);
+
+    // Pipe Lip Highlight
+    this.ctx.fillStyle = '#4ade80';
+    this.ctx.fillRect(x, y + 2, 8, 14);
+
+    // Pipe Body
+    this.ctx.fillStyle = '#166534';
+    this.ctx.fillRect(x, y + 20, w, h - 20);
+    this.ctx.fillStyle = '#22c55e';
+    this.ctx.fillRect(x + 4, y + 20, w - 8, h - 20);
+
+    // Pipe Body Highlight
+    this.ctx.fillStyle = '#4ade80';
+    this.ctx.fillRect(x + 4, y + 20, 8, h - 20);
+
+    // Enterable Indicator Arrow
+    if (isEnterable) {
+      this.ctx.fillStyle = '#fef08a';
+      this.ctx.font = 'bold 16px sans-serif';
+      this.ctx.fillText('⬇️', x + 16, y - 6);
+    }
+  }
+
+  private drawGreenHill(x: number, y: number, w: number, h: number): void {
+    this.ctx.fillStyle = '#15803d';
+    this.ctx.beginPath();
+    this.ctx.ellipse(x + w / 2, y + h, w / 2, h, 0, Math.PI, 0);
+    this.ctx.fill();
+
+    this.ctx.fillStyle = '#22c55e';
+    this.ctx.beginPath();
+    this.ctx.ellipse(x + w / 2, y + h, w / 2.4, h / 1.2, 0, Math.PI, 0);
+    this.ctx.fill();
+
+    // Smiling Eyes detail
+    this.ctx.fillStyle = '#052e16';
+    this.ctx.fillRect(x + w / 2 - 12, y + h / 2, 4, 12);
+    this.ctx.fillRect(x + w / 2 + 8, y + h / 2, 4, 12);
+  }
+
+  private drawCloud(x: number, y: number, scale: number): void {
+    const baseW = 40 * scale;
+    this.ctx.beginPath();
+    this.ctx.arc(x, y, baseW / 2, 0, Math.PI * 2);
+    this.ctx.arc(x + baseW * 0.4, y - baseW * 0.2, baseW * 0.4, 0, Math.PI * 2);
+    this.ctx.arc(x + baseW * 0.8, y, baseW * 0.35, 0, Math.PI * 2);
+    this.ctx.fill();
   }
 }
