@@ -628,8 +628,9 @@ const GameWrapper: React.FC = () => {
         <Card
           sx={{
             width: "100%",
-            maxWidth: { xs: "100%", sm: "768px", md: "1024px" },
-            height: { xs: "100vh", sm: "min(860px, 92vh)" },
+            maxWidth: { xs: "100%", sm: "768px", md: "1024px", lg: "1150px" },
+            height: { xs: "100vh", sm: "min(860px, 94vh)", lg: "min(920px, 95vh)" },
+            maxHeight: "100vh",
             background: "rgba(20, 18, 50, 0.75)",
             backdropFilter: "blur(18px)",
             border: { xs: "none", sm: "2px solid #a855f7" },
@@ -639,7 +640,7 @@ const GameWrapper: React.FC = () => {
             flexDirection: "column",
             position: "relative",
             overflow: "hidden",
-            p: { xs: 1.5, sm: 2.5 },
+            p: { xs: 1, sm: 2, md: 2.5 },
             zIndex: 10,
           }}
         >

@@ -190,7 +190,8 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     const dist = Phaser.Math.Distance.Between(head.x, head.y, targetX, targetY);
     if (dist > 15) {
       const angle = Phaser.Math.Angle.Between(head.x, head.y, targetX, targetY);
-      head.setRotation(angle);
+      // Keep 3D isometric perspective upright
+      head.setRotation(0);
 
       // Boost calculation
       let speed = this.playerSnake.speed;
@@ -290,10 +291,10 @@ export default class DVCubie2026Scene extends Phaser.Scene {
           }
         }
 
-        // 3. Scan for closest food to grow
+        // 3. Scan for closest food to grow across the map
         if (!actionChosen) {
           let closestFood: Phaser.Physics.Arcade.Sprite | null = null;
-          let minFoodDist = 500;
+          let minFoodDist = 2000;
 
           this.foodGroup.getChildren().forEach(f => {
             const food = f as Phaser.Physics.Arcade.Sprite;
@@ -348,9 +349,9 @@ export default class DVCubie2026Scene extends Phaser.Scene {
             }
           });
 
-          // Compute final combined heading angle and apply velocity
+          // Compute final combined heading velocity and keep 3D isometric cube upright
           const finalAngle = Phaser.Math.Angle.Between(0, 0, vx, vy);
-          head.setRotation(finalAngle);
+          head.setRotation(0);
           head.setVelocity(Math.cos(finalAngle) * speed, Math.sin(finalAngle) * speed);
         } else {
           head.setVelocity(0, 0);
@@ -376,7 +377,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
         const angle = Phaser.Math.Angle.Between(seg.x, seg.y, target.x, target.y);
         seg.x = target.x - Math.cos(angle) * followDist;
         seg.y = target.y - Math.sin(angle) * followDist;
-        seg.setRotation(angle);
+        seg.setRotation(0);
       }
     }
   }
@@ -960,8 +961,7 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     ctx.closePath();
     ctx.stroke();
 
-    // Text on Top Face
-    ctx.fillStyle = colors.text;
+    // Text on Top Face with high contrast outline
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     const formattedText = this.formatValue(val);
@@ -969,7 +969,13 @@ export default class DVCubie2026Scene extends Phaser.Scene {
     const textX = cx;
     const textY = cy - r * 0.35;
     const fontSize = size * (textLen > 3 ? 0.22 : 0.28);
-    ctx.font = `bold ${fontSize}px "Outfit", "Inter", sans-serif`;
+    ctx.font = `900 ${fontSize}px "Outfit", "Inter", sans-serif`;
+
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.45)";
+    ctx.lineWidth = Math.max(2, fontSize * 0.12);
+    ctx.strokeText(formattedText, textX, textY);
+
+    ctx.fillStyle = colors.text;
     ctx.fillText(formattedText, textX, textY);
 
     this.textures.addCanvas(key, canvas);
