@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using WorldNewzWebAPI.Services;
 
@@ -24,12 +24,23 @@ namespace WorldNewzWebAPI.Controllers
         }
 
         [HttpGet("weather")]
-        public async Task<IActionResult> GetWeather([FromQuery] string? city)
+        public async Task<IActionResult> GetWeather([FromQuery] string? city, [FromQuery] double? lat, [FromQuery] double? lon)
         {
-            var defaultCity = "Hyderabad";
-            var lookupCity = string.IsNullOrWhiteSpace(city) ? defaultCity : city.Trim();
+            // If GPS coordinates provided directly by browser auto-detect
+            if (lat.HasValue && lon.HasValue)
+            {
+                if (lat.Value >= -90 && lat.Value <= 90 && lon.Value >= -180 && lon.Value <= 180)
+                {
+                    var coordResult = await _weatherService.GetWeather(null, lat.Value, lon.Value);
+                    Response.Headers.CacheControl = "public, max-age=900";
+                    return Ok(coordResult);
+                }
+            }
 
-            if (string.IsNullOrWhiteSpace(city))
+            var defaultCity = "Hyderabad";
+            var lookupCity = string.IsNullOrWhiteSpace(city) ? null : city.Trim();
+
+            if (string.IsNullOrWhiteSpace(lookupCity))
             {
                 // Try to get cached city from IP geolocation
                 if (!_cache.TryGetValue("geolocated_ip_city", out string? cityFromIp))
@@ -50,14 +61,11 @@ namespace WorldNewzWebAPI.Controllers
                     }
                     catch
                     {
-                        // If IP geolocation fails or 429 rate limit occurs, continue with default city.
+                        // Quiet fallback on timeout or IP rate limit
                     }
                 }
 
-                if (!string.IsNullOrWhiteSpace(cityFromIp))
-                {
-                    lookupCity = cityFromIp;
-                }
+                lookupCity = !string.IsNullOrWhiteSpace(cityFromIp) ? cityFromIp : defaultCity;
             }
 
             var weatherResult = await _weatherService.GetWeather(lookupCity);

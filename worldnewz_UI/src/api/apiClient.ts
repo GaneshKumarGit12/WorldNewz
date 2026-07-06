@@ -78,7 +78,7 @@ export const fetchDiscover = (params?: SearchParams) => apiClient.get("/news/dis
 export const fetchSports = (params?: SearchParams) => apiClient.get("/news/sports", { params });
 export const fetchMoney = (params?: SearchParams) => apiClient.get("/news/money", { params });
 export const fetchShopping = (params?: SearchParams) => apiClient.get("/news/shopping", { params });
-export const fetchWeather = (params?: SearchParams) => apiClient.get("/news/weather", { params });
+export const fetchWeather = (params?: SearchParams & { city?: string; lat?: number; lon?: number }) => apiClient.get("/news/weather", { params });
 export const fetchTravel = (params?: SearchParams) => apiClient.get("/news/travel", { params });
 export const fetchFood = (params?: SearchParams) => apiClient.get("/news/food", { params });
 export const fetchEntertainment = (params?: SearchParams) => apiClient.get("/news/entertainment", { params });
