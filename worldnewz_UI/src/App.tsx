@@ -14,6 +14,7 @@ import { MobileDrawer } from "./components/layout/MobileDrawer";
 import { SearchBar } from "./components/layout/SearchBar";
 import { BackToTop } from "./components/layout/BackToTop";
 import { PushNotificationBanner } from "./components/layout/PushNotificationBanner";
+import { ScrollToTop } from "./components/layout/ScrollToTop";
 
 // Lazy load footer and cookie consent
 const Footer = lazy(() => import("./components/Footer"));
@@ -215,6 +216,7 @@ const App: React.FC = () => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <ScrollToTop />
       <JSONLDWebSite />
       <JSONLDOrganization />
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -50,6 +51,7 @@ const mockEngagingNews: EngagingNewsItem[] = [
 ];
 
 export const TopEngagingNewsWidget: React.FC<TopEngagingNewsWidgetProps> = ({ articles = [], getEngagement }) => {
+  const navigate = useNavigate();
   const [items, setItems] = useState<EngagingNewsItem[]>(mockEngagingNews);
 
   useEffect(() => {
@@ -209,7 +211,8 @@ export const TopEngagingNewsWidget: React.FC<TopEngagingNewsWidgetProps> = ({ ar
           <Link
             id="see-more-engaging-link"
             onClick={() => {
-              window.scrollTo({ top: 800, behavior: "smooth" });
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate("/trending");
             }}
             sx={{
               fontSize: "0.8rem",

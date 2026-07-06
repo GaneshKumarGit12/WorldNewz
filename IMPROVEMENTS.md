@@ -56,3 +56,14 @@ This log documents key UX and SEO optimizations implemented across the React fro
   - `pollsSignalR.ts`: Created frontend SignalR service listening for live voting updates.
 - **Optimistic UI Voting**:
   - `ContextualPollWidget.tsx` & `Polls.tsx`: Implemented instant optimistic UI state updates on click before server network resolution, providing a zero-latency interactive user experience.
+
+## 7. Universal Page Scroll-to-Top Control & Compliance Governance
+- **Global Router Scroll Observer (`ScrollToTop.tsx`)**:
+  - Created `<ScrollToTop />` using `useLayoutEffect` to trigger `window.scrollTo({ top: 0, left: 0, behavior: "instant" })` on all route (`pathname`) and query (`search`) updates.
+  - Rendered `<ScrollToTop />` inside `App.tsx` so that clicking any `NewsCard`, category chip, search result, or navigation link immediately resets scroll position to the top of the page.
+- **Explicit Card & Widget Scroll Handling**:
+  - `NewsCard.tsx` & `LocalNewsCard.tsx`: Added instant scroll to top in `handleCardClick` before executing navigation.
+  - `TopEngagingNewsWidget.tsx`: Replaced legacy `scrollTo({ top: 800 })` with smooth scroll to top and route navigation to `/trending`.
+- **Master Task Documentation (`PAGE_SCROLL_SEO_POLICIES_TASK.md`)**:
+  - Created a comprehensive master task document outlining page scroll controls across all 35+ routes on `https://worldnewzs.in`, Google Content Policies, Google AdSense placement rules, SEO architecture (JSON-LD schemas & canonicals), performance optimization (LCP preloading & zero CLS), `sitemap.xml`, and `robots.txt`.
+

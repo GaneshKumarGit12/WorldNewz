@@ -89,6 +89,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   };
 
   const handleCardClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     const titleSlug = article.title?.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50) || "article";
     navigate(`/article/${titleSlug}`, { state: { article } });
   };
