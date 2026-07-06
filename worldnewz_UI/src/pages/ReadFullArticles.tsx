@@ -301,13 +301,25 @@ const ReadFullArticles: React.FC = () => {
     const trimmed = text.trim();
     if (!trimmed) return null;
 
+    if (trimmed.startsWith("#### ")) {
+      return (
+        <Typography 
+          key={index} 
+          variant="h6" 
+          component="h4" 
+          sx={{ fontWeight: 650, mt: 3, mb: 1.5, color: "text.primary" }}
+        >
+          {trimmed.substring(5)}
+        </Typography>
+      );
+    }
     if (trimmed.startsWith("### ")) {
       return (
         <Typography 
           key={index} 
           variant="h5" 
           component="h3" 
-          sx={{ fontWeight: 750, mt: 4, mb: 2, color: "text.primary" }}
+          sx={{ fontWeight: 700, mt: 3.5, mb: 1.5, color: "text.primary" }}
         >
           {trimmed.substring(4)}
         </Typography>
@@ -319,7 +331,7 @@ const ReadFullArticles: React.FC = () => {
           key={index} 
           variant="h4" 
           component="h2" 
-          sx={{ fontWeight: 800, mt: 4, mb: 2, color: "text.primary" }}
+          sx={{ fontWeight: 750, mt: 4, mb: 2, color: "text.primary" }}
         >
           {trimmed.substring(3)}
         </Typography>

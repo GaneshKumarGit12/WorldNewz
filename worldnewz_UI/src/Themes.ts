@@ -21,35 +21,54 @@ export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
         main: SECONDARY_COLOR,
       },
       background: {
-        default: isLight ? "#f4f6f8" : "#0d1117",
+        default: isLight ? "#f8fafc" : "#0d1117",
         paper: isLight ? "#ffffff" : "#161b22",
       },
       text: {
-        primary: isLight ? "#1f2937" : "#f3f4f6",
-        secondary: isLight ? "#4b5563" : "#9ca3af",
+        primary: isLight ? "#0f172a" : "#f3f4f6",
+        secondary: isLight ? "#475569" : "#9ca3af",
       },
-      divider: isLight ? "rgba(0, 0, 0, 0.08)" : "rgba(255, 255, 255, 0.08)",
+      divider: isLight ? "#e2e8f0" : "rgba(255, 255, 255, 0.08)",
     },
     typography: {
-      fontFamily: "'Inter', 'Roboto', Arial, sans-serif",
-      h3: {
+      fontFamily: "'Inter', 'Outfit', 'Roboto', system-ui, sans-serif",
+      h1: {
         fontWeight: 800,
-        letterSpacing: "-0.5px",
+        letterSpacing: "-0.025em",
         lineHeight: 1.2,
+      },
+      h2: {
+        fontWeight: 750,
+        letterSpacing: "-0.02em",
+        lineHeight: 1.25,
+      },
+      h3: {
+        fontWeight: 700,
+        letterSpacing: "-0.015em",
+        lineHeight: 1.3,
       },
       h4: {
         fontWeight: 600,
-        letterSpacing: "0.5px",
+        letterSpacing: "-0.01em",
+        lineHeight: 1.35,
       },
       h5: {
         fontWeight: 600,
-        letterSpacing: "0.2px",
+        letterSpacing: "0",
+        lineHeight: 1.4,
+      },
+      h6: {
+        fontWeight: 600,
+        letterSpacing: "0.025em",
+        lineHeight: 1.4,
       },
       body1: {
-        lineHeight: 1.6,
+        lineHeight: 1.7,
+        fontSize: "1.05rem",
       },
       body2: {
-        lineHeight: 1.5,
+        lineHeight: 1.6,
+        fontSize: "0.9375rem",
       },
     },
     components: {
@@ -58,16 +77,24 @@ export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
           root: {
             borderRadius: 12,
             boxShadow: isLight
-              ? "0 4px 12px rgba(0, 0, 0, 0.06)"
+              ? "0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04)"
               : "0 4px 16px rgba(0, 0, 0, 0.35)",
-            transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-            border: `1px solid ${isLight ? "rgba(0, 0, 0, 0.04)" : "rgba(255, 255, 255, 0.05)"}`,
+            transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+            border: `1px solid ${isLight ? "#e2e8f0" : "rgba(255, 255, 255, 0.05)"}`,
             "&:hover": {
-              transform: "translateY(-2px)",
+              transform: "translateY(-3px)",
               boxShadow: isLight
-                ? "0 8px 24px rgba(0, 0, 0, 0.1)"
+                ? "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)"
                 : "0 8px 32px rgba(0, 0, 0, 0.5)",
             },
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundImage: "none",
+            border: `1px solid ${isLight ? "#e2e8f0" : "rgba(255, 255, 255, 0.06)"}`,
           },
         },
       },
