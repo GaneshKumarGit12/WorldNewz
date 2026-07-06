@@ -70,31 +70,38 @@ namespace WorldNewzWebAPI.Extensions
                 using var memoryStream = new MemoryStream();
                 context.Response.Body = memoryStream;
 
-                await next();
-
-                // Skip ETag generation for large responses (>1MB) to prevent memory pressure
-                if (context.Response.StatusCode == StatusCodes.Status200OK && 
-                    memoryStream.Length > 0 && 
-                    memoryStream.Length < 1024 * 1024)
+                try
                 {
-                    memoryStream.Position = 0;
-                    using var md5 = MD5.Create();
-                    var hash = md5.ComputeHash(memoryStream);
-                    var etag = $"\"{Convert.ToBase64String(hash)}\"";
+                    await next();
 
-                    context.Response.Headers.ETag = etag;
-
-                    if (context.Request.Headers.TryGetValue("If-None-Match", out var ifNoneMatch) && ifNoneMatch == etag)
+                    // Skip ETag generation for large responses (>1MB) to prevent memory pressure
+                    if (context.Response.StatusCode == StatusCodes.Status200OK && 
+                        memoryStream.Length > 0 && 
+                        memoryStream.Length < 1024 * 1024)
                     {
-                        context.Response.StatusCode = StatusCodes.Status304NotModified;
-                        context.Response.ContentLength = 0;
-                        return; // Done, body remains empty
-                    }
-                }
+                        memoryStream.Position = 0;
+                        using var md5 = MD5.Create();
+                        var hash = md5.ComputeHash(memoryStream);
+                        var etag = $"\"{Convert.ToBase64String(hash)}\"";
 
-                // Copy buffered body back to the original response stream
-                memoryStream.Position = 0;
-                await memoryStream.CopyToAsync(originalBodyStream);
+                        context.Response.Headers.ETag = etag;
+
+                        if (context.Request.Headers.TryGetValue("If-None-Match", out var ifNoneMatch) && ifNoneMatch == etag)
+                        {
+                            context.Response.StatusCode = StatusCodes.Status304NotModified;
+                            context.Response.ContentLength = 0;
+                            return; // Done, body remains empty
+                        }
+                    }
+
+                    // Copy buffered body back to the original response stream
+                    memoryStream.Position = 0;
+                    await memoryStream.CopyToAsync(originalBodyStream);
+                }
+                finally
+                {
+                    context.Response.Body = originalBodyStream;
+                }
             });
         }
 

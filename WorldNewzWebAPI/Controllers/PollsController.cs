@@ -221,47 +221,70 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet("contextual")]
         public async Task<IActionResult> GetContextualPoll([FromQuery] string? category = null, [FromQuery] string? subcategory = null)
         {
-            var allPolls = await _context.Polls.Include(p => p.Options).ToListAsync();
-
-            if (!allPolls.Any())
+            try
             {
-                return Ok(null);
-            }
+                var allPolls = await _context.Polls.Include(p => p.Options).ToListAsync();
 
-            // Find matching poll by subcategory or category
-            Poll? matched = null;
-            if (!string.IsNullOrEmpty(subcategory))
-            {
-                matched = allPolls.FirstOrDefault(p => p.Subcategory.Equals(subcategory, StringComparison.OrdinalIgnoreCase));
-            }
-            if (matched == null && !string.IsNullOrEmpty(category))
-            {
-                matched = allPolls.FirstOrDefault(p => p.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
-            }
-
-            // Fallback to first or random active poll
-            matched ??= allPolls.OrderBy(p => Guid.NewGuid()).FirstOrDefault();
-
-            if (matched == null)
-            {
-                return Ok(null);
-            }
-
-            int totalVotes = matched.Options.Sum(o => o.Votes);
-            var contextualDto = new ContextualPollDto
-            {
-                PollId = matched.Id,
-                Question = matched.Question,
-                TotalVotes = totalVotes,
-                Options = matched.Options.Select(o => new ContextualPollOptionDto
+                if (allPolls == null || !allPolls.Any())
                 {
-                    OptionId = o.Id,
-                    Text = o.OptionText,
-                    Votes = o.Votes
-                }).ToList()
-            };
+                    allPolls = GetFallbackDefaultPolls();
+                }
 
-            return Ok(contextualDto);
+                // Find matching poll by subcategory or category with safe null checks
+                Poll? matched = null;
+                if (!string.IsNullOrWhiteSpace(subcategory))
+                {
+                    matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(subcategory.Trim(), StringComparison.OrdinalIgnoreCase));
+                }
+                if (matched == null && !string.IsNullOrWhiteSpace(category))
+                {
+                    matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Category) && p.Category.Equals(category.Trim(), StringComparison.OrdinalIgnoreCase));
+                }
+
+                // Fallback to first or random active poll
+                matched ??= allPolls.FirstOrDefault();
+
+                if (matched == null || matched.Options == null || !matched.Options.Any())
+                {
+                    return Ok(null);
+                }
+
+                int totalVotes = matched.Options.Sum(o => o.Votes);
+                var contextualDto = new ContextualPollDto
+                {
+                    PollId = matched.Id,
+                    Question = matched.Question ?? "Community Sentiment Poll",
+                    TotalVotes = totalVotes,
+                    Options = matched.Options.Select(o => new ContextualPollOptionDto
+                    {
+                        OptionId = o.Id,
+                        Text = o.OptionText ?? "",
+                        Votes = o.Votes
+                    }).ToList()
+                };
+
+                return Ok(contextualDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ GetContextualPoll exception: {ex.Message}");
+                var fallback = GetFallbackDefaultPolls().FirstOrDefault();
+                if (fallback == null) return Ok(null);
+
+                int totalVotes = fallback.Options.Sum(o => o.Votes);
+                return Ok(new ContextualPollDto
+                {
+                    PollId = fallback.Id,
+                    Question = fallback.Question,
+                    TotalVotes = totalVotes,
+                    Options = fallback.Options.Select(o => new ContextualPollOptionDto
+                    {
+                        OptionId = o.Id,
+                        Text = o.OptionText,
+                        Votes = o.Votes
+                    }).ToList()
+                });
+            }
         }
 
         private bool ContainsBannedWords(string input) => Shared.ValidationHelpers.ContainsBannedWords(input);
