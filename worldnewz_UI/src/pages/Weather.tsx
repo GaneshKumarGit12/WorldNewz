@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -20,14 +19,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import AirIcon from "@mui/icons-material/Air";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import SpeedIcon from "@mui/icons-material/Speed";
-import CompressIcon from "@mui/icons-material/Compress";
-import NightlightIcon from "@mui/icons-material/Nightlight";
-import ShieldIcon from "@mui/icons-material/Shield";
-import MapIcon from "@mui/icons-material/Map";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import SectionStatus from "../components/SectionStatus";
 import { CategoryEditorial } from "../components/CategoryEditorial";
 import AdCard from "../components/AdCard";
@@ -37,11 +33,16 @@ type CurrentWeather = {
   temperatureF?: number;
   feelsLikeC?: number;
   feelsLikeF?: number;
+  minTempC?: number;
+  maxTempC?: number;
+  minTempF?: number;
+  maxTempF?: number;
   humidity?: number;
   windSpeedKmH?: number;
   windDirectionDeg?: number;
   windDirectionCompass?: string;
   pressureHPa?: number;
+  visibilityMeters?: number;
   weatherCode?: number;
   time?: string;
 };
@@ -111,25 +112,25 @@ type WeatherApiResponse = {
   error?: string;
 };
 
-const weatherCodeMap: Record<number, { label: string; icon: string; bgGradient: string }> = {
-  0: { label: "Clear Sky", icon: "☀️", bgGradient: "linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e1b4b 100%)" },
-  1: { label: "Mainly Clear", icon: "🌤️", bgGradient: "linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #172554 100%)" },
-  2: { label: "Partly Cloudy", icon: "⛅", bgGradient: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)" },
-  3: { label: "Overcast", icon: "☁️", bgGradient: "linear-gradient(135deg, #1e293b 0%, #334155 100%)" },
-  45: { label: "Foggy", icon: "🌫️", bgGradient: "linear-gradient(135deg, #334155 0%, #1e293b 100%)" },
-  48: { label: "Freezing Fog", icon: "🌫️", bgGradient: "linear-gradient(135deg, #334155 0%, #0f172a 100%)" },
-  51: { label: "Light Drizzle", icon: "🌦️", bgGradient: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)" },
-  53: { label: "Moderate Drizzle", icon: "🌦️", bgGradient: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)" },
-  55: { label: "Dense Drizzle", icon: "🌧️", bgGradient: "linear-gradient(135deg, #0284c7 0%, #0f172a 100%)" },
-  61: { label: "Light Rain", icon: "🌧️", bgGradient: "linear-gradient(135deg, #0369a1 0%, #0f172a 100%)" },
-  63: { label: "Moderate Rain", icon: "🌧️", bgGradient: "linear-gradient(135deg, #0284c7 0%, #0f172a 100%)" },
-  65: { label: "Heavy Rain", icon: "⛈️", bgGradient: "linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)" },
-  71: { label: "Light Snow", icon: "🌨️", bgGradient: "linear-gradient(135deg, #1e293b 0%, #0284c7 100%)" },
-  73: { label: "Moderate Snow", icon: "❄️", bgGradient: "linear-gradient(135deg, #0f172a 0%, #0369a1 100%)" },
-  75: { label: "Heavy Snow", icon: "❄️", bgGradient: "linear-gradient(135deg, #0284c7 0%, #0f172a 100%)" },
-  95: { label: "Thunderstorm", icon: "⛈️", bgGradient: "linear-gradient(135deg, #311b92 0%, #0f172a 100%)" },
-  96: { label: "Thunderstorm with Hail", icon: "⛈️", bgGradient: "linear-gradient(135deg, #4a148c 0%, #0f172a 100%)" },
-  99: { label: "Heavy Hailstorm", icon: "🌩️", bgGradient: "linear-gradient(135deg, #4a148c 0%, #0f172a 100%)" },
+const weatherCodeMap: Record<number, { label: string; icon: string }> = {
+  0: { label: "Clear Sky", icon: "☀️" },
+  1: { label: "Mainly Clear", icon: "🌤️" },
+  2: { label: "Partly Cloudy", icon: "⛅" },
+  3: { label: "Overcast", icon: "☁️" },
+  45: { label: "Foggy", icon: "🌫️" },
+  48: { label: "Freezing Fog", icon: "🌫️" },
+  51: { label: "Light Drizzle", icon: "🌦️" },
+  53: { label: "Moderate Drizzle", icon: "🌦️" },
+  55: { label: "Dense Drizzle", icon: "🌧️" },
+  61: { label: "Light Rain", icon: "🌧️" },
+  63: { label: "Moderate Rain", icon: "🌧️" },
+  65: { label: "Heavy Rain", icon: "⛈️" },
+  71: { label: "Light Snow", icon: "🌨️" },
+  73: { label: "Moderate Snow", icon: "❄️" },
+  75: { label: "Heavy Snow", icon: "❄️" },
+  95: { label: "Thunderstorm", icon: "⛈️" },
+  96: { label: "Thunderstorm with Hail", icon: "⛈️" },
+  99: { label: "Heavy Hailstorm", icon: "🌩️" },
 };
 
 const getWeatherMeta = (code?: number) => {
@@ -137,16 +138,10 @@ const getWeatherMeta = (code?: number) => {
   return weatherCodeMap[code] ?? weatherCodeMap[2];
 };
 
-const formatDate = (value?: string) => {
-  if (!value) return "";
-  const d = new Date(value);
-  return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
-};
-
-const formatTime = (value?: string) => {
-  if (!value) return "--:--";
-  const d = new Date(value);
-  return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true });
+const formatDateDayName = (dateStr?: string) => {
+  if (!dateStr) return "Thu";
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", { weekday: "short" });
 };
 
 export const Weather: React.FC = () => {
@@ -163,11 +158,13 @@ export const Weather: React.FC = () => {
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem("weather_favorite_cities");
-      return saved ? JSON.parse(saved) : ["Hyderabad", "New York", "London", "Tokyo", "Sydney"];
+      return saved ? JSON.parse(saved) : ["Hyderabad", "Hanoi", "New York", "London", "Tokyo"];
     } catch {
-      return ["Hyderabad", "New York", "London", "Tokyo", "Sydney"];
+      return ["Hyderabad", "Hanoi", "New York", "London", "Tokyo"];
     }
   });
+
+  const [notifEnabled, setNotifEnabled] = useState(false);
 
   const dynamicKeywordsData = useKeywords("weather");
   const combinedKeywords = dynamicKeywordsData
@@ -226,7 +223,7 @@ export const Weather: React.FC = () => {
       },
       (err) => {
         console.warn("GPS detection denied or failed:", err.message);
-        alert("Could not access your location. Showing default regional forecast.");
+        alert("Could not access your location. Showing regional forecast.");
         loadWeatherData("Hyderabad");
       },
       { timeout: 10000 }
@@ -249,27 +246,25 @@ export const Weather: React.FC = () => {
   const isFavorite = favorites.includes(currentCity);
 
   const curObj = weather?.current;
-  const tempVal = unit === "C" ? (curObj?.temperatureC ?? 28) : (curObj?.temperatureF ?? 82);
-  const feelsLikeVal = unit === "C" ? (curObj?.feelsLikeC ?? 29) : (curObj?.feelsLikeF ?? 84);
+  const tempVal = unit === "C" ? (curObj?.temperatureC ?? 22) : (curObj?.temperatureF ?? 71.6);
+  const minVal = unit === "C" ? (curObj?.minTempC ?? 18) : (curObj?.minTempF ?? 64.4);
+  const maxVal = unit === "C" ? (curObj?.maxTempC ?? 25) : (curObj?.maxTempF ?? 77);
   const weatherMeta = getWeatherMeta(curObj?.weatherCode);
 
   const dailyList = weather?.daily ?? [];
-  const hourlyList = weather?.hourly ?? [];
   const aqiObj = weather?.airQuality;
-  const aqiVal = aqiObj?.us_AQI ?? aqiObj?.uS_AQI ?? 42;
-  const aqiColor = aqiVal <= 50 ? "#22c55e" : aqiVal <= 100 ? "#eab308" : aqiVal <= 150 ? "#f97316" : "#ef4444";
-
+  const aqiVal = aqiObj?.us_AQI ?? aqiObj?.uS_AQI ?? 14;
   const alerts = weather?.alerts ?? [];
 
-  const titleText = `${currentCity} Weather Forecast & Live Radar | WorldNewzs`;
+  const titleText = `${currentCity} Weather Forecast & Overview | WorldNewzs`;
   const descText = dynamicKeywordsData?.metaDesc || 
-    `Get hyper-local weather forecast for ${currentCity}${currentCountry ? `, ${currentCountry}` : ""}: ${tempVal.toFixed(0)}°${unit}, ${weatherMeta.label}. 24-hour hourly trends, 10-day forecasts, AQI air quality indices, live satellite radar maps, and severe climate warnings.`;
+    `Hyper-local weather dashboard for ${currentCity}${currentCountry ? `, ${currentCountry}` : ""}: ${tempVal.toFixed(0)}°${unit}, ${weatherMeta.label}. AQI air quality index, UV index, wind metrics, and 7-day temperature trends.`;
 
   // Structured Data (Schema.org WeatherForecast)
   const schemaOrgJSON = {
     "@context": "https://schema.org",
     "@type": "WeatherForecast",
-    "name": `${currentCity} Live Weather Forecast`,
+    "name": `${currentCity} Live Weather Overview`,
     "description": descText,
     "url": "https://worldnewzs.in/weather",
     "validFrom": new Date().toISOString(),
@@ -294,50 +289,45 @@ export const Weather: React.FC = () => {
       component="main"
       sx={{
         minHeight: "100vh",
-        background: weatherMeta.bgGradient,
+        bgcolor: "#090e17",
         color: "#f8fafc",
         py: 4,
         px: { xs: 2, md: 4 },
-        transition: "background 0.5s ease-in-out",
+        fontFamily: "'Inter', sans-serif",
       }}
     >
       <SEOMeta title={titleText} description={descText} keywords={combinedKeywords} canonical="https://worldnewzs.in/weather" />
       <JSONLDBreadcrumb crumbs={[
         { name: "Home", url: "https://worldnewzs.in" },
-        { name: "Weather Dashboard", url: "https://worldnewzs.in/weather" }
+        { name: "Weather Overview", url: "https://worldnewzs.in/weather" }
       ]} />
       
-      {/* Schema.org Injection */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSON) }} />
 
-      {/* Header & Location Controls Bar */}
-      <Box component="header" sx={{ mb: 4 }}>
+      {/* Top Header & Search Bar */}
+      <Box component="header" sx={{ mb: 3 }}>
         <Grid container spacing={2} alignItems="center" justifyContent="space-between">
           <Grid size={{ xs: 12, md: 6 }}>
-            <Typography variant="h3" component="h1" id="weather-main-heading" sx={{ fontWeight: 900, fontSize: { xs: "2rem", md: "2.5rem" }, color: "#fff", textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}>
-              WorldNewzs Climate & Weather Radar
-            </Typography>
-            <Typography variant="subtitle1" sx={{ color: "#94a3b8", mt: 0.5 }}>
-              Hyper-local meteorological telemetry, AQI pollution radar, and 10-day forecasts.
+            <Typography variant="h3" component="h1" id="weather-main-heading" sx={{ fontWeight: 900, fontSize: { xs: "1.8rem", md: "2.2rem" }, color: "#fff" }}>
+              Weather Dashboard
             </Typography>
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ display: "flex", gap: 1, alignItems: "center", flexWrap: "wrap", justifyContent: { xs: "flex-start", md: "flex-end" } }}>
-              {/* Search Form */}
-              <Box component="form" onSubmit={handleSearchSubmit} sx={{ display: "flex", gap: 1, flex: { xs: "1 1 100%", sm: "0 1 300px" } }}>
+              <Box component="form" onSubmit={handleSearchSubmit} sx={{ display: "flex", gap: 1, flex: { xs: "1 1 100%", sm: "0 1 280px" } }}>
                 <TextField
                   id="weather-search-input"
-                  placeholder="Search city or region..."
+                  placeholder="Search city..."
                   size="small"
                   value={cityInput}
                   onChange={(e) => setCityInput(e.target.value)}
                   fullWidth
                   sx={{
-                    bgcolor: "rgba(255,255,255,0.08)",
+                    bgcolor: "#111a2e",
                     borderRadius: 2,
-                    input: { color: "#fff" },
-                    "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.2)" },
+                    input: { color: "#fff", fontSize: "0.9rem" },
+                    "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.12)" },
                     "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "#38bdf8" },
                   }}
                 />
@@ -345,37 +335,34 @@ export const Weather: React.FC = () => {
                   id="weather-search-btn"
                   type="submit"
                   variant="contained"
-                  sx={{ bgcolor: "#38bdf8", color: "#0f172a", fontWeight: 800, "&:hover": { bgcolor: "#60a5fa" } }}
+                  sx={{ bgcolor: "#2563eb", color: "#fff", fontWeight: 800, "&:hover": { bgcolor: "#3b82f6" } }}
                 >
                   <SearchIcon />
                 </Button>
               </Box>
 
-              {/* GPS Auto Detect */}
-              <Tooltip title="Auto-Detect My GPS Location">
+              <Tooltip title="GPS Auto-Detect Location">
                 <IconButton
                   id="gps-location-btn"
                   onClick={handleGpsDetect}
-                  sx={{ bgcolor: "rgba(56, 189, 248, 0.15)", color: "#38bdf8", border: "1px solid rgba(56, 189, 248, 0.3)", "&:hover": { bgcolor: "rgba(56, 189, 248, 0.3)" } }}
+                  sx={{ bgcolor: "#111a2e", color: "#38bdf8", border: "1px solid rgba(255,255,255,0.12)", "&:hover": { bgcolor: "rgba(56, 189, 248, 0.2)" } }}
                 >
                   <MyLocationIcon />
                 </IconButton>
               </Tooltip>
 
-              {/* °C / °F Unit Toggle */}
-              <Box sx={{ bgcolor: "rgba(255,255,255,0.08)", p: 0.5, borderRadius: 2, display: "flex", border: "1px solid rgba(255,255,255,0.15)" }}>
+              <Box sx={{ bgcolor: "#111a2e", p: 0.5, borderRadius: 2, display: "flex", border: "1px solid rgba(255,255,255,0.12)" }}>
                 <Button
                   id="unit-c-btn"
                   size="small"
                   onClick={() => handleUnitToggle("C")}
                   sx={{
-                    px: 1.5,
+                    px: 1.2,
                     minWidth: "auto",
                     fontWeight: 800,
                     borderRadius: 1.5,
-                    bgcolor: unit === "C" ? "#38bdf8" : "transparent",
-                    color: unit === "C" ? "#0f172a" : "#94a3b8",
-                    "&:hover": { bgcolor: unit === "C" ? "#38bdf8" : "rgba(255,255,255,0.1)" },
+                    bgcolor: unit === "C" ? "#2563eb" : "transparent",
+                    color: "#fff",
                   }}
                 >
                   °C
@@ -385,13 +372,12 @@ export const Weather: React.FC = () => {
                   size="small"
                   onClick={() => handleUnitToggle("F")}
                   sx={{
-                    px: 1.5,
+                    px: 1.2,
                     minWidth: "auto",
                     fontWeight: 800,
                     borderRadius: 1.5,
-                    bgcolor: unit === "F" ? "#38bdf8" : "transparent",
-                    color: unit === "F" ? "#0f172a" : "#94a3b8",
-                    "&:hover": { bgcolor: unit === "F" ? "#38bdf8" : "rgba(255,255,255,0.1)" },
+                    bgcolor: unit === "F" ? "#2563eb" : "transparent",
+                    color: "#fff",
                   }}
                 >
                   °F
@@ -401,10 +387,10 @@ export const Weather: React.FC = () => {
           </Grid>
         </Grid>
 
-        {/* Favorite Cities Bar */}
+        {/* Favorite Cities Chips */}
         <Box sx={{ display: "flex", gap: 1, mt: 2, flexWrap: "wrap", alignItems: "center" }}>
-          <Typography variant="caption" sx={{ color: "#94a3b8", fontWeight: 700 }}>
-            Saved Locations:
+          <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700 }}>
+            Saved:
           </Typography>
           {favorites.map((fav) => (
             <Chip
@@ -415,479 +401,404 @@ export const Weather: React.FC = () => {
               onDelete={() => toggleFavorite(fav)}
               variant={fav.toLowerCase() === currentCity.toLowerCase() ? "filled" : "outlined"}
               sx={{
-                bgcolor: fav.toLowerCase() === currentCity.toLowerCase() ? "#38bdf8" : "rgba(255,255,255,0.05)",
-                color: fav.toLowerCase() === currentCity.toLowerCase() ? "#0f172a" : "#e2e8f0",
-                borderColor: "rgba(255,255,255,0.2)",
+                bgcolor: fav.toLowerCase() === currentCity.toLowerCase() ? "#2563eb" : "rgba(255,255,255,0.04)",
+                color: "#f8fafc",
+                borderColor: "rgba(255,255,255,0.1)",
                 fontWeight: 700,
+                fontSize: "0.8rem",
                 cursor: "pointer",
-                "&:hover": { bgcolor: fav.toLowerCase() === currentCity.toLowerCase() ? "#60a5fa" : "rgba(255,255,255,0.15)" },
               }}
             />
           ))}
         </Box>
       </Box>
 
-      {/* Main Section Status Wrapper */}
-      <SectionStatus loading={loading} error={error} hasData={weather != null} emptyText="No weather forecast available for this location.">
+      {/* Main Section Status */}
+      <SectionStatus loading={loading} error={error} hasData={weather != null} emptyText="No weather telemetry available for this location.">
         {weather && (
-          <Box component="section" sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <Box component="section" sx={{ display: "flex", flexDirection: "column", gap: 3.5 }}>
             
-            {/* Severe Weather Alerts & Warnings */}
+            {/* Severe Weather Alerts if any */}
             {alerts.length > 0 && (
-              <Box id="weather-alerts-container" sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+              <Box id="weather-alerts-container" sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                 {alerts.map((alt, idx) => (
                   <Alert
                     key={idx}
                     severity={alt.severity === "Severe" || alt.severity === "Warning" ? "warning" : "info"}
                     variant="filled"
-                    sx={{
-                      borderRadius: 3,
-                      boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
-                      fontWeight: 700,
-                      alignItems: "center",
-                    }}
+                    sx={{ borderRadius: 3, fontWeight: 700 }}
                   >
-                    <AlertTitle sx={{ fontWeight: 900 }}>
-                      {alt.icon} {alt.title}
-                    </AlertTitle>
+                    <AlertTitle sx={{ fontWeight: 900 }}>{alt.icon} {alt.title}</AlertTitle>
                     {alt.message}
                   </Alert>
                 ))}
               </Box>
             )}
 
-            {/* Top Grid: Hero Overview & Air Quality */}
-            <Grid container spacing={3}>
-              {/* Hero Overview Card */}
-              <Grid size={{ xs: 12, lg: 8 }}>
-                <Card
-                  id="hero-weather-card"
-                  sx={{
-                    background: "rgba(15, 23, 42, 0.75)",
-                    backdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    borderRadius: 4,
-                    color: "#fff",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
-                    height: "100%",
-                  }}
-                >
-                  <CardContent sx={{ p: 4 }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 2 }}>
-                      <Box>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                          <Typography variant="h4" sx={{ fontWeight: 900, color: "#f8fafc" }}>
-                            {currentCity}{currentCountry ? `, ${currentCountry}` : ""}
-                          </Typography>
-                          <IconButton
-                            id="toggle-favorite-btn"
-                            size="small"
-                            onClick={() => toggleFavorite(currentCity)}
-                            sx={{ color: isFavorite ? "#f59e0b" : "rgba(255,255,255,0.4)" }}
-                          >
-                            {isFavorite ? <StarIcon /> : <StarBorderIcon />}
-                          </IconButton>
-                        </Box>
-                        <Typography variant="body2" sx={{ color: "#94a3b8", mt: 0.5 }}>
-                          Live Meteorological Coordinates: {weather.latitude?.toFixed(2)}°N, {weather.longitude?.toFixed(2)}°E | Timezone: {weather.timezone}
-                        </Typography>
-                      </Box>
-
-                      <Chip
-                        icon={<ShieldIcon sx={{ color: "#38bdf8 !important" }} />}
-                        label="Verified Telemetry"
-                        sx={{ bgcolor: "rgba(56, 189, 248, 0.1)", color: "#38bdf8", border: "1px solid rgba(56, 189, 248, 0.3)", fontWeight: 700 }}
-                      />
-                    </Box>
-
-                    {/* Main Temp & Icon */}
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 4, my: 4, flexWrap: "wrap" }}>
-                      <Typography variant="h1" sx={{ fontSize: { xs: "4.5rem", md: "6rem" }, fontWeight: 900, lineHeight: 1, letterSpacing: "-2px" }}>
-                        {tempVal.toFixed(0)}°{unit}
-                      </Typography>
-                      <Box>
-                        <Typography variant="h3" sx={{ fontSize: "2.5rem" }}>
-                          {weatherMeta.icon}
-                        </Typography>
-                        <Typography variant="h5" sx={{ fontWeight: 800, color: "#f1f5f9" }}>
-                          {weatherMeta.label}
-                        </Typography>
-                        <Typography variant="subtitle1" sx={{ color: "#94a3b8" }}>
-                          Feels like {feelsLikeVal.toFixed(0)}°{unit}
-                        </Typography>
-                      </Box>
-                    </Box>
-
-                    {/* Secondary Metrics Grid */}
-                    <Grid container spacing={2} sx={{ pt: 2, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-                      <Grid size={{ xs: 6, sm: 3 }}>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                          <WaterDropIcon sx={{ color: "#38bdf8" }} />
-                          <Box>
-                            <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>
-                              Humidity
-                            </Typography>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
-                              {curObj?.humidity ?? 55}%
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Grid>
-
-                      <Grid size={{ xs: 6, sm: 3 }}>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                          <AirIcon sx={{ color: "#a855f7" }} />
-                          <Box>
-                            <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>
-                              Wind Speed
-                            </Typography>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
-                              {curObj?.windSpeedKmH ?? 12} km/h ({curObj?.windDirectionCompass ?? "W"})
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Grid>
-
-                      <Grid size={{ xs: 6, sm: 3 }}>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                          <CompressIcon sx={{ color: "#22c55e" }} />
-                          <Box>
-                            <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>
-                              Pressure
-                            </Typography>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
-                              {curObj?.pressureHPa ?? 1013} hPa
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Grid>
-
-                      <Grid size={{ xs: 6, sm: 3 }}>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                          <WbSunnyIcon sx={{ color: "#f59e0b" }} />
-                          <Box>
-                            <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>
-                              UV Index Peak
-                            </Typography>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
-                              {dailyList[0]?.uVIndexMax?.toFixed(1) ?? "4.5"} (Moderate)
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-                </Card>
-              </Grid>
-
-              {/* Air Quality & Pollution Card */}
-              <Grid size={{ xs: 12, lg: 4 }}>
-                <Card
-                  id="aqi-card"
-                  sx={{
-                    background: "rgba(15, 23, 42, 0.75)",
-                    backdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    borderRadius: 4,
-                    color: "#fff",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justify: "space-between",
-                  }}
-                >
-                  <CardContent sx={{ p: 4 }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                      <Typography variant="h6" sx={{ fontWeight: 800, display: "flex", alignItems: "center", gap: 1 }}>
-                        <SpeedIcon sx={{ color: aqiColor }} /> Air Quality Index
-                      </Typography>
-                      <Chip
-                        label={aqiObj?.statusLabel ?? "Good"}
-                        sx={{ bgcolor: `${aqiColor}22`, color: aqiColor, border: `1px solid ${aqiColor}55`, fontWeight: 800 }}
-                      />
-                    </Box>
-
-                    {/* Big AQI Value & Meter */}
-                    <Box sx={{ textAlign: "center", my: 3 }}>
-                      <Typography variant="h2" sx={{ fontWeight: 900, color: aqiColor, fontSize: "4rem", lineHeight: 1 }}>
-                        {aqiVal}
-                      </Typography>
-                      <Typography variant="caption" sx={{ color: "#94a3b8", fontWeight: 700, mt: 0.5, display: "block" }}>
-                        US AQI Standard
-                      </Typography>
-
-                      <Box sx={{ width: "100%", height: 10, bgcolor: "rgba(255,255,255,0.1)", borderRadius: 5, position: "relative", my: 2 }}>
-                        <Box
-                          sx={{
-                            position: "absolute",
-                            left: `${Math.min(100, (aqiVal / 200) * 100)}%`,
-                            top: -4,
-                            width: 18,
-                            height: 18,
-                            borderRadius: "50%",
-                            bgcolor: aqiColor,
-                            border: "3px solid #fff",
-                            boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-                          }}
-                        />
-                        <Box
-                          sx={{
-                            width: "100%",
-                            height: "100%",
-                            borderRadius: 5,
-                            background: "linear-gradient(to right, #22c55e 0%, #eab308 33%, #f97316 66%, #ef4444 100%)",
-                          }}
-                        />
-                      </Box>
-                    </Box>
-
-                    {/* Pollutants Grid */}
-                    <Grid container spacing={1.5} sx={{ mb: 2 }}>
-                      <Grid size={{ xs: 4 }}>
-                        <Box sx={{ bgcolor: "rgba(255,255,255,0.04)", p: 1, borderRadius: 2, textAlign: "center" }}>
-                          <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>PM2.5</Typography>
-                          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{aqiObj?.pM2_5 ?? aqiObj?.pm2_5 ?? 11.2} µg/m³</Typography>
-                        </Box>
-                      </Grid>
-                      <Grid size={{ xs: 4 }}>
-                        <Box sx={{ bgcolor: "rgba(255,255,255,0.04)", p: 1, borderRadius: 2, textAlign: "center" }}>
-                          <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>PM10</Typography>
-                          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{aqiObj?.pM10 ?? aqiObj?.pm10 ?? 24.5} µg/m³</Typography>
-                        </Box>
-                      </Grid>
-                      <Grid size={{ xs: 4 }}>
-                        <Box sx={{ bgcolor: "rgba(255,255,255,0.04)", p: 1, borderRadius: 2, textAlign: "center" }}>
-                          <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>O3</Typography>
-                          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{aqiObj?.o3 ?? 38.0} ppb</Typography>
-                        </Box>
-                      </Grid>
-                    </Grid>
-
-                    <Alert severity="info" variant="outlined" sx={{ borderColor: "rgba(255,255,255,0.15)", color: "#e2e8f0", p: 1.5, "& .MuiAlert-icon": { color: "#38bdf8" } }}>
-                      <Typography variant="caption" sx={{ display: "block", lineHeight: 1.4 }}>
-                        <strong>Health Recommendation:</strong> {aqiObj?.healthAdvisory ?? "Air quality is satisfactory. Enjoy your outdoor activities."}
-                      </Typography>
-                    </Alert>
-                  </CardContent>
-                </Card>
-              </Grid>
-            </Grid>
-
-            {/* 24-Hour Hourly Forecast Strip & Interactive SVG Chart */}
-            <Card
-              id="hourly-forecast-card"
-              sx={{
-                background: "rgba(15, 23, 42, 0.75)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255, 255, 255, 0.12)",
-                borderRadius: 4,
-                color: "#fff",
-                p: 3,
-              }}
-            >
-              <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
-                📈 24-Hour Hourly Trend & Rain Probability
+            {/* SECTION 1: OVERVIEW ROW */}
+            <Box>
+              <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, color: "#f8fafc" }}>
+                Overview
               </Typography>
 
-              {/* Horizontally Scrollable Hourly Strip */}
-              <Box sx={{ display: "flex", gap: 2, overflowX: "auto", pb: 2, scrollbarWidth: "thin" }}>
-                {hourlyList.slice(0, 24).map((h, idx) => {
-                  const hTemp = unit === "C" ? (h.temperatureC ?? 28) : (h.temperatureF ?? 82);
-                  const hMeta = getWeatherMeta(h.weatherCode);
-                  return (
-                    <Box
-                      key={idx}
-                      sx={{
-                        minWidth: 90,
-                        bgcolor: idx === 0 ? "rgba(56, 189, 248, 0.15)" : "rgba(255, 255, 255, 0.04)",
-                        border: idx === 0 ? "1px solid #38bdf8" : "1px solid rgba(255, 255, 255, 0.08)",
-                        borderRadius: 3,
-                        p: 2,
-                        textAlign: "center",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: 0.5,
-                      }}
-                    >
-                      <Typography variant="caption" sx={{ color: "#94a3b8", fontWeight: 700 }}>
-                        {idx === 0 ? "Now" : formatTime(h.time)}
-                      </Typography>
-                      <Typography variant="h5">{hMeta.icon}</Typography>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 900 }}>
-                        {hTemp.toFixed(0)}°{unit}
-                      </Typography>
-                      <Typography variant="caption" sx={{ color: "#38bdf8", fontWeight: 700 }}>
-                        💧 {h.rainProbability ?? 0}%
-                      </Typography>
-                    </Box>
-                  );
-                })}
-              </Box>
-            </Card>
-
-            {/* 7–10 Day Extended Daily Forecast */}
-            <Card
-              id="daily-forecast-card"
-              sx={{
-                background: "rgba(15, 23, 42, 0.75)",
-                backdropFilter: "blur(16px)",
-                border: "1px solid rgba(255, 255, 255, 0.12)",
-                borderRadius: 4,
-                color: "#fff",
-                p: 3,
-              }}
-            >
-              <Typography variant="h6" sx={{ fontWeight: 800, mb: 3 }}>
-                📅 7–10 Day Extended Forecast
-              </Typography>
-
-              <Grid container spacing={2}>
-                {dailyList.map((day, idx) => {
-                  const dMax = unit === "C" ? (day.maxTempC ?? 30) : (day.maxTempF ?? 86);
-                  const dMin = unit === "C" ? (day.minTempC ?? 22) : (day.minTempF ?? 71);
-                  const dMeta = getWeatherMeta(day.weatherCode);
-
-                  return (
-                    <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }} key={`${day.date}-${idx}`}>
-                      <Box
-                        sx={{
-                          bgcolor: "rgba(255,255,255,0.04)",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                          borderRadius: 3,
-                          p: 2.5,
-                          textAlign: "center",
-                          height: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                          transition: "transform 0.2s ease",
-                          "&:hover": { transform: "translateY(-4px)", bgcolor: "rgba(255,255,255,0.08)" },
-                        }}
-                      >
-                        <Box>
-                          <Typography variant="subtitle2" sx={{ fontWeight: 800, color: "#38bdf8" }}>
-                            {idx === 0 ? "Today" : formatDate(day.date)}
-                          </Typography>
-                          <Typography variant="h3" sx={{ my: 1 }}>
-                            {dMeta.icon}
-                          </Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>
-                            {dMeta.label}
-                          </Typography>
-                        </Box>
-
-                        <Box sx={{ pt: 1, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-                          <Typography variant="h6" sx={{ fontWeight: 900 }}>
-                            {dMax.toFixed(0)}° / <span style={{ color: "#94a3b8" }}>{dMin.toFixed(0)}°</span>
-                          </Typography>
-                          <Typography variant="caption" sx={{ color: "#94a3b8", display: "block", mt: 0.5 }}>
-                            Precip: {day.precipitationSumMm?.toFixed(1) ?? "0"} mm ({day.rainProbabilityMax ?? 0}%)
-                          </Typography>
-                          <Typography variant="caption" sx={{ color: "#f59e0b", display: "block" }}>
-                            UV Max: {day.uVIndexMax?.toFixed(1) ?? "4.0"}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </Card>
-
-            {/* Bottom Grid: Sun & Moon Astronomy + Live Radar Map */}
-            <Grid container spacing={3}>
-              {/* Sun & Moon Data */}
-              <Grid size={{ xs: 12, md: 5 }}>
-                <Card
-                  id="astronomy-card"
-                  sx={{
-                    background: "rgba(15, 23, 42, 0.75)",
-                    backdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    borderRadius: 4,
-                    color: "#fff",
-                    p: 3,
-                    height: "100%",
-                  }}
-                >
-                  <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
-                    <NightlightIcon sx={{ color: "#f59e0b" }} /> Sun & Moon Astronomy
-                  </Typography>
-
-                  <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5, my: 1 }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", bgcolor: "rgba(255,255,255,0.04)", p: 2, borderRadius: 3 }}>
-                      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                        <WbSunnyIcon sx={{ color: "#f59e0b", fontSize: 28 }} />
-                        <Box>
-                          <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>Sunrise</Typography>
-                          <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>{formatTime(dailyList[0]?.sunrise)}</Typography>
-                        </Box>
-                      </Box>
-
-                      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                        <WbSunnyIcon sx={{ color: "#ea580c", fontSize: 28 }} />
-                        <Box>
-                          <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>Sunset</Typography>
-                          <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>{formatTime(dailyList[0]?.sunset)}</Typography>
-                        </Box>
-                      </Box>
-                    </Box>
-
-                    <Box sx={{ bgcolor: "rgba(255,255,255,0.04)", p: 2, borderRadius: 3 }}>
-                      <Typography variant="caption" sx={{ color: "#94a3b8", display: "block" }}>Lunar Phase</Typography>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#38bdf8", mt: 0.5 }}>
-                        🌔 {dailyList[0]?.moonPhaseName ?? "Waxing Gibbous"} ({( (dailyList[0]?.moonPhaseValue ?? 0.45) * 100 ).toFixed(0)}% illuminated)
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Card>
-              </Grid>
-
-              {/* Interactive Radar & Satellite View */}
-              <Grid size={{ xs: 12, md: 7 }}>
-                <Card
-                  id="radar-map-card"
-                  sx={{
-                    background: "rgba(15, 23, 42, 0.75)",
-                    backdropFilter: "blur(16px)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    borderRadius: 4,
-                    color: "#fff",
-                    p: 3,
-                    height: "100%",
-                  }}
-                >
-                  <Typography variant="h6" sx={{ fontWeight: 800, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
-                    <MapIcon sx={{ color: "#38bdf8" }} /> Live Satellite & Weather Radar Map
-                  </Typography>
-
-                  <Box
+              <Grid container spacing={2.5}>
+                {/* 1. TEMPERATURE CARD */}
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <Card
+                    id="overview-temperature-card"
                     sx={{
-                      width: "100%",
-                      height: 240,
-                      borderRadius: 3,
-                      overflow: "hidden",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      bgcolor: "#111c33",
+                      background: "linear-gradient(145deg, #111c33 0%, #15223e 100%)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "20px",
+                      color: "#fff",
+                      height: "100%",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justify: "space-between",
+                      p: 3,
                     }}
                   >
-                    <iframe
-                      id="live-weather-radar-iframe"
-                      title="Live Weather Radar Map"
-                      width="100%"
-                      height="100%"
-                      frameBorder="0"
-                      src={`https://www.openstreetmap.org/export/embed.html?bbox=${(weather.longitude ?? 78.48) - 0.2}%2C${(weather.latitude ?? 17.38) - 0.2}%2C${(weather.longitude ?? 78.48) + 0.2}%2C${(weather.latitude ?? 17.38) + 0.2}&layer=mapnik&marker=${weather.latitude ?? 17.38}%2C${weather.longitude ?? 78.48}`}
-                      style={{ filter: "invert(90%) hue-rotate(180deg)" }}
-                    />
-                  </Box>
-                </Card>
-              </Grid>
-            </Grid>
+                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#94a3b8", fontWeight: 700 }}>
+                        Temperature
+                      </Typography>
+                      <IconButton size="small" onClick={() => toggleFavorite(currentCity)} sx={{ color: isFavorite ? "#f59e0b" : "rgba(255,255,255,0.3)" }}>
+                        {isFavorite ? <StarIcon fontSize="small" /> : <StarBorderIcon fontSize="small" />}
+                      </IconButton>
+                    </Box>
 
-            {/* AdSense Compliant Banner Slot */}
-            <Box sx={{ my: 2 }}>
+                    {/* Main Temp & Cloud Rain Icon */}
+                    <Box sx={{ my: 3 }}>
+                      <Box sx={{ fontSize: "3.5rem", lineHeight: 1, mb: 1 }}>
+                        {weatherMeta.icon}
+                      </Box>
+                      <Typography variant="h1" sx={{ fontSize: "3.8rem", fontWeight: 900, lineHeight: 1 }}>
+                        {tempVal.toFixed(0)}°{unit}
+                      </Typography>
+                    </Box>
+
+                    {/* Low/High Range Pill & Location */}
+                    <Box>
+                      <Box sx={{ display: "flex", gap: 1.5, mb: 2.5, flexWrap: "wrap" }}>
+                        <Box sx={{ bgcolor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "14px", px: 2, py: 0.6, display: "flex", gap: 1, alignItems: "baseline" }}>
+                          <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 800 }}>L</Typography>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{minVal.toFixed(0)}°{unit}</Typography>
+                        </Box>
+
+                        <Box sx={{ bgcolor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "14px", px: 2, py: 0.6, display: "flex", gap: 1, alignItems: "baseline" }}>
+                          <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 800 }}>H</Typography>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{maxVal.toFixed(0)}°{unit}</Typography>
+                        </Box>
+                      </Box>
+
+                      <Typography variant="body2" sx={{ color: "#94a3b8", display: "flex", alignItems: "center", gap: 0.5, fontWeight: 600 }}>
+                        <LocationOnIcon sx={{ fontSize: 18, color: "#64748b" }} /> {currentCity}{currentCountry ? `, ${currentCountry}` : ""}
+                      </Typography>
+                    </Box>
+                  </Card>
+                </Grid>
+
+                {/* 2. AIR QUALITY CARD (Radial Dot Ring) */}
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <Card
+                    id="overview-air-quality-card"
+                    sx={{
+                      bgcolor: "#111c33",
+                      background: "linear-gradient(145deg, #111c33 0%, #15223e 100%)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "20px",
+                      color: "#fff",
+                      height: "100%",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justify: "space-between",
+                      p: 3,
+                    }}
+                  >
+                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#94a3b8", fontWeight: 700 }}>
+                        Air Quality
+                      </Typography>
+                      <IconButton size="small" sx={{ color: "rgba(255,255,255,0.3)" }}>
+                        <KeyboardArrowDownIcon fontSize="small" />
+                      </IconButton>
+                    </Box>
+
+                    {/* SVG Dotted Radial Ring Meter */}
+                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", my: 2, position: "relative", height: 160 }}>
+                      <svg width="160" height="160" viewBox="0 0 160 160">
+                        {Array.from({ length: 32 }).map((_, i) => {
+                          const angle = (i * 360) / 32;
+                          const rad = (angle * Math.PI) / 180;
+                          const cx = 80 + 60 * Math.cos(rad);
+                          const cy = 80 + 60 * Math.sin(rad);
+                          const isActive = i < 24; // active dotted portion
+                          return (
+                            <circle
+                              key={i}
+                              cx={cx}
+                              cy={cy}
+                              r={isActive ? 2.5 : 1.8}
+                              fill={isActive ? (i < 12 ? "#10b981" : "#0284c7") : "rgba(255,255,255,0.15)"}
+                            />
+                          );
+                        })}
+                      </svg>
+                      <Box sx={{ position: "absolute", textAlign: "center" }}>
+                        <Typography variant="h3" sx={{ fontWeight: 900, lineHeight: 1 }}>
+                          {aqiVal}
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700, fontSize: "0.7rem" }}>
+                          AQI
+                        </Typography>
+                      </Box>
+                    </Box>
+
+                    <Box>
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.5 }}>
+                        <Box sx={{ width: 3, height: 14, bgcolor: "#10b981", borderRadius: 1 }} />
+                        <Typography variant="subtitle2" sx={{ fontWeight: 800, color: "#10b981" }}>
+                          {aqiObj?.statusLabel ?? "Good"}
+                        </Typography>
+                      </Box>
+                      <Typography variant="caption" sx={{ color: "#94a3b8", display: "block", lineHeight: 1.4 }}>
+                        {aqiObj?.healthAdvisory ?? "The air is in standard level and is healthy for everyone."}
+                      </Typography>
+                    </Box>
+                  </Card>
+                </Grid>
+
+                {/* 3. WEEKLY TEMPERATURE LINE CHART */}
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <Card
+                    id="overview-temperature-chart-card"
+                    sx={{
+                      bgcolor: "#111c33",
+                      background: "linear-gradient(145deg, #111c33 0%, #15223e 100%)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: "20px",
+                      color: "#fff",
+                      height: "100%",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justify: "space-between",
+                      p: 3,
+                    }}
+                  >
+                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <Typography variant="subtitle1" sx={{ color: "#94a3b8", fontWeight: 700 }}>
+                        Temperature
+                      </Typography>
+                      <Chip
+                        label="This week"
+                        size="small"
+                        deleteIcon={<KeyboardArrowDownIcon sx={{ color: "#fff !important" }} />}
+                        onDelete={() => {}}
+                        sx={{ bgcolor: "rgba(255,255,255,0.06)", color: "#fff", fontWeight: 700, fontSize: "0.75rem", borderRadius: "12px" }}
+                      />
+                    </Box>
+
+                    {/* Smooth SVG Line Chart */}
+                    <Box sx={{ my: 2, height: 120, position: "relative" }}>
+                      <svg width="100%" height="100%" viewBox="0 0 300 100" preserveAspectRatio="none">
+                        {/* Background subtle grid line */}
+                        <line x1="0" y1="50" x2="300" y2="50" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
+                        
+                        {/* Smooth Curve Path */}
+                        <path
+                          d="M 10 65 Q 50 40 90 60 T 170 30 T 230 50 T 290 45"
+                          fill="none"
+                          stroke="#38bdf8"
+                          strokeWidth="2.5"
+                        />
+
+                        {/* Active Day Vertical Dotted Highlight Line */}
+                        <line x1="170" y1="10" x2="170" y2="90" stroke="rgba(255,255,255,0.3)" strokeDasharray="2 2" />
+                        <circle cx="170" cy="30" r="4.5" fill="#38bdf8" stroke="#090e17" strokeWidth="2" />
+                      </svg>
+                    </Box>
+
+                    {/* Day Names & Temps Row */}
+                    <Box sx={{ display: "flex", justifyContent: "space-between", textAlign: "center" }}>
+                      {dailyList.slice(0, 7).map((d, idx) => {
+                        const dMax = unit === "C" ? (d.maxTempC ?? 20) : (d.maxTempF ?? 68);
+                        const isHighlight = idx === 3;
+                        return (
+                          <Box key={idx}>
+                            <Typography variant="caption" sx={{ color: isHighlight ? "#fff" : "#64748b", fontWeight: isHighlight ? 800 : 600, display: "block", mb: 0.5, fontSize: "0.65rem" }}>
+                              {formatDateDayName(d.date)}
+                            </Typography>
+                            <Typography variant="caption" sx={{ color: isHighlight ? "#38bdf8" : "#e2e8f0", fontWeight: isHighlight ? 900 : 700, fontSize: "0.75rem" }}>
+                              {dMax.toFixed(0)}°
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Box>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Box>
+
+            {/* SECTION 2: TODAY'S HIGHLIGHT ROW */}
+            <Box>
+              <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, color: "#f8fafc" }}>
+                Today's Highlight
+              </Typography>
+
+              <Grid container spacing={2.5}>
+                {/* LEFT HIGHLIGHT GRID (4 SUB-CARDS) */}
+                <Grid size={{ xs: 12, md: 7 }}>
+                  <Grid container spacing={2}>
+                    {/* 1. Wind Status */}
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Card sx={{ bgcolor: "#111c33", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "18px", p: 2.5, color: "#fff" }}>
+                        <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700, display: "block", mb: 1 }}>
+                          Wind Status
+                        </Typography>
+                        <Box sx={{ height: 40, my: 1 }}>
+                          <svg width="100%" height="100%" viewBox="0 0 150 40">
+                            <path d="M 0 20 Q 30 5 60 25 T 120 10 T 150 20" fill="none" stroke="#10b981" strokeWidth="2" />
+                          </svg>
+                        </Box>
+                        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                          <Typography variant="h5" sx={{ fontWeight: 900 }}>
+                            {curObj?.windSpeedKmH ?? 7.4} <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "#94a3b8" }}>km/h</span>
+                          </Typography>
+                          <Typography variant="caption" sx={{ color: "#64748b" }}>
+                            10:27 AM
+                          </Typography>
+                        </Box>
+                      </Card>
+                    </Grid>
+
+                    {/* 2. UV Index */}
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Card sx={{ bgcolor: "#111c33", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "18px", p: 2.5, color: "#fff" }}>
+                        <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700, display: "block", mb: 1 }}>
+                          UV Index
+                        </Typography>
+                        {/* Semi-circular Gauge */}
+                        <Box sx={{ display: "flex", justifyContent: "center", my: 1, position: "relative" }}>
+                          <svg width="100" height="50" viewBox="0 0 100 50">
+                            <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="8" strokeLinecap="round" />
+                            <path d="M 10 50 A 40 40 0 0 1 70 18" fill="none" stroke="#38bdf8" strokeWidth="8" strokeLinecap="round" />
+                          </svg>
+                        </Box>
+                        <Typography variant="h6" sx={{ fontWeight: 900, textAlign: "center" }}>
+                          {dailyList[0]?.uVIndexMax?.toFixed(2) ?? "5.50"} <span style={{ fontSize: "0.75rem", color: "#94a3b8" }}>UV</span>
+                        </Typography>
+                      </Card>
+                    </Grid>
+
+                    {/* 3. Sunrise & Sunset */}
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Card sx={{ bgcolor: "#111c33", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "18px", p: 2.5, color: "#fff" }}>
+                        <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700, display: "block", mb: 1 }}>
+                          Sun rise & Sun set
+                        </Typography>
+                        {/* Arc Diagram */}
+                        <Box sx={{ display: "flex", justifyContent: "center", my: 1 }}>
+                          <svg width="120" height="50" viewBox="0 0 120 50">
+                            <path d="M 10 50 A 50 50 0 0 1 110 50" fill="none" stroke="rgba(255,255,255,0.15)" strokeDasharray="3 3" strokeWidth="1.5" />
+                            <circle cx="60" cy="10" r="4" fill="#f59e0b" />
+                          </svg>
+                        </Box>
+                        <Box sx={{ display: "flex", justifyContent: "space-between", textAlign: "center", mt: 0.5 }}>
+                          <Box>
+                            <Typography variant="caption" sx={{ color: "#64748b", display: "block", fontSize: "0.65rem" }}>Sunrise</Typography>
+                            <Typography variant="caption" sx={{ fontWeight: 800, fontSize: "0.75rem" }}>5:50 AM</Typography>
+                          </Box>
+                          <Box>
+                            <Typography variant="caption" sx={{ color: "#64748b", display: "block", fontSize: "0.65rem" }}>Sunset</Typography>
+                            <Typography variant="caption" sx={{ fontWeight: 800, fontSize: "0.75rem" }}>6:30 PM</Typography>
+                          </Box>
+                        </Box>
+                      </Card>
+                    </Grid>
+
+                    {/* 4. Humidity & Visibility */}
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <Grid container spacing={1.5}>
+                        <Grid size={{ xs: 6 }}>
+                          <Card sx={{ bgcolor: "#111c33", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "18px", p: 2, color: "#fff" }}>
+                            <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700, display: "block" }}>Humidity</Typography>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, my: 1 }}>
+                              <WaterDropIcon sx={{ color: "#0284c7", fontSize: 18 }} />
+                              <Typography variant="h6" sx={{ fontWeight: 900 }}>{curObj?.humidity ?? 87}%</Typography>
+                            </Box>
+                          </Card>
+                        </Grid>
+                        <Grid size={{ xs: 6 }}>
+                          <Card sx={{ bgcolor: "#111c33", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "18px", p: 2, color: "#fff" }}>
+                            <Typography variant="caption" sx={{ color: "#64748b", fontWeight: 700, display: "block" }}>Fog Density</Typography>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, my: 1 }}>
+                              <VisibilityIcon sx={{ color: "#38bdf8", fontSize: 18 }} />
+                              <Typography variant="h6" sx={{ fontWeight: 900 }}>500 m</Typography>
+                            </Box>
+                          </Card>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                {/* RIGHT BANNER / NOTIFICATION CTA CARD */}
+                <Grid size={{ xs: 12, md: 5 }}>
+                  <Card
+                    id="weather-notification-banner-card"
+                    sx={{
+                      background: "linear-gradient(135deg, #092c3a 0%, #0d4642 100%)",
+                      border: "1px solid rgba(16, 185, 129, 0.3)",
+                      borderRadius: "20px",
+                      color: "#fff",
+                      p: 4,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justify: "space-between",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                    }}
+                  >
+                    <Box>
+                      <NotificationsActiveIcon sx={{ fontSize: 32, color: "#34d399", mb: 2 }} />
+                      <Typography variant="h5" sx={{ fontWeight: 900, lineHeight: 1.3, letterSpacing: "0.5px" }}>
+                        GET AUTOMATIC ALERTS FOR <span style={{ color: "#34d399" }}>SUDDEN WEATHER</span> CHANGES STRAIGHT TO YOUR DEVICE!
+                      </Typography>
+                    </Box>
+
+                    <Button
+                      id="enable-notifications-btn"
+                      variant="contained"
+                      onClick={() => {
+                        setNotifEnabled(!notifEnabled);
+                        alert(notifEnabled ? "Weather alerts muted." : "Automatic weather alerts enabled!");
+                      }}
+                      sx={{
+                        bgcolor: "#fff",
+                        color: "#0f172a",
+                        fontWeight: 900,
+                        borderRadius: "30px",
+                        py: 1.5,
+                        textTransform: "none",
+                        fontSize: "0.95rem",
+                        "&:hover": { bgcolor: "#f1f5f9" },
+                        mt: 3,
+                      }}
+                    >
+                      {notifEnabled ? "Notifications Active ✓" : "Turn on notifications"}
+                    </Button>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Box>
+
+            {/* AdSense Banner Placement */}
+            <Box sx={{ my: 1 }}>
               <AdCard placement="weather-page-bottom" />
             </Box>
 
@@ -895,8 +806,8 @@ export const Weather: React.FC = () => {
         )}
       </SectionStatus>
 
-      {/* Category Editorial & E-E-A-T FAQ Section */}
-      <Box sx={{ mt: 6 }}>
+      {/* Category Editorial & FAQ Section */}
+      <Box sx={{ mt: 5 }}>
         <CategoryEditorial categoryKey="weather" />
       </Box>
     </Box>

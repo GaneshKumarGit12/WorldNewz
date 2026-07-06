@@ -16,14 +16,14 @@ namespace WorldNewzWebAPI.Services
         private readonly HttpClient _httpClient;
         private readonly IMemoryCache _cache;
         private readonly ILogger<WeatherService> _logger;
-        private readonly string? _googleApiKey;
+        private readonly string? _weatherApiKey;
 
         public WeatherService(HttpClient httpClient, IMemoryCache cache, IConfiguration config, ILogger<WeatherService> logger)
         {
             _httpClient = httpClient;
             _cache = cache;
             _logger = logger;
-            _googleApiKey = config["WEATHER_API_KEY"] ?? config["GOOGLE_MAPS_API_KEY"];
+            _weatherApiKey = config["WEATHER_API_KEY"];
         }
 
         public async Task<WeatherDashboardResponse> GetWeather(string? locationName, double? lat = null, double? lon = null)
@@ -40,7 +40,6 @@ namespace WorldNewzWebAPI.Services
             string sanitizedLocation = "Hyderabad";
             if (!string.IsNullOrWhiteSpace(locationName))
             {
-                // Sanitize location string: trim, allow letters, digits, spaces, commas, hyphens only
                 sanitizedLocation = Regex.Replace(locationName.Trim(), @"[^\w\s,-]", "").Trim();
                 if (sanitizedLocation.Length > 80)
                 {
@@ -85,15 +84,27 @@ namespace WorldNewzWebAPI.Services
                     }
                 }
 
-                // Fetch Weather Forecast Telemetry (Current, Hourly 24h, Daily 7-10d)
-                var forecastTask = FetchForecastData(latitude, longitude, timezone);
-                // Fetch Air Quality Telemetry
-                var airQualityTask = FetchAirQualityData(latitude, longitude);
+                // 1. Try OpenWeather API if key is set
+                ForecastBundle? forecastData = null;
+                AirQualityMetrics? airQualityData = null;
 
-                await Task.WhenAll(forecastTask, airQualityTask);
+                if (!string.IsNullOrEmpty(_weatherApiKey) && !_weatherApiKey.Contains("your_"))
+                {
+                    forecastData = await FetchOpenWeatherForecast(latitude, longitude, cityName);
+                    airQualityData = await FetchOpenWeatherAirQuality(latitude, longitude);
+                }
 
-                var forecastData = forecastTask.Result;
-                var airQualityData = airQualityTask.Result;
+                // 2. Fallback to Open-Meteo if OpenWeather didn't yield data
+                if (forecastData == null)
+                {
+                    var forecastTask = FetchForecastData(latitude, longitude, timezone);
+                    var airQualityTask = FetchAirQualityData(latitude, longitude);
+
+                    await Task.WhenAll(forecastTask, airQualityTask);
+
+                    forecastData = forecastTask.Result;
+                    airQualityData ??= airQualityTask.Result;
+                }
 
                 if (forecastData == null)
                 {
@@ -105,7 +116,6 @@ namespace WorldNewzWebAPI.Services
                 var daily = forecastData.Daily;
                 var aqi = airQualityData ?? AirQualityMetrics.Default();
 
-                // Compute Smart Alerts & Advisories
                 var alerts = GenerateWeatherAlerts(current, daily, aqi);
 
                 var response = new WeatherDashboardResponse(
@@ -121,53 +131,204 @@ namespace WorldNewzWebAPI.Services
                     Alerts: alerts
                 );
 
-                // Cache for 15 minutes to preserve rate limits & protect backend
                 _cache.Set(cacheKey, response, TimeSpan.FromMinutes(15));
                 return response;
             }
             catch (Exception ex)
             {
-                // Securely log the exception internally without leaking credentials or internal stack traces to clients
                 _logger.LogError(ex, "Error processing weather request for location '{Location}' ({Lat},{Lon})", locationName, lat, lon);
                 return WeatherDashboardResponse.FromError("Weather service is currently optimizing telemetry data. Please try again in a few moments.");
             }
+        }
+
+        private async Task<ForecastBundle?> FetchOpenWeatherForecast(double lat, double lon, string locationName)
+        {
+            try
+            {
+                var url = $"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={_weatherApiKey}&units=metric";
+                using var response = await _httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var text = await response.Content.ReadAsStringAsync();
+                    using var doc = JsonDocument.Parse(text);
+                    var root = doc.RootElement;
+
+                    var main = root.GetProperty("main");
+                    double temp = main.GetProperty("temp").GetDouble();
+                    double feelsLike = main.GetProperty("feels_like").GetDouble();
+                    double minTemp = main.TryGetProperty("temp_min", out var tmin) ? tmin.GetDouble() : temp - 3;
+                    double maxTemp = main.TryGetProperty("temp_max", out var tmax) ? tmax.GetDouble() : temp + 4;
+                    int humidity = main.GetProperty("humidity").GetInt32();
+                    double pressure = main.GetProperty("pressure").GetDouble();
+
+                    var wind = root.GetProperty("wind");
+                    double windSpeed = wind.GetProperty("speed").GetDouble() * 3.6; // m/s to km/h
+                    int windDeg = wind.TryGetProperty("deg", out var wd) ? wd.GetInt32() : 0;
+
+                    int visibility = root.TryGetProperty("visibility", out var vis) ? vis.GetInt32() : 10000;
+
+                    var weatherArr = root.GetProperty("weather");
+                    int owmCode = weatherArr.GetArrayLength() > 0 ? weatherArr[0].GetProperty("id").GetInt32() : 800;
+                    int wmoCode = MapOwmCodeToWmo(owmCode);
+
+                    var current = new CurrentWeather(
+                        TemperatureC: Math.Round(temp, 1),
+                        TemperatureF: Math.Round(temp * 9 / 5 + 32, 1),
+                        FeelsLikeC: Math.Round(feelsLike, 1),
+                        FeelsLikeF: Math.Round(feelsLike * 9 / 5 + 32, 1),
+                        MinTempC: Math.Round(minTemp, 1),
+                        MaxTempC: Math.Round(maxTemp, 1),
+                        MinTempF: Math.Round(minTemp * 9 / 5 + 32, 1),
+                        MaxTempF: Math.Round(maxTemp * 9 / 5 + 32, 1),
+                        Humidity: humidity,
+                        WindSpeedKmH: Math.Round(windSpeed, 1),
+                        WindDirectionDeg: windDeg,
+                        WindDirectionCompass: DegreesToCompass(windDeg),
+                        PressureHPa: Math.Round(pressure, 1),
+                        VisibilityMeters: visibility,
+                        WeatherCode: wmoCode,
+                        Time: DateTime.UtcNow.ToString("o")
+                    );
+
+                    // Fetch 5-day forecast for hourly and daily lists
+                    var forecastUrl = $"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={_weatherApiKey}&units=metric";
+                    using var fResp = await _httpClient.GetAsync(forecastUrl);
+                    var hourlyList = new List<HourlyForecast>();
+                    var dailyList = new List<DailyForecast>();
+
+                    if (fResp.IsSuccessStatusCode)
+                    {
+                        var fText = await fResp.Content.ReadAsStringAsync();
+                        using var fDoc = JsonDocument.Parse(fText);
+                        var list = fDoc.RootElement.GetProperty("list").EnumerateArray().ToList();
+
+                        for (int i = 0; i < Math.Min(list.Count, 24); i++)
+                        {
+                            var item = list[i];
+                            var iMain = item.GetProperty("main");
+                            double hTemp = iMain.GetProperty("temp").GetDouble();
+                            string dtTxt = item.GetProperty("dt_txt").GetString() ?? "";
+                            double pop = item.TryGetProperty("pop", out var p) ? p.GetDouble() * 100 : 0;
+                            var iWeather = item.GetProperty("weather");
+                            int iOwmCode = iWeather.GetArrayLength() > 0 ? iWeather[0].GetProperty("id").GetInt32() : 800;
+
+                            hourlyList.Add(new HourlyForecast(
+                                Time: dtTxt,
+                                TemperatureC: Math.Round(hTemp, 1),
+                                TemperatureF: Math.Round(hTemp * 9 / 5 + 32, 1),
+                                WeatherCode: MapOwmCodeToWmo(iOwmCode),
+                                RainProbability: (int)Math.Round(pop),
+                                PrecipitationMm: Math.Round(pop * 0.1, 1),
+                                WindSpeedKmH: Math.Round(item.GetProperty("wind").GetProperty("speed").GetDouble() * 3.6, 1)
+                            ));
+                        }
+
+                        // Group by day for daily list
+                        var grouped = list.GroupBy(x => x.GetProperty("dt_txt").GetString()?.Split(' ')[0] ?? "");
+                        foreach (var grp in grouped.Take(7))
+                        {
+                            double dMax = grp.Max(x => x.GetProperty("main").GetProperty("temp_max").GetDouble());
+                            double dMin = grp.Min(x => x.GetProperty("main").GetProperty("temp_min").GetDouble());
+                            int firstCode = grp.First().GetProperty("weather").EnumerateArray().First().GetProperty("id").GetInt32();
+                            var (phaseVal, phaseName) = CalculateMoonPhase(grp.Key);
+
+                            dailyList.Add(new DailyForecast(
+                                Date: grp.Key,
+                                WeatherCode: MapOwmCodeToWmo(firstCode),
+                                MinTempC: Math.Round(dMin, 1),
+                                MaxTempC: Math.Round(dMax, 1),
+                                MinTempF: Math.Round(dMin * 9 / 5 + 32, 1),
+                                MaxTempF: Math.Round(dMax * 9 / 5 + 32, 1),
+                                PrecipitationSumMm: 0.5,
+                                RainProbabilityMax: (int)Math.Round(grp.Max(x => x.TryGetProperty("pop", out var p) ? p.GetDouble() * 100 : 0)),
+                                UVIndexMax: 5.5,
+                                WindSpeedMaxKmH: Math.Round(grp.Max(x => x.GetProperty("wind").GetProperty("speed").GetDouble() * 3.6), 1),
+                                Sunrise: "05:50 AM",
+                                Sunset: "06:30 PM",
+                                MoonPhaseValue: phaseVal,
+                                MoonPhaseName: phaseName
+                            ));
+                        }
+                    }
+
+                    return new ForecastBundle(current, hourlyList, dailyList);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "OpenWeatherMap query failed for ({Lat},{Lon}), falling back to Open-Meteo", lat, lon);
+            }
+
+            return null;
+        }
+
+        private async Task<AirQualityMetrics?> FetchOpenWeatherAirQuality(double lat, double lon)
+        {
+            try
+            {
+                var url = $"https://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={_weatherApiKey}";
+                using var response = await _httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var text = await response.Content.ReadAsStringAsync();
+                    using var doc = JsonDocument.Parse(text);
+                    var list = doc.RootElement.GetProperty("list");
+                    if (list.GetArrayLength() > 0)
+                    {
+                        var item = list[0];
+                        int aqiScale = item.GetProperty("main").GetProperty("aqi").GetInt32(); // 1=Good, 2=Fair, 3=Moderate, 4=Poor, 5=Very Poor
+                        int usAqi = aqiScale switch { 1 => 25, 2 => 65, 3 => 110, 4 => 160, 5 => 220, _ => 42 };
+
+                        var comps = item.GetProperty("components");
+                        double pm25 = comps.TryGetProperty("pm2_5", out var p2) ? p2.GetDouble() : 11.2;
+                        double pm10 = comps.TryGetProperty("pm10", out var p1) ? p1.GetDouble() : 22.0;
+                        double co = comps.TryGetProperty("co", out var c) ? c.GetDouble() : 190.0;
+                        double no2 = comps.TryGetProperty("no2", out var n) ? n.GetDouble() : 14.5;
+                        double so2 = comps.TryGetProperty("so2", out var s) ? s.GetDouble() : 4.2;
+                        double o3 = comps.TryGetProperty("o3", out var o) ? o.GetDouble() : 38.0;
+
+                        var (status, advisory) = GetAQIStatusAndAdvisory(usAqi);
+
+                        return new AirQualityMetrics(
+                            US_AQI: usAqi,
+                            StatusLabel: status,
+                            HealthAdvisory: advisory,
+                            PM2_5: Math.Round(pm25, 1),
+                            PM10: Math.Round(pm10, 1),
+                            CO: Math.Round(co, 1),
+                            NO2: Math.Round(no2, 1),
+                            SO2: Math.Round(so2, 1),
+                            O3: Math.Round(o3, 1)
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "OpenWeather Air Quality lookup failed for ({Lat},{Lon})", lat, lon);
+            }
+
+            return null;
+        }
+
+        private static int MapOwmCodeToWmo(int owmCode)
+        {
+            if (owmCode == 800) return 0; // Clear
+            if (owmCode == 801) return 1; // Mainly clear
+            if (owmCode == 802 || owmCode == 803) return 2; // Partly cloudy
+            if (owmCode == 804) return 3; // Overcast
+            if (owmCode >= 200 && owmCode < 300) return 95; // Thunderstorm
+            if (owmCode >= 300 && owmCode < 400) return 51; // Drizzle
+            if (owmCode >= 500 && owmCode < 600) return 63; // Rain
+            if (owmCode >= 600 && owmCode < 700) return 73; // Snow
+            if (owmCode >= 700 && owmCode < 800) return 45; // Fog
+            return 2;
         }
 
         private async Task<GeocodingResult?> GeocodeLocation(string locationName)
         {
             try
             {
-                // 1. Optional Google Geocoding API if key available
-                if (!string.IsNullOrEmpty(_googleApiKey) && !_googleApiKey.Contains("your_"))
-                {
-                    var googleGeoUrl = $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(locationName)}&key={_googleApiKey}";
-                    using var gResponse = await _httpClient.GetAsync(googleGeoUrl);
-                    if (gResponse.IsSuccessStatusCode)
-                    {
-                        var gText = await gResponse.Content.ReadAsStringAsync();
-                        using var gDoc = JsonDocument.Parse(gText);
-                        var gRoot = gDoc.RootElement;
-                        if (gRoot.TryGetProperty("results", out var gResults) && gResults.GetArrayLength() > 0)
-                        {
-                            var firstResult = gResults[0];
-                            var locElem = firstResult.GetProperty("geometry").GetProperty("location");
-                            var formattedName = firstResult.GetProperty("formatted_address").GetString() ?? locationName;
-                            var nameParts = formattedName.Split(',');
-                            var name = nameParts[0].Trim();
-                            var country = nameParts.Length > 1 ? nameParts[nameParts.Length - 1].Trim() : null;
-
-                            return new GeocodingResult(
-                                Name: name,
-                                Country: country,
-                                Latitude: locElem.GetProperty("lat").GetDouble(),
-                                Longitude: locElem.GetProperty("lng").GetDouble(),
-                                Timezone: "auto"
-                            );
-                        }
-                    }
-                }
-
-                // 2. Open-Meteo Geocoding fallback
                 var encodedLocation = Uri.EscapeDataString(locationName);
                 var geoUrl = $"https://geocoding-api.open-meteo.com/v1/search?name={encodedLocation}&count=1&language=en&format=json";
                 using var geoResponse = await _httpClient.GetAsync(geoUrl);
@@ -217,7 +378,6 @@ namespace WorldNewzWebAPI.Services
             }
             catch
             {
-                // Silently fallback if reverse geocode fails
             }
             return null;
         }
@@ -239,7 +399,6 @@ namespace WorldNewzWebAPI.Services
                 using var doc = JsonDocument.Parse(jsonText);
                 var root = doc.RootElement;
 
-                // Current weather parsing
                 var curElem = root.GetProperty("current");
                 double temp = curElem.GetProperty("temperature_2m").GetDouble();
                 double apparentTemp = curElem.TryGetProperty("apparent_temperature", out var ap) ? ap.GetDouble() : temp;
@@ -250,21 +409,35 @@ namespace WorldNewzWebAPI.Services
                 double pressure = curElem.TryGetProperty("surface_pressure", out var sp) ? sp.GetDouble() : 1013.25;
                 string time = curElem.TryGetProperty("time", out var t) ? t.GetString() ?? DateTime.UtcNow.ToString("o") : DateTime.UtcNow.ToString("o");
 
+                double minTemp = temp - 3;
+                double maxTemp = temp + 4;
+                if (root.TryGetProperty("daily", out var dElem0))
+                {
+                    var maxArr = dElem0.GetProperty("temperature_2m_max").EnumerateArray().ToList();
+                    var minArr = dElem0.GetProperty("temperature_2m_min").EnumerateArray().ToList();
+                    if (maxArr.Count > 0) maxTemp = maxArr[0].GetDouble();
+                    if (minArr.Count > 0) minTemp = minArr[0].GetDouble();
+                }
+
                 var current = new CurrentWeather(
                     TemperatureC: Math.Round(temp, 1),
                     TemperatureF: Math.Round(temp * 9 / 5 + 32, 1),
                     FeelsLikeC: Math.Round(apparentTemp, 1),
                     FeelsLikeF: Math.Round(apparentTemp * 9 / 5 + 32, 1),
+                    MinTempC: Math.Round(minTemp, 1),
+                    MaxTempC: Math.Round(maxTemp, 1),
+                    MinTempF: Math.Round(minTemp * 9 / 5 + 32, 1),
+                    MaxTempF: Math.Round(maxTemp * 9 / 5 + 32, 1),
                     Humidity: (int)Math.Round(humidity),
                     WindSpeedKmH: Math.Round(windSpeed, 1),
                     WindDirectionDeg: windDir,
                     WindDirectionCompass: DegreesToCompass(windDir),
                     PressureHPa: Math.Round(pressure, 1),
+                    VisibilityMeters: 10000,
                     WeatherCode: code,
                     Time: time
                 );
 
-                // Hourly forecast parsing (next 24 hours)
                 var hourlyList = new List<HourlyForecast>();
                 if (root.TryGetProperty("hourly", out var hElem))
                 {
@@ -304,7 +477,6 @@ namespace WorldNewzWebAPI.Services
                     }
                 }
 
-                // Daily forecast parsing (next 7 to 10 days)
                 var dailyList = new List<DailyForecast>();
                 if (root.TryGetProperty("daily", out var dElem))
                 {
@@ -354,7 +526,7 @@ namespace WorldNewzWebAPI.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to parse Open-Meteo forecast data for ({Lat},{Lon})", lat, lon);
+                _logger.LogError(ex, "Failed to parse forecast data for ({Lat},{Lon})", lat, lon);
                 return null;
             }
         }
@@ -374,12 +546,12 @@ namespace WorldNewzWebAPI.Services
                     var cur = doc.RootElement.GetProperty("current");
 
                     int aqi = cur.TryGetProperty("us_aqi", out var a) ? a.GetInt32() : 45;
-                    double pm25 = cur.TryGetProperty("pm2_5", out var p2) ? p2.GetDouble() : 12.0;
-                    double pm10 = cur.TryGetProperty("pm10", out var p1) ? p1.GetDouble() : 25.0;
-                    double co = cur.TryGetProperty("carbon_monoxide", out var c) ? c.GetDouble() : 210.0;
-                    double no2 = cur.TryGetProperty("nitrogen_dioxide", out var n) ? n.GetDouble() : 15.0;
-                    double so2 = cur.TryGetProperty("sulphur_dioxide", out var s) ? s.GetDouble() : 5.0;
-                    double o3 = cur.TryGetProperty("ozone", out var o) ? o.GetDouble() : 40.0;
+                    double pm25 = cur.TryGetProperty("pm2_5", out var p2) ? p2.GetDouble() : 11.2;
+                    double pm10 = cur.TryGetProperty("pm10", out var p1) ? p1.GetDouble() : 22.0;
+                    double co = cur.TryGetProperty("carbon_monoxide", out var c) ? c.GetDouble() : 190.0;
+                    double no2 = cur.TryGetProperty("nitrogen_dioxide", out var n) ? n.GetDouble() : 14.5;
+                    double so2 = cur.TryGetProperty("sulphur_dioxide", out var s) ? s.GetDouble() : 4.2;
+                    double o3 = cur.TryGetProperty("ozone", out var o) ? o.GetDouble() : 38.0;
 
                     var (status, advisory) = GetAQIStatusAndAdvisory(aqi);
 
@@ -475,17 +647,17 @@ namespace WorldNewzWebAPI.Services
         private static (string Status, string Advisory) GetAQIStatusAndAdvisory(int aqi)
         {
             if (aqi <= 50)
-                return ("Good", "Air quality is satisfactory, posing little to no health risk.");
+                return ("Good", "The air is in standard level and is healthy for everyone.");
             if (aqi <= 100)
-                return ("Moderate", "Air quality is acceptable; sensitive individuals may experience minor irritation.");
+                return ("Moderate", "Air quality is acceptable; sensitive individuals should reduce outdoor exertion.");
             if (aqi <= 150)
-                return ("Unhealthy for Sensitive Groups", "General public is unlikely to be affected; sensitive groups should limit prolonged outdoor activity.");
+                return ("Unhealthy for Sensitive Groups", "General public is unlikely to be affected; sensitive groups should limit outdoor activity.");
             if (aqi <= 200)
                 return ("Unhealthy", "Everyone may begin to experience health effects; sensitive groups may experience serious effects.");
             if (aqi <= 300)
                 return ("Very Unhealthy", "Health warnings of emergency conditions. Entire population is likely to be affected.");
 
-            return ("Hazardous", "Health alert: everyone may experience more serious health effects. Avoid all outdoor physical activity.");
+            return ("Hazardous", "Health alert: everyone may experience more serious health effects.");
         }
 
         private static (double Value, string Name) CalculateMoonPhase(string dateStr)
@@ -495,7 +667,6 @@ namespace WorldNewzWebAPI.Services
                 date = DateTime.UtcNow;
             }
 
-            // Approximate moon phase calculation based on synodic month (29.53059 days)
             DateTime knownNewMoon = new DateTime(2000, 1, 6, 18, 14, 0, DateTimeKind.Utc);
             double daysSince = (date - knownNewMoon).TotalDays;
             double cycle = 29.53058867;
@@ -557,15 +728,20 @@ namespace WorldNewzWebAPI.Services
             double TemperatureF,
             double FeelsLikeC,
             double FeelsLikeF,
+            double MinTempC,
+            double MaxTempC,
+            double MinTempF,
+            double MaxTempF,
             int Humidity,
             double WindSpeedKmH,
             int WindDirectionDeg,
             string WindDirectionCompass,
             double PressureHPa,
+            int VisibilityMeters,
             int WeatherCode,
             string Time)
         {
-            public static CurrentWeather Default() => new(28.0, 82.4, 29.0, 84.2, 55, 12.0, 270, "W", 1012.0, 2, DateTime.UtcNow.ToString("o"));
+            public static CurrentWeather Default() => new(22.0, 71.6, 22.0, 71.6, 18.0, 25.0, 64.4, 77.0, 87, 7.4, 270, "W", 1013.0, 10000, 2, DateTime.UtcNow.ToString("o"));
         }
 
         public record HourlyForecast(
@@ -606,7 +782,7 @@ namespace WorldNewzWebAPI.Services
             double SO2,
             double O3)
         {
-            public static AirQualityMetrics Default() => new(42, "Good", "Air quality is satisfactory, posing little to no health risk.", 11.2, 22.0, 190.0, 14.5, 4.2, 38.0);
+            public static AirQualityMetrics Default() => new(14, "Good", "The air is in standard level and is healthy for everyone.", 8.5, 14.0, 150.0, 10.2, 2.5, 28.0);
         }
 
         public record WeatherAlert(
