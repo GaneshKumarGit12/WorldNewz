@@ -80,11 +80,12 @@ export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
               ? "0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04)"
               : "0 4px 16px rgba(0, 0, 0, 0.35)",
             transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-            border: `1px solid ${isLight ? "#e2e8f0" : "rgba(255, 255, 255, 0.05)"}`,
+            border: `1px solid ${isLight ? "#cbd5e1" : "rgba(255, 255, 255, 0.08)"}`,
             "&:hover": {
               transform: "translateY(-3px)",
+              borderColor: isLight ? "#94a3b8" : "rgba(255, 255, 255, 0.2)",
               boxShadow: isLight
-                ? "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04)"
+                ? "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04)"
                 : "0 8px 32px rgba(0, 0, 0, 0.5)",
             },
           },
@@ -94,7 +95,7 @@ export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
         styleOverrides: {
           root: {
             backgroundImage: "none",
-            border: `1px solid ${isLight ? "#e2e8f0" : "rgba(255, 255, 255, 0.06)"}`,
+            border: `1px solid ${isLight ? "#cbd5e1" : "rgba(255, 255, 255, 0.08)"}`,
           },
         },
       },

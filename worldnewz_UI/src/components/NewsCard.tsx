@@ -178,15 +178,18 @@ const NewsCard: React.FC<NewsCardProps> = ({
           display: "flex",
           flexDirection: "column",
           height: "100%",
-          bgcolor: "background.paper", // Let theme handle it, but typically #212121 or #18181b in dark mode
-          backgroundImage: "none", // Remove MUI default overlay
-          boxShadow: "none",
+          bgcolor: "background.paper",
+          backgroundImage: "none",
+          border: (theme) => `1px solid ${theme.palette.mode === "light" ? "#cbd5e1" : "rgba(255, 255, 255, 0.08)"}`,
+          boxShadow: (theme) => theme.palette.mode === "light" ? "0 2px 6px rgba(0,0,0,0.05)" : "none",
           borderRadius: 2,
           overflow: "hidden",
-          transition: "transform 0.2s ease",
+          transition: "transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
           cursor: "pointer",
           "&:hover": {
-            transform: "scale(1.02)",
+            transform: "translateY(-3px)",
+            borderColor: (theme) => theme.palette.mode === "light" ? "#94a3b8" : "rgba(255, 255, 255, 0.2)",
+            boxShadow: (theme) => theme.palette.mode === "light" ? "0 8px 20px rgba(0,0,0,0.1)" : "0 8px 24px rgba(0,0,0,0.4)",
           },
         }}
       >
