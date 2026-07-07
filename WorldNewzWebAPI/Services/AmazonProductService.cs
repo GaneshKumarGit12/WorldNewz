@@ -186,9 +186,10 @@ namespace WorldNewzWebAPI.Services
 
             url = url.Trim();
 
-            // If it's already an absolute URL, return it directly
+            // If it's already an absolute URL or local self-hosted image path, return it directly
             if (url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || 
-                url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+                url.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ||
+                url.StartsWith("/images/", StringComparison.OrdinalIgnoreCase))
             {
                 return url;
             }
@@ -209,7 +210,7 @@ namespace WorldNewzWebAPI.Services
                     Asin = "B08H88N2N9",
                     Title = "Cubelelo Drift 3x3 Stickerless Warrior Speed Cube",
                     Description = "High-speed stickerless 3x3 speed cube with smooth turning and frosted surface design for puzzle enthusiasts.",
-                    ImageUrl = "https://images.unsplash.com/photo-1591811400261-26c71c4c8105?w=500&auto=format&fit=crop&q=60",
+                    ImageUrl = "/images/cubelelo_cube.png",
                     Price = 249.00m,
                     OriginalPrice = 399.00m,
                     Rating = 4.3,
@@ -339,7 +340,7 @@ namespace WorldNewzWebAPI.Services
                     Asin = "B0DSKNHX1T",
                     Title = "Samsung Galaxy S25+ 5G AI Smartphone",
                     Description = "Flagship Samsung Galaxy smartphone featuring Galaxy AI camera capabilities, stunning AMOLED display, and ultra-fast performance.",
-                    ImageUrl = "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop&q=60",
+                    ImageUrl = "/images/galaxy_phone.png",
                     Price = 79999.00m,
                     OriginalPrice = 89999.00m,
                     Rating = 4.7,
@@ -365,7 +366,7 @@ namespace WorldNewzWebAPI.Services
                     Asin = "B0FLD3V5BZ",
                     Title = "DALUCI Wooden Piggy Bank Money Saving Box (1 Lakh Challenge)",
                     Description = "Wooden savings box with denomination grid for cash savings challenge. Great budget organizer and unique gift for kids & adults.",
-                    ImageUrl = "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&auto=format&fit=crop&q=60",
+                    ImageUrl = "/images/piggy_bank.png",
                     Price = 399.00m,
                     OriginalPrice = 799.00m,
                     Rating = 4.4,
@@ -378,7 +379,7 @@ namespace WorldNewzWebAPI.Services
                     Asin = "B0CFYPQVXH",
                     Title = "Zilloquil 4-in-1 Star Galaxy Aurora Night Lamp & Speaker",
                     Description = "Starry nebula galaxy projector with built-in Bluetooth speaker, white noise, and remote control for bedroom decoration.",
-                    ImageUrl = "https://images.unsplash.com/photo-1507499739999-097706ad8914?w=500&auto=format&fit=crop&q=60",
+                    ImageUrl = "/images/galaxy_lamp.png",
                     Price = 1499.00m,
                     OriginalPrice = 2999.00m,
                     Rating = 4.5,
@@ -417,7 +418,7 @@ namespace WorldNewzWebAPI.Services
                     Asin = "B00FLYWNYQ",
                     Title = "Instant Pot Multi-Use Programmable Pressure Cooker",
                     Description = "7-in-1 multi-functional electric pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker and warmer.",
-                    ImageUrl = "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=500&auto=format&fit=crop&q=60",
+                    ImageUrl = "/images/pressure_cooker.png",
                     Price = 5999.00m,
                     OriginalPrice = 8999.00m,
                     Rating = 4.7,
@@ -430,7 +431,7 @@ namespace WorldNewzWebAPI.Services
                     Asin = "B0DSQ7F2YR",
                     Title = "Divyakosh Toran Entrance Bandanwar Festival Decor",
                     Description = "Traditional handcrafted door hangings (Toran Bandanwar) embellished with beads, pearls and floral motifs for festive entrance decor.",
-                    ImageUrl = "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=60",
+                    ImageUrl = "/images/toran_decor.png",
                     Price = 499.00m,
                     OriginalPrice = 999.00m,
                     Rating = 4.5,
