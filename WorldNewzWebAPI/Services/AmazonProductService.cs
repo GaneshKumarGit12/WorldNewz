@@ -135,49 +135,33 @@ namespace WorldNewzWebAPI.Services
                 throw new ArgumentException("Product URL cannot be empty.");
             }
 
-            string asin = ParseAsin(url);
+            // 1. Resolve any short URLs to get the full destination Amazon link
+            string resolvedUrl = await GetRedirectUrlAsync(url.Trim());
+            string asin = ParseAsin(resolvedUrl);
             
-            // Try to resolve amzn.to short URLs to find the actual ASIN
-            if (string.IsNullOrEmpty(asin) && url.Contains("amzn.to"))
-            {
-                try
-                {
-                    using (var client = new System.Net.Http.HttpClient(new System.Net.Http.HttpClientHandler { AllowAutoRedirect = false }))
-                    {
-                        var response = await client.GetAsync(url);
-                        if (response.StatusCode == System.Net.HttpStatusCode.Redirect || 
-                            response.StatusCode == System.Net.HttpStatusCode.MovedPermanently ||
-                            response.StatusCode == System.Net.HttpStatusCode.Found)
-                        {
-                            var redirectUrl = response.Headers.Location?.ToString();
-                            if (!string.IsNullOrEmpty(redirectUrl))
-                            {
-                                asin = ParseAsin(redirectUrl);
-                            }
-                        }
-                    }
-                }
-                catch { /* Ignore network/offline issues */ }
-            }
-
             // Deterministic ASIN fallback based on URL hash if no ASIN is found
             if (string.IsNullOrEmpty(asin))
             {
                 using (var md5 = System.Security.Cryptography.MD5.Create())
                 {
-                    var hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(url));
+                    var hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(resolvedUrl));
                     var hashStr = Convert.ToBase64String(hashBytes);
                     var cleanHash = new string(hashStr.Where(char.IsLetterOrDigit).ToArray()).ToUpper();
                     asin = cleanHash.Substring(0, Math.Min(10, cleanHash.Length)).PadRight(10, 'A');
                 }
             }
 
+            // 2. Check if product already exists in database
             var existing = await _context.AmazonProducts.FirstOrDefaultAsync(p => p.Asin == asin);
             if (existing != null)
             {
                 return existing;
             }
 
+            // 3. Scrape real product details from the Amazon page
+            var scraped = await ScrapeAmazonPageAsync(resolvedUrl);
+
+            // Default fallbacks if scraping gets blocked (CAPTCHA)
             string displayTitle = "Premium Amazon Verified Product";
             string description = "Grab this exclusive high-rated deal verified by the WorldNewzs Shopping desk. Click Grab Deal to view pricing and availability on Amazon India.";
             string category = "Shopping";
@@ -186,7 +170,7 @@ namespace WorldNewzWebAPI.Services
             double rating = 4.5;
             int reviewCount = 1250;
 
-            string lowerUrl = url.ToLower();
+            string lowerUrl = resolvedUrl.ToLower();
             if (lowerUrl.Contains("phone") || lowerUrl.Contains("mobile") || lowerUrl.Contains("samsung"))
             {
                 displayTitle = "Samsung Galaxy 5G Flagship Smartphone";
@@ -220,20 +204,186 @@ namespace WorldNewzWebAPI.Services
                 originalPrice = 4999.00m;
             }
 
-            return new AmazonProduct
+            // Create new product object
+            var newProduct = new AmazonProduct
             {
                 Asin = asin,
-                Title = displayTitle,
-                Description = description,
-                ImageUrl = "/images/amazon_placeholder.png",
-                Price = price,
-                OriginalPrice = originalPrice,
+                Title = string.IsNullOrWhiteSpace(scraped.Title) ? displayTitle : scraped.Title,
+                Description = string.IsNullOrWhiteSpace(scraped.Description) ? description : scraped.Description,
+                ImageUrl = string.IsNullOrWhiteSpace(scraped.ImageUrl) ? "/images/amazon_placeholder.png" : EnsureAbsoluteImageUrl(scraped.ImageUrl),
+                Price = scraped.Price > 0 ? scraped.Price : price,
+                OriginalPrice = scraped.OriginalPrice > 0 ? scraped.OriginalPrice : (scraped.Price > 0 ? scraped.Price * 1.25m : originalPrice),
                 Rating = rating,
                 ReviewCount = reviewCount,
-                Category = category,
-                ProductUrl = BuildAffiliateLink(url, asin),
+                Category = string.IsNullOrWhiteSpace(scraped.Category) ? category : scraped.Category,
+                ProductUrl = BuildAffiliateLink(resolvedUrl, asin),
                 LastUpdated = DateTime.UtcNow
             };
+
+            // 4. Save/Store the product in Amazon Deals Store (Db Store) so it displays on page
+            _context.AmazonProducts.Add(newProduct);
+            await _context.SaveChangesAsync();
+
+            return newProduct;
+        }
+
+        private async Task<string> GetRedirectUrlAsync(string url)
+        {
+            if (!url.Contains("amzn.to") && !url.Contains("t.co"))
+            {
+                return url;
+            }
+
+            try
+            {
+                using (var handler = new System.Net.Http.HttpClientHandler { AllowAutoRedirect = false })
+                using (var client = new System.Net.Http.HttpClient(handler))
+                {
+                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+                    var response = await client.GetAsync(url);
+                    if (response.StatusCode == System.Net.HttpStatusCode.Redirect || 
+                        response.StatusCode == System.Net.HttpStatusCode.MovedPermanently ||
+                        response.StatusCode == System.Net.HttpStatusCode.Found ||
+                        response.StatusCode == System.Net.HttpStatusCode.SeeOther)
+                    {
+                        var redirectUrl = response.Headers.Location?.ToString();
+                        if (!string.IsNullOrEmpty(redirectUrl))
+                        {
+                            if (!redirectUrl.StartsWith("http"))
+                            {
+                                var uri = new Uri(url);
+                                redirectUrl = new Uri(uri, redirectUrl).ToString();
+                            }
+                            return redirectUrl;
+                        }
+                    }
+                }
+            }
+            catch { }
+
+            return url;
+        }
+
+        private async Task<(string Title, string Description, string ImageUrl, decimal Price, decimal OriginalPrice, string Category)> ScrapeAmazonPageAsync(string url)
+        {
+            try
+            {
+                using (var handler = new System.Net.Http.HttpClientHandler 
+                { 
+                    AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate 
+                })
+                using (var client = new System.Net.Http.HttpClient(handler))
+                {
+                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+                    client.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+                    client.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.5");
+                    
+                    var html = await client.GetStringAsync(url);
+                    
+                    // Parse Title
+                    string title = string.Empty;
+                    var titleMatch = System.Text.RegularExpressions.Regex.Match(html, @"<span\s+id=""productTitle""[^>]*>\s*([^<]+)", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    if (titleMatch.Success)
+                    {
+                        title = System.Net.WebUtility.HtmlDecode(titleMatch.Groups[1].Value.Trim());
+                    }
+                    else
+                    {
+                        var titleTagMatch = System.Text.RegularExpressions.Regex.Match(html, @"<title>([^<]+)</title>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                        if (titleTagMatch.Success)
+                        {
+                            title = System.Net.WebUtility.HtmlDecode(titleTagMatch.Groups[1].Value.Replace("Buy ", "").Replace(" Online at Low Prices in India - Amazon.in", "").Trim());
+                        }
+                    }
+
+                    // Parse Image
+                    string imageUrl = string.Empty;
+                    var imageMatch = System.Text.RegularExpressions.Regex.Match(html, @"<meta\s+property=""og:image""\s+content=""([^""]+)""", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    if (imageMatch.Success)
+                    {
+                        imageUrl = imageMatch.Groups[1].Value.Trim();
+                    }
+                    else
+                    {
+                        var imageMatch2 = System.Text.RegularExpressions.Regex.Match(html, @"id=""landingImage""[^>]*src=""([^""]+)""", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                        if (imageMatch2.Success)
+                        {
+                            imageUrl = imageMatch2.Groups[1].Value.Trim();
+                        }
+                    }
+
+                    // Parse Description
+                    string description = string.Empty;
+                    var descMatch = System.Text.RegularExpressions.Regex.Match(html, @"<meta\s+name=""description""\s+content=""([^""]+)""", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    if (descMatch.Success)
+                    {
+                        description = System.Net.WebUtility.HtmlDecode(descMatch.Groups[1].Value.Trim());
+                    }
+                    
+                    if (string.IsNullOrEmpty(description) || description.Contains("Amazon.in"))
+                    {
+                        var descMatch2 = System.Text.RegularExpressions.Regex.Match(html, @"<meta\s+property=""og:description""\s+content=""([^""]+)""", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                        if (descMatch2.Success)
+                        {
+                            description = System.Net.WebUtility.HtmlDecode(descMatch2.Groups[1].Value.Trim());
+                        }
+                    }
+
+                    // Parse Price
+                    decimal price = 0;
+                    decimal originalPrice = 0;
+                    var priceMatch = System.Text.RegularExpressions.Regex.Match(html, @"""priceAmount"":([\d\.]+)", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    if (priceMatch.Success)
+                    {
+                        decimal.TryParse(priceMatch.Groups[1].Value, out price);
+                    }
+                    else
+                    {
+                        var priceMatch2 = System.Text.RegularExpressions.Regex.Match(html, @"<span\s+class=""a-price-whole"">([\d,]+)", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                        if (priceMatch2.Success)
+                        {
+                            decimal.TryParse(priceMatch2.Groups[1].Value.Replace(",", ""), out price);
+                        }
+                    }
+
+                    // Original Price (MRP)
+                    var mrpMatch = System.Text.RegularExpressions.Regex.Match(html, @"<span\s+class=""a-price\s+a-text-price""[^>]*>.*?<span\s+class=""a-offscreen"">₹\s*([\d,]+)", System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.Singleline);
+                    if (mrpMatch.Success)
+                    {
+                        decimal.TryParse(mrpMatch.Groups[1].Value.Replace(",", ""), out originalPrice);
+                    }
+
+                    // Categorize based on keywords
+                    string category = "Shopping";
+                    string combinedText = (title + " " + description).ToLower();
+                    if (combinedText.Contains("phone") || combinedText.Contains("mobile") || combinedText.Contains("galaxy") || combinedText.Contains("iphone"))
+                    {
+                        category = "Electronics";
+                    }
+                    else if (combinedText.Contains("speaker") || combinedText.Contains("soundbar") || combinedText.Contains("earbuds") || combinedText.Contains("headphone"))
+                    {
+                        category = "Electronics";
+                    }
+                    else if (combinedText.Contains("watch") || combinedText.Contains("smartwatch") || combinedText.Contains("fitness"))
+                    {
+                        category = "Gadgets";
+                    }
+                    else if (combinedText.Contains("cooker") || combinedText.Contains("pan") || combinedText.Contains("kitchen") || combinedText.Contains("kettle"))
+                    {
+                        category = "Kitchen & Home";
+                    }
+                    else if (combinedText.Contains("cushion") || combinedText.Contains("decor") || combinedText.Contains("curtain") || combinedText.Contains("bed"))
+                    {
+                        category = "Home & Decor";
+                    }
+
+                    return (title, description, imageUrl, price, originalPrice, category);
+                }
+            }
+            catch
+            {
+                return (string.Empty, string.Empty, string.Empty, 0, 0, "Shopping");
+            }
         }
 
         /// <summary>

@@ -110,6 +110,13 @@ const AmazonProducts: React.FC = () => {
       const res = await parseAmazonProductUrl(urlInput);
       if (res.data && res.data.product) {
         setParsedProduct(res.data.product);
+        // Add the parsed product to the start of the list so it is immediately visible
+        setProducts(prev => {
+          if (prev.some(p => p.asin === res.data.product.asin)) {
+            return prev;
+          }
+          return [res.data.product, ...prev];
+        });
       } else {
         setParseError("Failed to parse product. Verify link and try again.");
       }
