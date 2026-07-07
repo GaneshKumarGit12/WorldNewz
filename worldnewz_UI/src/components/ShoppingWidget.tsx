@@ -11,6 +11,8 @@ import { Link as RouterLink } from "react-router-dom";
 import { fetchAmazonProducts } from "../api/apiClient";
 import type { AmazonProduct } from "../api/apiClient";
 
+const AMAZON_PLACEHOLDER = "/images/amazon_placeholder.png";
+
 const fallbackProducts: Partial<AmazonProduct>[] = [
   {
     id: 1,
@@ -322,7 +324,7 @@ export const ShoppingWidget: React.FC = () => {
               }}
             >
               <img
-                src={activeProduct.imageUrl}
+                src={activeProduct.imageUrl || AMAZON_PLACEHOLDER}
                 alt={activeProduct.title}
                 style={{
                   maxHeight: "100%",
@@ -330,6 +332,9 @@ export const ShoppingWidget: React.FC = () => {
                   objectFit: "contain",
                 }}
                 loading="lazy"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
+                }}
               />
             </Box>
 

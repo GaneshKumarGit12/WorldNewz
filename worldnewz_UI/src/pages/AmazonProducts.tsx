@@ -66,10 +66,12 @@ const AmazonProducts: React.FC = () => {
 
   const currentMonthYear = new Date().toLocaleString("en-US", { month: "long", year: "numeric" });
 
+  const AMAZON_PLACEHOLDER = "/images/amazon_placeholder.png";
+
   const getAbsoluteImageUrl = (url: string | undefined | null) => {
-    if (!url) return "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60";
+    if (!url || !url.trim()) return AMAZON_PLACEHOLDER;
     const trimmed = url.trim();
-    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("/images/")) {
       return trimmed;
     }
     return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
@@ -488,6 +490,9 @@ const AmazonProducts: React.FC = () => {
                       src={getAbsoluteImageUrl(scratchDealProduct.imageUrl)} 
                       alt={`${scratchDealProduct.title} - Amazon Deal India`}
                       loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
+                      }}
                       sx={{ 
                         maxHeight: 180, 
                         objectFit: "contain", 
@@ -699,6 +704,9 @@ const AmazonProducts: React.FC = () => {
                               src={getAbsoluteImageUrl(product.imageUrl)} 
                               alt={`${product.title} - Amazon Deal India`}
                               loading="lazy"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
+                              }}
                               sx={{ 
                                 height: 160, 
                                 objectFit: "contain",
