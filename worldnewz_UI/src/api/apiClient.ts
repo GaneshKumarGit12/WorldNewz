@@ -573,6 +573,14 @@ export interface AmazonProductsResponse {
 export const fetchAmazonProducts = () =>
   apiClient.get<AmazonProductsResponse>("/amazonproducts");
 
+export interface AmazonProductParseResponse {
+  status: string;
+  product: AmazonProduct;
+}
+
+export const parseAmazonProductUrl = (url: string) =>
+  apiClient.get<AmazonProductParseResponse>(`/amazonproducts/parse-url?url=${encodeURIComponent(url)}`);
+
 // Short Videos Interface
 export interface ShortVideo {
   id: string;

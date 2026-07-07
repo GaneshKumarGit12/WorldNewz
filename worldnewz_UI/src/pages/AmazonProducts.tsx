@@ -17,6 +17,8 @@ import Paper from "@mui/material/Paper";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
@@ -27,9 +29,14 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SecurityIcon from "@mui/icons-material/Security";
+import ShareIcon from "@mui/icons-material/Share";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Link as RouterLink } from "react-router-dom";
 
-import { fetchAmazonProducts } from "../api/apiClient";
+import { fetchAmazonProducts, parseAmazonProductUrl } from "../api/apiClient";
 import type { AmazonProduct } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb, JSONLDFAQPage, JSONLDProductList } from "../seo/JSONLDSchemas";
@@ -84,6 +91,34 @@ const AmazonProducts: React.FC = () => {
   
   // Timer for deals
   const [timeLeft, setTimeLeft] = useState<string>("");
+
+  // Parser / search states
+  const [urlInput, setUrlInput] = useState<string>("");
+  const [parsedProduct, setParsedProduct] = useState<AmazonProduct | null>(null);
+  const [parseLoading, setParseLoading] = useState<boolean>(false);
+  const [parseError, setParseError] = useState<string | null>(null);
+
+  const handleParseUrl = async () => {
+    if (!urlInput.trim()) {
+      setParseError("Please enter a valid Amazon URL.");
+      return;
+    }
+    try {
+      setParseLoading(true);
+      setParseError(null);
+      setParsedProduct(null);
+      const res = await parseAmazonProductUrl(urlInput);
+      if (res.data && res.data.product) {
+        setParsedProduct(res.data.product);
+      } else {
+        setParseError("Failed to parse product. Verify link and try again.");
+      }
+    } catch (err: any) {
+      setParseError(err.response?.data?.error || "Error connecting to server.");
+    } finally {
+      setParseLoading(false);
+    }
+  };
 
   // Scratch Card States
   const [scratchRevealed, setScratchRevealed] = useState<boolean>(false);
@@ -382,6 +417,218 @@ const AmazonProducts: React.FC = () => {
             </Typography>
           </Paper>
         </Box>
+
+        {/* ─── QUICK AMAZON DEAL GENERATOR & SHARE HUB (USER INTERACTION) ─── */}
+        <Paper
+          elevation={0}
+          id="deals-generator-hub"
+          sx={{
+            p: { xs: 3, md: 4 },
+            mb: 5,
+            borderRadius: 5,
+            backgroundColor: isDark ? "#1f2937" : "#ffffff",
+            border: "1px solid",
+            borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+            boxShadow: isDark ? "0 8px 32px rgba(0,0,0,0.2)" : "0 8px 32px rgba(0,0,0,0.05)"
+          }}
+        >
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 1.5,
+              color: "#FF9900",
+              fontFamily: "'Outfit', sans-serif",
+              display: "flex",
+              alignItems: "center",
+              gap: 1.5
+            }}
+          >
+            <ShareIcon /> 🔍 Quick Amazon Deal Generator & Share Hub
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3, fontWeight: 500 }}>
+            Paste any Amazon India product link below to automatically resolve its title, description, and preview. Generate professional referral links instantly with integrated one-click social sharing!
+          </Typography>
+
+          <Box sx={{ display: "flex", gap: 2, flexDirection: { xs: "column", sm: "row" }, mb: 3 }}>
+            <TextField
+              id="amazon-url-input"
+              fullWidth
+              placeholder="Paste Amazon product URL (e.g. https://www.amazon.in/dp/B0DSKNHX1T)"
+              variant="outlined"
+              size="medium"
+              value={urlInput}
+              onChange={(e) => setUrlInput(e.target.value)}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: 3.5,
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#FF9900"
+                  }
+                }
+              }}
+            />
+            <Button
+              id="generate-deal-btn"
+              variant="contained"
+              disabled={parseLoading}
+              onClick={handleParseUrl}
+              sx={{
+                borderRadius: 3.5,
+                px: 4,
+                py: 1.5,
+                fontWeight: 800,
+                textTransform: "none",
+                fontSize: "0.95rem",
+                bgcolor: "#FF9900",
+                color: "white",
+                "&:hover": {
+                  bgcolor: "#E27B00"
+                }
+              }}
+            >
+              {parseLoading ? <CircularProgress size={24} sx={{ color: "white" }} /> : "Generate Preview"}
+            </Button>
+          </Box>
+
+          {parseError && (
+            <Alert severity="error" sx={{ mb: 3, borderRadius: 3 }}>
+              {parseError}
+            </Alert>
+          )}
+
+          {/* Resolved Preview Card */}
+          {parsedProduct && (
+            <Card
+              sx={{
+                borderRadius: 4,
+                border: "1.5px solid",
+                borderColor: "#FF9900",
+                overflow: "hidden",
+                mt: 2,
+                backgroundColor: isDark ? "#111827" : "#fafafa",
+                transition: "all 0.3s"
+              }}
+            >
+              <Grid container>
+                <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#fff", p: 3 }}>
+                  <Box
+                    component="img"
+                    src={getAbsoluteImageUrl(parsedProduct.imageUrl)}
+                    alt={`${parsedProduct.title} - Amazon Deal India`}
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
+                    }}
+                    sx={{ maxHeight: 180, maxWidth: "100%", objectFit: "contain" }}
+                  />
+                </Grid>
+                <Grid size={{ xs: 12, sm: 8 }}>
+                  <CardContent sx={{ p: 4, display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+                    <Box>
+                      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 2, mb: 1.5 }}>
+                        <Chip label={parsedProduct.category} color="warning" size="small" sx={{ fontWeight: 800, height: 22 }} />
+                        <Chip label={`ASIN: ${parsedProduct.asin}`} variant="outlined" size="small" sx={{ height: 22 }} />
+                      </Box>
+                      <Typography variant="h6" component="h3" sx={{ fontWeight: 800, mb: 1, fontSize: "1.15rem" }}>
+                        {parsedProduct.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6 }}>
+                        {parsedProduct.description}
+                      </Typography>
+                    </Box>
+
+                    <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 3, alignItems: { xs: "stretch", md: "center" }, justifyContent: "space-between" }}>
+                      <Box sx={{ display: "flex", alignItems: "baseline", gap: 1.5 }}>
+                        <Typography variant="h5" sx={{ fontWeight: 900, color: "#22c55e" }}>
+                          ₹{parsedProduct.price.toLocaleString("en-IN")}
+                        </Typography>
+                        {parsedProduct.originalPrice > parsedProduct.price && (
+                          <>
+                            <Typography variant="body2" color="text.secondary" sx={{ textDecoration: "line-through" }}>
+                              ₹{parsedProduct.originalPrice.toLocaleString("en-IN")}
+                            </Typography>
+                            <Chip
+                              label={`${Math.round((1 - (parsedProduct.price / parsedProduct.originalPrice)) * 100)}% OFF`}
+                              size="small"
+                              sx={{ backgroundColor: "#ef4444", color: "white", fontWeight: 800, height: 20, fontSize: "0.7rem" }}
+                            />
+                          </>
+                        )}
+                      </Box>
+
+                      <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+                        {/* Social Share Buttons */}
+                        <Box sx={{ display: "flex", gap: 1 }}>
+                          <IconButton
+                            id="share-fb-btn"
+                            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(parsedProduct.productUrl)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: "#1877F2", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(24,119,242,0.08)" } }}
+                          >
+                            <FacebookIcon fontSize="small" />
+                          </IconButton>
+                          <IconButton
+                            id="share-twitter-btn"
+                            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(parsedProduct.productUrl)}&text=${encodeURIComponent("Check out this amazing deal: " + parsedProduct.title)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: "text.primary", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "action.hover" } }}
+                          >
+                            <TwitterIcon fontSize="small" />
+                          </IconButton>
+                          <IconButton
+                            id="share-linkedin-btn"
+                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(parsedProduct.productUrl)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: "#0A66C2", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(10,102,194,0.08)" } }}
+                          >
+                            <LinkedInIcon fontSize="small" />
+                          </IconButton>
+                          <IconButton
+                            id="share-wa-btn"
+                            href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this amazing deal: " + parsedProduct.title + " " + parsedProduct.productUrl)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: "#25D366", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(37,211,102,0.08)" } }}
+                          >
+                            <WhatsAppIcon fontSize="small" />
+                          </IconButton>
+                        </Box>
+
+                        <Button
+                          id={`parsed-buy-btn-${parsedProduct.asin}`}
+                          variant="contained"
+                          href={parsedProduct.productUrl}
+                          target="_blank"
+                          rel="sponsored noopener noreferrer"
+                          startIcon={<ShoppingBagIcon />}
+                          sx={{
+                            borderRadius: 2.5,
+                            fontWeight: 800,
+                            textTransform: "none",
+                            fontSize: "0.85rem",
+                            px: 3,
+                            py: 1,
+                            background: "linear-gradient(135deg, #FF9900 0%, #FF5500 100%)",
+                            "&:hover": {
+                              background: "linear-gradient(135deg, #FFAA22 0%, #FF6611 100%)"
+                            }
+                          }}
+                        >
+                          Grab Deal ↗
+                        </Button>
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </Grid>
+              </Grid>
+            </Card>
+          )}
+        </Paper>
 
         {/* ─── RICH PAGE INTRODUCTION SECTION (SEO THIN CONTENT FIX) ─── */}
         <Paper

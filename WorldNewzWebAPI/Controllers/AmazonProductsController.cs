@@ -84,6 +84,25 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
+        [HttpGet("parse-url")]
+        public async Task<IActionResult> ParseUrl([FromQuery] string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                return BadRequest(new { error = "Url parameter is required." });
+            }
+
+            try
+            {
+                var resolvedProduct = await _productService.ParseProductUrlAsync(url);
+                return Ok(new { status = "success", product = resolvedProduct });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
         /// <summary>
         /// Simple Basic Auth helper reading credentials securely from environment
         /// </summary>
