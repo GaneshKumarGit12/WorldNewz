@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://worldnewzs.in/sitemap.xml
+Sitemap: https://worldnewzs.in/news-sitemap.xml

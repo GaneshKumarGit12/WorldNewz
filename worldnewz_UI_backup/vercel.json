@@ -1,0 +1,137 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "world-newz.vercel.app"
+        }
+      ],
+      "destination": "https://worldnewzs.in/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.worldnewzs.in"
+        }
+      ],
+      "destination": "https://worldnewzs.in/:path*",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/scripts/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(svg|png|jpg|jpeg|ico|gif|webp)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "unsafe-none"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://accounts.google.com https://www.googletagmanager.com https://static.hotjar.com https://pagead2.googlesyndication.com https://adservice.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://partner.googleadservices.com https://*.adtrafficquality.google https://cse.google.com https://www.google.com https://maps.googleapis.com https://*.googleapis.com https://*.gstatic.com; connect-src 'self' https://accounts.google.com https://worldnewz.onrender.com wss://worldnewz.onrender.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://*.hotjar.com wss://*.hotjar.com https://*.hotjar.io wss://*.hotjar.io https://*.adtrafficquality.google https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://cse.google.com https://www.google.com https://syndicatedsearch.goog https://maps.googleapis.com https://*.googleapis.com; img-src * data: blob: android-webview-video-poster:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com https://www.google.com https://cse.google.com https://maps.googleapis.com https://*.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://static.hotjar.com https://*.gstatic.com; frame-src 'self' https://accounts.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://vars.hotjar.com https://*.hotjar.com https://syndicatedsearch.goog https://*.adtrafficquality.google https://maps.googleapis.com https://*.googleapis.com; object-src 'none'; media-src * data: blob:;"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/news-sitemap.xml",
+      "destination": "/api/news-sitemap"
+    },
+    {
+      "source": "/",
+      "destination": "/api/prerender?page=home"
+    },
+    {
+      "source": "/jobs/post-job",
+      "destination": "/api/prerender?page=jobs/post-job"
+    },
+    {
+      "source": "/jobs/detail/:slug",
+      "destination": "/api/prerender?jobSlug=:slug"
+    },
+    {
+      "source": "/(politics|technology|business|science-health|lifestyle|education|opinion|trending|podcasts-videos|local-news|sports|money|weather|shopping|travel|food|entertainment|services|gaming|cartoons|stocks|badge-quiz|polls|about|contact|privacy-policy|terms|jobs)",
+      "destination": "/api/prerender?page=$1"
+    },
+    {
+      "source": "/article/:id",
+      "destination": "/api/prerender?id=:id"
+    },
+    {
+      "source": "/read-article/:id",
+      "destination": "/api/prerender?id=:id"
+    },
+    {
+      "source": "/rss/:feedType",
+      "destination": "https://worldnewz.onrender.com/rss/:feedType"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

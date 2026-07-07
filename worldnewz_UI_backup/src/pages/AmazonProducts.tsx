@@ -1,0 +1,892 @@
+import React, { useState, useEffect, useRef } from "react";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import Chip from "@mui/material/Chip";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Rating from "@mui/material/Rating";
+import Divider from "@mui/material/Divider";
+import Paper from "@mui/material/Paper";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import TimerIcon from "@mui/icons-material/Timer";
+import StarIcon from "@mui/icons-material/Star";
+import InfoIcon from "@mui/icons-material/Info";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import SecurityIcon from "@mui/icons-material/Security";
+import { Link as RouterLink } from "react-router-dom";
+
+import { fetchAmazonProducts } from "../api/apiClient";
+import type { AmazonProduct } from "../api/apiClient";
+import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb, JSONLDFAQPage, JSONLDProductList } from "../seo/JSONLDSchemas";
+import { useColorMode } from "../context/ThemeContext";
+
+const SITE_URL = "https://worldnewzs.in";
+
+const amazonDealsFaqs = [
+  {
+    question: "How often is the Amazon Deals of the Day page updated?",
+    answer: "Our dedicated shopping editorial desk updates this page every single day at 12:00 AM IST. All price drops, percentage discounts, seller ratings, and stock availability are re-verified every 24 hours to ensure you get active flash sale prices."
+  },
+  {
+    question: "How long do Amazon Lightning Deals and Flash Sales last?",
+    answer: "Most Amazon Lightning Deals and daily promotional offers remain active for 6 to 24 hours, or until the designated flash sale stock is completely claimed. We recommend grabbing verified deals early in the day before quantities run out."
+  },
+  {
+    question: "Are these Amazon affiliate links safe to purchase through?",
+    answer: "Yes, 100%. All deal buttons redirect you directly to Amazon India's official, 256-bit SSL encrypted checkout website (amazon.in). You receive standard Amazon buyer protection, free delivery options, and hassle-free return guarantees."
+  },
+  {
+    question: "How do I claim maximum savings on Amazon India shopping?",
+    answer: "You can combine our listed price drops with Amazon Pay ICICI or SBI credit/debit card instant discounts, collectable digital seller coupons on the product page, and Amazon Pay cashback rewards for maximum total savings."
+  },
+  {
+    question: "Why should I trust WorldNewzs deal recommendations?",
+    answer: "Unlike automated deal scrapers, WorldNewzs manually evaluates 30-day historical prices to filter out artificial price inflations. We only list genuine price reductions from top-rated Amazon fulfilled sellers with high customer review scores."
+  }
+];
+
+const AmazonProducts: React.FC = () => {
+  const { mode } = useColorMode();
+  const isDark = mode === "dark";
+
+  const currentMonthYear = new Date().toLocaleString("en-US", { month: "long", year: "numeric" });
+
+  const getAbsoluteImageUrl = (url: string | undefined | null) => {
+    if (!url) return "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60";
+    const trimmed = url.trim();
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+      return trimmed;
+    }
+    return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+  };
+
+  const [products, setProducts] = useState<AmazonProduct[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedTab, setSelectedTab] = useState<string>("All");
+  
+  // Timer for deals
+  const [timeLeft, setTimeLeft] = useState<string>("");
+
+  // Scratch Card States
+  const [scratchRevealed, setScratchRevealed] = useState<boolean>(false);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const isDrawingRef = useRef<boolean>(false);
+  const scratchDealProduct = products.length > 0 ? products[0] : null;
+
+  // Countdown timer logic
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(24, 0, 0, 0);
+      
+      const diff = midnight.getTime() - now.getTime();
+      if (diff <= 0) return "00:00:00";
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const pad = (num: number) => num.toString().padStart(2, "0");
+      return `${pad(hours)}h : ${pad(minutes)}m : ${pad(seconds)}s`;
+    };
+
+    setTimeLeft(calculateTimeLeft());
+    const interval = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Fetch products on load
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetchAmazonProducts();
+        if (res.data && res.data.products) {
+          setProducts(res.data.products);
+        } else {
+          setError("Failed to load deals. Please try again.");
+        }
+      } catch (err: any) {
+        console.error("Error fetching amazon products:", err);
+        setError("Error connecting to server. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
+  // Initialize Scratch Canvas
+  useEffect(() => {
+    if (loading || products.length === 0 || !canvasRef.current) return;
+    initCanvas();
+  }, [loading, products, scratchRevealed]);
+
+  const initCanvas = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+
+    const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    grad.addColorStop(0, "#cccccc");
+    grad.addColorStop(0.3, "#e0e0e0");
+    grad.addColorStop(0.5, "#b0b0b0");
+    grad.addColorStop(0.8, "#f0f0f0");
+    grad.addColorStop(1, "#999999");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = "rgba(255,255,255,0.4)";
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 20; i++) {
+      ctx.beginPath();
+      ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 15 + 2, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    ctx.fillStyle = "#111111";
+    ctx.font = "bold 16px Outfit, Inter, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.shadowColor = "rgba(255,255,255,0.8)";
+    ctx.shadowBlur = 4;
+    ctx.fillText("SCRATCH HERE WITH MOUSE/TOUCH", canvas.width / 2, canvas.height / 2 - 10);
+    ctx.fillText("TO REVEAL SECRET DEAL! 🎁", canvas.width / 2, canvas.height / 2 + 15);
+  };
+
+  const getCoordinates = (e: React.MouseEvent | React.TouchEvent) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return { x: 0, y: 0 };
+    const rect = canvas.getBoundingClientRect();
+    
+    if ("touches" in e) {
+      if (e.touches.length === 0) return { x: 0, y: 0 };
+      return {
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top,
+      };
+    } else {
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    }
+  };
+
+  const handleStart = (e: React.MouseEvent | React.TouchEvent) => {
+    isDrawingRef.current = true;
+    handleDraw(e);
+  };
+
+  const handleDraw = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDrawingRef.current || scratchRevealed || !canvasRef.current) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const { x, y } = getCoordinates(e);
+
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.arc(x, y, 22, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkScratchPercentage();
+  };
+
+  const handleEnd = () => {
+    isDrawingRef.current = false;
+  };
+
+  const checkScratchPercentage = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = imgData.data;
+    let transparentCount = 0;
+
+    for (let i = 3; i < pixels.length; i += 4) {
+      if (pixels[i] === 0) {
+        transparentCount++;
+      }
+    }
+
+    const totalPixels = pixels.length / 4;
+    const ratio = transparentCount / totalPixels;
+
+    if (ratio >= 0.45) {
+      setScratchRevealed(true);
+    }
+  };
+
+  const handleRevealClick = () => {
+    setScratchRevealed(true);
+  };
+
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: string) => {
+    setSelectedTab(newValue);
+  };
+
+  // Categories list
+  const categories = ["All", "Electronics", "Kitchen & Home", "Home & Decor", "Home Appliances", "Gadgets", "Lifestyle", "Services", "Shopping", "Gift Cards", "Education"];
+
+  // Filter products based on selected category tab
+  const filteredProducts = selectedTab === "All"
+    ? products
+    : products.filter(p => p.category.toLowerCase().trim() === selectedTab.toLowerCase().trim());
+
+  return (
+    <>
+      <SEOMeta
+        title={`Amazon Deals of the Day (${currentMonthYear}) | Best Indian Shopping Offers | WorldNewzs`}
+        description="Find verified Amazon Deals of the Day in India. Save huge on electronics, fashion, home appliances, gadgets & gift cards with our daily hand-picked flash sales."
+        keywords={["amazon deals of the day", "amazon india deals", "best amazon offers", "amazon flash sale", "shopping discounts india", "worldnewzs shopping"]}
+        canonical={`${SITE_URL}/amazon-products`}
+      />
+      <JSONLDBreadcrumb crumbs={[
+        { name: "Home", url: SITE_URL },
+        { name: "Amazon Deals Hub", url: `${SITE_URL}/amazon-products` }
+      ]} />
+      <JSONLDFAQPage faqs={amazonDealsFaqs} />
+      <JSONLDProductList products={products} />
+
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        {/* E-E-A-T FTC Affiliate Disclosure Banner */}
+        <Alert 
+          severity="info" 
+          icon={<SecurityIcon sx={{ color: "#FF9900" }} />}
+          sx={{ 
+            mb: 3, 
+            borderRadius: 3.5, 
+            bgcolor: isDark ? "rgba(255, 153, 0, 0.08)" : "#FFF9F2", 
+            border: "1px solid",
+            borderColor: isDark ? "rgba(255, 153, 0, 0.3)" : "#FFE0B2",
+            color: "text.primary",
+            fontWeight: 500,
+            fontSize: "0.85rem",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.03)"
+          }}
+        >
+          <strong>Affiliate Disclosure:</strong> WorldNewzs participates in the Amazon Services LLC Associates Program. When you purchase through our verified referral links, we may earn an affiliate commission at no additional cost to you. All prices, discount percentages, and availability are verified daily by the WorldNewzs Shopping Editorial Desk.
+        </Alert>
+
+        {/* Header Hero Section */}
+        <Box 
+          sx={{
+            background: isDark 
+              ? "linear-gradient(135deg, #1f2937 0%, #111827 100%)" 
+              : "linear-gradient(135deg, #FFF9F2 0%, #FFE9D1 100%)",
+            borderRadius: 6,
+            p: { xs: 3, md: 5 },
+            textAlign: "center",
+            mb: 4,
+            border: "1px solid",
+            borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(255, 153, 0, 0.15)",
+            boxShadow: isDark 
+              ? "0 10px 30px rgba(0,0,0,0.5)" 
+              : "0 10px 30px rgba(255, 153, 0, 0.08)"
+          }}
+        >
+          <Chip 
+            icon={<FlashOnIcon sx={{ color: "#FF9900 !important" }} />}
+            label={`LIGHTNING DEALS HUB • ${currentMonthYear.toUpperCase()}`}
+            sx={{
+              fontWeight: 800,
+              fontSize: "0.85rem",
+              mb: 2,
+              background: isDark ? "#374151" : "#FFE5C9",
+              color: isDark ? "#FF9900" : "#E27B00",
+              border: "1px solid",
+              borderColor: isDark ? "#4B5563" : "#FFC17A"
+            }}
+          />
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{
+              fontWeight: 900,
+              fontFamily: "'Outfit', sans-serif",
+              letterSpacing: -1,
+              mb: 1.5,
+              background: "linear-gradient(90deg, #ff8a00 0%, #ff5500 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontSize: { xs: "2.2rem", md: "3.2rem" }
+            }}
+          >
+            Amazon Deals of the Day ({currentMonthYear})
+          </Typography>
+          <Typography 
+            variant="body1" 
+            color="text.secondary" 
+            sx={{ maxWidth: 700, mx: "auto", mb: 3, fontWeight: 500, lineHeight: 1.6 }}
+          >
+            Get verified, hand-picked Amazon products and massive discounts updated every single day. Grab flash sales before they expire!
+          </Typography>
+
+          {/* Countdown Clock */}
+          <Paper
+            elevation={0}
+            sx={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 1.5,
+              px: 3,
+              py: 1.25,
+              borderRadius: 4,
+              backgroundColor: isDark ? "#111827" : "#FFFFFF",
+              border: "1.5px solid",
+              borderColor: isDark ? "#374151" : "#FFD8A8",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.05)"
+            }}
+          >
+            <TimerIcon sx={{ color: "#E27B00" }} />
+            <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "text.primary" }}>
+              Today's offers end in:{" "}
+              <Box component="span" sx={{ fontFamily: "monospace", fontSize: "1.1rem", color: "#FF5500", ml: 1 }}>
+                {timeLeft || "Loading..."}
+              </Box>
+            </Typography>
+          </Paper>
+        </Box>
+
+        {/* ─── RICH PAGE INTRODUCTION SECTION (SEO THIN CONTENT FIX) ─── */}
+        <Paper
+          elevation={0}
+          id="deals-editorial-intro"
+          sx={{
+            p: { xs: 3, md: 4 },
+            mb: 5,
+            borderRadius: 5,
+            backgroundColor: isDark ? "#161b22" : "#fdfbf7",
+            border: "1px solid",
+            borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(255,153,0,0.2)"
+          }}
+        >
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 2,
+              color: "#FF9900",
+              fontFamily: "'Outfit', sans-serif",
+              display: "flex",
+              alignItems: "center",
+              gap: 1
+            }}
+          >
+            <VerifiedUserIcon sx={{ color: "#FF9900" }} /> How We Hand-Pick & Verify Amazon India Deals Every Day
+          </Typography>
+          <Typography variant="body1" paragraph color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.95rem" }}>
+            Welcome to the <strong>WorldNewzs Amazon Deals Hub</strong> for {currentMonthYear}. In a fast-paced online shopping landscape flooded with artificial discount badges and misleading promotional claims, finding genuine price drops on Amazon India requires rigorous price tracking. Every single product featured on this page undergoes a multi-stage editorial verification process to ensure maximum savings and authentic merchant quality.
+          </Typography>
+          <Typography variant="body1" paragraph color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.95rem" }}>
+            Our specialized shopping desk actively monitors price fluctuations across major product categories including{" "}
+            <Box component={RouterLink} to="/technology" sx={{ color: "#FF9900", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+              Technology & Electronics
+            </Box>
+            ,{" "}
+            <Box component={RouterLink} to="/shopping" sx={{ color: "#FF9900", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+              Home & Kitchen Appliances
+            </Box>
+            ,{" "}
+            <Box component={RouterLink} to="/lifestyle" sx={{ color: "#FF9900", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+              Lifestyle & Fashion
+            </Box>
+            , and{" "}
+            <Box component={RouterLink} to="/business" sx={{ color: "#FF9900", fontWeight: 700, textDecoration: "none", "&:hover": { textDecoration: "underline" } }}>
+              Business Utilities
+            </Box>
+            . We cross-reference listed prices against 30-day historical averages to verify that every discount—ranging from 15% to over 70% OFF—represents a legitimate price drop rather than a temporary price inflation.
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.95rem" }}>
+            Furthermore, we enforce strict seller quality controls: only products with a minimum customer rating of <strong>4.0 out of 5 stars</strong> and backed by Amazon Fulfilled logistics or certified brand stores are selected. Whether you are looking for flagship 5G smartphones, smart home projectors, ergonomic diwan cushions, or daily lifestyle essentials, our daily hand-picked collection brings you instant savings without the noise.
+          </Typography>
+        </Paper>
+
+        {loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
+            <CircularProgress sx={{ color: "#FF9900" }} />
+          </Box>
+        ) : error ? (
+          <Alert severity="error" sx={{ mb: 4, borderRadius: 3 }}>{error}</Alert>
+        ) : (
+          <>
+            {/* ─── GAMIFIED INTERACTIVE SCRATCH CARD ─── */}
+            {scratchDealProduct && (
+              <Box sx={{ mb: 6 }}>
+                <Typography 
+                  variant="h5" 
+                  component="h2"
+                  sx={{ 
+                    fontWeight: 800, 
+                    mb: 2.5, 
+                    display: "flex", 
+                    alignItems: "center", 
+                    gap: 1,
+                    fontFamily: "'Outfit', sans-serif" 
+                  }}
+                >
+                  🎁 Scratch Card of the Day
+                </Typography>
+                
+                <Card 
+                  sx={{ 
+                    maxWidth: 550, 
+                    mx: "auto", 
+                    position: "relative", 
+                    borderRadius: 5,
+                    overflow: "hidden",
+                    border: "2px dashed",
+                    borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(255,153,0,0.4)",
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
+                  }}
+                >
+                  {/* Underneath: The Actual Deal content */}
+                  <CardContent sx={{ p: 4, textAlign: "center" }}>
+                    <Chip 
+                      label="SECRET MEGA DEAL REVEALED" 
+                      color="success" 
+                      size="small" 
+                      sx={{ fontWeight: 800, mb: 2 }}
+                    />
+                    
+                    <Box 
+                      component="img" 
+                      src={getAbsoluteImageUrl(scratchDealProduct.imageUrl)} 
+                      alt={`${scratchDealProduct.title} - Amazon Deal India`}
+                      loading="lazy"
+                      sx={{ 
+                        maxHeight: 180, 
+                        objectFit: "contain", 
+                        mb: 2,
+                        filter: scratchRevealed ? "none" : "blur(8px)",
+                        transition: "filter 0.5s ease"
+                      }}
+                    />
+
+                    <Typography variant="h6" component="h3" sx={{ fontWeight: 800, mb: 1, px: 2 }}>
+                      {scratchDealProduct.title}
+                    </Typography>
+
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, px: 2 }}>
+                      {scratchDealProduct.description}
+                    </Typography>
+
+                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "baseline", gap: 1.5, mb: 3 }}>
+                      <Typography variant="h5" sx={{ fontWeight: 900, color: "#22c55e" }}>
+                        ₹{scratchDealProduct.price.toLocaleString("en-IN")}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ textDecoration: "line-through" }}>
+                        ₹{scratchDealProduct.originalPrice.toLocaleString("en-IN")}
+                      </Typography>
+                      <Chip 
+                        label={`${Math.round((1 - (scratchDealProduct.price / scratchDealProduct.originalPrice)) * 100)}% OFF`}
+                        size="small"
+                        sx={{ 
+                          backgroundColor: "#ef4444", 
+                          color: "white", 
+                          fontWeight: 800, 
+                          height: 20, 
+                          fontSize: "0.75rem" 
+                        }}
+                      />
+                    </Box>
+
+                    <Button
+                      id={`scratch-buy-btn-${scratchDealProduct.asin}`}
+                      variant="contained"
+                      href={scratchDealProduct.productUrl}
+                      target="_blank"
+                      rel="sponsored noopener noreferrer"
+                      fullWidth
+                      endIcon={<ArrowForwardIcon />}
+                      sx={{
+                        borderRadius: 3.5,
+                        py: 1.5,
+                        fontWeight: 900,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        boxShadow: "0 6px 20px rgba(255, 153, 0, 0.2)",
+                        background: "linear-gradient(135deg, #FF9900 0%, #FF5500 100%)",
+                        "&:hover": {
+                          background: "linear-gradient(135deg, #FFAA22 0%, #FF6611 100%)",
+                        }
+                      }}
+                    >
+                      Buy Secret Deal on Amazon ↗
+                    </Button>
+                  </CardContent>
+
+                  {/* Overneath: The Scratch Layer canvas (only if not revealed) */}
+                  {!scratchRevealed && (
+                    <Box 
+                      sx={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 10,
+                        touchAction: "none"
+                      }}
+                    >
+                      <canvas
+                        ref={canvasRef}
+                        onMouseDown={handleStart}
+                        onMouseMove={handleDraw}
+                        onMouseUp={handleEnd}
+                        onMouseLeave={handleEnd}
+                        onTouchStart={handleStart}
+                        onTouchMove={handleDraw}
+                        onTouchEnd={handleEnd}
+                        style={{ width: "100%", height: "100%", cursor: "crosshair" }}
+                      />
+                      
+                      <Button
+                        id="quick-reveal-btn"
+                        size="small"
+                        onClick={handleRevealClick}
+                        sx={{
+                          position: "absolute",
+                          bottom: 15,
+                          right: 15,
+                          backgroundColor: "rgba(0,0,0,0.65)",
+                          color: "white",
+                          fontWeight: 800,
+                          fontSize: "0.7rem",
+                          borderRadius: 2,
+                          "&:hover": { backgroundColor: "rgba(0,0,0,0.85)" }
+                        }}
+                      >
+                        Quick Reveal
+                      </Button>
+                    </Box>
+                  )}
+                </Card>
+              </Box>
+            )}
+
+            {/* ─── GOOGLE ADSENSE COMPLIANT SPOT ─── */}
+            <Box 
+              sx={{ 
+                my: 4, 
+                py: 2, 
+                borderTop: "1px solid", 
+                borderBottom: "1px solid", 
+                borderColor: "divider",
+                textAlign: "center" 
+              }}
+            >
+              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1, letterSpacing: 1.5, fontWeight: 700 }}>
+                SPONSORED ADVERTISEMENT
+              </Typography>
+              <Box 
+                sx={{ 
+                  height: 90, 
+                  backgroundColor: isDark ? "#1f2937" : "#f3f4f6", 
+                  borderRadius: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px dashed",
+                  borderColor: "divider"
+                }}
+              >
+                <Typography variant="body2" color="text.secondary" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <InfoIcon fontSize="small" /> Google AdSense Placeholder Slot
+                </Typography>
+              </Box>
+            </Box>
+
+            {/* ─── PRODUCTS CATEGORY HEADING & TABS GRID ─── */}
+            <Box sx={{ mb: 6 }}>
+              <Typography 
+                variant="h5" 
+                component="h2" 
+                sx={{ fontWeight: 800, mb: 2, fontFamily: "'Outfit', sans-serif" }}
+              >
+                Explore Today's Hand-Picked Flash Offers & Discounts
+              </Typography>
+
+              <Tabs
+                value={selectedTab}
+                onChange={handleTabChange}
+                variant="scrollable"
+                scrollButtons="auto"
+                sx={{
+                  borderBottom: 1,
+                  borderColor: "divider",
+                  mb: 4,
+                  "& .MuiTabs-indicator": { backgroundColor: "#FF9900" },
+                  "& .MuiTab-root": {
+                    fontWeight: 700,
+                    textTransform: "none",
+                    fontSize: "0.95rem",
+                    "&.Mui-selected": { color: "#FF9900" }
+                  }
+                }}
+              >
+                {categories.map((cat) => (
+                  <Tab key={cat} label={cat} value={cat} />
+                ))}
+              </Tabs>
+
+              {filteredProducts.length === 0 ? (
+                <Typography variant="body1" color="text.secondary" sx={{ textAlign: "center", py: 6 }}>
+                  No deals found in this category today. Check back tomorrow!
+                </Typography>
+              ) : (
+                <Grid container spacing={4}>
+                  {filteredProducts.map((product) => {
+                    const discount = Math.round((1 - (product.price / product.originalPrice)) * 100);
+                    return (
+                      <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
+                        <Card 
+                          sx={{ 
+                            height: "100%", 
+                            display: "flex", 
+                            flexDirection: "column",
+                            borderRadius: 4,
+                            overflow: "hidden",
+                            transition: "all 0.3s ease-in-out",
+                            border: "1px solid",
+                            borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)",
+                            "&:hover": {
+                              transform: "translateY(-4px)",
+                              boxShadow: isDark 
+                                ? "0 12px 30px rgba(0,0,0,0.4)" 
+                                : "0 12px 30px rgba(255, 153, 0, 0.12)",
+                              borderColor: "#FF9900"
+                            }
+                          }}
+                        >
+                          <Box sx={{ position: "relative", p: 3, pt: 4, backgroundColor: isDark ? "#161b22" : "#fafafa", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <Box 
+                              component="img" 
+                              src={getAbsoluteImageUrl(product.imageUrl)} 
+                              alt={`${product.title} - Amazon Deal India`}
+                              loading="lazy"
+                              sx={{ 
+                                height: 160, 
+                                objectFit: "contain",
+                                transition: "transform 0.3s",
+                                "&:hover": { transform: "scale(1.05)" }
+                              }}
+                            />
+                            
+                            <Chip 
+                              label={`${discount}% OFF`}
+                              sx={{ 
+                                position: "absolute",
+                                top: 12,
+                                left: 12,
+                                backgroundColor: "#ef4444",
+                                color: "white",
+                                fontWeight: 900,
+                                fontSize: "0.75rem",
+                                borderRadius: "8px",
+                                height: 22
+                              }}
+                            />
+
+                            <Chip 
+                              label={product.category}
+                              sx={{ 
+                                position: "absolute",
+                                top: 12,
+                                right: 12,
+                                backgroundColor: isDark ? "#374151" : "#f3f4f6",
+                                color: "text.primary",
+                                fontWeight: 700,
+                                fontSize: "0.65rem",
+                                textTransform: "uppercase",
+                                height: 22
+                              }}
+                            />
+                          </Box>
+
+                          <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, mb: 1.5 }}>
+                              <Rating 
+                                value={product.rating} 
+                                readOnly 
+                                precision={0.1} 
+                                size="small"
+                                emptyIcon={<StarIcon style={{ opacity: 0.2 }} fontSize="inherit" />}
+                              />
+                              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700 }}>
+                                ({product.reviewCount.toLocaleString()})
+                              </Typography>
+                            </Box>
+
+                            <Typography 
+                              variant="h6" 
+                              component="h3"
+                              sx={{ 
+                                fontWeight: 800, 
+                                mb: 1, 
+                                fontSize: "1.05rem",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "-webkit-box",
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: "vertical",
+                                minHeight: "2.7rem"
+                              }}
+                            >
+                              {product.title}
+                            </Typography>
+
+                            <Typography 
+                              variant="body2" 
+                              color="text.secondary" 
+                              sx={{ 
+                                mb: 2.5,
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "-webkit-box",
+                                WebkitLineClamp: 3,
+                                WebkitBoxOrient: "vertical",
+                                flexGrow: 1,
+                                minHeight: "3.2rem"
+                              }}
+                            >
+                              {product.description}
+                            </Typography>
+
+                            <Divider sx={{ mb: 2 }} />
+
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                              <Box>
+                                <Typography variant="h6" sx={{ fontWeight: 900, color: "text.primary", display: "flex", alignItems: "baseline" }}>
+                                  ₹{product.price.toLocaleString("en-IN")}
+                                </Typography>
+                                <Typography variant="caption" color="text.secondary" sx={{ textDecoration: "line-through" }}>
+                                  M.R.P: ₹{product.originalPrice.toLocaleString("en-IN")}
+                                </Typography>
+                              </Box>
+
+                              <Button
+                                id={`buy-btn-${product.asin}`}
+                                variant="contained"
+                                href={product.productUrl}
+                                target="_blank"
+                                rel="sponsored noopener noreferrer"
+                                startIcon={<ShoppingBagIcon />}
+                                sx={{
+                                  borderRadius: 2.5,
+                                  fontWeight: 800,
+                                  textTransform: "none",
+                                  fontSize: "0.85rem",
+                                  px: 2.5,
+                                  py: 1,
+                                  boxShadow: "none",
+                                  background: "linear-gradient(135deg, #FF9900 0%, #FF5500 100%)",
+                                  "&:hover": {
+                                    background: "linear-gradient(135deg, #FFAA22 0%, #FF6611 100%)",
+                                    boxShadow: "0 4px 12px rgba(255, 153, 0, 0.25)"
+                                  }
+                                }}
+                              >
+                                Grab Deal ↗
+                              </Button>
+                            </Box>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              )}
+            </Box>
+
+            {/* ─── FREQUENTLY ASKED QUESTIONS (FAQS) SECTION ─── */}
+            <Box id="deals-faq-section" sx={{ mt: 8, mb: 4 }}>
+              <Typography 
+                variant="h5" 
+                component="h2"
+                sx={{ 
+                  fontWeight: 800, 
+                  mb: 3, 
+                  fontFamily: "'Outfit', sans-serif",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1
+                }}
+              >
+                <HelpOutlineIcon sx={{ color: "#FF9900" }} /> Frequently Asked Questions (FAQs)
+              </Typography>
+
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+                {amazonDealsFaqs.map((faq, index) => (
+                  <Accordion 
+                    key={index}
+                    elevation={0}
+                    sx={{
+                      borderRadius: "16px !important",
+                      border: "1px solid",
+                      borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+                      backgroundColor: isDark ? "#161b22" : "#ffffff",
+                      overflow: "hidden",
+                      "&:before": { display: "none" }
+                    }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon sx={{ color: "#FF9900" }} />}
+                      id={`faq-summary-${index}`}
+                      sx={{ px: 3, py: 1 }}
+                    >
+                      <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                        {faq.question}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ px: 3, pb: 3, pt: 0 }}>
+                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                        {faq.answer}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                ))}
+              </Box>
+            </Box>
+          </>
+        )}
+      </Container>
+    </>
+  );
+};
+
+export default AmazonProducts;

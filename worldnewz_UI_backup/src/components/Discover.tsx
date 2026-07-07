@@ -1,0 +1,492 @@
+import { useEffect, useState } from "react";
+import { useOutletContext, Link as RouterLink } from "react-router-dom";
+import axios from "axios";
+import { fetchDiscover } from "../api/apiClient";
+import type { Article } from "../types";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import NewsGrid from "../components/NewsGrid";
+import SectionStatus from "../components/SectionStatus";
+import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
+import { SEOMeta } from "../seo/SEOMeta";
+import { getDailyKeyword } from "../utils/dailyKeyword";
+import CircularProgress from "@mui/material/CircularProgress";
+import { deduplicateArticles } from "../utils/deduplicate";
+import { optimizeImageUrl } from "../utils/imageOptimizer";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { WatchlistWidget } from "./WatchlistWidget";
+import { TopEngagingNewsWidget } from "./TopEngagingNewsWidget";
+import { ShoppingWidget } from "./ShoppingWidget";
+import { WeatherWidget } from "./WeatherWidget";
+import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
+import { TrendingShortVideos } from "./TrendingShortVideos";
+
+
+const Discover: React.FC = () => {
+  const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
+  const searchTerm = outletContext?.searchTerm ?? "";
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const { addBookmark, removeBookmark, isBookmarked } = useBookmarks(); // ✅ now URL-based
+  const { 
+    getEngagement, 
+    toggleLike, 
+    toggleDislike, 
+    addComment, 
+    deleteComment, 
+    likeComment, 
+    dislikeComment 
+  } = useComments();
+
+
+  const dailyKeyword = getDailyKeyword();
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
+  const [followedTopics, setFollowedTopics] = useState<string[]>([]);
+
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  const filteredArticles = articles.filter((article) => {
+    if (normalizedSearchTerm) {
+      const text = `${article.title} ${article.description ?? ""} ${article.category ?? ""}`.toLowerCase();
+      return text.includes(normalizedSearchTerm);
+    }
+    if (followedTopics.length > 0) {
+      const sourceName = typeof article.source === "object" && article.source !== null && "name" in article.source
+        ? article.source.name
+        : typeof article.source === "string"
+        ? article.source
+        : "";
+      const category = (article.category ?? sourceName ?? "").toLowerCase();
+      const title = article.title.toLowerCase();
+      return followedTopics.some(topic => 
+        category.includes(topic.toLowerCase()) || 
+        title.includes(topic.toLowerCase())
+      );
+    }
+    return true;
+  });
+
+  const loadData = (currentPage: number) => {
+    if (currentPage === 1) setLoading(true);
+    else setIsFetchingMore(true);
+
+    const query = normalizedSearchTerm || dailyKeyword;
+
+    fetchDiscover({ query, page: currentPage, pageSize: 20 })
+      .then((res) => {
+        const data = Array.isArray(res.data?.articles) ? res.data.articles : [];
+        const formattedData = data.map((a: any) => ({
+          ...a,
+          imageUrl: a.urlToImage || a.image,
+          category: a.source?.name || "News",
+        }));
+
+        if (formattedData.length === 0) {
+          setHasMore(false);
+        } else {
+          setArticles((prev) => {
+            const combined = currentPage === 1 ? formattedData : [...prev, ...formattedData];
+            return deduplicateArticles(combined);
+          });
+        }
+      })
+      .catch((err) => {
+        const apiError = axios.isAxiosError(err) ? err.response?.data?.error : null;
+        setError(apiError || "Failed to load discover news");
+      })
+      .finally(() => {
+        setLoading(false);
+        setIsFetchingMore(false);
+      });
+  };
+
+  useEffect(() => {
+    setArticles([]);
+    setPage(1);
+    setHasMore(true);
+    loadData(1);
+  }, [searchTerm]); // Re-fetch from page 1 when search term changes
+
+  useEffect(() => {
+    if (page > 1) {
+      loadData(page);
+    }
+  }, [page]);
+
+  // Infinite Scroll logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 100 >=
+        document.documentElement.offsetHeight
+      ) {
+        if (!isFetchingMore && hasMore && !loading) {
+          setPage((prev) => prev + 1);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isFetchingMore, hasMore, loading]);
+
+  const topStoriesArticles = filteredArticles.slice(0, 6);
+  const remainingArticles = filteredArticles.slice(6);
+
+  // Dynamically preload the first article image to optimize LCP
+  useEffect(() => {
+    if (filteredArticles.length > 0) {
+      const firstArticle = filteredArticles[0];
+      const imageUrl = firstArticle.imageUrl || firstArticle.urlToImage;
+      if (imageUrl) {
+        const optimizedUrl = optimizeImageUrl(imageUrl, 500);
+        const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
+        if (!existingLink) {
+          const link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = optimizedUrl;
+          link.setAttribute("fetchpriority", "high");
+          document.head.appendChild(link);
+        }
+      }
+    }
+  }, [filteredArticles]);
+
+  return (
+    <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
+      <SEOMeta
+        title="Discover News"
+        description={`Stay updated with the latest news on ${dailyKeyword} and more.`}
+        keywords={['discover', 'news', dailyKeyword]}
+        canonical="https://worldnewzs.in"
+      />
+      {/* Page Header */}
+      <Box sx={{ mb: 3 }}>
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{ fontWeight: 700, mb: 0.5, fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" } }}
+        >
+          Discover Global News – WorldNewzs
+        </Typography>
+        <Typography variant="body1" sx={{ color: "text.secondary" }}>
+          Real-time curated news, deep editorial briefings, and global updates
+        </Typography>
+      </Box>
+
+      {/* ✅ 1. PRIMARY NEWS FEED ABOVE THE FOLD (Top Stories) */}
+      <SectionStatus
+        loading={loading}
+        error={error}
+        hasData={filteredArticles.length > 0}
+        emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
+        columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+      >
+        {topStoriesArticles.length > 0 && (
+          <Box sx={{ mb: 4 }}>
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+              <Typography variant="h5" component="h2" sx={{ fontWeight: 800, display: "flex", alignItems: "center", gap: 1 }}>
+                Top Stories ⚡
+              </Typography>
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
+                Curated by WorldNewzs Editorial Engine
+              </Typography>
+            </Box>
+            <NewsGrid
+              articles={topStoriesArticles}
+              onBookmark={addBookmark}
+              onRemoveBookmark={removeBookmark}
+              isBookmarked={isBookmarked}
+              onLike={toggleLike}
+              onDislike={toggleDislike}
+              onAddComment={addComment}
+              onDeleteComment={deleteComment}
+              onLikeComment={likeComment}
+              onDislikeComment={dislikeComment}
+              getEngagement={getEngagement}
+            />
+          </Box>
+        )}
+      </SectionStatus>
+
+      {/* ✅ 2. FEATURED EDITORIAL BRIEFINGS SPOTLIGHT */}
+      <Paper
+        elevation={0}
+        sx={{
+          mb: 5,
+          p: { xs: 2.5, sm: 3.5 },
+          borderRadius: 4,
+          background: (theme) =>
+            theme.palette.mode === "dark"
+              ? "linear-gradient(135deg, rgba(200, 58, 21, 0.15), rgba(255, 112, 67, 0.08))"
+              : "linear-gradient(135deg, #fff5f2, #fff0eb)",
+          border: "1px solid",
+          borderColor: "rgba(200, 58, 21, 0.25)",
+        }}
+      >
+        <Grid container spacing={3} alignItems="center">
+          <Grid size={{ xs: 12, md: 8 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+              <AutoAwesomeIcon sx={{ color: "#c83a15", fontSize: "1.4rem" }} />
+              <Typography variant="overline" sx={{ fontWeight: 800, color: "#c83a15", letterSpacing: "0.1em" }}>
+                EDITORIAL BRIEFINGS & SYNTHESIS
+              </Typography>
+            </Box>
+            <Typography variant="h5" sx={{ fontWeight: 800, mb: 1, color: "text.primary" }}>
+              In-Depth Analytical Briefings & Global Impact Syntheses
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6, mb: 2 }}>
+              Explore original editorial analysis, cross-referenced multi-source takeaways, and strategic insights curated directly by our journalists and NLP synthesis desk.
+            </Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              <Box sx={{ px: 1.5, py: 0.5, borderRadius: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", fontSize: "0.75rem", fontWeight: 700 }}>
+                💡 Global Trade & Market Resilience
+              </Box>
+              <Box sx={{ px: 1.5, py: 0.5, borderRadius: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", fontSize: "0.75rem", fontWeight: 700 }}>
+                ⚽ Sports Analytics & Data Insights
+              </Box>
+              <Box sx={{ px: 1.5, py: 0.5, borderRadius: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", fontSize: "0.75rem", fontWeight: 700 }}>
+                🤖 AI Regulation & Tech Frontiers
+              </Box>
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 4 }} sx={{ textAlign: { xs: "left", md: "right" } }}>
+            <Button
+              component={RouterLink}
+              to="/editorial-briefings"
+              variant="contained"
+              endIcon={<ArrowForwardIcon />}
+              sx={{
+                background: "linear-gradient(135deg, #c83a15, #ff7043)",
+                color: "#fff",
+                fontWeight: 800,
+                borderRadius: "20px",
+                px: 3,
+                py: 1.25,
+                textTransform: "none",
+                boxShadow: "0 4px 15px rgba(200, 58, 21, 0.3)",
+                "&:hover": {
+                  background: "linear-gradient(135deg, #ff7043, #c83a15)",
+                  boxShadow: "0 6px 20px rgba(200, 58, 21, 0.4)",
+                },
+              }}
+            >
+              Read Full Briefings
+            </Button>
+          </Grid>
+        </Grid>
+      </Paper>
+
+      {/* ✅ 3. DYNAMIC INTERACTIVE FEATURES (Polls, Badge Quiz, MoviesDB) */}
+      <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
+        Interactive & Fun Hub 🎮
+      </Typography>
+      <Grid container spacing={3} sx={{ mb: 4 }}>
+        {/* Polls Highlight Card */}
+        <Grid size={{ xs: 12, sm: 4 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 2.5,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(0, 198, 255, 0.08), rgba(0, 114, 255, 0.08))",
+              border: "1px solid rgba(0, 114, 255, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(0, 114, 255, 0.18)",
+              },
+            }}
+          >
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+                Interactive Polls 🗳️
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
+                Vote on crucial daily topics and share your opinion on world events.
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/polls"
+              variant="contained"
+              size="small"
+              sx={{
+                background: "linear-gradient(135deg, #00c6ff, #0072ff)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                alignSelf: "flex-start",
+              }}
+            >
+              Vote Now
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* GK Quiz Highlight Card */}
+        <Grid size={{ xs: 12, sm: 4 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 2.5,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(248, 87, 166, 0.08), rgba(255, 88, 88, 0.08))",
+              border: "1px solid rgba(255, 88, 88, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(255, 88, 88, 0.18)",
+              },
+            }}
+          >
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+                GK Badge Quiz 🏆
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
+                Challenge your trivia skills, earn coin rewards, and claim profile badges!
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/badge-quiz"
+              variant="contained"
+              size="small"
+              sx={{
+                background: "linear-gradient(135deg, #f857a6, #ff5858)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                alignSelf: "flex-start",
+              }}
+            >
+              Play Quiz
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* Movies DB Highlight Card */}
+        <Grid size={{ xs: 12, sm: 4 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 2.5,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(225, 29, 72, 0.08), rgba(190, 18, 60, 0.08))",
+              border: "1px solid rgba(225, 29, 72, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(225, 29, 72, 0.18)",
+              },
+            }}
+          >
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+                Movies DB 🎬
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
+                Explore trending movies, box office hits, and detailed film ratings.
+              </Typography>
+            </Box>
+            <Button
+              component={RouterLink}
+              to="/movies"
+              variant="contained"
+              size="small"
+              sx={{
+                background: "linear-gradient(135deg, #e11d48, #be123c)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                alignSelf: "flex-start",
+              }}
+            >
+              Browse Movies
+            </Button>
+          </Paper>
+        </Grid>
+      </Grid>
+
+      {/* Trending Short Videos */}
+      <TrendingShortVideos />
+
+      {/* ✅ 4. MORE NEWS GRID */}
+      {remainingArticles.length > 0 && (
+        <Box sx={{ my: 4 }}>
+          <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
+            More Global News 🌐
+          </Typography>
+          <NewsGrid
+            articles={remainingArticles}
+            onBookmark={addBookmark}
+            onRemoveBookmark={removeBookmark}
+            isBookmarked={isBookmarked}
+            onLike={toggleLike}
+            onDislike={toggleDislike}
+            onAddComment={addComment}
+            onDeleteComment={deleteComment}
+            onLikeComment={likeComment}
+            onDislikeComment={dislikeComment}
+            getEngagement={getEngagement}
+          />
+        </Box>
+      )}
+
+      {isFetchingMore && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
+          <CircularProgress />
+        </Box>
+      )}
+
+      {/* ✅ 5. COLLAPSIBLE MARKET TOOLS & DASHBOARD (Below News Feed) */}
+      <Box sx={{ mt: 6, pt: 3, borderTop: "1px solid", borderColor: "divider" }}>
+        <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
+          Market & Utility Tools 🛠️
+        </Typography>
+        <Grid container spacing={3} id="homepage-widgets-dashboard">
+          <Grid size={{ xs: 12, md: 4 }}>
+            <WatchlistWidget />
+          </Grid>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <TopEngagingNewsWidget articles={articles} getEngagement={getEngagement} />
+          </Grid>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <ShoppingWidget />
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <WeatherWidget />
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <SuggestedForYouWidget onTopicsChange={setFollowedTopics} />
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  );
+};
+
+export default Discover;
