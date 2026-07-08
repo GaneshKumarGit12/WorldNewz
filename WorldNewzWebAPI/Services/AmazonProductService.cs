@@ -204,18 +204,21 @@ namespace WorldNewzWebAPI.Services
                 originalPrice = 4999.00m;
             }
 
+            string finalTitle = string.IsNullOrWhiteSpace(scraped.Title) ? displayTitle : scraped.Title;
+            string finalCategory = string.IsNullOrWhiteSpace(scraped.Category) ? category : scraped.Category;
+
             // Create new product object
             var newProduct = new AmazonProduct
             {
                 Asin = asin,
-                Title = string.IsNullOrWhiteSpace(scraped.Title) ? displayTitle : scraped.Title,
+                Title = finalTitle,
                 Description = string.IsNullOrWhiteSpace(scraped.Description) ? description : scraped.Description,
-                ImageUrl = string.IsNullOrWhiteSpace(scraped.ImageUrl) ? "/images/amazon_placeholder.png" : EnsureAbsoluteImageUrl(scraped.ImageUrl),
+                ImageUrl = GetDynamicProductImage(finalTitle, finalCategory, scraped.ImageUrl),
                 Price = scraped.Price > 0 ? scraped.Price : price,
                 OriginalPrice = scraped.OriginalPrice > 0 ? scraped.OriginalPrice : (scraped.Price > 0 ? scraped.Price * 1.25m : originalPrice),
                 Rating = rating,
                 ReviewCount = reviewCount,
-                Category = string.IsNullOrWhiteSpace(scraped.Category) ? category : scraped.Category,
+                Category = finalCategory,
                 ProductUrl = BuildAffiliateLink(resolvedUrl, asin),
                 LastUpdated = DateTime.UtcNow
             };
@@ -459,6 +462,76 @@ namespace WorldNewzWebAPI.Services
 
             // If it's just the Amazon image ID/filename, prefix it
             return $"https://images-eu.ssl-images-amazon.com/images/I/{url}";
+        }
+
+        private string GetDynamicProductImage(string title, string category, string scrapedImageUrl)
+        {
+            if (!string.IsNullOrWhiteSpace(scrapedImageUrl) && 
+                (scrapedImageUrl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || 
+                 scrapedImageUrl.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) &&
+                !scrapedImageUrl.Contains("amazon-placeholder") && 
+                !scrapedImageUrl.Contains("a-smile-logo"))
+            {
+                return EnsureAbsoluteImageUrl(scrapedImageUrl);
+            }
+
+            string lowerTitle = (title ?? "").ToLower();
+            
+            if (lowerTitle.Contains("cylinder") || lowerTitle.Contains("gas") || lowerTitle.Contains("stove") || lowerTitle.Contains("lpg"))
+            {
+                return "/images/gas_cylinder.png";
+            }
+            if (lowerTitle.Contains("kurta") || lowerTitle.Contains("kurti") || lowerTitle.Contains("saree") || lowerTitle.Contains("suit") || lowerTitle.Contains("clothing") || lowerTitle.Contains("dress") || lowerTitle.Contains("women"))
+            {
+                return "/images/kurta_set.png";
+            }
+            if (lowerTitle.Contains("phone") || lowerTitle.Contains("mobile") || lowerTitle.Contains("samsung") || lowerTitle.Contains("iphone"))
+            {
+                if (lowerTitle.Contains("16e"))
+                {
+                    return "/images/iphone_16e.png";
+                }
+                return "/images/galaxy_phone.png";
+            }
+            if (lowerTitle.Contains("cube") || lowerTitle.Contains("cubelelo") || lowerTitle.Contains("toy") || lowerTitle.Contains("puzzle"))
+            {
+                return "/images/cubelelo_cube.png";
+            }
+            if (lowerTitle.Contains("lamp") || lowerTitle.Contains("aurora") || lowerTitle.Contains("speaker") || lowerTitle.Contains("projector"))
+            {
+                return "/images/galaxy_lamp.png";
+            }
+            if (lowerTitle.Contains("cooker") || lowerTitle.Contains("pot") || lowerTitle.Contains("instant pot"))
+            {
+                return "/images/pressure_cooker.png";
+            }
+            if (lowerTitle.Contains("toran") || lowerTitle.Contains("bandanwar") || lowerTitle.Contains("decor") || lowerTitle.Contains("door hanging"))
+            {
+                return "/images/toran_decor.png";
+            }
+            if (lowerTitle.Contains("piggy") || lowerTitle.Contains("bank") || lowerTitle.Contains("money box"))
+            {
+                return "/images/piggy_bank.png";
+            }
+
+            if (category.Equals("Electronics", StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60";
+            }
+            if (category.Equals("Home Appliances", StringComparison.OrdinalIgnoreCase) || category.Equals("Kitchen & Home", StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=500&auto=format&fit=crop&q=60";
+            }
+            if (category.Equals("Gadgets", StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60";
+            }
+            if (category.Equals("Home & Decor", StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=60";
+            }
+            
+            return "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60";
         }
 
         /// <summary>
