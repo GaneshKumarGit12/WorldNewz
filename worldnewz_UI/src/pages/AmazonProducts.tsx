@@ -97,6 +97,7 @@ const AmazonProducts: React.FC = () => {
   const [parsedProduct, setParsedProduct] = useState<AmazonProduct | null>(null);
   const [parseLoading, setParseLoading] = useState<boolean>(false);
   const [parseError, setParseError] = useState<string | null>(null);
+  const [activeVerificationStep, setActiveVerificationStep] = useState<number>(0);
 
   const handleParseUrl = async () => {
     if (!urlInput.trim()) {
@@ -107,10 +108,21 @@ const AmazonProducts: React.FC = () => {
       setParseLoading(true);
       setParseError(null);
       setParsedProduct(null);
+      setActiveVerificationStep(1); // Step 1: Resolving redirect
+
+      const timer1 = setTimeout(() => setActiveVerificationStep(2), 1000); // Step 2: Extracting ASIN
+      const timer2 = setTimeout(() => setActiveVerificationStep(3), 2200); // Step 3: Scraping elements
+
       const res = await parseAmazonProductUrl(urlInput);
+
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+
       if (res.data && res.data.product) {
+        setActiveVerificationStep(4); // Step 4: Storing permanently
+        await new Promise(resolve => setTimeout(resolve, 800));
+
         setParsedProduct(res.data.product);
-        // Add the parsed product to the start of the list so it is immediately visible
         setProducts(prev => {
           if (prev.some(p => p.asin === res.data.product.asin)) {
             return prev;
@@ -124,6 +136,7 @@ const AmazonProducts: React.FC = () => {
       setParseError(err.response?.data?.error || "Error connecting to server.");
     } finally {
       setParseLoading(false);
+      setActiveVerificationStep(0);
     }
   };
 
@@ -305,10 +318,13 @@ const AmazonProducts: React.FC = () => {
   // Categories list
   const categories = ["All", "Electronics", "Kitchen & Home", "Home & Decor", "Home Appliances", "Gadgets", "Lifestyle", "Services", "Shopping", "Gift Cards", "Education"];
 
+  // Deduplicate products by ASIN to ensure no duplicate cards are displayed in grid
+  const uniqueProducts = Array.from(new Map(products.map(p => [p.asin, p])).values());
+
   // Filter products based on selected category tab
   const filteredProducts = selectedTab === "All"
-    ? products
-    : products.filter(p => p.category.toLowerCase().trim() === selectedTab.toLowerCase().trim());
+    ? uniqueProducts
+    : uniqueProducts.filter(p => p.category.toLowerCase().trim() === selectedTab.toLowerCase().trim());
 
   return (
     <>
@@ -498,6 +514,69 @@ const AmazonProducts: React.FC = () => {
               {parseLoading ? <CircularProgress size={24} sx={{ color: "white" }} /> : "Generate Preview"}
             </Button>
           </Box>
+
+          {/* Background URL Verification Panel */}
+          {activeVerificationStep > 0 && (
+            <Box
+              sx={{
+                p: 3,
+                mb: 3,
+                borderRadius: 4,
+                bgcolor: isDark ? "rgba(255, 153, 0, 0.05)" : "#FFFBF7",
+                border: "1px solid",
+                borderColor: isDark ? "rgba(255, 153, 0, 0.15)" : "#FFE8D1",
+                display: "flex",
+                flexDirection: "column",
+                gap: 2
+              }}
+            >
+              <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "text.primary", display: "flex", alignItems: "center", gap: 1 }}>
+                <CircularProgress size={18} sx={{ color: "#FF9900" }} /> Background URL Verification in Progress...
+              </Typography>
+              
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5, pl: 1 }}>
+                {[
+                  { id: 1, label: "Resolving short link & checking destination security" },
+                  { id: 2, label: "Extracting product ASIN & validating store parameters" },
+                  { id: 3, label: "Verifying and scraping product title, description & pricing details" },
+                  { id: 4, label: "Generating visual assets & storing permanently in Deals Database" }
+                ].map((step) => {
+                  const isCompleted = activeVerificationStep > step.id;
+                  const isActive = activeVerificationStep === step.id;
+                  
+                  return (
+                    <Box key={step.id} sx={{ display: "flex", alignItems: "center", gap: 2, opacity: isCompleted || isActive ? 1 : 0.4 }}>
+                      <Box
+                        sx={{
+                          width: 22,
+                          height: 22,
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "0.75rem",
+                          fontWeight: 800,
+                          bgcolor: isCompleted ? "#22c55e" : (isActive ? "#FF9900" : "action.disabledBackground"),
+                          color: isCompleted || isActive ? "#fff" : "text.secondary"
+                        }}
+                      >
+                        {isCompleted ? "✓" : step.id}
+                      </Box>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontWeight: isActive ? 700 : 500,
+                          color: isActive ? "#FF9900" : "text.primary"
+                        }}
+                      >
+                        {step.label} {isActive && "..."}
+                      </Typography>
+                    </Box>
+                  );
+                })}
+              </Box>
+            </Box>
+          )}
 
           {parseError && (
             <Alert severity="error" sx={{ mb: 3, borderRadius: 3 }}>
