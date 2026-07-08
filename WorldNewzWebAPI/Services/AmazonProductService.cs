@@ -492,16 +492,40 @@ namespace WorldNewzWebAPI.Services
             return "C:\\WorldNewz\\worldnewz_UI\\public\\images";
         }
 
+        private string CleanProductTitleForPrompt(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title)) return "product";
+
+            // 1. Take the first segment before common separators
+            string firstSegment = title.Split(new[] { ',', '-', '|', '(', '[', ':', ';' }, StringSplitOptions.RemoveEmptyEntries)[0];
+
+            // 2. Keep only letters, digits, and spaces
+            var sb = new System.Text.StringBuilder();
+            foreach (char c in firstSegment)
+            {
+                if (char.IsLetterOrDigit(c) || char.IsWhiteSpace(c))
+                {
+                    sb.Append(c);
+                }
+            }
+
+            string clean = sb.ToString().Trim();
+
+            // 3. Limit to first 7 words
+            var words = clean.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (words.Length > 7)
+            {
+                clean = string.Join(" ", words.Take(7));
+            }
+
+            return clean;
+        }
+
         private async Task<string> GenerateAndSaveAIProductImageAsync(string asin, string title, string category, string scrapedImageUrl)
         {
             try
             {
-                string cleanTitle = (title ?? "").Replace("\"", "").Replace("'", "").Trim();
-                if (cleanTitle.Length > 120)
-                {
-                    cleanTitle = cleanTitle.Substring(0, 120) + "...";
-                }
-                
+                string cleanTitle = CleanProductTitleForPrompt(title);
                 string prompt = $"A professional studio product photo of {cleanTitle}, clean white studio background, neutral natural lighting, high resolution, commercial photography";
                 string encodedPrompt = Uri.EscapeDataString(prompt);
                 
