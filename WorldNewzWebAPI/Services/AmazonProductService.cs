@@ -701,6 +701,19 @@ namespace WorldNewzWebAPI.Services
                     ReviewCount = 1290,
                     Category = "Home & Decor",
                     ProductUrl = "https://amzn.to/4v9MqLS"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DXQH1DBS",
+                    Title = "Apple iPhone 16e (128 GB) - Ultramarine Blue",
+                    Description = "Get the next-generation iPhone 16e with Apple Intelligence built-in. Features a stunning Super Retina XDR display, advanced A18 chip, and advanced camera system.",
+                    ImageUrl = "/images/iphone_16e.png",
+                    Price = 59900.00m,
+                    OriginalPrice = 64900.00m,
+                    Rating = 4.6,
+                    ReviewCount = 1850,
+                    Category = "Electronics",
+                    ProductUrl = "https://amzn.to/4p8p5ZC"
                 }
             };
 
@@ -708,7 +721,7 @@ namespace WorldNewzWebAPI.Services
             var validAsins = new HashSet<string>(seedData.Select(s => s.Asin), StringComparer.OrdinalIgnoreCase);
             var existingDbProducts = await _context.AmazonProducts.ToListAsync();
 
-            // Purge any legacy database entries that are not part of the 18 official target products
+             // Purge any legacy database entries that are not part of the 19 official target products
             foreach (var dbProd in existingDbProducts)
             {
                 if (!validAsins.Contains(dbProd.Asin))

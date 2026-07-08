@@ -193,6 +193,16 @@ const fallbackProducts: Partial<AmazonProduct>[] = [
     originalPrice: 999,
     productUrl: "https://amzn.to/4v9MqLS",
     category: "Home & Decor",
+  },
+  {
+    id: 19,
+    asin: "B0DXQH1DBS",
+    title: "Apple iPhone 16e (128 GB) - Ultramarine Blue",
+    imageUrl: "/images/iphone_16e.png",
+    price: 59900,
+    originalPrice: 64900,
+    productUrl: "https://amzn.to/4p8p5ZC",
+    category: "Electronics",
   }
 ];
 
