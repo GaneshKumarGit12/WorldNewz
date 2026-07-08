@@ -207,13 +207,15 @@ namespace WorldNewzWebAPI.Services
             string finalTitle = string.IsNullOrWhiteSpace(scraped.Title) ? displayTitle : scraped.Title;
             string finalCategory = string.IsNullOrWhiteSpace(scraped.Category) ? category : scraped.Category;
 
+            string finalImageUrl = await GenerateAndSaveAIProductImageAsync(asin, finalTitle, finalCategory, scraped.ImageUrl);
+
             // Create new product object
             var newProduct = new AmazonProduct
             {
                 Asin = asin,
                 Title = finalTitle,
                 Description = string.IsNullOrWhiteSpace(scraped.Description) ? description : scraped.Description,
-                ImageUrl = GetDynamicProductImage(finalTitle, finalCategory, scraped.ImageUrl),
+                ImageUrl = finalImageUrl,
                 Price = scraped.Price > 0 ? scraped.Price : price,
                 OriginalPrice = scraped.OriginalPrice > 0 ? scraped.OriginalPrice : (scraped.Price > 0 ? scraped.Price * 1.25m : originalPrice),
                 Rating = rating,
@@ -462,6 +464,76 @@ namespace WorldNewzWebAPI.Services
 
             // If it's just the Amazon image ID/filename, prefix it
             return $"https://images-eu.ssl-images-amazon.com/images/I/{url}";
+        }
+
+        private string GetLocalImagesDirectory()
+        {
+            string[] pathsToTry = new[]
+            {
+                Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "worldnewz_UI", "public", "images"),
+                Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "worldnewz_UI", "public", "images"),
+                Path.Combine(Directory.GetCurrentDirectory(), "..", "worldnewz_UI", "public", "images"),
+                "C:\\WorldNewz\\worldnewz_UI\\public\\images"
+            };
+
+            foreach (var p in pathsToTry)
+            {
+                try
+                {
+                    var fullPath = Path.GetFullPath(p);
+                    if (Directory.Exists(fullPath))
+                    {
+                        return fullPath;
+                    }
+                }
+                catch { }
+            }
+            
+            return "C:\\WorldNewz\\worldnewz_UI\\public\\images";
+        }
+
+        private async Task<string> GenerateAndSaveAIProductImageAsync(string asin, string title, string category, string scrapedImageUrl)
+        {
+            try
+            {
+                string cleanTitle = (title ?? "").Replace("\"", "").Replace("'", "").Trim();
+                if (cleanTitle.Length > 120)
+                {
+                    cleanTitle = cleanTitle.Substring(0, 120) + "...";
+                }
+                
+                string prompt = $"A professional studio product photo of {cleanTitle}, clean white studio background, neutral natural lighting, high resolution, commercial photography";
+                string encodedPrompt = Uri.EscapeDataString(prompt);
+                
+                string pollinationUrl = $"https://image.pollinations.ai/prompt/{encodedPrompt}?width=600&height=600&nologo=true&seed={System.Random.Shared.Next(1, 100000)}";
+                
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(15);
+                    byte[] imageBytes = await client.GetByteArrayAsync(pollinationUrl);
+                    
+                    if (imageBytes != null && imageBytes.Length > 5000)
+                    {
+                        string imagesDir = GetLocalImagesDirectory();
+                        if (!Directory.Exists(imagesDir))
+                        {
+                            Directory.CreateDirectory(imagesDir);
+                        }
+                        
+                        string fileName = $"{asin}.png";
+                        string localPath = Path.Combine(imagesDir, fileName);
+                        await File.WriteAllBytesAsync(localPath, imageBytes);
+                        
+                        return $"/images/{fileName}";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"AI Image Generation failed: {ex.Message}");
+            }
+
+            return GetDynamicProductImage(title, category, scrapedImageUrl);
         }
 
         private string GetDynamicProductImage(string title, string category, string scrapedImageUrl)
