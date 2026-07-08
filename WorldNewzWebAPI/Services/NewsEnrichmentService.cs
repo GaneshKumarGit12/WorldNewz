@@ -308,16 +308,16 @@ namespace WorldNewzWebAPI.Services
             string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
 
             var prompt = $@"
-You are an expert news editor. Analyze this article:
+You are an expert editorial editor and columnist. Analyze this news article:
 Title: {title}
 Description: {description ?? ""}
 Category: {category ?? "General"}
 
 Return a JSON object with the following schema (DO NOT include any markdown block ticks, just raw JSON text):
 {{
-  ""headline"": ""A punchy, engaging headline"",
-  ""summary"": ""A high-quality 2-3 sentence summary capturing the context and key points of the article."",
-  ""context"": ""A short 'Why it matters' note (1-2 sentences) explaining the broader importance or impact of this event."",
+  ""headline"": ""A punchy, analytical headline suitable for an opinion piece"",
+  ""summary"": ""A high-quality 2-3 sentence summary providing an editorial/analytical perspective on the core issues."",
+  ""context"": ""A short 'Why it matters' note (1-2 sentences) explaining the deeper social, market, or political implications of this event."",
   ""socialMediaHook"": ""A social media shareable hook with 2-3 relevant hashtags""
 }}
 ";
@@ -469,14 +469,17 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
                                 string.Equals(category, "tech", StringComparison.OrdinalIgnoreCase) ||
                                 string.Equals(category, "business", StringComparison.OrdinalIgnoreCase) ||
                                 string.Equals(category, "politics", StringComparison.OrdinalIgnoreCase) ||
-                                string.Equals(category, "science-health", StringComparison.OrdinalIgnoreCase);
+                                string.Equals(category, "science-health", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "science & health", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "science", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "health", StringComparison.OrdinalIgnoreCase);
 
-                int targetMinWords = isPillar ? 1500 : 800;
-                int targetMaxWords = isPillar ? 2000 : 1200;
+                int targetMinWords = isPillar ? 1500 : 600;
+                int targetMaxWords = isPillar ? 2000 : 1000;
 
                 var prompt = $@"
-You are a senior professional journalist writing for WorldNewzs (https://worldnewzs.in). 
-Write a comprehensive, high-quality, and completely unique news report based on the following information:
+You are a senior editorial columnist and political/industry analyst writing for WorldNewzs (https://worldnewzs.in). 
+Analyze this news and write a detailed, comprehensive, high-quality, and completely unique opinion piece / editorial analysis based on the following information:
 
 Title: {title}
 Summary/Key point: {description ?? "News update details"}
@@ -485,11 +488,11 @@ Contextual Snippet (from wire service): {scrapedText}
 
 Requirements:
 - The article MUST be {targetMinWords} to {targetMaxWords} words long.
-- Write in a highly informative, professional, and objective journalistic tone.
-- Do NOT use repetitive sentences, generic fluff, or boilerplate paragraphs. Make every paragraph contribute new details, background context, geopolitical or market implications, or potential future outlooks.
-- Organize the report logically using markdown headings. You MUST use sub-headings (e.g. ## Background, ## Strategic Implications, ## Expert Insights, ## Looking Forward) to divide sections.
+- Write in an analytical, engaging, and authoritative editorial tone (opinion/column style) that analyzes the news and presents a clear perspective.
+- Do NOT use repetitive sentences, generic fluff, or boilerplate paragraphs. Every paragraph must offer sharp insights, critical analysis, background context, geopolitical/market/social implications, or future outlooks.
+- Organize the opinion piece logically using markdown headings. You MUST use sub-headings (e.g. ## Overview & News Analysis, ## Core Issues & Context, ## Critical Perspectives, ## Future Outlook & Implications) to divide sections.
 - Structure for SEO by using short paragraphs (2-3 sentences each) for readability.
-- Cover depth: Include background history, current updates, expert opinions/quotes, and statistics or references where appropriate.
+- Cover depth: Include background history, current updates, critical opinions/quotes, and statistics or references where appropriate.
 - Include 1-2 internal links to other related categories on WorldNewzs where relevant. Use EXACTLY these markdown link targets:
   * Technology: [Technology News](https://worldnewzs.in/technology)
   * Business: [Business News](https://worldnewzs.in/business)
@@ -657,12 +660,12 @@ Requirements:
 
             // 1. Introduction / Executive Summary
             paragraphs.Add(expand(
-                $"The recent announcement concerning **\"{cleanTitle}\"** represents a major development in the field of **{cat}**. Industry stakeholders, policymakers, and consumers are closely monitoring these unfolding events as they carry broad implications for future operations. Observers note that this latest step could define the strategic directions of primary organizations and reshape consumer perceptions across multiple jurisdictions.",
-                "This shift is expected to trigger a cascade of structural adjustments, forcing competitors to re-evaluate their medium-term capital allocations and technology roadmaps. Analysts suggest that the initial shockwave will settle into a consolidated race for market dominance."
+                $"The recent announcement concerning **\"{cleanTitle}\"** serves as a focal point for deeper critical analysis of the **{cat}** sector. Industry observers and columnists suggest that these unfolding events carry broader structural implications than standard press releases suggest. In our view, this latest step could define the long-term strategic directions of primary organizations and significantly alter consumer dynamics across global jurisdictions.",
+                "This transition is expected to trigger a cascade of structural adjustments, challenging legacy frameworks and forcing competitors to re-evaluate their mid-term capital allocations. We argue that the initial market shock will settle into a highly consolidated race for industry dominance."
             ));
             paragraphs.Add(expand(
-                $"As news of **\"{cleanTitle}\"** continues to spread, experts are highlighting the timing of this announcement. In an era marked by rapid changes, this update serves as a key indicator of ongoing transitions in the **{cat}** sector. Furthermore, this trend reflects a deeper alignment of technological resources, market forces, and institutional support, laying down the groundwork for next-generation advancements.",
-                "Moreover, this transition highlights a growing consensus among global research networks and commercial syndicates who see this as a turning point for sustainable development. Strategic alliances are already forming to capitalize on these newly created synergies."
+                $"As debate over **\"{cleanTitle}\"** intensifies, the true significance lies in its timing and structural alignment. We analyze this trend as reflecting a deeper convergence of technological capacity, economic incentives, and institutional policy. Rather than a routine update, this development represents a cornerstone shift in how **{cat}** issues are resolved.",
+                "Moreover, this transition highlights a growing consensus among analytical networks who view the event as a watershed moment. Strategic alliances now forming will likely redefine the parameters of future competitiveness."
             ));
 
             // 2. Historical Background & Foundation

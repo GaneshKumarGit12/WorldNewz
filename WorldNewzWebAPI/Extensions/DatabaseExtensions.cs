@@ -453,7 +453,7 @@ namespace WorldNewzWebAPI.Extensions
                 }
 
                 // Seed Default Categories
-                var requiredCategories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping", "Services", "Gaming", "Cartoons" };
+                var requiredCategories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping", "Services", "Gaming", "Cartoons", "Politics", "Technology", "Business", "Science-Health", "Lifestyle", "Education", "Entertainment", "Food", "Travel" };
                 foreach (var catName in requiredCategories)
                 {
                     if (!db.Categories.Any(c => c.Name.ToLower() == catName.ToLower()))

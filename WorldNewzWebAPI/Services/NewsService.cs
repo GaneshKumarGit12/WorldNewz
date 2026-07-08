@@ -25,13 +25,25 @@ namespace WorldNewzWebAPI.Services
             try
             {
                 // Map categories to Saurav Tech API format
-                var categoryMap = new Dictionary<string, string>
+                var categoryMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     { "discover", "general" },
                     { "sports", "sports" },
                     { "money", "business" },
-                    { "weather", "health" }, // Using health as closest match for weather
-                    { "shopping", "entertainment" } // Using entertainment for shopping
+                    { "weather", "health" }, 
+                    { "shopping", "entertainment" },
+                    { "politics", "general" },
+                    { "technology", "technology" },
+                    { "business", "business" },
+                    { "science-health", "science" },
+                    { "lifestyle", "general" },
+                    { "education", "general" },
+                    { "entertainment", "entertainment" },
+                    { "food", "health" },
+                    { "travel", "general" },
+                    { "gaming", "technology" },
+                    { "cartoons", "entertainment" },
+                    { "services", "general" }
                 };
 
                 var apiCategory = categoryMap.ContainsKey(category.ToLower()) 

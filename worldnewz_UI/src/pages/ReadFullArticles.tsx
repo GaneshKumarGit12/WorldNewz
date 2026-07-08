@@ -571,7 +571,7 @@ const ReadFullArticles: React.FC = () => {
                 borderColor: "divider"
               }}
             >
-              ⚖️ Tone: Fact-Based / Neutral Briefing
+              ⚖️ Tone: Editorial Analysis / Opinion Piece
             </Box>
           </Box>
 

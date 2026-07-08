@@ -19,7 +19,7 @@ namespace WorldNewzWebAPI.Jobs
             try
             {
                 Console.WriteLine($"[Quartz] Refreshing news at {DateTime.Now}");
-                var categories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping" };
+                var categories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping", "Politics", "Technology", "Business", "Science-Health", "Lifestyle", "Education", "Entertainment", "Food", "Travel", "Gaming", "Cartoons", "Services" };
                 foreach (var category in categories)
                 {
                     try
