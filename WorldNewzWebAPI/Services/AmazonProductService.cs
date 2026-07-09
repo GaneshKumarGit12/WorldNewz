@@ -891,6 +891,136 @@ namespace WorldNewzWebAPI.Services
                     ReviewCount = 1850,
                     Category = "Electronics",
                     ProductUrl = "https://amzn.to/4p8p5ZC"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07PPBD529",
+                    Title = "LiMETRO STEEL Stainless Steel Foldable Clothes Dryer Stand",
+                    Description = "Durable stainless steel double pole foldable clothes drying stand. Sturdy construction, easy to assemble, and rust-resistant.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20LiMETRO%20STEEL%20Stainless%20Steel%20Foldable%20Cloth%20Dryer%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=56844",
+                    Price = 1299.00m,
+                    OriginalPrice = 2999.00m,
+                    Rating = 4.3,
+                    ReviewCount = 5290,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://amzn.to/3SwQ7xR"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07D4T4YT2",
+                    Title = "Spotzero by Milton Prime Stainless Steel Spin Mop",
+                    Description = "Efficient spin mop cleaning system with stainless steel wringer. Easy-to-use microfibre refills for sparkling clean floors.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Spotzero%20by%20Milton%20Prime%20Spin%20Mop%20with%20refills%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=14209",
+                    Price = 1199.00m,
+                    OriginalPrice = 1999.00m,
+                    Rating = 4.2,
+                    ReviewCount = 3840,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://amzn.to/4f6C36U"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B01LZSWXWI",
+                    Title = "Roff Cera Clean All Purpose Tile & Floor Cleaner",
+                    Description = "Advanced tile and floor cleaning liquid. Removes tough stains, grease, and grime from bathroom and kitchen floors.",
+                    ImageUrl = "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=60",
+                    Price = 199.00m,
+                    OriginalPrice = 299.00m,
+                    Rating = 4.4,
+                    ReviewCount = 4780,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://amzn.to/3SwQ7xR"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BNHD7MM3",
+                    Title = "Matrix Black Dial Day & Date Functioning Analog Watch",
+                    Description = "Sophisticated men's analog watch featuring a bold black dial with day and date function. Stylish stainless steel strap.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Matrix%20Black%20Dial%20Analog%20Watch%20with%20Stainless%20Steel%20Strap%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=45920",
+                    Price = 399.00m,
+                    OriginalPrice = 999.00m,
+                    Rating = 4.0,
+                    ReviewCount = 1250,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GCFLKZWT",
+                    Title = "GoSriKi Women's Rayon Viscose Maroon Printed Anarkali Kurta Set",
+                    Description = "Elegant maroon Anarkali printed kurta, pant and dupatta set. Premium viscose fabric ideal for casual and festive wear.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20Viscose%20Anarkali%20Maroon%20Printed%20Kurta%20Pant%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=98341",
+                    Price = 699.00m,
+                    OriginalPrice = 1999.00m,
+                    Rating = 4.1,
+                    ReviewCount = 3890,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GVYKLG4G",
+                    Title = "GoSriKi Women's Printed Rayon A-Line Kurta Set",
+                    Description = "Stylish A-line viscose printed kurta set with matching pants and dupatta. Extremely breathable and comfortable design.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20A-Line%20Printed%20Blue%20Kurta%20Set%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=12403",
+                    Price = 659.00m,
+                    OriginalPrice = 1899.00m,
+                    Rating = 4.2,
+                    ReviewCount = 2120,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GX9KQNS3",
+                    Title = "GoSriKi Women's Viscose Blend Floral Printed Kurta Set",
+                    Description = "Vibrant floral prints crafted on a premium viscose blend fabric. Complete set with printed pants and airy dupatta.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20Viscose%20Blend%20Floral%20Printed%20Pink%20Kurta%20Set%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=87401",
+                    Price = 689.00m,
+                    OriginalPrice = 1999.00m,
+                    Rating = 4.3,
+                    ReviewCount = 1450,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GT5HFQPR",
+                    Title = "GoSriKi Women's Viscose Blend Daily Wear Printed Kurta Pant Set",
+                    Description = "Daily wear floral printed kurta set with pants. Extremely comfortable fabric, regular fit, and beautiful details.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20Viscose%20Blend%20Green%20Printed%20Kurta%20Pant%20Set%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=66723",
+                    Price = 599.00m,
+                    OriginalPrice = 1799.00m,
+                    Rating = 4.1,
+                    ReviewCount = 980,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GCTKF55Y",
+                    Title = "Klosia Women Pure Cotton Kurta Pant Set with Dupatta",
+                    Description = "Premium pure cotton Bandhani printed kurta set with details, matched with solid trousers and printed cotton dupatta.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Klosia%20Womens%20Cotton%20Kurta%20Pant%20Set%20with%20Dupatta%20Yellow%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=23941",
+                    Price = 799.00m,
+                    OriginalPrice = 2299.00m,
+                    Rating = 4.4,
+                    ReviewCount = 1890,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GVSGYK8J",
+                    Title = "Klosia Women Printed Straight Kurta and Pant Set with Dupatta",
+                    Description = "Stunning straight-fit printed kurta paired with trousers and printed dupatta. Soft premium cotton fabric for everyday wear.",
+                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Klosia%20Womens%20Printed%20Straight%20Kurta%20Pant%20Set%20with%20Dupatta%20Red%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=48321",
+                    Price = 749.00m,
+                    OriginalPrice = 2199.00m,
+                    Rating = 4.3,
+                    ReviewCount = 1560,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://amzn.to/4oPQsb1"
                 }
             };
 
