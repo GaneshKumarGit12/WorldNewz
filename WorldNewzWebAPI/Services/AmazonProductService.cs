@@ -234,7 +234,18 @@ namespace WorldNewzWebAPI.Services
 
         private async Task<string> GetRedirectUrlAsync(string url)
         {
-            if (!url.Contains("amzn.to") && !url.Contains("t.co"))
+            if (string.IsNullOrWhiteSpace(url)) return url;
+
+            // Resolve if url is a known short URL redirect or if it does not contain direct DP paths
+            bool isDirectAmazonUrl = url.Contains("/dp/") || url.Contains("/gp/product/");
+            bool isKnownRedirectDomain = url.Contains("amzn.to") || 
+                                         url.Contains("t.co") || 
+                                         url.Contains("link.amazon") || 
+                                         url.Contains("amzn.in") || 
+                                         url.Contains("amazon.co.in") || 
+                                         url.Contains("amazon.com");
+
+            if (isDirectAmazonUrl && !isKnownRedirectDomain)
             {
                 return url;
             }
