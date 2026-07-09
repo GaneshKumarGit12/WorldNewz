@@ -34,6 +34,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Link as RouterLink } from "react-router-dom";
 
 import { fetchAmazonProducts, parseAmazonProductUrl } from "../api/apiClient";
@@ -98,6 +100,16 @@ const AmazonProducts: React.FC = () => {
   const [parseLoading, setParseLoading] = useState<boolean>(false);
   const [parseError, setParseError] = useState<string | null>(null);
   const [activeVerificationStep, setActiveVerificationStep] = useState<number>(0);
+  const [copiedAsin, setCopiedAsin] = useState<string | null>(null);
+
+  const handleCopyLink = (url: string, asin: string) => {
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        setCopiedAsin(asin);
+        setTimeout(() => setCopiedAsin(null), 2000);
+      })
+      .catch(() => {});
+  };
 
   const handleParseUrl = async () => {
     if (!urlInput.trim()) {
@@ -646,7 +658,7 @@ const AmazonProducts: React.FC = () => {
 
                       <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
                         {/* Social Share Buttons */}
-                        <Box sx={{ display: "flex", gap: 1 }}>
+                        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
                           <IconButton
                             id="share-fb-btn"
                             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(parsedProduct.productUrl)}`}
@@ -675,6 +687,15 @@ const AmazonProducts: React.FC = () => {
                             <LinkedInIcon fontSize="small" />
                           </IconButton>
                           <IconButton
+                            id="share-pin-btn"
+                            href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(parsedProduct.productUrl)}&media=${encodeURIComponent(getAbsoluteImageUrl(parsedProduct.imageUrl))}&description=${encodeURIComponent(parsedProduct.title)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ color: "#BD081C", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(189,8,28,0.08)" } }}
+                          >
+                            <PinterestIcon fontSize="small" />
+                          </IconButton>
+                          <IconButton
                             id="share-wa-btn"
                             href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this amazing deal: " + parsedProduct.title + " " + parsedProduct.productUrl)}`}
                             target="_blank"
@@ -682,6 +703,19 @@ const AmazonProducts: React.FC = () => {
                             sx={{ color: "#25D366", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(37,211,102,0.08)" } }}
                           >
                             <WhatsAppIcon fontSize="small" />
+                          </IconButton>
+                          <IconButton
+                            id="share-copy-btn"
+                            onClick={() => handleCopyLink(parsedProduct.productUrl, parsedProduct.asin)}
+                            sx={{ 
+                              color: copiedAsin === parsedProduct.asin ? "#22c55e" : "text.secondary", 
+                              border: "1px solid", 
+                              borderColor: copiedAsin === parsedProduct.asin ? "#22c55e" : "divider", 
+                              "&:hover": { bgcolor: "action.hover" } 
+                            }}
+                            title="Copy link to clipboard"
+                          >
+                            <ContentCopyIcon fontSize="small" />
                           </IconButton>
                         </Box>
 
@@ -1127,6 +1161,79 @@ const AmazonProducts: React.FC = () => {
                             >
                               {product.description}
                             </Typography>
+
+                            {/* Card Share Hub */}
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2, flexWrap: "wrap" }}>
+                              <Typography variant="caption" sx={{ fontWeight: 800, color: "text.secondary", textTransform: "uppercase", letterSpacing: 0.5 }}>
+                                Share:
+                              </Typography>
+                              <Box sx={{ display: "flex", gap: 0.75, flexWrap: "wrap" }}>
+                                <IconButton
+                                  size="small"
+                                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(product.productUrl || "")}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  sx={{ color: "#1877F2", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "rgba(24,119,242,0.08)" } }}
+                                  title="Share on Facebook"
+                                >
+                                  <FacebookIcon sx={{ fontSize: "0.95rem" }} />
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(product.productUrl || "")}&text=${encodeURIComponent("Check out this deal on WorldNewzs: " + product.title)}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  sx={{ color: "text.primary", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "action.hover" } }}
+                                  title="Share on X"
+                                >
+                                  <TwitterIcon sx={{ fontSize: "0.95rem" }} />
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(product.productUrl || "")}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  sx={{ color: "#0A66C2", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "rgba(10,102,194,0.08)" } }}
+                                  title="Share on LinkedIn"
+                                >
+                                  <LinkedInIcon sx={{ fontSize: "0.95rem" }} />
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(product.productUrl || "")}&media=${encodeURIComponent(getAbsoluteImageUrl(product.imageUrl))}&description=${encodeURIComponent(product.title || "")}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  sx={{ color: "#BD081C", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "rgba(189,8,28,0.08)" } }}
+                                  title="Share on Pinterest"
+                                >
+                                  <PinterestIcon sx={{ fontSize: "0.95rem" }} />
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this amazing deal: " + product.title + " " + (product.productUrl || ""))}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  sx={{ color: "#25D366", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "rgba(37,211,102,0.08)" } }}
+                                  title="Share on WhatsApp"
+                                >
+                                  <WhatsAppIcon sx={{ fontSize: "0.95rem" }} />
+                                </IconButton>
+                                <IconButton
+                                  size="small"
+                                  onClick={() => handleCopyLink(product.productUrl || "", product.asin)}
+                                  sx={{ 
+                                    color: copiedAsin === product.asin ? "#22c55e" : "text.secondary", 
+                                    border: "1px solid", 
+                                    borderColor: copiedAsin === product.asin ? "#22c55e" : "divider", 
+                                    p: 0.5,
+                                    "&:hover": { bgcolor: "action.hover" } 
+                                  }}
+                                  title="Copy link to clipboard"
+                                >
+                                  <ContentCopyIcon sx={{ fontSize: "0.95rem" }} />
+                                </IconButton>
+                              </Box>
+                            </Box>
 
                             <Divider sx={{ mb: 2 }} />
 
