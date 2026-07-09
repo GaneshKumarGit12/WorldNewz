@@ -143,6 +143,7 @@ namespace WorldNewzWebAPI.Extensions
 
             // Scoped Services
             services.AddScoped<INewsEnrichmentService, NewsEnrichmentService>();
+            services.AddScoped<ITextRefinementService, TextRefinementService>();
             services.AddScoped<NewsService>();
             services.AddScoped<AmazonProductService>();
             services.AddScoped<SeoKeywordService>();

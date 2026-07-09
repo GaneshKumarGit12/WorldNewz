@@ -396,12 +396,29 @@ const ReadFullArticles: React.FC = () => {
 
   const author = getAuthorForCategory(article.category);
   const catConfig = getCategoryConfig(article.category);
+  const keywords = React.useMemo(() => {
+    const categoryKeywords = article.category ? [article.category] : [];
+    const titleWords = (article.headline || article.title || "")
+      .split(/\s+/)
+      .map(w => w.replace(/[^a-zA-Z]/g, "").toLowerCase())
+      .filter(w => w.length > 4);
+    
+    return Array.from(new Set([
+      ...categoryKeywords, 
+      ...titleWords, 
+      "worldnewz", 
+      "opinion piece", 
+      "editorial analysis", 
+      "critical review"
+    ]));
+  }, [article.category, article.headline, article.title]);
 
   return (
     <Container maxWidth="lg" sx={{ py: 4, minHeight: "75vh" }}>
       <SEOMeta
         title={article.headline || article.title}
         description={article.summary || article.description || ""}
+        keywords={keywords}
         ogImage={article.urlToImage || article.imageUrl}
         ogType="article"
         articlePublishedTime={article.publishedAt}

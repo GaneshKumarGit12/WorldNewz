@@ -98,6 +98,11 @@ export const fetchAdByPlacement = (placement: string) => apiClient.get(`/ads/${p
 export const fetchFullContent = (url: string, title?: string, description?: string, category?: string) => apiClient.get("/news/full-content", { params: { url, title, description, category } });
 export const fetchJobs = (page: number = 1) => apiClient.get("/news/jobs", { params: { page } });
 export const fetchJobDetail = (slug: string) => apiClient.get(`/news/jobs/detail/${slug}`);
+export const fetchEnrichedArticlesAll = () => apiClient.get("/news/enriched/all");
+export const fetchEnrichedArticle = (url: string) => apiClient.get("/news/enriched", { params: { url } });
+export const createEnrichedArticle = (article: any) => apiClient.post("/news/enriched", article);
+export const updateEnrichedArticle = (article: any) => apiClient.put("/news/enriched", article);
+export const deleteEnrichedArticle = (url: string) => apiClient.delete("/news/enriched", { params: { url } });
 export const postJob = (jobData: any) => apiClient.post("/news/jobs/post", jobData);
 export const submitContactForm = (data: { name: string; email: string; subject: string; message: string }) => apiClient.post("/contact", data);
 

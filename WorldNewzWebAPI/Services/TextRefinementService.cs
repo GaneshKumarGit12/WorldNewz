@@ -3,274 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
-using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace WorldNewzWebAPI.Services
 {
-    public interface INewsEnrichmentService
+    public interface ITextRefinementService
     {
-        Task<List<NewsArticleDto>> FilterDeduplicateAndEnrichAsync(List<Article> rawArticles, string category);
+        Task<EnrichedArticle> RefineAndEnrichNewsAsync(string title, string? description, string? category, string url);
         Task<List<string>?> GenerateArticleWithGeminiAsync(string title, string? description, string? category, List<string> scrapedParagraphs);
-        Task PreEnrichLatestArticlesAsync(int articlesPerCategory = 5);
     }
 
-    public class NewsEnrichmentService : INewsEnrichmentService
+    public class TextRefinementService : ITextRefinementService
     {
-        private readonly WorldNewsDbContext _db;
         private readonly HttpClient _httpClient;
         private readonly string? _geminiApiKey;
-        private readonly ITextRefinementService _textRefinementService;
 
-        private static readonly HashSet<string> TrustedDomains = new(StringComparer.OrdinalIgnoreCase)
+        public TextRefinementService(HttpClient httpClient, IConfiguration config)
         {
-            "bbc.com", "bbc.co.uk", "reuters.com", "apnews.com"
-        };
-
-        public NewsEnrichmentService(WorldNewsDbContext db, HttpClient httpClient, Microsoft.Extensions.Configuration.IConfiguration config, ITextRefinementService textRefinementService)
-        {
-            _db = db;
             _httpClient = httpClient;
             _geminiApiKey = config["GEMINI_API_KEY"] ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY");
-            _textRefinementService = textRefinementService;
         }
 
-        public async Task<List<NewsArticleDto>> FilterDeduplicateAndEnrichAsync(List<Article> rawArticles, string category)
+        public async Task<EnrichedArticle> RefineAndEnrichNewsAsync(string title, string? description, string? category, string url)
         {
-            if (rawArticles == null || rawArticles.Count == 0)
+            // 1. Scrape paragraphs
+            var scrapedParagraphs = await ScrapeParagraphsAsync(url);
+
+            // 2. Generate detailed opinion piece content
+            var generatedParagraphs = await GenerateArticleWithGeminiAsync(title, description, category, scrapedParagraphs);
+            var fullContent = generatedParagraphs != null && generatedParagraphs.Count > 0 
+                ? string.Join("\n\n", generatedParagraphs)
+                : string.Empty;
+
+            // 3. Generate metadata
+            var enrichment = await GenerateMetadataAsync(title, description, category);
+
+            return new EnrichedArticle
             {
-                return new List<NewsArticleDto>();
-            }
-
-            // 1. Deduplication
-            var uniqueArticles = DeduplicateArticles(rawArticles);
-
-            // 2. Domain Verification & Filtering
-            var enrichedList = new List<NewsArticleDto>();
-            int verifiedCountInRaw = uniqueArticles.Count(a => IsFromTrustedDomain(a.Url));
-
-            bool useFallbackFilter = verifiedCountInRaw < 3;
-
-            foreach (var art in uniqueArticles)
-            {
-                bool isTrusted = IsFromTrustedDomain(art.Url);
-                
-                // If we have at least 3 trusted articles, we filter out non-trusted ones.
-                // Otherwise, we include everything but mark them all as "Verified" for UI coverage.
-                if (!isTrusted && !useFallbackFilter)
-                {
-                    continue; // Skip non-trusted article
-                }
-
-                // Map to DTO
-                var dto = new NewsArticleDto
-                {
-                    Title = art.Title ?? string.Empty,
-                    Description = art.Description,
-                    Url = art.Url,
-                    UrlToImage = art.UrlToImage,
-                    PublishedAt = art.PublishedAt,
-                    Source = new SourceDto
-                    {
-                        Id = art.Source?.Id,
-                        Name = art.Source?.Name ?? "News Provider"
-                    },
-                    Category = string.IsNullOrWhiteSpace(category) ? "Discover" : category,
-                    // If we fell back, we mark all included articles as verified to keep UI feed full and consistent.
-                    Verified = isTrusted || useFallbackFilter
-                };
-
-                enrichedList.Add(dto);
-            }
-
-            // 3. Batch Enrich and SQLite cache integration
-            for (int i = 0; i < enrichedList.Count; i++)
-            {
-                var dto = enrichedList[i];
-                if (string.IsNullOrWhiteSpace(dto.Url)) continue;
-
-                try
-                {
-                    // Check SQLite Cache
-                    var cached = await _db.EnrichedArticles.AsNoTracking().FirstOrDefaultAsync(e => e.Url == dto.Url);
-                    if (cached != null)
-                    {
-                        dto.Headline = cached.Headline;
-                        dto.Summary = cached.Summary;
-                        dto.Context = cached.Context;
-                        dto.SocialMediaHook = cached.SocialMediaHook;
-                        // Keep the verified flag calculated above or combine with DB
-                        dto.Verified = dto.Verified || cached.Verified;
-                        dto.FullContent = cached.FullContent;
-                    }
-                    else
-                    {
-                        // Dynamically refine the news text immediately using the TextRefinementService
-                        var newCache = await _textRefinementService.RefineAndEnrichNewsAsync(dto.Title, dto.Description, dto.Category, dto.Url);
-                        newCache.Verified = dto.Verified;
-
-                        dto.Headline = newCache.Headline;
-                        dto.Summary = newCache.Summary;
-                        dto.Context = newCache.Context;
-                        dto.SocialMediaHook = newCache.SocialMediaHook;
-                        dto.FullContent = newCache.FullContent;
-
-                        try
-                        {
-                            _db.EnrichedArticles.Add(newCache);
-                            await _db.SaveChangesAsync();
-                        }
-                        catch (DbUpdateException dbEx)
-                        {
-                            // Concurrency race: Another thread might have inserted the same article URL
-                            // Detach the failing entry from DB context tracking
-                            _db.Entry(newCache).State = EntityState.Detached;
-
-                            Console.WriteLine($"[EnrichmentService] Concurrency race detected for '{dto.Title}'. Attempting to load concurrently saved cache.");
-
-                            // Try to retrieve the record that was just successfully inserted by the concurrent thread
-                            var existing = await _db.EnrichedArticles.AsNoTracking().FirstOrDefaultAsync(e => e.Url == dto.Url);
-                            if (existing != null)
-                            {
-                                dto.Headline = existing.Headline;
-                                dto.Summary = existing.Summary;
-                                dto.Context = existing.Context;
-                                dto.SocialMediaHook = existing.SocialMediaHook;
-                                dto.Verified = dto.Verified || existing.Verified;
-                                dto.FullContent = existing.FullContent;
-                                Console.WriteLine($"[EnrichmentService] Concurrency recovery successful for '{dto.Title}'.");
-                            }
-                            else
-                            {
-                                // Rethrow if it's not a duplicate record insertion error
-                                throw;
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"[EnrichmentService] Error processing article '{dto.Title}': {ex.Message}");
-                    // Safe fallback in case DB save or check fails and cannot be recovered
-                    if (string.IsNullOrEmpty(dto.Headline))
-                    {
-                        var fallback = GenerateLocalHeuristics(dto.Title, dto.Description, dto.Category);
-                        dto.Headline = fallback.Headline;
-                        dto.Summary = fallback.Summary;
-                        dto.Context = fallback.Context;
-                        dto.SocialMediaHook = fallback.SocialMediaHook;
-                    }
-                }
-            }
-
-            return enrichedList;
-        }
-
-        private string NormalizeUrl(string? url)
-        {
-            if (string.IsNullOrWhiteSpace(url)) return string.Empty;
-            try
-            {
-                // Strip query parameters
-                int queryIndex = url.IndexOf('?');
-                if (queryIndex >= 0)
-                {
-                    url = url.Substring(0, queryIndex);
-                }
-                
-                // Strip hash fragments
-                int hashIndex = url.IndexOf('#');
-                if (hashIndex >= 0)
-                {
-                    url = url.Substring(0, hashIndex);
-                }
-                
-                url = url.ToLowerInvariant().Trim();
-                
-                // Strip protocols
-                if (url.StartsWith("https://")) url = url.Substring(8);
-                else if (url.StartsWith("http://")) url = url.Substring(7);
-                
-                // Strip www subdomains
-                if (url.StartsWith("www.")) url = url.Substring(4);
-                
-                // Strip trailing slash
-                if (url.EndsWith("/")) url = url.Substring(0, url.Length - 1);
-                
-                return url;
-            }
-            catch
-            {
-                return url ?? string.Empty;
-            }
-        }
-
-        private List<Article> DeduplicateArticles(List<Article> articles)
-        {
-            var result = new List<Article>();
-            var seenUrls = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            var seenTitles = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            var seenImages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
-            foreach (var a in articles)
-            {
-                if (string.IsNullOrWhiteSpace(a.Url)) continue;
-
-                string normUrl = NormalizeUrl(a.Url);
-                string normalizedTitle = NormalizeString(a.Title);
-                string imageUrl = (a.UrlToImage ?? string.Empty).Trim();
-                
-                bool titleIsSignificant = normalizedTitle.Length > 10;
-                bool isDuplicateImage = !string.IsNullOrEmpty(imageUrl) && seenImages.Contains(imageUrl);
-
-                if (seenUrls.Contains(normUrl) || (titleIsSignificant && seenTitles.Contains(normalizedTitle)) || isDuplicateImage)
-                {
-                    continue; // Skip duplicates
-                }
-
-                seenUrls.Add(normUrl);
-                if (titleIsSignificant)
-                {
-                    seenTitles.Add(normalizedTitle);
-                }
-                if (!string.IsNullOrEmpty(imageUrl))
-                {
-                    seenImages.Add(imageUrl);
-                }
-                result.Add(a);
-            }
-
-            return result;
-        }
-
-        private string NormalizeString(string? val)
-        {
-            if (string.IsNullOrWhiteSpace(val)) return string.Empty;
-            return Regex.Replace(val.ToLowerInvariant(), @"[^a-z0-9]", "");
-        }
-
-        private bool IsFromTrustedDomain(string? url)
-        {
-            if (string.IsNullOrWhiteSpace(url)) return false;
-
-            try
-            {
-                var uri = new Uri(url);
-                string host = uri.Host;
-                
-                // Check if host ends with any of the trusted domains (handles subdomains)
-                return TrustedDomains.Any(domain => 
-                    host.Equals(domain, StringComparison.OrdinalIgnoreCase) || 
-                    host.EndsWith("." + domain, StringComparison.OrdinalIgnoreCase));
-            }
-            catch
-            {
-                return false;
-            }
+                Url = url,
+                Headline = enrichment.Headline ?? title,
+                Summary = enrichment.Summary ?? description ?? string.Empty,
+                Context = enrichment.Context ?? string.Empty,
+                SocialMediaHook = enrichment.SocialMediaHook ?? string.Empty,
+                Verified = true,
+                EnrichedAt = DateTime.UtcNow,
+                FullContent = fullContent
+            };
         }
 
         private async Task<EnrichmentResult> GenerateMetadataAsync(string title, string? description, string? category)
@@ -279,31 +62,25 @@ namespace WorldNewzWebAPI.Services
             {
                 try
                 {
-                    // Create task with a timeout (e.g. 2.5 seconds)
                     var enrichmentTask = CallGeminiApiAsync(title, description, category);
                     if (await Task.WhenAny(enrichmentTask, Task.Delay(2500)) == enrichmentTask)
                     {
                         var result = await enrichmentTask;
                         if (result != null) return result;
                     }
-                    else
-                    {
-                        Console.WriteLine($"[EnrichmentService] Gemini API timed out. Falling back to local heuristics.");
-                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[EnrichmentService] Gemini API call failed: {ex.Message}. Falling back to local heuristics.");
+                    Console.WriteLine($"[TextRefinement] Gemini API metadata call failed: {ex.Message}. Falling back to heuristics.");
                 }
             }
 
-            // Fallback Engine B
             return GenerateLocalHeuristics(title, description, category);
         }
 
         private async Task<EnrichmentResult?> CallGeminiApiAsync(string title, string? description, string? category)
         {
-            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
+            string endpoint = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
 
             var prompt = $@"
 You are an expert editorial editor and columnist. Analyze this news article:
@@ -333,11 +110,10 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
             };
 
             var requestContent = new StringContent(JsonSerializer.Serialize(payload), System.Text.Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(url, requestContent);
+            var response = await _httpClient.PostAsync(endpoint, requestContent);
 
             if (!response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"[EnrichmentService] Gemini API error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
                 return null;
             }
 
@@ -372,7 +148,6 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
         {
             string cleanCategory = (category ?? "news").ToLowerInvariant();
             
-            // 1. Headline Clean-up
             string headline = title;
             int separatorIndex = title.LastIndexOfAny(new[] { '-', '|' });
             if (separatorIndex > 10)
@@ -380,13 +155,11 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
                 headline = title.Substring(0, separatorIndex).Trim();
             }
 
-            // 2. Summary Generation
             string summary;
             string cleanDesc = (description ?? string.Empty).Trim();
 
             if (!string.IsNullOrEmpty(cleanDesc) && cleanDesc.Length > 40)
             {
-                // Ensure 2-3 sentences.
                 var sentences = Regex.Split(cleanDesc, @"(?<=[.!?])\s+");
                 if (sentences.Length >= 2)
                 {
@@ -399,12 +172,10 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
             }
             else
             {
-                // Title-based summary
                 summary = $"This report highlights crucial updates regarding \"{headline}\". " +
                           "Analysts and industry observers are closely following the unfolding details surrounding these events.";
             }
 
-            // 3. Category Context Note (Why it matters)
             string context = cleanCategory switch
             {
                 "science" => "This breakthrough could open new pathways in research and drive future technological or biological developments.",
@@ -418,7 +189,6 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
                 _ => "This news details a significant development in global affairs, carrying important implications for public awareness."
             };
 
-            // 4. Social Media Hook
             string hashCategory = cleanCategory switch
             {
                 "science" => "Science",
@@ -449,76 +219,110 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
             string? category, 
             List<string> scrapedParagraphs)
         {
-            return await _textRefinementService.GenerateArticleWithGeminiAsync(title, description, category, scrapedParagraphs);
-        }
-
-        public async Task PreEnrichLatestArticlesAsync(int articlesPerCategory = 5)
-        {
-            Console.WriteLine("[PreEnrich] Starting background pre-enrichment of latest articles...");
+            if (string.IsNullOrWhiteSpace(_geminiApiKey))
+            {
+                return GenerateLocalArticleHeuristics(title, description, category);
+            }
 
             try
             {
-                var categories = await _db.Categories.ToListAsync();
-                foreach (var cat in categories)
+                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
+
+                var scrapedText = scrapedParagraphs != null && scrapedParagraphs.Count > 0 
+                    ? string.Join(" ", scrapedParagraphs)
+                    : "";
+
+                bool isPillar = string.Equals(category, "technology", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "tech", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "business", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "politics", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "science-health", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "science & health", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "science", StringComparison.OrdinalIgnoreCase) ||
+                                string.Equals(category, "health", StringComparison.OrdinalIgnoreCase);
+
+                int targetMinWords = isPillar ? 1500 : 600;
+                int targetMaxWords = isPillar ? 2000 : 1000;
+
+                var prompt = $@"
+You are a senior editorial columnist and political/industry analyst writing for WorldNewzs (https://worldnewzs.in). 
+Analyze this news and write a detailed, comprehensive, high-quality, and completely unique opinion piece / editorial analysis based on the following information:
+
+Title: {title}
+Summary/Key point: {description ?? "News update details"}
+Category: {category ?? "General"}
+Contextual Snippet (from wire service): {scrapedText}
+
+Requirements:
+- The article MUST be {targetMinWords} to {targetMaxWords} words long.
+- Write in an analytical, engaging, and authoritative editorial tone (opinion/column style) that analyzes the news and presents a clear perspective.
+- Do NOT use repetitive sentences, generic fluff, or boilerplate paragraphs. Every paragraph must offer sharp insights, critical analysis, background context, geopolitical/market/social implications, or future outlooks.
+- Organize the opinion piece logically using markdown headings. You MUST use sub-headings (e.g. ## Overview & News Analysis, ## Core Issues & Context, ## Critical Perspectives, ## Future Outlook & Implications) to divide sections.
+- Structure for SEO by using short paragraphs (2-3 sentences each) for readability.
+- Cover depth: Include background history, current updates, critical opinions/quotes, and statistics or references where appropriate.
+- Include 1-2 internal links to other related categories on WorldNewzs where relevant. Use EXACTLY these markdown link targets:
+  * Technology: [Technology News](https://worldnewzs.in/technology)
+  * Business: [Business News](https://worldnewzs.in/business)
+  * Sports: [Sports News](https://worldnewzs.in/sports)
+  * Politics: [Politics News](https://worldnewzs.in/politics)
+  * Science/Health: [Science & Health News](https://worldnewzs.in/science-health)
+  * Money/Finance: [Money & Finance](https://worldnewzs.in/money)
+  * General: [WorldNewzs Curation](https://worldnewzs.in)
+- Include 1-2 external links to credible, authoritative news or organization sources (e.g. [BBC News](https://www.bbc.com), [Reuters](https://www.reuters.com), [Associated Press](https://apnews.com), [WHO](https://www.who.int)) formatted in markdown.
+- At the end of the article, add a '## Frequently Asked Questions (FAQs)' section containing at least 3 relevant questions and answers about the topic to boost word count naturally and aid search intent.
+- Make the content fully publishable, unique, and appealing to readers. Do NOT write any meta-talk or introductory remarks (e.g. do not say 'Here is the article', do not use markdown code wrappers like ```json or ```html, do not state that you are an AI or this is generated).
+- Output the article as plain text paragraphs separated by double newlines.
+";
+
+                var payload = new
                 {
-                    var articlesToEnrich = await _db.NewsArticles
-                        .Where(a => a.CategoryId == cat.Id)
-                        .OrderByDescending(a => a.PublishedAt ?? a.CachedAt)
-                        .Take(articlesPerCategory * 2)
-                        .ToListAsync();
-
-                    int enrichedCount = 0;
-                    foreach (var art in articlesToEnrich)
+                    contents = new[]
                     {
-                        if (enrichedCount >= articlesPerCategory) break;
+                        new { parts = new[] { new { text = prompt } } }
+                    }
+                };
 
-                        var cached = await _db.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == art.Url);
-                        if (cached != null && !string.IsNullOrWhiteSpace(cached.FullContent))
+                var requestContent = new StringContent(JsonSerializer.Serialize(payload), System.Text.Encoding.UTF8, "application/json");
+                using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(30));
+                var response = await _httpClient.PostAsync(url, requestContent, cts.Token);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return GenerateLocalArticleHeuristics(title, description, category);
+                }
+
+                var responseBody = await response.Content.ReadAsStringAsync();
+                using var doc = JsonDocument.Parse(responseBody);
+                var root = doc.RootElement;
+
+                if (root.TryGetProperty("candidates", out var candidates) && 
+                    candidates.ValueKind == JsonValueKind.Array && 
+                    candidates.GetArrayLength() > 0)
+                {
+                    var content = candidates[0].GetProperty("content");
+                    var parts = content.GetProperty("parts");
+                    if (parts.ValueKind == JsonValueKind.Array && parts.GetArrayLength() > 0)
+                    {
+                        var textStr = parts[0].GetProperty("text").GetString();
+                        if (!string.IsNullOrWhiteSpace(textStr))
                         {
-                            continue;
-                        }
+                            var paragraphs = textStr
+                                .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(p => p.Trim())
+                                .Where(p => p.Length > 0)
+                                .ToList();
 
-                        try
-                        {
-                            Console.WriteLine($"[PreEnrich] Pre-generating full content for: {art.Title} ({cat.Name})");
-                            
-                            var enriched = await _textRefinementService.RefineAndEnrichNewsAsync(art.Title, art.Description, cat.Name, art.Url);
-                            
-                            if (cached != null)
-                            {
-                                cached.Headline = enriched.Headline;
-                                cached.Summary = enriched.Summary;
-                                cached.Context = enriched.Context;
-                                cached.SocialMediaHook = enriched.SocialMediaHook;
-                                cached.FullContent = enriched.FullContent;
-                                cached.EnrichedAt = DateTime.UtcNow;
-                                _db.EnrichedArticles.Update(cached);
-                            }
-                            else
-                            {
-                                enriched.Verified = true;
-                                _db.EnrichedArticles.Add(enriched);
-                            }
-
-                            await _db.SaveChangesAsync();
-                            enrichedCount++;
-                            Console.WriteLine($"[PreEnrich] Successfully generated and cached content for '{art.Title}'");
-
-                            await Task.Delay(3000);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"[PreEnrich] Failed to pre-enrich '{art.Title}': {ex.Message}");
+                            return paragraphs;
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[PreEnrich] Pre-enrichment job failed: {ex.Message}");
+                Console.WriteLine($"[TextRefinement] Exception during Gemini article generation: {ex.Message}");
             }
 
-            Console.WriteLine("[PreEnrich] Background pre-enrichment completed.");
+            return GenerateLocalArticleHeuristics(title, description, category);
         }
 
         private List<string> GenerateLocalArticleHeuristics(string title, string? description, string? category)
@@ -561,7 +365,7 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
             paragraphs.Add("- **Vendor Lock-in**: Proprietary closed loops limited cross-departmental coordination and updates.");
 
             paragraphs.Add(expand(
-                $"By analyzing previous benchmarks, we see a clear pattern of incremental progress leading to this moment. Industry analysts point out that while early iterations faced skepticism, the underlying framework has proved resilient, paving the way for current breakthroughs. Over time, collaborative ecosystems and standardized practices emerged, reducing entry barriers and allowing smaller players to participate in the value chain.",
+                $"By analyzing previous benchmarks, we see a pattern of incremental progress leading to this moment. Industry analysts point out that while early iterations faced skepticism, the underlying framework has proved resilient, paving the way for current breakthroughs. Over time, collaborative ecosystems and standardized practices emerged, reducing entry barriers and allowing smaller players to participate in the value chain.",
                 "These cumulative historical lessons have taught modern planners to prioritize modular architecture and open standards. As a result, today's implementation is built on a foundation of interoperability that was entirely absent in previous cycles."
             ));
 
@@ -617,7 +421,7 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
             paragraphs.Add("3. **Supply Diversification**: Partner with multiple components suppliers to avoid critical processor delays.");
 
             paragraphs.Add(expand(
-                $"Additionally, talent shortages and resistance to change within traditional organizations present cultural barriers to deployment. To mitigate these risks, industry leaders are establishing comprehensive training programs and change management initiatives. Up-skilling the workforce ensures a smoother transition and fosters a culture of continuous innovation and adaptability.",
+                $"Additionally, talent shortages and resistance to change within traditional organizations present cultural barriers to deployment. To mitigate these risks, industry leaders are establishing comprehensive training programs and change management initiatives. Up-skilling the workforce ensures a simpler transition and fosters a culture of continuous innovation and adaptability.",
                 "To bridge the skills gap, academic institutions are collaborating with industry consortia to launch specialized certifications and hands-on bootcamps. This educational alignment is expected to supply a steady pipeline of qualified professionals over the coming years."
             ));
 
@@ -628,7 +432,7 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
                 "He also points out that the long-term winners will be those who view this as a holistic business transformation rather than a simple IT upgrade. This systemic view requires breaking down traditional functional silos."
             ));
             paragraphs.Add(expand(
-                $"Furthermore, **Sarah Jenkins**, a leading policy consultant, remarks: \"Regulators must act swiftly to establish clear guidelines, or they risk stifling the potential of these innovations.\" Balancing consumer protection with industry growth remains a delicate but necessary task for modern policymakers.",
+                $"Sarah Jenkins, a leading policy consultant, remarks: \"Regulators must act swiftly to establish clear guidelines, or they risk stifling the potential of these innovations.\" Balancing consumer protection with industry growth remains a delicate but necessary task for modern policymakers.",
                 "She emphasizes that proactive engagement with regulators can help define rules that protect consumer privacy while allowing enough flexibility for product iteration. This collaborative approach benefits the entire ecosystem."
             ));
 
@@ -641,48 +445,26 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
                     "Leading brokerage firms are advising clients to focus on companies with robust balance sheets and clear IP portfolios, as they are best positioned to capture market share. This selective investing approach will likely characterize the coming quarters."
                 ));
                 paragraphs.Add(expand(
-                    $"Analysts also highlight that long-term returns will be driven by cost efficiencies and new revenue streams created by this transformation. However, investors are advised to exercise caution and diversify their portfolios, as early-stage volatility and regulatory adjustments could create temporary market corrections.",
-                    "Moreover, structured hedging strategies can protect portfolios from short-term downside risks while retaining exposure to the significant long-term upside potential. Clear communication from management teams will be essential to sustain investor confidence."
+                    $"Analysts also highlight that long-term returns will be driven by cost efficiencies and new revenue streams created by this transformation. However, investors are advised to exercise caution and diversify their portfolios to guard against early-stage volatility.",
+                    "Furthermore, transaction volume on major derivative exchanges indicates that traders are pricing in sustained upside volatility for structural infrastructure providers."
                 ));
 
-                // 9. Geopolitical / Policy Implications
-                paragraphs.Add("## Geopolitical & Policy Implications");
+                // 9. Environmental and Social Governance (ESG)
+                paragraphs.Add("## Environmental & Social Governance (ESG)");
                 paragraphs.Add(expand(
-                    $"On a geopolitical level, **\"{cleanTitle}\"** is becoming a focal point of technological sovereignty and national security policies. Major economies are competing to establish leadership in this domain, offering subsidies and tax incentives to attract top talent and manufacturing facilities. This race highlights the strategic value of control over critical digital infrastructure.",
-                    "This technology race is prompting countries to establish localized manufacturing hubs and secure raw materials through strategic trade partnerships. The resulting regionalization could rewrite the rules of global supply chains."
-                ));
-                paragraphs.Add(expand(
-                    $"Trade agreements are also being renegotiated to address data flows, intellectual property rights, and supply chain dependencies related to these technologies. International standards bodies are working overtime to harmonize regulations, ensuring that global trade remains fluid while protecting domestic interests.",
-                    "Furthermore, dispute resolution mechanisms are being designed to address conflicts over cross-border data breaches and intellectual property theft. These legal frameworks are essential to maintain trust in international commerce."
+                    $"An overlooked dimension of **\"{cleanTitle}\"** is its alignment with environmental and governance benchmarks. By replacing carbon-heavy processes with optimized digital workflows, the framework supports ongoing corporate decarbonization targets. This shift is crucial as regulatory pressure on environmental transparency intensifies globally.",
+                    "In addition, standardizing fair-wage policies for remote tech workers sets a new social governance benchmark, ensuring that digital growth does not exploit developing markets."
                 ));
             }
 
-            // 10. Long-Term Strategic Outlook
-            paragraphs.Add("## Long-Term Strategic Outlook");
+            // 10. Summary & Outlook
+            paragraphs.Add("## Conclusion & Strategic Outlook");
             paragraphs.Add(expand(
-                $"Looking forward, the long-term impact of **\"{cleanTitle}\"** will depend on how quickly standards are standardized and integrated. Observers should keep a close watch on upcoming policy revisions and international agreements that could accelerate this transition. The coming decade will likely see this development become the default baseline for all operations in the **{cat}** sector.",
-                "As national boundaries become less relevant for digital services, international consortia will play a critical role in maintaining global standards. Staying actively involved in these bodies will be vital for strategic planning."
-            ));
-            paragraphs.Add(expand(
-                $"Looking ahead, we can project several distinct phases of integration that will define the market:",
-                "1. **Phase 1 (Years 1-2)**: Early adoption, localized proof-of-concepts, and initial regulatory framework setup.\n2. **Phase 2 (Years 3-5)**: Scaled deployment, legacy migration, and standard stabilization across industries.\n3. **Phase 3 (Years 6-10)**: AI-driven optimization, autonomous execution, and standard baseline maturity."
-            ));
-            paragraphs.Add(expand(
-                $"Furthermore, the integration of artificial intelligence and machine learning could unlock new capabilities, leading to autonomous decision-making and hyper-personalized consumer experiences. Organizations that proactively build these skills into their roadmap will be best positioned to lead their industries in the next phase of development.",
-                "This evolution will shift human roles from routine execution to high-level strategic orchestration and exception handling. Preparing the workforce for this cognitive transition is a primary challenge for forward-looking leadership."
+                $"In conclusion, **\"{cleanTitle}\"** marks a pivotal milestone for the **{cat}** sector, setting a new benchmark for operational excellence. While challenges in security and workforce training persist, the potential benefits far outweigh these transitional hurdles. Organizations that proactively adopt these models will likely lead their respective fields in the coming decade.",
+                "As the ecosystem matures, we expect a second wave of micro-innovations that will further refine these workflows. The strategic window for early adoption is closing, and the time for implementation is now."
             ));
 
-            // 11. Conclusion & Editor's Curation
-            paragraphs.Add(expand(
-                $"In conclusion, while hurdles remain, the opportunities presented by this development are significant. We at [WorldNewzs Curation](https://worldnewzs.in) will continue to cover this story as it develops, providing our readers with factual updates and objective analyses. By maintaining high editorial standards and transparent sourcing, we aim to be your primary destination for global news.",
-                "Our editorial team is committed to monitoring these developments closely, offering deep-dive whitepapers and regular video briefings as key milestones are achieved. We encourage our community to subscribe to our newsletter for instant alerts."
-            ));
-            paragraphs.Add(expand(
-                $"For more detailed reviews, check out our latest [Business News](https://worldnewzs.in/business) or explore our curated [Technology News](https://worldnewzs.in/technology) sections for additional expert commentary. You can also reference authoritative resources like [BBC News](https://www.bbc.com) and the [Associated Press](https://apnews.com) for real-time global feeds.",
-                "We also recommend consulting industry-specific journals and academic repositories to gain a comprehensive understanding of the underlying science. Our curated links serve as a launchpad for your independent research."
-            ));
-
-            // 12. FAQs
+            // 11. FAQs
             paragraphs.Add("## Frequently Asked Questions (FAQs)");
             paragraphs.Add($"**Q1: What is the main significance of \"{cleanTitle}\"?**\n\n**A1:** It introduces key updates to the {cat} landscape, addressing previous challenges and opening new pathways for collaboration, growth, and efficiency.");
             paragraphs.Add($"**Q2: Who is most affected by this development?**\n\n**A2:** Industry professionals, corporate decision-makers, and active consumers in the {cat} sector will need to adapt their strategies to these new standards.");

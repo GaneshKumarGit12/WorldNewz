@@ -454,5 +454,123 @@ namespace WorldNewzWebAPI.Controllers
                 return StatusCode(500, new { error = "Failed to assemble unified news story DTO", details = ex.Message });
             }
         }
+
+        [HttpGet("enriched/all")]
+        public async Task<IActionResult> GetEnrichedArticles()
+        {
+            try
+            {
+                var articles = await _db.EnrichedArticles.OrderByDescending(a => a.EnrichedAt).Take(100).ToListAsync();
+                return Ok(articles);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to fetch enriched articles", details = ex.Message });
+            }
+        }
+
+        [HttpGet("enriched")]
+        public async Task<IActionResult> GetEnrichedArticle([FromQuery] string url)
+        {
+            if (string.IsNullOrWhiteSpace(url)) return BadRequest(new { error = "URL is required" });
+
+            try
+            {
+                var article = await _db.EnrichedArticles.FirstOrDefaultAsync(a => a.Url == url);
+                if (article == null) return NotFound(new { error = "Enriched article not found" });
+                return Ok(article);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to fetch enriched article", details = ex.Message });
+            }
+        }
+
+        [HttpPost("enriched")]
+        public async Task<IActionResult> CreateEnrichedArticle([FromBody] EnrichedArticle article)
+        {
+            if (article == null || string.IsNullOrWhiteSpace(article.Url))
+            {
+                return BadRequest(new { error = "Invalid article payload" });
+            }
+
+            try
+            {
+                var existing = await _db.EnrichedArticles.AnyAsync(e => e.Url == article.Url);
+                if (existing)
+                {
+                    return Conflict(new { error = "Enriched article with this URL already exists" });
+                }
+
+                article.EnrichedAt = DateTime.UtcNow;
+                _db.EnrichedArticles.Add(article);
+                await _db.SaveChangesAsync();
+
+                return CreatedAtAction(nameof(GetEnrichedArticle), new { url = article.Url }, article);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to create enriched article", details = ex.Message });
+            }
+        }
+
+        [HttpPut("enriched")]
+        public async Task<IActionResult> UpdateEnrichedArticle([FromBody] EnrichedArticle article)
+        {
+            if (article == null || string.IsNullOrWhiteSpace(article.Url))
+            {
+                return BadRequest(new { error = "Invalid article payload" });
+            }
+
+            try
+            {
+                var existing = await _db.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == article.Url);
+                if (existing == null)
+                {
+                    return NotFound(new { error = "Enriched article not found" });
+                }
+
+                existing.Headline = article.Headline;
+                existing.Summary = article.Summary;
+                existing.Context = article.Context;
+                existing.SocialMediaHook = article.SocialMediaHook;
+                existing.Verified = article.Verified;
+                existing.EnrichedAt = DateTime.UtcNow;
+                if (article.FullContent != null)
+                {
+                    existing.FullContent = article.FullContent;
+                }
+
+                _db.EnrichedArticles.Update(existing);
+                await _db.SaveChangesAsync();
+
+                return Ok(existing);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to update enriched article", details = ex.Message });
+            }
+        }
+
+        [HttpDelete("enriched")]
+        public async Task<IActionResult> DeleteEnrichedArticle([FromQuery] string url)
+        {
+            if (string.IsNullOrWhiteSpace(url)) return BadRequest(new { error = "URL is required" });
+
+            try
+            {
+                var article = await _db.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == url);
+                if (article == null) return NotFound(new { error = "Enriched article not found" });
+
+                _db.EnrichedArticles.Remove(article);
+                await _db.SaveChangesAsync();
+
+                return Ok(new { success = true, message = "Enriched article deleted successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to delete enriched article", details = ex.Message });
+            }
+        }
     }
 }
