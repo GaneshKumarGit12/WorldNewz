@@ -252,25 +252,18 @@ namespace WorldNewzWebAPI.Services
 
             try
             {
-                using (var handler = new System.Net.Http.HttpClientHandler { AllowAutoRedirect = false })
+                using (var handler = new System.Net.Http.HttpClientHandler { AllowAutoRedirect = true })
                 using (var client = new System.Net.Http.HttpClient(handler))
                 {
+                    client.Timeout = TimeSpan.FromSeconds(10);
                     client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
-                    var response = await client.GetAsync(url);
-                    if (response.StatusCode == System.Net.HttpStatusCode.Redirect || 
-                        response.StatusCode == System.Net.HttpStatusCode.MovedPermanently ||
-                        response.StatusCode == System.Net.HttpStatusCode.Found ||
-                        response.StatusCode == System.Net.HttpStatusCode.SeeOther)
+                    
+                    using (var response = await client.GetAsync(url, System.Net.Http.HttpCompletionOption.ResponseHeadersRead))
                     {
-                        var redirectUrl = response.Headers.Location?.ToString();
-                        if (!string.IsNullOrEmpty(redirectUrl))
+                        var finalUri = response.RequestMessage?.RequestUri?.ToString();
+                        if (!string.IsNullOrEmpty(finalUri))
                         {
-                            if (!redirectUrl.StartsWith("http"))
-                            {
-                                var uri = new Uri(url);
-                                redirectUrl = new Uri(uri, redirectUrl).ToString();
-                            }
-                            return redirectUrl;
+                            return finalUri;
                         }
                     }
                 }
