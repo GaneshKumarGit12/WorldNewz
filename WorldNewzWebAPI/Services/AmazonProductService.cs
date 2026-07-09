@@ -894,15 +894,7 @@ namespace WorldNewzWebAPI.Services
             var validAsins = new HashSet<string>(seedData.Select(s => s.Asin), StringComparer.OrdinalIgnoreCase);
             var existingDbProducts = await _context.AmazonProducts.ToListAsync();
 
-             // Purge any legacy database entries that are not part of the 19 official target products
-            foreach (var dbProd in existingDbProducts)
-            {
-                if (!validAsins.Contains(dbProd.Asin))
-                {
-                    _context.AmazonProducts.Remove(dbProd);
-                    changed = true;
-                }
-            }
+             // Seed data check and initialization only. User-submitted products are preserved.
 
             foreach (var seed in seedData)
             {
