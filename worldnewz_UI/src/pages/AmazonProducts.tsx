@@ -123,15 +123,17 @@ const AmazonProducts: React.FC = () => {
       setActiveVerificationStep(1); // Step 1: Resolving redirect
 
       const timer1 = setTimeout(() => setActiveVerificationStep(2), 1000); // Step 2: Extracting ASIN
-      const timer2 = setTimeout(() => setActiveVerificationStep(3), 2200); // Step 3: Scraping elements
+      const timer2 = setTimeout(() => setActiveVerificationStep(3), 2000); // Step 3: Scraping details
+      const timer3 = setTimeout(() => setActiveVerificationStep(4), 3000); // Step 4: Generating AI product mockup
 
       const res = await parseAmazonProductUrl(urlInput);
 
       clearTimeout(timer1);
       clearTimeout(timer2);
+      clearTimeout(timer3);
 
       if (res.data && res.data.product) {
-        setActiveVerificationStep(4); // Step 4: Storing permanently
+        setActiveVerificationStep(5); // Step 5: Storing permanently
         await new Promise(resolve => setTimeout(resolve, 800));
 
         setParsedProduct(res.data.product);
@@ -551,7 +553,8 @@ const AmazonProducts: React.FC = () => {
                   { id: 1, label: "Resolving short link & checking destination security" },
                   { id: 2, label: "Extracting product ASIN & validating store parameters" },
                   { id: 3, label: "Verifying and scraping product title, description & pricing details" },
-                  { id: 4, label: "Generating visual assets & storing permanently in Deals Database" }
+                  { id: 4, label: "Generating custom AI product mockup based on title & description" },
+                  { id: 5, label: "Storing product permanently in Deals Database" }
                 ].map((step) => {
                   const isCompleted = activeVerificationStep > step.id;
                   const isActive = activeVerificationStep === step.id;

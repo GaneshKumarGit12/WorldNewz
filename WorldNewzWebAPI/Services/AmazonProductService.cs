@@ -538,17 +538,21 @@ namespace WorldNewzWebAPI.Services
                     
                     if (imageBytes != null && imageBytes.Length > 5000)
                     {
-                        string imagesDir = GetLocalImagesDirectory();
-                        if (!Directory.Exists(imagesDir))
+                        try
                         {
-                            Directory.CreateDirectory(imagesDir);
+                            string imagesDir = GetLocalImagesDirectory();
+                            if (!Directory.Exists(imagesDir))
+                            {
+                                Directory.CreateDirectory(imagesDir);
+                            }
+                            
+                            string fileName = $"{asin}.png";
+                            string localPath = Path.Combine(imagesDir, fileName);
+                            await File.WriteAllBytesAsync(localPath, imageBytes);
                         }
+                        catch { /* Ignore background file system writing errors */ }
                         
-                        string fileName = $"{asin}.png";
-                        string localPath = Path.Combine(imagesDir, fileName);
-                        await File.WriteAllBytesAsync(localPath, imageBytes);
-                        
-                        return $"/images/{fileName}";
+                        return pollinationUrl;
                     }
                 }
             }
