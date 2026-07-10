@@ -100,17 +100,26 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       adElementRef.current.innerHTML = "";
       setAdsterraFailed(false);
 
+      // Assign options directly to window object to prevent strict-mode ReferenceErrors
+      (window as any).atOptions = {
+        'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+
       const scriptContainer = document.createElement("div");
       scriptContainer.id = "adsterra-banner-wrapper";
       scriptContainer.style.width = "728px";
       scriptContainer.style.height = "90px";
       adElementRef.current.appendChild(scriptContainer);
 
-      // Create configuration script
+      // Create configuration script (explicitly bound to window for strict compliance)
       const optionsScript = document.createElement("script");
       optionsScript.type = "text/javascript";
       optionsScript.innerHTML = `
-        atOptions = {
+        window.atOptions = {
           'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
           'format' : 'iframe',
           'height' : 90,
@@ -134,13 +143,14 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       scriptContainer.appendChild(invokeScript);
 
       // Verify if banner actually gets loaded (if script blocked by local extension)
+      // Relaxed to 8 seconds to prevent premature failure on slower connections
       const checkTimeout = setTimeout(() => {
         const hasIframe = adElementRef.current?.querySelector("iframe") !== null;
         if (!hasIframe) {
           // If no iframe is generated, fall back to our clickable Smart Link card
           setAdsterraFailed(true);
         }
-      }, 3000);
+      }, 8000);
 
       return () => clearTimeout(checkTimeout);
     }
