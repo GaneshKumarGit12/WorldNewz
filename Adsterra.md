@@ -45,4 +45,19 @@ The Smart Link is used as a click-through redirect to monetize mobile traffic an
 ## 4. Key Implementation Rules
 - **Aspect Ratio & CLS**: For the 728x90 banner, the `AdCard` sets a stable `minHeight: 90` wrapper. For sponsored cards, a stable `minHeight: 320` is maintained. This prevents layout shift (CLS) during page loading.
 - **Lazy Loading**: Scripts are only injected when the `AdCard` container intersects with the viewport (using an `IntersectionObserver`), saving network bandwidth and maintaining fast PageSpeed scores.
-- **Fail-safe Fallback**: A 3-second timeout checks if the Adsterra iframe was successfully created. If blocked by local firewall policies or extensions, it gracefully switches to the sponsored card redirecting to the Smart Link, guaranteeing 100% ad fill-rate.
+- **Fail-safe Fallback**: An 8-second timeout checks if the Adsterra iframe was successfully created. If blocked by local firewall policies or extensions, it gracefully switches to the sponsored card redirecting to the Smart Link, guaranteeing 100% ad fill-rate.
+
+---
+
+## 5. Content Security Policy (CSP)
+To prevent the browser from blocking Adsterra script execution, connections, or iframes, the following domains must be whitelisted in the Content Security Policy:
+- `https://*.servicessitclaims.com`
+- `https://servicessitclaims.com`
+- `https://*.highperformanceformat.com`
+- `https://highperformanceformat.com`
+
+These domains have been whitelisted in the `script-src`, `connect-src`, and `frame-src` directives in the following configuration files:
+1. [vercel.json](file:///c:/WorldNewz/vercel.json) (Root Vercel Config)
+2. [worldnewz_UI/vercel.json](file:///c:/WorldNewz/worldnewz_UI/vercel.json) (Frontend UI Vercel Config)
+3. [worldnewz_UI_backup/vercel.json](file:///c:/WorldNewz/worldnewz_UI_backup/vercel.json) (Backup Vercel Config)
+4. [api/prerender.js](file:///c:/WorldNewz/api/prerender.js) (Serverless Prerender Edge Function)
