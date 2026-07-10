@@ -5,13 +5,14 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import ShareIcon from "@mui/icons-material/Share";
-import { fetchAdByPlacement } from "../api/apiClient";
 import { formatTimeAgo } from "../utils/formatTime";
 
 interface AdCardProps {
   placement?: string;
   index?: number;
 }
+
+const ADSTERRA_SMART_LINK = "https://servicessitclaims.com/adjy687gk?key=bc72885b3b812917f1e35083ca18d3a5";
 
 const SPONSORED_ADS = [
   {
@@ -20,6 +21,7 @@ const SPONSORED_ADS = [
     imageUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=60",
     publishedAt: new Date(Date.now() - 4 * 3600000).toISOString(),
     likes: 342,
+    link: ADSTERRA_SMART_LINK
   },
   {
     title: "Upgrade to the Ultimate Noise-Canceling Wireless Earbuds Today",
@@ -27,6 +29,7 @@ const SPONSORED_ADS = [
     imageUrl: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=60",
     publishedAt: new Date(Date.now() - 12 * 3600000).toISOString(),
     likes: 819,
+    link: ADSTERRA_SMART_LINK
   },
   {
     title: "Start Your Premium Coding Journey with Certified Experts Online",
@@ -34,6 +37,7 @@ const SPONSORED_ADS = [
     imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&auto=format&fit=crop&q=60",
     publishedAt: new Date(Date.now() - 24 * 3600000).toISOString(),
     likes: 512,
+    link: ADSTERRA_SMART_LINK
   },
   {
     title: "Master the Art of Coffee Brewing with Premium Roast Beans",
@@ -41,30 +45,30 @@ const SPONSORED_ADS = [
     imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&auto=format&fit=crop&q=60",
     publishedAt: new Date(Date.now() - 36 * 3600000).toISOString(),
     likes: 215,
+    link: ADSTERRA_SMART_LINK
   }
 ];
 
-const isLocalhost = typeof window !== "undefined" && (
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1" ||
-  window.location.hostname.endsWith(".local")
-);
-
-const isAdSenseEligible = typeof window !== "undefined" && 
-  !isLocalhost && 
-  window.location.protocol === "https:";
-
 const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index = 0 }) => {
-  const [adScript, setAdScript] = useState<string | null>(null);
-  const [adBlocked, setAdBlocked] = useState(!isAdSenseEligible);
+  const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth < 768);
+  const [adsterraFailed, setAdsterraFailed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const initializedRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const adElementRef = useRef<HTMLDivElement>(null);
 
   // Select a unique sponsored item based on the card position index
   const adItem = SPONSORED_ADS[index % SPONSORED_ADS.length];
 
+  // Screen size change handler
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Intersection observer to lazy-load scripts only when visible
   useEffect(() => {
     const element = containerRef.current;
     if (!element) return;
@@ -82,164 +86,140 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
     return () => observer.disconnect();
   }, []);
 
+  // Dynamic script injection for Adsterra 728x90 Banner (Desktop only)
   useEffect(() => {
     if (!isVisible) return;
-    initializedRef.current = false;
-    
-    if (!isAdSenseEligible) {
-      setAdBlocked(true);
-      return;
+
+    const isBannerPlacement = 
+      placement === "play-games-banner" || 
+      placement === "weather-page-bottom" || 
+      placement === "between-articles";
+
+    if (isBannerPlacement && !isMobile && adElementRef.current) {
+      // Clear any existing children (useful during hot-reloads)
+      adElementRef.current.innerHTML = "";
+      setAdsterraFailed(false);
+
+      const scriptContainer = document.createElement("div");
+      scriptContainer.id = "adsterra-banner-wrapper";
+      scriptContainer.style.width = "728px";
+      scriptContainer.style.height = "90px";
+      adElementRef.current.appendChild(scriptContainer);
+
+      // Create configuration script
+      const optionsScript = document.createElement("script");
+      optionsScript.type = "text/javascript";
+      optionsScript.innerHTML = `
+        atOptions = {
+          'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      `;
+
+      // Create invoke script
+      const invokeScript = document.createElement("script");
+      invokeScript.type = "text/javascript";
+      invokeScript.src = "https://www.highperformanceformat.com/bf9bede62cc1cd83c4fad46360bd114e/invoke.js";
+      invokeScript.async = true;
+
+      // Handle loading failure
+      invokeScript.onerror = () => {
+        setAdsterraFailed(true);
+      };
+
+      scriptContainer.appendChild(optionsScript);
+      scriptContainer.appendChild(invokeScript);
+
+      // Verify if banner actually gets loaded (if script blocked by local extension)
+      const checkTimeout = setTimeout(() => {
+        const hasIframe = adElementRef.current?.querySelector("iframe") !== null;
+        if (!hasIframe) {
+          // If no iframe is generated, fall back to our clickable Smart Link card
+          setAdsterraFailed(true);
+        }
+      }, 3000);
+
+      return () => clearTimeout(checkTimeout);
     }
+  }, [placement, isMobile, isVisible]);
 
-    setAdBlocked(false);
-    fetchAdByPlacement(placement)
-      .then((res) => {
-        if (res.data && res.data.script) {
-          setAdScript(res.data.script);
-        } else {
-          setAdBlocked(true);
-        }
-      })
-      .catch(() => {
-        setAdBlocked(true);
-      });
-  }, [placement, isVisible]);
+  const isBannerPlacement = 
+    placement === "play-games-banner" || 
+    placement === "weather-page-bottom" || 
+    placement === "between-articles";
 
-  useEffect(() => {
-    if (!isVisible || !isAdSenseEligible || !adScript || adBlocked || initializedRef.current) return;
+  const showDesktopBanner = isBannerPlacement && !isMobile && !adsterraFailed;
 
-    const container = adElementRef.current;
-    if (!container) return;
-
-    let resizeObserver: ResizeObserver | null = null;
-    let timer: ReturnType<typeof setTimeout> | null = null;
-    let statusInterval: ReturnType<typeof setInterval> | null = null;
-
-    const startMonitoringAdStatus = () => {
-      let checkCount = 0;
-      statusInterval = setInterval(() => {
-        const insElement = container.querySelector("ins.adsbygoogle");
-        if (insElement) {
-          const status = insElement.getAttribute("data-ad-status");
-          if (status === "unfilled") {
-            setAdBlocked(true);
-            if (statusInterval) clearInterval(statusInterval);
-            return;
-          } else if (status === "filled") {
-            if (statusInterval) clearInterval(statusInterval);
-            return;
-          }
-        }
-
-        checkCount++;
-        if (checkCount > 30) { // Timeout after 3 seconds (30 * 100ms)
-          const insElementAfterTimeout = container.querySelector("ins.adsbygoogle");
-          const hasIframe = insElementAfterTimeout?.querySelector("iframe") !== null;
-          if (!hasIframe) {
-            setAdBlocked(true);
-          }
-          if (statusInterval) clearInterval(statusInterval);
-        }
-      }, 100);
-    };
-
-    const initializeAd = () => {
-      const adsbygoogle = (window as any).adsbygoogle;
-      try {
-        if (adsbygoogle) {
-          (adsbygoogle || []).push({});
-          initializedRef.current = true;
-          startMonitoringAdStatus();
-        } else {
-          setAdBlocked(true);
-        }
-      } catch (e) {
-        setAdBlocked(true);
-      }
-    };
-
-    const checkWidthAndInit = () => {
-      if (container.offsetWidth > 0) {
-        if (resizeObserver) {
-          resizeObserver.disconnect();
-          resizeObserver = null;
-        }
-        timer = setTimeout(() => {
-          initializeAd();
-        }, 50);
-      }
-    };
-
-    if (typeof window !== "undefined" && "ResizeObserver" in window) {
-      resizeObserver = new ResizeObserver(() => {
-        checkWidthAndInit();
-      });
-      resizeObserver.observe(container);
-      checkWidthAndInit();
-    } else {
-      timer = setTimeout(() => {
-        initializeAd();
-      }, 150);
-    }
-
-    return () => {
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-      if (timer) {
-        clearTimeout(timer);
-      }
-      if (statusInterval) {
-        clearInterval(statusInterval);
-      }
-    };
-  }, [adScript, adBlocked, placement, isVisible]);
-
-  const renderContent = () => {
-    if (!adBlocked && adScript) {
-      return (
-        <Card
+  if (showDesktopBanner) {
+    return (
+      <Box
+        ref={containerRef}
+        role="region"
+        aria-label="Advertisement"
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          my: 2.5,
+          minHeight: 90
+        }}
+      >
+        <Box
+          ref={adElementRef}
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
-            width: "100%",
-            minHeight: 320,
-            bgcolor: "background.paper",
-            backgroundImage: "none",
-            boxShadow: "none",
-            borderRadius: 2,
+            width: "728px",
+            height: "90px",
             overflow: "hidden",
-            p: 1.5,
+            display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            border: "1px solid",
-            borderColor: "divider",
+            borderRadius: 1.5,
+            border: "1px solid rgba(255,255,255,0.05)"
           }}
-        >
-          <Box ref={adElementRef} sx={{ width: "100%", height: "100%", minHeight: 280 }}>
-            <div dangerouslySetInnerHTML={{ __html: adScript }} />
-          </Box>
-        </Card>
-      );
-    }
+        />
+      </Box>
+    );
+  }
 
-    return (
+  // Otherwise, render the sponsored card that links to the smart link on click
+  return (
+    <Box
+      ref={containerRef}
+      role="region"
+      aria-label="Advertisement"
+      sx={{
+        width: "100%",
+        minHeight: 320,
+        my: 2,
+        backgroundColor: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        borderRadius: 3,
+        p: 1
+      }}
+    >
       <Card
+        onClick={() => window.open(adItem.link, "_blank", "noopener,noreferrer")}
         sx={{
           display: "flex",
           flexDirection: "column",
           height: "100%",
           width: "100%",
-          minHeight: 320, // Stable layout size to prevent CLS
+          minHeight: 320,
           bgcolor: "background.paper",
           backgroundImage: "none",
           boxShadow: "none",
-          borderRadius: 2,
+          borderRadius: 2.5,
           overflow: "hidden",
-          transition: "transform 0.2s ease",
+          cursor: "pointer",
+          transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
           "&:hover": {
-            transform: "scale(1.02)",
+            transform: "translateY(-4px)",
+            boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
+            borderColor: "rgba(255,138,101,0.2)"
           },
         }}
       >
@@ -262,33 +242,35 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           <Box
             sx={{
               position: "absolute",
-              top: 8,
-              left: 8,
-              bgcolor: "rgba(0, 0, 0, 0.75)",
-              color: "#fff",
-              px: 1,
-              py: 0.25,
-              borderRadius: 0.5,
+              top: 10,
+              left: 10,
+              bgcolor: "rgba(0, 0, 0, 0.8)",
+              color: "#ff8a65",
+              px: 1.2,
+              py: 0.4,
+              borderRadius: 1,
               fontSize: "0.65rem",
-              fontWeight: 700,
+              fontWeight: 800,
               textTransform: "uppercase",
-              letterSpacing: 0.5,
+              letterSpacing: 0.75,
               zIndex: 2,
+              border: "1px solid rgba(255,138,101,0.3)"
             }}
           >
             Sponsored
           </Box>
         </Box>
 
-        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 1.5, pb: 0 }}>
+        <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", p: 2, pb: 0 }}>
           <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
             <Avatar
               sx={{
-                width: 24,
-                height: 24,
-                fontSize: "0.75rem",
+                width: 28,
+                height: 28,
+                fontSize: "0.8rem",
                 bgcolor: "warning.main",
                 mt: 0.5,
+                fontWeight: 700
               }}
             >
               {adItem.source[0].toUpperCase()}
@@ -297,12 +279,12 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
               <Typography
                 variant="subtitle2"
                 sx={{
-                  fontWeight: 600,
+                  fontWeight: 700,
                   display: "-webkit-box",
                   WebkitLineClamp: 2,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
-                  lineHeight: 1.3,
+                  lineHeight: 1.35,
                   mb: 0.5,
                 }}
               >
@@ -328,9 +310,9 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            px: 1.5,
-            pb: 1.5,
-            pl: 5.5,
+            px: 2,
+            pb: 2,
+            pl: 6,
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -364,12 +346,6 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
           </Box>
         </Box>
       </Card>
-    );
-  };
-
-  return (
-    <Box ref={containerRef} role="region" aria-label="Advertisement" sx={{ width: "100%", height: "100%", minHeight: 320, my: 2, backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(0,0,0,0.1)', borderRadius: 2, p: 1 }}>
-      {renderContent()}
     </Box>
   );
 };

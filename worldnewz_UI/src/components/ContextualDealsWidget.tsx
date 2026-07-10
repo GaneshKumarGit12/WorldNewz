@@ -56,6 +56,16 @@ const SAMPLE_DEALS: Record<string, ProductDeal[]> = {
   ],
   default: [
     {
+      id: "promo1",
+      title: "Exclusive Partner Offer: Claim Your Rewards & Special Deals",
+      price: "FREE",
+      originalPrice: "₹9,999",
+      discount: "100% OFF",
+      imageUrl: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&auto=format&fit=crop&q=60",
+      affiliateUrl: "https://servicessitclaims.com/adjy687gk?key=bc72885b3b812917f1e35083ca18d3a5",
+      category: "Exclusive"
+    },
+    {
       id: "gen1",
       title: "Echo Dot (5th Gen) Smart Speaker with Alexa",
       price: "₹4,499",
