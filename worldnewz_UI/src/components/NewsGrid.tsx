@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import NewsCard from "./NewsCard";
 import type { Article } from "../types";
+import AdCard from "./AdCard";
 
 interface NewsGridProps {
   articles: Article[];
@@ -43,33 +44,41 @@ const NewsGrid: React.FC<NewsGridProps> = ({
           seenImages.add(imageUrl);
         }
 
+        const showAd = index > 0 && index % 6 === 0;
+
         return (
-          <Grid
-            size={columns}
-            key={article.url || `${article.title}-${index}`}
-            sx={{
-              display: "flex",
-              // Performance acceleration: skips rendering work for cards outside viewport
-              contentVisibility: "auto",
-              containIntrinsicSize: "auto 400px",
-            }}
-          >
-            <NewsCard
-              article={article}
-              loading={index < 3 ? "eager" : "lazy"}
-              onBookmark={onBookmark}
-              onRemoveBookmark={onRemoveBookmark}
-              isBookmarked={article.url ? isBookmarked(article.url) : false}
-              onLike={onLike}
-              onDislike={onDislike}
-              onAddComment={onAddComment}
-              onDeleteComment={onDeleteComment}
-              onLikeComment={onLikeComment}
-              onDislikeComment={onDislikeComment}
-              engagement={article.url ? getEngagement(article.url) : undefined}
-              isDuplicateImage={isDuplicateImage}
-            />
-          </Grid>
+          <React.Fragment key={article.url || `${article.title}-${index}`}>
+            {showAd && (
+              <Grid size={{ xs: 12 }} sx={{ display: "flex", justifyContent: "center", my: 1.5 }}>
+                <AdCard placement="between-articles" index={index} />
+              </Grid>
+            )}
+            <Grid
+              size={columns}
+              sx={{
+                display: "flex",
+                // Performance acceleration: skips rendering work for cards outside viewport
+                contentVisibility: "auto",
+                containIntrinsicSize: "auto 400px",
+              }}
+            >
+              <NewsCard
+                article={article}
+                loading={index < 3 ? "eager" : "lazy"}
+                onBookmark={onBookmark}
+                onRemoveBookmark={onRemoveBookmark}
+                isBookmarked={article.url ? isBookmarked(article.url) : false}
+                onLike={onLike}
+                onDislike={onDislike}
+                onAddComment={onAddComment}
+                onDeleteComment={onDeleteComment}
+                onLikeComment={onLikeComment}
+                onDislikeComment={onDislikeComment}
+                engagement={article.url ? getEngagement(article.url) : undefined}
+                isDuplicateImage={isDuplicateImage}
+              />
+            </Grid>
+          </React.Fragment>
         );
       })}
     </Grid>
