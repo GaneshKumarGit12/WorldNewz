@@ -92,7 +92,7 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles" }) => {
           </head>
           <body>
             <div id="ad-container">
-              <script type="text/javascript">
+              <script data-cfasync="false" type="text/javascript">
                 window.atOptions = {
                   'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
                   'format' : 'iframe',
@@ -101,7 +101,7 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles" }) => {
                   'params' : {}
                 };
               </script>
-              <script type="text/javascript" src="https://www.highperformanceformat.com/bf9bede62cc1cd83c4fad46360bd114e/invoke.js"></script>
+              <script data-cfasync="false" type="text/javascript" src="https://www.highperformanceformat.com/bf9bede62cc1cd83c4fad46360bd114e/invoke.js"></script>
             </div>
           </body>
         </html>
