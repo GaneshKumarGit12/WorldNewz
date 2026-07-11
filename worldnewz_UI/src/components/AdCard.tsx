@@ -100,54 +100,30 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       adElementRef.current.innerHTML = "";
       setAdsterraFailed(false);
 
-      // Assign options directly to window object to prevent strict-mode ReferenceErrors
-      (window as any).atOptions = {
-        'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
-        'format' : 'iframe',
-        'height' : 90,
-        'width' : 728,
-        'params' : {}
-      };
+      // Create a same-origin iframe to load Adsterra in an isolated context
+      const iframe = document.createElement("iframe");
+      iframe.src = "/adsterra-728x90.html";
+      iframe.width = "728";
+      iframe.height = "90";
+      iframe.style.border = "none";
+      iframe.style.overflow = "hidden";
+      iframe.scrolling = "no";
+      iframe.id = "adsterra-frame";
 
-      const scriptContainer = document.createElement("div");
-      scriptContainer.id = "adsterra-banner-wrapper";
-      scriptContainer.style.width = "728px";
-      scriptContainer.style.height = "90px";
-      adElementRef.current.appendChild(scriptContainer);
+      adElementRef.current.appendChild(iframe);
 
-      // Create configuration script (explicitly bound to window for strict compliance)
-      const optionsScript = document.createElement("script");
-      optionsScript.type = "text/javascript";
-      optionsScript.innerHTML = `
-        window.atOptions = {
-          'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      `;
-
-      // Create invoke script
-      const invokeScript = document.createElement("script");
-      invokeScript.type = "text/javascript";
-      invokeScript.src = "https://www.highperformanceformat.com/bf9bede62cc1cd83c4fad46360bd114e/invoke.js";
-      invokeScript.async = true;
-
-      // Handle loading failure
-      invokeScript.onerror = () => {
-        setAdsterraFailed(true);
-      };
-
-      scriptContainer.appendChild(optionsScript);
-      scriptContainer.appendChild(invokeScript);
-
-      // Verify if banner actually gets loaded (if script blocked by local extension)
-      // Relaxed to 8 seconds to prevent premature failure on slower connections
+      // Verify if the ad successfully loaded or was blocked inside the iframe
       const checkTimeout = setTimeout(() => {
-        const hasIframe = adElementRef.current?.querySelector("iframe") !== null;
-        if (!hasIframe) {
-          // If no iframe is generated, fall back to our clickable Smart Link card
+        try {
+          const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+          const adContainer = iframeDoc?.getElementById("ad-container");
+          // Adsterra's invoke.js dynamically builds an iframe inside the container
+          const hasInnerIframe = adContainer?.querySelector("iframe") !== null;
+          if (!hasInnerIframe) {
+            setAdsterraFailed(true);
+          }
+        } catch (e) {
+          // If cross-origin or security restrictions block access, default to fallback
           setAdsterraFailed(true);
         }
       }, 8000);
