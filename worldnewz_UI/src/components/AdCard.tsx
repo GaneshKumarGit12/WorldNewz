@@ -100,9 +100,8 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       adElementRef.current.innerHTML = "";
       setAdsterraFailed(false);
 
-      // Create a same-origin iframe to load Adsterra in an isolated context
+      // Create a same-origin iframe to load Adsterra in an isolated context using srcdoc
       const iframe = document.createElement("iframe");
-      iframe.src = "/adsterra-728x90.html";
       iframe.width = "728";
       iframe.height = "90";
       iframe.style.border = "none";
@@ -110,6 +109,51 @@ const AdCard: React.FC<AdCardProps> = ({ placement = "between-articles", index =
       iframe.scrolling = "no";
       iframe.id = "adsterra-frame";
 
+      const adsterraHtml = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <style>
+              html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: transparent;
+              }
+              #ad-container {
+                width: 728px;
+                height: 90px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+              }
+            </style>
+          </head>
+          <body>
+            <div id="ad-container">
+              <script type="text/javascript">
+                window.atOptions = {
+                  'key' : 'bf9bede62cc1cd83c4fad46360bd114e',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                };
+              </script>
+              <script type="text/javascript" src="https://www.highperformanceformat.com/bf9bede62cc1cd83c4fad46360bd114e/invoke.js"></script>
+            </div>
+          </body>
+        </html>
+      `;
+
+      iframe.srcdoc = adsterraHtml;
       adElementRef.current.appendChild(iframe);
 
       // Verify if the ad successfully loaded or was blocked inside the iframe
