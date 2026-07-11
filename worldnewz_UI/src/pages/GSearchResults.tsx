@@ -3,7 +3,6 @@ import { useSearchParams, Link } from "react-router-dom";
 import { fetchGoogleSearch } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { useColorMode } from "../context/ThemeContext";
-import AdCard from "../components/AdCard";
 import { 
   Box, 
   Typography, 
@@ -14,7 +13,6 @@ import {
   CardMedia, 
   CircularProgress, 
   Button, 
-  Divider,
   Paper
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -246,25 +244,7 @@ const GSearchResults: React.FC = () => {
                 {results.map((item, idx) => (
                   <React.Fragment key={`${item.link}-${idx}`}>
                     {/* Render AdCard every 3 articles, with clear visual separation */}
-                    {idx > 0 && idx % 3 === 0 && (
-                      <Box sx={{ my: 1, p: 1 }}>
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
-                            display: "block", 
-                            mb: 1.5, 
-                            color: "text.secondary", 
-                            fontWeight: 600,
-                            letterSpacing: "0.05em",
-                            textTransform: "uppercase"
-                          }}
-                        >
-                          Sponsored Ad
-                        </Typography>
-                        <AdCard placement="between-articles" index={idx} />
-                        <Divider sx={{ mt: 3, mb: 1 }} />
-                      </Box>
-                    )}
+
 
                     <Card
                       variant="outlined"
@@ -430,22 +410,7 @@ const GSearchResults: React.FC = () => {
                   </Typography>
                 </Paper>
 
-                <Box>
-                  <Typography 
-                    variant="caption" 
-                    sx={{ 
-                      display: "block", 
-                      mb: 1.5, 
-                      color: "text.secondary", 
-                      fontWeight: 600,
-                      letterSpacing: "0.05em",
-                      textTransform: "uppercase"
-                    }}
-                  >
-                    Sponsored Sidebar Ad
-                  </Typography>
-                  <AdCard placement="sidebar" index={99} />
-                </Box>
+
               </Box>
             </Grid>
           </Grid>

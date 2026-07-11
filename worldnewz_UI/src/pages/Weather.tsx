@@ -26,7 +26,6 @@ import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import SectionStatus from "../components/SectionStatus";
 import { CategoryEditorial } from "../components/CategoryEditorial";
-import AdCard from "../components/AdCard";
 
 type CurrentWeather = {
   temperatureC?: number;
@@ -797,10 +796,7 @@ export const Weather: React.FC = () => {
               </Grid>
             </Box>
 
-            {/* AdSense Banner Placement */}
-            <Box sx={{ my: 1 }}>
-              <AdCard placement="weather-page-bottom" />
-            </Box>
+
 
           </Box>
         )}

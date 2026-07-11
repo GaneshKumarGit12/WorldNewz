@@ -25,7 +25,6 @@ import NewsGrid from "../components/NewsGrid";
 import { ContextualPollWidget } from "../components/ContextualPollWidget";
 import { ContextualDealsWidget } from "../components/ContextualDealsWidget";
 import { getCategoryConfig } from "../utils/categoryConfig";
-import AdCard from "../components/AdCard";
 
 const SITE_URL = "https://worldnewzs.in";
 
@@ -644,15 +643,11 @@ const ReadFullArticles: React.FC = () => {
                     {index === 5 && (
                       <ContextualDealsWidget category={article.category} />
                     )}
-                    {index === 8 && (
-                      <AdCard placement="between-articles" index={8} />
-                    )}
+
                   </Fragment>
                 ))}
 
-                <Box sx={{ my: 3 }}>
-                  <AdCard placement="between-articles" index={15} />
-                </Box>
+
                 
                 <Box sx={{ mt: 5, p: 2, bgcolor: "action.hover", borderRadius: 1, borderLeft: `4px solid ${catConfig.color}` }}>
                   <Typography variant="body2" color="text.secondary">

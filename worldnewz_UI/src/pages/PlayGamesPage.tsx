@@ -39,7 +39,6 @@ import {
   WorkspacePremium
 } from "@mui/icons-material";
 import { SEOMeta } from "../seo/SEOMeta";
-import AdCard from "../components/AdCard";
 
 interface PlayerProfile {
   id: string;
@@ -670,10 +669,7 @@ const PlayGamesPage: React.FC = () => {
               </Grid>
             </Grid>
 
-            {/* Separated Ad Placement */}
-            <Box sx={{ mt: 5 }}>
-              <AdCard placement="play-games-banner" />
-            </Box>
+
           </Box>
         )}
 
