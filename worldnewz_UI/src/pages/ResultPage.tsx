@@ -531,7 +531,10 @@ const ResultPage: React.FC = () => {
                 <Button
                   endIcon={<OpenInNewIcon />}
                   variant="outlined"
-                  onClick={() => navigate(`/read-article/${id || 'article'}`, { state: { article } })}
+                  onClick={() => {
+                    window.open("https://omg10.com/4/11269029", "_blank", "noopener,noreferrer");
+                    navigate(`/read-article/${id || 'article'}`, { state: { article } });
+                  }}
                 >
                   Read Full Article
                 </Button>

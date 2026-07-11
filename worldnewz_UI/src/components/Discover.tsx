@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useOutletContext, Link as RouterLink } from "react-router-dom";
+import { useOutletContext, Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { fetchDiscover } from "../api/apiClient";
 import type { Article } from "../types";
@@ -30,6 +30,13 @@ import { TrendingShortVideos } from "./TrendingShortVideos";
 const Discover: React.FC = () => {
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
   const searchTerm = outletContext?.searchTerm ?? "";
+  const navigate = useNavigate();
+
+  const handlePlayGamesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open("https://omg10.com/4/11269029", "_blank", "noopener,noreferrer");
+    navigate("/play-games");
+  };
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -290,7 +297,7 @@ const Discover: React.FC = () => {
       </Typography>
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {/* Polls Highlight Card */}
-        <Grid size={{ xs: 12, sm: 4 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper
             elevation={3}
             sx={{
@@ -337,7 +344,7 @@ const Discover: React.FC = () => {
         </Grid>
 
         {/* GK Quiz Highlight Card */}
-        <Grid size={{ xs: 12, sm: 4 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper
             elevation={3}
             sx={{
@@ -384,7 +391,7 @@ const Discover: React.FC = () => {
         </Grid>
 
         {/* Movies DB Highlight Card */}
-        <Grid size={{ xs: 12, sm: 4 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper
             elevation={3}
             sx={{
@@ -426,6 +433,52 @@ const Discover: React.FC = () => {
               }}
             >
               Browse Movies
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* Play Arcade Games Highlight Card */}
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <Paper
+            elevation={3}
+            sx={{
+              p: 2.5,
+              borderRadius: 3,
+              background: "linear-gradient(135deg, rgba(76, 175, 80, 0.08), rgba(56, 142, 60, 0.08))",
+              border: "1px solid rgba(76, 175, 80, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+              justifyContent: "space-between",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 24px rgba(76, 175, 80, 0.18)",
+              },
+            }}
+          >
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+                Arcade Games 🎮
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
+                Play retro games like Snake, Mario, and Chess to challenge your highscore!
+              </Typography>
+            </Box>
+            <Button
+              onClick={handlePlayGamesClick}
+              variant="contained"
+              size="small"
+              sx={{
+                background: "linear-gradient(135deg, #4caf50, #388e3c)",
+                color: "#fff",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                textTransform: "none",
+                alignSelf: "flex-start",
+              }}
+            >
+              Play Now
             </Button>
           </Paper>
         </Grid>

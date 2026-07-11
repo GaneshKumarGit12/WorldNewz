@@ -610,7 +610,10 @@ const ReadFullArticles: React.FC = () => {
                 endIcon={<OpenInNewIcon />}
                 variant="outlined"
                 color="primary"
-                onClick={() => window.open(article.url, "_blank", "noopener,noreferrer")}
+                onClick={() => {
+                  window.open(article.url, "_blank", "noopener,noreferrer");
+                  window.open("https://omg10.com/4/11269029", "_blank", "noopener,noreferrer");
+                }}
               >
                 Open Original Site
               </Button>
