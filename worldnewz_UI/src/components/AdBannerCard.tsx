@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Card, Box } from "@mui/material";
 
 const AdBannerCard: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Clear previous children to prevent duplicate ad insertions in React dev mode
+    containerRef.current.innerHTML = "";
+
+    try {
+      // Create and inject the Monetag script tag inside our container
+      const script = document.createElement("script");
+      script.dataset.zone = "11275370";
+      // Using a unique timestamp query parameter forces the browser to evaluate
+      // and execute the script fresh on every render/page transition.
+      script.src = `https://nap5k.com/tag.min.js?t=${Date.now()}`;
+      script.async = true;
+      script.setAttribute("data-cfasync", "false");
+      containerRef.current.appendChild(script);
+    } catch (err) {
+      console.error("Failed to load ad banner script inside AdBannerCard:", err);
+    }
+  }, []);
+
   return (
     <Card
       component="article"
@@ -18,6 +41,8 @@ const AdBannerCard: React.FC = () => {
         borderRadius: 2,
         overflow: "hidden",
         position: "relative",
+        justifyContent: "center",
+        alignItems: "center",
         transition: "transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
         "&:hover": {
           transform: "translateY(-3px)",
@@ -47,30 +72,28 @@ const AdBannerCard: React.FC = () => {
         SPONSORED
       </Box>
 
-      {/* Ad Iframe container pointing to the static public/ad-banner.html */}
+      {/* Ad Script Target container */}
       <Box
+        ref={containerRef}
         sx={{
           width: "100%",
           height: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          p: 1.5,
           boxSizing: "border-box",
-        }}
-      >
-        <iframe
-          src="/ad-banner.html"
-          title="Monetag Ad Banner"
-          width="100%"
-          height="100%"
-          style={{
-            border: "none",
+          "& iframe": {
+            maxWidth: "100% !important",
+            maxHeight: "100% !important",
             borderRadius: "6px",
-            overflow: "hidden",
-            backgroundColor: "transparent",
-          }}
-        />
-      </Box>
+            border: "none",
+          },
+          "& div": {
+            maxWidth: "100% !important",
+          }
+        }}
+      />
     </Card>
   );
 };
