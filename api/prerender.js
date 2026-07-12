@@ -278,7 +278,7 @@ function replaceMeta(htmlStr, propertyAttr, attrValue, newValue) {
 export default async function handler(req, res) {
   // Set CSP and security headers immediately for all serverless HTML responses
   res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
-  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; connect-src 'self' https: wss:; img-src * data: blob: android-webview-video-poster:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; frame-src 'self' https:; object-src 'none'; media-src * data: blob:;");
