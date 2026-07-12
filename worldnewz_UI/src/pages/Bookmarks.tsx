@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import NewsCard from "../components/NewsCard";
+import AdBannerCard from "../components/AdBannerCard";
 import Alert from "@mui/material/Alert";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
@@ -72,13 +73,14 @@ const Bookmarks: React.FC = () => {
           <Grid container spacing={2}>
             {(() => {
               const seenImages = new Set<string>();
-              return bookmarks.map((article: Article) => {
+              const elements: React.ReactNode[] = [];
+              bookmarks.forEach((article: Article, idx: number) => {
                 const imageUrl = article.urlToImage || article.imageUrl || "";
                 const isDuplicateImage = imageUrl ? seenImages.has(imageUrl) : false;
                 if (imageUrl) {
                   seenImages.add(imageUrl);
                 }
-                return (
+                elements.push(
                   <Grid size={{ xs: 12, sm: 6, md: 4 }} key={article.url || article.title} sx={{ display: "flex" }}>
                     <NewsCard
                       article={article}
@@ -95,7 +97,16 @@ const Bookmarks: React.FC = () => {
                     />
                   </Grid>
                 );
+                // Inject ad card after every 5 bookmarks
+                if (idx % 5 === 4) {
+                  elements.push(
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`ad-bookmark-${idx}`} sx={{ display: "flex" }}>
+                      <AdBannerCard />
+                    </Grid>
+                  );
+                }
               });
+              return elements;
             })()}
           </Grid>
         </>

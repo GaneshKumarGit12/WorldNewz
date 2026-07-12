@@ -21,6 +21,7 @@ import StarIcon from "@mui/icons-material/Star";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 
 import LocalNewsCard from "../components/LocalNewsCard";
+import AdBannerCard from "../components/AdBannerCard";
 import { 
   detectCountryCode, 
   fetchTopHeadlines, 
@@ -327,25 +328,39 @@ const LocalNews: React.FC = () => {
         ) : (
           <Grid container spacing={3}>
             {/* Display first headline as featured article (spans full width on desktop) */}
-            {filteredHeadlines.map((article, idx) => (
-              <Grid size={idx === 0 ? { xs: 12 } : { xs: 12, sm: 6, md: 4 }} key={`headline-${idx}`}>
-                <LocalNewsCard
-                  article={article}
-                  featured={idx === 0}
-                  isBookmarked={isBookmarked(article.url || "")}
-                  onBookmark={addBookmark}
-                  onRemoveBookmark={removeBookmark}
-                  onLike={toggleLike}
-                  onDislike={toggleDislike}
-                  onAddComment={addComment}
-                  onDeleteComment={deleteComment}
-                  onLikeComment={likeComment}
-                  onDislikeComment={dislikeComment}
-                  engagement={getEngagement(article.url || "")}
-                  loading={idx === 0 ? "eager" : "lazy"}
-                />
-              </Grid>
-            ))}
+            {(() => {
+              const elements: React.ReactNode[] = [];
+              filteredHeadlines.forEach((article, idx) => {
+                elements.push(
+                  <Grid size={idx === 0 ? { xs: 12 } : { xs: 12, sm: 6, md: 4 }} key={`headline-${idx}`}>
+                    <LocalNewsCard
+                      article={article}
+                      featured={idx === 0}
+                      isBookmarked={isBookmarked(article.url || "")}
+                      onBookmark={addBookmark}
+                      onRemoveBookmark={removeBookmark}
+                      onLike={toggleLike}
+                      onDislike={toggleDislike}
+                      onAddComment={addComment}
+                      onDeleteComment={deleteComment}
+                      onLikeComment={likeComment}
+                      onDislikeComment={dislikeComment}
+                      engagement={getEngagement(article.url || "")}
+                      loading={idx === 0 ? "eager" : "lazy"}
+                    />
+                  </Grid>
+                );
+                // Inject ad card after every 5 headlines
+                if (idx > 0 && idx % 5 === 4) {
+                  elements.push(
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`ad-headline-${idx}`}>
+                      <AdBannerCard />
+                    </Grid>
+                  );
+                }
+              });
+              return elements;
+            })()}
           </Grid>
         )}
       </Box>
@@ -374,24 +389,38 @@ const LocalNews: React.FC = () => {
         ) : (
           <>
             <Grid container spacing={3}>
-              {filteredMoreNews.map((article, idx) => (
-                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`more-${idx}`}>
-                  <LocalNewsCard
-                    article={article}
-                    isBookmarked={isBookmarked(article.url || "")}
-                    onBookmark={addBookmark}
-                    onRemoveBookmark={removeBookmark}
-                    onLike={toggleLike}
-                    onDislike={toggleDislike}
-                    onAddComment={addComment}
-                    onDeleteComment={deleteComment}
-                    onLikeComment={likeComment}
-                    onDislikeComment={dislikeComment}
-                    engagement={getEngagement(article.url || "")}
-                    loading="lazy"
-                  />
-                </Grid>
-              ))}
+              {(() => {
+                const elements: React.ReactNode[] = [];
+                filteredMoreNews.forEach((article, idx) => {
+                  elements.push(
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`more-${idx}`}>
+                      <LocalNewsCard
+                        article={article}
+                        isBookmarked={isBookmarked(article.url || "")}
+                        onBookmark={addBookmark}
+                        onRemoveBookmark={removeBookmark}
+                        onLike={toggleLike}
+                        onDislike={toggleDislike}
+                        onAddComment={addComment}
+                        onDeleteComment={deleteComment}
+                        onLikeComment={likeComment}
+                        onDislikeComment={dislikeComment}
+                        engagement={getEngagement(article.url || "")}
+                        loading="lazy"
+                      />
+                    </Grid>
+                  );
+                  // Inject ad card after every 5 articles
+                  if (idx % 5 === 4) {
+                    elements.push(
+                      <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`ad-more-${idx}`}>
+                        <AdBannerCard />
+                      </Grid>
+                    );
+                  }
+                });
+                return elements;
+              })()}
             </Grid>
 
             {/* Load More Button */}
