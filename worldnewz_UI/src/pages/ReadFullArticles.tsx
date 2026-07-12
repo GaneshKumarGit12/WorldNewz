@@ -59,7 +59,6 @@ const ReadFullArticles: React.FC = () => {
   const originalUrl = article?.urlToImage || article?.imageUrl || "";
   const optimizedUrl = useMemo(() => optimizeImageUrl(originalUrl, 1000), [originalUrl]);
   const [imgSrc, setImgSrc] = useState(optimizedUrl);
-  const [isFallback, setIsFallback] = useState(false);
 
   const keywords = useMemo(() => {
     if (!article) return ["worldnewz", "opinion piece", "editorial analysis", "critical review"];
@@ -81,7 +80,6 @@ const ReadFullArticles: React.FC = () => {
 
   useEffect(() => {
     setImgSrc(optimizedUrl);
-    setIsFallback(false);
 
     // Dynamically preload the hero image to optimize LCP
     if (optimizedUrl) {
@@ -99,12 +97,7 @@ const ReadFullArticles: React.FC = () => {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget;
-    if (!isFallback && originalUrl && imgSrc !== originalUrl) {
-      setIsFallback(true);
-      setImgSrc(originalUrl);
-    } else {
-      target.style.display = "none";
-    }
+    target.style.display = "none";
   };
 
   // 1. Resolve article object (from state or fallback fetch)

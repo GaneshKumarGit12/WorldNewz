@@ -58,21 +58,13 @@ const LocalNewsCard: React.FC<LocalNewsCardProps> = ({
   const originalUrl = article.urlToImage || article.imageUrl || "";
   const optimizedUrl = React.useMemo(() => optimizeImageUrl(originalUrl, 500), [originalUrl]);
   const [imgSrc, setImgSrc] = useState(optimizedUrl);
-  const [isFallback, setIsFallback] = useState(false);
 
   React.useEffect(() => {
     setImgSrc(optimizedUrl);
-    setIsFallback(false);
   }, [optimizedUrl]);
 
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.currentTarget;
-    if (!isFallback && originalUrl && imgSrc !== originalUrl) {
-      setIsFallback(true);
-      setImgSrc(originalUrl);
-    } else {
-      target.src = "/placeholder.svg";
-    }
+  const handleImageError = () => {
+     setImgSrc("/placeholder.svg");
   };
 
   const articleEngagement = engagement || {

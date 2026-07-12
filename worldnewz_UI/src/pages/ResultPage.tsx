@@ -92,11 +92,9 @@ const ResultPage: React.FC = () => {
   const originalUrl = article?.urlToImage || article?.imageUrl || "";
   const optimizedUrl = useMemo(() => optimizeImageUrl(originalUrl, 1000), [originalUrl]);
   const [imgSrc, setImgSrc] = useState(optimizedUrl);
-  const [isFallback, setIsFallback] = useState(false);
 
   useEffect(() => {
     setImgSrc(optimizedUrl);
-    setIsFallback(false);
     if (optimizedUrl) {
       const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
       if (!existingLink) {
@@ -112,12 +110,7 @@ const ResultPage: React.FC = () => {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget;
-    if (!isFallback && originalUrl && imgSrc !== originalUrl) {
-      setIsFallback(true);
-      setImgSrc(originalUrl);
-    } else {
-      target.style.display = "none";
-    }
+    target.style.display = "none";
   };
   const { 
     getEngagement, 
