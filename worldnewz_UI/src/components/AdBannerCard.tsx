@@ -1,9 +1,79 @@
-import React from "react";
-import { Card, Box } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { Card, Box, Typography } from "@mui/material";
+
+const AD_ZONES = [
+  "11275370", // Primary native/banner zone
+];
 
 const AdBannerCard: React.FC = () => {
+  const [currentZoneIndex, setCurrentZoneIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const adContainerRef = useRef<HTMLDivElement>(null);
+
+  // 1. Intersection Observer to lazy-load the ad only when it enters the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          // Once visible, we can stop observing
+          if (cardRef.current) {
+            observer.unobserve(cardRef.current);
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  // 2. Script injection and rotation logic
+  useEffect(() => {
+    if (!isVisible || !adContainerRef.current) return;
+
+    // Clear previous ad content before injecting the new zone script
+    adContainerRef.current.innerHTML = "";
+
+    try {
+      const script = document.createElement("script");
+      const zoneId = AD_ZONES[currentZoneIndex];
+      script.dataset.zone = zoneId;
+      script.src = `https://nap5k.com/tag.min.js?t=${Date.now()}`;
+      script.async = true;
+      script.setAttribute("data-cfasync", "false");
+
+      // CRITICAL: Append the script to the ad container ref (inside the card),
+      // NOT document.body, so that the ad is injected inside the card boundaries!
+      adContainerRef.current.appendChild(script);
+    } catch (err) {
+      console.error("Failed to load ad banner script inside AdBannerCard:", err);
+    }
+
+    // If there are multiple zones, rotate them every 30 seconds
+    if (AD_ZONES.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentZoneIndex((prev) => (prev + 1) % AD_ZONES.length);
+      }, 30000);
+
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [isVisible, currentZoneIndex]);
+
   return (
     <Card
+      ref={cardRef}
       component="article"
       sx={{
         display: "flex",
@@ -18,6 +88,8 @@ const AdBannerCard: React.FC = () => {
         borderRadius: 2,
         overflow: "hidden",
         position: "relative",
+        justifyContent: "center",
+        alignItems: "center",
         transition: "transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
         "&:hover": {
           transform: "translateY(-3px)",
@@ -47,29 +119,34 @@ const AdBannerCard: React.FC = () => {
         SPONSORED
       </Box>
 
-      {/* Ad Iframe container pointing to the static public/ad-banner.html */}
+      {/* Ad target container */}
       <Box
+        ref={adContainerRef}
         sx={{
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          p: 1.5,
           boxSizing: "border-box",
+          "& iframe": {
+            maxWidth: "100% !important",
+            maxHeight: "100% !important",
+            borderRadius: "6px",
+            border: "none",
+          },
+          "& div": {
+            maxWidth: "100% !important",
+          }
         }}
       >
-        <iframe
-          src="/ad-banner.html"
-          title="Monetag Ad Banner"
-          width="100%"
-          height="100%"
-          style={{
-            border: "none",
-            borderRadius: "6px",
-            overflow: "hidden",
-            backgroundColor: "transparent",
-          }}
-        />
+        {!isVisible && (
+          <Typography variant="caption" color="text.secondary">
+            Ad will load when visible...
+          </Typography>
+        )}
       </Box>
     </Card>
   );
