@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Card, Box, Typography } from "@mui/material";
 
-const AD_ZONES = [
-  "11275370", // Primary native/banner zone
+// Define each zone explicitly as provided
+const adZones = [
+  { id: "11275370", src: "https://nap5k.com/tag.min.js" }, // Banner
+  { id: "11300215", src: "https://nap5k.com/tag.min.js" }, // Native
+  { id: "11488999", src: "https://nap5k.com/tag.min.js" }, // In-page push
 ];
 
 const AdBannerCard: React.FC = () => {
-  const [currentZoneIndex, setCurrentZoneIndex] = useState(0);
+  const [currentAd, setCurrentAd] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const adContainerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Intersection Observer to lazy-load the ad only when it enters the viewport
+  // 1. Lazy-load when visible in viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,39 +40,34 @@ const AdBannerCard: React.FC = () => {
     };
   }, []);
 
-  // 2. Script injection and rotation logic
+  // 2. Inject ad script + rotate zone IDs
   useEffect(() => {
     if (!isVisible || !adContainerRef.current) return;
 
-    // Clear previous ad content before injecting the new zone script
+    // Clear previous ad content/elements to prevent duplicate accumulation during rotation
     adContainerRef.current.innerHTML = "";
 
-    try {
-      const script = document.createElement("script");
-      const zoneId = AD_ZONES[currentZoneIndex];
-      script.dataset.zone = zoneId;
-      script.src = `https://nap5k.com/tag.min.js?t=${Date.now()}`;
-      script.async = true;
-      script.setAttribute("data-cfasync", "false");
+    const { id, src } = adZones[currentAd];
+    const script = document.createElement("script");
+    // Use dynamic timestamp query param to force browser to execute script fresh
+    script.src = `${src}?t=${Date.now()}`;
+    script.async = true;
+    script.dataset.zone = id;
+    script.setAttribute("data-cfasync", "false");
 
-      // CRITICAL: Append the script to the ad container ref (inside the card),
-      // NOT document.body, so that the ad is injected inside the card boundaries!
-      adContainerRef.current.appendChild(script);
-    } catch (err) {
-      console.error("Failed to load ad banner script inside AdBannerCard:", err);
-    }
+    adContainerRef.current.appendChild(script);
 
-    // If there are multiple zones, rotate them every 30 seconds
-    if (AD_ZONES.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentZoneIndex((prev) => (prev + 1) % AD_ZONES.length);
-      }, 30000);
+    const interval = setInterval(() => {
+      setCurrentAd((prev) => (prev + 1) % adZones.length);
+    }, 30000); // rotate every 30s
 
-      return () => {
-        clearInterval(interval);
-      };
-    }
-  }, [isVisible, currentZoneIndex]);
+    return () => {
+      clearInterval(interval);
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, [isVisible, currentAd]);
 
   return (
     <Card
