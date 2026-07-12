@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import NewsCard from "./NewsCard";
+import AdBannerCard from "./AdBannerCard";
 import type { Article } from "../types";
 
 interface NewsGridProps {
@@ -41,32 +42,51 @@ const NewsGrid: React.FC<NewsGridProps> = ({
         const isDuplicateImage = imageUrl ? seenImages.has(imageUrl) : false;
         if (imageUrl) {
           seenImages.add(imageUrl);
-        }        return (
-          <Grid
-            size={columns}
-            sx={{
-              display: "flex",
-              // Performance acceleration: skips rendering work for cards outside viewport
-              contentVisibility: "auto",
-              containIntrinsicSize: "auto 400px",
-            }}
-          >
-            <NewsCard
-              article={article}
-              loading={index < 3 ? "eager" : "lazy"}
-              onBookmark={onBookmark}
-              onRemoveBookmark={onRemoveBookmark}
-              isBookmarked={article.url ? isBookmarked(article.url) : false}
-              onLike={onLike}
-              onDislike={onDislike}
-              onAddComment={onAddComment}
-              onDeleteComment={onDeleteComment}
-              onLikeComment={onLikeComment}
-              onDislikeComment={onDislikeComment}
-              engagement={article.url ? getEngagement(article.url) : undefined}
-              isDuplicateImage={isDuplicateImage}
-            />
-          </Grid>
+        }
+
+        const showAdAfter = (index + 1) % 5 === 0;
+
+        return (
+          <React.Fragment key={article.url || index}>
+            <Grid
+              size={columns}
+              sx={{
+                display: "flex",
+                // Performance acceleration: skips rendering work for cards outside viewport
+                contentVisibility: "auto",
+                containIntrinsicSize: "auto 400px",
+              }}
+            >
+              <NewsCard
+                article={article}
+                loading={index < 3 ? "eager" : "lazy"}
+                onBookmark={onBookmark}
+                onRemoveBookmark={onRemoveBookmark}
+                isBookmarked={article.url ? isBookmarked(article.url) : false}
+                onLike={onLike}
+                onDislike={onDislike}
+                onAddComment={onAddComment}
+                onDeleteComment={onDeleteComment}
+                onLikeComment={onLikeComment}
+                onDislikeComment={onDislikeComment}
+                engagement={article.url ? getEngagement(article.url) : undefined}
+                isDuplicateImage={isDuplicateImage}
+              />
+            </Grid>
+
+            {showAdAfter && (
+              <Grid
+                size={columns}
+                sx={{
+                  display: "flex",
+                  contentVisibility: "auto",
+                  containIntrinsicSize: "auto 400px",
+                }}
+              >
+                <AdBannerCard />
+              </Grid>
+            )}
+          </React.Fragment>
         );
       })}
     </Grid>
