@@ -69,7 +69,6 @@ const AdBannerCard: React.FC = () => {
             overflow: "hidden",
             backgroundColor: "transparent",
           }}
-          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
         />
       </Box>
     </Card>
