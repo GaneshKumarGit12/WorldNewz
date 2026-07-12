@@ -2,38 +2,6 @@ import React from "react";
 import { Card, Box } from "@mui/material";
 
 const AdBannerCard: React.FC = () => {
-  // We construct an isolated document inside the iframe that loads the Monetag banner script
-  const iframeSrcDoc = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-          html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-          }
-        </style>
-      </head>
-      <body>
-        <script>
-          (function(s){
-            s.dataset.zone='11275370';
-            s.src='https://nap5k.com/tag.min.js';
-          })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
-        </script>
-      </body>
-    </html>
-  `;
-
   return (
     <Card
       component="article"
@@ -79,7 +47,7 @@ const AdBannerCard: React.FC = () => {
         SPONSORED
       </Box>
 
-      {/* Ad Iframe container */}
+      {/* Ad Iframe container pointing to the static public/ad-banner.html */}
       <Box
         sx={{
           width: "100%",
@@ -91,7 +59,7 @@ const AdBannerCard: React.FC = () => {
         }}
       >
         <iframe
-          srcDoc={iframeSrcDoc}
+          src="/ad-banner.html"
           title="Monetag Ad Banner"
           width="100%"
           height="100%"
