@@ -1,62 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Card, Box, Typography } from "@mui/material";
+import React, { useEffect, useRef } from "react";
+import { Card, Box } from "@mui/material";
 
-const AD_ZONE_ID = "11268966";
+const AD_ZONE_ID = "11275370";
 const AD_SCRIPT_SRC = "https://nap5k.com/tag.min.js";
 
 const AdBannerCard: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const adContainerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Lazy-load when visible in viewport
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          // Once visible, we can stop observing
-          if (cardRef.current) {
-            observer.unobserve(cardRef.current);
-          }
-        }
-      },
-      { threshold: 0.1 }
-    );
-
     if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
+      // Clear container to avoid duplicate elements in React DevMode
+      cardRef.current.innerHTML = "";
 
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, []);
-
-  // 2. Inject ad script
-  useEffect(() => {
-    if (!isVisible || !adContainerRef.current) return;
-
-    adContainerRef.current.innerHTML = "";
-
-    try {
       const script = document.createElement("script");
       script.src = `${AD_SCRIPT_SRC}?t=${Date.now()}`;
       script.async = true;
       script.dataset.zone = AD_ZONE_ID;
       script.setAttribute("data-cfasync", "false");
-
-      adContainerRef.current.appendChild(script);
-    } catch (err) {
-      console.error("Failed to load ad banner script inside AdBannerCard:", err);
+      cardRef.current.appendChild(script);
     }
-  }, [isVisible]);
+  }, []);
 
   return (
     <Card
-      ref={cardRef}
       component="article"
       sx={{
         display: "flex",
@@ -102,35 +68,22 @@ const AdBannerCard: React.FC = () => {
         SPONSORED
       </Box>
 
-      {/* Ad target container */}
+      {/* Ad target container matching the exact 300x250 dimensions */}
       <Box
-        ref={adContainerRef}
+        ref={cardRef}
         sx={{
-          width: "100%",
-          height: "100%",
+          width: "300px",
+          height: "250px",
+          overflow: "hidden",
           display: "flex",
-          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          p: 1.5,
-          boxSizing: "border-box",
           "& iframe": {
-            maxWidth: "100% !important",
-            maxHeight: "100% !important",
-            borderRadius: "6px",
-            border: "none",
-          },
-          "& div": {
-            maxWidth: "100% !important",
+            border: "none !important",
+            borderRadius: "6px !important",
           }
         }}
-      >
-        {!isVisible && (
-          <Typography variant="caption" color="text.secondary">
-            Ad will load when visible...
-          </Typography>
-        )}
-      </Box>
+      />
     </Card>
   );
 };
