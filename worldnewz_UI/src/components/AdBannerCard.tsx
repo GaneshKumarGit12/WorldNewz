@@ -1,27 +1,38 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Card, Box } from "@mui/material";
 
 const AdBannerCard: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    // Clear previous children to prevent duplicate ad insertions in React dev mode
-    containerRef.current.innerHTML = "";
-
-    try {
-      // Create and inject the Monetag script tag inside our container
-      const script = document.createElement("script");
-      script.dataset.zone = "11275370";
-      script.src = "https://nap5k.com/tag.min.js";
-      script.async = true;
-      script.setAttribute("data-cfasync", "false");
-      containerRef.current.appendChild(script);
-    } catch (err) {
-      console.error("Failed to load ad banner script inside AdBannerCard:", err);
-    }
-  }, []);
+  // We construct an isolated document inside the iframe that loads the Monetag banner script
+  const iframeSrcDoc = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+          }
+        </style>
+      </head>
+      <body>
+        <script>
+          (function(s){
+            s.dataset.zone='11275370';
+            s.src='https://nap5k.com/tag.min.js';
+          })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+        </script>
+      </body>
+    </html>
+  `;
 
   return (
     <Card
@@ -39,8 +50,6 @@ const AdBannerCard: React.FC = () => {
         borderRadius: 2,
         overflow: "hidden",
         position: "relative",
-        justifyContent: "center",
-        alignItems: "center",
         transition: "transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
         "&:hover": {
           transform: "translateY(-3px)",
@@ -64,33 +73,37 @@ const AdBannerCard: React.FC = () => {
           fontWeight: 700,
           letterSpacing: "0.5px",
           zIndex: 2,
+          pointerEvents: "none",
         }}
       >
         SPONSORED
       </Box>
 
-      {/* Ad Script Target container */}
+      {/* Ad Iframe container */}
       <Box
-        ref={containerRef}
         sx={{
           width: "100%",
           height: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          p: 1.5,
           boxSizing: "border-box",
-          "& iframe": {
-            maxWidth: "100% !important",
-            maxHeight: "100% !important",
-            borderRadius: "6px",
-            border: "none",
-          },
-          "& div": {
-            maxWidth: "100% !important",
-          }
         }}
-      />
+      >
+        <iframe
+          srcDoc={iframeSrcDoc}
+          title="Monetag Ad Banner"
+          width="100%"
+          height="100%"
+          style={{
+            border: "none",
+            borderRadius: "6px",
+            overflow: "hidden",
+            backgroundColor: "transparent",
+          }}
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        />
+      </Box>
     </Card>
   );
 };
