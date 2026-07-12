@@ -1,15 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Card, Box, Typography } from "@mui/material";
 
-// Define each zone explicitly as provided
-const adZones = [
-  { id: "11275370", src: "https://nap5k.com/tag.min.js" }, // Banner
-  { id: "11300215", src: "https://nap5k.com/tag.min.js" }, // Native
-  { id: "11488999", src: "https://nap5k.com/tag.min.js" }, // In-page push
-];
+const AD_ZONE_ID = "11268966";
+const AD_SCRIPT_SRC = "https://nap5k.com/tag.min.js";
 
 const AdBannerCard: React.FC = () => {
-  const [currentAd, setCurrentAd] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const adContainerRef = useRef<HTMLDivElement>(null);
@@ -40,34 +35,24 @@ const AdBannerCard: React.FC = () => {
     };
   }, []);
 
-  // 2. Inject ad script + rotate zone IDs
+  // 2. Inject ad script
   useEffect(() => {
     if (!isVisible || !adContainerRef.current) return;
 
-    // Clear previous ad content/elements to prevent duplicate accumulation during rotation
     adContainerRef.current.innerHTML = "";
 
-    const { id, src } = adZones[currentAd];
-    const script = document.createElement("script");
-    // Use dynamic timestamp query param to force browser to execute script fresh
-    script.src = `${src}?t=${Date.now()}`;
-    script.async = true;
-    script.dataset.zone = id;
-    script.setAttribute("data-cfasync", "false");
+    try {
+      const script = document.createElement("script");
+      script.src = `${AD_SCRIPT_SRC}?t=${Date.now()}`;
+      script.async = true;
+      script.dataset.zone = AD_ZONE_ID;
+      script.setAttribute("data-cfasync", "false");
 
-    adContainerRef.current.appendChild(script);
-
-    const interval = setInterval(() => {
-      setCurrentAd((prev) => (prev + 1) % adZones.length);
-    }, 30000); // rotate every 30s
-
-    return () => {
-      clearInterval(interval);
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, [isVisible, currentAd]);
+      adContainerRef.current.appendChild(script);
+    } catch (err) {
+      console.error("Failed to load ad banner script inside AdBannerCard:", err);
+    }
+  }, [isVisible]);
 
   return (
     <Card
