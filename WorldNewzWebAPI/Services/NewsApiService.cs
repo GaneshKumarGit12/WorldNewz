@@ -6,6 +6,8 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.Caching.Memory;
 using WorldNewzWebAPI.Models;
+using WorldNewzWebAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WorldNewzWebAPI.Services
 {
@@ -21,6 +23,7 @@ namespace WorldNewzWebAPI.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IMemoryCache _cache;
+        private readonly WorldNewsDbContext _db;
         private static readonly object _lock = new object();
         private static DateTime? _newsApiSuspendedUntil = null;
         private static DateTime? _worldNewsApiSuspendedUntil = null;
@@ -31,10 +34,11 @@ namespace WorldNewzWebAPI.Services
         private readonly string? _newsApiKey;
         private readonly string? _worldNewsApiKey;
 
-        public NewsApiService(HttpClient httpClient, IMemoryCache cache)
+        public NewsApiService(HttpClient httpClient, IMemoryCache cache, WorldNewsDbContext db)
         {
             _httpClient = httpClient;
             _cache = cache;
+            _db = db;
             _newsApiKey = Environment.GetEnvironmentVariable("NEWS_API_KEY");
             _worldNewsApiKey = Environment.GetEnvironmentVariable("WORLDNEWS_API_KEY");
         }
@@ -113,6 +117,102 @@ namespace WorldNewzWebAPI.Services
             }
         }
 
+        private string MapContextToCategory(NewsQueryContext context)
+        {
+            if (!string.IsNullOrEmpty(context.Category))
+            {
+                if (context.Category.Equals("general", StringComparison.OrdinalIgnoreCase)) return "Discover";
+                if (context.Category.Equals("business", StringComparison.OrdinalIgnoreCase)) return "Business";
+                if (context.Category.Equals("technology", StringComparison.OrdinalIgnoreCase)) return "Technology";
+                if (context.Category.Equals("sports", StringComparison.OrdinalIgnoreCase)) return "Sports";
+                if (context.Category.Equals("science", StringComparison.OrdinalIgnoreCase)) return "Science-Health";
+                if (context.Category.Equals("health", StringComparison.OrdinalIgnoreCase)) return "Science-Health";
+                if (context.Category.Equals("entertainment", StringComparison.OrdinalIgnoreCase)) return "Entertainment";
+                return context.Category;
+            }
+
+            if (!string.IsNullOrEmpty(context.Query))
+            {
+                var q = context.Query.ToLowerInvariant();
+                if (q.Contains("politics") || q.Contains("election") || q.Contains("government")) return "Politics";
+                if (q.Contains("science") || q.Contains("health") || q.Contains("medical") || q.Contains("space") || q.Contains("environment")) return "Science-Health";
+                if (q.Contains("lifestyle") || q.Contains("fashion") || q.Contains("wellness")) return "Lifestyle";
+                if (q.Contains("education") || q.Contains("learning") || q.Contains("student")) return "Education";
+                if (q.Contains("opinion") || q.Contains("editorial") || q.Contains("perspective")) return "Opinion";
+                if (q.Contains("trending") || q.Contains("viral") || q.Contains("meme")) return "Trending";
+                if (q.Contains("podcast") || q.Contains("video") || q.Contains("interview")) return "Podcasts-Videos";
+                if (q.Contains("telangana") || q.Contains("hyderabad") || q.Contains("local")) return "Local News";
+                if (q.Contains("service") || q.Contains("consultant") || q.Contains("saas")) return "Services";
+                if (q.Contains("gaming") || q.Contains("e-sports") || q.Contains("xbox") || q.Contains("playstation")) return "Gaming";
+                if (q.Contains("cartoon") || q.Contains("anime") || q.Contains("manga")) return "Cartoons";
+                if (q.Contains("food") || q.Contains("dining") || q.Contains("recipe")) return "Food";
+                if (q.Contains("travel") || q.Contains("hotel") || q.Contains("destination")) return "Travel";
+                if (q.Contains("sports") || q.Contains("cricket") || q.Contains("football")) return "Sports";
+                if (q.Contains("finance") || q.Contains("stock") || q.Contains("market") || q.Contains("money")) return "Money";
+                if (q.Contains("shopping") || q.Contains("deals") || q.Contains("e-commerce")) return "Shopping";
+            }
+
+            return "Discover";
+        }
+
+        private async Task<NewsApiFetchResult> GetDatabaseFallbackResult(NewsQueryContext context)
+        {
+            try
+            {
+                var categoryName = MapContextToCategory(context);
+                
+                // Fetch the category
+                var category = await _db.Categories.FirstOrDefaultAsync(c => c.Name.ToLower() == categoryName.ToLower());
+                if (category == null)
+                {
+                    category = await _db.Categories.FirstOrDefaultAsync(c => c.Name.ToLower().Contains(categoryName.ToLower()) || categoryName.ToLower().Contains(c.Name.ToLower()));
+                }
+
+                if (category != null)
+                {
+                    var offset = (context.Page - 1) * context.PageSize;
+                    var dbArticles = await _db.NewsArticles
+                        .Where(a => a.CategoryId == category.Id)
+                        .OrderByDescending(a => a.PublishedAt ?? a.CachedAt)
+                        .Skip(offset)
+                        .Take(context.PageSize)
+                        .ToListAsync();
+
+                    if (dbArticles.Any())
+                    {
+                        Console.WriteLine($"[NewsApiService] Using database fallback for category: {categoryName} (Count: {dbArticles.Count})");
+                        
+                        // Map database articles to the News API JSON schema
+                        var articlesJson = dbArticles.Select(a => new
+                        {
+                            title = a.Title,
+                            description = a.Description,
+                            url = a.Url ?? "",
+                            urlToImage = a.ImageUrl,
+                            publishedAt = (a.PublishedAt ?? a.CachedAt).ToString("yyyy-MM-ddTHH:mm:ssZ"),
+                            source = new { name = "WorldNewz Archive" }
+                        }).ToList();
+
+                        var responseObj = new
+                        {
+                            status = "ok",
+                            totalResults = dbArticles.Count,
+                            articles = articlesJson
+                        };
+
+                        var jsonString = JsonSerializer.Serialize(responseObj);
+                        return new NewsApiFetchResult(true, jsonString, 200);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[NewsApiService] DB fallback generation failed: {ex.Message}");
+            }
+            
+            return new NewsApiFetchResult(false, "{\"status\":\"error\",\"message\":\"All news providers failed and database fallback was empty.\"}", 500);
+        }
+
         public async Task<NewsApiFetchResult> FetchNewsAsync(NewsQueryContext context)
         {
             var cacheKey = $"news_api_cache_{context.Query}_{context.Category}_{context.Country}_{context.Language}_{context.Page}_{context.PageSize}_{context.IsTopHeadlines}_{context.Source}";
@@ -167,9 +267,21 @@ namespace WorldNewzWebAPI.Services
                 }
             }
 
+            if (!result.Success)
+            {
+                var dbFallback = await GetDatabaseFallbackResult(context);
+                if (dbFallback.Success)
+                {
+                    result = dbFallback;
+                }
+            }
+
             if (result.Success)
             {
-                _cache.Set(cacheKey, result, TimeSpan.FromMinutes(15));
+                var cacheDuration = result.Body.Contains("WorldNewz Archive")
+                    ? TimeSpan.FromMinutes(15)
+                    : TimeSpan.FromMinutes(60);
+                _cache.Set(cacheKey, result, cacheDuration);
             }
 
             return result;
@@ -224,6 +336,16 @@ namespace WorldNewzWebAPI.Services
             var finalCombinedArray = new JsonArray();
             foreach(var a in sortedArticles) finalCombinedArray.Add(a);
 
+            if (combinedArticlesList.Count == 0)
+            {
+                var dbFallback = await GetDatabaseFallbackResult(context);
+                if (dbFallback.Success)
+                {
+                    _cache.Set(cacheKey, dbFallback, TimeSpan.FromMinutes(15));
+                    return dbFallback;
+                }
+            }
+
             var resultObject = new JsonObject
             {
                 ["status"] = "ok",
@@ -236,7 +358,7 @@ namespace WorldNewzWebAPI.Services
 
             if (taskNews.Result.Success || taskWorld.Result.Success)
             {
-                _cache.Set(cacheKey, result, TimeSpan.FromMinutes(15));
+                _cache.Set(cacheKey, result, TimeSpan.FromMinutes(60));
             }
 
             return result;

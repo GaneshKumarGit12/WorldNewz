@@ -6,8 +6,61 @@ export const apiClient = axios.create({
   baseURL: API_BASE_URL,
 });
 
+const shouldCache = (url?: string) => {
+  if (!url) return false;
+  const lowercaseUrl = url.toLowerCase();
+  return lowercaseUrl.startsWith("/news/") && 
+         !lowercaseUrl.includes("search") && 
+         !lowercaseUrl.includes("jobs") && 
+         !lowercaseUrl.includes("full-content") &&
+         !lowercaseUrl.includes("weather");
+};
+
+apiClient.interceptors.request.use(
+  config => {
+    if (typeof window !== "undefined" && window.localStorage && config.method === "get" && shouldCache(config.url)) {
+      const cacheKey = `api_cache_${config.url}_${JSON.stringify(config.params || {})}`;
+      try {
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const { data, timestamp } = JSON.parse(cached);
+          const isExpired = Date.now() - timestamp > 15 * 60 * 1000; // 15 minutes cache
+          if (!isExpired) {
+            console.log(`[Cache Hit] Serving cached data for ${config.url}`);
+            config.adapter = () => {
+              return Promise.resolve({
+                data,
+                status: 200,
+                statusText: "OK",
+                headers: {},
+                config,
+              });
+            };
+          }
+        }
+      } catch (e) {
+        console.warn("Local storage cache read failed:", e);
+      }
+    }
+    return config;
+  },
+  error => Promise.reject(error)
+);
+
 apiClient.interceptors.response.use(
   response => {
+    if (typeof window !== "undefined" && window.localStorage && response.config.method === "get" && response.status === 200 && shouldCache(response.config.url)) {
+      const cacheKey = `api_cache_${response.config.url}_${JSON.stringify(response.config.params || {})}`;
+      try {
+        localStorage.setItem(cacheKey, JSON.stringify({
+          data: response.data,
+          timestamp: Date.now()
+        }));
+      } catch (e) {
+        console.warn("Local storage cache write failed:", e);
+      }
+    }
+
     if (response.data && Array.isArray(response.data.articles)) {
       response.data.articles.sort((a: any, b: any) => {
         const aHasImg = Boolean(a.urlToImage || a.imageUrl);
@@ -22,6 +75,26 @@ apiClient.interceptors.response.use(
   error => {
     if (axios.isAxiosError(error)) {
       const config = error.config as any;
+
+      if (config && config.method === "get" && typeof window !== "undefined" && window.localStorage && shouldCache(config.url)) {
+        const cacheKey = `api_cache_${config.url}_${JSON.stringify(config.params || {})}`;
+        try {
+          const cached = localStorage.getItem(cacheKey);
+          if (cached) {
+            console.warn(`[Cache Fallback] Request to ${config.url} failed (${error.message || error.code}). Using expired/fallback cache.`);
+            const { data } = JSON.parse(cached);
+            return Promise.resolve({
+              data,
+              status: 200,
+              statusText: "OK",
+              headers: {},
+              config,
+            });
+          }
+        } catch (e) {
+          console.warn("Local storage fallback failed:", e);
+        }
+      }
 
       const isNetworkError = !error.response && (
         error.code === "ERR_NETWORK" || 
