@@ -19,6 +19,8 @@ services:
         sync: true
       - key: GNEWS_API_KEY
         sync: true
+      - key: WORLDNEWS_API_KEY
+        sync: true
     healthCheckPath: "/health"
 
 databases:

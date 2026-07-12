@@ -21,8 +21,11 @@ namespace WorldNewzWebAPI.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IMemoryCache _cache;
-        private static string _activeProvider = "NewsAPI"; // "NewsAPI" or "WorldNewsAPI"
         private static readonly object _lock = new object();
+        private static DateTime? _newsApiSuspendedUntil = null;
+        private static DateTime? _worldNewsApiSuspendedUntil = null;
+        private static bool _newsApiHasConfigError = false;
+        private static bool _worldNewsApiHasConfigError = false;
 
         // API Key configs
         private readonly string? _newsApiKey;
@@ -36,6 +39,80 @@ namespace WorldNewzWebAPI.Services
             _worldNewsApiKey = Environment.GetEnvironmentVariable("WORLDNEWS_API_KEY");
         }
 
+        private static string GetActiveProvider()
+        {
+            lock (_lock)
+            {
+                var now = DateTime.UtcNow;
+                bool newsApiSuspended = _newsApiSuspendedUntil.HasValue && now < _newsApiSuspendedUntil.Value;
+                bool worldNewsApiSuspended = _worldNewsApiSuspendedUntil.HasValue && now < _worldNewsApiSuspendedUntil.Value;
+
+                if (newsApiSuspended && !worldNewsApiSuspended)
+                {
+                    return "WorldNewsAPI";
+                }
+                if (worldNewsApiSuspended && !newsApiSuspended)
+                {
+                    return "NewsAPI";
+                }
+                // If both are suspended or neither is, default to NewsAPI
+                return "NewsAPI";
+            }
+        }
+
+        private static void SuspendProvider(string provider, int? statusCode)
+        {
+            lock (_lock)
+            {
+                var now = DateTime.UtcNow;
+                if (statusCode == 429 || statusCode == 402)
+                {
+                    if (provider == "NewsAPI")
+                    {
+                        _newsApiSuspendedUntil = now.AddHours(1);
+                        Console.WriteLine($"[NewsApiService] NewsAPI rate limited (status {statusCode}). Suspended for 1 hour until {_newsApiSuspendedUntil}");
+                    }
+                    else
+                    {
+                        _worldNewsApiSuspendedUntil = now.AddHours(1);
+                        Console.WriteLine($"[NewsApiService] WorldNewsAPI rate limited (status {statusCode}). Suspended for 1 hour until {_worldNewsApiSuspendedUntil}");
+                    }
+                }
+                else if (statusCode == 401 || statusCode == 403 || statusCode == 500)
+                {
+                    if (provider == "NewsAPI")
+                    {
+                        _newsApiSuspendedUntil = now.AddHours(24);
+                        _newsApiHasConfigError = true;
+                        Console.WriteLine($"[NewsApiService] NewsAPI configuration error (status {statusCode}). Suspended for 24 hours until {_newsApiSuspendedUntil}");
+                    }
+                    else
+                    {
+                        _worldNewsApiSuspendedUntil = now.AddHours(24);
+                        _worldNewsApiHasConfigError = true;
+                        Console.WriteLine($"[NewsApiService] WorldNewsAPI configuration error (status {statusCode}). Suspended for 24 hours until {_worldNewsApiSuspendedUntil}");
+                    }
+                }
+            }
+        }
+
+        private static void ResetProviderStatus(string provider)
+        {
+            lock (_lock)
+            {
+                if (provider == "NewsAPI")
+                {
+                    _newsApiSuspendedUntil = null;
+                    _newsApiHasConfigError = false;
+                }
+                else
+                {
+                    _worldNewsApiSuspendedUntil = null;
+                    _worldNewsApiHasConfigError = false;
+                }
+            }
+        }
+
         public async Task<NewsApiFetchResult> FetchNewsAsync(NewsQueryContext context)
         {
             var cacheKey = $"news_api_cache_{context.Query}_{context.Category}_{context.Country}_{context.Language}_{context.Page}_{context.PageSize}_{context.IsTopHeadlines}_{context.Source}";
@@ -45,34 +122,49 @@ namespace WorldNewzWebAPI.Services
                 return cachedResult;
             }
 
-            string currentProvider;
-            lock (_lock)
-            {
-                currentProvider = _activeProvider;
-            }
-
-            // Try the current active provider
-            var result = currentProvider == "NewsAPI"
+            string primaryProvider = GetActiveProvider();
+            var result = primaryProvider == "NewsAPI"
                 ? await TryNewsApiAsync(context)
                 : await TryWorldNewsApiAsync(context);
 
-            // If failed due to Rate Limit / Quota Exceeded (429 or 402)
-            if (!result.Success && (result.StatusCode == 429 || result.StatusCode == 402))
+            if (result.Success)
             {
-                // Switch provider
+                ResetProviderStatus(primaryProvider);
+            }
+            else
+            {
+                // Suspend the failed provider
+                SuspendProvider(primaryProvider, result.StatusCode);
+
+                // Try the fallback provider
+                string fallbackProvider = primaryProvider == "NewsAPI" ? "WorldNewsAPI" : "NewsAPI";
+                
+                // Only try fallback if it does not have a config error
+                bool fallbackHasConfigError;
                 lock (_lock)
                 {
-                    if (_activeProvider == currentProvider)
-                    {
-                        _activeProvider = currentProvider == "NewsAPI" ? "WorldNewsAPI" : "NewsAPI";
-                        Console.WriteLine($"[NewsApiService] Provider {_activeProvider} reached daily limit. Switched to fallback provider.");
-                    }
+                    fallbackHasConfigError = fallbackProvider == "NewsAPI" ? _newsApiHasConfigError : _worldNewsApiHasConfigError;
                 }
 
-                // Retry with the fallback provider
-                result = _activeProvider == "NewsAPI"
-                    ? await TryNewsApiAsync(context)
-                    : await TryWorldNewsApiAsync(context);
+                if (!fallbackHasConfigError)
+                {
+                    Console.WriteLine($"[NewsApiService] Primary provider {primaryProvider} failed (Status: {result.StatusCode}). Retrying with fallback {fallbackProvider}...");
+                    var fallbackResult = fallbackProvider == "NewsAPI"
+                        ? await TryNewsApiAsync(context)
+                        : await TryWorldNewsApiAsync(context);
+
+                    if (fallbackResult.Success)
+                    {
+                        ResetProviderStatus(fallbackProvider);
+                        result = fallbackResult;
+                    }
+                    else
+                    {
+                        // Suspend fallback provider too if it also failed
+                        SuspendProvider(fallbackProvider, fallbackResult.StatusCode);
+                        result = fallbackResult;
+                    }
+                }
             }
 
             if (result.Success)
