@@ -94,6 +94,10 @@
   ],
   "rewrites": [
     {
+      "source": "/ad-banner.html",
+      "destination": "/ad-banner.html"
+    },
+    {
       "source": "/sw.js",
       "destination": "/sw.js"
     },
