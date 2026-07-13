@@ -38,6 +38,14 @@ export interface WarpPipe {
   returnY?: number;
 }
 
+export interface Firebar {
+  x: number;
+  y: number;
+  length: number;
+  angle: number;
+  speed: number;
+}
+
 export type MarioTheme =
   | 'Overworld'
   | 'Underground'
@@ -93,6 +101,16 @@ export class MarioCanvasEngine {
   public isUnderground: boolean = false;
   public canWarpDown: boolean = false;
   public transformMsg: string = '';
+
+  // Level End Flagpole/Castle Sequence
+  public isLevelEndSequence: boolean = false;
+  public levelEndPhase: 'sliding' | 'walking' | 'done' = 'sliding';
+  public flagYOffset: number = 10;
+
+  // Level 4 Custom Elements
+  public bridgeCollapsed: boolean = false;
+  public firebars: Firebar[] = [];
+  public axe = { x: 2210, y: 310, w: 24, h: 32 };
 
   // Game Stats
   public score: number = 0;
@@ -189,6 +207,10 @@ export class MarioCanvasEngine {
     this.worldNum = world;
     this.levelNum = level;
     this.isUnderground = false;
+    this.isLevelEndSequence = false;
+    this.levelEndPhase = 'sliding';
+    this.flagYOffset = 10;
+    this.bridgeCollapsed = false;
     this.x = 60;
     this.y = 280;
     this.vx = 0;
@@ -204,105 +226,244 @@ export class MarioCanvasEngine {
     this.isFireTransformTimer = 0;
     this.fireballs = [];
 
-    if (level === 2) {
-      this.setWorldTheme('Underground', 'Day', 0);
-    } else if (level === 3) {
-      this.setWorldTheme('Skyland', 'Day', 0);
-    } else if (level === 4) {
-      this.setWorldTheme('Castle', 'Day', 3);
-    } else {
-      this.setWorldTheme('Overworld', 'Day', 0);
-    }
+    // Reset Goal & Boss details
+    this.flagPole = { x: 2150, y: 120, w: 20, h: 260 };
+    this.castle = { x: 2280, y: 160, w: 220, h: 220 };
+    this.bowser = { x: 2100, y: 276, w: 64, h: 64, hp: 5, maxHp: 5, vx: -0.8, fireCooldown: 0, alive: false };
+    this.peach = { x: 2360, y: 332, w: 32, h: 48, rescued: false };
 
-    this.bowser = { x: 2360, y: 310, w: 64, h: 64, hp: 5, maxHp: 5, vx: -1.5, fireCooldown: 0, alive: true };
-    this.peach = { x: 2460, y: 310, w: 32, h: 48, rescued: false };
-
-    this.hillsList = [
-      { x: 50, y: 280, w: 160, h: 100 },
-      { x: 480, y: 260, w: 220, h: 120 },
-      { x: 920, y: 280, w: 160, h: 100 },
-      { x: 1400, y: 250, w: 240, h: 130 },
-      { x: 1950, y: 260, w: 200, h: 120 }
-    ];
-
-    this.cloudsList = [
-      { x: 120, y: 60, scale: 1 },
-      { x: 340, y: 80, scale: 0.8 },
-      { x: 620, y: 50, scale: 1.2 },
-      { x: 980, y: 70, scale: 0.9 },
-      { x: 1350, y: 60, scale: 1.1 },
-      { x: 1720, y: 80, scale: 1 }
-    ];
-
-    this.platforms = [
-      { x: 0, y: 380, w: 900, h: 100 },
-      { x: 980, y: 380, w: 650, h: 100 },
-      { x: 1700, y: 380, w: 1100, h: 100 },
-      { x: 260, y: 260, w: 120, h: 30, type: 'brick' },
-      { x: 620, y: 220, w: 160, h: 30, type: 'brick' },
-      { x: 1180, y: 240, w: 200, h: 30, type: 'brick' },
-      { x: 1550, y: 200, w: 180, h: 30, type: 'brick' }
-    ];
-
-    this.createStaircase(1820, 380, 5, 'up');
-    this.createStaircase(1980, 380, 5, 'down');
-
-    this.pipesList = [
-      { x: 380, y: 320, w: 56, h: 60 },
-      { x: 580, y: 290, w: 56, h: 90, isEnterable: true, warpTarget: 'underground', returnX: 1750, returnY: 330 },
-      { x: 840, y: 310, w: 56, h: 70 },
-      { x: 1450, y: 290, w: 56, h: 90 }
-    ];
-
-    this.undergroundCoins = [];
-    for (let row = 0; row < 3; row++) {
-      for (let col = 0; col < 5; col++) {
-        this.undergroundCoins.push({ x: 200 + col * 40, y: 160 + row * 40, collected: false });
-      }
-    }
-    this.undergroundExitPipe = { x: 500, y: 280, w: 56, h: 100, isEnterable: true, warpTarget: 'overworld', returnX: 1750, returnY: 330 };
-
-    this.coinsList = [
-      { x: 280, y: 220, collected: false },
-      { x: 310, y: 220, collected: false },
-      { x: 340, y: 220, collected: false },
-      { x: 640, y: 180, collected: false },
-      { x: 680, y: 180, collected: false },
-      { x: 1200, y: 200, collected: false },
-      { x: 1240, y: 200, collected: false },
-      { x: 1280, y: 200, collected: false }
-    ];
-
-    this.questionBlocks = [
-      { x: 200, y: 260, w: 32, h: 32, hit: false, type: 'mushroom' },
-      { x: 660, y: 220, w: 32, h: 32, hit: false, type: 'flower' },
-      { x: 1220, y: 240, w: 32, h: 32, hit: false, type: 'star' },
-      { x: 1580, y: 200, w: 32, h: 32, hit: false, type: 'coin' }
-    ];
-
+    // Reset Lists
+    this.platforms = [];
+    this.pipesList = [];
+    this.coinsList = [];
+    this.enemies = [];
+    this.questionBlocks = [];
     this.powerUpItems = [];
+    this.firebars = [];
 
-    this.enemies = [
-      { x: 460, y: 348, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
-      { x: 740, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'goomba' },
-      { x: 1100, y: 348, w: 32, h: 32, vx: -1.8, alive: true, type: 'koopa' },
-      { x: 1650, y: 348, w: 32, h: 32, vx: -2.0, alive: true, type: 'goomba' }
-    ];
-  }
+    if (level === 1) {
+      // WORLD 1-1 LAYOUT: GRASS LAND OVERWORLD
+      this.setWorldTheme('Overworld', 'Day', 0);
 
-  private createStaircase(startX: number, groundY: number, steps: number, dir: 'up' | 'down'): void {
-    const size = 30;
-    for (let col = 0; col < steps; col++) {
-      const colHeight = dir === 'up' ? col + 1 : steps - col;
-      for (let row = 0; row < colHeight; row++) {
-        this.platforms.push({
-          x: startX + col * size,
-          y: groundY - (row + 1) * size,
-          w: size,
-          h: size,
-          type: 'brick'
-        });
+      this.hillsList = [
+        { x: 50, y: 280, w: 160, h: 100 },
+        { x: 480, y: 260, w: 220, h: 120 },
+        { x: 920, y: 280, w: 160, h: 100 },
+        { x: 1400, y: 250, w: 240, h: 130 },
+        { x: 1950, y: 260, w: 200, h: 120 }
+      ];
+
+      this.cloudsList = [
+        { x: 120, y: 60, scale: 1 },
+        { x: 340, y: 80, scale: 0.8 },
+        { x: 620, y: 50, scale: 1.2 },
+        { x: 980, y: 70, scale: 0.9 },
+        { x: 1350, y: 60, scale: 1.1 },
+        { x: 1720, y: 80, scale: 1 }
+      ];
+
+      this.platforms = [
+        { x: 0, y: 380, w: 900, h: 100 },
+        { x: 980, y: 380, w: 650, h: 100 },
+        { x: 1700, y: 380, w: 1100, h: 100 },
+        // Elevated Bricks
+        { x: 260, y: 260, w: 120, h: 30, type: 'brick' },
+        { x: 620, y: 220, w: 160, h: 30, type: 'brick' },
+        { x: 1180, y: 240, w: 200, h: 30, type: 'brick' },
+        { x: 1550, y: 200, w: 180, h: 30, type: 'brick' }
+      ];
+
+      this.createStaircase(1820, 380, 5, 'up');
+      this.createStaircase(1980, 380, 5, 'down');
+
+      this.pipesList = [
+        { x: 380, y: 320, w: 56, h: 60 },
+        { x: 580, y: 290, w: 56, h: 90, isEnterable: true, warpTarget: 'underground', returnX: 1750, returnY: 330 },
+        { x: 840, y: 310, w: 56, h: 70 },
+        { x: 1450, y: 290, w: 56, h: 90 }
+      ];
+
+      this.coinsList = [
+        { x: 280, y: 220, collected: false },
+        { x: 310, y: 220, collected: false },
+        { x: 340, y: 220, collected: false },
+        { x: 640, y: 180, collected: false },
+        { x: 680, y: 180, collected: false },
+        { x: 1200, y: 200, collected: false },
+        { x: 1240, y: 200, collected: false },
+        { x: 1280, y: 200, collected: false }
+      ];
+
+      this.questionBlocks = [
+        { x: 200, y: 260, w: 32, h: 32, hit: false, type: 'mushroom' },
+        { x: 660, y: 220, w: 32, h: 32, hit: false, type: 'flower' },
+        { x: 1220, y: 240, w: 32, h: 32, hit: false, type: 'star' },
+        { x: 1580, y: 200, w: 32, h: 32, hit: false, type: 'coin' }
+      ];
+
+      this.enemies = [
+        { x: 460, y: 348, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
+        { x: 740, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'goomba' },
+        { x: 1100, y: 348, w: 32, h: 32, vx: -1.8, alive: true, type: 'koopa' },
+        { x: 1650, y: 348, w: 32, h: 32, vx: -2.0, alive: true, type: 'goomba' }
+      ];
+
+      // Underground Bonus Room Setup
+      this.undergroundCoins = [];
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 5; col++) {
+          this.undergroundCoins.push({ x: 200 + col * 40, y: 160 + row * 40, collected: false });
+        }
       }
+      this.undergroundExitPipe = { x: 500, y: 280, w: 56, h: 100, isEnterable: true, warpTarget: 'overworld', returnX: 1750, returnY: 330 };
+
+    } else if (level === 2) {
+      // WORLD 1-2 LAYOUT: SUBTERRANEAN BRICK CAVE
+      this.setWorldTheme('Underground', 'Day', 0);
+
+      this.platforms = [
+        // Ground tiles
+        { x: 0, y: 380, w: 800, h: 100 },
+        { x: 880, y: 380, w: 600, h: 100 },
+        { x: 1560, y: 380, w: 1240, h: 100 },
+        // Ceiling
+        { x: 0, y: 0, w: 2800, h: 40, type: 'brick' },
+        // Columns
+        { x: 450, y: 40, w: 40, h: 160, type: 'brick' },
+        { x: 1250, y: 40, w: 40, h: 160, type: 'brick' },
+        // Elevated Cave platforms
+        { x: 180, y: 240, w: 120, h: 30, type: 'brick' },
+        { x: 600, y: 200, w: 120, h: 30, type: 'brick' },
+        { x: 1000, y: 260, w: 160, h: 30, type: 'brick' },
+        { x: 1380, y: 220, w: 140, h: 30, type: 'brick' },
+        { x: 1600, y: 180, w: 120, h: 30, type: 'brick' }
+      ];
+
+      this.pipesList = [
+        { x: 300, y: 310, w: 56, h: 70 },
+        { x: 1100, y: 290, w: 56, h: 90 }
+      ];
+
+      this.coinsList = [
+        { x: 200, y: 200, collected: false },
+        { x: 230, y: 200, collected: false },
+        { x: 620, y: 160, collected: false },
+        { x: 650, y: 160, collected: false },
+        { x: 1020, y: 220, collected: false },
+        { x: 1050, y: 220, collected: false }
+      ];
+
+      this.questionBlocks = [
+        { x: 220, y: 240, w: 32, h: 32, hit: false, type: 'mushroom' },
+        { x: 640, y: 200, w: 32, h: 32, hit: false, type: 'flower' },
+        { x: 1040, y: 260, w: 32, h: 32, hit: false, type: 'star' }
+      ];
+
+      this.enemies = [
+        { x: 250, y: 348, w: 32, h: 32, vx: -1.0, alive: true, type: 'goomba' },
+        { x: 520, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'koopa' },
+        { x: 700, y: 348, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
+        { x: 1150, y: 348, w: 32, h: 32, vx: -1.5, alive: true, type: 'koopa' },
+        { x: 1450, y: 348, w: 32, h: 32, vx: -1.8, alive: true, type: 'goomba' },
+        { x: 1680, y: 348, w: 32, h: 32, vx: -2.0, alive: true, type: 'goomba' }
+      ];
+
+      this.createStaircase(1820, 380, 5, 'up');
+
+    } else if (level === 3) {
+      // WORLD 1-3 LAYOUT: ATHLETIC SKY LAND
+      this.setWorldTheme('Skyland', 'Day', 0);
+
+      this.cloudsList = [
+        { x: 100, y: 60, scale: 1.2 },
+        { x: 400, y: 90, scale: 0.9 },
+        { x: 700, y: 50, scale: 1.1 },
+        { x: 1100, y: 80, scale: 1.3 },
+        { x: 1500, y: 60, scale: 1.0 },
+        { x: 1800, y: 100, scale: 1.2 }
+      ];
+
+      // No bottom ground! Only floating cloud platform segments and gaps.
+      this.platforms = [
+        { x: 0, y: 380, w: 200, h: 100 }, // start platform
+        { x: 300, y: 340, w: 160, h: 20, type: 'cloud' },
+        { x: 550, y: 300, w: 120, h: 20, type: 'cloud' },
+        { x: 750, y: 320, w: 180, h: 20, type: 'cloud' },
+        { x: 1000, y: 280, w: 120, h: 20, type: 'cloud' },
+        { x: 1200, y: 340, w: 200, h: 20, type: 'cloud' },
+        { x: 1500, y: 300, w: 160, h: 20, type: 'cloud' },
+        { x: 1750, y: 350, w: 120, h: 20, type: 'cloud' },
+        { x: 1950, y: 380, w: 850, h: 100 }, // landing platform
+        // Floating Bricks
+        { x: 380, y: 220, w: 80, h: 30, type: 'brick' },
+        { x: 800, y: 200, w: 100, h: 30, type: 'brick' },
+        { x: 1300, y: 220, w: 80, h: 30, type: 'brick' }
+      ];
+
+      this.pipesList = [
+        { x: 1220, y: 280, w: 56, h: 60 }
+      ];
+
+      this.coinsList = [
+        { x: 340, y: 160, collected: false },
+        { x: 370, y: 160, collected: false },
+        { x: 820, y: 140, collected: false },
+        { x: 850, y: 140, collected: false },
+        { x: 1320, y: 160, collected: false }
+      ];
+
+      this.questionBlocks = [
+        { x: 400, y: 220, w: 32, h: 32, hit: false, type: 'mushroom' },
+        { x: 840, y: 200, w: 32, h: 32, hit: false, type: 'flower' }
+      ];
+
+      this.enemies = [
+        { x: 350, y: 308, w: 32, h: 32, vx: -1.0, alive: true, type: 'goomba' },
+        { x: 800, y: 288, w: 32, h: 32, vx: -1.2, alive: true, type: 'goomba' },
+        { x: 1250, y: 308, w: 32, h: 32, vx: -1.5, alive: true, type: 'goomba' },
+        { x: 1550, y: 268, w: 32, h: 32, vx: -1.5, alive: true, type: 'koopa' }
+      ];
+
+      this.createStaircase(1980, 380, 5, 'up');
+
+    } else if (level === 4) {
+      // WORLD 1-4 LAYOUT: BOWSER'S VOLCANO CASTLE
+      this.setWorldTheme('Castle', 'Day', 3);
+
+      this.platforms = [
+        // Ground with lava gaps
+        { x: 0, y: 380, w: 500, h: 100 },
+        { x: 650, y: 380, w: 550, h: 100 },
+        { x: 1350, y: 380, w: 670, h: 100 },
+        // Bowser Stone Bridge (type: 'bridge' so we can collapse it)
+        { x: 2020, y: 340, w: 200, h: 16, type: 'bridge' },
+        // Peach Chamber ground
+        { x: 2220, y: 380, w: 580, h: 100 },
+        // Elevated bricks
+        { x: 200, y: 250, w: 100, h: 30, type: 'brick' },
+        { x: 800, y: 250, w: 100, h: 30, type: 'brick' },
+        { x: 1500, y: 250, w: 100, h: 30, type: 'brick' }
+      ];
+
+      // Rotating Firebar Hazards
+      this.firebars = [
+        { x: 350, y: 220, length: 5, angle: 0, speed: 0.03 },
+        { x: 950, y: 220, length: 5, angle: Math.PI, speed: -0.03 },
+        { x: 1650, y: 220, length: 5, angle: 0, speed: 0.04 }
+      ];
+
+      // Question blocks
+      this.questionBlocks = [
+        { x: 240, y: 250, w: 32, h: 32, hit: false, type: 'mushroom' },
+        { x: 840, y: 250, w: 32, h: 32, hit: false, type: 'flower' }
+      ];
+
+      // Bowser Boss
+      this.bowser = { x: 2100, y: 276, w: 64, h: 64, hp: 5, maxHp: 5, vx: -0.5, fireCooldown: 0, alive: true };
+      // Gold Axe
+      this.axe = { x: 2210, y: 310, w: 24, h: 32 };
+      // Princess Peach
+      this.peach = { x: 2360, y: 332, w: 32, h: 48, rescued: false };
     }
   }
 
@@ -403,11 +564,72 @@ export class MarioCanvasEngine {
 
     this.animFrame++;
 
-    // Decrement Growth & Fire Transformation Timers
     if (this.isGrowingTimer > 0) this.isGrowingTimer--;
     if (this.isFireTransformTimer > 0) this.isFireTransformTimer--;
 
-    // Movement Physics
+    const mHeight = (this.isBig || this.hasFire) ? 54 : 44;
+
+    // LEVEL END SEQUENCE STATE MACHINE
+    if (this.isLevelEndSequence) {
+      if (this.levelEndPhase === 'sliding') {
+        this.vx = 0;
+        this.vy = 0;
+        this.x = this.flagPole.x - 6; // lock to flagpole
+
+        this.flagYOffset += 2;
+        this.y += 2;
+
+        const maxFlagOffset = this.flagPole.h - 34;
+        if (this.flagYOffset >= maxFlagOffset) {
+          this.flagYOffset = maxFlagOffset;
+        }
+
+        if (this.y >= 380 - mHeight) {
+          this.y = 380 - mHeight;
+          if (this.flagYOffset >= maxFlagOffset) {
+            this.levelEndPhase = 'walking';
+          }
+        }
+      } else if (this.levelEndPhase === 'walking') {
+        // Walk right towards Castle doorway or Peach
+        this.facing = 'right';
+        this.vx = 2.0;
+        this.x += this.vx;
+
+        if (this.levelNum === 4) {
+          if (this.x >= this.peach.x) {
+            this.x = this.peach.x;
+            this.peach.rescued = true;
+            this.levelEndPhase = 'done';
+            this.isGameWon = true;
+            this.score += this.timeLeft * 50;
+            this.transformMsg = '🎉 Thank you Mario! But our Princess is in... wait, she is rescued!';
+            setTimeout(() => { this.transformMsg = ''; }, 4000);
+          }
+        } else {
+          const targetDoorX = this.castle.x + 110;
+          if (this.x >= targetDoorX) {
+            this.x = targetDoorX;
+            this.levelEndPhase = 'done';
+            this.isGameWon = true;
+            this.score += this.timeLeft * 50;
+          }
+        }
+      }
+      return;
+    }
+
+    // Bowser Bridge Collapse Trigger
+    if (this.levelNum === 4 && !this.bridgeCollapsed && !this.isGameWon) {
+      if (this.x + this.width >= this.axe.x && this.x <= this.axe.x + this.axe.w) {
+        this.bridgeCollapsed = true;
+        this.platforms = this.platforms.filter(p => p.type !== 'bridge');
+        this.isLevelEndSequence = true;
+        this.levelEndPhase = 'walking';
+      }
+    }
+
+    // Movement Controls
     if (this.keys['ArrowRight'] || this.keys['d'] || this.keys['D']) {
       this.vx = 4.5;
       this.facing = 'right';
@@ -432,8 +654,6 @@ export class MarioCanvasEngine {
     if (this.x < 0) this.x = 0;
     this.cameraX = Math.max(0, this.x - 200);
 
-    const mHeight = (this.isBig || this.hasFire) ? 54 : 44;
-
     if (this.isUnderground) {
       this.isGrounded = false;
 
@@ -453,6 +673,32 @@ export class MarioCanvasEngine {
       return;
     }
 
+    // Rotating Firebars collisions (World 1-4)
+    if (this.levelNum === 4) {
+      for (const fb of this.firebars) {
+        fb.angle += fb.speed;
+        for (let i = 0; i < fb.length; i++) {
+          const fx = fb.x + Math.cos(fb.angle) * i * 14;
+          const fy = fb.y + Math.sin(fb.angle) * i * 14;
+          const mCenterX = this.x + this.width / 2;
+          const mCenterY = this.y + mHeight / 2;
+          if (Math.hypot(mCenterX - fx, mCenterY - fy) < 18) {
+            if (!this.isInvincible) {
+              if (this.isBig || this.hasFire) {
+                this.isBig = false;
+                this.hasFire = false;
+                this.y -= 10;
+                this.x -= this.vx * 2;
+              } else {
+                this.loseLife("Mario got hit by a fire bar!");
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Check Warp Pipe Prompt
     this.canWarpDown = false;
     for (const p of this.pipesList) {
       if (p.isEnterable && this.x + 16 > p.x && this.x + 16 < p.x + p.w && Math.abs(this.y + mHeight - p.y) < 12) {
@@ -460,8 +706,8 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Ground & Platform collisions
     this.isGrounded = false;
-
     for (const p of this.platforms) {
       if (
         this.x + this.width > p.x &&
@@ -510,13 +756,13 @@ export class MarioCanvasEngine {
       }
     }
 
-    // Power-Up Item Collection & Growth Transformation
+    // Power-Up Item Collection
     for (const item of this.powerUpItems) {
       if (!item.collected && this.checkCollision({ x: this.x, y: this.y, w: this.width, h: mHeight }, { x: item.x, y: item.y, w: 28, h: 28 })) {
         item.collected = true;
         this.score += 1000;
         if (item.type === 'mushroom') {
-          this.isGrowingTimer = 30; // 0.5-second growing animation sequence
+          this.isGrowingTimer = 30;
           this.isBig = true;
           this.transformMsg = '🍄 Small Mario grew into Big Mario!';
         } else if (item.type === 'flower') {
@@ -540,6 +786,7 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Projectile fireballs update
     for (const f of this.fireballs) {
       if (!f.active) continue;
       f.x += f.vx;
@@ -561,14 +808,13 @@ export class MarioCanvasEngine {
         if (this.bowser.hp <= 0) {
           this.bowser.alive = false;
           this.score += 5000;
-          this.peach.rescued = true;
-          this.isGameWon = true;
         }
       }
 
       if (f.x > this.cameraX + 850 || f.x < this.cameraX - 100) f.active = false;
     }
 
+    // Enemies update
     for (const e of this.enemies) {
       if (!e.alive) continue;
       e.x += e.vx;
@@ -594,17 +840,36 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Bowser update
     if (this.bowser.alive) {
-      this.bowser.x += this.bowser.vx;
-      if (this.bowser.x < 2250 || this.bowser.x > 2400) this.bowser.vx *= -1;
+      if (this.bridgeCollapsed) {
+        this.bowser.y += 6;
+        if (this.bowser.y > 450) {
+          this.bowser.alive = false;
+        }
+      } else {
+        this.bowser.x += this.bowser.vx;
+        if (this.bowser.x < 2050 || this.bowser.x > 2180) this.bowser.vx *= -1;
+
+        // Bowser spits fireball occasionally
+        this.bowser.fireCooldown++;
+        if (this.bowser.fireCooldown > 120) {
+          this.bowser.fireCooldown = 0;
+          this.fireballs.push({
+            x: this.bowser.x,
+            y: this.bowser.y + 16,
+            vx: -4,
+            vy: 0,
+            active: true
+          });
+        }
+      }
 
       if (this.checkCollision({ x: this.x, y: this.y, w: this.width, h: mHeight }, this.bowser)) {
         if (this.isInvincible) {
           this.bowser.hp -= 2;
           if (this.bowser.hp <= 0) {
             this.bowser.alive = false;
-            this.peach.rescued = true;
-            this.isGameWon = true;
           }
         } else {
           this.loseLife("Bowser defeated Mario!");
@@ -612,11 +877,13 @@ export class MarioCanvasEngine {
       }
     }
 
-    if (this.x >= this.flagPole.x && !this.isGameWon) {
-      if (!this.bowser.alive || this.x >= this.peach.x) {
-        this.isGameWon = true;
-        this.score += this.timeLeft * 50;
-      }
+    // Trigger Flagpole sequence (Level 1-3)
+    if (this.levelNum !== 4 && this.x >= this.flagPole.x && !this.isLevelEndSequence) {
+      this.isLevelEndSequence = true;
+      this.levelEndPhase = 'sliding';
+      this.flagYOffset = 10;
+      this.vy = 0;
+      this.vx = 0;
     }
 
     if (this.y > 450) {
@@ -677,42 +944,27 @@ export class MarioCanvasEngine {
       }
 
       this.drawWarpPipe(this.undergroundExitPipe.x, this.undergroundExitPipe.y, this.undergroundExitPipe.w, this.undergroundExitPipe.h, true);
-
       this.drawMarioCharacter(this.x, this.y);
       return;
     }
 
+    // Set layout styling dynamically by Level
     let skyColor = '#60a5fa';
     let groundColor = '#15803d';
     let dirtColor = '#78350f';
 
-    if (this.timeOfDay === 'Night') {
+    if (this.levelNum === 2) {
       skyColor = '#090d16';
-      groundColor = '#1e3a1e';
-      dirtColor = '#332211';
-    }
-
-    switch (this.currentTheme) {
-      case 'Desert':
-        skyColor = this.timeOfDay === 'Night' ? '#1e1b4b' : '#fef08a';
-        groundColor = '#eab308';
-        dirtColor = '#a16207';
-        break;
-      case 'Snow':
-        skyColor = this.timeOfDay === 'Night' ? '#0c4a6e' : '#e0f2fe';
-        groundColor = '#f8fafc';
-        dirtColor = '#38bdf8';
-        break;
-      case 'Underground':
-        skyColor = '#0f172a';
-        groundColor = '#1e293b';
-        dirtColor = '#090d16';
-        break;
-      case 'Castle':
-        skyColor = '#18181b';
-        groundColor = '#3f3f46';
-        dirtColor = '#27272a';
-        break;
+      groundColor = '#1e293b';
+      dirtColor = '#0f172a';
+    } else if (this.levelNum === 3) {
+      skyColor = '#fb923c'; // sunset
+      groundColor = '#38bdf8';
+      dirtColor = '#0284c7';
+    } else if (this.levelNum === 4) {
+      skyColor = '#1e1b4b'; // dark volcano castle
+      groundColor = '#475569';
+      dirtColor = '#1e293b';
     }
 
     this.ctx.fillStyle = skyColor;
@@ -721,21 +973,53 @@ export class MarioCanvasEngine {
     this.ctx.save();
     this.ctx.translate(-this.cameraX, 0);
 
-    this.ctx.fillStyle = '#ffffff';
-    for (const c of this.cloudsList) {
-      this.drawCloud(c.x, c.y, c.scale);
+    // Draw clouds & hills only in Overworld/Sky
+    if (this.levelNum === 1 || this.levelNum === 3) {
+      this.ctx.fillStyle = '#ffffff';
+      for (const c of this.cloudsList) {
+        this.drawCloud(c.x, c.y, c.scale);
+      }
+
+      for (const hill of this.hillsList) {
+        this.drawGreenHill(hill.x, hill.y, hill.w, hill.h);
+      }
     }
 
-    for (const hill of this.hillsList) {
-      this.drawGreenHill(hill.x, hill.y, hill.w, hill.h);
+    // Castle Level (1-4) Lava Pits rendering
+    if (this.levelNum === 4) {
+      const lavaPits = [
+        { x: 500, w: 150 },
+        { x: 1200, w: 150 },
+        { x: 2020, w: 200 }
+      ];
+      for (const pit of lavaPits) {
+        const pulse = Math.sin(this.animFrame * 0.1) * 4;
+        this.ctx.fillStyle = '#ef4444';
+        this.ctx.fillRect(pit.x, 385 + pulse, pit.w, 100);
+        this.ctx.fillStyle = '#f97316';
+        this.ctx.fillRect(pit.x, 395 - pulse, pit.w, 100);
+      }
     }
 
+    // Platforms
     for (const p of this.platforms) {
       if (p.type === 'brick') {
-        this.ctx.fillStyle = '#b45309';
+        this.ctx.fillStyle = this.levelNum === 2 ? '#1e40af' : '#b45309';
         this.ctx.fillRect(p.x, p.y, p.w, p.h);
-        this.ctx.strokeStyle = '#78350f';
+        this.ctx.strokeStyle = '#000';
         this.ctx.lineWidth = 2;
+        this.ctx.strokeRect(p.x, p.y, p.w, p.h);
+      } else if (p.type === 'cloud') {
+        // Cloud platform
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.fillRect(p.x, p.y, p.w, p.h);
+        this.ctx.strokeStyle = '#cbd5e1';
+        this.ctx.strokeRect(p.x, p.y, p.w, p.h);
+      } else if (p.type === 'bridge') {
+        // Bowser Stone Bridge
+        this.ctx.fillStyle = '#64748b';
+        this.ctx.fillRect(p.x, p.y, p.w, p.h);
+        this.ctx.strokeStyle = '#000';
         this.ctx.strokeRect(p.x, p.y, p.w, p.h);
       } else {
         this.ctx.fillStyle = groundColor;
@@ -745,14 +1029,17 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Warp Pipes
     for (const pipe of this.pipesList) {
       this.drawWarpPipe(pipe.x, pipe.y, pipe.w, pipe.h, pipe.isEnterable);
     }
 
+    // Question Blocks
     for (const q of this.questionBlocks) {
       this.drawQuestionBlock(q.x, q.y, q.hit);
     }
 
+    // Power-Up Items
     for (const item of this.powerUpItems) {
       if (!item.collected) {
         if (item.type === 'mushroom') this.drawSuperMushroom(item.x, item.y);
@@ -761,6 +1048,7 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Gold Coins
     this.ctx.fillStyle = '#eab308';
     for (const c of this.coinsList) {
       if (!c.collected) {
@@ -772,6 +1060,7 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Projectile Fireballs
     this.ctx.fillStyle = '#ef4444';
     for (const f of this.fireballs) {
       if (f.active) {
@@ -781,6 +1070,25 @@ export class MarioCanvasEngine {
       }
     }
 
+    // Rotating Firebars (World 1-4)
+    if (this.levelNum === 4) {
+      for (const fb of this.firebars) {
+        // pivot center
+        this.ctx.fillStyle = '#64748b';
+        this.ctx.fillRect(fb.x - 6, fb.y - 6, 12, 12);
+        // glowing rotating fireballs
+        this.ctx.fillStyle = '#f97316';
+        for (let i = 0; i < fb.length; i++) {
+          const fx = fb.x + Math.cos(fb.angle) * i * 14;
+          const fy = fb.y + Math.sin(fb.angle) * i * 14;
+          this.ctx.beginPath();
+          this.ctx.arc(fx, fy, 6, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+      }
+    }
+
+    // Enemies
     for (const e of this.enemies) {
       if (e.alive) {
         if (e.type === 'koopa') this.drawKoopa(e.x, e.y);
@@ -788,38 +1096,62 @@ export class MarioCanvasEngine {
       }
     }
 
-    if (this.bowser.alive) {
+    // Gold Axe (World 1-4)
+    if (this.levelNum === 4 && !this.bridgeCollapsed) {
+      this.ctx.fillStyle = '#f59e0b';
+      this.ctx.fillRect(this.axe.x + 10, this.axe.y, 4, this.axe.h);
+      this.ctx.beginPath();
+      this.ctx.arc(this.axe.x + 8, this.axe.y + 10, 8, -Math.PI / 2, Math.PI / 2, true);
+      this.ctx.fill();
+    }
+
+    // Bowser Boss (World 1-4)
+    if (this.levelNum === 4 && this.bowser.alive) {
       this.ctx.fillStyle = '#15803d';
       this.ctx.fillRect(this.bowser.x, this.bowser.y, this.bowser.w, this.bowser.h);
       this.ctx.fillStyle = '#dc2626';
       this.ctx.fillRect(this.bowser.x + 10, this.bowser.y - 12, 12, 12);
       this.ctx.fillRect(this.bowser.x + 40, this.bowser.y - 12, 12, 12);
 
+      // health bar
       this.ctx.fillStyle = 'rgba(0,0,0,0.5)';
       this.ctx.fillRect(this.bowser.x, this.bowser.y - 24, 64, 8);
       this.ctx.fillStyle = '#dc2626';
       this.ctx.fillRect(this.bowser.x, this.bowser.y - 24, (this.bowser.hp / this.bowser.maxHp) * 64, 8);
     }
 
-    this.ctx.fillStyle = '#475569';
-    this.ctx.fillRect(this.castle.x, this.castle.y, this.castle.w, this.castle.h);
-    this.ctx.fillStyle = '#0f172a';
-    this.ctx.fillRect(this.castle.x + 80, this.castle.y + 140, 60, 80);
+    // Peach Chamber & Castle
+    if (this.levelNum === 4) {
+      this.ctx.fillStyle = '#ec4899';
+      this.ctx.fillRect(this.peach.x, this.peach.y, this.peach.w, this.peach.h);
+      this.ctx.fillStyle = '#eab308';
+      this.ctx.fillRect(this.peach.x + 8, this.peach.y - 10, 16, 10);
+    } else {
+      // Flagpole Exit Castle
+      this.ctx.fillStyle = '#475569';
+      this.ctx.fillRect(this.castle.x, this.castle.y, this.castle.w, this.castle.h);
+      this.ctx.fillStyle = '#0f172a';
+      this.ctx.fillRect(this.castle.x + 80, this.castle.y + 140, 60, 80);
+    }
 
-    this.ctx.fillStyle = '#ec4899';
-    this.ctx.fillRect(this.peach.x, this.peach.y, this.peach.w, this.peach.h);
-    this.ctx.fillStyle = '#eab308';
-    this.ctx.fillRect(this.peach.x + 8, this.peach.y - 10, 16, 10);
+    // Flagpole rendering (World 1-1, 1-2, 1-3)
+    if (this.levelNum !== 4) {
+      this.ctx.fillStyle = '#cbd5e1';
+      this.ctx.fillRect(this.flagPole.x + 8, this.flagPole.y, 4, this.flagPole.h);
+      
+      this.ctx.fillStyle = '#22c55e';
+      this.ctx.beginPath();
+      this.ctx.arc(this.flagPole.x + 10, this.flagPole.y - 10, 12, 0, Math.PI * 2);
+      this.ctx.fill();
 
-    this.ctx.fillStyle = '#94a3b8';
-    this.ctx.fillRect(this.flagPole.x, this.flagPole.y, this.flagPole.w, this.flagPole.h);
-    this.ctx.fillStyle = '#22c55e';
-    this.ctx.beginPath();
-    this.ctx.arc(this.flagPole.x + 10, this.flagPole.y - 10, 12, 0, Math.PI * 2);
-    this.ctx.fill();
-
-    this.ctx.fillStyle = '#dc2626';
-    this.ctx.fillRect(this.flagPole.x + 20, this.flagPole.y + 10, 40, 24);
+      // Flag sliding down
+      this.ctx.fillStyle = '#dc2626';
+      this.ctx.fillRect(this.flagPole.x + 12, this.flagPole.y + this.flagYOffset, 32, 20);
+      
+      this.ctx.fillStyle = '#ffffff';
+      this.ctx.font = 'bold 12px sans-serif';
+      this.ctx.fillText('M', this.flagPole.x + 22, this.flagPole.y + this.flagYOffset + 15);
+    }
 
     if (this.canWarpDown) {
       this.ctx.fillStyle = '#f59e0b';
@@ -827,29 +1159,24 @@ export class MarioCanvasEngine {
       this.ctx.fillText('⬇️ Press DOWN to Enter Warp Pipe!', this.x - 60, this.y - 20);
     }
 
-    // DRAW MARIO CHARACTER WITH GROWING TRANSFORMATION ANIMATION
     this.drawMarioCharacter(this.x, this.y);
 
     this.ctx.restore();
   }
 
   private drawMarioCharacter(mx: number, my: number): void {
-    // Check if Mario is currently in Growing Transformation (Small -> Big)
     let mHeight = (this.isBig || this.hasFire) ? 54 : 44;
 
     if (this.isGrowingTimer > 0) {
-      // Rapid height pulsation (44px <-> 54px) for authentic NES growth sequence!
       const isPulseBig = Math.floor(this.isGrowingTimer / 4) % 2 === 0;
       mHeight = isPulseBig ? 54 : 44;
 
-      // Draw Glowing Transformation Aura
       this.ctx.fillStyle = `rgba(251, 191, 36, ${0.4 + (this.isGrowingTimer % 5) * 0.1})`;
       this.ctx.fillRect(mx - 8, my - (mHeight - 44) - 4, this.width + 16, mHeight + 8);
     }
 
     const renderY = my - (mHeight - 44);
 
-    // Color Palettes
     let capColor = '#dc2626';
     let shirtColor = '#dc2626';
     let overallsColor = '#2563eb';
@@ -875,23 +1202,23 @@ export class MarioCanvasEngine {
 
     // Mustache & Eye
     this.ctx.fillStyle = '#451a03';
-    this.ctx.fillRect(mx + (this.facing === 'right' ? 16 : 4), renderY + 12, 4, 4); // Eye
-    this.ctx.fillRect(mx + (this.facing === 'right' ? 14 : 2), renderY + 18, 12, 4); // Mustache
+    this.ctx.fillRect(mx + (this.facing === 'right' ? 16 : 4), renderY + 12, 4, 4);
+    this.ctx.fillRect(mx + (this.facing === 'right' ? 14 : 2), renderY + 18, 12, 4);
 
-    // Shirt & Torso
+    // Shirt
     this.ctx.fillStyle = shirtColor;
     this.ctx.fillRect(mx + 4, renderY + 22, 24, 14);
 
-    // Blue Overalls & Straps
+    // Overalls
     this.ctx.fillStyle = overallsColor;
     this.ctx.fillRect(mx + 6, renderY + 28, 20, mHeight - 34);
 
-    // Yellow Overall Buttons
+    // Buttons
     this.ctx.fillStyle = '#f59e0b';
     this.ctx.fillRect(mx + 8, renderY + 30, 3, 3);
     this.ctx.fillRect(mx + 19, renderY + 30, 3, 3);
 
-    // Boots / Feet with Walking Motion
+    // Feet
     const isMoving = Math.abs(this.vx) > 0.5;
     const legOffset = isMoving ? Math.sin(this.animFrame * 0.4) * 4 : 0;
 
@@ -914,13 +1241,11 @@ export class MarioCanvasEngine {
   }
 
   private drawSuperMushroom(x: number, y: number): void {
-    // Red Cap
     this.ctx.fillStyle = '#ef4444';
     this.ctx.beginPath();
     this.ctx.arc(x + 14, y + 12, 14, Math.PI, 0);
     this.ctx.fill();
 
-    // White Spots
     this.ctx.fillStyle = '#ffffff';
     this.ctx.beginPath();
     this.ctx.arc(x + 14, y + 6, 4, 0, Math.PI * 2);
@@ -928,7 +1253,6 @@ export class MarioCanvasEngine {
     this.ctx.arc(x + 22, y + 10, 3, 0, Math.PI * 2);
     this.ctx.fill();
 
-    // Stem & Eyes
     this.ctx.fillStyle = '#fde047';
     this.ctx.fillRect(x + 6, y + 12, 16, 14);
     this.ctx.fillStyle = '#000000';
@@ -937,18 +1261,15 @@ export class MarioCanvasEngine {
   }
 
   private drawFireFlower(x: number, y: number): void {
-    // Green Stem & Leaves
     this.ctx.fillStyle = '#22c55e';
     this.ctx.fillRect(x + 12, y + 14, 4, 14);
     this.ctx.fillRect(x + 6, y + 20, 16, 4);
 
-    // Orange Petals
     this.ctx.fillStyle = '#f97316';
     this.ctx.beginPath();
     this.ctx.arc(x + 14, y + 10, 10, 0, Math.PI * 2);
     this.ctx.fill();
 
-    // Yellow Center & Eyes
     this.ctx.fillStyle = '#fef08a';
     this.ctx.beginPath();
     this.ctx.arc(x + 14, y + 10, 5, 0, Math.PI * 2);
@@ -964,7 +1285,6 @@ export class MarioCanvasEngine {
     this.ctx.arc(x + 14, y + 14, 12, 0, Math.PI * 2);
     this.ctx.fill();
 
-    // Star Eyes
     this.ctx.fillStyle = '#000000';
     this.ctx.fillRect(x + 10, y + 10, 2, 6);
     this.ctx.fillRect(x + 16, y + 10, 2, 6);
@@ -973,14 +1293,12 @@ export class MarioCanvasEngine {
   private drawGoomba(x: number, y: number): void {
     const walkFrame = Math.floor(this.animFrame / 10) % 2;
 
-    // Head
     this.ctx.fillStyle = '#78350f';
     this.ctx.beginPath();
     this.ctx.arc(x + 16, y + 14, 14, Math.PI, 0);
     this.ctx.fillRect(x + 2, y + 14, 28, 10);
     this.ctx.fill();
 
-    // Eyes & Pupils
     this.ctx.fillStyle = '#ffffff';
     this.ctx.fillRect(x + 8, y + 10, 5, 8);
     this.ctx.fillRect(x + 19, y + 10, 5, 8);
@@ -988,7 +1306,6 @@ export class MarioCanvasEngine {
     this.ctx.fillRect(x + 10, y + 12, 3, 4);
     this.ctx.fillRect(x + 19, y + 12, 3, 4);
 
-    // Walking Feet
     this.ctx.fillStyle = '#000000';
     if (walkFrame === 0) {
       this.ctx.fillRect(x + 2, y + 24, 10, 8);
@@ -1002,13 +1319,11 @@ export class MarioCanvasEngine {
   private drawKoopa(x: number, y: number): void {
     const walkFrame = Math.floor(this.animFrame / 10) % 2;
 
-    // Green Shell
     this.ctx.fillStyle = '#16a34a';
     this.ctx.beginPath();
     this.ctx.arc(x + 16, y + 16, 12, 0, Math.PI * 2);
     this.ctx.fill();
 
-    // Yellow Head & Feet
     this.ctx.fillStyle = '#fde047';
     this.ctx.fillRect(x + 20, y + 4, 10, 10);
     this.ctx.fillStyle = '#000';
@@ -1071,5 +1386,21 @@ export class MarioCanvasEngine {
     this.ctx.arc(x + baseW * 0.4, y - baseW * 0.2, baseW * 0.4, 0, Math.PI * 2);
     this.ctx.arc(x + baseW * 0.8, y, baseW * 0.35, 0, Math.PI * 2);
     this.ctx.fill();
+  }
+
+  private createStaircase(startX: number, groundY: number, steps: number, dir: 'up' | 'down'): void {
+    const size = 30;
+    for (let col = 0; col < steps; col++) {
+      const colHeight = dir === 'up' ? col + 1 : steps - col;
+      for (let row = 0; row < colHeight; row++) {
+        this.platforms.push({
+          x: startX + col * size,
+          y: groundY - (row + 1) * size,
+          w: size,
+          h: size,
+          type: 'brick'
+        });
+      }
+    }
   }
 }
