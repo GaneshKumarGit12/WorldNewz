@@ -104,7 +104,7 @@ const PlayGamesPage: React.FC = () => {
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://worldnewz.onrender.com/api";
 
   // Load player from localStorage on mount
   useEffect(() => {

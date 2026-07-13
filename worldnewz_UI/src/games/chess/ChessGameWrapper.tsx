@@ -70,7 +70,7 @@ const ChessGameWrapper: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://worldnewz.onrender.com/api";
 
   // FIDE Clock Timer Countdown Loop
   useEffect(() => {

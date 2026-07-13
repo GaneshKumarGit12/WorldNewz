@@ -51,7 +51,7 @@ const HitGoalGameWrapper: React.FC = () => {
   const [statusMsg, setStatusMsg] = useState("");
   const [rulesDialogOpen, setRulesDialogOpen] = useState(false);
 
-  const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://worldnewz.onrender.com/api";
 
   useEffect(() => {
     if (canvasRef.current) {
