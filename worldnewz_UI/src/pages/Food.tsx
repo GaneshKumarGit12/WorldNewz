@@ -245,8 +245,8 @@ const Food: React.FC = () => {
       }}
     >
       <SEOMeta
-        title="Gourmet Recipes & Culinary Science | WorldNewz Food"
-        description="Discover dietitian-approved recipes, cooking guides, macronutrient estimations, and meal filters (keto, vegan, vegetarian, gluten-free) on WorldNewz."
+        title="Gourmet Recipes & Culinary Science | WorldNewzs Food"
+        description="Discover dietitian-approved recipes, cooking guides, macronutrient estimations, and meal filters (keto, vegan, vegetarian, gluten-free) on WorldNewzs."
         keywords={combinedKeywords}
         canonical="https://worldnewzs.in/food"
       />
@@ -270,7 +270,7 @@ const Food: React.FC = () => {
             mb: 1
           }}
         >
-          WorldNewz Culinary Hub
+          WorldNewzs Culinary Hub
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" sx={{ maxWidth: 600, mx: "auto" }}>
           Savor verified recipes, compute dietary macros, and filter culinary inspiration tailored to your nutrition plan.
@@ -569,7 +569,7 @@ const Food: React.FC = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-              WorldNewz's Food Dashboard provides instant filters for common diets. You can click on the dietary badges like Vegetarian, Vegan, Gluten-Free, or Ketogenic at the top of the interface to instantly filter search results. Our backend aggregates these recipes securely via the Spoonacular API to match your criteria exactly.
+              WorldNewzs Culinary Hub provides instant filters for common diets. You can click on the dietary badges like Vegetarian, Vegan, Gluten-Free, or Ketogenic at the top of the interface to instantly filter search results. Our backend aggregates these recipes securely via the Spoonacular API to match your criteria exactly.
             </Typography>
           </AccordionDetails>
         </Accordion>
