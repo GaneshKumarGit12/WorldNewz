@@ -218,6 +218,80 @@ namespace WorldNewzWebAPI.Extensions
                             );
                         ");
 
+                        // PlayGames Tables
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""PlayGamesPlayers"" (
+                                ""Id"" TEXT PRIMARY KEY,
+                                ""GoogleUserId"" TEXT NOT NULL,
+                                ""DisplayName"" TEXT NOT NULL,
+                                ""Email"" TEXT NOT NULL,
+                                ""AvatarUrl"" TEXT NOT NULL,
+                                ""Level"" INTEGER NOT NULL,
+                                ""XpPoints"" BIGINT NOT NULL,
+                                ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL,
+                                ""LastLoginAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""PlayGamesLeaderboards"" (
+                                ""Id"" TEXT PRIMARY KEY,
+                                ""Title"" TEXT NOT NULL,
+                                ""GameCategory"" TEXT NOT NULL,
+                                ""IconUrl"" TEXT NOT NULL,
+                                ""SortOrder"" TEXT NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""PlayGamesScores"" (
+                                ""Id"" SERIAL PRIMARY KEY,
+                                ""LeaderboardId"" TEXT NOT NULL,
+                                ""PlayerId"" TEXT NOT NULL,
+                                ""PlayerName"" TEXT NOT NULL,
+                                ""AvatarUrl"" TEXT NOT NULL,
+                                ""ScoreValue"" BIGINT NOT NULL,
+                                ""FormattedValue"" TEXT NOT NULL,
+                                ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""PlayGamesAchievements"" (
+                                ""Id"" TEXT PRIMARY KEY,
+                                ""Title"" TEXT NOT NULL,
+                                ""Description"" TEXT NOT NULL,
+                                ""IconUrl"" TEXT NOT NULL,
+                                ""UnlockedIconUrl"" TEXT NOT NULL,
+                                ""Rarity"" TEXT NOT NULL,
+                                ""TotalSteps"" INTEGER NOT NULL,
+                                ""XpReward"" INTEGER NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""PlayGamesPlayerAchievements"" (
+                                ""Id"" SERIAL PRIMARY KEY,
+                                ""PlayerId"" TEXT NOT NULL,
+                                ""AchievementId"" TEXT NOT NULL,
+                                ""CurrentSteps"" INTEGER NOT NULL,
+                                ""IsUnlocked"" BOOLEAN NOT NULL,
+                                ""UnlockedAt"" TIMESTAMP WITH TIME ZONE NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS ""PlayGamesSavedGames"" (
+                                ""Id"" TEXT PRIMARY KEY,
+                                ""PlayerId"" TEXT NOT NULL,
+                                ""SaveName"" TEXT NOT NULL,
+                                ""GameId"" TEXT NOT NULL,
+                                ""DataJson"" TEXT NOT NULL,
+                                ""CoverImageUrl"" TEXT NOT NULL,
+                                ""LastModifiedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
+                            );
+                        ");
+
                         logger.LogInformation("✓ PostgreSQL tables verified successfully.");
                     }
                 }
@@ -417,6 +491,80 @@ namespace WorldNewzWebAPI.Extensions
                                 MatchedDriverId INTEGER NULL,
                                 DriverName TEXT NULL,
                                 VehicleNumber TEXT NULL
+                            );
+                        ");
+
+                        // PlayGames Tables
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS PlayGamesPlayers (
+                                Id TEXT PRIMARY KEY,
+                                GoogleUserId TEXT NOT NULL,
+                                DisplayName TEXT NOT NULL,
+                                Email TEXT NOT NULL,
+                                AvatarUrl TEXT NOT NULL,
+                                Level INTEGER NOT NULL,
+                                XpPoints INTEGER NOT NULL,
+                                CreatedAt TEXT NOT NULL,
+                                LastLoginAt TEXT NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS PlayGamesLeaderboards (
+                                Id TEXT PRIMARY KEY,
+                                Title TEXT NOT NULL,
+                                GameCategory TEXT NOT NULL,
+                                IconUrl TEXT NOT NULL,
+                                SortOrder TEXT NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS PlayGamesScores (
+                                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                LeaderboardId TEXT NOT NULL,
+                                PlayerId TEXT NOT NULL,
+                                PlayerName TEXT NOT NULL,
+                                AvatarUrl TEXT NOT NULL,
+                                ScoreValue INTEGER NOT NULL,
+                                FormattedValue TEXT NOT NULL,
+                                SubmittedAt TEXT NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS PlayGamesAchievements (
+                                Id TEXT PRIMARY KEY,
+                                Title TEXT NOT NULL,
+                                Description TEXT NOT NULL,
+                                IconUrl TEXT NOT NULL,
+                                UnlockedIconUrl TEXT NOT NULL,
+                                Rarity TEXT NOT NULL,
+                                TotalSteps INTEGER NOT NULL,
+                                XpReward INTEGER NOT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS PlayGamesPlayerAchievements (
+                                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                PlayerId TEXT NOT NULL,
+                                AchievementId TEXT NOT NULL,
+                                CurrentSteps INTEGER NOT NULL,
+                                IsUnlocked INTEGER NOT NULL,
+                                UnlockedAt TEXT NULL
+                            );
+                        ");
+
+                        db.Database.ExecuteSqlRaw(@"
+                            CREATE TABLE IF NOT EXISTS PlayGamesSavedGames (
+                                Id TEXT PRIMARY KEY,
+                                PlayerId TEXT NOT NULL,
+                                SaveName TEXT NOT NULL,
+                                GameId TEXT NOT NULL,
+                                DataJson TEXT NOT NULL,
+                                CoverImageUrl TEXT NOT NULL,
+                                LastModifiedAt TEXT NOT NULL
                             );
                         ");
                     }
