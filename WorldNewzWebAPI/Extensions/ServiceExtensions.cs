@@ -188,6 +188,12 @@ namespace WorldNewzWebAPI.Extensions
                 client.BaseAddress = new Uri("https://api.themoviedb.org/3/");
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
             });
+
+            services.AddHttpClient<ISpoonacularService, SpoonacularService>(client =>
+            {
+                client.BaseAddress = new Uri("https://api.spoonacular.com/");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
+            });
         }
 
         public static void AddAppQuartz(this IServiceCollection services)

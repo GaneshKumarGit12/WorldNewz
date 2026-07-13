@@ -823,4 +823,83 @@ export interface ChatbotResponse {
 export const askChatbot = (query: string, history: ChatMessageDto[]) =>
   apiClient.post<ChatbotResponse>("/chatbot/ask", { query, history });
 
+// --- Spoonacular Recipes API ---
+export interface SpoonacularRecipe {
+  id: number;
+  title: string;
+  image: string;
+  imageType: string;
+  readyInMinutes: number;
+  servings: number;
+  healthScore: number;
+  summary: string;
+  diets: string[];
+  cuisines: string[];
+  dishTypes: string[];
+}
+
+export interface SpoonacularSearchResponse {
+  results: SpoonacularRecipe[];
+  offset: number;
+  number: number;
+  totalResults: number;
+}
+
+export interface SpoonacularRandomResponse {
+  recipes: SpoonacularRecipe[];
+}
+
+export interface SpoonacularIngredient {
+  id: number;
+  name: string;
+  original: string;
+  amount: number;
+  unit: string;
+  image: string | null;
+}
+
+export interface SpoonacularInstructionStep {
+  number: number;
+  step: string;
+}
+
+export interface SpoonacularInstructionStepGroup {
+  name: string;
+  steps: SpoonacularInstructionStep[];
+}
+
+export interface SpoonacularNutrient {
+  name: string;
+  amount: number;
+  unit: string;
+  percentOfDailyNeeds: number;
+}
+
+export interface SpoonacularCaloricBreakdown {
+  percentProtein: number;
+  percentFat: number;
+  percentCarbs: number;
+}
+
+export interface SpoonacularNutrition {
+  nutrients: SpoonacularNutrient[];
+  caloricBreakdown: SpoonacularCaloricBreakdown;
+}
+
+export interface SpoonacularRecipeDetails extends SpoonacularRecipe {
+  instructions: string;
+  extendedIngredients: SpoonacularIngredient[];
+  analyzedInstructions: SpoonacularInstructionStepGroup[];
+  nutrition: SpoonacularNutrition;
+}
+
+export const fetchRecipesSearch = (params: { query?: string; diet?: string; type?: string; page?: number; number?: number }) =>
+  apiClient.get<SpoonacularSearchResponse>("/food/recipes", { params });
+
+export const fetchRecipeDetails = (id: number) =>
+  apiClient.get<SpoonacularRecipeDetails>(`/food/recipes/${id}`);
+
+export const fetchRandomRecipes = (number: number = 10) =>
+  apiClient.get<SpoonacularRandomResponse>("/food/random", { params: { number } });
+
 

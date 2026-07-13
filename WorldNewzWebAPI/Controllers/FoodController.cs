@@ -14,11 +14,13 @@ namespace WorldNewzWebAPI.Controllers
     {
         private readonly INewsApiService _newsApiService;
         private readonly INewsEnrichmentService _enrichmentService;
+        private readonly ISpoonacularService _spoonacularService;
 
-        public FoodController(INewsApiService newsApiService, INewsEnrichmentService enrichmentService)
+        public FoodController(INewsApiService newsApiService, INewsEnrichmentService enrichmentService, ISpoonacularService spoonacularService)
         {
             _newsApiService = newsApiService;
             _enrichmentService = enrichmentService;
+            _spoonacularService = spoonacularService;
         }
 
         [HttpGet("food")]
@@ -62,6 +64,36 @@ namespace WorldNewzWebAPI.Controllers
             {
                 return StatusCode(500, new { error = "Failed to parse and process articles", details = ex.Message });
             }
+        }
+
+        [HttpGet("/api/food/recipes")]
+        public async Task<IActionResult> GetRecipes(
+            [FromQuery] string? query,
+            [FromQuery] string? diet,
+            [FromQuery] string? type,
+            [FromQuery] int page = 1,
+            [FromQuery] int number = 12)
+        {
+            var result = await _spoonacularService.SearchRecipesAsync(query, diet, type, page, number);
+            return Ok(result);
+        }
+
+        [HttpGet("/api/food/recipes/{id}")]
+        public async Task<IActionResult> GetRecipeDetails(int id)
+        {
+            var result = await _spoonacularService.GetRecipeDetailsAsync(id);
+            if (result == null)
+            {
+                return NotFound(new { error = $"Recipe with ID {id} not found." });
+            }
+            return Ok(result);
+        }
+
+        [HttpGet("/api/food/random")]
+        public async Task<IActionResult> GetRandomRecipes([FromQuery] int number = 10)
+        {
+            var result = await _spoonacularService.GetRandomRecipesAsync(number);
+            return Ok(result);
         }
     }
 }
