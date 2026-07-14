@@ -83,5 +83,40 @@ namespace WorldNewzWebAPI.Controllers
                 timestamp = DateTime.UtcNow
             });
         }
+
+        [HttpGet("playgames")]
+        public async Task<IActionResult> TestPlayGames()
+        {
+            try
+            {
+                var achievementsCount = await _db.PlayGamesAchievements.CountAsync();
+                var firstAchievement = await _db.PlayGamesAchievements.FirstOrDefaultAsync();
+                var scoresCount = await _db.PlayGamesScores.CountAsync();
+                var playerAchievementsCount = await _db.PlayGamesPlayerAchievements.CountAsync();
+                var leaderboardsCount = await _db.PlayGamesLeaderboards.CountAsync();
+                var playersCount = await _db.PlayGamesPlayers.CountAsync();
+                var savedGamesCount = await _db.PlayGamesSavedGames.CountAsync();
+
+                return Ok(new {
+                    success = true,
+                    achievementsCount,
+                    firstAchievement,
+                    scoresCount,
+                    playerAchievementsCount,
+                    leaderboardsCount,
+                    playersCount,
+                    savedGamesCount
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new {
+                    success = false,
+                    error = ex.Message,
+                    stackTrace = ex.StackTrace,
+                    innerError = ex.InnerException?.Message
+                });
+            }
+        }
     }
 }

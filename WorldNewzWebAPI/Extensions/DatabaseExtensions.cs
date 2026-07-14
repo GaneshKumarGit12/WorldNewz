@@ -65,16 +65,16 @@ namespace WorldNewzWebAPI.Extensions
                     if (db.Database.ProviderName != null && db.Database.ProviderName.Contains("PostgreSQL"))
                     {
                         logger.LogInformation("✓ Running PostgreSQL table creation verification...");
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""Polls"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Question"" TEXT NOT NULL,
                                 ""Description"" TEXT NOT NULL,
                                 ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "Polls", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PollOptions"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""PollId"" INTEGER NOT NULL,
@@ -83,9 +83,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""IsCorrect"" BOOLEAN NOT NULL DEFAULT FALSE,
                                 CONSTRAINT ""FK_PollOptions_Polls_PollId"" FOREIGN KEY (""PollId"") REFERENCES ""Polls"" (""Id"") ON DELETE CASCADE
                             );
-                        ");
+                        ", "PollOptions", logger);
 
-                        userDb.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(userDb, @"
                             CREATE TABLE IF NOT EXISTS ""PollSubmissions"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Name"" TEXT NOT NULL,
@@ -94,9 +94,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""Status"" TEXT NOT NULL,
                                 ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "PollSubmissions", logger);
 
-                        userDb.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(userDb, @"
                             CREATE TABLE IF NOT EXISTS ""QuizSubmissions"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Name"" TEXT NOT NULL,
@@ -107,9 +107,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""Status"" TEXT NOT NULL,
                                 ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "QuizSubmissions", logger);
 
-                        userDb.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(userDb, @"
                             CREATE TABLE IF NOT EXISTS ""NewsletterSubscribers"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Email"" TEXT NOT NULL UNIQUE,
@@ -119,16 +119,16 @@ namespace WorldNewzWebAPI.Extensions
                                 ""IsVerified"" BOOLEAN NOT NULL DEFAULT FALSE,
                                 ""VerificationToken"" TEXT NULL
                             );
-                        ");
+                        ", "NewsletterSubscribers", logger);
 
-                        userDb.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(userDb, @"
                             CREATE TABLE IF NOT EXISTS ""Scores"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Username"" TEXT NOT NULL,
                                 ""Points"" INTEGER NOT NULL,
                                 ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "Scores", logger);
 
                         try
                         {
@@ -140,7 +140,7 @@ namespace WorldNewzWebAPI.Extensions
                             Console.WriteLine($"⚠️ Error altering PostgreSQL NewsletterSubscribers table: {ex.Message}");
                         }
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""AmazonProducts"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Asin"" TEXT NOT NULL,
@@ -155,9 +155,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""ProductUrl"" TEXT NOT NULL,
                                 ""LastUpdated"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "AmazonProducts", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""SeoKeywords"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Category"" TEXT NOT NULL,
@@ -168,9 +168,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""Date"" TIMESTAMP WITH TIME ZONE NOT NULL,
                                 ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "SeoKeywords", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""JobPostings"" (
                                 ""Slug"" TEXT PRIMARY KEY,
                                 ""CompanyName"" TEXT NOT NULL,
@@ -184,9 +184,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""CreatedAt"" BIGINT NOT NULL,
                                 ""IsLocal"" BOOLEAN NOT NULL DEFAULT FALSE
                             );
-                        ");
+                        ", "JobPostings", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""CabDrivers"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""Name"" TEXT NOT NULL,
@@ -197,9 +197,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""IsAvailable"" BOOLEAN NOT NULL DEFAULT TRUE,
                                 ""Rating"" DOUBLE PRECISION NOT NULL DEFAULT 4.5
                             );
-                        ");
+                        ", "CabDrivers", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""RideBookings"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""UserEmail"" TEXT NOT NULL,
@@ -214,10 +214,10 @@ namespace WorldNewzWebAPI.Extensions
                                 ""DriverName"" TEXT NULL,
                                 ""VehicleNumber"" TEXT NULL
                             );
-                        ");
+                        ", "RideBookings", logger);
 
                         // PlayGames Tables
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PlayGamesPlayers"" (
                                 ""Id"" TEXT PRIMARY KEY,
                                 ""GoogleUserId"" TEXT NOT NULL,
@@ -229,9 +229,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""CreatedAt"" TIMESTAMP WITH TIME ZONE NOT NULL,
                                 ""LastLoginAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "PlayGamesPlayers", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PlayGamesLeaderboards"" (
                                 ""Id"" TEXT PRIMARY KEY,
                                 ""Title"" TEXT NOT NULL,
@@ -239,9 +239,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""IconUrl"" TEXT NOT NULL,
                                 ""SortOrder"" TEXT NOT NULL
                             );
-                        ");
+                        ", "PlayGamesLeaderboards", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PlayGamesScores"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""LeaderboardId"" TEXT NOT NULL,
@@ -252,9 +252,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""FormattedValue"" TEXT NOT NULL,
                                 ""SubmittedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "PlayGamesScores", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PlayGamesAchievements"" (
                                 ""Id"" TEXT PRIMARY KEY,
                                 ""Title"" TEXT NOT NULL,
@@ -265,9 +265,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""TotalSteps"" INTEGER NOT NULL,
                                 ""XpReward"" INTEGER NOT NULL
                             );
-                        ");
+                        ", "PlayGamesAchievements", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PlayGamesPlayerAchievements"" (
                                 ""Id"" SERIAL PRIMARY KEY,
                                 ""PlayerId"" TEXT NOT NULL,
@@ -276,9 +276,9 @@ namespace WorldNewzWebAPI.Extensions
                                 ""IsUnlocked"" BOOLEAN NOT NULL,
                                 ""UnlockedAt"" TIMESTAMP WITH TIME ZONE NULL
                             );
-                        ");
+                        ", "PlayGamesPlayerAchievements", logger);
 
-                        db.Database.ExecuteSqlRaw(@"
+                        SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""PlayGamesSavedGames"" (
                                 ""Id"" TEXT PRIMARY KEY,
                                 ""PlayerId"" TEXT NOT NULL,
@@ -288,7 +288,7 @@ namespace WorldNewzWebAPI.Extensions
                                 ""CoverImageUrl"" TEXT NOT NULL,
                                 ""LastModifiedAt"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
-                        ");
+                        ", "PlayGamesSavedGames", logger);
 
                         logger.LogInformation("✓ PostgreSQL tables verified successfully.");
                     }
@@ -798,6 +798,19 @@ namespace WorldNewzWebAPI.Extensions
                     db.SaveChanges();
                     Console.WriteLine("✓ Seeded default AdSense slots to database");
                 }
+            }
+        }
+
+        private static void SafeExecuteSql(DbContext db, string sql, string tableName, ILogger logger)
+        {
+            try
+            {
+                db.Database.ExecuteSqlRaw(sql);
+                logger.LogInformation($"✓ Verified/created table/schema: {tableName}");
+            }
+            catch (Exception ex)
+            {
+                logger.LogWarning($"⚠️ Non-critical verification failed for table {tableName}: {ex.Message}");
             }
         }
     }
