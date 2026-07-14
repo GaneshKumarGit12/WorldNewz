@@ -8,7 +8,7 @@ using WorldNewzWebAPI.Models;
 namespace WorldNewzWebAPI.Controllers
 {
     [ApiController]
-    [Route("api/jobs")]
+    [Route("api/news/jobs")]
     public class JobsController : ControllerBase
     {
         private readonly WorldNewsDbContext _db;
