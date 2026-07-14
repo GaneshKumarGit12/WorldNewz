@@ -269,10 +269,19 @@ namespace WorldNewzWebAPI.Services
 
             if (!result.Success)
             {
-                var dbFallback = await GetDatabaseFallbackResult(context);
-                if (dbFallback.Success)
+                Console.WriteLine("[NewsApiService] Primary/Fallback API providers failed. Trying SauravTech backup...");
+                var backupResult = await TrySauravTechBackupAsync(context);
+                if (backupResult.Success)
                 {
-                    result = dbFallback;
+                    result = backupResult;
+                }
+                else
+                {
+                    var dbFallback = await GetDatabaseFallbackResult(context);
+                    if (dbFallback.Success)
+                    {
+                        result = dbFallback;
+                    }
                 }
             }
 
@@ -338,6 +347,14 @@ namespace WorldNewzWebAPI.Services
 
             if (combinedArticlesList.Count == 0)
             {
+                Console.WriteLine("[NewsApiService] Combined news list is empty. Trying SauravTech backup...");
+                var backupResult = await TrySauravTechBackupAsync(context);
+                if (backupResult.Success)
+                {
+                    _cache.Set(cacheKey, backupResult, TimeSpan.FromMinutes(60));
+                    return backupResult;
+                }
+
                 var dbFallback = await GetDatabaseFallbackResult(context);
                 if (dbFallback.Success)
                 {
@@ -412,6 +429,69 @@ namespace WorldNewzWebAPI.Services
             }
 
             return new NewsApiFetchResult(true, AddQueryUsedField(responseBody, url), (int)response.StatusCode);
+        }
+
+        private async Task<NewsApiFetchResult> TrySauravTechBackupAsync(NewsQueryContext context)
+        {
+            try
+            {
+                var categoryMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    { "discover", "general" },
+                    { "sports", "sports" },
+                    { "money", "business" },
+                    { "weather", "health" }, 
+                    { "shopping", "entertainment" },
+                    { "politics", "general" },
+                    { "technology", "technology" },
+                    { "business", "business" },
+                    { "science-health", "science" },
+                    { "lifestyle", "general" },
+                    { "education", "general" },
+                    { "entertainment", "entertainment" },
+                    { "food", "health" },
+                    { "travel", "general" },
+                    { "gaming", "technology" },
+                    { "cartoons", "entertainment" },
+                    { "services", "general" }
+                };
+
+                var cat = "general";
+                if (!string.IsNullOrEmpty(context.Category) && categoryMap.TryGetValue(context.Category, out var mappedCat))
+                {
+                    cat = mappedCat;
+                }
+                else if (!string.IsNullOrEmpty(context.Query))
+                {
+                    var q = context.Query.ToLowerInvariant();
+                    if (q.Contains("politics") || q.Contains("election")) cat = "general";
+                    else if (q.Contains("science") || q.Contains("health") || q.Contains("medical")) cat = "science";
+                    else if (q.Contains("business") || q.Contains("finance") || q.Contains("stock") || q.Contains("money")) cat = "business";
+                    else if (q.Contains("tech") || q.Contains("comput") || q.Contains("software")) cat = "technology";
+                    else if (q.Contains("sports") || q.Contains("cricket") || q.Contains("football")) cat = "sports";
+                    else if (q.Contains("entertain") || q.Contains("movie") || q.Contains("music")) cat = "entertainment";
+                }
+
+                var country = string.Equals(context.Country, "in", StringComparison.OrdinalIgnoreCase) ? "in" : "us";
+                var url = $"https://saurav.tech/NewsAPI/top-headlines/category/{cat}/{country}.json";
+
+                Console.WriteLine($"[SauravTech NewsAPI Backup URL] {url}");
+
+                using var request = new HttpRequestMessage(HttpMethod.Get, url);
+                var response = await _httpClient.SendAsync(request);
+                var responseBody = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new NewsApiFetchResult(false, responseBody, (int)response.StatusCode);
+                }
+
+                return new NewsApiFetchResult(true, AddQueryUsedField(responseBody, url), (int)response.StatusCode);
+            }
+            catch (Exception ex)
+            {
+                return new NewsApiFetchResult(false, $"{{\"error\": \"SauravTech backup failed: {ex.Message}\"}}", 500);
+            }
         }
 
         private async Task<NewsApiFetchResult> TryWorldNewsApiAsync(NewsQueryContext context)

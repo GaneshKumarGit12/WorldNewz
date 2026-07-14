@@ -27,9 +27,7 @@ namespace WorldNewzWebAPI.Extensions
 
             if (missingVars.Count > 0)
             {
-                var message = $"Missing required environment variables: {string.Join(", ", missingVars)}. Please set them in your Render environment.";
-                Console.WriteLine($"❌ ERROR: {message}");
-                throw new InvalidOperationException(message);
+                Console.WriteLine($"⚠️ WARNING: Missing required environment variables: {string.Join(", ", missingVars)}. The app will fall back to the free Saurav Tech NewsAPI mirror.");
             }
         }
 
