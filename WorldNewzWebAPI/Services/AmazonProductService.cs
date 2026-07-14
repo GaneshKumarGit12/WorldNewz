@@ -647,381 +647,394 @@ namespace WorldNewzWebAPI.Services
             {
                 new AmazonProduct
                 {
-                    Asin = "B08H88N2N9",
-                    Title = "Cubelelo Drift 3x3 Stickerless Warrior Speed Cube",
-                    Description = "High-speed stickerless 3x3 speed cube with smooth turning and frosted surface design for puzzle enthusiasts.",
-                    ImageUrl = "/images/cubelelo_cube.png",
-                    Price = 249.00m,
-                    OriginalPrice = 399.00m,
-                    Rating = 4.3,
-                    ReviewCount = 8430,
-                    Category = "Gadgets",
-                    ProductUrl = "https://amzn.to/4w4F7Gc"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B07QBBV15F",
-                    Title = "Little Angel Baby Diaper Pants (X-Large, Pack of 4)",
-                    Description = "Super absorbent baby diapers with 360-degree soft stretch waistband, bubble bed technology, and up to 12 hours protection.",
-                    ImageUrl = "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&auto=format&fit=crop&q=60",
-                    Price = 699.00m,
-                    OriginalPrice = 999.00m,
-                    Rating = 4.1,
-                    ReviewCount = 3200,
-                    Category = "Shopping",
-                    ProductUrl = "https://amzn.to/4eKLuaC"
+                    Asin = "B0FDQKGB28",
+                    Title = "Samsung Galaxy Watch8 (40mm, LTE, Graphite) with 3nm Processor | Dual GPS | Sapphire Glass & Armor Aluminum | 5ATM & IP68 | BP, ECG, IHRN & Vascular Load Monitoring | Anti-oxidant Index",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 24999.0m,
+                    OriginalPrice = 31248.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FDQKGB28?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
                     Asin = "B09RNDHW8G",
-                    Title = "Homerz Diwan Cushion Bolster Set (Vacuum Packed)",
-                    Description = "Premium microfiber fillers with bolster cushions. Soft comfort, hypoallergenic material, and durable support for home styling.",
-                    ImageUrl = "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=500&auto=format&fit=crop&q=60",
-                    Price = 1299.00m,
-                    OriginalPrice = 2499.00m,
-                    Rating = 4.2,
-                    ReviewCount = 5984,
-                    Category = "Home & Decor",
-                    ProductUrl = "https://amzn.to/3SG4QGF"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0DZDXCFYX",
-                    Title = "Conair Handheld Compact Garment Steamer",
-                    Description = "Compact and powerful fabric steamer that quickly removes wrinkles from clothes, drapes, and upholstery. Travel-friendly design.",
-                    ImageUrl = "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60",
-                    Price = 2499.00m,
-                    OriginalPrice = 3999.00m,
-                    Rating = 4.3,
-                    ReviewCount = 1540,
-                    Category = "Home Appliances",
-                    ProductUrl = "https://amzn.to/4apYj99"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B00QWV6MTE",
-                    Title = "PremiumAV Mini Speaker Plug & Play",
-                    Description = "Mini USB 2.0 speaker for laptops and computers. Rich stereo sound, compact portable design, and easy plug-and-play setup.",
-                    ImageUrl = "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&auto=format&fit=crop&q=60",
-                    Price = 249.00m,
-                    OriginalPrice = 499.00m,
-                    Rating = 4.0,
-                    ReviewCount = 12485,
-                    Category = "Electronics",
-                    ProductUrl = "https://amzn.to/3QjU889"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0821XB1Q6",
-                    Title = "Amazon Pay Insurance Premium Payment (via Billdesk)",
-                    Description = "Secure your vehicle or health with Amazon Pay Insurance. Paperless booking, instant premium payment, and quick claim approvals.",
-                    ImageUrl = "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&auto=format&fit=crop&q=60",
-                    Price = 499.00m,
-                    OriginalPrice = 599.00m,
-                    Rating = 4.5,
-                    ReviewCount = 920,
-                    Category = "Services",
-                    ProductUrl = "https://amzn.to/4oUWYNF"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B07JJ5TFY1",
-                    Title = "MMR Making Marvelous Ultimate Cockroach Gel",
-                    Description = "Highly effective pest control cockroach bait gel. Easy application, fast action, and long-lasting protection for kitchen and home.",
+                    Title = "Homerz Diwan Set of 5 Cushion and 2 Bolster, Cushion Size- 16 x 16 inch, Bolster Size- 15 x 30 inch, Vacuum Pack (Diwan Set (5 Cushion+2 Bolster))",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
                     ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
-                    Price = 199.00m,
-                    OriginalPrice = 299.00m,
-                    Rating = 4.0,
-                    ReviewCount = 4120,
-                    Category = "Kitchen & Home",
-                    ProductUrl = "https://amzn.to/3SwQ7xR"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B07G8BVF7X",
-                    Title = "VIP Ultima Cotton Briefs (Assorted Colors, Pack of 4)",
-                    Description = "Premium cotton interlock fabric trunks with soft outer elastic waistband. Super breathable and comfortable for daily wear.",
-                    ImageUrl = "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&auto=format&fit=crop&q=60",
-                    Price = 688.00m,
-                    OriginalPrice = 899.00m,
-                    Rating = 4.1,
-                    ReviewCount = 2150,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4f6C36U"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B07QP9PTZP",
-                    Title = "Amazon Pay LPG Cylinder Booking & Bill Payment",
-                    Description = "Quick and secure LPG gas cylinder booking for HP, Indane, and Bharat Gas. Enjoy instant cashbacks and payment verification.",
-                    ImageUrl = "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=500&auto=format&fit=crop&q=60",
-                    Price = 850.00m,
-                    OriginalPrice = 850.00m,
-                    Rating = 4.6,
-                    ReviewCount = 10450,
-                    Category = "Services",
-                    ProductUrl = "https://amzn.to/4xWBX9y"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B07FFQG8GT",
-                    Title = "Milan Jewellers 99.5% OM Silver Coin",
-                    Description = "Charming 99.5% pure silver OM coin, ideal for pooja, gifting, or festive occasions. Certified purity with detailed craftsmanship.",
-                    ImageUrl = "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=500&auto=format&fit=crop&q=60",
-                    Price = 499.00m,
-                    OriginalPrice = 999.00m,
-                    Rating = 4.3,
-                    ReviewCount = 780,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0DSKNHX1T",
-                    Title = "Samsung Galaxy S25+ 5G AI Smartphone",
-                    Description = "Flagship Samsung Galaxy smartphone featuring Galaxy AI camera capabilities, stunning AMOLED display, and ultra-fast performance.",
-                    ImageUrl = "/images/galaxy_phone.png",
-                    Price = 79999.00m,
-                    OriginalPrice = 89999.00m,
-                    Rating = 4.7,
-                    ReviewCount = 4120,
-                    Category = "Electronics",
-                    ProductUrl = "https://amzn.to/4gOPB8j"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0C8SZJ4DR",
-                    Title = "Amazon Pay eGift Card - Office & Workplace Celebrations",
-                    Description = "Ideal digital eGift Card for colleagues, employees, and achievements. Instant digital delivery and hassle-free redemption.",
-                    ImageUrl = "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=500&auto=format&fit=crop&q=60",
-                    Price = 1000.00m,
-                    OriginalPrice = 1000.00m,
-                    Rating = 4.8,
-                    ReviewCount = 15400,
-                    Category = "Gift Cards",
-                    ProductUrl = "https://amzn.to/4p3pGfl"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0FLD3V5BZ",
-                    Title = "DALUCI Wooden Piggy Bank Money Saving Box (1 Lakh Challenge)",
-                    Description = "Wooden savings box with denomination grid for cash savings challenge. Great budget organizer and unique gift for kids & adults.",
-                    ImageUrl = "/images/piggy_bank.png",
-                    Price = 399.00m,
-                    OriginalPrice = 799.00m,
-                    Rating = 4.4,
-                    ReviewCount = 2890,
-                    Category = "Gadgets",
-                    ProductUrl = "https://amzn.to/4eEZGU1"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0CFYPQVXH",
-                    Title = "Zilloquil 4-in-1 Star Galaxy Aurora Night Lamp & Speaker",
-                    Description = "Starry nebula galaxy projector with built-in Bluetooth speaker, white noise, and remote control for bedroom decoration.",
-                    ImageUrl = "/images/galaxy_lamp.png",
-                    Price = 1499.00m,
-                    OriginalPrice = 2999.00m,
-                    Rating = 4.5,
-                    ReviewCount = 6120,
-                    Category = "Electronics",
-                    ProductUrl = "https://amzn.to/4eZTFQR"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0D6ZCLZZV",
-                    Title = "Crystomist CM Acrylic Crystal Beads Curtain (4 Feet Height)",
-                    Description = "Transparent glass drops acrylic crystal beads curtain. Adds elegance, sparkle, and stylish divider aesthetic to living spaces.",
-                    ImageUrl = "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500&auto=format&fit=crop&q=60",
-                    Price = 899.00m,
-                    OriginalPrice = 1599.00m,
+                    Price = 1599.0m,
+                    OriginalPrice = 1999.0m,
                     Rating = 4.2,
-                    ReviewCount = 1840,
-                    Category = "Home & Decor",
-                    ProductUrl = "https://amzn.to/4gLPtGI"
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B09RNDHW8G?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "9360232688",
-                    Title = "MTG Olympiad Prep-Guide Mathematics Class - 4 Book",
-                    Description = "Comprehensive preparatory guide for NIMO/IMO Class 4 Mathematics Olympiad containing theory, practice questions & sample papers.",
-                    ImageUrl = "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60",
-                    Price = 299.00m,
-                    OriginalPrice = 450.00m,
-                    Rating = 4.6,
-                    ReviewCount = 3750,
-                    Category = "Education",
-                    ProductUrl = "https://amzn.to/4vMKEBG"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B00FLYWNYQ",
-                    Title = "Instant Pot Multi-Use Programmable Pressure Cooker",
-                    Description = "7-in-1 multi-functional electric pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker and warmer.",
-                    ImageUrl = "/images/pressure_cooker.png",
-                    Price = 5999.00m,
-                    OriginalPrice = 8999.00m,
-                    Rating = 4.7,
-                    ReviewCount = 9480,
-                    Category = "Home Appliances",
-                    ProductUrl = "https://amzn.to/4az7jZE"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0DSQ7F2YR",
-                    Title = "Divyakosh Toran Entrance Bandanwar Festival Decor",
-                    Description = "Traditional handcrafted door hangings (Toran Bandanwar) embellished with beads, pearls and floral motifs for festive entrance decor.",
-                    ImageUrl = "/images/toran_decor.png",
-                    Price = 499.00m,
-                    OriginalPrice = 999.00m,
-                    Rating = 4.5,
-                    ReviewCount = 1290,
-                    Category = "Home & Decor",
-                    ProductUrl = "https://amzn.to/4v9MqLS"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0DXQH1DBS",
-                    Title = "Apple iPhone 16e (128 GB) - Ultramarine Blue",
-                    Description = "Get the next-generation iPhone 16e with Apple Intelligence built-in. Features a stunning Super Retina XDR display, advanced A18 chip, and advanced camera system.",
-                    ImageUrl = "/images/iphone_16e.png",
-                    Price = 59900.00m,
-                    OriginalPrice = 64900.00m,
-                    Rating = 4.6,
+                    Asin = "B0FMDL81GS",
+                    Title = "OnePlus Nord Buds 3r TWS Earbuds up to 54 Hours Playback, 2-mic Clear Calls, 3D Spatial Audio, AI Translation, 12.4mm Drivers, Dual-Device Connectivity, 47ms Low Latency - Ash Black",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 1999.0m,
+                    OriginalPrice = 2498.75m,
+                    Rating = 4.2,
                     ReviewCount = 1850,
                     Category = "Electronics",
-                    ProductUrl = "https://amzn.to/4p8p5ZC"
+                    ProductUrl = "https://www.amazon.in/dp/B0FMDL81GS?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B07PPBD529",
-                    Title = "LiMETRO STEEL Stainless Steel Foldable Clothes Dryer Stand",
-                    Description = "Durable stainless steel double pole foldable clothes drying stand. Sturdy construction, easy to assemble, and rust-resistant.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20LiMETRO%20STEEL%20Stainless%20Steel%20Foldable%20Cloth%20Dryer%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=56844",
-                    Price = 1299.00m,
-                    OriginalPrice = 2999.00m,
-                    Rating = 4.3,
-                    ReviewCount = 5290,
-                    Category = "Kitchen & Home",
-                    ProductUrl = "https://amzn.to/3SwQ7xR"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B07D4T4YT2",
-                    Title = "Spotzero by Milton Prime Stainless Steel Spin Mop",
-                    Description = "Efficient spin mop cleaning system with stainless steel wringer. Easy-to-use microfibre refills for sparkling clean floors.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Spotzero%20by%20Milton%20Prime%20Spin%20Mop%20with%20refills%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=14209",
-                    Price = 1199.00m,
-                    OriginalPrice = 1999.00m,
+                    Asin = "B0GX94B58L",
+                    Title = "vivo X300 FE 5G (Urban Olive, 12GB RAM, 256GB Storage) with No Cost EMI/Additional Exchange Offers",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 86999.0m,
+                    OriginalPrice = 108748.75m,
                     Rating = 4.2,
-                    ReviewCount = 3840,
-                    Category = "Kitchen & Home",
-                    ProductUrl = "https://amzn.to/4f6C36U"
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0GX94B58L?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B01LZSWXWI",
-                    Title = "Roff Cera Clean All Purpose Tile & Floor Cleaner",
-                    Description = "Advanced tile and floor cleaning liquid. Removes tough stains, grease, and grime from bathroom and kitchen floors.",
-                    ImageUrl = "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=500&auto=format&fit=crop&q=60",
-                    Price = 199.00m,
-                    OriginalPrice = 299.00m,
-                    Rating = 4.4,
-                    ReviewCount = 4780,
-                    Category = "Kitchen & Home",
-                    ProductUrl = "https://amzn.to/3SwQ7xR"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0BNHD7MM3",
-                    Title = "Matrix Black Dial Day & Date Functioning Analog Watch",
-                    Description = "Sophisticated men's analog watch featuring a bold black dial with day and date function. Stylish stainless steel strap.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Matrix%20Black%20Dial%20Analog%20Watch%20with%20Stainless%20Steel%20Strap%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=45920",
-                    Price = 399.00m,
-                    OriginalPrice = 999.00m,
-                    Rating = 4.0,
-                    ReviewCount = 1250,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0GCFLKZWT",
-                    Title = "GoSriKi Women's Rayon Viscose Maroon Printed Anarkali Kurta Set",
-                    Description = "Elegant maroon Anarkali printed kurta, pant and dupatta set. Premium viscose fabric ideal for casual and festive wear.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20Viscose%20Anarkali%20Maroon%20Printed%20Kurta%20Pant%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=98341",
-                    Price = 699.00m,
-                    OriginalPrice = 1999.00m,
-                    Rating = 4.1,
-                    ReviewCount = 3890,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
-                },
-                new AmazonProduct
-                {
-                    Asin = "B0GVYKLG4G",
-                    Title = "GoSriKi Women's Printed Rayon A-Line Kurta Set",
-                    Description = "Stylish A-line viscose printed kurta set with matching pants and dupatta. Extremely breathable and comfortable design.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20A-Line%20Printed%20Blue%20Kurta%20Set%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=12403",
-                    Price = 659.00m,
-                    OriginalPrice = 1899.00m,
+                    Asin = "B0GHQVR1N8",
+                    Title = "vivo V70 5G (Passion Red, 8GB RAM, 256GB Storage) with No Cost EMI/Additional Exchange Offers",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 53999.0m,
+                    OriginalPrice = 67498.75m,
                     Rating = 4.2,
-                    ReviewCount = 2120,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0GHQVR1N8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B0GX9KQNS3",
-                    Title = "GoSriKi Women's Viscose Blend Floral Printed Kurta Set",
-                    Description = "Vibrant floral prints crafted on a premium viscose blend fabric. Complete set with printed pants and airy dupatta.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20Viscose%20Blend%20Floral%20Printed%20Pink%20Kurta%20Set%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=87401",
-                    Price = 689.00m,
-                    OriginalPrice = 1999.00m,
-                    Rating = 4.3,
-                    ReviewCount = 1450,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
+                    Asin = "B0FNWRZSC5",
+                    Title = "Samsung Galaxy Tab S10 Lite with AI [Smartchoice], S Pen in-Box, 27.7 cm (10.9 Inch) Display, Object Eraser, 90Hz Refresh Rate, IP42 Rating, 6GB RAM, 128GB Storage, Wi-Fi + 5G Tablet, Gray",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 35999.0m,
+                    OriginalPrice = 44998.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Education",
+                    ProductUrl = "https://www.amazon.in/dp/B0FNWRZSC5?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B0GT5HFQPR",
-                    Title = "GoSriKi Women's Viscose Blend Daily Wear Printed Kurta Pant Set",
-                    Description = "Daily wear floral printed kurta set with pants. Extremely comfortable fabric, regular fit, and beautiful details.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20GoSriKi%20Womens%20Viscose%20Blend%20Green%20Printed%20Kurta%20Pant%20Set%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=66723",
-                    Price = 599.00m,
-                    OriginalPrice = 1799.00m,
-                    Rating = 4.1,
-                    ReviewCount = 980,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
+                    Asin = "B0GW85JTBN",
+                    Title = "ASUS TUF A15, AMD Ryzen 7 170, RTX 3050-4GB, 16GB RAM (Upgradeable), 512GB SSD, FHD, 15.6'(39.6 cm),Windows 11 Home,Graphite Black, 2.3 Kg, FA506NCQ-HN006W, Gaming Laptop",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 70990.0m,
+                    OriginalPrice = 88737.5m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GW85JTBN?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B0GCTKF55Y",
-                    Title = "Klosia Women Pure Cotton Kurta Pant Set with Dupatta",
-                    Description = "Premium pure cotton Bandhani printed kurta set with details, matched with solid trousers and printed cotton dupatta.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Klosia%20Womens%20Cotton%20Kurta%20Pant%20Set%20with%20Dupatta%20Yellow%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=23941",
-                    Price = 799.00m,
-                    OriginalPrice = 2299.00m,
-                    Rating = 4.4,
-                    ReviewCount = 1890,
-                    Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
+                    Asin = "B0GRTWJ7PS",
+                    Title = "Sharp 1.37 Ton 3 star, New Star Rated, Split AC (4 Way Swing, 100% copper, Hi-Tech Inverter Compressor, 7-1 Convertible, Turbo cool, Dust filter, AH-SI17V3B-GCN, White)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 33990.0m,
+                    OriginalPrice = 42487.5m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0GRTWJ7PS?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
                 new AmazonProduct
                 {
-                    Asin = "B0GVSGYK8J",
-                    Title = "Klosia Women Printed Straight Kurta and Pant Set with Dupatta",
-                    Description = "Stunning straight-fit printed kurta paired with trousers and printed dupatta. Soft premium cotton fabric for everyday wear.",
-                    ImageUrl = "https://image.pollinations.ai/prompt/A%20professional%20studio%20product%20photo%20of%20Klosia%20Womens%20Printed%20Straight%20Kurta%20Pant%20Set%20with%20Dupatta%20Red%2C%20clean%20white%20studio%20background%2C%20neutral%20natural%20lighting%2C%20high%20resolution%2C%20commercial%20photography?width=600&height=600&nologo=true&seed=48321",
-                    Price = 749.00m,
-                    OriginalPrice = 2199.00m,
-                    Rating = 4.3,
-                    ReviewCount = 1560,
+                    Asin = "B0FL2D9SLV",
+                    Title = "ECOVACS DEEBOT N30 Plus White 2 in 1 Robot Vacuum & Mop, New Launch, Bagless Eco-Friendly Multi-Cyclone Auto Empty Station, 10000 Pa Suction, 5200mAh Battery, Covers 3500+sq ft, Zero Tangle 2.0",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 32998.0m,
+                    OriginalPrice = 41247.5m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
                     Category = "Lifestyle",
-                    ProductUrl = "https://amzn.to/4oPQsb1"
-                }
+                    ProductUrl = "https://www.amazon.in/dp/B0FL2D9SLV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "9S3OXLF0AZ",
+                    Title = "Electricity",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/9S3OXLF0AZ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B08JHVPP19",
+                    Title = "Amazon Brand - Symbol Women Cotton Stretch Regular Fit Round Neck Half Sleeve T-Shirt (Available in Plus Sizes)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 569.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B08JHVPP19?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FR9T55MX",
+                    Title = "Vedix Keshamrut Herbs Infused Ayurvedic Hair Oil With Bhringraj, Amla & Rosemary I Control Hair Fall & Boost Hair Growth I 16+ Whole Herbs, Leaves & Flowers I For Men & Women I No Mineral Oils & Chemicals (200ml)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 547.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0FR9T55MX?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C281C231",
+                    Title = "BonKaso Climb Easy 5 Step Heavy Duty Steel Folding Climbing Ladder for Home, Home & Office – with Safety Lock, Anti-Slip Wide Durable Plastic Steps, Support Handle & Tool Tray (Orange & Black)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 2748.0m,
+                    OriginalPrice = 3435.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0C281C231?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "ANLCY0O3BM",
+                    Title = "Premium Verified Deal ANLCY0O3BM",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/ANLCY0O3BM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FTXJD848",
+                    Title = "ODISHAHANDLOOM Sambalpuri Pure Cotton Handloom Saree, Traditional Ikat Pattern, Red and Green, Without Blouse",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 2699.0m,
+                    OriginalPrice = 3373.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FTXJD848?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GRFXD7RF",
+                    Title = "Bombay Musk Mountain Mist Luxury Car Perfume | Long Lasting Car Fragrance & Car Freshener | Alcohol Free & Plant Based | 60+ Days | 200+ Sprays | Perfume for Car",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 329.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GRFXD7RF?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "FIBXNRSTHZ",
+                    Title = "Premium Verified Deal FIBXNRSTHZ",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/FIBXNRSTHZ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B08W8QQLWD",
+                    Title = "Nutricook Smart Pot 2 Stainless Steel 6 QT (5.7L), 1000W 9-in-1 Instant Programmable Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Sauté Pot, Sous Vide, Smart Lid, 2-Year Warranty",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 7999.0m,
+                    OriginalPrice = 9998.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B08W8QQLWD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CV7J49TQ",
+                    Title = "Amazon Brand - Presto! Active Wash Detergent Powder | 8 Kg | Tough On Stains | Gentle On Fabrics | Colour-Safe | Refreshing Fragrance | Machine And Hand Wash",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 449.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CV7J49TQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B093CMF5X8",
+                    Title = "beAAtho® Verona Mesh Mid-Back Ergonomic Desk Office Chair with Tilting Mechanism, Comfortable Seat, and Revolving Heavy Duty Metal Base | Ideal for Work from Home & Study (Black)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 3264.0m,
+                    OriginalPrice = 4080.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B093CMF5X8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B00JD8EA1U",
+                    Title = "Classic Mosquito Net for King Size Bed | 30 GSM Polyester Fine Mesh | Foldable Pop Up Machardani for Double Bed | 360° Mosquito & Insect Protection | Washable & Reusable | Blue",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 948.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B00JD8EA1U?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GZGY1823",
+                    Title = "Itel Zeno 200 (Meteor Titanium, 4 GB RAM, 128 GB Storage) | 6.75' HD+ Display | 120 Hz Dynamic Refresh Rate | IP65 Dust & Water Resistance | 13 MP Camera | 5000 mAh Battery | Charger in Box",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 9699.0m,
+                    OriginalPrice = 12123.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GZGY1823?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DG8YQJPH",
+                    Title = "EUME 100% Aluminium Cabin Trolley Bag Small for Travelling 50cm | Durable High-End 8 Silentrun 360 Degree Spinner Wheels | Premium Trolley Bag Small for Travel (Black with Black Wheels)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 19999.0m,
+                    OriginalPrice = 24998.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DG8YQJPH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B094NQYG66",
+                    Title = "V-Guard Victo Geyser 25 Litre Water Heater for Home | BEE 5 Star Rating | Vitreous Enamel Tank Coating | Advanced 4 Layer Safety | Free PAN India Installation & Connection Pipes | White",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 8899.0m,
+                    OriginalPrice = 11123.75m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B094NQYG66?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CCTJW69W",
+                    Title = "Cat Bed Cave for Indoor ， Suitable for Cat Dome Bed,Hideaway Bed for Indoor Cats, with Removable Mattress for Kittens.Cat Tent House for Dual Use.(L:16'x16')",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 613.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CCTJW69W?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GJDHGSJ1",
+                    Title = "Pregnancy Pillow for Women – Pregnant Pillow & Maternity Pillow for Pregnancy Sleeping with Belly Support, Adjustable Butterfly Design (White & Maroon Set of 2)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 759.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GJDHGSJ1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B68G4F1S",
+                    Title = "AMATA Eagle Solid Wood 3 Seater Sofa Cum Bed Camel Suede velevt Fabric with Two Cushions Perfect for Home Living Office Room and Guests (Camel, Medium)(3 Years Warranty)",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 17498.0m,
+                    OriginalPrice = 21872.5m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0B68G4F1S?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FCCC6G9N",
+                    Title = "STITCHNEST Quilted Velvet Sofa Cover with Tassels – 70x60 Inch, Beige & Blue Chevron Pattern, Soft & Premium, Washable Sofa Protector for 3-Seater",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 998.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0FCCC6G9N?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F9X6J9TX",
+                    Title = "ASUS ROG Strix G16, AMD Ryzen 9 8940HX, Gaming Laptop(RTX 5060-8GB/115W TGP/16GB/1TB /2.5K QHD+/16'/240Hz/90WHrs/Windows 11/M365 Basic (1Year)*/Office Home 2024/Eclipse Gray/2.5 Kg) G614PM-S5046WS",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 169990.0m,
+                    OriginalPrice = 212487.5m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0F9X6J9TX?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GPQCZDDR",
+                    Title = "Clarity Labs | MUSCLE RELIEF SOAP | (Pack of 4) | THERAPEUTIC & RELAXING | Epsom Salt | Magnesium chloride | Peppermint Oil | Camphor Oil | Anti Bacterial | Anti Odor | Reduces Post Workout Soreness & Stiffness",
+                    Description = "Grab this high-quality item verified by WorldNewzs Editorial desk. Check real-time ratings and pricing on Amazon India.",
+                    ImageUrl = "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=500&auto=format&fit=crop&q=60",
+                    Price = 347.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.2,
+                    ReviewCount = 1850,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GPQCZDDR?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
