@@ -88,6 +88,7 @@ namespace WorldNewzWebAPI.Controllers
                 ("stocks", "0.6", "hourly"),
                 ("privacy-policy", "0.3", "yearly"),
                 ("terms", "0.3", "yearly"),
+                ("disclaimer", "0.3", "yearly"),
                 ("about", "0.7", "monthly"),
                 ("contact", "0.7", "monthly"),
                 ("editorial-briefings", "0.8", "daily"),
