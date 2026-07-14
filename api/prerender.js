@@ -189,6 +189,86 @@ const PAGE_METADATA = {
     canonical: 'https://worldnewzs.in/terms',
     ogImage: 'https://worldnewzs.in/og-image.png',
     ogType: 'website'
+  },
+  'lifestyle': {
+    title: 'Lifestyle News – Fashion, Culture & Wellness Trends',
+    description: 'Explore curated articles on modern fashion, cultural shifts, personal stories, home design, and mindful living on WorldNewzs.',
+    keywords: 'lifestyle news, fashion trends, wellness, home design, culture',
+    canonical: 'https://worldnewzs.in/lifestyle',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'education': {
+    title: 'Education News – Learning, Careers & Academic Updates',
+    description: 'Get the latest updates on academic programs, global learning tools, career advice, and education policies on WorldNewzs.',
+    keywords: 'education news, learning tools, career guidance, university news',
+    canonical: 'https://worldnewzs.in/education',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'opinion': {
+    title: 'Opinion & Editorial – Viewpoints on Global Events',
+    description: 'Read thought-provoking viewpoints, editorial analysis, column pieces, and expert debates on hot global topics on WorldNewzs.',
+    keywords: 'editorial news, opinions, expert analysis, viewpoint columns',
+    canonical: 'https://worldnewzs.in/opinion',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'trending': {
+    title: 'Trending News – Viral Stories & Popular Trends',
+    description: 'Catch the pulse of the web with viral stories, social media highlights, popular memes, and pop culture updates on WorldNewzs.',
+    keywords: 'trending news, viral stories, internet culture, popular trends',
+    canonical: 'https://worldnewzs.in/trending',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'podcasts-videos': {
+    title: 'Podcasts & Videos – Rich Multimedia News Content',
+    description: 'Stream our curated multimedia player featuring news podcasts, video reviews, expert video interviews, and documentaries on WorldNewzs.',
+    keywords: 'news podcasts, video interviews, multimedia reports, video explainers',
+    canonical: 'https://worldnewzs.in/podcasts-videos',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'local-news': {
+    title: 'Local News – Regional Updates & City Coverage',
+    description: 'Stay updated with regional politics, civic updates, city developments, and community events on WorldNewzs Local.',
+    keywords: 'local news, city reports, regional updates, municipal news',
+    canonical: 'https://worldnewzs.in/local-news',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'movies': {
+    title: 'Movies DB – Trending Films, Ratings & Box Office',
+    description: 'Explore the Movies Database with trending films, reviews, ratings, cast lists, and box office details on WorldNewzs.',
+    keywords: 'movies database, film reviews, movie ratings, box office trends',
+    canonical: 'https://worldnewzs.in/movies',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'transportation': {
+    title: 'Transportation – Commute Updates & Travel Systems',
+    description: 'Check transit configurations, cab listings, commute timings, and transportation planning guides on WorldNewzs.',
+    keywords: 'transportation routes, cab schedules, commute times, travel transit',
+    canonical: 'https://worldnewzs.in/transportation',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'chatbot': {
+    title: 'Chatbot AI Assistant – Ask WorldNewzs',
+    description: 'Chat with our advanced AI assistant on WorldNewzs. Ask questions, search archives, and get instant verified news summaries.',
+    keywords: 'chatbot assistant, AI news bot, ask AI, news summaries',
+    canonical: 'https://worldnewzs.in/chatbot',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'amazon-products': {
+    title: 'Deals Hub – Amazon Product Deals & Shopping Guides',
+    description: 'Find curated shopping guides, promo coupons, and best direct Amazon products in the WorldNewzs Deals Hub.',
+    keywords: 'amazon deals, coupon deals, product savings, shopping guide',
+    canonical: 'https://worldnewzs.in/amazon-products',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
   }
 };
 
@@ -591,7 +671,16 @@ export default async function handler(req, res) {
         'food': '/news/food',
         'entertainment': '/news/entertainment',
         'gaming': '/news/gaming',
-        'stocks': '/news/stocks'
+        'stocks': '/news/stocks',
+        'lifestyle': '/news/lifestyle',
+        'education': '/news/education',
+        'opinion': '/news/opinion',
+        'trending': '/news/trending',
+        'podcasts-videos': '/news/podcasts-videos',
+        'local-news': '/news/local-news',
+        'services': '/news/services',
+        'cartoons': '/news/cartoons',
+        'movies': '/movies/browse'
       };
       
       const endpoint = endpointMap[activePage] || `/news/search?category=${activePage}`;
