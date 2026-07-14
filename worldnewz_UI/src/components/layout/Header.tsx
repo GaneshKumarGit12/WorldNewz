@@ -35,13 +35,18 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const location = useLocation();
 
+  const [moreNewsAnchorEl, setMoreNewsAnchorEl] = useState<null | HTMLElement>(null);
   const [lifestyleAnchorEl, setLifestyleAnchorEl] = useState<null | HTMLElement>(null);
   const [exploreAnchorEl, setExploreAnchorEl] = useState<null | HTMLElement>(null);
   const [playAnchorEl, setPlayAnchorEl] = useState<null | HTMLElement>(null);
 
+  const moreNewsOpen = Boolean(moreNewsAnchorEl);
   const lifestyleOpen = Boolean(lifestyleAnchorEl);
   const exploreOpen = Boolean(exploreAnchorEl);
   const playOpen = Boolean(playAnchorEl);
+
+  const handleMoreNewsClick = (event: React.MouseEvent<HTMLButtonElement>) => setMoreNewsAnchorEl(event.currentTarget);
+  const handleMoreNewsClose = () => setMoreNewsAnchorEl(null);
 
   const handleLifestyleClick = (event: React.MouseEvent<HTMLButtonElement>) => setLifestyleAnchorEl(event.currentTarget);
   const handleLifestyleClose = () => setLifestyleAnchorEl(null);
@@ -129,6 +134,65 @@ export const Header: React.FC<HeaderProps> = ({
               </Button>
             );
           })}
+
+          {/* More News Dropdown */}
+          <Button
+            aria-controls={moreNewsOpen ? "more-news-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={moreNewsOpen ? "true" : undefined}
+            onClick={handleMoreNewsClick}
+            endIcon={<KeyboardArrowDownIcon />}
+            sx={{
+              color: "white",
+              fontWeight: newsPillarLinks.slice(4).some(l => location.pathname === l.path) ? "bold" : "normal",
+              borderBottom: newsPillarLinks.slice(4).some(l => location.pathname === l.path) ? "2px solid #c83a15" : "none",
+              borderRadius: 0,
+              textTransform: "none",
+              "&:hover": { color: "#ff8a65" },
+            }}
+          >
+            More News
+          </Button>
+          <Menu
+            id="more-news-menu"
+            anchorEl={moreNewsAnchorEl}
+            open={moreNewsOpen}
+            onClose={handleMoreNewsClose}
+            PaperProps={{
+              sx: {
+                backgroundColor: isDark ? "#161b22" : "#ffffff",
+                color: isDark ? "white" : "black",
+                boxShadow: "0px 8px 16px rgba(0,0,0,0.15)",
+                border: "1px solid",
+                borderColor: isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+              }
+            }}
+          >
+            {newsPillarLinks.slice(4).map((link) => (
+              <MenuItem
+                key={link.path}
+                component={Link}
+                to={link.path}
+                onClick={handleMoreNewsClose}
+                selected={location.pathname === link.path}
+                sx={{
+                  minWidth: 160,
+                  fontWeight: location.pathname === link.path ? "bold" : "normal",
+                  color: location.pathname === link.path ? "#c83a15" : "inherit",
+                  "&.Mui-selected": {
+                    backgroundColor: isDark ? "rgba(200, 58, 21, 0.15)" : "rgba(200, 58, 21, 0.08)",
+                    color: "#c83a15",
+                    fontWeight: "bold",
+                  },
+                  "&:hover": {
+                    backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
+                  }
+                }}
+              >
+                {link.label}
+              </MenuItem>
+            ))}
+          </Menu>
 
           {/* Lifestyle Dropdown */}
           <Button

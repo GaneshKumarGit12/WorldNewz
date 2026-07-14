@@ -7,7 +7,7 @@ export interface NavLink {
 }
 
 export const newsPillarLinks: NavLink[] = [
-  { label: "Discover", path: "/" },
+  { label: "Top News", path: "/" },
   { label: "Politics", path: "/politics" },
   { label: "Technology", path: "/technology" },
   { label: "Business", path: "/business" },
@@ -16,6 +16,7 @@ export const newsPillarLinks: NavLink[] = [
   { label: "Money", path: "/money" },
   { label: "Local News (India)", path: "/local-news" },
   { label: "Editorial Briefings", path: "/editorial-briefings" },
+  { label: "Trending News", path: "/trending" },
 ];
 
 export const lifestylePillarLinks: NavLink[] = [

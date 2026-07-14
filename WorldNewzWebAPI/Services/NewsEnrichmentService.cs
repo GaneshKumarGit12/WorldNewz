@@ -28,7 +28,11 @@ namespace WorldNewzWebAPI.Services
 
         private static readonly HashSet<string> TrustedDomains = new(StringComparer.OrdinalIgnoreCase)
         {
-            "bbc.com", "bbc.co.uk", "reuters.com", "apnews.com"
+            "bbc.com", "bbc.co.uk", "reuters.com", "apnews.com", "nytimes.com",
+            "bloomberg.com", "wsj.com", "cnn.com", "forbes.com", "theguardian.com",
+            "independent.co.uk", "cnbc.com", "techcrunch.com", "wired.com",
+            "scientificamerican.com", "nationalgeographic.com", "nature.com",
+            "washingtonpost.com", "usatoday.com", "time.com", "economist.com"
         };
 
         public NewsEnrichmentService(WorldNewsDbContext db, HttpClient httpClient, Microsoft.Extensions.Configuration.IConfiguration config, ITextRefinementService textRefinementService)
