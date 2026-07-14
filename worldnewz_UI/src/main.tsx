@@ -22,6 +22,7 @@ const ReadFullArticles = React.lazy(() => import("./pages/ReadFullArticles"));
 const CommentHistory = React.lazy(() => import("./pages/CommentHistory"));
 const PrivacyPolicyPage = React.lazy(() => import("./pages/PrivacyPolicyPage"));
 const TermsPage = React.lazy(() => import("./pages/TermsPage"));
+const DisclaimerPage = React.lazy(() => import("./pages/DisclaimerPage"));
 const AboutPage = React.lazy(() => import("./pages/AboutPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
 const EditorialBriefingsPage = React.lazy(() => import("./pages/EditorialBriefingsPage"));
@@ -127,6 +128,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="author/:slug" element={<AuthorBioPage />} />
                   <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="terms" element={<TermsPage />} />
+                  <Route path="disclaimer" element={<DisclaimerPage />} />
                   <Route path="about" element={<AboutPage />} />
                   <Route path="editorial-briefings" element={<EditorialBriefingsPage />} />
                   <Route path="editorial-guidelines" element={<EditorialGuidelinesPage />} />

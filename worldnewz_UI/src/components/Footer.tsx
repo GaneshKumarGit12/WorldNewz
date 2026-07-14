@@ -391,6 +391,7 @@ const Footer: React.FC = () => {
               { label: "Contact Us", to: "/contact" },
               { label: "Privacy Policy", to: "/privacy-policy" },
               { label: "Terms", to: "/terms" },
+              { label: "Disclaimer", to: "/disclaimer" },
               { label: "RSS Feed", to: "/rss/discover", isExternal: true },
             ].map((link) => (
               <MuiLink
@@ -460,22 +461,7 @@ const Footer: React.FC = () => {
         </Box>
       </Box>
 
-      <Typography 
-        variant="caption" 
-        sx={{ 
-          color: "rgba(255,255,255,0.4)", 
-          display: "block", 
-          textAlign: "center", 
-          mb: 2.5, 
-          maxWidth: 720, 
-          mx: "auto", 
-          lineHeight: 1.6,
-          fontStyle: "italic"
-        }}
-      >
-        <strong>News Source Disclaimer:</strong> WorldNewzs is a news aggregation platform. All headlines, article summaries, images, and brand assets are aggregated and curated from independent third-party sources. We do not produce original reporting or conduct independent journalism. Views expressed in aggregated content are solely those of the original publishers.
-      </Typography>
-      <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 2 }} />
+      <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 2, mt: 2 }} />
       <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center", mb: 1 }}>
         © {new Date().getFullYear()} WorldNewzs. Powered by Ganesh CO.
       </Typography>
