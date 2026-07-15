@@ -222,27 +222,22 @@ export const ShoppingWidget: React.FC = () => {
       });
   }, []);
 
-  // Daily products helper: select exactly 4 products, rotated daily
-  const getDailyProducts = (list: Partial<AmazonProduct>[]) => {
+  // Rotated products helper: select exactly 4 products, rotated every 4 hours
+  const getRotatedProducts = (list: Partial<AmazonProduct>[]) => {
     if (list.length <= 4) return list;
     
-    // Compute day of year index
-    const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now.getTime() - start.getTime();
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
+    // Compute 4-hour block rotation index
+    const fourHourBlock = Math.floor(Date.now() / (4 * 60 * 60 * 1000));
+    const startIndex = fourHourBlock % list.length;
     
-    const startIndex = dayOfYear % list.length;
     const daily: Partial<AmazonProduct>[] = [];
-    
     for (let i = 0; i < 4; i++) {
       daily.push(list[(startIndex + i) % list.length]);
     }
     return daily;
   };
 
-  const dailyProducts = getDailyProducts(products);
+  const dailyProducts = getRotatedProducts(products);
 
   // Auto rotate products every 4 seconds
   useEffect(() => {

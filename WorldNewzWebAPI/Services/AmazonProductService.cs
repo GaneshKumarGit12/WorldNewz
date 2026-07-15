@@ -996,6 +996,331 @@ namespace WorldNewzWebAPI.Services
                     Category = "Kitchen & Home",
                     ProductUrl = "https://www.amazon.in/dp/B0FCCC6G9N?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0GH7FM3ZR",
+                    Title = "Everflame Marvel 4 Burner Gas Stove | 2mm Heavy Steel Body | 6G Brass Burners | Manual Ignition | Italian SABAF Valve | 5 Years Warranty (Body & Burners) + 2 Years Comprehensive + Doorstep Service",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/712OsBIXynL._SL1500_.jpg",
+                    Price = 10476.0m,
+                    OriginalPrice = 13095.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0GH7FM3ZR?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07Q7C4Q45",
+                    Title = "Scalpe Pro Daily Anti-Dandruff Shampoo | Removes Dandruff from Source | Prevents Itching & Irritation | Scalpe Science | Climbazole Formulation | Dermatologically Tested | For Women & Men | 100ml",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51PbtcW9nML._SL1001_.jpg",
+                    Price = 185.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B07Q7C4Q45?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CTSSKJ7N",
+                    Title = "Avimee Herbal Scalptone Hair Growth Serum | Scientifically Proven Formula | Enriched with Nansyl & Green Tea Extract | For Hair Growth & Hair Fall Reduction | 25 ml",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61kUghTCwUL._SL1080_.jpg",
+                    Price = 624.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0CTSSKJ7N?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C86CMCPQ",
+                    Title = "The Indus Valley Stainless Steel Idli Maker/Momo Maker/Multi Kadai/Steamer Set|Large, 5 Plates, 2 Idli|2 Dhokla|1 Steamer|29Cm/11.3 Inch, 4.2Ltr, 2.5Kg|3-Layer Thick Bottom|Induction Friendly",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71LdwSEEF5L._SL1500_.jpg",
+                    Price = 2198.0m,
+                    OriginalPrice = 2747.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0C86CMCPQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FSDMLT2M",
+                    Title = "Casaliving Ella RHS 5- to 6-Person Sofa L Shape Sofa Set for Living Room (Dark Grey & Grey) Premium Fabric Sofa",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71LufBvWsuL._SL1500_.jpg",
+                    Price = 27499.0m,
+                    OriginalPrice = 34373.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FSDMLT2M?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F9TBPW1F",
+                    Title = "ROYALSCOUT Men's Cotton Polyester Blend Solid Regular Fit Full Sleeve Short Kurta | Ethnic, Lightweight Summer Kurta for Daily & Occasion Use",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71cwBIDss5L._SL1500_.jpg",
+                    Price = 795.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0F9TBPW1F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B071CMQ6N2",
+                    Title = "YouBella Jewellery Bracelets for Women Stylish Rose Gold Plated Crystal Bracelet Bangle Jewellery for Girls and Women",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71P8z0DrFRL._SL1500_.jpg",
+                    Price = 163.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B071CMQ6N2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DCJSVN1Z",
+                    Title = "GRENARO P10 Wireless Mic for YouTube, 3-Level Adjustable Noise Cancellation Wireless Microphone,Professional Wireless Mike for Recording, Ideal for Video Recording and Content Creators",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71o4U01-QpL._SL1500_.jpg",
+                    Price = 1998.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0DCJSVN1Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FK2ZF5F8",
+                    Title = "Seznik Jewellery Thermal Labels – 14.3mm x 100mm, Waterproof, Non Tearable, Direct Thermal, 150 Labels/Roll, for 2 to 4 Inch Printers, White, for Jewellery Tagging, 750 Labels",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61BsN6XL8jL._SL1500_.jpg",
+                    Price = 546.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0FK2ZF5F8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07NVSV868",
+                    Title = "Amul India Twilight Tryst Dark Chocolate, 125gm",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61+RHxzhNqL._SL1200_.jpg",
+                    Price = 115.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B07NVSV868?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D322VFFV",
+                    Title = "Tedibar Moisturising Baby Bathing Bar with Skin Friendly PH|100% Soap Free|Prevents Dryness & Rashes|Dermatologically Tested 75gm x Pack of 6",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81jS4lwa2iL._SL1500_.jpg",
+                    Price = 994.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0D322VFFV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CXDQWYQP",
+                    Title = "Godrej aer O – Hanging Car Air Freshener – Assorted Pack of 3 (22.5g) | Gel Lasts up to 30 days | Car Accessories",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71J1Pf6Qq9L._SL1500_.jpg",
+                    Price = 250.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CXDQWYQP?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GDQZHH8B",
+                    Title = "Amayra Women's Pure Cotton Printed A-Line Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81-q-szqX1L._SL1500_.jpg",
+                    Price = 997.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GDQZHH8B?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G4DJ4PVQ",
+                    Title = "Arayna Women’s Cotton Printed Kurta Set with Palazzo Pants and Dupatta | Ethnic Straight Kurta",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81otXBoExEL._SL1500_.jpg",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0G4DJ4PVQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FB9GQX6F",
+                    Title = "Pistaa's Women's Pure Cotton Anarkali Floral Printed Kurta with Palazzo & Dupatta Set",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71eCJM812ML._SL1500_.jpg",
+                    Price = 1899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FB9GQX6F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FWRFGC3N",
+                    Title = "Leriya Fashion Kurta Sets for Woman | Kurti Set for Woman | Anarkali Suit for Women | White Kurta Set for Women with Dupatta | Traditional Anarkali Salwar Suit for Party Outfits Kurtis",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61mm1msPxaL._SL1500_.jpg",
+                    Price = 799.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FWRFGC3N?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07NRR7TKD",
+                    Title = "H&B Jute Bags Combo- Jute Lunch Bags Combo - Spiral",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/91wveqqhlJL._SL1500_.jpg",
+                    Price = 426.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B07NRR7TKD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B2F8XS9L",
+                    Title = "Babique Dog Plush Soft Toy Cute Kids Animal Home Decor Boys/Girls/Baby (25 cm, White)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41Z37AWyjHL._SL1024_.jpg",
+                    Price = 163.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0B2F8XS9L?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FB46QM2X",
+                    Title = "Sukkhi Charming AD Diamonds Studded Floral Choker Necklace with Danlge Earrings Maangtikka Jewellery Set for Women & Girls",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71Lo2RqdZKL._SL1500_.jpg",
+                    Price = 316.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FB46QM2X?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CC61X519",
+                    Title = "JIALTO 1 Pcs Bathroom Accessories - Multipurpose Aluminium Bathroom Shelf for Wall | Self-Adhesive Wall Mounted Bathroom Organiser Without Drill | 1 Pcs Black Bathroom Shelf | Bathroom Rack (Black)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71jJGw5om4L._SL1500_.jpg",
+                    Price = 299.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0CC61X519?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G6LYSKJD",
+                    Title = "Lenovo IdeaCentre AIO Intel Core i5-13420H 24' FHD (24GB RAM/512GB SSD/Win11/Microsoft 365 Basic + Office Home 2024/3Wx2 Harman/Wireless EOS Keyboard & Mouse,Grey) All-in-One Desktop",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71uw44iKKfL._SL1500_.jpg",
+                    Price = 81490.0m,
+                    OriginalPrice = 101862.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0G6LYSKJD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H6FC8RV5",
+                    Title = "SHOPNORY Women's Cotton Chikankari Print Straight Kurti with Pant andMulmul Dupatta Set",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71goiotii1L._SL1500_.jpg",
+                    Price = 1699.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0H6FC8RV5?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FCSMTJF7",
+                    Title = "Carrito, Women Wedge Heels Thong Sandals | Comfortable Flats | Comfort Orthopaedic Sandals for Girls| Doctor Slippers/Flip-Flops | Arch Support & Stylish Block Heel Cushion | Casual Lightweight Anti-Skid Sole| Slip-on | Pump and Mule Sandals | Ultra-Cushioned Shock Absorbing Footbed | Open Toe & Toe Separator Style | Women Daily Use Formal | Platform Ladies Flat Wear Footwear",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61xP2soBsNL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FCSMTJF7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C862R9VF",
+                    Title = "Lifelong LLKS03 Foldable Kick Skating Cycle| Skate Scooter for Kids(Max User Weight: 50Kg) Kids Scooter (Pink, Blue)",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61xr-fzqcxL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0C862R9VF?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GWJKKQ8V",
+                    Title = "Mehta Originals Women's Cotton Embroidery Anarkali Kurti and Pant with Dupatta Set",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61F70sIdVoL._SL1280_.jpg",
+                    Price = 799.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GWJKKQ8V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
