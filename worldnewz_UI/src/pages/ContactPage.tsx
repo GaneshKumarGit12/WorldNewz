@@ -86,6 +86,17 @@ export const ContactPage = () => {
 
           <Divider sx={{ mb: 6 }} />
 
+          <Card sx={{ mb: 4, borderRadius: 3, border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
+            <CardContent>
+              <Typography variant="h6" component="h2" gutterBottom sx={{ fontWeight: 800 }}>
+                What to include in your message
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                If you are contacting us about a correction, inquiry, partnership, or feedback, please include the page URL, a short description of the issue, and any screenshots or references that help us respond quickly.
+              </Typography>
+            </CardContent>
+          </Card>
+
           <Grid container spacing={4} sx={{ mb: 6 }}>
             {/* Contact Details & SLA Info */}
             <Grid size={{ xs: 12, md: 5 }}>

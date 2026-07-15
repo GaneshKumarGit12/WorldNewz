@@ -413,7 +413,7 @@ const ReadFullArticles: React.FC = () => {
     <Container maxWidth="lg" sx={{ py: 4, minHeight: "75vh" }}>
       <SEOMeta
         title={article.headline || article.title}
-        description={article.summary || article.description || ""}
+        description={(article.summary || article.description || "").replace(/\s+/g, " ").trim()}
         keywords={keywords}
         ogImage={article.urlToImage || article.imageUrl}
         ogType="article"
@@ -467,6 +467,8 @@ const ReadFullArticles: React.FC = () => {
             itemProp="image"
             loading="eager"
             fetchPriority="high"
+            decoding="async"
+            width={1400}
             onError={handleImageError}
             sx={{
               objectFit: "cover",
@@ -622,7 +624,7 @@ const ReadFullArticles: React.FC = () => {
           <Box itemProp="articleBody" sx={{ mt: 4 }}>
             {scrapingLoading && (
               <Box sx={{ my: 6 }}>
-                <Typography variant="subtitle1" sx={{ mb: 2, fontStyle: "italic", textAlign: "center" }}>
+                <Typography variant="subtitle1" sx={{ mb: 2, fontStyle: "italic", textAlign: "center" }} role="status" aria-live="polite">
                   Fetching full text from {typeof article.source === "string" ? article.source : (article.source?.name || 'original publisher')}...
                 </Typography>
                 <LinearProgress color="primary" />
@@ -665,7 +667,7 @@ const ReadFullArticles: React.FC = () => {
                   </Alert>
                 )}
                 
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
+                <Typography variant="h2" sx={{ fontWeight: 700, mb: 1.5, fontSize: { xs: "1.25rem", sm: "1.45rem" } }}>
                   Overview & Summary
                 </Typography>
                 

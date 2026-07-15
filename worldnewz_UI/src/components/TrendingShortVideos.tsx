@@ -303,6 +303,10 @@ export const TrendingShortVideos: React.FC = () => {
                   <img
                     src={video.authorAvatar || video.thumbnail || (video.id && video.id.length === 11 ? `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg` : "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800")}
                     alt={video.title}
+                    width={640}
+                    height={360}
+                    decoding="async"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
                       e.currentTarget.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800";

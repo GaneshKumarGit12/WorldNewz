@@ -48,6 +48,15 @@ export const AboutPage = () => {
 
           <Divider sx={{ mb: 6 }} />
 
+          <Box sx={{ p: 3, borderRadius: 3, border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper', mb: 6 }}>
+            <Typography variant="h6" component="h2" gutterBottom sx={{ fontWeight: 800 }}>
+              How to use WorldNewzs
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+              Use the homepage to scan the day’s biggest stories, jump into topic-specific routes such as sports, technology, money, or services, and open article pages for deeper editorial analysis and context.
+            </Typography>
+          </Box>
+
           {/* Mission & Vision */}
           <Grid container spacing={4} sx={{ mb: 6 }}>
             <Grid size={{ xs: 12, md: 6 }}>

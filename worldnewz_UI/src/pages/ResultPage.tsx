@@ -295,7 +295,8 @@ const ResultPage: React.FC = () => {
     <Container maxWidth="lg" sx={{ py: 4, minHeight: "70vh" }}>
       <SEOMeta
         title={article.headline || article.title}
-        description={article.summary || article.description || ""}
+        description={(article.summary || article.description || "").replace(/\s+/g, " ").trim()}
+        keywords={[...(article.category ? [article.category] : []), ...(article.headline || article.title ? [(article.headline || article.title).split(/\s+/).filter(Boolean).slice(0, 8).join(" ")] : []), "world news", "latest headlines", "WorldNewzs"]}
         ogImage={article.urlToImage || article.imageUrl}
         ogType="article"
         articlePublishedTime={article.publishedAt}
@@ -348,6 +349,8 @@ const ResultPage: React.FC = () => {
             itemProp="image"
             loading="eager"
             fetchPriority="high"
+            decoding="async"
+            width={1200}
             onError={handleImageError}
             sx={{
               objectFit: "cover",
@@ -539,7 +542,7 @@ const ResultPage: React.FC = () => {
 
           {/* Content/Description */}
           <Box itemProp="articleBody" sx={{ mt: 4 }}>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
+            <Typography variant="h2" sx={{ fontWeight: 700, mb: 1.5, fontSize: { xs: "1.25rem", sm: "1.45rem" } }}>
               Overview
             </Typography>
             <Typography

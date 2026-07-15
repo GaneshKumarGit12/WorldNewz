@@ -236,6 +236,8 @@ export const JSONLDFAQPage = ({ faqs }: { faqs: FAQItem[] }) => (
 );
 
 /* ── ItemList / Product Catalog Schema ── */
+const DEFAULT_PRICE_VALID_UNTIL = '2099-12-31';
+
 export interface ProductSchemaItem {
   title: string;
   description: string;
@@ -274,7 +276,7 @@ export const JSONLDProductList = ({ products }: { products: ProductSchemaItem[] 
             "@type": "Offer",
             "priceCurrency": "INR",
             "price": prod.price,
-            "priceValidUntil": new Date(Date.now() + 86400000).toISOString().split('T')[0],
+            "priceValidUntil": DEFAULT_PRICE_VALID_UNTIL,
             "itemCondition": "https://schema.org/NewCondition",
             "availability": "https://schema.org/InStock",
             "url": prod.productUrl

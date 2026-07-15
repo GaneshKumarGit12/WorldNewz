@@ -221,15 +221,15 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
         {
             if (string.IsNullOrWhiteSpace(_geminiApiKey))
             {
-                return GenerateLocalArticleHeuristics(title, description, category);
+                return BuildFallbackArticle(title, description, category, scrapedParagraphs);
             }
 
             try
             {
                 string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
 
-                var scrapedText = scrapedParagraphs != null && scrapedParagraphs.Count > 0 
-                    ? string.Join(" ", scrapedParagraphs)
+                var scrapedText = scrapedParagraphs != null && scrapedParagraphs.Count > 0
+                    ? string.Join(" ", scrapedParagraphs.Take(8))
                     : "";
 
                 bool isPillar = string.Equals(category, "technology", StringComparison.OrdinalIgnoreCase) ||
@@ -256,10 +256,8 @@ Contextual Snippet (from wire service): {scrapedText}
 Requirements:
 - The article MUST be {targetMinWords} to {targetMaxWords} words long.
 - Write in an analytical, engaging, and authoritative editorial tone (opinion/column style) that analyzes the news and presents a clear perspective.
-- Do NOT use repetitive sentences, generic fluff, or boilerplate paragraphs. Every paragraph must offer sharp insights, critical analysis, background context, geopolitical/market/social implications, or future outlooks.
 - Organize the opinion piece logically using markdown headings. You MUST use sub-headings (e.g. ## Overview & News Analysis, ## Core Issues & Context, ## Critical Perspectives, ## Future Outlook & Implications) to divide sections.
 - Structure for SEO by using short paragraphs (2-3 sentences each) for readability.
-- Cover depth: Include background history, current updates, critical opinions/quotes, and statistics or references where appropriate.
 - Include 1-2 internal links to other related categories on WorldNewzs where relevant. Use EXACTLY these markdown link targets:
   * Technology: [Technology News](https://worldnewzs.in/technology)
   * Business: [Business News](https://worldnewzs.in/business)
@@ -270,7 +268,6 @@ Requirements:
   * General: [WorldNewzs Curation](https://worldnewzs.in)
 - Include 1-2 external links to credible, authoritative news or organization sources (e.g. [BBC News](https://www.bbc.com), [Reuters](https://www.reuters.com), [Associated Press](https://apnews.com), [WHO](https://www.who.int)) formatted in markdown.
 - At the end of the article, add a '## Frequently Asked Questions (FAQs)' section containing at least 3 relevant questions and answers about the topic to boost word count naturally and aid search intent.
-- Make the content fully publishable, unique, and appealing to readers. Do NOT write any meta-talk or introductory remarks (e.g. do not say 'Here is the article', do not use markdown code wrappers like ```json or ```html, do not state that you are an AI or this is generated).
 - Output the article as plain text paragraphs separated by double newlines.
 ";
 
@@ -283,20 +280,20 @@ Requirements:
                 };
 
                 var requestContent = new StringContent(JsonSerializer.Serialize(payload), System.Text.Encoding.UTF8, "application/json");
-                using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(30));
+                using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(20));
                 var response = await _httpClient.PostAsync(url, requestContent, cts.Token);
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return GenerateLocalArticleHeuristics(title, description, category);
+                    return BuildFallbackArticle(title, description, category, scrapedParagraphs);
                 }
 
                 var responseBody = await response.Content.ReadAsStringAsync();
                 using var doc = JsonDocument.Parse(responseBody);
                 var root = doc.RootElement;
 
-                if (root.TryGetProperty("candidates", out var candidates) && 
-                    candidates.ValueKind == JsonValueKind.Array && 
+                if (root.TryGetProperty("candidates", out var candidates) &&
+                    candidates.ValueKind == JsonValueKind.Array &&
                     candidates.GetArrayLength() > 0)
                 {
                     var content = candidates[0].GetProperty("content");
@@ -306,13 +303,11 @@ Requirements:
                         var textStr = parts[0].GetProperty("text").GetString();
                         if (!string.IsNullOrWhiteSpace(textStr))
                         {
-                            var paragraphs = textStr
-                                .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
-                                .Select(p => p.Trim())
-                                .Where(p => p.Length > 0)
-                                .ToList();
-
-                            return paragraphs;
+                            var paragraphs = SplitAndNormalizeParagraphs(textStr);
+                            if (paragraphs.Count >= 3)
+                            {
+                                return paragraphs;
+                            }
                         }
                     }
                 }
@@ -322,7 +317,58 @@ Requirements:
                 Console.WriteLine($"[TextRefinement] Exception during Gemini article generation: {ex.Message}");
             }
 
-            return GenerateLocalArticleHeuristics(title, description, category);
+            return BuildFallbackArticle(title, description, category, scrapedParagraphs);
+        }
+
+        private List<string> BuildFallbackArticle(string title, string? description, string? category, List<string>? scrapedParagraphs)
+        {
+            var fallbackParagraphs = new List<string>();
+            var cleanTitle = Regex.Replace(title, @"[|:-].*$", "").Trim();
+            var cat = string.IsNullOrWhiteSpace(category) ? "General" : category.Trim();
+
+            fallbackParagraphs.Add($"## Overview & Analysis");
+            fallbackParagraphs.Add($"The latest developments surrounding \"{cleanTitle}\" point to an important shift in the {cat} landscape. WorldNewzs presents this update with editorial context so readers can understand not just what happened, but why it matters now.");
+            fallbackParagraphs.Add($"The story is especially relevant because it intersects public interest, market behavior, policy decisions, and broader audience expectations. By placing the update in context, our coverage helps readers evaluate the issue with greater clarity.");
+
+            if (scrapedParagraphs != null && scrapedParagraphs.Count > 0)
+            {
+                var cleaned = scrapedParagraphs
+                    .Select(CleanParagraph)
+                    .Where(p => !string.IsNullOrWhiteSpace(p) && p.Length > 80)
+                    .Take(3)
+                    .ToList();
+
+                if (cleaned.Count > 0)
+                {
+                    fallbackParagraphs.Add("## Key Context");
+                    fallbackParagraphs.AddRange(cleaned);
+                }
+            }
+
+            fallbackParagraphs.Add("## Why It Matters");
+            fallbackParagraphs.Add($"For readers following the {cat} space, this update is a strong signal of broader change. The best way to stay informed is to follow reliable reporting, compare sources, and monitor how the story evolves over time.");
+            fallbackParagraphs.Add("## Frequently Asked Questions (FAQs)");
+            fallbackParagraphs.Add($"**Q1: Why is \"{cleanTitle}\" important?**\n\n**A1:** It reflects a meaningful shift in the {cat} environment and is likely to influence how stakeholders respond next.");
+            fallbackParagraphs.Add($"**Q2: Where can I follow more updates?**\n\n**A2:** You can track the latest reporting and related context directly on [WorldNewzs](https://worldnewzs.in).");
+            return fallbackParagraphs;
+        }
+
+        private string CleanParagraph(string? paragraph)
+        {
+            if (string.IsNullOrWhiteSpace(paragraph)) return string.Empty;
+            var cleaned = Regex.Replace(paragraph, @"<[^>]+>", " ");
+            cleaned = Regex.Replace(cleaned, @"\s+", " ").Trim();
+            return cleaned;
+        }
+
+        private List<string> SplitAndNormalizeParagraphs(string text)
+        {
+            return text
+                .Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(p => p.Trim())
+                .Where(p => p.Length > 20)
+                .Select(p => Regex.Replace(p, @"\s+", " "))
+                .ToList();
         }
 
         private List<string> GenerateLocalArticleHeuristics(string title, string? description, string? category)

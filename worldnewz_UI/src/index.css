@@ -97,11 +97,10 @@ head, head *, title, meta, link, script, style {
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  margin: 0;
+  text-align: left;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -115,8 +114,20 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background-color: var(--bg);
+  background: linear-gradient(180deg, var(--bg) 0%, #0f172a 100%);
   color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main,
+article,
+section {
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -182,7 +193,7 @@ h6 {
 }
 
 p {
-  margin: 0;
+  margin: 0 0 1rem;
 }
 
 code,
@@ -210,6 +221,11 @@ a:visited {
 a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
 @keyframes pulse {

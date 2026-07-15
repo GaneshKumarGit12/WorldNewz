@@ -331,6 +331,9 @@ export const ShoppingWidget: React.FC = () => {
               <img
                 src={activeProduct.imageUrl || AMAZON_PLACEHOLDER}
                 alt={activeProduct.title}
+                width={320}
+                height={220}
+                decoding="async"
                 style={{
                   maxHeight: "100%",
                   maxWidth: "100%",

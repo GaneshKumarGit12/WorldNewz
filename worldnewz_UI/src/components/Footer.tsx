@@ -178,6 +178,7 @@ const Footer: React.FC = () => {
   return (
     <Box
       component="footer"
+      aria-label="Site footer"
       sx={{
         mt: 6,
         py: 4,
@@ -399,6 +400,7 @@ const Footer: React.FC = () => {
                 {...(link.isExternal ? { href: link.to } : { component: Link, to: link.to })}
                 underline="hover"
                 sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: "primary.main" }, fontSize: "0.875rem" }}
+                aria-label={link.label}
               >
                 {link.label}
               </MuiLink>
@@ -465,8 +467,8 @@ const Footer: React.FC = () => {
       <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center", mb: 1 }}>
         © {new Date().getFullYear()} WorldNewzs. Powered by Ganesh CO.
       </Typography>
-      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center" }}>
-        <a href="https://trafficpeak.io" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "underline" }}>Boost Your Website Traffic with TrafficPeak</a>
+      <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.4)", display: "block", textAlign: "center", mt: 0.5 }}>
+        Verified editorial standards • Privacy-focused experience • AdSense compliant content presentation
       </Typography>
     </Box>
   );

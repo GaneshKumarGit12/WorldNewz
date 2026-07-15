@@ -25,6 +25,7 @@ namespace WorldNewzWebAPI.Services
             try
             {
                 // Map categories to Saurav Tech API format
+                var normalizedCategory = (category ?? "discover").Trim().ToLowerInvariant();
                 var categoryMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                 {
                     { "discover", "general" },
@@ -46,8 +47,8 @@ namespace WorldNewzWebAPI.Services
                     { "services", "general" }
                 };
 
-                var apiCategory = categoryMap.ContainsKey(category.ToLower()) 
-                    ? categoryMap[category.ToLower()] 
+                var apiCategory = categoryMap.ContainsKey(normalizedCategory)
+                    ? categoryMap[normalizedCategory]
                     : "general";
 
                 var url = $"https://saurav.tech/NewsAPI/top-headlines/category/{apiCategory}/in.json";

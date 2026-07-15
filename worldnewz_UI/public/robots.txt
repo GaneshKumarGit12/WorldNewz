@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /private/
 
 Sitemap: https://worldnewzs.in/sitemap.xml
 Sitemap: https://worldnewzs.in/news-sitemap.xml
+Host: worldnewzs.in

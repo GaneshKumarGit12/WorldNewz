@@ -33,6 +33,28 @@ export default async function handler(req, res) {
       <news:title>WorldNewzs - Breaking News and Latest Headlines</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://worldnewzs.in/sports</loc>
+    <news:news>
+      <news:publication>
+        <news:name>WorldNewzs</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>${new Date().toISOString()}</news:publication_date>
+      <news:title>Sports News Updates</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://worldnewzs.in/technology</loc>
+    <news:news>
+      <news:publication>
+        <news:name>WorldNewzs</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>${new Date().toISOString()}</news:publication_date>
+      <news:title>Technology News Updates</news:title>
+    </news:news>
+  </url>
 </urlset>`;
   
   res.setHeader('Content-Type', 'application/xml');

@@ -188,6 +188,31 @@ const Discover: React.FC = () => {
         </Typography>
       </Box>
 
+      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", md: "1.35fr 0.85fr" }, mb: 4 }}>
+        <Paper elevation={0} sx={{ p: { xs: 2.25, sm: 3 }, borderRadius: 3, border: "1px solid", borderColor: "divider", background: (theme) => theme.palette.mode === "dark" ? "rgba(15, 23, 42, 0.6)" : "#ffffff" }}>
+          <Typography variant="overline" sx={{ fontWeight: 800, color: "primary.main", letterSpacing: "0.16em" }}>
+            TODAY'S NEWS FOCUS
+          </Typography>
+          <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+            The story mix is shifting fast — from market moves to major policy updates and cultural headlines.
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+            WorldNewzs keeps this homepage tuned for speed, clarity, and context so readers can quickly scan what matters most without losing the broader picture.
+          </Typography>
+        </Paper>
+        <Paper elevation={0} sx={{ p: { xs: 2.25, sm: 3 }, borderRadius: 3, border: "1px solid", borderColor: "divider", background: (theme) => theme.palette.mode === "dark" ? "rgba(30, 41, 59, 0.55)" : "#f8fafc" }}>
+          <Typography variant="overline" sx={{ fontWeight: 800, color: "text.secondary", letterSpacing: "0.16em" }}>
+            WHY READERS STAY
+          </Typography>
+          <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+            Verified coverage, editorial briefings, and useful tools in one place.
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+            The homepage now blends breaking headlines with deeper explainers, live utility widgets, and direct access to editorial analysis.
+          </Typography>
+        </Paper>
+      </Box>
+
       {/* ✅ 1. PRIMARY NEWS FEED ABOVE THE FOLD (Top Stories) */}
       <SectionStatus
         loading={loading}

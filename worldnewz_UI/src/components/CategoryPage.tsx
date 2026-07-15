@@ -274,6 +274,12 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
           >
             {description}
           </Typography>
+
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.25, mt: 3 }}>
+            <Chip label={`Latest coverage: ${filteredArticles.length} stories`} color="primary" variant="outlined" />
+            <Chip label={categoryKey === "services" ? "Service-focused discovery" : "Verified source pipeline"} color="success" variant="outlined" />
+            <Chip label={categoryKey === "sports" ? "Live sports updates" : "Editorially curated context"} color="default" variant="outlined" />
+          </Box>
         </CardContent>
       </Card>
 

@@ -230,7 +230,22 @@ const App: React.FC = () => {
   const isDark = mode === "dark";
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "background.default" }}>
+      <a
+        href="#main-content"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          top: "0",
+          background: "#0f172a",
+          color: "white",
+          padding: "8px 12px",
+          zIndex: 99999,
+          borderRadius: "0 0 8px 0"
+        }}
+      >
+        Skip to content
+      </a>
       <ScrollToTop />
       <JSONLDWebSite />
       <JSONLDOrganization />
@@ -274,7 +289,13 @@ const App: React.FC = () => {
       />
 
       {/* Page Content */}
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box
+        component="main"
+        id="main-content"
+        tabIndex={-1}
+        aria-label="Main content"
+        sx={{ flexGrow: 1, width: "100%", display: "flex", flexDirection: "column", bgcolor: "background.default" }}
+      >
         <Outlet context={{ searchTerm }} />
       </Box>
 
