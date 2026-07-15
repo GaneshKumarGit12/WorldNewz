@@ -78,7 +78,7 @@ const AdBannerCard: React.FC = () => {
           ref={iframeRef}
           title="Monetag sponsored ad"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+          sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
           style={{ width: "100%", height: "100%", border: 0, background: "transparent" }}
         />
       </Box>
