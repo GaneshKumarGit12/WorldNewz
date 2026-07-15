@@ -1,23 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { Card, Box } from "@mui/material";
 
-const AD_ZONE_ID = "11275370";
-const AD_SCRIPT_SRC = "https://nap5k.com/tag.min.js";
+const AD_ZONE_ID = "11269614";
 
 const AdBannerCard: React.FC = () => {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    if (cardRef.current) {
-      // Clear container to avoid duplicate elements in React DevMode
-      cardRef.current.innerHTML = "";
-
-      const script = document.createElement("script");
-      script.src = `${AD_SCRIPT_SRC}?t=${Date.now()}`;
-      script.async = true;
-      script.dataset.zone = AD_ZONE_ID;
-      script.setAttribute("data-cfasync", "false");
-      cardRef.current.appendChild(script);
+    if (iframeRef.current) {
+      iframeRef.current.src = `/ad-banner.html?zone=${AD_ZONE_ID}&t=${Date.now()}`;
     }
   }, []);
 
@@ -70,7 +61,6 @@ const AdBannerCard: React.FC = () => {
 
       {/* Ad target container matching the exact 300x250 dimensions */}
       <Box
-        ref={cardRef}
         sx={{
           width: "300px",
           height: "250px",
@@ -83,7 +73,15 @@ const AdBannerCard: React.FC = () => {
             borderRadius: "6px !important",
           }
         }}
-      />
+      >
+        <iframe
+          ref={iframeRef}
+          title="Monetag sponsored ad"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+          style={{ width: "100%", height: "100%", border: 0, background: "transparent" }}
+        />
+      </Box>
     </Card>
   );
 };

@@ -19,10 +19,20 @@
   </head>
   <body>
     <script>
-      (function(s){
-        s.dataset.zone='11275370';
-        s.src='https://nap5k.com/tag.min.js';
-      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+      (function () {
+        const target = document.body || document.documentElement;
+        if (!target) return;
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.setAttribute('data-cfasync', 'false');
+        script.dataset.zone = '11269614';
+        script.src = 'https://nap5k.com/tag.min.js';
+        script.onerror = function () {
+          document.body.innerHTML = '<div style="font-family: Arial, sans-serif; color: #64748b; font-size: 14px; padding: 16px; text-align: center;">Sponsored ad unavailable right now.</div>';
+        };
+        target.appendChild(script);
+      })();
     </script>
   </body>
 </html>
