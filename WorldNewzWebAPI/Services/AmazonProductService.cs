@@ -1321,6 +1321,279 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0GWJKKQ8V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0C3D2DP11",
+                    Title = "Skillmatics Quiet Cloth Book for Toddlers – Soft Sensory Activity Book with 11 Interactive Daily Tasks, Learning Toys for Kids Ages 18 Months to 4 Years, Multicolor",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71v7MjuPTQL._SL1500_.jpg",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0C3D2DP11?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FNDDRLZ2",
+                    Title = "Smartivity DIY Solar System Kit | Gear-Driven Working Model of Planets | Birthday Gift for Boys & Girls 8-14 YearsI Build, Rotate & Explore Astronomy | Learn Solar System & Science Facts",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81O6JmZrl3L._SL1500_.jpg",
+                    Price = 996.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FNDDRLZ2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B09KPMVV7Z",
+                    Title = "Wembley Foosball Football Table Soccer Game Board for Adults Kids Boys and Girls Indoor Sport with Medium Stand 6 Rows with 6 Handles,18 Players, 2 Ball - Wooden",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71W9Y+sJKGL._SL1500_.jpg",
+                    Price = 2136.0m,
+                    OriginalPrice = 2670.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B09KPMVV7Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D2RN7XVW",
+                    Title = "Smartivity My First Science Experiment Kit for Kids 6-8-10-12-14 Years I 50+ Amazing Science Experiments | Birthday Gift for Boys & Girls | Educational Toy for Kids 6,7,8,9,10,11,12 Years Old",
+                    Description = "Check out this top-rated education product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71xsiwc82uL._SL1500_.jpg",
+                    Price = 484.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Education",
+                    ProductUrl = "https://www.amazon.in/dp/B0D2RN7XVW?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CNT56SFG",
+                    Title = "Nutricook Steami X 24L Black (Steam + Air Fryer Oven) with 10-in-1 functions like Steam Cook, Steam Roast, Air Fry, Bake, Sterilize & more. Steam + Convection technology, 2200W power, 2-year warranty",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/712l2NOAUoL._SL1500_.jpg",
+                    Price = 22999.0m,
+                    OriginalPrice = 28748.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0CNT56SFG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B08S7MCNKT",
+                    Title = "Kuvings B1700 Dark Silver Cold Press Juicer for Home with Attachments, All-in-1 Juicer for Fruits, Vegetables & Nut Milk, Smoothie & Sorbet, Patented JMCS Technology 10% More Juice, 12 Yrs Warranty",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71I534VIPiL._SL1500_.jpg",
+                    Price = 27999.0m,
+                    OriginalPrice = 34998.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B08S7MCNKT?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B084KYJ1CV",
+                    Title = "Prestige 5 Litre Stainless Steel Deluxe Alpha Svachh Outer Lid Deep Pressure Pan Cooker | 10Y Warranty | Deep Lid for Spillage Control | TRIPLY Base | GRS | Gas & Induction Compatible | ISI",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51b3IHLTcdL._SL1200_.jpg",
+                    Price = 2874.0m,
+                    OriginalPrice = 3592.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B084KYJ1CV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GSZ8H487",
+                    Title = "Midea 8 Kg 5 Star Fully Automatic Front Load Washing Machine with Inverter Motor, Self Clean Drum Technology, 15 Wash Programs (MFG17W80B/T-IND, Titanium Grey)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/711-Oj7j1aL._SL1500_.jpg",
+                    Price = 23490.0m,
+                    OriginalPrice = 29362.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GSZ8H487?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B3JT1FPG",
+                    Title = "TEX-RO Kitchen Trolley with Wheels | 5-Layer Metal Vegetable Basket Stand & Kitchen Storage Rack | Multipurpose Kitchen Organizer for Onion Potato Storage (Black)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81E+IQQ4dmL._SL1500_.jpg",
+                    Price = 2931.0m,
+                    OriginalPrice = 3663.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0B3JT1FPG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C6H1Z1XM",
+                    Title = "NATURE PRIME 100% Natural&Crunchy Premium Whole Cashews 1 Kg (W320) Nutritious&Delicious Nuts, Premium Kaju Nuts|Gluten Free|Source Of Minerals&Vitamins|Dry Fruits (Jar Pack) (Packing May Differ)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71v8UCDrg1L._SL1500_.jpg",
+                    Price = 918.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0C6H1Z1XM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B01MU1CMWO",
+                    Title = "Farm Naturelle 100% Pure & Unrefined Cold Pressed White Sesame (Gingelly) Oil – 1L (Pack of 2) | Kolhu/Kacchi Ghani/Chekku | Natural Daily Cooking Oil | Chemical-Free | Rich Aroma & Flavour",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81LsP3x4A9L._SL1500_.jpg",
+                    Price = 888.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B01MU1CMWO?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CVN8G65P",
+                    Title = "NESCAFE Roastery | Premium Imported Coffee | Dark Roast | Crafted by Master Roasters |Elevate your Coffee Experience | Rich & Intense Taste | 95g Tin (New Launch) Can",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61nk-qQ0MbL._SL1500_.jpg",
+                    Price = 600.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0CVN8G65P?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B4KM9X8F",
+                    Title = "MYFITNESS Peanut Butter High Protein Dark Chocolate Spread Crispy 1kg | Added Whey Protein | 31g Protein for Muscle Building | 8g Fiber | Pre & Post-Workout Snacks | Cholesterol Free | Zero Trans Fat",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61chplSvsWL._SL1300_.jpg",
+                    Price = 483.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0B4KM9X8F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07F91JF1R",
+                    Title = "Amazon Brand - Vedaka Olive Pomace Oil | 2 L | Contains MUFA | Ideal for Frying, Roasting & Baking | Cooking Oil for Daily Use | No Artificial & No Added Preservatives",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61k8y0WR-oL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B07F91JF1R?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FDKRVFYL",
+                    Title = "Nobero Women’s Graphic Printed T-Shirt | Regular Fit 180 GSM Cotton Tee for Women | Comfortable Round Neck Casual Wear",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51aYUDu-d8L._SL1080_.jpg",
+                    Price = 499.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FDKRVFYL?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G7GXRRGM",
+                    Title = "United Colors of Benetton Women Tshirt",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61kRc1TuDqL._SL1500_.jpg",
+                    Price = 709.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0G7GXRRGM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DRP2HKM8",
+                    Title = "Reifica 100% Pure Cotton Printed Half Sleeve Oversized Tshirts for Women Combo Pack of 2",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/612+MjCrSCL._SL1440_.jpg",
+                    Price = 1599.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DRP2HKM8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D2GLFVVX",
+                    Title = "Marks & Spencer Women Jeans",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61bXxi0FqiL._SL1500_.jpg",
+                    Price = 2249.0m,
+                    OriginalPrice = 2811.25m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0D2GLFVVX?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H2S4RWR9",
+                    Title = "Flying Machine Women's Flared Fit Jeans| Solid | High Rise | Stretchable | Jeans for Woman",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81eV3JWAhtL._SL1500_.jpg",
+                    Price = 1559.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0H2S4RWR9?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FGJ5SSYW",
+                    Title = "Metro Women's Double Strap Block Heeled Sandals",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61iCGx57PtL._SL1500_.jpg",
+                    Price = 1233.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0FGJ5SSYW?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FN7KN3LH",
+                    Title = "Gufrina Women’s Abstract Printed Button Down Shirt with Mandarin Collar and Above Elbow Sleeve Relaxed Fit Top",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81YexWLn5yL._SL1500_.jpg",
+                    Price = 415.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FN7KN3LH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
