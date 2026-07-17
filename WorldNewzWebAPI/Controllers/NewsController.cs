@@ -372,7 +372,7 @@ namespace WorldNewzWebAPI.Controllers
 
 
         /// <summary>
-        /// Unified AI & Data Pipeline endpoint. Assembles AI Briefing (3-sentence summary + 3 takeaways),
+        /// Unified AI &amp; Data Pipeline endpoint. Assembles AI Briefing (3-sentence summary + 3 takeaways),
         /// Whitelisted Sources, and Category Contextual Poll into a unified DTO payload.
         /// </summary>
         [HttpGet("unified-story/{id}")]
