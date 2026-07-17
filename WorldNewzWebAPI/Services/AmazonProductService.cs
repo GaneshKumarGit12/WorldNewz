@@ -1594,6 +1594,188 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0FN7KN3LH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0DGF2MNBG",
+                    Title = "THE HEALING STORE 6-Piece Kansa Solid Dinner Set|Matte Finish|1 Plate (11.5' Thali),2 Bowls,1 Glass,1 Sweet Dish Plate,1 Spoon | Bronze Kansa Dinner Set 6 Shine Polish Finish (eaching Design)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81MVPhgzAJL._SL1500_.jpg",
+                    Price = 4514.0m,
+                    OriginalPrice = 5642.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0DGF2MNBG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F1MZB7N3",
+                    Title = "Talking, Rechargeable, Electronic Flash Cards Learning Toy, 110+ Interactive Double Sided Montessori Cards for 2–5 Year Old Boys, Educational Toy for 3 Year Old, Birthday Gift for Kids",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/616NTnG7nbL._SL1500_.jpg",
+                    Price = 283.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0F1MZB7N3?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C9TVJVSQ",
+                    Title = "Horse Bridle, Harness, Durable for Horse Nylon Race Horse Bridle with Export Quality bit (Blue)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51zy-0D8zvL._SL1200_.jpg",
+                    Price = 949.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0C9TVJVSQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CBPHPXG1",
+                    Title = "Florida All Season Ultra Soft Baby Blanket Pack of 2 | Kids AC Blanket, Flannel Wrapper & Travel Blanket for Newborn to 6 Years (110x150 cm)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/91qqC8iGYoL._SL1500_.jpg",
+                    Price = 929.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0CBPHPXG1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DRS8ZQ9P",
+                    Title = "HydraMax 360W Portable Blender 700ml | 22,000 RPM | 6000mAh Battery (35+ Blends) | 6 Stainless Blades | Fast Charging | BPA-Free | Waterproof | Multi-Purpose for Smoothies, Shakes & Baby Food",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71FJjCkr+WL._SL1500_.jpg",
+                    Price = 2421.0m,
+                    OriginalPrice = 3026.25m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0DRS8ZQ9P?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DH4JYX6L",
+                    Title = "Original Black Narmadeshwar 2 Inch Shivling, Lingam, Shiva Lingam & 4 Inch Jaladhari, Yoni Base, Lingam Holder, Shivling Stand for Home Puja",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61lnkysWIqL._SL1024_.jpg",
+                    Price = 900.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0DH4JYX6L?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FWRCG2Y5",
+                    Title = "Tem Dao & Dun Icon Men’s Perfume Set | SRK Edition | Woody, Spicy & Oud Eau de Parfum | 2 x 50ml Long-Lasting EDP | Premium Fragrance Combo by Fiori Perfumes",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61k8s3W-eAL._SL1080_.jpg",
+                    Price = 569.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FWRCG2Y5?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DZX98QT3",
+                    Title = "F LINE - TOBACCO VANILLE - Eau De Parfum 100ml for Men | Warm Tobacco, vanilla, tonka bean, dried fruits & woody | Long-Lasting | STRONG PROJECTION & HIGH CONCENTRATION | Premium Essential Oil-Based Perfume",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71QOumr+duL._SL1254_.jpg",
+                    Price = 809.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DZX98QT3?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GXZGNFV1",
+                    Title = "MAZRA Mosquito Killer Machine Mosquito Killer USB Powered Bug Zapper Mosquito Lamp for Home Electric LED Lamp Indoor/Outdoor Mosquito Trap Machine",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61LDm0jhpoL._SL1478_.jpg",
+                    Price = 284.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GXZGNFV1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GQBYMB2X",
+                    Title = "Multipurpose ABS Laser Level Line Tool Kit | Standard Cross | leveler Beam with Metric Rulers 8ft/2.5M for Picture Hanging cabinets Tile Walls (Black)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71jVKK6yjqL._SL1500_.jpg",
+                    Price = 417.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GQBYMB2X?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H4HFNRX9",
+                    Title = "Avatar Leak-Proof, BPA-Free for Pre & Post-Workout 700 ml Tritan Shaker (Pack of 1, Black)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61Ob6lI9dsL._SL1500_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0H4HFNRX9?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DJH69GKX",
+                    Title = "FILO HEVIS Men's Self Cord Polyster Regular fit Textured Casual Shirt.",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61KpSDD-hOL._SL1012_.jpg",
+                    Price = 759.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DJH69GKX?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DQQ58TY7",
+                    Title = "NoStrain Men's EVA Slippers - Ultra-Cushioned Comfort Chappal for Man | Lightweight Rubber Slippers for Men | Anti-Skid Bathroom Slipper & Daily Wear Flip Flops",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/610EakbGlhL._SL1500_.jpg",
+                    Price = 719.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DQQ58TY7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FFSQ8M7P",
+                    Title = "Stylish Blue Printed Floral Midi Dress for Women Anarkali Kurti Cotton Dress for Women- Flared Western Style Dress ||Western Frocks for Women Size s-3xl",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/810f8wtD2oL._SL1500_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FFSQ8M7P?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
