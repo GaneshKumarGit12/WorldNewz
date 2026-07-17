@@ -19,15 +19,37 @@ namespace WorldNewzWebAPI.Extensions
 
             try
             {
-                var uri = new Uri(url);
-                var userInfo = uri.UserInfo.Split(':');
-                var username = userInfo[0];
-                var password = userInfo.Length > 1 ? userInfo[1] : "";
-                var host = uri.Host;
-                var port = uri.Port == -1 ? 5432 : uri.Port;
-                var database = uri.AbsolutePath.TrimStart('/');
+                string scheme = url.StartsWith("postgres://") ? "postgres://" : "postgresql://";
+                string remainder = url.Substring(scheme.Length);
 
-                return $"Host={host};Port={port};Database={database};Username={username};Password={password};SSL Mode=Require;Trust Server Certificate=true;";
+                int lastAt = remainder.LastIndexOf('@');
+                if (lastAt == -1)
+                {
+                    return url;
+                }
+
+                string userInfoPart = remainder.Substring(0, lastAt);
+                string hostDbPart = remainder.Substring(lastAt + 1);
+
+                int firstColon = userInfoPart.IndexOf(':');
+                string username = firstColon == -1 ? userInfoPart : userInfoPart.Substring(0, firstColon);
+                string password = firstColon == -1 ? "" : userInfoPart.Substring(firstColon + 1);
+
+                int firstSlash = hostDbPart.IndexOf('/');
+                string hostPort = firstSlash == -1 ? hostDbPart : hostDbPart.Substring(0, firstSlash);
+                string database = firstSlash == -1 ? "" : hostDbPart.Substring(firstSlash + 1);
+
+                int questionMark = database.IndexOf('?');
+                if (questionMark != -1)
+                {
+                    database = database.Substring(0, questionMark);
+                }
+
+                int lastColonInHost = hostPort.LastIndexOf(':');
+                string host = lastColonInHost == -1 ? hostPort : hostPort.Substring(0, lastColonInHost);
+                string portStr = lastColonInHost == -1 ? "5432" : hostPort.Substring(lastColonInHost + 1);
+
+                return $"Host={host};Port={portStr};Database={database};Username={username};Password={password};SSL Mode=Require;Trust Server Certificate=true;";
             }
             catch (Exception ex)
             {
@@ -117,7 +139,12 @@ namespace WorldNewzWebAPI.Extensions
             {
                 if (connectionString.Contains("Host=") || connectionString.Contains("Port="))
                 {
-                    Console.WriteLine("✓ Database: PostgreSQL");
+                    var hostMatch = System.Text.RegularExpressions.Regex.Match(connectionString, @"Host=([^;]+)");
+                    var dbMatch = System.Text.RegularExpressions.Regex.Match(connectionString, @"Database=([^;]+)");
+                    var hostName = hostMatch.Success ? hostMatch.Groups[1].Value : "Unknown";
+                    var dbName = dbMatch.Success ? dbMatch.Groups[1].Value : "Unknown";
+
+                    Console.WriteLine($"✓ Database: PostgreSQL (Host: {hostName}, Database: {dbName})");
                     services.AddDbContext<WorldNewsDbContext>(options => options.UseNpgsql(connectionString));
                     services.AddDbContext<UserPollsDbContext>(options => options.UseNpgsql(userPollsConnectionString));
                 }
