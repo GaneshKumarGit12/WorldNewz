@@ -336,6 +336,25 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
+        [HttpPost("admin/refresh-all")]
+        public async Task<IActionResult> TriggerRefreshAll([FromServices] NewsService newsService, [FromQuery] int count = 5)
+        {
+            try
+            {
+                var categories = new[] { "Discover", "Sports", "Money", "Weather", "Shopping", "Politics", "Technology", "Business", "Science-Health", "Lifestyle", "Education", "Entertainment", "Food", "Travel", "Gaming", "Cartoons", "Services" };
+                foreach (var category in categories)
+                {
+                    await newsService.FetchAndCacheNews(category.ToLower());
+                }
+                await _enrichmentService.PreEnrichLatestArticlesAsync(count);
+                return Ok(new { success = true, message = "Refresh and pre-enrichment completed successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message, details = ex.InnerException?.Message ?? ex.Message });
+            }
+        }
+
         private async Task SaveFullContentToCacheAsync(string url, string fullContent)
         {
             try
