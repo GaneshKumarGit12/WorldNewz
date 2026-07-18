@@ -1776,6 +1776,214 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0FFSQ8M7P?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B01AC9G656",
+                    Title = "WOW Life Science Apple Cider Vinegar 750ml | Organic Himalayan Apples | Mother of Vinegar with Probiotics | Unfiltered & Unpasteurized | For Weight Management, Reduced Bloating, Healthy Skin & Hair",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61K4JVeJk1L._SL1080_.jpg",
+                    Price = 388.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B01AC9G656?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H6K7PXT9",
+                    Title = "AUSK Oversized T-Shirt for Womens || Graphic Front Printed Loose fit Womens Tshirt",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71T2Ds1VL-L._SL1500_.jpg",
+                    Price = 799.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0H6K7PXT9?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GZVK81MN",
+                    Title = "CHOSEN® TINTENSE® Tinted Sunscreen SPF 50 PA++++ | T1 (Bisque) | In-Vivo Tested | Lightweight Lotion | No White Cast | Broad Spectrum | Sweat Proof | With Hyaluronic acid & Beet extracts | Unisex, For All Skin Types | 40ml",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41ZAbUO40wL._SL1080_.jpg",
+                    Price = 1035.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GZVK81MN?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BMXCMP7T",
+                    Title = "TAOCOCO Recliner Protector,1 Seater Armchair Slipcovers,Waterproof Recliner Slipcovers,Recliner Covers with Pockets,Anti Slip Reclining Sofa Covers,Arm Chair Covers for Pets/Dogs/Kids(Chocolate)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71Due0+JYoL._SL1500_.jpg",
+                    Price = 1899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0BMXCMP7T?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D7J2VLDZ",
+                    Title = "SBT Instruments Light & Optics Physics Lab Kit | 12 Acrylic Lenses with Ray Box (1, 3 & 5 Beam Modes) | Red Light Source Educational Set for Class 9–12 | Optics Experiment Kit with Carrying Bag",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/717oeW2l09L._SL1500_.jpg",
+                    Price = 2649.0m,
+                    OriginalPrice = 3311.25m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0D7J2VLDZ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D9PDS3F7",
+                    Title = "Parshutara Premium Kashmiri Garlic 200g | Snow Mountain Single Clove Garlic | High Allicin | Immunity & Energy Booster | Ayurvedic Natural Superfood | Strong Aroma | Handpicked & Chemical-Free",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61UQ5jeteNL._SL1350_.jpg",
+                    Price = 349.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0D9PDS3F7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DGQRZF7L",
+                    Title = "exploralearn Ultimate Resin Art Kit - DIY Coaster Kit with 200 gm Epoxy Resin and silicone moulds - Comprehensive Resin Art Materials - Mica, Glitters and Flakes|Resin Art Kit for beginners|Multicolor",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81avBrDzF4L._SL1500_.jpg",
+                    Price = 549.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0DGQRZF7L?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B096SSY867",
+                    Title = "HARP® Green Shade Net 50% UV Stabilized – Sun & UV Protection for Greenhouse, Household, Nursery & Agriculture | Multipurpose Agro Netting | 1.5 m x 50 m (5 ft x 165 ft)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/719vKIyzcNL._SL1069_.jpg",
+                    Price = 1892.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B096SSY867?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DMMCD7S3",
+                    Title = "Noir's Premium Hazelnut Cappuccino Pods | Rich Dairy Creamer with Smoothy Hazelnut Flavor | Velvety Frothy Finish | Dolce Gusto Compatible Pods | Pack of 10",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51SSsVBN08L._SL1024_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0DMMCD7S3?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GHZB77S1",
+                    Title = "Demon Slayer Kyojuro Rengoku Wooden Katana Sword, 104cm Premium Bamboo Anime Flame Hashira Cosplay Replica with Display Stand",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71GC1dgJrtL._SL1016_.jpg",
+                    Price = 1844.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GHZB77S1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D3VBVHF4",
+                    Title = "castanea Glass Water Bottle with Leak-Proof Airtight Stainless Steel Lid for Water, Smoothie, Juices - Reusable Travel Glass Drinking Fridge Bottles - 1000ml (3)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51b2P0VYD-L._SL1000_.jpg",
+                    Price = 736.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0D3VBVHF4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FLK9WLZL",
+                    Title = "AYUDH 25.6V 100AH Lithium Ferro Phosphate (LiFePO4) Inverter Battery, Solar Compatible, 5 Years Warranty, Smart Bluetooth Connectivity",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51-Kyhoh6VL._SL1500_.jpg",
+                    Price = 36100.0m,
+                    OriginalPrice = 45125.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0FLK9WLZL?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FP4YN39V",
+                    Title = "RAD LVNG Cold Brew Coffee Grande | 350g Soy Wax Scented Candle | 45hr+ Burn | Gel Wax Cubes | Silicone Lid | Hand-Poured | Coffee, Cocoa, Vanilla | Gifting & Home Decor",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61Skvbd0+eL._SL1500_.jpg",
+                    Price = 1044.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FP4YN39V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GJRMYMPV",
+                    Title = "Clip and Go Strap for Phone with Wallet Crossbody, Phone Strap with Zippered Wallet, Adjustable Anti Theft Cellphone Lanyard for Women, Cellphone Chain Accessories",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71ET5u98MiL._SL1500_.jpg",
+                    Price = 569.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GJRMYMPV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BY4XW79R",
+                    Title = "Velocity Optics - Riding Sports Sunglass | Driving Clear Vision | Car Driving | Bike Riding Glasses (SG/VG781/D1)",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61QzfSdN0OL._SL1254_.jpg",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0BY4XW79R?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CLS4DGF3",
+                    Title = "Pure Cotton Lungi for Men, Premium Ethnicwear for Men | Blue Checkered Lungi | Hem Stitched Premium Single Dhoti | 100% Cotton Mundu (1.90 x 1.28 Meters)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61+QbXhT31L._SL1080_.jpg",
+                    Price = 811.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CLS4DGF3?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
