@@ -25,8 +25,8 @@ namespace WorldNewzWebAPI.Controllers
             {
                 var products = await _productService.GetAffiliateProductsAsync();
                 
-                // Allow caching for 1 hour to optimize performance, but set to public
-                Response.Headers.CacheControl = "public, max-age=3600";
+                // Disable caching to ensure newly added and seeded products are immediately visible to users
+                Response.Headers.CacheControl = "no-cache, no-store, must-revalidate";
                 
                 return Ok(new
                 {

@@ -30,7 +30,8 @@ namespace WorldNewzWebAPI.Extensions
                     if (path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase))
                     {
                         if (path.Contains("polls", StringComparison.OrdinalIgnoreCase) || 
-                            path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase))
+                            path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase) ||
+                            path.Contains("amazonproducts", StringComparison.OrdinalIgnoreCase))
                         {
                             context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
                             context.Response.Headers["Pragma"] = "no-cache";
