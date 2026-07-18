@@ -1,8 +1,14 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /swagger/
 Disallow: /admin/
-Disallow: /private/
+Disallow: /hubs/
+Disallow: /health
+Disallow: /search
+Disallow: /gsearch
+Disallow: /bookmarks
+Disallow: /comments
 
 Sitemap: https://worldnewzs.in/sitemap.xml
 Sitemap: https://worldnewzs.in/news-sitemap.xml

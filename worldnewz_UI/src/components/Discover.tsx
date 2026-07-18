@@ -174,40 +174,118 @@ const Discover: React.FC = () => {
         keywords={['discover', 'news', dailyKeyword]}
         canonical="https://worldnewzs.in"
       />
-      {/* Page Header */}
-      <Box sx={{ mb: 3 }}>
+      {/* Page Header Banner */}
+      <Box 
+        sx={{ 
+          mb: 4, 
+          p: { xs: 3, md: 4 }, 
+          borderRadius: 4, 
+          background: (theme) => theme.palette.mode === "dark" 
+            ? "linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.6))"
+            : "linear-gradient(135deg, #f8fafc, #f1f5f9)",
+          border: "1px solid",
+          borderColor: "divider",
+          boxShadow: (theme) => theme.palette.mode === "dark"
+            ? "inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0,0,0,0.2)"
+            : "0 2px 10px rgba(0,0,0,0.02)",
+          position: "relative",
+          overflow: "hidden"
+        }}
+      >
+        <Box 
+          sx={{ 
+            position: "absolute", 
+            top: -100, 
+            right: -100, 
+            width: 300, 
+            height: 300, 
+            borderRadius: "50%", 
+            background: "radial-gradient(circle, rgba(200, 58, 21, 0.08) 0%, rgba(255,112,67,0) 70%)",
+            filter: "blur(40px)",
+            pointerEvents: "none"
+          }}
+        />
         <Typography
           variant="h3"
           component="h1"
-          sx={{ fontWeight: 700, mb: 0.5, fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" } }}
+          sx={{ 
+            fontWeight: 850, 
+            mb: 1, 
+            fontSize: { xs: "2rem", sm: "2.4rem", md: "2.8rem" },
+            letterSpacing: "-0.02em",
+            background: (theme) => theme.palette.mode === "dark"
+              ? "linear-gradient(90deg, #ffffff, #cbd5e1)"
+              : "linear-gradient(90deg, #0f172a, #475569)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}
         >
           Discover Global News – WorldNewzs
         </Typography>
-        <Typography variant="body1" sx={{ color: "text.secondary" }}>
-          Real-time curated news, deep editorial briefings, and global updates
+        <Typography 
+          variant="body1" 
+          sx={{ 
+            color: "text.secondary", 
+            fontWeight: 500, 
+            maxWidth: "600px", 
+            lineHeight: 1.6,
+            fontSize: { xs: "0.9rem", sm: "1rem" } 
+          }}
+        >
+          Real-time curated news, deep editorial briefings, and global updates updated continuously.
         </Typography>
       </Box>
 
-      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", md: "1.35fr 0.85fr" }, mb: 4 }}>
-        <Paper elevation={0} sx={{ p: { xs: 2.25, sm: 3 }, borderRadius: 3, border: "1px solid", borderColor: "divider", background: (theme) => theme.palette.mode === "dark" ? "rgba(15, 23, 42, 0.6)" : "#ffffff" }}>
-          <Typography variant="overline" sx={{ fontWeight: 800, color: "primary.main", letterSpacing: "0.16em" }}>
+      <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", md: "1.35fr 0.85fr" }, mb: 5 }}>
+        <Paper 
+          elevation={0} 
+          sx={{ 
+            p: { xs: 2.5, sm: 3.5 }, 
+            borderRadius: 4, 
+            border: "1px solid", 
+            borderColor: "divider", 
+            background: (theme) => theme.palette.mode === "dark" ? "rgba(30, 41, 59, 0.4)" : "#ffffff",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              borderColor: "primary.main",
+              transform: "translateY(-2px)",
+              boxShadow: (theme) => theme.palette.mode === "dark" ? "0 8px 30px rgba(0,0,0,0.3)" : "0 8px 24px rgba(0,0,0,0.04)"
+            }
+          }}
+        >
+          <Typography variant="overline" sx={{ fontWeight: 800, color: "primary.main", letterSpacing: "0.18em", display: "block", mb: 0.5 }}>
             TODAY'S NEWS FOCUS
           </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+          <Typography variant="h6" sx={{ fontWeight: 800, mb: 1.5, lineHeight: 1.35, fontSize: { xs: "1.1rem", sm: "1.25rem" } }}>
             The story mix is shifting fast — from market moves to major policy updates and cultural headlines.
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.875rem" }}>
             WorldNewzs keeps this homepage tuned for speed, clarity, and context so readers can quickly scan what matters most without losing the broader picture.
           </Typography>
         </Paper>
-        <Paper elevation={0} sx={{ p: { xs: 2.25, sm: 3 }, borderRadius: 3, border: "1px solid", borderColor: "divider", background: (theme) => theme.palette.mode === "dark" ? "rgba(30, 41, 59, 0.55)" : "#f8fafc" }}>
-          <Typography variant="overline" sx={{ fontWeight: 800, color: "text.secondary", letterSpacing: "0.16em" }}>
+        <Paper 
+          elevation={0} 
+          sx={{ 
+            p: { xs: 2.5, sm: 3.5 }, 
+            borderRadius: 4, 
+            border: "1px solid", 
+            borderColor: "divider", 
+            background: (theme) => theme.palette.mode === "dark" ? "rgba(30, 41, 59, 0.45)" : "#f8fafc",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              borderColor: "primary.main",
+              transform: "translateY(-2px)",
+              boxShadow: (theme) => theme.palette.mode === "dark" ? "0 8px 30px rgba(0,0,0,0.3)" : "0 8px 24px rgba(0,0,0,0.04)"
+            }
+          }}
+        >
+          <Typography variant="overline" sx={{ fontWeight: 800, color: "text.secondary", letterSpacing: "0.18em", display: "block", mb: 0.5 }}>
             WHY READERS STAY
           </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 800, mt: 0.5, mb: 1 }}>
+          <Typography variant="h6" sx={{ fontWeight: 800, mb: 1.5, lineHeight: 1.35, fontSize: { xs: "1.1rem", sm: "1.25rem" } }}>
             Verified coverage, editorial briefings, and useful tools in one place.
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.875rem" }}>
             The homepage now blends breaking headlines with deeper explainers, live utility widgets, and direct access to editorial analysis.
           </Typography>
         </Paper>
@@ -223,12 +301,32 @@ const Discover: React.FC = () => {
       >
         {topStoriesArticles.length > 0 && (
           <Box sx={{ mb: 4 }}>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
-              <Typography variant="h5" component="h2" sx={{ fontWeight: 800, display: "flex", alignItems: "center", gap: 1 }}>
-                Top Stories ⚡
+            <Box 
+              sx={{ 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "space-between", 
+                mb: 3, 
+                pb: 1.5,
+                borderBottom: "2px solid",
+                borderColor: "divider"
+              }}
+            >
+              <Typography 
+                variant="h5" 
+                component="h2" 
+                sx={{ 
+                  fontWeight: 850, 
+                  display: "flex", 
+                  alignItems: "center", 
+                  gap: 1.25,
+                  fontSize: { xs: "1.3rem", sm: "1.5rem" }
+                }}
+              >
+                Top Stories <span style={{ color: "#ef4444" }}>⚡</span>
               </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
-                Curated by WorldNewzs Editorial Engine
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                Curated Editorial Engine
               </Typography>
             </Box>
             <NewsGrid
@@ -317,9 +415,31 @@ const Discover: React.FC = () => {
       </Paper>
 
       {/* ✅ 3. DYNAMIC INTERACTIVE FEATURES (Polls, Badge Quiz, MoviesDB) */}
-      <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
-        Interactive & Fun Hub 🎮
-      </Typography>
+      <Box 
+        sx={{ 
+          display: "flex", 
+          alignItems: "center", 
+          mb: 3, 
+          mt: 2,
+          pb: 1.5,
+          borderBottom: "2px solid",
+          borderColor: "divider"
+        }}
+      >
+        <Typography 
+          variant="h5" 
+          component="h2" 
+          sx={{ 
+            fontWeight: 850, 
+            display: "flex", 
+            alignItems: "center", 
+            gap: 1.25,
+            fontSize: { xs: "1.3rem", sm: "1.5rem" }
+          }}
+        >
+          Interactive & Fun Hub <span style={{ color: "#3b82f6" }}>🎮</span>
+        </Typography>
+      </Box>
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {/* Polls Highlight Card */}
         <Grid size={{ xs: 12, sm: 6, md: 3 }}>
@@ -515,9 +635,30 @@ const Discover: React.FC = () => {
       {/* ✅ 4. MORE NEWS GRID */}
       {remainingArticles.length > 0 && (
         <Box sx={{ my: 4 }}>
-          <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
-            More Global News 🌐
-          </Typography>
+          <Box 
+            sx={{ 
+              display: "flex", 
+              alignItems: "center", 
+              mb: 3, 
+              pb: 1.5,
+              borderBottom: "2px solid",
+              borderColor: "divider"
+            }}
+          >
+            <Typography 
+              variant="h5" 
+              component="h2" 
+              sx={{ 
+                fontWeight: 850, 
+                display: "flex", 
+                alignItems: "center", 
+                gap: 1.25,
+                fontSize: { xs: "1.3rem", sm: "1.5rem" }
+              }}
+            >
+              More Global News <span style={{ color: "#10b981" }}>🌐</span>
+            </Typography>
+          </Box>
           <NewsGrid
             articles={remainingArticles}
             onBookmark={addBookmark}
@@ -542,9 +683,30 @@ const Discover: React.FC = () => {
 
       {/* ✅ 5. COLLAPSIBLE MARKET TOOLS & DASHBOARD (Below News Feed) */}
       <Box sx={{ mt: 6, pt: 3, borderTop: "1px solid", borderColor: "divider" }}>
-        <Typography variant="h5" component="h2" sx={{ fontWeight: 800, mb: 2 }}>
-          Market & Utility Tools 🛠️
-        </Typography>
+        <Box 
+          sx={{ 
+            display: "flex", 
+            alignItems: "center", 
+            mb: 3, 
+            pb: 1.5,
+            borderBottom: "2px solid",
+            borderColor: "divider"
+          }}
+        >
+          <Typography 
+            variant="h5" 
+            component="h2" 
+            sx={{ 
+              fontWeight: 850, 
+              display: "flex", 
+              alignItems: "center", 
+              gap: 1.25,
+              fontSize: { xs: "1.3rem", sm: "1.5rem" }
+            }}
+          >
+            Market & Utility Tools <span style={{ color: "#f59e0b" }}>🛠️</span>
+          </Typography>
+        </Box>
         <Grid container spacing={3} id="homepage-widgets-dashboard">
           <Grid size={{ xs: 12, md: 4 }}>
             <WatchlistWidget />

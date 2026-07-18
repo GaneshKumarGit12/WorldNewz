@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
 import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
@@ -13,6 +13,7 @@ import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
@@ -186,8 +187,11 @@ const NewsCard: React.FC<NewsCardProps> = ({
         }}
       >
         <Box sx={{ position: "relative", paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
-          {/* Category Tag overlay on image */}
+          {/* Category Tag overlay on image - Clickable Reciprocal Link */}
           <Box
+            component={RouterLink}
+            to={categoryConfig.path}
+            onClick={(e) => e.stopPropagation()}
             sx={{
               position: "absolute",
               top: 8,
@@ -205,6 +209,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
               textTransform: "uppercase",
               boxShadow: "0 2px 4px rgba(0,0,0,0.4)",
               zIndex: 2,
+              textDecoration: "none",
+              cursor: "pointer",
+              transition: "transform 0.2s ease, opacity 0.2s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+                opacity: 0.9,
+              }
             }}
           >
             {categoryConfig.icon}
@@ -269,11 +280,40 @@ const NewsCard: React.FC<NewsCardProps> = ({
                   overflow: "hidden", 
                   lineHeight: 1.4,
                   fontSize: "0.8rem",
-                  mb: 1
+                  mb: 0.5
                 }}
               >
                 {article.summary || article.description}
               </Typography>
+
+              {/* Continue Reading indicator */}
+              <Box sx={{ display: "flex", justifyContent: "flex-start", mb: 1 }}>
+                <Typography
+                  variant="caption"
+                  component="span"
+                  sx={{
+                    color: categoryConfig.color,
+                    fontWeight: 700,
+                    fontSize: "0.725rem",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 0.25,
+                    cursor: "pointer",
+                    transition: "gap 0.2s ease",
+                    "&:hover": {
+                      textDecoration: "underline",
+                      gap: "6px",
+                    }
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCardClick();
+                  }}
+                >
+                  Continue reading
+                  <ArrowForwardIcon sx={{ fontSize: "0.8rem" }} />
+                </Typography>
+              </Box>
 
               {/* Timestamp & Source Labeling with Verified badge */}
               <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', fontSize: '0.725rem' }}>

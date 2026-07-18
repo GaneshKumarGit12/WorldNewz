@@ -22,65 +22,66 @@ export interface CategoryConfig {
   color: string;
   icon: React.ReactNode;
   name: string;
+  path: string;
 }
 
 export const getCategoryConfig = (category?: string): CategoryConfig => {
   const cat = (category || '').toLowerCase().trim();
   
   if (cat.includes('politics') || cat.includes('government') || cat.includes('election') || cat.includes('policy')) {
-    return { color: '#0d6efd', icon: <AccountBalanceIcon fontSize="inherit" />, name: 'Politics' };
+    return { color: '#0d6efd', icon: <AccountBalanceIcon fontSize="inherit" />, name: 'Politics', path: '/politics' };
   }
   if (cat.includes('tech') || cat.includes('software') || cat.includes('gadget') || cat.includes('computer')) {
-    return { color: '#2196f3', icon: <LaptopIcon fontSize="inherit" />, name: 'Technology' };
+    return { color: '#2196f3', icon: <LaptopIcon fontSize="inherit" />, name: 'Technology', path: '/technology' };
   }
   if (cat.includes('business') || cat.includes('corporate') || cat.includes('market') || cat.includes('startup')) {
-    return { color: '#0f172a', icon: <BusinessCenterIcon fontSize="inherit" />, name: 'Business' };
+    return { color: '#0f172a', icon: <BusinessCenterIcon fontSize="inherit" />, name: 'Business', path: '/business' };
   }
   if ((cat.includes('science') && cat.includes('health')) || cat.includes('science-health') || cat.includes('health & science') || cat.includes('health-science')) {
-    return { color: '#10b981', icon: <MedicalServicesIcon fontSize="inherit" />, name: 'Science & Health' };
+    return { color: '#10b981', icon: <MedicalServicesIcon fontSize="inherit" />, name: 'Science & Health', path: '/science-health' };
   }
   if (cat.includes('science') || cat.includes('space') || cat.includes('environment')) {
-    return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science' };
+    return { color: '#4caf50', icon: <ScienceIcon fontSize="inherit" />, name: 'Science', path: '/science-health' };
   }
   if (cat.includes('health') || cat.includes('medical') || cat.includes('medicine') || cat.includes('fitness')) {
-    return { color: '#10b981', icon: <MedicalServicesIcon fontSize="inherit" />, name: 'Science & Health' };
+    return { color: '#10b981', icon: <MedicalServicesIcon fontSize="inherit" />, name: 'Science & Health', path: '/science-health' };
   }
   if (cat.includes('lifestyle') || cat.includes('life style') || cat.includes('fashion') || cat.includes('culture') || cat.includes('wellness') || cat.includes('home')) {
-    return { color: '#ec4899', icon: <SelfImprovementIcon fontSize="inherit" />, name: 'Lifestyle' };
+    return { color: '#ec4899', icon: <SelfImprovementIcon fontSize="inherit" />, name: 'Lifestyle', path: '/lifestyle' };
   }
   if (cat.includes('education') || cat.includes('school') || cat.includes('learning') || cat.includes('career') || cat.includes('university') || cat.includes('exam')) {
-    return { color: '#8b5cf6', icon: <SchoolIcon fontSize="inherit" />, name: 'Education' };
+    return { color: '#8b5cf6', icon: <SchoolIcon fontSize="inherit" />, name: 'Education', path: '/education' };
   }
   if (cat.includes('opinion') || cat.includes('editorial') || cat.includes('column') || cat.includes('perspective') || cat.includes('analyse') || cat.includes('analysis')) {
-    return { color: '#f59e0b', icon: <RateReviewIcon fontSize="inherit" />, name: 'Opinion' };
+    return { color: '#f59e0b', icon: <RateReviewIcon fontSize="inherit" />, name: 'Opinion', path: '/opinion' };
   }
   if (cat.includes('trending') || cat.includes('viral') || cat.includes('pop culture') || cat.includes('meme')) {
-    return { color: '#ef4444', icon: <WhatshotIcon fontSize="inherit" />, name: 'Trending' };
+    return { color: '#ef4444', icon: <WhatshotIcon fontSize="inherit" />, name: 'Trending', path: '/trending' };
   }
   if (cat.includes('podcast') || cat.includes('video') || cat.includes('multimedia') || cat.includes('audio') || cat.includes('clip')) {
-    return { color: '#d946ef', icon: <PodcastsIcon fontSize="inherit" />, name: 'Podcasts & Videos' };
+    return { color: '#d946ef', icon: <PodcastsIcon fontSize="inherit" />, name: 'Podcasts & Videos', path: '/podcasts-videos' };
   }
   if (cat.includes('local') || cat.includes('india') || cat.includes('regional') || cat.includes('hyderabad') || cat.includes('telangana')) {
-    return { color: '#06b6d4', icon: <LocationOnIcon fontSize="inherit" />, name: 'Local News' };
+    return { color: '#06b6d4', icon: <LocationOnIcon fontSize="inherit" />, name: 'Local News', path: '/local-news' };
   }
   if (cat.includes('sports') || cat.includes('cricket') || cat.includes('football') || cat.includes('game') || cat.includes('match') || cat.includes('soccer')) {
-    return { color: '#f44336', icon: <SportsSoccerIcon fontSize="inherit" />, name: 'Sports' };
+    return { color: '#f44336', icon: <SportsSoccerIcon fontSize="inherit" />, name: 'Sports', path: '/sports' };
   }
   if (cat.includes('money') || cat.includes('finance') || cat.includes('stock') || cat.includes('economy')) {
-    return { color: '#e91e63', icon: <MonetizationOnIcon fontSize="inherit" />, name: 'Money' };
+    return { color: '#e91e63', icon: <MonetizationOnIcon fontSize="inherit" />, name: 'Money', path: '/money' };
   }
   if (cat.includes('food') || cat.includes('recipe') || cat.includes('cooking') || cat.includes('restaurant') || cat.includes('dine') || cat.includes('dining')) {
-    return { color: '#9c27b0', icon: <RestaurantIcon fontSize="inherit" />, name: 'Food' };
+    return { color: '#9c27b0', icon: <RestaurantIcon fontSize="inherit" />, name: 'Food', path: '/food' };
   }
   if (cat.includes('shopping') || cat.includes('store') || cat.includes('retail') || cat.includes('deal') || cat.includes('discount')) {
-    return { color: '#00bcd4', icon: <ShoppingBagIcon fontSize="inherit" />, name: 'Shopping' };
+    return { color: '#00bcd4', icon: <ShoppingBagIcon fontSize="inherit" />, name: 'Shopping', path: '/shopping' };
   }
   if (cat.includes('travel') || cat.includes('flight') || cat.includes('destination') || cat.includes('hotel') || cat.includes('tourism')) {
-    return { color: '#009688', icon: <FlightIcon fontSize="inherit" />, name: 'Travel' };
+    return { color: '#009688', icon: <FlightIcon fontSize="inherit" />, name: 'Travel', path: '/travel' };
   }
   if (cat.includes('entertainment') || cat.includes('movie') || cat.includes('music') || cat.includes('celebrity') || cat.includes('showbiz') || cat.includes('cinema')) {
-    return { color: '#673ab7', icon: <MovieIcon fontSize="inherit" />, name: 'Entertainment' };
+    return { color: '#673ab7', icon: <MovieIcon fontSize="inherit" />, name: 'Entertainment', path: '/entertainment' };
   }
   
-  return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover' };
+  return { color: '#ff9800', icon: <ExploreIcon fontSize="inherit" />, name: 'Discover', path: '/' };
 };
