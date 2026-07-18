@@ -639,6 +639,7 @@ const ReadFullArticles: React.FC = () => {
                     {index === 2 && (
                       <ContextualPollWidget
                         category={article.category}
+                        articleUrl={article.url}
                       />
                     )}
                     {index === 5 && (

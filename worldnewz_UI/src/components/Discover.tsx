@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useOutletContext, Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { fetchDiscover } from "../api/apiClient";
@@ -19,6 +19,9 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import { WatchlistWidget } from "./WatchlistWidget";
 import { TopEngagingNewsWidget } from "./TopEngagingNewsWidget";
 import { ShoppingWidget } from "./ShoppingWidget";
@@ -57,6 +60,36 @@ const Discover: React.FC = () => {
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
+  const [personalTab, setPersonalTab] = useState<"recommended" | "trending">("recommended");
+
+  const recommendedArticles = React.useMemo(() => {
+    try {
+      const weights = JSON.parse(localStorage.getItem("worldnewz_category_weights") || "{}");
+      return [...articles].sort((a, b) => {
+        const catA = (a.category || "News").toLowerCase();
+        const catB = (b.category || "News").toLowerCase();
+        const weightA = weights[catA] || 0;
+        const weightB = weights[catB] || 0;
+        
+        const scoreA = weightA * 10 + (getEngagement(a.url || "")?.likes || 0);
+        const scoreB = weightB * 10 + (getEngagement(b.url || "")?.likes || 0);
+        return scoreB - scoreA;
+      }).slice(0, 4);
+    } catch {
+      return articles.slice(0, 4);
+    }
+  }, [articles, getEngagement]);
+
+  const trendingArticles = React.useMemo(() => {
+    return [...articles].sort((a, b) => {
+      const engA = getEngagement(a.url || "") || { likes: 0, comments: [] };
+      const engB = getEngagement(b.url || "") || { likes: 0, comments: [] };
+      
+      const scoreA = (engA.likes * 2) + (engA.comments?.length || 0) * 5 + (a.title.length % 5);
+      const scoreB = (engB.likes * 2) + (engB.comments?.length || 0) * 5 + (b.title.length % 5);
+      return scoreB - scoreA;
+    }).slice(0, 4);
+  }, [articles, getEngagement]);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   let filteredArticles = articles.filter((article) => {
@@ -418,6 +451,54 @@ const Discover: React.FC = () => {
           </Grid>
         </Grid>
       </Paper>
+
+      {/* Personalized Feed Widget: Recommended For You & Trending Now */}
+      {articles.length > 0 && (
+        <Box sx={{ my: 5, p: 3, borderRadius: 3, border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, pb: 1, mb: 3 }}>
+            <Box>
+              <Typography variant="h5" sx={{ fontWeight: 850, mb: 0.5 }}>Personalized Portal 🎯</Typography>
+              <Typography variant="body2" color="text.secondary">Tailored headlines and community trending pulses updated in real-time.</Typography>
+            </Box>
+            <Tabs 
+              value={personalTab} 
+              onChange={(_, val) => setPersonalTab(val)}
+              sx={{
+                '& .MuiTabs-indicator': { height: 3, borderRadius: '3px 3px 0 0' }
+              }}
+            >
+              <Tab 
+                value="recommended" 
+                icon={<AutoAwesomeIcon fontSize="small" />} 
+                iconPosition="start" 
+                label="For You" 
+                sx={{ fontWeight: 700 }}
+              />
+              <Tab 
+                value="trending" 
+                icon={<WhatshotIcon fontSize="small" />} 
+                iconPosition="start" 
+                label="Trending" 
+                sx={{ fontWeight: 700 }}
+              />
+            </Tabs>
+          </Box>
+
+          <NewsGrid
+            articles={personalTab === "recommended" ? recommendedArticles : trendingArticles}
+            onBookmark={addBookmark}
+            onRemoveBookmark={removeBookmark}
+            isBookmarked={isBookmarked}
+            onLike={toggleLike}
+            onDislike={toggleDislike}
+            onAddComment={addComment}
+            onDeleteComment={deleteComment}
+            onLikeComment={likeComment}
+            onDislikeComment={dislikeComment}
+            getEngagement={getEngagement}
+          />
+        </Box>
+      )}
 
       {/* ✅ 3. DYNAMIC INTERACTIVE FEATURES (Polls, Badge Quiz, MoviesDB) */}
       <Box 

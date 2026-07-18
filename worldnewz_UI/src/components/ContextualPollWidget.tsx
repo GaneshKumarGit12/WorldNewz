@@ -6,13 +6,137 @@ import { submitSingleVote } from "../api/apiClient";
 import type { ContextualPollData } from "../api/apiClient";
 import { startPollsSignalR } from "../services/pollsSignalR";
 
+const ALTERNATIVE_POLLS: Record<string, Array<{ question: string; options: string[] }>> = {
+  politics: [
+    {
+      question: "Should governments restrict social media algorithms for minors?",
+      options: ["Yes, absolutely", "No, it's parental choice", "Neutral / Unsure"]
+    },
+    {
+      question: "Do you believe artificial intelligence will influence global elections this year?",
+      options: ["Yes, significantly", "No, impact is overstated", "Unsure"]
+    },
+    {
+      question: "Is increased voter turn-out the primary driver of regional policy reforms?",
+      options: ["Yes, majorly", "No, lobbying has more weight", "Depends on the region"]
+    }
+  ],
+  technology: [
+    {
+      question: "Will generative AI completely replace traditional software engineering within 5 years?",
+      options: ["Yes, code automation is too fast", "No, developers will adapt", "Partially (hybrid assistance)"]
+    },
+    {
+      question: "Would you trust a fully autonomous self-driving vehicle for your daily commute?",
+      options: ["Yes, immediately", "No, safety concerns", "Only on dedicated highway lanes"]
+    },
+    {
+      question: "Should large tech conglomerates be split to foster open market competition?",
+      options: ["Yes, monopolies hurt consumers", "No, scale drives innovation", "Indifferent"]
+    }
+  ],
+  business: [
+    {
+      question: "Are remote-first schedules sustainable for corporate productivity long term?",
+      options: ["Yes, improves employee retention", "No, return-to-office builds culture", "Hybrid is the ideal balance"]
+    },
+    {
+      question: "Do you believe digital cryptocurrencies are a viable alternative to traditional currencies?",
+      options: ["Yes, decentralized future", "No, speculative assets", "Only under strict government regulation"]
+    },
+    {
+      question: "Are current startup valuation metrics aligned with real economic value?",
+      options: ["Yes, based on growth potential", "No, heavily bloated by hype", "Varies by sector"]
+    }
+  ],
+  "science-health": [
+    {
+      question: "Do you prioritize mental health support as much as physical healthcare routines?",
+      options: ["Yes, both are equally critical", "No, focus more on physical", "Need to balance them better"]
+    },
+    {
+      question: "Should global space agencies prioritize Mars exploration over building Moon colonies?",
+      options: ["Mars missions directly", "Moon base first as stepping stone", "Focus resources on Earth instead"]
+    },
+    {
+      question: "Will mRNA gene therapies revolutionize modern cancer oncology treatments?",
+      options: ["Yes, highly optimistic", "No, too many hurdles", "Unsure / Early to tell"]
+    }
+  ],
+  sports: [
+    {
+      question: "Do you believe professional athletic records can still be broken without performance aids?",
+      options: ["Yes, human potential is limitless", "No, we have reached physical peaks", "Only with improved sportswear technology"]
+    },
+    {
+      question: "Is the integration of video replay reviews (VAR) improving sports integrity?",
+      options: ["Yes, corrects critical errors", "No, ruins the flow and emotion", "Yes, but rules must be simplified"]
+    }
+  ],
+  money: [
+    {
+      question: "Is a 50/30/20 budgeting rule realistic in today's economy?",
+      options: ["Yes, crucial constraint", "No, savings rate must be higher", "No, living costs are too high"]
+    },
+    {
+      question: "Should index-matching funds form the core of long-term retirement investments?",
+      options: ["Yes, low fees and steady returns", "No, active stock pickers beat indexing", "Prefer real estate / commodities"]
+    }
+  ]
+};
+
+const DEFAULT_POLLS = [
+  {
+    question: "Do you agree with the primary takeaways of today's news briefing summaries?",
+    options: ["Yes, summaries are balanced", "No, seems biased", "Neutral / Undecided"]
+  },
+  {
+    question: "Are AI-powered news summaries helpful for your daily information intake?",
+    options: ["Very helpful", "No change", "Prefer reading the full source articles"]
+  }
+];
+
 interface ContextualPollWidgetProps {
   initialPoll?: ContextualPollData;
   category?: string;
+  articleUrl?: string;
 }
 
-export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ initialPoll, category }) => {
-  const [poll, setPoll] = useState<ContextualPollData | undefined>(initialPoll);
+export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ initialPoll, category, articleUrl }) => {
+  const getDynamicPoll = (): ContextualPollData => {
+    const catKey = (category || "general").toLowerCase();
+    const pollList = ALTERNATIVE_POLLS[catKey] || DEFAULT_POLLS;
+    
+    let index = 0;
+    if (articleUrl) {
+      const hash = articleUrl.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      index = Math.abs(hash) % pollList.length;
+    }
+    
+    const selected = pollList[index];
+    const simulatedVotes = [124, 87, 43, 62, 105];
+    const optionsData = selected.options.map((opt, i) => ({
+      optionId: i + 1,
+      text: opt,
+      votes: simulatedVotes[i % simulatedVotes.length]
+    }));
+    
+    let pollIdNum = index + 1000;
+    const hash = catKey.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    pollIdNum += hash * 10;
+
+    return {
+      pollId: pollIdNum,
+      question: selected.question,
+      options: optionsData,
+      totalVotes: optionsData.reduce((sum, o) => sum + o.votes, 0)
+    };
+  };
+
+  const [poll, setPoll] = useState<ContextualPollData | undefined>(() => {
+    if (initialPoll) return initialPoll;
+    return getDynamicPoll();
+  });
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
   const [hasVoted, setHasVoted] = useState<boolean>(false);
   const [voting, setVoting] = useState<boolean>(false);
@@ -20,8 +144,14 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
   useEffect(() => {
     if (initialPoll) {
       setPoll(initialPoll);
+      setHasVoted(false);
+      setSelectedOptionId(null);
+    } else {
+      setPoll(getDynamicPoll());
+      setHasVoted(false);
+      setSelectedOptionId(null);
     }
-  }, [initialPoll]);
+  }, [initialPoll, category, articleUrl]);
 
   // Subscribe to real-time live voting updates via SignalR
   useEffect(() => {
@@ -103,7 +233,7 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
       {!hasVoted ? (
         <Box>
           <RadioGroup
-            value={selectedOptionId ?? ""}
+            value={selectedOptionId !== null ? String(selectedOptionId) : ""}
             onChange={(e) => setSelectedOptionId(Number(e.target.value))}
             sx={{ mb: 2 }}
           >
@@ -126,7 +256,7 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
                 }}
               >
                 <FormControlLabel
-                  value={option.optionId}
+                  value={String(option.optionId)}
                   control={<Radio size="small" inputProps={{ "aria-label": `Vote for ${option.text}` }} />}
                   label={<Typography variant="body2" sx={{ fontWeight: 600 }}>{option.text}</Typography>}
                   sx={{ width: "100%", m: 0 }}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar, Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, IconButton, Box, Avatar, Menu, MenuItem, ListItemIcon, ListItemText, Collapse } from "@mui/material";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -14,6 +14,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
 import { optimizeImageUrl } from "../utils/imageOptimizer";
@@ -56,6 +58,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
   const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
   const shareOpen = Boolean(shareAnchorEl);
+  const [expanded, setExpanded] = useState(false);
 
   const originalUrl = article.urlToImage || article.imageUrl || "";
   const optimizedUrl = React.useMemo(() => {
@@ -141,8 +144,17 @@ const NewsCard: React.FC<NewsCardProps> = ({
     setShareAnchorEl(null);
     const url = article.url || window.location.href;
     const text = article.socialMediaHook || article.headline || article.title || "";
-    let shareUrl = "";
+    
+    if (platform === "copy") {
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Article link copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy link:", err);
+      });
+      return;
+    }
 
+    let shareUrl = "";
     switch (platform) {
       case "facebook":
         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
@@ -177,16 +189,19 @@ const NewsCard: React.FC<NewsCardProps> = ({
           boxShadow: (theme) => theme.palette.mode === "light" ? "0 2px 6px rgba(0,0,0,0.05)" : "none",
           borderRadius: 2,
           overflow: "hidden",
-          transition: "transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease",
+          transition: "transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease",
           cursor: "pointer",
           "&:hover": {
-            transform: "translateY(-3px)",
+            transform: "translateY(-4px)",
             borderColor: (theme) => theme.palette.mode === "light" ? "#94a3b8" : "rgba(255, 255, 255, 0.2)",
-            boxShadow: (theme) => theme.palette.mode === "light" ? "0 8px 20px rgba(0,0,0,0.1)" : "0 8px 24px rgba(0,0,0,0.4)",
+            boxShadow: (theme) => theme.palette.mode === "light" ? "0 12px 28px rgba(0,0,0,0.08)" : "0 12px 32px rgba(0,0,0,0.5)",
+            "& .MuiCardMedia-root": {
+              transform: "scale(1.04)"
+            }
           },
         }}
       >
-        <Box sx={{ position: "relative", paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
+        <Box sx={{ position: "relative", paddingTop: "56.25%" /* 16:9 aspect ratio */, overflow: "hidden" }}>
           {/* Category Tag overlay on image - Clickable Reciprocal Link */}
           <Box
             component={RouterLink}
@@ -234,6 +249,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
             onError={handleImageError}
           />
@@ -327,54 +343,56 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 )}
               </Typography>
 
-              {/* "Why it matters" value-add synthesis box */}
-              {(() => {
-                const contextText = article.context || (() => {
-                  const text = article.description || article.summary || article.title || "";
-                  const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 15);
-                  if (sentences.length > 0 && sentences[0].length > 20) {
-                    return `${sentences[0]}. Key synthesis monitored by WorldNewzs Editorial Desk.`;
-                  }
-                  return "WorldNewzs Editorial Desk: Key development monitored for real-time updates and global impact.";
-                })();
+              {/* "Why it matters" collapsible value-add synthesis box */}
+              <Collapse in={expanded} timeout="auto" unmountOnExit>
+                {(() => {
+                  const contextText = article.context || (() => {
+                    const text = article.description || article.summary || article.title || "";
+                    const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 15);
+                    if (sentences.length > 0 && sentences[0].length > 20) {
+                      return `${sentences[0]}. Key synthesis monitored by WorldNewzs Editorial Desk.`;
+                    }
+                    return "WorldNewzs Editorial Desk: Key development monitored for real-time updates and global impact.";
+                  })();
 
-                return (
-                  <Box 
-                    sx={{ 
-                      mt: 1.5, 
-                      p: 1.25, 
-                      borderRadius: 1, 
-                      bgcolor: 'action.hover',
-                      borderLeft: `3px solid ${categoryConfig.color}`,
-                    }}
-                  >
-                    <Typography 
-                      variant="caption" 
+                  return (
+                    <Box 
                       sx={{ 
-                        fontWeight: 700, 
-                        textTransform: 'uppercase', 
-                        color: categoryConfig.color,
-                        display: 'block',
-                        mb: 0.25,
-                        letterSpacing: '0.05em'
+                        mt: 1.5, 
+                        p: 1.25, 
+                        borderRadius: 1, 
+                        bgcolor: 'action.hover',
+                        borderLeft: `3px solid ${categoryConfig.color}`,
                       }}
                     >
-                      Why it matters
-                    </Typography>
-                    <Typography 
-                      variant="body2" 
-                      color="text.primary" 
-                      sx={{ 
-                        fontSize: '0.75rem', 
-                        fontStyle: 'italic',
-                        lineHeight: 1.35
-                      }}
-                    >
-                      {contextText}
-                    </Typography>
-                  </Box>
-                );
-              })()}
+                      <Typography 
+                        variant="caption" 
+                        sx={{ 
+                          fontWeight: 700, 
+                          textTransform: 'uppercase', 
+                          color: categoryConfig.color,
+                          display: 'block',
+                          mb: 0.25,
+                          letterSpacing: '0.05em'
+                        }}
+                      >
+                        Why it matters
+                      </Typography>
+                      <Typography 
+                        variant="body2" 
+                        color="text.primary" 
+                        sx={{ 
+                          fontSize: '0.75rem', 
+                          fontStyle: 'italic',
+                          lineHeight: 1.35
+                        }}
+                      >
+                        {contextText}
+                      </Typography>
+                    </Box>
+                  );
+                })()}
+              </Collapse>
             </Box>
           </Box>
         </CardContent>
@@ -446,6 +464,14 @@ const NewsCard: React.FC<NewsCardProps> = ({
             >
               {isBookmarked ? <BookmarkIcon fontSize="small" /> : <BookmarkBorderIcon fontSize="small" />}
             </IconButton>
+            <IconButton
+              aria-label="expand info"
+              onClick={(e) => { e.stopPropagation(); setExpanded(!expanded); }}
+              size="small"
+              sx={{ p: 0.5, color: expanded ? "primary.main" : "text.secondary", '&:hover': { color: 'primary.main' } }}
+            >
+              <MoreHorizIcon fontSize="small" />
+            </IconButton>
           </Box>
         </Box>
       </Card>
@@ -474,6 +500,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
         <MenuItem onClick={handleShare("linkedin")}>
           <ListItemIcon><LinkedInIcon fontSize="small" color="primary" /></ListItemIcon>
           <ListItemText>LinkedIn</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleShare("copy")}>
+          <ListItemIcon><ContentCopyIcon fontSize="small" /></ListItemIcon>
+          <ListItemText>Copy Link</ListItemText>
         </MenuItem>
       </Menu>
 
