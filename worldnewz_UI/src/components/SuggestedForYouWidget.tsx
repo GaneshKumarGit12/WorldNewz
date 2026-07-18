@@ -39,7 +39,7 @@ const defaultTopics = [
     id: "top-ai",
     name: "Artificial Intelligence",
     icon: <PsychologyIcon sx={{ fontSize: 16 }} />,
-    followed: true,
+    followed: false,
     categoryKeyword: "technology",
   },
   {

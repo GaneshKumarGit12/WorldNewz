@@ -59,7 +59,7 @@ const Discover: React.FC = () => {
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-  const filteredArticles = articles.filter((article) => {
+  let filteredArticles = articles.filter((article) => {
     if (normalizedSearchTerm) {
       const text = `${article.title} ${article.description ?? ""} ${article.category ?? ""}`.toLowerCase();
       return text.includes(normalizedSearchTerm);
@@ -79,6 +79,11 @@ const Discover: React.FC = () => {
     }
     return true;
   });
+
+  // Fallback: If followed topics filter results in an empty feed, show all articles to prevent an empty homepage
+  if (filteredArticles.length === 0 && articles.length > 0 && !normalizedSearchTerm) {
+    filteredArticles = articles;
+  }
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
