@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from "react";
-import { Card, Box } from "@mui/material";
-
-const AD_ZONE_ID = "11269614";
+import React, { useEffect } from "react";
+import { Card, Box, Typography } from "@mui/material";
 
 const AdBannerCard: React.FC = () => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
   useEffect(() => {
-    if (iframeRef.current) {
-      iframeRef.current.src = `/ad-banner.html?zone=${AD_ZONE_ID}&t=${Date.now()}`;
+    try {
+      // Safely initialize AdSense element push
+      const adsbygoogle = (window as any).adsbygoogle || [];
+      adsbygoogle.push({});
+    } catch (e) {
+      // Fail silently if blocklisted or script isn't loaded yet
     }
   }, []);
 
@@ -59,28 +59,43 @@ const AdBannerCard: React.FC = () => {
         SPONSORED
       </Box>
 
-      {/* Ad target container matching the exact 300x250 dimensions */}
+      {/* Styled Ad Slot Box */}
       <Box
         sx={{
-          width: "300px",
-          height: "250px",
-          overflow: "hidden",
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column",
           alignItems: "center",
-          "& iframe": {
-            border: "none !important",
-            borderRadius: "6px !important",
-          }
+          justifyContent: "center",
+          width: "100%",
+          height: "100%",
+          p: 2,
+          boxSizing: "border-box",
         }}
       >
-        <iframe
-          ref={iframeRef}
-          title="Monetag sponsored ad"
-          loading="lazy"
-          sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"
-          style={{ width: "100%", height: "100%", border: 0, background: "transparent" }}
+        {/* Google AdSense container slot */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", width: "100%", height: "100%", minHeight: "280px" }}
+          data-ad-client="ca-pub-7547748414764075"
+          data-ad-slot="1234567890" // Placeholder slot ID, ready to be updated by publisher
+          data-ad-format="auto"
+          data-full-width-responsive="true"
         />
+        
+        {/* Fallback indicator */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            opacity: 0.6,
+          }}
+        >
+          <Typography variant="body2" color="text.secondary" align="center">
+            Advertisement
+          </Typography>
+        </Box>
       </Box>
     </Card>
   );

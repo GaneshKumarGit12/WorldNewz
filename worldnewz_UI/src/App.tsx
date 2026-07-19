@@ -124,20 +124,6 @@ const App: React.FC = () => {
     }
   }, [location]);
 
-  // Global Session Click Popunder
-  useEffect(() => {
-    const handleGlobalClick = () => {
-      const alreadyPopped = sessionStorage.getItem("global_popunder_triggered");
-      if (!alreadyPopped) {
-        window.open("https://omg10.com/4/11269029", "_blank", "noopener,noreferrer");
-        sessionStorage.setItem("global_popunder_triggered", "true");
-      }
-    };
-    document.addEventListener("click", handleGlobalClick, { once: true });
-    return () => {
-      document.removeEventListener("click", handleGlobalClick);
-    };
-  }, [location.pathname]);
 
   // Push Notifications Banner Display Logic
   useEffect(() => {

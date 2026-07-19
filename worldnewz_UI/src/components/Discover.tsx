@@ -37,7 +37,6 @@ const Discover: React.FC = () => {
 
   const handlePlayGamesClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open("https://omg10.com/4/11269029", "_blank", "noopener,noreferrer");
     navigate("/play-games");
   };
   const [articles, setArticles] = useState<Article[]>([]);
