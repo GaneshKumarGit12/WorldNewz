@@ -724,7 +724,7 @@ const ResultPage: React.FC = () => {
 
         {/* Sidebar Column */}
         <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-          <ContextualPollWidget initialPoll={contextualPoll} category={article.category} />
+          <ContextualPollWidget initialPoll={contextualPoll} category={article.category} articleUrl={article.url} />
           <DailyNewsQuizWidget />
           <WeatherWidget />
         </Grid>

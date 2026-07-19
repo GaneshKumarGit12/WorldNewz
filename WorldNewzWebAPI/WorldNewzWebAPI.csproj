@@ -25,4 +25,13 @@
     <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.13.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="polls.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="questions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

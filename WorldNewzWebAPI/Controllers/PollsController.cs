@@ -322,6 +322,12 @@ namespace WorldNewzWebAPI.Controllers
                         matchingPolls.AddRange(allPolls.Where(p => !string.IsNullOrWhiteSpace(p.Category) && 
                             (p.Category.Contains(cleanCategory, StringComparison.OrdinalIgnoreCase) || 
                              cleanCategory.Contains(p.Category, StringComparison.OrdinalIgnoreCase))));
+
+                        // Fallback matching from static default list in case database columns default to "General"
+                        var staticDefaults = GetFallbackDefaultPolls();
+                        matchingPolls.AddRange(staticDefaults.Where(p => !string.IsNullOrWhiteSpace(p.Category) && 
+                            (p.Category.Contains(cleanCategory, StringComparison.OrdinalIgnoreCase) || 
+                             cleanCategory.Contains(p.Category, StringComparison.OrdinalIgnoreCase))));
                     }
 
                     // Load from polls.json
