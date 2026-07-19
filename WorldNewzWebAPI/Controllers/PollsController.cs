@@ -310,29 +310,36 @@ namespace WorldNewzWebAPI.Controllers
                 {
                     matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(articleUrl.Trim(), StringComparison.OrdinalIgnoreCase));
 
-                    // Self-healing: If the matched poll contains the default AI Tech question but the category is not Technology,
+                    // Self-healing: If the matched poll contains the default AI Tech question but the article is not Technology,
                     // it is a stale poll from prior development. Delete and ignore it.
                     if (matched != null && 
                         matched.Question != null && 
-                        matched.Question.Contains("Artificial Intelligence", StringComparison.OrdinalIgnoreCase) && 
-                        !string.IsNullOrWhiteSpace(category) && 
-                        !category.Contains("Tech", StringComparison.OrdinalIgnoreCase))
+                        matched.Question.Contains("Artificial Intelligence", StringComparison.OrdinalIgnoreCase))
                     {
-                        try
+                        var dbArticle = await _context.NewsArticles
+                            .Include(a => a.Category)
+                            .FirstOrDefaultAsync(a => a.Url == articleUrl);
+                            
+                        string realCategory = dbArticle?.Category?.Name ?? GuessCategory(articleUrl, dbArticle?.Title, dbArticle?.Description);
+
+                        if (!string.IsNullOrWhiteSpace(realCategory) && !realCategory.Contains("Tech", StringComparison.OrdinalIgnoreCase))
                         {
-                            var dbPoll = await _context.Polls.FindAsync(matched.Id);
-                            if (dbPoll != null)
+                            try
                             {
-                                _context.Polls.Remove(dbPoll);
-                                await _context.SaveChangesAsync();
-                                Console.WriteLine($"[PollsContextual] Deleted stale AI poll {matched.Id} for non-tech article: {articleUrl}");
+                                var dbPoll = await _context.Polls.FindAsync(matched.Id);
+                                if (dbPoll != null)
+                                {
+                                    _context.Polls.Remove(dbPoll);
+                                    await _context.SaveChangesAsync();
+                                    Console.WriteLine($"[PollsContextual] Deleted stale AI poll {matched.Id} for non-tech article: {articleUrl}");
+                                }
                             }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[PollsContextual] Failed to delete stale poll: {ex.Message}");
+                            }
+                            matched = null;
                         }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"[PollsContextual] Failed to delete stale poll: {ex.Message}");
-                        }
-                        matched = null;
                     }
                 }
 
@@ -553,8 +560,21 @@ namespace WorldNewzWebAPI.Controllers
                     }
                 }
 
-                // 5. Final fallback to default DB polls
-                matched ??= allPolls.FirstOrDefault();
+                // 5. Final fallback to default DB polls (deterministic based on articleUrl hash)
+                if (matched == null)
+                {
+                    if (allPolls != null && allPolls.Any())
+                    {
+                        int selectIdx = 0;
+                        if (!string.IsNullOrWhiteSpace(articleUrl))
+                        {
+                            int hashVal = articleUrl.Split().Select(c => c.Length > 0 ? (int)c[0] : 0).Sum() + articleUrl.Length;
+                            foreach (char c in articleUrl) hashVal += (int)c;
+                            selectIdx = Math.Abs(hashVal) % allPolls.Count;
+                        }
+                        matched = allPolls[selectIdx];
+                    }
+                }
 
                 if (matched == null || matched.Options == null || !matched.Options.Any())
                 {
@@ -580,7 +600,19 @@ namespace WorldNewzWebAPI.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine($"⚠️ GetContextualPoll exception: {ex.Message}");
-                var fallback = GetFallbackDefaultPolls().FirstOrDefault();
+                var defaultPolls = GetFallbackDefaultPolls();
+                Poll? fallback = null;
+                if (defaultPolls != null && defaultPolls.Any())
+                {
+                    int fallbackIdx = 0;
+                    if (!string.IsNullOrWhiteSpace(articleUrl))
+                    {
+                        int hashVal = articleUrl.Split().Select(c => c.Length > 0 ? (int)c[0] : 0).Sum() + articleUrl.Length;
+                        foreach (char c in articleUrl) hashVal += (int)c;
+                        fallbackIdx = Math.Abs(hashVal) % defaultPolls.Count;
+                    }
+                    fallback = defaultPolls[fallbackIdx];
+                }
                 if (fallback == null) return Ok(null);
 
                 int totalVotes = fallback.Options.Sum(o => o.Votes);
