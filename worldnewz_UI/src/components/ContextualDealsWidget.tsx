@@ -124,6 +124,9 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
                   image={deal.imageUrl || "/images/amazon_placeholder.png"}
                   alt={deal.title}
                   loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/images/amazon_placeholder.png";
+                  }}
                 />
                 <CardContent sx={{ flex: 1, p: 1.5, "&:last-child": { pb: 1.5 } }}>
                   <Typography variant="body2" sx={{ fontWeight: 700, lineHeight: 1.25, mb: 1, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
