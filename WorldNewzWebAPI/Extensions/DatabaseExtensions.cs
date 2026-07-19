@@ -43,6 +43,16 @@ namespace WorldNewzWebAPI.Extensions
                 {
                     db.Database.EnsureCreated();
                     logger.LogInformation("✓ WorldNewsDbContext EnsureCreated completed.");
+
+                    try
+                    {
+                        db.Database.ExecuteSqlRaw("ALTER TABLE \"EnrichedArticles\" ADD COLUMN \"RefinedImageUrl\" TEXT;");
+                        logger.LogInformation("✓ Added RefinedImageUrl column to EnrichedArticles table.");
+                    }
+                    catch (Exception)
+                    {
+                        // Column already exists, ignore
+                    }
                 }
                 catch (Exception ex)
                 {

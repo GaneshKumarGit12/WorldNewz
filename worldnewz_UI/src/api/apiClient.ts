@@ -383,9 +383,9 @@ export const fetchUnifiedStory = (id: string, category?: string, subcategory?: s
     params: { category, subcategory }
   });
 
-export const fetchContextualPoll = (category?: string, subcategory?: string) =>
+export const fetchContextualPoll = (category?: string, subcategory?: string, articleUrl?: string) =>
   apiClient.get<ContextualPollData>("/polls/contextual", {
-    params: { category, subcategory }
+    params: { category, subcategory, articleUrl }
   });
 
 // Quiz API Types & Clients

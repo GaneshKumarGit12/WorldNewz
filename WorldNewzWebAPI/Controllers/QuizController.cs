@@ -28,36 +28,101 @@ namespace WorldNewzWebAPI.Controllers
         private List<QuizQuestion> LoadQuestionsPool()
         {
             const string cacheKey = "QuizQuestionsPool";
+            List<QuizQuestion> questions;
             if (_cache.TryGetValue(cacheKey, out object? cachedObj) && cachedObj is List<QuizQuestion> cachedQuestions)
             {
-                return cachedQuestions;
+                questions = new List<QuizQuestion>(cachedQuestions);
+            }
+            else
+            {
+                try
+                {
+                    var path = Path.Combine(AppContext.BaseDirectory, "quiz.json");
+                    if (!System.IO.File.Exists(path))
+                    {
+                        path = Path.Combine(Directory.GetCurrentDirectory(), "quiz.json");
+                    }
+                    if (System.IO.File.Exists(path))
+                    {
+                        var json = System.IO.File.ReadAllText(path);
+                        var parsed = JsonSerializer.Deserialize<List<QuizQuestion>>(json, Shared.JsonSettings.CaseInsensitiveOptions);
+                        questions = parsed ?? new List<QuizQuestion>();
+                    }
+                    else
+                    {
+                        questions = new List<QuizQuestion>();
+                    }
+                    _cache.Set(cacheKey, questions, TimeSpan.FromHours(1));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"⚠️ Error loading quiz.json: {ex.Message}");
+                    questions = new List<QuizQuestion>();
+                }
             }
 
+            // Now merge dynamic questions from questions.json
             try
             {
-                // Try executing assembly directory
-                var path = Path.Combine(AppContext.BaseDirectory, "quiz.json");
-                if (!System.IO.File.Exists(path))
+                var dynamicPath = Path.Combine(Directory.GetCurrentDirectory(), "questions.json");
+                if (System.IO.File.Exists(dynamicPath))
                 {
-                    // Fallback to project root directory
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "quiz.json");
+                    var content = System.IO.File.ReadAllText(dynamicPath);
+                    if (!string.IsNullOrWhiteSpace(content))
+                    {
+                        var dynamicEntries = JsonSerializer.Deserialize<List<DynamicQuestionEntry>>(content, Shared.JsonSettings.CaseInsensitiveOptions);
+                        if (dynamicEntries != null)
+                        {
+                            foreach (var entry in dynamicEntries)
+                            {
+                                if (entry.Quiz != null && !string.IsNullOrWhiteSpace(entry.Quiz.Question))
+                                {
+                                    questions.Add(new QuizQuestion
+                                    {
+                                        Id = entry.Quiz.Id,
+                                        Question = entry.Quiz.Question,
+                                        Description = entry.Quiz.Description,
+                                        Options = entry.Quiz.Options.Select(o => new QuizOption
+                                        {
+                                            Id = o.Id,
+                                            OptionText = o.OptionText,
+                                            IsCorrect = o.IsCorrect
+                                        }).ToList()
+                                    });
+                                }
+                            }
+                        }
+                    }
                 }
-                if (!System.IO.File.Exists(path))
-                {
-                    Console.WriteLine($"⚠️ quiz.json not found at path: {path}");
-                    return new List<QuizQuestion>();
-                }
-                var json = System.IO.File.ReadAllText(path);
-                var questions = JsonSerializer.Deserialize<List<QuizQuestion>>(json, Shared.JsonSettings.CaseInsensitiveOptions) ?? new List<QuizQuestion>();
-                
-                _cache.Set(cacheKey, questions);
-                return questions;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"⚠️ Error loading quiz.json: {ex.Message}");
-                return new List<QuizQuestion>();
+                Console.WriteLine($"⚠️ Error merging questions.json: {ex.Message}");
             }
+
+            return questions;
+        }
+
+        public class DynamicQuestionEntry
+        {
+            public string ArticleUrl { get; set; } = string.Empty;
+            public string Category { get; set; } = string.Empty;
+            public DynamicQuizQuestion? Quiz { get; set; }
+        }
+
+        public class DynamicQuizQuestion
+        {
+            public int Id { get; set; }
+            public string Question { get; set; } = string.Empty;
+            public string Description { get; set; } = string.Empty;
+            public List<DynamicQuizOption> Options { get; set; } = new();
+        }
+
+        public class DynamicQuizOption
+        {
+            public int Id { get; set; }
+            public string OptionText { get; set; } = string.Empty;
+            public bool IsCorrect { get; set; }
         }
 
         private bool ContainsBannedWords(string input) => Shared.ValidationHelpers.ContainsBannedWords(input);

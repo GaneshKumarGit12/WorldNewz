@@ -21,5 +21,7 @@ namespace WorldNewzWebAPI.Models
         public DateTime EnrichedAt { get; set; } = DateTime.UtcNow;
 
         public string? FullContent { get; set; }
+
+        public string? RefinedImageUrl { get; set; }
     }
 }

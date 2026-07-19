@@ -103,6 +103,10 @@ namespace WorldNewzWebAPI.Services
                     var cached = await _db.EnrichedArticles.AsNoTracking().FirstOrDefaultAsync(e => e.Url == dto.Url);
                     if (cached != null)
                     {
+                        dto.Title = cached.Headline;
+                        dto.Description = cached.Summary;
+                        dto.UrlToImage = cached.RefinedImageUrl ?? dto.UrlToImage;
+
                         dto.Headline = cached.Headline;
                         dto.Summary = cached.Summary;
                         dto.Context = cached.Context;
@@ -116,6 +120,10 @@ namespace WorldNewzWebAPI.Services
                         // Dynamically refine the news text immediately using the TextRefinementService
                         var newCache = await _textRefinementService.RefineAndEnrichNewsAsync(dto.Title, dto.Description, dto.Category, dto.Url);
                         newCache.Verified = dto.Verified;
+
+                        dto.Title = newCache.Headline;
+                        dto.Description = newCache.Summary;
+                        dto.UrlToImage = newCache.RefinedImageUrl ?? dto.UrlToImage;
 
                         dto.Headline = newCache.Headline;
                         dto.Summary = newCache.Summary;
@@ -140,6 +148,10 @@ namespace WorldNewzWebAPI.Services
                             var existing = await _db.EnrichedArticles.AsNoTracking().FirstOrDefaultAsync(e => e.Url == dto.Url);
                             if (existing != null)
                             {
+                                dto.Title = existing.Headline;
+                                dto.Description = existing.Summary;
+                                dto.UrlToImage = existing.RefinedImageUrl ?? dto.UrlToImage;
+
                                 dto.Headline = existing.Headline;
                                 dto.Summary = existing.Summary;
                                 dto.Context = existing.Context;
@@ -163,6 +175,10 @@ namespace WorldNewzWebAPI.Services
                     if (string.IsNullOrEmpty(dto.Headline))
                     {
                         var fallback = GenerateLocalHeuristics(dto.Title, dto.Description, dto.Category);
+                        
+                        dto.Title = fallback.Headline;
+                        dto.Description = fallback.Summary;
+
                         dto.Headline = fallback.Headline;
                         dto.Summary = fallback.Summary;
                         dto.Context = fallback.Context;
@@ -171,7 +187,42 @@ namespace WorldNewzWebAPI.Services
                 }
             }
 
-            return enrichedList;
+            // 4. Second-pass post-refinement deduplication (Ensure absolutely no duplicate titles or cover images across all category menus/pages)
+            var finalDeduplicatedList = new List<NewsArticleDto>();
+            var finalSeenTitles = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var finalSeenUrls = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var finalSeenImages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var item in enrichedList)
+            {
+                if (string.IsNullOrWhiteSpace(item.Url)) continue;
+
+                string normUrl = NormalizeUrl(item.Url);
+                string normTitle = NormalizeString(item.Headline ?? item.Title);
+                string imageUrl = (item.UrlToImage ?? string.Empty).Trim();
+
+                bool isDuplicateTitle = normTitle.Length > 10 && finalSeenTitles.Contains(normTitle);
+                bool isDuplicateImage = !string.IsNullOrEmpty(imageUrl) && finalSeenImages.Contains(imageUrl);
+
+                if (finalSeenUrls.Contains(normUrl) || isDuplicateTitle || isDuplicateImage)
+                {
+                    continue; // Skip duplicate card
+                }
+
+                finalSeenUrls.Add(normUrl);
+                if (normTitle.Length > 10)
+                {
+                    finalSeenTitles.Add(normTitle);
+                }
+                if (!string.IsNullOrEmpty(imageUrl))
+                {
+                    finalSeenImages.Add(imageUrl);
+                }
+
+                finalDeduplicatedList.Add(item);
+            }
+
+            return finalDeduplicatedList;
         }
 
         private string NormalizeUrl(string? url)

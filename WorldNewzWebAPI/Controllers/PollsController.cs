@@ -219,7 +219,7 @@ namespace WorldNewzWebAPI.Controllers
 
         // GET: api/polls/contextual?category=Technology&subcategory=AI
         [HttpGet("contextual")]
-        public async Task<IActionResult> GetContextualPoll([FromQuery] string? category = null, [FromQuery] string? subcategory = null)
+        public async Task<IActionResult> GetContextualPoll([FromQuery] string? category = null, [FromQuery] string? subcategory = null, [FromQuery] string? articleUrl = null)
         {
             try
             {
@@ -230,9 +230,13 @@ namespace WorldNewzWebAPI.Controllers
                     allPolls = GetFallbackDefaultPolls();
                 }
 
-                // Find matching poll by subcategory or category with safe null checks
+                // Find matching poll by articleUrl, subcategory, or category with safe null checks
                 Poll? matched = null;
-                if (!string.IsNullOrWhiteSpace(subcategory))
+                if (!string.IsNullOrWhiteSpace(articleUrl))
+                {
+                    matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(articleUrl.Trim(), StringComparison.OrdinalIgnoreCase));
+                }
+                if (matched == null && !string.IsNullOrWhiteSpace(subcategory))
                 {
                     matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(subcategory.Trim(), StringComparison.OrdinalIgnoreCase));
                 }
@@ -241,7 +245,7 @@ namespace WorldNewzWebAPI.Controllers
                     matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Category) && p.Category.Equals(category.Trim(), StringComparison.OrdinalIgnoreCase));
                 }
 
-                // Fallback to first or random active poll
+                // Fallback to first active poll
                 matched ??= allPolls.FirstOrDefault();
 
                 if (matched == null || matched.Options == null || !matched.Options.Any())

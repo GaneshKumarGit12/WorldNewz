@@ -158,7 +158,7 @@ const ResultPage: React.FC = () => {
 
   useEffect(() => {
     if (article) {
-      fetchContextualPoll(article.category, (article as any).subcategory)
+      fetchContextualPoll(article.category, (article as any).subcategory, article.url)
         .then((res) => {
           if (res.data) setContextualPoll(res.data);
         })

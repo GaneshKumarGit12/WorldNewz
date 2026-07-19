@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Paper, Typography, Button, RadioGroup, FormControlLabel, Radio, LinearProgress, Alert, Chip } from "@mui/material";
 import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { submitSingleVote } from "../api/apiClient";
+import { submitSingleVote, fetchContextualPoll } from "../api/apiClient";
 import type { ContextualPollData } from "../api/apiClient";
 import { startPollsSignalR } from "../services/pollsSignalR";
 
@@ -140,10 +140,29 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
   const [hasVoted, setHasVoted] = useState<boolean>(false);
   const [voting, setVoting] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (initialPoll) {
       setPoll(initialPoll);
+      setHasVoted(false);
+      setSelectedOptionId(null);
+    } else if (articleUrl) {
+      setLoading(true);
+      fetchContextualPoll(category, undefined, articleUrl)
+        .then((res) => {
+          if (res.data) {
+            setPoll(res.data);
+          } else {
+            setPoll(getDynamicPoll());
+          }
+        })
+        .catch(() => {
+          setPoll(getDynamicPoll());
+        })
+        .finally(() => {
+          setLoading(false);
+        });
       setHasVoted(false);
       setSelectedOptionId(null);
     } else {
@@ -166,6 +185,15 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
       }
     });
   }, [poll]);
+
+  if (loading) {
+    return (
+      <Paper elevation={1} sx={{ p: 3, mb: 4, borderRadius: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <Typography variant="body2" sx={{ mb: 2, fontStyle: "italic" }}>Loading community poll...</Typography>
+        <LinearProgress sx={{ width: "100%" }} />
+      </Paper>
+    );
+  }
 
   if (!poll || !poll.options || poll.options.length === 0) {
     return null;

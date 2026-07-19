@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -22,12 +23,16 @@ namespace WorldNewzWebAPI.Services
     {
         private readonly HttpClient _httpClient;
         private readonly string? _geminiApiKey;
+        private readonly WorldNewsDbContext _db;
 
-        public TextRefinementService(HttpClient httpClient, IConfiguration config)
+        public TextRefinementService(HttpClient httpClient, IConfiguration config, WorldNewsDbContext db)
         {
             _httpClient = httpClient;
             _geminiApiKey = config["GEMINI_API_KEY"] ?? Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+            _db = db;
         }
+
+        private static readonly object FileLock = new();
 
         public async Task<EnrichedArticle> RefineAndEnrichNewsAsync(string title, string? description, string? category, string url)
         {
@@ -43,6 +48,21 @@ namespace WorldNewzWebAPI.Services
             // 3. Generate metadata
             var enrichment = await GenerateMetadataAsync(title, description, category);
 
+            // 4. Build refined image URL
+            string refinedImageUrl = "https://images.unsplash.com/featured/800x600/?" + Uri.EscapeDataString(enrichment.ImageKeywords ?? category ?? "news");
+
+            // 5. Append quiz question to questions.json
+            if (!string.IsNullOrEmpty(enrichment.QuizQuestion) && enrichment.QuizOptions != null && enrichment.QuizOptions.Any())
+            {
+                AppendQuizQuestionToJsonFile(url, category ?? "General", enrichment.QuizQuestion, enrichment.QuizDescription ?? "", enrichment.QuizOptions);
+            }
+
+            // 6. Save poll to SQLite database
+            if (!string.IsNullOrEmpty(enrichment.PollQuestion) && enrichment.PollOptions != null && enrichment.PollOptions.Any())
+            {
+                await SavePollToDatabaseAsync(url, category ?? "General", enrichment.PollQuestion, enrichment.PollOptions);
+            }
+
             return new EnrichedArticle
             {
                 Url = url,
@@ -52,8 +72,124 @@ namespace WorldNewzWebAPI.Services
                 SocialMediaHook = enrichment.SocialMediaHook ?? string.Empty,
                 Verified = true,
                 EnrichedAt = DateTime.UtcNow,
-                FullContent = fullContent
+                FullContent = fullContent,
+                RefinedImageUrl = refinedImageUrl
             };
+        }
+
+        private async Task SavePollToDatabaseAsync(string url, string category, string question, List<string> options)
+        {
+            try
+            {
+                var existingPolls = await _db.Polls.Where(p => p.Subcategory == url).ToListAsync();
+                if (existingPolls.Any())
+                {
+                    _db.Polls.RemoveRange(existingPolls);
+                    await _db.SaveChangesAsync();
+                }
+
+                var poll = new Poll
+                {
+                    Question = question,
+                    Description = $"Community opinion poll for article: {question}",
+                    Category = category,
+                    Subcategory = url, // Link poll to article URL
+                    CreatedAt = DateTime.UtcNow,
+                    Options = options.Select((opt, idx) => new PollOption
+                    {
+                        OptionText = opt,
+                        Votes = new Random().Next(50, 300),
+                        IsCorrect = idx == 0
+                    }).ToList()
+                };
+
+                _db.Polls.Add(poll);
+                await _db.SaveChangesAsync();
+                Console.WriteLine($"[TextRefinement] Successfully saved dynamic poll to SQLite for URL: {url}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[TextRefinement] Failed to save poll to SQLite database: {ex.Message}");
+            }
+        }
+
+        private void AppendQuizQuestionToJsonFile(string url, string category, string question, string description, List<QuizOptionData> options)
+        {
+            lock (FileLock)
+            {
+                try
+                {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "questions.json");
+                    var list = new List<DynamicQuestionEntry>();
+
+                    if (System.IO.File.Exists(path))
+                    {
+                        try
+                        {
+                            var content = System.IO.File.ReadAllText(path);
+                            if (!string.IsNullOrWhiteSpace(content))
+                            {
+                                list = JsonSerializer.Deserialize<List<DynamicQuestionEntry>>(content, Shared.JsonSettings.CaseInsensitiveOptions) 
+                                       ?? new List<DynamicQuestionEntry>();
+                            }
+                        }
+                        catch { /* File empty or invalid format */ }
+                    }
+
+                    list.RemoveAll(entry => entry.ArticleUrl.Equals(url, StringComparison.OrdinalIgnoreCase));
+
+                    int quizId = 10000 + list.Count + new Random().Next(1, 1000);
+                    var entry = new DynamicQuestionEntry
+                    {
+                        ArticleUrl = url,
+                        Category = category,
+                        Quiz = new DynamicQuizQuestion
+                        {
+                            Id = quizId,
+                            Question = question,
+                            Description = description,
+                            Options = options.Select((o, idx) => new DynamicQuizOption
+                            {
+                                Id = idx + 1,
+                                OptionText = o.OptionText,
+                                IsCorrect = o.IsCorrect
+                            }).ToList()
+                        }
+                    };
+
+                    list.Add(entry);
+
+                    var jsonString = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
+                    System.IO.File.WriteAllText(path, jsonString);
+                    Console.WriteLine($"[TextRefinement] Successfully appended dynamic GK Quiz question to questions.json for URL: {url}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[TextRefinement] Failed to write dynamic quiz question to questions.json: {ex.Message}");
+                }
+            }
+        }
+
+        public class DynamicQuestionEntry
+        {
+            public string ArticleUrl { get; set; } = string.Empty;
+            public string Category { get; set; } = string.Empty;
+            public DynamicQuizQuestion? Quiz { get; set; }
+        }
+
+        public class DynamicQuizQuestion
+        {
+            public int Id { get; set; }
+            public string Question { get; set; } = string.Empty;
+            public string Description { get; set; } = string.Empty;
+            public List<DynamicQuizOption> Options { get; set; } = new();
+        }
+
+        public class DynamicQuizOption
+        {
+            public int Id { get; set; }
+            public string OptionText { get; set; } = string.Empty;
+            public bool IsCorrect { get; set; }
         }
 
         private async Task<EnrichmentResult> GenerateMetadataAsync(string title, string? description, string? category)
@@ -83,7 +219,7 @@ namespace WorldNewzWebAPI.Services
             string endpoint = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={_geminiApiKey}";
 
             var prompt = $@"
-You are an expert editorial editor and columnist. Analyze this news article:
+You are an expert editorial editor, columnist, and trivia creator. Analyze this news article:
 Title: {title}
 Description: {description ?? ""}
 Category: {category ?? "General"}
@@ -93,7 +229,23 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
   ""headline"": ""A punchy, analytical headline suitable for an opinion piece"",
   ""summary"": ""A high-quality 2-3 sentence summary providing an editorial/analytical perspective on the core issues."",
   ""context"": ""A short 'Why it matters' note (1-2 sentences) explaining the deeper social, market, or political implications of this event."",
-  ""socialMediaHook"": ""A social media shareable hook with 2-3 relevant hashtags""
+  ""socialMediaHook"": ""A social media shareable hook with 2-3 relevant hashtags"",
+  ""imageKeywords"": ""2-3 comma-separated keyword search terms for a high-quality cover photo from Unsplash"",
+  ""pollQuestion"": ""A relevant, context-specific, engaging single-choice community poll question related to the article topic (e.g. Operating system choices for a Windows 11 article, rather than general AI impact)"",
+  ""pollOptions"": [
+    ""Option A"",
+    ""Option B"",
+    ""Option C"",
+    ""Option D""
+  ],
+  ""quizQuestion"": ""A relevant GK trivia question based on this article's topic"",
+  ""quizDescription"": ""A brief description or context for the trivia question"",
+  ""quizOptions"": [
+    {{ ""optionText"": ""Choice A"", ""isCorrect"": false }},
+    {{ ""optionText"": ""Choice B"", ""isCorrect"": true }},
+    {{ ""optionText"": ""Choice C"", ""isCorrect"": false }},
+    {{ ""optionText"": ""Choice D"", ""isCorrect"": false }}
+  ]
 }}
 ";
 
@@ -204,12 +356,40 @@ Return a JSON object with the following schema (DO NOT include any markdown bloc
 
             string socialMediaHook = $"Check out the latest update on \"{headline}\". #{hashCategory} #WorldNewz";
 
+            var imageKeywords = string.Join(",", headline.Split(' ')
+                .Select(w => Regex.Replace(w, @"[^a-zA-Z0-9]", ""))
+                .Where(w => w.Length > 3)
+                .Take(3));
+            if (string.IsNullOrEmpty(imageKeywords))
+            {
+                imageKeywords = category ?? "news";
+            }
+
+            var pollQuestion = $"How do you expect the developments surrounding '{headline}' to impact the {category ?? "General"} sector?";
+            var pollOptions = new List<string> { "Highly positive impact", "Moderate positive impact", "No change / Neutral", "Negative impact / Risk" };
+
+            var quizQuestion = $"Which sector is primarily associated with the latest news on '{headline}'?";
+            var quizDescription = $"General knowledge trivia question based on recent {category ?? "General"} headlines.";
+            var quizOptions = new List<QuizOptionData>
+            {
+                new QuizOptionData { OptionText = category ?? "General News", IsCorrect = true },
+                new QuizOptionData { OptionText = "Consumer Markets", IsCorrect = false },
+                new QuizOptionData { OptionText = "Leisure Activities", IsCorrect = false },
+                new QuizOptionData { OptionText = "Traditional Logistics", IsCorrect = false }
+            };
+
             return new EnrichmentResult
             {
                 Headline = headline,
                 Summary = summary,
                 Context = context,
-                SocialMediaHook = socialMediaHook
+                SocialMediaHook = socialMediaHook,
+                ImageKeywords = imageKeywords,
+                PollQuestion = pollQuestion,
+                PollOptions = pollOptions,
+                QuizQuestion = quizQuestion,
+                QuizDescription = quizDescription,
+                QuizOptions = quizOptions
             };
         }
 
@@ -577,6 +757,18 @@ Requirements:
             public string? Summary { get; set; }
             public string? Context { get; set; }
             public string? SocialMediaHook { get; set; }
+            public string? ImageKeywords { get; set; }
+            public string? PollQuestion { get; set; }
+            public List<string>? PollOptions { get; set; }
+            public string? QuizQuestion { get; set; }
+            public string? QuizDescription { get; set; }
+            public List<QuizOptionData>? QuizOptions { get; set; }
+        }
+
+        public class QuizOptionData
+        {
+            public string OptionText { get; set; } = string.Empty;
+            public bool IsCorrect { get; set; }
         }
     }
 }
