@@ -18,6 +18,80 @@ namespace WorldNewzWebAPI.Controllers
         private readonly UserPollsDbContext _userDb;
         private readonly IHubContext<PollsHub> _hubContext;
 
+        private static readonly Dictionary<string, List<string[]>> StaticCategoryPolls = new Dictionary<string, List<string[]>>(StringComparer.OrdinalIgnoreCase)
+        {
+            { "Technology", new List<string[]>
+                {
+                    new string[] { "Which tech innovation will have the greatest impact on daily life by 2030?", "Generative AI assistants", "Virtual/Augmented reality glasses", "Autonomous delivery vehicles", "Brain-computer interfaces" },
+                    new string[] { "What is your main concern regarding the rise of artificial intelligence?", "Job displacement", "Spreading of misinformation", "Lack of transparency", "Autonomous weaponry" },
+                    new string[] { "Would you purchase a smartphone that is 100% repairable by consumers?", "Yes, sustainability is crucial", "Only if it is cheaper", "No, I prefer professional service", "Indifferent" }
+                }
+            },
+            { "Business", new List<string[]>
+                {
+                    new string[] { "How will remote-first working models affect corporate commercial real estate values?", "Severe decline in office valuations", "Minor dip followed by hybrid stabilization", "Valuations will shift to suburbs", "No significant long-term impact" },
+                    new string[] { "Which corporate sustainability metric is most important to you as a consumer?", "Carbon footprint reduction", "Fair wages and employee treatment", "Ethical raw material sourcing", "Plastic-free product packaging" },
+                    new string[] { "Should central banks implement digital currencies (CBDCs) immediately?", "Yes, it modernizes transaction speed", "No, it presents massive privacy risks", "Only under strict parliament oversight", "Unsure / Needs more research" }
+                }
+            },
+            { "Politics", new List<string[]>
+                {
+                    new string[] { "What is the most critical issue for voters in upcoming regional elections?", "Inflation and living costs", "Climate change policy", "Healthcare accessibility", "National security and defense" },
+                    new string[] { "Do you agree with implementing age verification rules for social media platforms?", "Yes, to protect minor safety", "No, it compromises general privacy", "It should be parental choice", "Neutral" },
+                    new string[] { "Should global carbon emissions taxes be enforced on international shipping?", "Yes, absolutely necessary", "No, it raises consumer prices too much", "Only for developed countries", "A carbon cap-and-trade system is better" },
+                    new string[] { "Do you support stricter global regulation on social media algorithms?", "Yes, heavy government oversight is required.", "No, platforms should self-regulate.", "Unsure / Depends on country laws." }
+                }
+            },
+            { "Sports", new List<string[]>
+                {
+                    new string[] { "Is the integration of video replay reviews (VAR) improving professional sports?", "Yes, it corrects critical referee errors", "No, it disrupts game pacing and emotion", "Yes, but rules must be simplified", "Only for championship events" },
+                    new string[] { "Should eSports be officially included in the Olympic Games?", "Yes, they require high competitive skill", "No, they lack traditional physical activity", "Only in a separate digital Olympics", "Indifferent" },
+                    new string[] { "What is the main driver of athletic success in modern professional leagues?", "Advanced sports science and recovery", "Raw natural talent and practice", "Tactical analysis and coaching data", "Financial funding and scouting" }
+                }
+            },
+            { "Science-Health", new List<string[]>
+                {
+                    new string[] { "Will space tourism become a mainstream industry by the year 2040?", "Yes, for the general public", "Only for ultra-high-net-worth individuals", "No, space debris makes it unsafe", "No, it is an ecological disaster" },
+                    new string[] { "Should public funding for deep-space exploration be redirected to ocean floor research?", "Yes, Earth's oceans hold more value", "No, space exploration drives technological spin-offs", "Both deserve equal funding", "Neither should be funded" },
+                    new string[] { "Would you support gene-editing technology (CRISPR) to eradicate genetic diseases?", "Yes, it relieves human suffering", "Only under strict global health mandates", "No, it raises massive ethical concerns", "Unsure" }
+                }
+            },
+            { "Money", new List<string[]>
+                {
+                    new string[] { "Which financial metric is most important when choosing an index fund?", "Expense ratio (management fees)", "Historical annual return rate", "Fund manager credentials", "ESG/ethical ratings of companies" },
+                    new string[] { "What is the best asset class to hedge against high consumer inflation?", "Real estate and property", "Gold and precious commodities", "Inflation-linked government bonds", "High-growth technology equities" }
+                }
+            },
+            { "Stocks", new List<string[]>
+                {
+                    new string[] { "How do you analyze stock market trends for personal investments?", "Fundamental analysis (earnings, debt, revenue)", "Technical analysis (chart patterns, moving averages)", "Passive dollar-cost averaging into ETFs", "Following recommendations from brokers" },
+                    new string[] { "Do you believe retail traders have a fair chance against institutional hedge funds?", "Yes, due to information democratization", "No, high-frequency algorithms hold the edge", "Only when coordinating in online communities", "Unsure" }
+                }
+            },
+            { "Gaming", new List<string[]>
+                {
+                    new string[] { "Which gaming platform will dominate the market in terms of active players?", "Mobile devices (phones/tablets)", "Dedicated consoles (PlayStation/Xbox/Switch)", "High-performance PC setups", "Web browser based HTML5 games" },
+                    new string[] { "Do you support the inclusion of microtransactions in premium video games?", "Only if they are cosmetic items", "Yes, they fund free content updates", "No, it ruins game progression design", "Never under any circumstances" }
+                }
+            },
+            { "Jobs", new List<string[]>
+                {
+                    new string[] { "What is the most critical benefit when evaluating a new job offer?", "Base salary and performance bonuses", "Flexible working location (hybrid/remote)", "Comprehensive healthcare and retirement match", "Career growth and learning stipends" },
+                    new string[] { "Will traditional 4-year university degrees remain a requirement for tech hiring?", "Yes, it verifies baseline discipline", "No, skills-based testing is replacing it", "Only for senior leadership roles", "Bootcamps and certifications are preferred" }
+                }
+            },
+            { "Movies", new List<string[]>
+                {
+                    new string[] { "Should theatrical film releases retain an exclusive window before streaming?", "Yes, it preserves the cinematic experience", "No, day-and-date streaming is more convenient", "Only for blockbuster action movies", "A 30-day window is the ideal compromise" }
+                }
+            },
+            { "Entertainment", new List<string[]>
+                {
+                    new string[] { "What is the best medium for narrative storytelling today?", "High-budget streaming television series", "Traditional theatrical feature films", "Interactive storytelling in video games", "Indie podcasts and audio dramas" }
+                }
+            }
+        };
+
         public PollsController(WorldNewsDbContext context, UserPollsDbContext userDb, IHubContext<PollsHub> hubContext)
         {
             _context = context;
@@ -235,6 +309,31 @@ namespace WorldNewzWebAPI.Controllers
                 if (!string.IsNullOrWhiteSpace(articleUrl))
                 {
                     matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(articleUrl.Trim(), StringComparison.OrdinalIgnoreCase));
+
+                    // Self-healing: If the matched poll contains the default AI Tech question but the category is not Technology,
+                    // it is a stale poll from prior development. Delete and ignore it.
+                    if (matched != null && 
+                        matched.Question != null && 
+                        matched.Question.Contains("Artificial Intelligence", StringComparison.OrdinalIgnoreCase) && 
+                        !string.IsNullOrWhiteSpace(category) && 
+                        !category.Contains("Tech", StringComparison.OrdinalIgnoreCase))
+                    {
+                        try
+                        {
+                            var dbPoll = await _context.Polls.FindAsync(matched.Id);
+                            if (dbPoll != null)
+                            {
+                                _context.Polls.Remove(dbPoll);
+                                await _context.SaveChangesAsync();
+                                Console.WriteLine($"[PollsContextual] Deleted stale AI poll {matched.Id} for non-tech article: {articleUrl}");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"[PollsContextual] Failed to delete stale poll: {ex.Message}");
+                        }
+                        matched = null;
+                    }
                 }
 
                 if (matched == null)
@@ -406,6 +505,37 @@ namespace WorldNewzWebAPI.Controllers
                     catch (Exception ex)
                     {
                         Console.WriteLine($"⚠️ Error reading polls.json: {ex.Message}");
+                    }
+
+                    // 3.5 Fallback to static category dictionary if still empty
+                    if (!matchingPolls.Any() && !string.IsNullOrWhiteSpace(cleanCategory))
+                    {
+                        var dictKey = StaticCategoryPolls.Keys.FirstOrDefault(k => k.Equals(cleanCategory, StringComparison.OrdinalIgnoreCase));
+                        if (dictKey != null)
+                        {
+                            int staticIdStart = 30000;
+                            foreach (var sPoll in StaticCategoryPolls[dictKey])
+                            {
+                                var p = new Poll
+                                {
+                                    Id = staticIdStart++,
+                                    Question = sPoll[0],
+                                    Description = $"Fallback opinion survey about {dictKey}",
+                                    Category = dictKey,
+                                    Subcategory = "General",
+                                    CreatedAt = DateTime.UtcNow,
+                                    Options = sPoll.Skip(1).Select((opt, idx) => new PollOption
+                                    {
+                                        Id = idx + 1,
+                                        OptionText = opt,
+                                        Votes = 200 + (idx * 50) + new Random().Next(10, 50),
+                                        IsCorrect = idx == 0
+                                    }).ToList()
+                                };
+                                matchingPolls.Add(p);
+                            }
+                            Console.WriteLine($"[PollsContextual] Loaded {matchingPolls.Count} fallback polls from static dictionary for: {dictKey}");
+                        }
                     }
 
                     // 4. Select deterministic poll from matching list based on article URL
