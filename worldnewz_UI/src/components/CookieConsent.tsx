@@ -22,6 +22,9 @@ export const CookieConsent: React.FC = () => {
   const handleAccept = () => {
     localStorage.setItem('worldnewz_cookie_consent', 'accepted');
     setVisible(false);
+    if (typeof (window as any).loadConsentScripts === 'function') {
+      (window as any).loadConsentScripts();
+    }
   };
 
   const handleDecline = () => {
