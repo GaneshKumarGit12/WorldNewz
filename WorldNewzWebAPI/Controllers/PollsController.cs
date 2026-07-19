@@ -327,13 +327,35 @@ namespace WorldNewzWebAPI.Controllers
                     // Load from polls.json
                     try
                     {
-                        var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "polls.json");
-                        if (System.IO.File.Exists(path))
+                        var pathsToTry = new List<string>
                         {
-                            var json = System.IO.File.ReadAllText(path);
-                            var jsonPolls = System.Text.Json.JsonSerializer.Deserialize<List<JsonPollDto>>(json, Shared.JsonSettings.CaseInsensitiveOptions);
+                            System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "polls.json"),
+                            System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "WorldNewzWebAPI", "polls.json"),
+                            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "polls.json"),
+                            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "polls.json"),
+                            "c:\\WorldNewz\\WorldNewzWebAPI\\polls.json"
+                        };
+
+                        string? foundPath = null;
+                        foreach (var pTry in pathsToTry)
+                        {
+                            if (System.IO.File.Exists(pTry))
+                            {
+                                foundPath = pTry;
+                                break;
+                            }
+                        }
+
+                        Console.WriteLine($"[PollsContextual] Category: '{category}', Clean Category: '{cleanCategory}'");
+                        Console.WriteLine($"[PollsContextual] Polls.json resolved path: '{foundPath}'");
+
+                        if (foundPath != null)
+                        {
+                            var json = System.IO.File.ReadAllText(foundPath);
+                            var jsonPolls = System.Text.Json.JsonSerializer.Deserialize<List<JsonPollDto>>(json, new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                             if (jsonPolls != null)
                             {
+                                Console.WriteLine($"[PollsContextual] Loaded {jsonPolls.Count} total polls from polls.json");
                                 int jsonIdStart = 20000;
                                 foreach (var jp in jsonPolls)
                                 {
@@ -373,6 +395,7 @@ namespace WorldNewzWebAPI.Controllers
                                 }
                             }
                         }
+                        Console.WriteLine($"[PollsContextual] Matching Category Polls Count: {matchingPolls.Count}");
                     }
                     catch (Exception ex)
                     {
@@ -390,6 +413,7 @@ namespace WorldNewzWebAPI.Controllers
                             selectIndex = Math.Abs(hashVal) % matchingPolls.Count;
                         }
                         matched = matchingPolls[selectIndex];
+                        Console.WriteLine($"[PollsContextual] Selected Poll question: '{matched?.Question}'");
                     }
                 }
 
