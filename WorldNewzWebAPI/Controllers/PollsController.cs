@@ -230,22 +230,134 @@ namespace WorldNewzWebAPI.Controllers
                     allPolls = GetFallbackDefaultPolls();
                 }
 
-                // Find matching poll by articleUrl, subcategory, or category with safe null checks
+                // 1. Check if there is an exact article URL matched poll in the database
                 Poll? matched = null;
                 if (!string.IsNullOrWhiteSpace(articleUrl))
                 {
                     matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(articleUrl.Trim(), StringComparison.OrdinalIgnoreCase));
                 }
-                if (matched == null && !string.IsNullOrWhiteSpace(subcategory))
+
+                if (matched == null)
                 {
-                    matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Subcategory) && p.Subcategory.Equals(subcategory.Trim(), StringComparison.OrdinalIgnoreCase));
-                }
-                if (matched == null && !string.IsNullOrWhiteSpace(category))
-                {
-                    matched = allPolls.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Category) && p.Category.Equals(category.Trim(), StringComparison.OrdinalIgnoreCase));
+                    // 2. Perform smart category sanitization
+                    string cleanCategory = string.Empty;
+                    if (!string.IsNullOrWhiteSpace(category))
+                    {
+                        cleanCategory = category.Replace("News", "", StringComparison.OrdinalIgnoreCase)
+                                                .Replace("&", "-", StringComparison.OrdinalIgnoreCase)
+                                                .Replace(" ", "", StringComparison.OrdinalIgnoreCase)
+                                                .Trim();
+
+                        if (cleanCategory.Contains("Science", StringComparison.OrdinalIgnoreCase) || cleanCategory.Contains("Health", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Science-Health";
+                        }
+                        else if (cleanCategory.Contains("Money", StringComparison.OrdinalIgnoreCase) || cleanCategory.Contains("Finance", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Money";
+                        }
+                        else if (cleanCategory.Contains("Stock", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Stocks";
+                        }
+                        else if (cleanCategory.Contains("Game", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Gaming";
+                        }
+                        else if (cleanCategory.Contains("Movie", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Movies";
+                        }
+                        else if (cleanCategory.Contains("Job", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Jobs";
+                        }
+                        else if (cleanCategory.Contains("Tech", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cleanCategory = "Technology";
+                        }
+                    }
+
+                    // 3. Collect matching polls from database and polls.json
+                    var matchingPolls = new List<Poll>();
+
+                    if (!string.IsNullOrWhiteSpace(cleanCategory))
+                    {
+                        matchingPolls.AddRange(allPolls.Where(p => !string.IsNullOrWhiteSpace(p.Category) && 
+                            (p.Category.Contains(cleanCategory, StringComparison.OrdinalIgnoreCase) || 
+                             cleanCategory.Contains(p.Category, StringComparison.OrdinalIgnoreCase))));
+                    }
+
+                    // Load from polls.json
+                    try
+                    {
+                        var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "polls.json");
+                        if (System.IO.File.Exists(path))
+                        {
+                            var json = System.IO.File.ReadAllText(path);
+                            var jsonPolls = System.Text.Json.JsonSerializer.Deserialize<List<JsonPollDto>>(json, Shared.JsonSettings.CaseInsensitiveOptions);
+                            if (jsonPolls != null)
+                            {
+                                int jsonIdStart = 20000;
+                                foreach (var jp in jsonPolls)
+                                {
+                                    string jpCat = jp.Category ?? "General";
+                                    string jpClean = jpCat.Replace("News", "", StringComparison.OrdinalIgnoreCase)
+                                                         .Replace("&", "-", StringComparison.OrdinalIgnoreCase)
+                                                         .Replace(" ", "", StringComparison.OrdinalIgnoreCase)
+                                                         .Trim();
+                                    if (jpClean.Contains("Science", StringComparison.OrdinalIgnoreCase) || jpClean.Contains("Health", StringComparison.OrdinalIgnoreCase)) jpClean = "Science-Health";
+                                    if (jpClean.Contains("Money", StringComparison.OrdinalIgnoreCase) || jpClean.Contains("Finance", StringComparison.OrdinalIgnoreCase)) jpClean = "Money";
+                                    if (jpClean.Contains("Stock", StringComparison.OrdinalIgnoreCase)) jpClean = "Stocks";
+                                    if (jpClean.Contains("Game", StringComparison.OrdinalIgnoreCase)) jpClean = "Gaming";
+                                    if (jpClean.Contains("Movie", StringComparison.OrdinalIgnoreCase)) jpClean = "Movies";
+                                    if (jpClean.Contains("Job", StringComparison.OrdinalIgnoreCase)) jpClean = "Jobs";
+                                    if (jpClean.Contains("Tech", StringComparison.OrdinalIgnoreCase)) jpClean = "Technology";
+
+                                    if (string.IsNullOrWhiteSpace(cleanCategory) || jpClean.Equals(cleanCategory, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        var p = new Poll
+                                        {
+                                            Id = jsonIdStart++,
+                                            Question = jp.Question ?? "",
+                                            Description = $"Opinion survey about {jpCat}",
+                                            Category = jpCat,
+                                            Subcategory = "General",
+                                            CreatedAt = DateTime.UtcNow,
+                                            Options = (jp.Options ?? new List<string>()).Select((opt, idx) => new PollOption
+                                            {
+                                                Id = idx + 1,
+                                                OptionText = opt,
+                                                Votes = 150 + (idx * 45) + new Random().Next(10, 50),
+                                                IsCorrect = idx == 0
+                                            }).ToList()
+                                        };
+                                        matchingPolls.Add(p);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"⚠️ Error reading polls.json: {ex.Message}");
+                    }
+
+                    // 4. Select deterministic poll from matching list based on article URL
+                    if (matchingPolls.Any())
+                    {
+                        int selectIndex = 0;
+                        if (!string.IsNullOrWhiteSpace(articleUrl))
+                        {
+                            int hashVal = articleUrl.Split().Select(c => c.Length > 0 ? (int)c[0] : 0).Sum() + articleUrl.Length;
+                            foreach (char c in articleUrl) hashVal += (int)c;
+                            selectIndex = Math.Abs(hashVal) % matchingPolls.Count;
+                        }
+                        matched = matchingPolls[selectIndex];
+                    }
                 }
 
-                // Fallback to first active poll
+                // 5. Final fallback to default DB polls
                 matched ??= allPolls.FirstOrDefault();
 
                 if (matched == null || matched.Options == null || !matched.Options.Any())
@@ -630,5 +742,12 @@ namespace WorldNewzWebAPI.Controllers
     {
         public int PollId { get; set; }
         public int OptionId { get; set; }
+    }
+
+    public class JsonPollDto
+    {
+        public string? Question { get; set; }
+        public string? Category { get; set; }
+        public System.Collections.Generic.List<string>? Options { get; set; }
     }
 }
