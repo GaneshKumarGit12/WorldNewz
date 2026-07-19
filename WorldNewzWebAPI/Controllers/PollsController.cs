@@ -239,6 +239,42 @@ namespace WorldNewzWebAPI.Controllers
 
                 if (matched == null)
                 {
+                    // 1.5 Resolve real category from NewsArticles DB or guess by title/URL heuristics if generic (e.g. "Search", "News", "General")
+                    string resolvedCategory = category ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(resolvedCategory) || 
+                        resolvedCategory.Equals("Search", StringComparison.OrdinalIgnoreCase) || 
+                        resolvedCategory.Equals("News", StringComparison.OrdinalIgnoreCase) || 
+                        resolvedCategory.Equals("General", StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (!string.IsNullOrWhiteSpace(articleUrl))
+                        {
+                            var dbArticle = await _context.NewsArticles
+                                .Include(a => a.Category)
+                                .FirstOrDefaultAsync(a => a.Url == articleUrl);
+                            if (dbArticle != null && dbArticle.Category != null)
+                            {
+                                resolvedCategory = dbArticle.Category.Name;
+                            }
+                            else
+                            {
+                                var enriched = await _context.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == articleUrl);
+                                resolvedCategory = GuessCategory(articleUrl, enriched?.Headline, enriched?.Summary);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (resolvedCategory.Equals("Search", StringComparison.OrdinalIgnoreCase) || 
+                            resolvedCategory.Equals("News", StringComparison.OrdinalIgnoreCase) || 
+                            resolvedCategory.Equals("General", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var enriched = await _context.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == articleUrl);
+                            resolvedCategory = GuessCategory(articleUrl, enriched?.Headline, enriched?.Summary);
+                        }
+                    }
+
+                    category = resolvedCategory;
+
                     // 2. Perform smart category sanitization
                     string cleanCategory = string.Empty;
                     if (!string.IsNullOrWhiteSpace(category))
@@ -716,6 +752,95 @@ namespace WorldNewzWebAPI.Controllers
 
                 return Ok(allResults);
             }
+        }
+
+        private string GuessCategory(string? url, string? title, string? description)
+        {
+            var text = $"{url} {title} {description}".ToLower();
+            
+            if (text.Contains("sport") || text.Contains("soccer") || text.Contains("football") || 
+                text.Contains("olympic") || text.Contains("tennis") || text.Contains("cricket") || 
+                text.Contains("basketball") || text.Contains("nba") || text.Contains("fifa") || 
+                text.Contains("athlete") || text.Contains("championship") || text.Contains("baseball") ||
+                text.Contains("cup") || text.Contains("match") || text.Contains("league"))
+            {
+                return "Sports";
+            }
+            
+            if (text.Contains("stock") || text.Contains("market") || text.Contains("nasdaq") || 
+                text.Contains("invest") || text.Contains("crypto") || text.Contains("bitcoin") || 
+                text.Contains("finance") || text.Contains("inflation") || text.Contains("interest rate") || 
+                text.Contains("dow jones") || text.Contains("s&p") || text.Contains("dividend"))
+            {
+                return "Stocks";
+            }
+            
+            if (text.Contains("job") || text.Contains("career") || text.Contains("salary") || 
+                text.Contains("hiring") || text.Contains("workforce") || text.Contains("employee") || 
+                text.Contains("layoff") || text.Contains("recruit") || text.Contains("hired"))
+            {
+                return "Jobs";
+            }
+
+            if (text.Contains("apple") || text.Contains("google") || text.Contains("microsoft") || 
+                text.Contains("ai") || text.Contains("nvidia") || text.Contains("silicon") || 
+                text.Contains("smartphone") || text.Contains("software") || text.Contains("windows") || 
+                text.Contains("tech") || text.Contains("computer") || text.Contains("cyber") ||
+                text.Contains("android") || text.Contains("chip") || text.Contains("app"))
+            {
+                return "Technology";
+            }
+
+            if (text.Contains("movie") || text.Contains("film") || text.Contains("cinema") || 
+                text.Contains("actor") || text.Contains("hollywood") || text.Contains("netflix") || 
+                text.Contains("oscar") || text.Contains("entertainment") || text.Contains("showbiz") ||
+                text.Contains("theatre") || text.Contains("star") || text.Contains("series"))
+            {
+                return "Movies";
+            }
+
+            if (text.Contains("health") || text.Contains("cancer") || text.Contains("vaccine") || 
+                text.Contains("covid") || text.Contains("virus") || text.Contains("scientific") || 
+                text.Contains("space") || text.Contains("nasa") || text.Contains("planet") || 
+                text.Contains("climate") || text.Contains("fossil") || text.Contains("medical") || 
+                text.Contains("science") || text.Contains("biology") || text.Contains("research") ||
+                text.Contains("doctor") || text.Contains("hospital") || text.Contains("drug"))
+            {
+                return "Science-Health";
+            }
+
+            if (text.Contains("election") || text.Contains("biden") || text.Contains("trump") || 
+                text.Contains("government") || text.Contains("senate") || text.Contains("parliament") || 
+                text.Contains("bill") || text.Contains("democrat") || text.Contains("republican") || 
+                text.Contains("politics") || text.Contains("politician") || text.Contains("veto") ||
+                text.Contains("president") || text.Contains("governor") || text.Contains("diplomat"))
+            {
+                return "Politics";
+            }
+
+            if (text.Contains("business") || text.Contains("corp") || text.Contains("startup") || 
+                text.Contains("merger") || text.Contains("acquisition") || text.Contains("ceo") || 
+                text.Contains("earnings") || text.Contains("enterprise") || text.Contains("revenue") ||
+                text.Contains("venture") || text.Contains("sales"))
+            {
+                return "Business";
+            }
+
+            if (text.Contains("money") || text.Contains("dollar") || text.Contains("cash") || 
+                text.Contains("save") || text.Contains("bank") || text.Contains("wallet") ||
+                text.Contains("credit") || text.Contains("debt"))
+            {
+                return "Money";
+            }
+
+            if (text.Contains("game") || text.Contains("gaming") || text.Contains("playstation") || 
+                text.Contains("xbox") || text.Contains("nintendo") || text.Contains("steam") ||
+                text.Contains("gamer"))
+            {
+                return "Gaming";
+            }
+
+            return "General";
         }
     }
 
