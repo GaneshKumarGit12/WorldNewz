@@ -1984,6 +1984,292 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0CLS4DGF3?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0GFWR3ZRL",
+                    Title = "IPL Hair Removal Device for Women & Men, At-Home Painless Permanent Hair Reduction Machine for Face, Legs, Underarms & Body, Safe & Easy Use",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51oz2ZfQYZL._SL1254_.jpg",
+                    Price = 1599.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GFWR3ZRL?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FFGFCFYQ",
+                    Title = "Acrylic Windshield Cabinet for Digital Jewellery Scale – Dustproof Protective Cover for Precision Weighing, Transparent Display Case",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61N7UvjV3KL._SL1254_.jpg",
+                    Price = 1540.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FFGFCFYQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CX9DDG3F",
+                    Title = "Cotton Colors Silk Blouse Piece Material for Women, Unstitched (1 Meter Each) - Navratri, Durga Puja, Oti Bharan, Ugadi Special",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51xRSF9Sw9L._SX342_.jpg",
+                    Price = 1187.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CX9DDG3F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DF1TYYB8",
+                    Title = "Handmade Natural Cotton Dining Table Placemats | Heat Resistant Dining Table Place Mats for Kitchen Coffee Center Table & Eating Areas (Beige & White, 6 Pcs Placemats with 1 Runner(14'x72')",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/711RKIUxCgL._SL1500_.jpg",
+                    Price = 616.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DF1TYYB8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FML3XVBW",
+                    Title = "Women's Hosiery Cotton Full Length Camisole Long Inner Wear Slip-Kurti Petticoat Nighty Pack of 2 Pc",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51wC8YeJsyL._SL1024_.jpg",
+                    Price = 569.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FML3XVBW?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DS9L1HN1",
+                    Title = "Activated Charcoal Powder (400g) | Coconut Shell-Based, Teeth Whitening, Detox & Skin Care, Food-Grade, Vegan, Chemical-Free",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61SGSlFTMWL._SL1024_.jpg",
+                    Price = 268.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0DS9L1HN1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B071158GLC",
+                    Title = "Fashion Bizz Handcrafted Kamdhenu Cow Statue with Calf for Home Decor Gifting and Decorative Cow with Calf (19cmx12cmx15cm)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81i9IMfem9S._SL1500_.jpg",
+                    Price = 949.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B071158GLC?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F3V3HMNL",
+                    Title = "100% Bamboo Large Bath Towel | Buttery Soft, Ultra-Absorbent, Lightweight, Anti-Microbial, Hypoallergenic, Quick Dry | Suitable for Daily use, Travel, Gym, Swimming (Beige Stripe)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61ir8uwK2OL._SL1200_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0F3V3HMNL?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GZVZJ7VQ",
+                    Title = "Mosquito Net for Double Bed, 6.5x6.5 Feet 30 GSM Premium Double Bed Machardani, Strong and Durable, PVC Coated Tent Type, Foldable, Corrosion Resistant, King Size (White-Blue)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61Vs2hrDWNL._SL1280_.jpg",
+                    Price = 569.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GZVZJ7VQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H1VZLD5B",
+                    Title = "Triple Strength Omega 3 Fish Oil capsules 2500mg | 900mg EPA & 600mg DHA with Vitamin D, E & K | Heart, Brain, Immunity, Bone & Metabolism Support | Lab Tested | 60 Softgels",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61UItoIpNTL._SL1254_.jpg",
+                    Price = 749.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0H1VZLD5B?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FPBMMPQ3",
+                    Title = "Sakha pola for Women Original – Bengali Sankha Pola Bangles Set – Wedding Red & White Bangles, Lahathi, Loha Badhano, Acrylic Plastic Bangles, Calcutta Chura, Size 2.6/2.8",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51mbNmfqHPL._SL1080_.jpg",
+                    Price = 783.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FPBMMPQ3?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F9F67NYQ",
+                    Title = "DigitalMantra bal krishna paper posters for pregnant women | krishna poster | laddu gopal poster | religious posters Multicolor 12 x 18 Inches (Pack of 4)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71Ke+SbG1rL._SL1500_.jpg",
+                    Price = 234.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0F9F67NYQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GZHD9WXK",
+                    Title = "iGluzCompatible with Vivo V70 / Vivo V70 Elite Camera Lens Protector (1 Pack) | Premium 9H Tempered Glass Camera Guard | Ultra Clear HD | Scratch Resistant | Case Friendly Fit | Bubble Free Easy Installation",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61yZ9ra8zpL._SL1200_.jpg",
+                    Price = 284.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GZHD9WXK?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GGTRM654",
+                    Title = "Climbing Rose Seeds, All Season Everbloom Hybrid, Multicolour Flowers for Home Garden, 80+ Seeds",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/91WM0Tlq4uL._SL1500_.jpg",
+                    Price = 151.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GGTRM654?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BXF58RQ2",
+                    Title = "Casa Rica islamic muslim ayatul kursi mashaallah photo frame painting wall hanging for wall 18'x 30' inch set of 5 mdf laser cut (FGA 001)",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81Xb3sAFUOL._SL1500_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0BXF58RQ2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FTZJ4YNB",
+                    Title = "EazyPick | Reusable & Interdental Plastic Toothpicks | Eco-Friendly | Daily Oral Care & Hygiene | Fresh Breath | Long Lasting | Easy to Clean | Useful for Crowns, Braces, Implants | Pocket & Travel Friendly (Pastel Colors - 2 Packs)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61G1rwIZaDL._SL1500_.jpg",
+                    Price = 560.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FTZJ4YNB?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FR9KCY6F",
+                    Title = "SPADES Sipper Stainless Steel Water Bottle 500ml | BPA-Free Leakproof Bottle | Black & Silver Matte Finish | Gym, Travel & Office Use | Pack of 1",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61KMpSKB7hL._SL1500_.jpg",
+                    Price = 217.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FR9KCY6F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FYY9YBYK",
+                    Title = "DIY School Ribbon Hair Band for Kids and Girls Set of 2 - White and Black",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41mtPwwyznL._SY355_PIbundle-2,TopRight,0,0_AA355SH20_.jpg",
+                    Price = 182.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FYY9YBYK?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DF7Z3X9S",
+                    Title = "Handloom Cotton Contrast Linen Blend Bhagalpuri Saree",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51qhcMQWqQL._SX342_.jpg",
+                    Price = 806.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DF7Z3X9S?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GKHP7VP5",
+                    Title = "Women Soft Viscose Rayon Palazzo Pants Straight Wide Leg Relaxed Fit with Drawstring Flared Lounge Palazzo Pant",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41UYXMEuKJL._SX342_.jpg",
+                    Price = 445.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GKHP7VP5?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DVCBX593",
+                    Title = "dockstreet Straight Wide fit Long Length Cotton Shorts for Men/Trending Multi Pocket Style, Relaxed Casual Shorts for Men",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51S-mZLbt9L._SL1280_.jpg",
+                    Price = 278.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DVCBX593?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D9KXBTSM",
+                    Title = "dockstreet Women's/Unisex ONESOPEN Bottom Drawstring Pure Cotton Stretchable Baggy Jogger Pant",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61NAWX-6V9L._SL1066_.jpg",
+                    Price = 358.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0D9KXBTSM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
