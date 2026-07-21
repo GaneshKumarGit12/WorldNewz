@@ -2270,6 +2270,162 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0D9KXBTSM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0GTMD6W3V",
+                    Title = "MOKOSH Women’s Silk Embroidery Peplum Kurta Sharara with Dupatta | Anarkali Kurta Set | Sweetheart Neck Full Sleeve Ethnic Suit | 3 Piece Outfit | Indian Kurta Outfit With Sharara",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51CeB8RaIrL._SL1280_.jpg",
+                    Price = 1364.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GTMD6W3V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F9WBXW4N",
+                    Title = "INDO ERA Women's Straight Linen Floral Printed Kurta & Pant with Dupatta Set | Kurta Sets For Woman",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71Huqmjl9oL._SL1500_.jpg",
+                    Price = 1899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0F9WBXW4N?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GG459CD4",
+                    Title = "ANNI Designer Women's Viscose Blend Straight Printed Kurta with Palazzo | Elbow Length Sleeve Kurti Set | Close Neck with Back Slit | Soft Comfortable Fabric | 2 Piece Outfit",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51CaJuDIWiL._SL1152_.jpg",
+                    Price = 499.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GG459CD4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FZC7WBQ6",
+                    Title = "Pinkmint Women Short Kurti | Cotton Blend Printed Tunic Top | Trendy Casual Top | Casual & Office Wear Ethnic Top for Jeans",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81b9vWBNBAL._SL1500_.jpg",
+                    Price = 399.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FZC7WBQ6?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DJJG3GTJ",
+                    Title = "Pinkmint Printed Kurti for Women's ll Straight Kurtis for Women's ll Stylished Kurti (Pack of 6)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71u27hitOCL._SX342_.jpg",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DJJG3GTJ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DK1Z5F45",
+                    Title = "Pinkmint Women's Printed Kurti for Women's Round Neck Straight Kurti for Women (Pack of 6 | Avaiable in Plus Size)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71M0jkePrJL._SX342_.jpg",
+                    Price = 949.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DK1Z5F45?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FZ45F1G2",
+                    Title = "Arayna Women’s Cotton Printed Kurta Set with Pants & Dupatta – 3/4 Sleeve | Elegant Ethnic Wear",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/819MxR2cJOL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FZ45F1G2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DNSMRPXQ",
+                    Title = "Pinkmint Women's Printed Kurti for Women's Round Neck Straight Kurti for Women (Pack of 5 | Avaiable in Plus Size)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61EmQlJLx6L._SX342_.jpg",
+                    Price = 849.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DNSMRPXQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GSJPFBJ2",
+                    Title = "rytras Women Pure Cotton Printed A-Line Kurta Sets with Palazzos|Kurti Set for Woman|Cord Set for Women Cotton",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71g77aGD5DL._SL1500_.jpg",
+                    Price = 699.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GSJPFBJ2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FRN7JNB9",
+                    Title = "Arayna Women’s Pure Cotton Floral Kurta Set with Pants & Dupatta | Embroidered V-Neck Ethnic Suit",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81Oau4eEuQL._SL1500_.jpg",
+                    Price = 999.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FRN7JNB9?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FBMGY5ZV",
+                    Title = "SKYLEE Silk Blend Weaving and Embroidery Lace Straight Kurta Set with Dupatta",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71MyTP6sOpL._SL1500_.jpg",
+                    Price = 839.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FBMGY5ZV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C9Q2KLJX",
+                    Title = "Shiv Textiles Kurta Pant Set with Dupatta for Women",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61ZY8DRsr2L._SL1440_.jpg",
+                    Price = 819.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0C9Q2KLJX?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
