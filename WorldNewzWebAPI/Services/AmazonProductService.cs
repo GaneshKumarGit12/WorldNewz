@@ -2426,6 +2426,123 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0C9Q2KLJX?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0GQ49CC1V",
+                    Title = "HELLCAT Floral Brown Women Dress|New Trending Dress for Women|Western 3/4 Sleeve A-line",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61VMz5yfhJL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GQ49CC1V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GC7DTLKR",
+                    Title = "Leriya Fashion Kurta Sets for Woman | Printed Jaipuri Ajrakh Kurta Set With Dupatta for Women | Kurti Set for Woman | Anarkali Suit for Women | Traditional Anarkali Salwar Suit for Party Outfits Kurtis",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71woijRAruL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GC7DTLKR?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CXSSWBF7",
+                    Title = "feranoid Angrakha Sleeveless Wrap Around Dress",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81eCD9S3zOL._SL1440_.jpg",
+                    Price = 854.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CXSSWBF7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DVZ8M49N",
+                    Title = "eightone Women Floral Print Cotton Midi Dress, Short Sleeve, White with Yellow and Red Flowers, A-Line Fit",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61ug-Nud0hL._SL1500_.jpg",
+                    Price = 545.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DVZ8M49N?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G58XXL1V",
+                    Title = "HELLCAT Womens Floral Printed Olive Shoulder Straps Dress | Western A-Line V Neck Midi Dress for Womens",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71v5A0fyvcL._SL1500_.jpg",
+                    Price = 899.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0G58XXL1V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CM8DCJZ7",
+                    Title = "7Threads Women Fashion Vest",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51yK7V3TNYL._SY445_.jpg",
+                    Price = 347.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CM8DCJZ7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D5YNC787",
+                    Title = "Plain Cotton Slub Straight Dress Kurti for Ladies Girls - Combo Pack of 2 Grey & Peach Color",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61nDqMXvzzL._SL1500_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0D5YNC787?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F9YRWVPQ",
+                    Title = "Naixa Women's Chanderi Embroidered Flared Kurta with Pant and Dupatta Sets (NX-762)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61lgdfCbtoL._SL1440_.jpg",
+                    Price = 1449.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0F9YRWVPQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DYDNKF21",
+                    Title = "Naixa Women's Rayon Embroidered Straight Kurta with Pant and Dupatta Sets (Available in Plus Size) (NX-696)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71j8AaFRZdL._SL1500_.jpg",
+                    Price = 898.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DYDNKF21?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
