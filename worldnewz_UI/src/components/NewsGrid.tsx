@@ -17,6 +17,7 @@ interface NewsGridProps {
   onDislikeComment: (url: string, commentId: string) => void;
   getEngagement: (url: string) => any;
   columns?: any; // Grid layout columns
+  category?: string;
 }
 
 const NewsGrid: React.FC<NewsGridProps> = ({
@@ -32,6 +33,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
   onDislikeComment,
   getEngagement,
   columns = { xs: 12, sm: 6, md: 4, lg: 3 },
+  category,
 }) => {
   const seenImages = new Set<string>();
 
@@ -83,7 +85,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
                   containIntrinsicSize: "auto 400px",
                 }}
               >
-                <AdBannerCard />
+                <AdBannerCard category={category || article.category} />
               </Grid>
             )}
           </React.Fragment>
