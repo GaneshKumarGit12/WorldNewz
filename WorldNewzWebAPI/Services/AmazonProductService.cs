@@ -2543,6 +2543,344 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0DYDNKF21?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0DF2TVTKB",
+                    Title = "Titan Essence Classic Wall Clock with White Dial & Case, Silent Sweep, Model W0094PA01 | 30 cm x 30 cm",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81BM-UQajlL._SL1500_.jpg",
+                    Price = 1292.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0DF2TVTKB?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BLCM1BQD",
+                    Title = "Vilvah Milk Drops Brightening Serum | Fades Dark Spots, Treats Hyperpigmentation & Evens Skin Tone | Hyaluronic Acid & Alpha Arbutin Serum for Women & Men | Suitable for All Skin Types | 20ml",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41jRw8o93eL._SL1000_.jpg",
+                    Price = 544.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0BLCM1BQD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DQ4X4L4D",
+                    Title = "Wild Stone 4 Ultra Sensual and 4 Forest Spice Combo for Men, Pack of 8 (100gm each)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71R9yEvRVCL._SL1500_.jpg",
+                    Price = 220.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0DQ4X4L4D?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07SD1XPJB",
+                    Title = "UV Doux Silicone Sunscreen Gel SPF 50 PA+++|India’s No.1 Dermatologist Recommended Brand|Invitro,In-Vivo Tested|UVA/UVB Protection, Benzene Free|No White Cast |Oily & Acne-Prone Skin |100 g",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51InaMoxZ4L._SL1080_.jpg",
+                    Price = 1365.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B07SD1XPJB?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GQXJVNY5",
+                    Title = "Vedix Keshamrut Ayurvedic Herb-Infused Hair Oil | Pack of 3 | Herb-Infused Hair Oil | 16+ Whole Herbs, No Mineral Oil | Controls hair fall & boosts growth | For women & men",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/8118JURUiIL._SL1500_.jpg",
+                    Price = 1096.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GQXJVNY5?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07CJXFLQ7",
+                    Title = "Selsun Abbott Suspension Anti Dandruff Shampoo for Men and Women, Clears Away Dandruff Flakes, Relieves From Excessive Oil, Relieves From Dandruff Related Itching- 120 ml",
+                    Description = "Check out this top-rated education product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51-RLrdi0ML._SL1080_.jpg",
+                    Price = 392.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Education",
+                    ProductUrl = "https://www.amazon.in/dp/B07CJXFLQ7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DXVVR6J2",
+                    Title = "Vilvah Face Brightening Combo | Milk Powder Face Wash (50g) & Milk Drops Brightening Serum (20ml) | Brightens Skin, Evens Tone & Fades Dark Spots | Controls Excess Oil & Reduces Blackheads | For All Skin Types, Unisex",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/510K3FXamtL._SL1080_.jpg",
+                    Price = 911.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0DXVVR6J2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C1G7JY5D",
+                    Title = "Fixderma Shadow Sunscreen SPF 50+ Gel for Oily Skin | Sunscreen for Body & Face | Broad Spectrum Protection from UVA & UVB | For Women & Men | Non Greasy & Water Resistant - 40gm",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61Pkpvy9LwL._SL1200_.jpg",
+                    Price = 277.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0C1G7JY5D?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B096MNYLWS",
+                    Title = "The Derma Co 10% Vitamin C Face Serum with 5% Niacinamide, Powered by Deep Penetration Formula™ | Fades Dark Spots | Reduces Pigmentation | Boosts Collagen | Brightens Skin | All Skin Types | 30 ml",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/618ninTUjSL._SL1080_.jpg",
+                    Price = 628.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B096MNYLWS?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BK1HQZD4",
+                    Title = "HAMMONDS FLYCATCHER Genuine Leather Belt for Men, Premium Leather Belt with Auto Lock mechanism, Mens Belt Leather Branded with Slide Lock for Everyday Wear",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81o6-yqS+5L._SL1500_.jpg",
+                    Price = 889.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0BK1HQZD4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B097MR5L9H",
+                    Title = "Hammonds Flycatcher Genuine Leather Office Bag for Men, Laptop Bag for 15.6 Inch Laptop, Adjustable Strap, Multi Compartments, Trolley Strap, 1 Year Warranty - Brown",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81nNiogZ0uL._SL1500_.jpg",
+                    Price = 5889.0m,
+                    OriginalPrice = 7361.25m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B097MR5L9H?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07PVQ9YXJ",
+                    Title = "HAMMONDS FLYCATCHER Genuine Leather Office Bag for Men, 2in1 New Brown Laptop Bag for Men, Fits 15.6' Laptop, Adjustable Strap, Multi Compartments Ideal for Office, Travel, Daily Use, 1 Year Warranty",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81eNAdetfuL._SL1500_.jpg",
+                    Price = 6559.0m,
+                    OriginalPrice = 8198.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B07PVQ9YXJ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B083M1MGSG",
+                    Title = "HAMMONDS FLYCATCHER Genuine Leather Office Bag for Men, Premium 15.6 Inch Laptop Bag for Men, Multi Compartments & Adjustable Strap, Ideal for Office, Travel, Daily Use - 1 Year Warranty - Black",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71JmQ5ThI+L._SL1500_.jpg",
+                    Price = 5219.0m,
+                    OriginalPrice = 6523.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B083M1MGSG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DRVSXG4M",
+                    Title = "Kamiliant Polypropylene KAM Hard Shell 8 Wheels Spinner Suitcase Might DW SP68CM MIL.OLV,Brown, Medium",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71Ik6+C2KYL._SL1500_.jpg",
+                    Price = 2295.0m,
+                    OriginalPrice = 2868.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DRVSXG4M?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B01M71S2UG",
+                    Title = "HAMMONDS FLYCATCHER Genuine Leather Office Bag for Men, Stylish 15.6 Inch Laptop Bag for Men, Multi Compartments, Adjustable Strap - 1 Year Warranty - Ideal for Office, Travel, Daily Use - Brown",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/8101WFmSIpL._SL1500_.jpg",
+                    Price = 3869.0m,
+                    OriginalPrice = 4836.25m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B01M71S2UG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CWS3V8QN",
+                    Title = "Portronics My Buddy K11 Metal Laptop Stand with 360° Rotation, Height & Angle Adjustable, Foldable Design, Improves Air Flow, Carbon Steel Body, 10 kg Max Weight for Laptops & MacBook (Black)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61i05gGBl3L._SL1500_.jpg",
+                    Price = 1099.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0CWS3V8QN?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CW2VHDS4",
+                    Title = "HP GK400F Mechanical Gaming Keyboard,dust & Spill Resistant,RGB Backlit Keys,Metal Panel,Full-Sized Keyboard Design",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61rq1YS1XVL._SL1500_.jpg",
+                    Price = 1549.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0CW2VHDS4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D2XJG7HS",
+                    Title = "Parx Men Regular Fit Solid Pattern Cotton Polyester Blend Half Sleeve Polo Neck Casual T-Shirt",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51jAEh+SfiL._SL1500_.jpg",
+                    Price = 552.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0D2XJG7HS?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GJDS2WB5",
+                    Title = "GODFREY Half Cotton Polo T Shirt for Man with Pocket - Regular Fit Mens Collar Tshirt",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71j8cNdaMiL._SL1500_.jpg",
+                    Price = 638.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GJDS2WB5?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GDQQV42Z",
+                    Title = "LEOTUDE Men’s Oversize Graphic Printed Combo Pack of 3 T-Shirt | Round Neck Half Sleeve T-Shirt for Men's (Combo : Pack of 3)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71uHXP5j6IL._SL1500_.jpg",
+                    Price = 798.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GDQQV42Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FRMRNYVH",
+                    Title = "BULLMER Trendy Regular Fit Cotton Blend Printed Casual Half Sleeve Shirt for Men | Stylish Mens Casual Shirts | Shirts for Men",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71LaTYRrOQL._SL1500_.jpg",
+                    Price = 659.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FRMRNYVH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DWSHZV9F",
+                    Title = "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-59-62)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71faeST1ckL._SL1500_.jpg",
+                    Price = 399.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DWSHZV9F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FB3TVW27",
+                    Title = "SANE ORIGINALS Half Sleeve Polo T-Shirt for Men with Pocket || Stripe Collar and Pocket T-Shirt for Men Half Sleeves",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71RgYJrw2iL._SL1500_.jpg",
+                    Price = 521.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FB3TVW27?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B73DJD8J",
+                    Title = "STELLERS Men's Premium Printed Polo T-Shirt | Wrinkle Free | Quick Dry | Breathable | Stretchable | Regular Fit",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/91OquzlLPJL._SL1500_.jpg",
+                    Price = 799.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0B73DJD8J?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F9T4G2YQ",
+                    Title = "Lymio Polo T Shirt for Men || T Shirt for Man || Collar T Shirt Style Men (Packs Also Available) (Polo-51-54)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61pTsX9t3WL._SL1500_.jpg",
+                    Price = 749.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0F9T4G2YQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FV36BV1Z",
+                    Title = "Amazon Brand - Symbol Men's Cotton Rich Solid Polo Tshirt | Collar Tshirts | Half Sleeves | Plain-Regular Fit (Available in Plus Sizes and Combo Pack of 2)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71piaanc3fL._SL1500_.jpg",
+                    Price = 839.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FV36BV1Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
