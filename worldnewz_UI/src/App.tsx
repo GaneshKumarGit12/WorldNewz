@@ -15,6 +15,7 @@ import { SearchBar } from "./components/layout/SearchBar";
 import { BackToTop } from "./components/layout/BackToTop";
 import { PushNotificationBanner } from "./components/layout/PushNotificationBanner";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
+import { WorldNewzAssistant } from "./components/layout/WorldNewzAssistant";
 
 // Lazy load footer and cookie consent
 const Footer = lazy(() => import("./components/Footer"));
@@ -304,6 +305,9 @@ const App: React.FC = () => {
 
       {/* Back to Top */}
       <BackToTop show={showBackToTop} onClick={handleBackToTop} />
+
+      {/* Global Site-Wide Assistant Widget */}
+      <WorldNewzAssistant />
 
       {/* Subscription Status Alerts */}
       <Snackbar

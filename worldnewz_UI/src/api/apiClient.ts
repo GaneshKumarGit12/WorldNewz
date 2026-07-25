@@ -820,8 +820,8 @@ export interface ChatbotResponse {
   generatedImage?: string;
 }
 
-export const askChatbot = (query: string, history: ChatMessageDto[]) =>
-  apiClient.post<ChatbotResponse>("/chatbot/ask", { query, history });
+export const askChatbot = (query: string, history: ChatMessageDto[], context?: string) =>
+  apiClient.post<ChatbotResponse>("/chatbot/ask", { query, history, context });
 
 // --- Spoonacular Recipes API ---
 export interface SpoonacularRecipe {

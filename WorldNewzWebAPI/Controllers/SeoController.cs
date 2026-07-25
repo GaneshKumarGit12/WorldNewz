@@ -92,7 +92,8 @@ namespace WorldNewzWebAPI.Controllers
                 ("about", "0.7", "monthly"),
                 ("contact", "0.7", "monthly"),
                 ("editorial-briefings", "0.8", "daily"),
-                ("editorial-guidelines", "0.6", "monthly")
+                ("editorial-guidelines", "0.6", "monthly"),
+                ("chatbot", "0.8", "daily")
             };
 
             foreach (var (path, priority, freq) in pages)

@@ -43,6 +43,7 @@ export default async function handler(req, res) {
   <url><loc>https://worldnewzs.in/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/amazon-products</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/chatbot</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/editorial-briefings</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/editorial-guidelines</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
 </urlset>`;
