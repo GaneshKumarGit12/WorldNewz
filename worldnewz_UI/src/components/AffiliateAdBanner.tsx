@@ -17,7 +17,7 @@ const fallbackProducts: Partial<AmazonProduct>[] = [
     title: "Noise ColorFit Pulse 2 Max Smart Watch with 1.85'' Display",
     price: 1499.0,
     originalPrice: 5999.0,
-    imageUrl: "https://m.media-amazon.com/images/I/61SSVxTSs3L._SL1500_.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60",
     productUrl: "https://www.amazon.in/dp/B0B6BLG2SM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
     category: "Technology"
   },
@@ -26,7 +26,7 @@ const fallbackProducts: Partial<AmazonProduct>[] = [
     title: "boAt Airdopes 141 Bluetooth Truly Wireless Earbuds",
     price: 1299.0,
     originalPrice: 4490.0,
-    imageUrl: "https://m.media-amazon.com/images/I/510+-8yADYL._SL1500_.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&auto=format&fit=crop&q=60",
     productUrl: "https://www.amazon.in/dp/B09N3ZLB3T?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
     category: "Technology"
   },
@@ -35,7 +35,7 @@ const fallbackProducts: Partial<AmazonProduct>[] = [
     title: "Echo Dot (5th Gen) Smart Speaker with Alexa",
     price: 4499.0,
     originalPrice: 5499.0,
-    imageUrl: "https://m.media-amazon.com/images/I/61MBtWsq6tL._SL1000_.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1543512214-318c7553f230?w=500&auto=format&fit=crop&q=60",
     productUrl: "https://www.amazon.in/dp/B09B8VGCR8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
     category: "General"
   }

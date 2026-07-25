@@ -47,18 +47,62 @@ apiClient.interceptors.request.use(
   error => Promise.reject(error)
 );
 
+const safeSetCache = (cacheKey: string, value: string) => {
+  if (typeof window === "undefined" || !window.localStorage) return;
+  try {
+    localStorage.setItem(cacheKey, value);
+  } catch {
+    // Storage quota exceeded - clean up expired api_cache_ entries first
+    try {
+      const now = Date.now();
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith("api_cache_")) {
+          try {
+            const item = localStorage.getItem(key);
+            if (item) {
+              const parsed = JSON.parse(item);
+              if (!parsed.timestamp || now - parsed.timestamp > 15 * 60 * 1000) {
+                keysToRemove.push(key);
+              }
+            } else {
+              keysToRemove.push(key);
+            }
+          } catch {
+            keysToRemove.push(key);
+          }
+        }
+      }
+      keysToRemove.forEach(k => localStorage.removeItem(k));
+      localStorage.setItem(cacheKey, value);
+    } catch {
+      // Still failing - purge ALL api_cache_ entries to reclaim space
+      try {
+        const allApiKeys: string[] = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith("api_cache_")) {
+            allApiKeys.push(key);
+          }
+        }
+        allApiKeys.forEach(k => localStorage.removeItem(k));
+        localStorage.setItem(cacheKey, value);
+      } catch {
+        // Silently ignore if browser restrictions prevent storage write
+      }
+    }
+  }
+};
+
 apiClient.interceptors.response.use(
   response => {
     if (typeof window !== "undefined" && window.localStorage && response.config.method === "get" && response.status === 200 && shouldCache(response.config.url)) {
       const cacheKey = `api_cache_${response.config.url}_${JSON.stringify(response.config.params || {})}`;
-      try {
-        localStorage.setItem(cacheKey, JSON.stringify({
-          data: response.data,
-          timestamp: Date.now()
-        }));
-      } catch (e) {
-        console.warn("Local storage cache write failed:", e);
-      }
+      safeSetCache(cacheKey, JSON.stringify({
+        data: response.data,
+        timestamp: Date.now()
+      }));
     }
 
     if (response.data && Array.isArray(response.data.articles)) {
