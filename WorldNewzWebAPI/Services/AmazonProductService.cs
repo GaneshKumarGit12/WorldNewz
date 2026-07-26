@@ -2881,6 +2881,175 @@ namespace WorldNewzWebAPI.Services
                     Category = "Lifestyle",
                     ProductUrl = "https://www.amazon.in/dp/B0FV36BV1Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0BTYVNFF2",
+                    Title = "Parent Men Breathable Pouch Men Underwear Packs Mesh Boxer Briefs | Dots | Pack of 3",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/614Ti36wkjL._SL1024_.jpg",
+                    Price = 552.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0BTYVNFF2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F7J2H8F2",
+                    Title = "Ayurveda Jamun Seed Powder, 500 gm | For Diabetes, Herbal Supplement",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61lhDNXJkML._SL1254_.jpg",
+                    Price = 275.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0F7J2H8F2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H2SHZ166",
+                    Title = "Honeycomb Wall Sconce Set of 2, 3 Color Modes | Metal & Acrylic Hexagon Wall Lights, Pair for Bedroom, Living Room, Hallway, 8W LED, Warm/Neutral/Cool",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71h0i98im+L._SL1254_.jpg",
+                    Price = 949.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0H2SHZ166?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GKPJZJ6V",
+                    Title = "Vacuum Storage Bags with Electric Air Pump, 4 Pack Small Vacuum Seal Bags for Clothing, Space Saver Vacuum Storage Bags for Blanket, Duvets, Pillows, Comforters",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71Z787L97wL._SL1254_.jpg",
+                    Price = 499.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GKPJZJ6V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F2JPQ8BV",
+                    Title = "Clear Airtight Glass Milk, Juice & Water Bottle with Leak Proof Lid for Refrigerator, Set of 2, 1000ml (Transparent)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/614oFG24txL._SL1500_.jpg",
+                    Price = 878.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0F2JPQ8BV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D6YLZQ9V",
+                    Title = "Bleaching Powder 10 KG Pack",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/91YKA+n-M3L._SL1500_.jpg",
+                    Price = 854.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0D6YLZQ9V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DK7KBXYM",
+                    Title = "Silverglow Apple Stainless Steel Silver Dinner Set of 6 pcs, Pure-Silver Plated Luxury dinnerware Set, Ideal for Home, Restaurant, Gifting, Wedding, Hotel, Restaurant, Traditional thali Set",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/618ajPTV73L._SL1500_.jpg",
+                    Price = 2137.0m,
+                    OriginalPrice = 2671.25m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0DK7KBXYM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GTYDFFDH",
+                    Title = "Portable Personal Blender Bottle – USB Rechargeable Smoothie Maker with Travel Lid, Powerful Mini Juicer for Fruits & Vegetables, BPA-Free, Easy Clean (Multicolour, Juicer Mixer Blende)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71+Q6Yhp4ML._SL1500_.jpg",
+                    Price = 939.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GTYDFFDH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FGQKFN3K",
+                    Title = "100% Pure Cotton Jaipuri Bedsheet with Pillow Covers | Soft & Breathable Fabric | Traditional Floral Print | Cotton Bedsheet (Peach, Single)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/A1GXeNW0+BL._SL1500_.jpg",
+                    Price = 392.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FGQKFN3K?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B083VDZ8T4",
+                    Title = "Sandpuppy Coldstrap - Reusable Cold Ice Pack | Ice pack for Injury And Muscle Soreness Pain Relief | Ice pack for Knees, Back, Shoulder, Hip, Neck, Ankle| Long Lasting|With Stretch Band to Enhance Fit and Comfort.",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71BLzYWjLML._SL1500_.jpg",
+                    Price = 598.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B083VDZ8T4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CP3RM6NV",
+                    Title = "TAOCOCO 100% Waterproof Loveseat Recliner Covers Reversible, Brown | Dual Recliner Protector with Leg Straps, Washable 2 Seat Reclining Sofa Slipcover with Storage Pocket for Pets & Kids",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71afK6InU1L._SL1500_.jpg",
+                    Price = 2374.0m,
+                    OriginalPrice = 2967.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0CP3RM6NV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H7CS34CB",
+                    Title = "Khadi Essential Cotton Gadda Mattress | Double Bed | 72x36x5 Inch | 100% Pure Cotton Fabric | Reversible | All Season Breathable | Soft & Firm | (Single)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71UWuThhFRL._SL1254_.jpg",
+                    Price = 2279.0m,
+                    OriginalPrice = 2848.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0H7CS34CB?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F3X825PN",
+                    Title = "Aqua X pure Black water Purifier with Smart LED Indicators | RO+UV+UF+ Alkaline Technology |12 Stages Purification | 20 LPH Purification | Advanced High TDS Membrane |1 Year Warranty.",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61N0FefjeYL._SL1080_.jpg",
+                    Price = 4560.0m,
+                    OriginalPrice = 5700.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0F3X825PN?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
