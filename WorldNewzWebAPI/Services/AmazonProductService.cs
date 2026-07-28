@@ -3505,6 +3505,279 @@ namespace WorldNewzWebAPI.Services
                     Category = "Electronics",
                     ProductUrl = "https://www.amazon.in/dp/B0FDKSCCZ2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0FL4KMBSH",
+                    Title = "World Famous Country Cities Town Village Acrylic Fridge Magnet | 3x2 Inches, 3mm Thick | Decorative for Home, Office, Locker, PC Cabinets, Almirah Pack of 1 (Samoa)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81Cu-gCKRaL._SL1500_.jpg",
+                    Price = 141.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FL4KMBSH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0F38KKWFM",
+                    Title = "Disposable Adjustable Non-Woven Surgical Caps for Surgeon Clinical Use Medical Hospital OT Use Pack of 100pcs Blue",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61eX0C-h6bL._SL1024_.jpg",
+                    Price = 278.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0F38KKWFM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CYLP7SK1",
+                    Title = "numeroastro Tibetan Hanging Bell | Wind Chime for Homes, Offices, Cars for Positive Flow of Chee Energy (1 Pc)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61DKl6mdhyL._SL1500_.jpg",
+                    Price = 274.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0CYLP7SK1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0BLBL2R6R",
+                    Title = "PFUM Glass Overnight Oats Jars With Spoon And Lid 16 Oz [2 Pack], Airtight Oatmeal Container With Measurement Marks, Mason Jars With Lid For Cereal On The Go Container (2Pcs White)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71O4eEL+srL._SL1500_.jpg",
+                    Price = 250.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0BLBL2R6R?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FG1HZXFF",
+                    Title = "400ml No-Drill Adhesive Wall-Mounted Soap Dispenser – Durable ABS Plastic Holds Hand Wash – Shower Gel – Sanitizer Compact White Capsule Design for Kitchen – Bathroom Sink (1-Pack)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71zXZt4ghbL._SL1500_.jpg",
+                    Price = 284.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0FG1HZXFF?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FTG6Q3YG",
+                    Title = "Sattvic Essence Premium Hing Powder | Pure & Organic | Authentic & Aromatic Asafoetida | Natural Indian Spice for Cooking, Seasoning & Tadka | Raw Flavorful Heeng",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71gYxpFpEZL._SL1254_.jpg",
+                    Price = 341.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FTG6Q3YG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H3LKPC2K",
+                    Title = "OnePlus N6 | 6GB+128GB | Midnight Green | Segment's Biggest 8000mAh Battery | Segment's Fastest 45W Charging | 60-Month Smoothness | Smooth 120Hz Display | 50MP Camera | Military-Grade Durability",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61f5ZCuSD6L._SL1500_.jpg",
+                    Price = 24999.0m,
+                    OriginalPrice = 31248.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0H3LKPC2K?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C463JJ1Z",
+                    Title = "American Garden Apple Cider Vinegar Unfiltered with the Mother • Raw & Naturally Fermented Apple Vinegar for Cooking, Detox Drinks & Salad Dressings, 16.9 fl oz ℮ 500 ml",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61NQHWAO-iL._SL1500_.jpg",
+                    Price = 331.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0C463JJ1Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B7GNTLF7",
+                    Title = "Metal Kamdhenu Idol Collections Metal Kamadhenu Cow Statue Height-6.5' Money Attraction Cow, kaamdhenu with face and Wings | Home Decor Pack of 1 Piece",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61DEHiFn4IL._SL1000_.jpg",
+                    Price = 641.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0B7GNTLF7?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H6G3FG57",
+                    Title = "Waterproof Transparent Laptop Pouch Sleeve with Zip Lock | Dustproof Protective Cover for Laptop & Documents (Pack of 1)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/618evNKRtJL._SL1004_.jpg",
+                    Price = 179.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0H6G3FG57?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DZXD1YLK",
+                    Title = "BELLOX 560Pieces Heat Shrink Tubing 2:1- Electrical Wire Cable Sleeving Wrap, Cable Wrap Assortment Electric Insulation Heat Shrink Tube Kit with Box(5 colors/12 Sizes) Black, Red, Blue,Yellow,Green",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71nLfkYawkL._SL1500_.jpg",
+                    Price = 331.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0DZXD1YLK?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GYZPW1K8",
+                    Title = "Cooker&Mixer™ Cotton Kitchen Towels, Dish Cleaning Cloth, Cotton Napkins, Scrubbing Wash Cloths, Bulk, Sets, Mix Color, 47 x 47 cm, Set of 9, Premium Comb Structure, Super Absorbent, Quick-Drying",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81AKfKTrTCL._SL1500_.jpg",
+                    Price = 284.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GYZPW1K8?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GZVLB8NL",
+                    Title = "GNEY F75 Pneumatic Spray Gun with 750ML Aluminum Cup, Adjustable Paint Flow & Air Pressure, Copper Nozzle Paint Sprayer for Car Painting, Furniture, Wall Coating & Industrial Use",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61papPJxptL._SL1420_.jpg",
+                    Price = 948.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GZVLB8NL?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DQ4S1HBD",
+                    Title = "Premium Massage Chair Cover - Full Body Protector for Massage Chair - Dustproof & Scratch-Proof for Pets, Cats & Dogs - Polyester Material (Black)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61Z+KuvKq+L._SL1500_.jpg",
+                    Price = 930.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0DQ4S1HBD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GT1MNTHR",
+                    Title = "Bee Venom Body Drainage Shaping Foot Pads, Detox Patches with Green Tea Extract for Feet, Overnight Use, 10 Pieces",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/714yDXnB-FL._SL1500_.jpg",
+                    Price = 187.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GT1MNTHR?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G1CJDW96",
+                    Title = "Shopper52 21V Cordless Mini Chainsaw | One-Handed Lightweight Design | Portable Battery Powered Wood Cutter for Tree Trimming & Gardening",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51QAm-szUfL._SL1024_.jpg",
+                    Price = 1566.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0G1CJDW96?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0B8N3L8RQ",
+                    Title = "MAYCREATE Makeup Brush Holder Travel Makeup Brush Organizer Cosmetic Bag Roll Up Storage Case Pouch with 12 Brush Sleeve, Zipper & Mesh Pouch, Waterproof & Dustproof,Black | Organized Brush Storage with 12 Sleeves, Mesh Pocket, Zipper Closure and Dust Protection for Travel",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/618BR0i5AZL._SL1200_.jpg",
+                    Price = 628.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0B8N3L8RQ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B09QS5L8WC",
+                    Title = "Pharma Vyytum-H Veterinary Vitamin-H for Cow, Cattle, Poultry & Livestock Animals with Vitamin-D3 & E Liquid Feed Supplement for Cattle, Cow and Farm Animals / (1 Litre Pack)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51e-qbNiV7L._SL1117_.jpg",
+                    Price = 615.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B09QS5L8WC?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B08L6TH1SD",
+                    Title = "Weleet Assorted Pack Of Multi Grain, Millet, Ragi & Banana Millet Digestive Cookies|Home/Office Snack|Free Of White Sugar & White Flour|100% Natural & Healthy (4 Flavours-360 Gm)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71EMIA7iFtL._SL1500_.jpg",
+                    Price = 259.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B08L6TH1SD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GKG5MN13",
+                    Title = "Cordless Tyre Inflator Air for Car and Bike 5200mAh with Digital Display, Auto Cut-Off, LED Flashlight, Emergency SOS Light & Power Bank Support for Car, Bike, Bicycle & Ball",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61OkbblwZ0L._SL1254_.jpg",
+                    Price = 2498.0m,
+                    OriginalPrice = 3122.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0GKG5MN13?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B075JD2QM9",
+                    Title = "Dolgix® 8GB DDR4 Laptop RAM 2400MHz | Notebook RAM | CL-17 | Laptop-Memory | SO-DIMM | PC4-19200 |2Rx8 Dual Rank | 3- Year Warranty -(Made in India)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61fnfKo0zKL._SL1279_.jpg",
+                    Price = 3504.0m,
+                    OriginalPrice = 4380.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B075JD2QM9?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
