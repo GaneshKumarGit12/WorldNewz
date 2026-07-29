@@ -3778,6 +3778,396 @@ namespace WorldNewzWebAPI.Services
                     Category = "Electronics",
                     ProductUrl = "https://www.amazon.in/dp/B075JD2QM9?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
+                new AmazonProduct
+                {
+                    Asin = "B0GZ6PQ3CM",
+                    Title = "MOOVER Women Analog Watch with Brown Square Dial, Crystal Studded Bezel, Premium Metal Strap Stylish Fashion Wrist Watch for Girls & Women",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/7137idrDBwL._SL1273_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GZ6PQ3CM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0D9HS4LL1",
+                    Title = "dockstreet Women's/Unisex ONESOPEN Bottom Drawstring Pure Cotton Stretchable Baggy Jogger Pants",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61aZabK6eNL._SL1066_.jpg",
+                    Price = 341.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0D9HS4LL1?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GV3LM76Z",
+                    Title = "AYUSHI & CO. Bridal Chuda Bangle Set, Kundan-Style Accents, Stone Studded, Gold-Toned, Wedding Occasion, Bridal Accessories,",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61aR6lst4ML._SL1024_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GV3LM76Z?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GKGJDLHM",
+                    Title = "Premium Genuine Leather Messenger Sling Bag for Men & Women - Multipurpose Crossbody Bag with Adjustable Strap & Multiple Pockets for Travel, Office, Work, College & Daily Use",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81ByyiFVWfL._SL1500_.jpg",
+                    Price = 1614.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GKGJDLHM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07RRK4KS4",
+                    Title = "Back Camera Lens Protector for Vivo V60 (1 Pack) Premium Camera Glass Protector Guard, Anti-Scratch, Ultra-Clear, Easy Installation | Anti Scratch, Bubble Free, Easy to Install, HD Clear",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71u+pVgBAgL._SL1500_.jpg",
+                    Price = 474.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B07RRK4KS4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GCCFB569",
+                    Title = "Dream Living Real Look 7D Design Queen Size Bedsheet (228x254 Inch) with 2 Pillow Covers (19x29 Inch) Soft Cotton Fabric (Gilehri)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71wXvKSeSOL._SL1280_.jpg",
+                    Price = 569.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GCCFB569?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FGY2FL58",
+                    Title = "Front-load washing machine cover Compatible for Haier 12 Kg Direct Motion Motor ( Model, HWD120-B1558, 525) Solid Coffee rendering panda bear print",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51uGbeDo8aL._SX355_.jpg",
+                    Price = 626.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FGY2FL58?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GFTP39WD",
+                    Title = "MAZRA Steel Tongue Drum 15 Note, 13-inch Percussion Instrument Handpan Drum with Bag, Music Book and Mallets for Kids and Adults Meditation Musical Education Concert (Black, 10 inch)",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71exOF4z15L._SL1500_.jpg",
+                    Price = 2374.0m,
+                    OriginalPrice = 2967.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0GFTP39WD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GSH34DJH",
+                    Title = "Decorative Fridge Magnet with Glowing Border | Pack of 1 (Scuba Diving at Andaman Islands, 4x3 inch - Fluorescent Border)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81HkozWaG2L._SL1500_.jpg",
+                    Price = 198.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GSH34DJH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DQQCK4JV",
+                    Title = "VIKITA 2017 Girls Embroidery Cotton Long Sleeve Flower Dresses LH5460 for 1-8 Years ?-",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/41PMKZO2a8L._SL1080_.jpg",
+                    Price = 426.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DQQCK4JV?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0722QGFTH",
+                    Title = "Brown Kraft Paper Zip Lock Stand Up Pouches | 10×15cm | 50g | Pack of 100 | Transparent window, resealable zip lock closure and stand-up design for tea, spices, herbs, seeds and sample packaging",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81Ai9+eKy2L._SL1500_.jpg",
+                    Price = 409.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0722QGFTH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CVHFWTMH",
+                    Title = "Heyam Handloom Bhagalpuri Linen Cotton Saree for Women",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/6115FDHRItL._SL1200_.jpg",
+                    Price = 806.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CVHFWTMH?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B078WVW3XD",
+                    Title = "Redesign Compression Pants Nylon Tights (Color Options) …",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51GiQapeRrL._SL1400_.jpg",
+                    Price = 876.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B078WVW3XD?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07SFLDWPJ",
+                    Title = "Easy-Going Microfiber Sofa Slipcover L Shape Sofa Cover Sectional Couch Cover Chaise Slip Cover Reversible Sofa Cover Furniture Protector Cover For Pets Kids Children Dog Cat (Large,Brown/Brown)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51rWwVanneL._SL1500_.jpg",
+                    Price = 2374.0m,
+                    OriginalPrice = 2967.5m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B07SFLDWPJ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B07KTXD9YB",
+                    Title = "Luxury 7D Car Floor Mats for Jeep Compass, 7 Layer PU Leather Mats with Curly Noodle Pad, Heel Pad, Waterproof Anti-Skid, Beige",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71pN8OAA5qL._SL1500_.jpg",
+                    Price = 7788.0m,
+                    OriginalPrice = 9735.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B07KTXD9YB?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H42JWJKG",
+                    Title = "Uttarakhand Decor Plastic Fridge Magnet with Golden Border for Home & Office (Rishikund Rishikesh, 4x3 inch)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81obcR1-qhL._SL1500_.jpg",
+                    Price = 179.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0H42JWJKG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DSG52GGG",
+                    Title = "Flat Bedsheets Double Size Egyptian Cotton - 400 Thread Count Pocket Long Staple Sateen Weave Flat Sheet with 2 Pillowcover - Burgundy",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81a1qHP4lUL._SL1500_.jpg",
+                    Price = 1462.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DSG52GGG?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FK2NS56F",
+                    Title = "ONETON Premium Frosted Glass Window Film Self Adhesive Decorative Glass Window Privacy Sheet Film UV Control Static Cling Removable Vinyl Privacy Film (Rowan Leafs, 24x48 Inch)",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/81QC8yc6BLL._SL1500_.jpg",
+                    Price = 341.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0FK2NS56F?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0C9JSWZY2",
+                    Title = "Rhinestone or Kundanstone Beads 100 Grams (3MM, TURQUOIS Blue)",
+                    Description = "Check out this top-rated shopping product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51hT8pghqiL._SL1100_.jpg",
+                    Price = 189.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Shopping",
+                    ProductUrl = "https://www.amazon.in/dp/B0C9JSWZY2?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0H17GZQ8X",
+                    Title = "NIVAA Heavy Duty Oil Pump Dispenser for 15L Oil Can | Cooking Oil Transfer Pump for Kitchen, Hotel & Commercial Use",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71GZeQNaR-L._SL1500_.jpg",
+                    Price = 151.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0H17GZQ8X?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0G57VPX6B",
+                    Title = "JK Premium Poppy Seeds (Posto/Khus Khus) 50g | Pure & Natural Indian Posto Dana | Additive-Free | Fresh for Curries & Indian Cooking (Pack Of 2)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71c5JM7Ro+L._SL1000_.jpg",
+                    Price = 255.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0G57VPX6B?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GPYFH39V",
+                    Title = "Drain Hair Catcher 4x4 Inch (Pack of 10) | Disposable Waterproof Drain Cover Mesh Stickers | Bathroom Shower Floor Sink & Bathtub Drain Guard | Hair Trap Jali for Clog Prevention",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51XtjUiBAnL._SL1024_.jpg",
+                    Price = 129.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0GPYFH39V?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FT43RC94",
+                    Title = "Screen Guard For TVS NTORQ 150 2025 BASE MODEL | Scratch Resistant | Water Repellant | HD Clear | 9H Hardness | 5 Inch Instrument Console Protector | TVS Accessoriess[Not Tempered Glass] (Pack of 1)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71wzwrj1uBL._SL1500_.jpg",
+                    Price = 227.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FT43RC94?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GW8H7NV6",
+                    Title = "KENT Sterling IoT Under the Counter RO Water Purifier| RO+UV+UF+Alkaline+Copper+TDS Control | IoT Enabled | Fully Automatic On&OFF Operation | 6L |20 LP/Hr|Ideal For Borewell/Tanker/Municipal Water",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/613bdoI5dKL._SL1500_.jpg",
+                    Price = 22799.0m,
+                    OriginalPrice = 28498.75m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GW8H7NV6?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B06XDBH2LZ",
+                    Title = "A-Tape Cohesive Crepe (5cm X 4.5 mtr, Pack of 2) Elastic Self Adherent Crepe Bandage Breathable Self Adhesive Cohesive Bandage for Humans & Pets (Dogs, Cats, Birds) (5 cm) (Blue)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/61aFjFC-WyL._SL1280_.jpg",
+                    Price = 282.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B06XDBH2LZ?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0FVSQ24LM",
+                    Title = "NatriXeed Kishmish (Raisins) | High-Fiber Superfood for Snacking | Cooking & Desserts | Clean Energy | Vegan-Friendly (750gm)",
+                    Description = "Check out this top-rated electronics product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/716ihaUxLuL._SL1500_.jpg",
+                    Price = 284.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Electronics",
+                    ProductUrl = "https://www.amazon.in/dp/B0FVSQ24LM?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B09VCG5GZL",
+                    Title = "ELEVANTO (NAVY-RED) PREMIUM DRY TECH TERRY MATERIAL HALF SLEEVE WITH FRONT POCKET BATHROBE FOR WOMENS",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/51cNbcK4jwL._SL1440_.jpg",
+                    Price = 379.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B09VCG5GZL?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0GNGZ3B83",
+                    Title = "Copper-Red Wind Chimes for Outside - Decorations Tube Hanging Wind Bell for Positive Energy, Soothing Sound & Meditation and Metal 15 Tubes for Indoor and Outdoor Use",
+                    Description = "Check out this top-rated kitchen & home product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71rEKI-5h6S._SL1500_.jpg",
+                    Price = 395.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Kitchen & Home",
+                    ProductUrl = "https://www.amazon.in/dp/B0GNGZ3B83?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0DB1HM79R",
+                    Title = "Anti-Cockroach Repellent Paste - 250Gm | Herbal Cockroach And Pest Vanisher | Household Cockroach Pest Control Paste, Gel Form",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/614-PS-nROL._SL1080_.jpg",
+                    Price = 189.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0DB1HM79R?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
+                new AmazonProduct
+                {
+                    Asin = "B0CLY3T715",
+                    Title = "PH POSHAKHUB Women A-Line Nyra Cut Kurta with Sharara in Georgette with Aari Work",
+                    Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
+                    ImageUrl = "https://m.media-amazon.com/images/I/71rTnaRtT5L._SL1500_.jpg",
+                    Price = 854.0m,
+                    OriginalPrice = 1999.0m,
+                    Rating = 4.4,
+                    ReviewCount = 1420,
+                    Category = "Lifestyle",
+                    ProductUrl = "https://www.amazon.in/dp/B0CLY3T715?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+                },
             };
 
             bool changed = false;
