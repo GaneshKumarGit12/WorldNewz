@@ -691,7 +691,7 @@ const AmazonProducts: React.FC = () => {
                           </IconButton>
                           <IconButton
                             id="share-pin-btn"
-                            href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(parsedProduct.productUrl)}&media=${encodeURIComponent(getAbsoluteImageUrl(parsedProduct.imageUrl))}&description=${encodeURIComponent(parsedProduct.title)}`}
+                            href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(getAbsoluteImageUrl(parsedProduct.imageUrl))}&description=${encodeURIComponent((parsedProduct.title || "").substring(0, 180))}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={{ color: "#BD081C", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(189,8,28,0.08)" } }}
@@ -1203,7 +1203,7 @@ const AmazonProducts: React.FC = () => {
                                 </IconButton>
                                 <IconButton
                                   size="small"
-                                  href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(product.productUrl || "")}&media=${encodeURIComponent(getAbsoluteImageUrl(product.imageUrl))}&description=${encodeURIComponent(product.title || "")}`}
+                                  href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(getAbsoluteImageUrl(product.imageUrl))}&description=${encodeURIComponent((product.title || "").substring(0, 180))}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   sx={{ color: "#BD081C", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "rgba(189,8,28,0.08)" } }}

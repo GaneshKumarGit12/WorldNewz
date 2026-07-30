@@ -165,6 +165,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
       case "linkedin":
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
         break;
+      case "pinterest":
+        shareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(article.imageUrl || "https://worldnewzs.in/og-image.png")}&description=${encodeURIComponent((text || "").substring(0, 180))}`;
+        break;
     }
 
     if (shareUrl) {
