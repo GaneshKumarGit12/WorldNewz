@@ -201,3 +201,8 @@ const startIndex = fourHourBlock % list.length;
    - Modern browser tracking protection (Edge/Chrome/Safari) emits console warnings when third-party ad networks or tracking scripts attempt to read storage.
    - `worldnewz_UI/index.html` includes a global console override filtering `Tracking Prevention` and `blocked access to storage` notices across `console.warn`, `console.error`, `console.info`, and `console.log` to keep developer logs clean.
 
+3. **Mismatched Product Image URLs & Fallbacks**:
+   - Never assign generic fallback image URLs to products during batch link resolution.
+   - Every product record MUST use its exact listing image URL extracted directly from Amazon listing HTML (`hiRes`, `large`, `data-old-hires`) or high-res Amazon media CDN (`https://m.media-amazon.com/images/P/{ASIN}.01._SCLZZZZZZZ_SX500_.jpg`).
+   - Cross-check product title, description, image URL, category, share options, and Grab Deal affiliate link to ensure 100% visual consistency before committing.
+

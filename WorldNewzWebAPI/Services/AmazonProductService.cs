@@ -5311,52 +5311,52 @@ namespace WorldNewzWebAPI.Services
                 new AmazonProduct
             {
                 Asin = "B0DTXVM898",
-                Title = "Suzvan Indian Pavadai Lehenga Choli Set for Girls",
-                Description = "Premium jacquard silk traditional South Indian Pattu Pavadai lehenga choli set for festive occasions and celebrations.",
+                Title = "Suzvan Indian Traditional Pavadai Lehenga Choli Set for Girls",
+                Description = "Traditional Jacquard silk South Indian Pattu Pavadai lehenga choli set with matching dupatta for kids festive wear.",
                 Price = 899.0m,
                 OriginalPrice = 2499.0m,
                 Rating = 4.6,
                 ReviewCount = 380,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DTXVM898?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61YwpwVzRSL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DTXVM898.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0CGPTBFYL",
-                Title = "Miraya Impex Punjabi Traditional Jutti Footwear for Women",
-                Description = "Handcrafted ethnic Punjabi Jutti with intricate embroidery and cushioned sole for comfortable festive wear.",
+                Title = "Miraya Impex Women Punjabi Traditional Ethnic Jutti / Mojari",
+                Description = "Handcrafted Punjabi traditional Jutti with intricate embroidery and cushioned sole for comfortable festive wear.",
                 Price = 649.0m,
                 OriginalPrice = 1499.0m,
                 Rating = 4.5,
                 ReviewCount = 420,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0CGPTBFYL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71CmSn+uLZL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LttwSPlDL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0D14QYFJP",
-                Title = "Pluxh Bellies Comfortable & Stylish Ballet Flats for Women",
-                Description = "Soft cushioned slip-on ballet flats designed for daily workwear and casual outings.",
+                Title = "Pluxh Women Comfortable & Stylish Ballet Flats / Bellies",
+                Description = "Soft cushioned slip-on ballet flats designed for daily workwear and casual ethnic outings.",
                 Price = 549.0m,
                 OriginalPrice = 1299.0m,
                 Rating = 4.4,
                 ReviewCount = 290,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0D14QYFJP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61NANabKaRL._SL1000_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0D14QYFJP.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0B69589JY",
-                Title = "Pluxh Designer Embroidery Punjabi Jutti for Women",
+                Title = "Pluxh Women's Designer Embroidery Ethnic Punjabi Jutti",
                 Description = "Elegant embroidered ethnic Mojari jutti crafted with padded insole for all-day comfort.",
                 Price = 699.0m,
                 OriginalPrice = 1699.0m,
@@ -5364,14 +5364,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 510,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0B69589JY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71KmY1pyATL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0B69589JY.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0FNMQ24NV",
-                Title = "Xavima Girls Ethnic Lehenga Choli Set",
+                Title = "Xavima Girls Ethnic Jacquard Lehenga Choli Set",
                 Description = "Vibrant ready-to-wear traditional lehenga choli with dupatta for kids festive celebrations.",
                 Price = 799.0m,
                 OriginalPrice = 1999.0m,
@@ -5379,7 +5379,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 210,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0FNMQ24NV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61hx-ExBRhL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0FNMQ24NV.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5394,14 +5394,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 640,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DGY2SH77?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/617iVkfLv5L._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DGY2SH77.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0DJD8PJGG",
-                Title = "Jwalin Girls Georgette Printed Lehenga Choli Set",
+                Title = "Jwalin Girl's Georgette Printed Lehenga Choli Set",
                 Description = "Flowy georgette ethnic lehenga choli set with matching dupatta for weddings and festive functions.",
                 Price = 999.0m,
                 OriginalPrice = 2499.0m,
@@ -5409,14 +5409,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 450,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DJD8PJGG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61b4TcFcV2L._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/91q1hOYZKOL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0DGD58SQV",
-                Title = "Style Dusk Winterwear Button Cardigan Sweater for Women",
+                Title = "Style Dusk Women's Winterwear Woolen Long Coat Cardigan",
                 Description = "Soft breathable V-neck front button cardigan sweater for stylish layering during winter.",
                 Price = 799.0m,
                 OriginalPrice = 1799.0m,
@@ -5424,7 +5424,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 310,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DGD58SQV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71PGSn2aPmL._SL1350_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kOh8N6WqL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5439,14 +5439,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 280,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DGTWXVZZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/712OsBIXynL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DGTWXVZZ.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B09XJ8K726",
-                Title = "Amazon Brand Pure Cotton Full Sleeves Shirts Pack",
+                Title = "Amazon Brand - Nora Nico Men's Pure Cotton Polo Shirt Pack",
                 Description = "Breathable 100% cotton formal and casual button-down shirt pack for everyday comfort.",
                 Price = 999.0m,
                 OriginalPrice = 2199.0m,
@@ -5454,14 +5454,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 890,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B09XJ8K726?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61CEEuPRM9L._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LMh-WziuL._SL1100_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0GJDL274Z",
-                Title = "PEGAN Comfortable Breathable Lightweight Casual Shoes",
+                Title = "PEGAN Comfortable Breathable Lightweight Casual Walking Shoes",
                 Description = "Ultra-lightweight mesh breathable casual walking sneakers designed for all-day comfort.",
                 Price = 699.0m,
                 OriginalPrice = 1599.0m,
@@ -5469,14 +5469,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 520,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0GJDL274Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71fiRY278BL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0GJDL274Z.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0GGHLCK2S",
-                Title = "PEGAN Comfortable & Stylish Nightwear Clothing Set",
+                Title = "PEGAN Girls 100% Cotton Co-ord Set Nightwear Clothing",
                 Description = "Soft cotton loungewear and nightwear pajama set for relaxed home comfort.",
                 Price = 599.0m,
                 OriginalPrice = 1399.0m,
@@ -5484,22 +5484,22 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 340,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0GGHLCK2S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/51gBITE6F6L._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/811-rIGUnoL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0GK93PM58",
-                Title = "KE EXPORTS Bandhani Breathable Multicolor Scarves",
-                Description = "Traditional printed Bandhani dupatta and scarf set made with premium soft cotton fabric.",
+                Title = "KE KANHA EXPORTS Cotton Scarf with Tassels / Bandhani Dupatta",
+                Description = "Traditional printed Bandhani scarf set made with premium soft cotton fabric and tassels.",
                 Price = 399.0m,
                 OriginalPrice = 899.0m,
                 Rating = 4.6,
                 ReviewCount = 180,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0GK93PM58?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61XmD6mBjCL._SL1254_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/81vTqmGxDTL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5514,22 +5514,22 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 460,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B09P446B53?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/81+guVWHIJL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B09P446B53.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0FXRD8TC2",
-                Title = "KE Breathable Multicolour Hair Scrunchies Pack",
-                Description = "Soft satin elastic hair scrunchies pack for damage-free hair styling and daily wear.",
+                Title = "KE KANHA EXPORTS Scarf for Women Boho Printed Stole",
+                Description = "Soft boho printed cotton scarf stole for elegant neck styling and daily wear.",
                 Price = 299.0m,
                 OriginalPrice = 699.0m,
                 Rating = 4.7,
                 ReviewCount = 780,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0FXRD8TC2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/51pmD0gFGoL._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Vof3NVyGL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5544,7 +5544,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 230,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DRVSSYZC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DRVSSYZC.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5559,14 +5559,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 390,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0BZTY4FB5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61YwpwVzRSL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0BZTY4FB5.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0DSJJL5RD",
-                Title = "Suzvan Traditional Pavadai Jacquard Lehenga Choli",
+                Title = "Baby Girls South Indian Traditional Pattu Pavadai Lehenga",
                 Description = "Rich golden zari border Pavadai lehenga choli set designed for traditional ceremonies.",
                 Price = 899.0m,
                 OriginalPrice = 2299.0m,
@@ -5574,14 +5574,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 310,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DSJJL5RD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61hx-ExBRhL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/91cFE7aXoyL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0DR2CXY7C",
-                Title = "Jwalin Off-White Embroidered Anarkali Kurta Set",
+                Title = "Jwalin Girl's Embroidered Maxi Dress with Dupatta",
                 Description = "Elegant flared Anarkali kurta set with matching pants and embroidered dupatta.",
                 Price = 1199.0m,
                 OriginalPrice = 2999.0m,
@@ -5589,7 +5589,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 540,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DR2CXY7C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61b4TcFcV2L._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71d3MGxKaDL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5604,7 +5604,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 270,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0D7MJJJD7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61YwpwVzRSL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0D7MJJJD7.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5619,14 +5619,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 190,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DY57KYRH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61hx-ExBRhL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DY57KYRH.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0CB3VNBT2",
-                Title = "Amayra Women's Embroidered Kurta with Dupatta Set",
+                Title = "Amayra Women's Viscose Rayon Nayra Cut Embroidered Kurta Set",
                 Description = "Premium cotton straight fit embroidered kurta set with matching organza dupatta.",
                 Price = 999.0m,
                 OriginalPrice = 2499.0m,
@@ -5634,14 +5634,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 680,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0CB3VNBT2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61XmD6mBjCL._SL1254_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61se3QbO3WL._SL1440_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0GH2C7RMQ",
-                Title = "Tant Vastra Minakari Jamdani Cotton Saree",
+                Title = "Minakari Jamdani Work Cotton Silk Soft Saree",
                 Description = "Handcrafted Minakari Jamdani soft cotton saree with unstitched blouse piece for traditional elegance.",
                 Price = 1299.0m,
                 OriginalPrice = 3299.0m,
@@ -5649,14 +5649,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 410,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0GH2C7RMQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61IOb4Nu6AL._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71W2XBY-kNL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0G7GGYHKX",
-                Title = "Amazon Brand Anarva Floral Printed Georgette Saree",
+                Title = "Amazon Brand - Anarva Ready to Wear Georgette Saree",
                 Description = "Lightweight printed georgette saree featuring vibrant floral designs and matching blouse piece.",
                 Price = 799.0m,
                 OriginalPrice = 1999.0m,
@@ -5664,14 +5664,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 360,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0G7GGYHKX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71KmY1pyATL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HgyynxhBL._SL1280_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0DGD9SP8S",
-                Title = "KE EXPORTS Stylish Silky-Feel Multicolor Stole",
+                Title = "KE KANHA EXPORTS Women's Boho Border Printed Scarf",
                 Description = "Ultra-soft satin silk touch stole scarf for party wear and elegant neck styling.",
                 Price = 399.0m,
                 OriginalPrice = 899.0m,
@@ -5679,14 +5679,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 290,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0DGD9SP8S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/81SaW2hgv9L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0CMTLZ5N3",
-                Title = "Amazon Brand Stretchable Readymade Cotton Dobby Blouse",
+                Title = "Amazon Brand - Anarva Round Neck Dobby Cotton Readymade Blouse",
                 Description = "Comfortable stretchable cotton dobby readymade saree blouse with elbow sleeves.",
                 Price = 499.0m,
                 OriginalPrice = 1199.0m,
@@ -5694,7 +5694,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 630,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0CMTLZ5N3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/6166RQH8dIL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/81v-ocWlzTL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5709,7 +5709,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 820,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B08K391DL3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/815HZT0n4TL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B08K391DL3.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5724,14 +5724,14 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 240,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0BSS245SY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/712OsBIXynL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0BSS245SY.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
             new AmazonProduct
             {
                 Asin = "B0F2MVC3LW",
-                Title = "Amazon Brand Anarva Uppada Silk Purple Saree",
+                Title = "Amazon Brand - Anarva Pattu Art Silk Woven Saree (Purple)",
                 Description = "Rich Uppada Jacquard woven silk saree with rich zari pallu and blouse piece for festivals.",
                 Price = 1499.0m,
                 OriginalPrice = 3999.0m,
@@ -5739,7 +5739,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 470,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0F2MVC3LW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61IOb4Nu6AL._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/51fMvhjHW2L._SL1280_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -5754,7 +5754,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 310,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0GY5J8YM5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71KmY1pyATL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0GY5J8YM5.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
