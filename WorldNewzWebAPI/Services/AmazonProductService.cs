@@ -449,16 +449,25 @@ namespace WorldNewzWebAPI.Services
             return $"https://www.amazon.in/dp/{cleanAsin}?tag={_associateTag}&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl";
         }
 
-        private string EnsureAbsoluteImageUrl(string url)
+        private string EnsureAbsoluteImageUrl(string url, string asin = null)
         {
             if (string.IsNullOrWhiteSpace(url))
             {
+                if (!string.IsNullOrWhiteSpace(asin))
+                {
+                    return $"https://m.media-amazon.com/images/P/{asin.Trim()}.01._SCLZZZZZZZ_SX500_.jpg";
+                }
                 return "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60";
             }
 
             url = url.Trim();
 
-            // If it's already an absolute URL or local self-hosted image path, return it directly
+            if (url.Contains(".01.LZZZZZZZ.jpg", StringComparison.OrdinalIgnoreCase))
+            {
+                url = url.Replace(".01.LZZZZZZZ.jpg", ".01._SCLZZZZZZZ_SX500_.jpg", StringComparison.OrdinalIgnoreCase);
+                url = url.Replace("images-na.ssl-images-amazon.com", "m.media-amazon.com", StringComparison.OrdinalIgnoreCase);
+            }
+
             if (url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || 
                 url.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ||
                 url.StartsWith("/images/", StringComparison.OrdinalIgnoreCase))
@@ -466,7 +475,6 @@ namespace WorldNewzWebAPI.Services
                 return url;
             }
 
-            // If it's just the Amazon image ID/filename, prefix it
             return $"https://images-eu.ssl-images-amazon.com/images/I/{url}";
         }
 

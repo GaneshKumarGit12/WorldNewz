@@ -86,30 +86,42 @@ const AmazonProducts: React.FC = () => {
   const DEFAULT_SVG_PLACEHOLDER = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><rect width="300" height="300" fill="%231e293b"/><path d="M150 90 L210 190 L90 190 Z" fill="%23ff9900" opacity="0.8"/><text x="150" y="215" font-family="sans-serif" font-size="16" font-weight="bold" fill="%23ffffff" text-anchor="middle">AMAZON DEAL</text></svg>`;
 
   const getAbsoluteImageUrl = (url: string | undefined | null, asin?: string) => {
-    if (url && url.trim()) {
-      const trimmed = url.trim();
-      if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
-        return trimmed;
-      }
-      if (trimmed.includes("m.media-amazon.com") || trimmed.includes("unsplash.com") || trimmed.includes("amazon-adsystem.com")) {
-        return trimmed;
-      }
+    let cleanAsin = (asin || "").trim();
+
+    if (!cleanAsin && url && !url.includes("/") && url.length === 10) {
+      cleanAsin = url.trim();
     }
 
-    const cleanAsin = (asin || (url && !url.includes("/") && url.length === 10 ? url : "")).trim();
+    if (!url || !url.trim()) {
+      if (cleanAsin) {
+        const target = `https://m.media-amazon.com/images/P/${cleanAsin}.01._SCLZZZZZZZ_SX500_.jpg`;
+        return `https://images.weserv.nl/?url=${encodeURIComponent(target)}&output=webp&q=85`;
+      }
+      return AMAZON_PLACEHOLDER;
+    }
+
+    let trimmed = url.trim();
+
+    if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
+      return trimmed;
+    }
+
+    // Replace 43-byte transparent GIF Amazon URL pattern with high-res JPEG product image pattern
+    if (trimmed.includes(".01.LZZZZZZZ.jpg")) {
+      trimmed = trimmed.replace(".01.LZZZZZZZ.jpg", ".01._SCLZZZZZZZ_SX500_.jpg");
+      trimmed = trimmed.replace("images-na.ssl-images-amazon.com", "m.media-amazon.com");
+    }
+
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+      return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
+    }
+
     if (cleanAsin) {
-      return `https://ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=${cleanAsin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_`;
+      const target = `https://m.media-amazon.com/images/P/${cleanAsin}.01._SCLZZZZZZZ_SX500_.jpg`;
+      return `https://images.weserv.nl/?url=${encodeURIComponent(target)}&output=webp&q=85`;
     }
 
-    if (url && url.trim()) {
-      const trimmed = url.trim();
-      if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-        return trimmed;
-      }
-      return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
-    }
-
-    return AMAZON_PLACEHOLDER;
+    return `https://images.weserv.nl/?url=${encodeURIComponent("https://images-eu.ssl-images-amazon.com/images/I/" + trimmed)}&output=webp&q=85`;
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -119,7 +131,8 @@ const AmazonProducts: React.FC = () => {
     if (!target.dataset.attempt) {
       target.dataset.attempt = "1";
       if (asin) {
-        target.src = `https://ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_`;
+        const rawUrl = `https://m.media-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_SX500_.jpg`;
+        target.src = `https://images.weserv.nl/?url=${encodeURIComponent(rawUrl)}&output=webp&q=85`;
         return;
       }
     }
@@ -127,7 +140,8 @@ const AmazonProducts: React.FC = () => {
     if (target.dataset.attempt === "1") {
       target.dataset.attempt = "2";
       if (asin) {
-        target.src = `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_`;
+        const rawUrl = `https://images-eu.ssl-images-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_SX500_.jpg`;
+        target.src = `https://images.weserv.nl/?url=${encodeURIComponent(rawUrl)}&output=webp&q=85`;
         return;
       }
     }
