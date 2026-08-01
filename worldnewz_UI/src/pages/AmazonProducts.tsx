@@ -328,11 +328,6 @@ const AmazonProducts: React.FC = () => {
         return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
       }
       if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-        if (trimmed.includes("/images/P/")) {
-          const charCode = (asin || trimmed).split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-          const fallback = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
-          return `https://images.weserv.nl/?url=${encodeURIComponent(fallback)}&output=webp&q=85`;
-        }
         return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
       }
     }

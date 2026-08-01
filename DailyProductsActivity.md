@@ -203,6 +203,10 @@ const startIndex = fourHourBlock % list.length;
 
 3. **Mismatched Product Image URLs & Fallbacks**:
    - Never assign generic fallback image URLs to products during batch link resolution.
-   - Every product record MUST use its exact listing image URL extracted directly from Amazon listing HTML (`hiRes`, `large`, `data-old-hires`) or high-res Amazon media CDN (`https://m.media-amazon.com/images/P/{ASIN}.01._SCLZZZZZZZ_SX500_.jpg`).
+   - Every product record MUST use its exact listing image URL extracted directly from Amazon listing HTML (`hiRes`, `large`, `data-old-hires` e.g., `https://m.media-amazon.com/images/I/71kaUIAYZiL._SL1500_.jpg`).
    - Cross-check product title, description, image URL, category, share options, and Grab Deal affiliate link to ensure 100% visual consistency before committing.
+
+4. **Frontend Image Proxy & Fallback Overrides**:
+   - Ensure `getAbsoluteImageUrl` in `AmazonProducts.tsx` NEVER forcibly overrides valid `http://` or `https://` URLs (including `/images/P/` or `m.media-amazon.com/images/I/`) with generic stock fallback arrays (such as `VERIFIED_AMAZON_FALLBACK_IMAGES`).
+   - Valid image URLs must be served directly through the fast image proxy `https://images.weserv.nl/?url=${encodeURIComponent(url)}&output=webp&q=85` to guarantee zero duplicate image fallbacks on cards and grids.
 
