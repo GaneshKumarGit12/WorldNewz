@@ -134,7 +134,7 @@ const AmazonProducts: React.FC = () => {
             component="img"
             src={getAbsoluteImageUrl(params.row.imageUrl)}
             alt={params.row.title || "Amazon Deal"}
-            loading="lazy"
+            decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               if (target.src !== AMAZON_PLACEHOLDER) {
@@ -833,7 +833,7 @@ const AmazonProducts: React.FC = () => {
                     component="img"
                     src={getAbsoluteImageUrl(parsedProduct.imageUrl)}
                     alt={`${parsedProduct.title} - Amazon Deal India`}
-                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
                     }}
@@ -1074,7 +1074,7 @@ const AmazonProducts: React.FC = () => {
                       component="img" 
                       src={getAbsoluteImageUrl(scratchDealProduct.imageUrl)} 
                       alt={`${scratchDealProduct.title} - Amazon Deal India`}
-                      loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
                       }}
@@ -1391,7 +1391,7 @@ const AmazonProducts: React.FC = () => {
                               component="img" 
                               src={getAbsoluteImageUrl(product.imageUrl)} 
                               alt={`${product.title} - Amazon Deal India`}
-                              loading="lazy"
+                              decoding="async"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 if (target.src !== AMAZON_PLACEHOLDER) {

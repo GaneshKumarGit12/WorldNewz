@@ -112,12 +112,11 @@
       if (window.__consentScriptsLoaded) return;
       window.__consentScriptsLoaded = true;
 
-      console.log("[Consent] Cookie consent accepted. Loading ads and tracking scripts.");
-
       // 1. Google AdSense Script Tag Injection
       var adScript = document.createElement('script');
       adScript.async = true;
       adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075";
+      adScript.setAttribute('data-ad-client', 'ca-pub-7547748414764075');
       adScript.setAttribute('crossorigin', 'anonymous');
       document.head.appendChild(adScript);
 
