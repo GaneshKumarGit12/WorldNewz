@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorldNewzWebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WorldNewzWebAPI.Controllers.AmazonProductsController.IsAuthorized">
+            <summary>
+            Simple Basic Auth helper reading credentials securely from environment
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.BingNewsController.GetBingNews(System.String)">
+            <summary>
+            Fetches news articles from Bing News Search API.
+            </summary>
+            <param name="query">Search term (default: latest news).</param>
+            <returns>JSON response containing Bing news results.</returns>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.NewsController.Search(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Search news articles. Now seamlessly maps DDG usage to the working Active API provider.
+            Returns { results: [...] } matching the UI's SearchPage expectation.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WorldNewzWebAPI.Controllers.NewsController.GetUnifiedStory(System.String,System.String,System.String)" -->
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.AuthenticateGoogle(WorldNewzWebAPI.Models.GoogleAuthRequest)">
+            <summary>
+            Authenticate or register player via Google Sign-In token
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.GetProfile(System.String)">
+            <summary>
+            Get player profile details
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.GetLeaderboards">
+            <summary>
+            Get all leaderboards
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.GetLeaderboardScores(System.String,System.Int32)">
+            <summary>
+            Get top scores for a leaderboard
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.SubmitScore(System.String,WorldNewzWebAPI.Models.SubmitScoreRequest)">
+            <summary>
+            Submit score to a leaderboard
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.GetAchievements(System.String)">
+            <summary>
+            Get all achievements list
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.UpdateAchievementProgress(System.String,WorldNewzWebAPI.Models.AchievementProgressRequest)">
+            <summary>
+            Update step progress or unlock achievement
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.GetSavedGames(System.String)">
+            <summary>
+            Get player cloud saved games
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.SaveGameState(WorldNewzWebAPI.Models.SaveGameRequest)">
+            <summary>
+            Save or sync game state to cloud
+            </summary>
+        </member>
+        <member name="P:WorldNewzWebAPI.Models.NewsQueryContext.Source">
+            <summary>
+            Source specification (e.g. "duckduckgo", "news", "all").
+            Only used by Search.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.GetAffiliateProductsAsync">
+            <summary>
+            Retrieves all Amazon products, converting their product URLs to affiliate links containing the secure tag.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.RefreshDailyDealsAsync">
+            <summary>
+            Simulates daily updates by slightly adjusting prices/reviews and shuffling featured products to look fresh every day.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.SaveProductAsync(WorldNewzWebAPI.Models.AmazonProduct)">
+            <summary>
+            Manually inserts or updates a product. Automatically parses ASIN from Amazon URL if needed.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.ParseProductUrlAsync(System.String)">
+            <summary>
+            Resolves an Amazon product URL by extracting ASIN, looking up the database, 
+            and falling back to a structured generator if the product doesn't exist yet.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.ParseAsin(System.String)">
+            <summary>
+            Helper to parse ASIN from standard Amazon URLs
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.BuildAffiliateLink(System.String,System.String)">
+            <summary>
+            Helper to build an affiliate link on the fly using the secure Associate Tag
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonProductService.EnsureDefaultProductsSeededAsync">
+            <summary>
+            Seeds and synchronizes default high-converting product deals in Amazon India
+            </summary>
+        </member>
+        <member name="T:WorldNewzWebAPI.Services.GoogleSearchResult">
+            <summary>
+            Model representing a structured Google Search Result.
+            </summary>
+        </member>
+    </members>
+</doc>

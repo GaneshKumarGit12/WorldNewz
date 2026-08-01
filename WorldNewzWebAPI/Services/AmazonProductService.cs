@@ -5308,7 +5308,457 @@ namespace WorldNewzWebAPI.Services
                     Category = "Shopping",
                     ProductUrl = "https://www.amazon.in/dp/B07XXP51N4?tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
                 },
-            };
+                new AmazonProduct
+            {
+                Asin = "B0DTXVM898",
+                Title = "Suzvan Indian Pavadai Lehenga Choli Set for Girls",
+                Description = "Premium jacquard silk traditional South Indian Pattu Pavadai lehenga choli set for festive occasions and celebrations.",
+                Price = 899.0m,
+                OriginalPrice = 2499.0m,
+                Rating = 4.6,
+                ReviewCount = 380,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DTXVM898?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YwpwVzRSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CGPTBFYL",
+                Title = "Miraya Impex Punjabi Traditional Jutti Footwear for Women",
+                Description = "Handcrafted ethnic Punjabi Jutti with intricate embroidery and cushioned sole for comfortable festive wear.",
+                Price = 649.0m,
+                OriginalPrice = 1499.0m,
+                Rating = 4.5,
+                ReviewCount = 420,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CGPTBFYL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CmSn+uLZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D14QYFJP",
+                Title = "Pluxh Bellies Comfortable & Stylish Ballet Flats for Women",
+                Description = "Soft cushioned slip-on ballet flats designed for daily workwear and casual outings.",
+                Price = 549.0m,
+                OriginalPrice = 1299.0m,
+                Rating = 4.4,
+                ReviewCount = 290,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D14QYFJP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NANabKaRL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B69589JY",
+                Title = "Pluxh Designer Embroidery Punjabi Jutti for Women",
+                Description = "Elegant embroidered ethnic Mojari jutti crafted with padded insole for all-day comfort.",
+                Price = 699.0m,
+                OriginalPrice = 1699.0m,
+                Rating = 4.5,
+                ReviewCount = 510,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0B69589JY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KmY1pyATL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNMQ24NV",
+                Title = "Xavima Girls Ethnic Lehenga Choli Set",
+                Description = "Vibrant ready-to-wear traditional lehenga choli with dupatta for kids festive celebrations.",
+                Price = 799.0m,
+                OriginalPrice = 1999.0m,
+                Rating = 4.6,
+                ReviewCount = 210,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FNMQ24NV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hx-ExBRhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGY2SH77",
+                Title = "Style Dusk Regular Fit Woolen Winter Sweater for Women",
+                Description = "Cozy knitted full-sleeve woolen cardigan sweater for winter warmth and casual wear.",
+                Price = 849.0m,
+                OriginalPrice = 1899.0m,
+                Rating = 4.5,
+                ReviewCount = 640,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DGY2SH77?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617iVkfLv5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJD8PJGG",
+                Title = "Jwalin Girls Georgette Printed Lehenga Choli Set",
+                Description = "Flowy georgette ethnic lehenga choli set with matching dupatta for weddings and festive functions.",
+                Price = 999.0m,
+                OriginalPrice = 2499.0m,
+                Rating = 4.7,
+                ReviewCount = 450,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DJD8PJGG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61b4TcFcV2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGD58SQV",
+                Title = "Style Dusk Winterwear Button Cardigan Sweater for Women",
+                Description = "Soft breathable V-neck front button cardigan sweater for stylish layering during winter.",
+                Price = 799.0m,
+                OriginalPrice = 1799.0m,
+                Rating = 4.4,
+                ReviewCount = 310,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DGD58SQV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PGSn2aPmL._SL1350_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGTWXVZZ",
+                Title = "Style Dusk Longline Full Sleeves Winter Cardigan",
+                Description = "Elegant open-front longline winter cardigan sweater crafted with soft warm knit fabric.",
+                Price = 899.0m,
+                OriginalPrice = 1999.0m,
+                Rating = 4.5,
+                ReviewCount = 280,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DGTWXVZZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712OsBIXynL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09XJ8K726",
+                Title = "Amazon Brand Pure Cotton Full Sleeves Shirts Pack",
+                Description = "Breathable 100% cotton formal and casual button-down shirt pack for everyday comfort.",
+                Price = 999.0m,
+                OriginalPrice = 2199.0m,
+                Rating = 4.6,
+                ReviewCount = 890,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09XJ8K726?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CEEuPRM9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GJDL274Z",
+                Title = "PEGAN Comfortable Breathable Lightweight Casual Shoes",
+                Description = "Ultra-lightweight mesh breathable casual walking sneakers designed for all-day comfort.",
+                Price = 699.0m,
+                OriginalPrice = 1599.0m,
+                Rating = 4.4,
+                ReviewCount = 520,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GJDL274Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fiRY278BL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GGHLCK2S",
+                Title = "PEGAN Comfortable & Stylish Nightwear Clothing Set",
+                Description = "Soft cotton loungewear and nightwear pajama set for relaxed home comfort.",
+                Price = 599.0m,
+                OriginalPrice = 1399.0m,
+                Rating = 4.5,
+                ReviewCount = 340,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GGHLCK2S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gBITE6F6L._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GK93PM58",
+                Title = "KE EXPORTS Bandhani Breathable Multicolor Scarves",
+                Description = "Traditional printed Bandhani dupatta and scarf set made with premium soft cotton fabric.",
+                Price = 399.0m,
+                OriginalPrice = 899.0m,
+                Rating = 4.6,
+                ReviewCount = 180,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GK93PM58?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XmD6mBjCL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09P446B53",
+                Title = "KE EXPORTS Women's Printed Sun Protection Scarves",
+                Description = "Lightweight breathable cotton face and neck cover scarves for dust and UV protection.",
+                Price = 349.0m,
+                OriginalPrice = 799.0m,
+                Rating = 4.4,
+                ReviewCount = 460,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09P446B53?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81+guVWHIJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FXRD8TC2",
+                Title = "KE Breathable Multicolour Hair Scrunchies Pack",
+                Description = "Soft satin elastic hair scrunchies pack for damage-free hair styling and daily wear.",
+                Price = 299.0m,
+                OriginalPrice = 699.0m,
+                Rating = 4.7,
+                ReviewCount = 780,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FXRD8TC2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51pmD0gFGoL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DRVSSYZC",
+                Title = "KE EXPORTS Multi-Neck Option Round Shape Stole Scarf",
+                Description = "Versatile multi-way wearable neck stole scarf crafted for ethnic and western fusion outfits.",
+                Price = 449.0m,
+                OriginalPrice = 999.0m,
+                Rating = 4.5,
+                ReviewCount = 230,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DRVSSYZC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BZTY4FB5",
+                Title = "Suzvan Traditional South Pattu Pavadai Frock for Kids",
+                Description = "Authentic South Indian Kanjeevaram jacquard silk Pavadai frock set for grand festivals.",
+                Price = 849.0m,
+                OriginalPrice = 1999.0m,
+                Rating = 4.6,
+                ReviewCount = 390,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BZTY4FB5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YwpwVzRSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSJJL5RD",
+                Title = "Suzvan Traditional Pavadai Jacquard Lehenga Choli",
+                Description = "Rich golden zari border Pavadai lehenga choli set designed for traditional ceremonies.",
+                Price = 899.0m,
+                OriginalPrice = 2299.0m,
+                Rating = 4.7,
+                ReviewCount = 310,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DSJJL5RD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hx-ExBRhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DR2CXY7C",
+                Title = "Jwalin Off-White Embroidered Anarkali Kurta Set",
+                Description = "Elegant flared Anarkali kurta set with matching pants and embroidered dupatta.",
+                Price = 1199.0m,
+                OriginalPrice = 2999.0m,
+                Rating = 4.6,
+                ReviewCount = 540,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DR2CXY7C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61b4TcFcV2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7MJJJD7",
+                Title = "Suzvan Indian Traditional Jacquard Pavadai Set",
+                Description = "Royal festive South Indian Pattu Pavadai ethnic dress for girls with intricate zari work.",
+                Price = 849.0m,
+                OriginalPrice = 2099.0m,
+                Rating = 4.5,
+                ReviewCount = 270,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D7MJJJD7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YwpwVzRSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY57KYRH",
+                Title = "Suzvan Traditional Jacquard Lehenga Choli for Festival",
+                Description = "Traditional South Indian kids ethnic lehenga choli with soft inner lining for total comfort.",
+                Price = 899.0m,
+                OriginalPrice = 2199.0m,
+                Rating = 4.6,
+                ReviewCount = 190,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DY57KYRH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hx-ExBRhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CB3VNBT2",
+                Title = "Amayra Women's Embroidered Kurta with Dupatta Set",
+                Description = "Premium cotton straight fit embroidered kurta set with matching organza dupatta.",
+                Price = 999.0m,
+                OriginalPrice = 2499.0m,
+                Rating = 4.5,
+                ReviewCount = 680,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CB3VNBT2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XmD6mBjCL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GH2C7RMQ",
+                Title = "Tant Vastra Minakari Jamdani Cotton Saree",
+                Description = "Handcrafted Minakari Jamdani soft cotton saree with unstitched blouse piece for traditional elegance.",
+                Price = 1299.0m,
+                OriginalPrice = 3299.0m,
+                Rating = 4.7,
+                ReviewCount = 410,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GH2C7RMQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IOb4Nu6AL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G7GGYHKX",
+                Title = "Amazon Brand Anarva Floral Printed Georgette Saree",
+                Description = "Lightweight printed georgette saree featuring vibrant floral designs and matching blouse piece.",
+                Price = 799.0m,
+                OriginalPrice = 1999.0m,
+                Rating = 4.5,
+                ReviewCount = 360,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0G7GGYHKX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KmY1pyATL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGD9SP8S",
+                Title = "KE EXPORTS Stylish Silky-Feel Multicolor Stole",
+                Description = "Ultra-soft satin silk touch stole scarf for party wear and elegant neck styling.",
+                Price = 399.0m,
+                OriginalPrice = 899.0m,
+                Rating = 4.6,
+                ReviewCount = 290,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DGD9SP8S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CMTLZ5N3",
+                Title = "Amazon Brand Stretchable Readymade Cotton Dobby Blouse",
+                Description = "Comfortable stretchable cotton dobby readymade saree blouse with elbow sleeves.",
+                Price = 499.0m,
+                OriginalPrice = 1199.0m,
+                Rating = 4.4,
+                ReviewCount = 630,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CMTLZ5N3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6166RQH8dIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08K391DL3",
+                Title = "Swara Creations Traditional Velvet Bangles Set for Women",
+                Description = "Bridal ethnic velvet bangles set handcrafted with intricate stone work for wedding wear.",
+                Price = 449.0m,
+                OriginalPrice = 999.0m,
+                Rating = 4.6,
+                ReviewCount = 820,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B08K391DL3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/815HZT0n4TL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BSS245SY",
+                Title = "KE KanhaExports Japanese Kimono Scarf & Shrug",
+                Description = "Trendy floral printed open-front Japanese Kimono shrug scarf for holiday and beach wear.",
+                Price = 499.0m,
+                OriginalPrice = 1199.0m,
+                Rating = 4.5,
+                ReviewCount = 240,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BSS245SY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712OsBIXynL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2MVC3LW",
+                Title = "Amazon Brand Anarva Uppada Silk Purple Saree",
+                Description = "Rich Uppada Jacquard woven silk saree with rich zari pallu and blouse piece for festivals.",
+                Price = 1499.0m,
+                OriginalPrice = 3999.0m,
+                Rating = 4.7,
+                ReviewCount = 470,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F2MVC3LW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IOb4Nu6AL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GY5J8YM5",
+                Title = "Amazon Brand Anarva Traditional Art Silk Saree",
+                Description = "Elegant Jacquard art silk saree with zari weave motif and contrasting blouse piece.",
+                Price = 1199.0m,
+                OriginalPrice = 2999.0m,
+                Rating = 4.6,
+                ReviewCount = 310,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GY5J8YM5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KmY1pyATL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+        };
 
             bool changed = false;
             var validAsins = new HashSet<string>(seedData.Select(s => s.Asin), StringComparer.OrdinalIgnoreCase);

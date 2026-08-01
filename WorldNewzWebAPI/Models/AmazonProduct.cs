@@ -15,6 +15,8 @@ namespace WorldNewzWebAPI.Models
         public int ReviewCount { get; set; }
         public string Category { get; set; } = string.Empty;
         public string ProductUrl { get; set; } = string.Empty; // Holds direct or custom/short link
+        public bool IsActive { get; set; } = true;
+        public DateTime DateAdded { get; set; } = DateTime.UtcNow;
         public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
     }
 }

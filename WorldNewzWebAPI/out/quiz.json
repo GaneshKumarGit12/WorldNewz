@@ -1,0 +1,277 @@
+[
+  {
+    "id": 1,
+    "question": "Which is the largest country in the world by land area?",
+    "description": "Geography trivia about country sizes.",
+    "options": [
+      { "id": 1, "optionText": "Canada", "isCorrect": false },
+      { "id": 2, "optionText": "Russia", "isCorrect": true },
+      { "id": 3, "optionText": "United States", "isCorrect": false },
+      { "id": 4, "optionText": "China", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "What is the capital city of Australia?",
+    "description": "Geography trivia about country capitals.",
+    "options": [
+      { "id": 1, "optionText": "Sydney", "isCorrect": false },
+      { "id": 2, "optionText": "Melbourne", "isCorrect": false },
+      { "id": 3, "optionText": "Canberra", "isCorrect": true },
+      { "id": 4, "optionText": "Brisbane", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Which element has the chemical symbol 'O'?",
+    "description": "Science trivia about chemical elements.",
+    "options": [
+      { "id": 1, "optionText": "Osmium", "isCorrect": false },
+      { "id": 2, "optionText": "Oxygen", "isCorrect": true },
+      { "id": 3, "optionText": "Oganesson", "isCorrect": false },
+      { "id": 4, "optionText": "Gold", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Who painted the famous 'Mona Lisa'?",
+    "description": "Art and history trivia.",
+    "options": [
+      { "id": 1, "optionText": "Vincent van Gogh", "isCorrect": false },
+      { "id": 2, "optionText": "Pablo Picasso", "isCorrect": false },
+      { "id": 3, "optionText": "Leonardo da Vinci", "isCorrect": true },
+      { "id": 4, "optionText": "Claude Monet", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Which planet is known as the Red Planet?",
+    "description": "Astronomy trivia about our solar system.",
+    "options": [
+      { "id": 1, "optionText": "Venus", "isCorrect": false },
+      { "id": 2, "optionText": "Jupiter", "isCorrect": false },
+      { "id": 3, "optionText": "Mars", "isCorrect": true },
+      { "id": 4, "optionText": "Saturn", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What is the hardest natural substance on Earth?",
+    "description": "Earth science and mineralogy trivia.",
+    "options": [
+      { "id": 1, "optionText": "Gold", "isCorrect": false },
+      { "id": 2, "optionText": "Iron", "isCorrect": false },
+      { "id": 3, "optionText": "Diamond", "isCorrect": true },
+      { "id": 4, "optionText": "Quartz", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Which country is home to the Kangaroo?",
+    "description": "Zoology and animal kingdom trivia.",
+    "options": [
+      { "id": 1, "optionText": "South Africa", "isCorrect": false },
+      { "id": 2, "optionText": "Australia", "isCorrect": true },
+      { "id": 3, "optionText": "New Zealand", "isCorrect": false },
+      { "id": 4, "optionText": "Austria", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Who wrote the play 'Romeo and Juliet'?",
+    "description": "Literature and theater history trivia.",
+    "options": [
+      { "id": 1, "optionText": "Charles Dickens", "isCorrect": false },
+      { "id": 2, "optionText": "William Shakespeare", "isCorrect": true },
+      { "id": 3, "optionText": "Mark Twain", "isCorrect": false },
+      { "id": 4, "optionText": "Jane Austen", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "What is the smallest prime number?",
+    "description": "Mathematics prime numbers trivia.",
+    "options": [
+      { "id": 1, "optionText": "0", "isCorrect": false },
+      { "id": 2, "optionText": "1", "isCorrect": false },
+      { "id": 3, "optionText": "2", "isCorrect": true },
+      { "id": 4, "optionText": "3", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Which is the longest river in the world?",
+    "description": "World geography and rivers trivia.",
+    "options": [
+      { "id": 1, "optionText": "Amazon River", "isCorrect": false },
+      { "id": 2, "optionText": "Nile River", "isCorrect": true },
+      { "id": 3, "optionText": "Yangtze River", "isCorrect": false },
+      { "id": 4, "optionText": "Mississippi River", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 11,
+    "question": "In which year did the Titanic sink?",
+    "description": "Historical events and marine trivia.",
+    "options": [
+      { "id": 1, "optionText": "1912", "isCorrect": true },
+      { "id": 2, "optionText": "1905", "isCorrect": false },
+      { "id": 3, "optionText": "1920", "isCorrect": false },
+      { "id": 4, "optionText": "1898", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 12,
+    "question": "What is the standard unit of electrical resistance?",
+    "description": "Physics and electronics units trivia.",
+    "options": [
+      { "id": 1, "optionText": "Volt", "isCorrect": false },
+      { "id": 2, "optionText": "Ampere", "isCorrect": false },
+      { "id": 3, "optionText": "Ohm", "isCorrect": true },
+      { "id": 4, "optionText": "Watt", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Which country is also known as the Land of the Rising Sun?",
+    "description": "Geography and country nicknames trivia.",
+    "options": [
+      { "id": 1, "optionText": "China", "isCorrect": false },
+      { "id": 2, "optionText": "Japan", "isCorrect": true },
+      { "id": 3, "optionText": "Thailand", "isCorrect": false },
+      { "id": 4, "optionText": "South Korea", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "What is the capital city of Canada?",
+    "description": "Geography trivia about capital cities.",
+    "options": [
+      { "id": 1, "optionText": "Toronto", "isCorrect": false },
+      { "id": 2, "optionText": "Vancouver", "isCorrect": false },
+      { "id": 3, "optionText": "Ottawa", "isCorrect": true },
+      { "id": 4, "optionText": "Montreal", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 15,
+    "question": "What gas do plants absorb from the atmosphere during photosynthesis?",
+    "description": "Botany and biology trivia.",
+    "options": [
+      { "id": 1, "optionText": "Oxygen", "isCorrect": false },
+      { "id": 2, "optionText": "Nitrogen", "isCorrect": false },
+      { "id": 3, "optionText": "Carbon Dioxide", "isCorrect": true },
+      { "id": 4, "optionText": "Hydrogen", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Who is credited with discovering gravity?",
+    "description": "Science history trivia.",
+    "options": [
+      { "id": 1, "optionText": "Albert Einstein", "isCorrect": false },
+      { "id": 2, "optionText": "Isaac Newton", "isCorrect": true },
+      { "id": 3, "optionText": "Galileo Galilei", "isCorrect": false },
+      { "id": 4, "optionText": "Nikola Tesla", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 17,
+    "question": "Which ocean is the deepest in the world?",
+    "description": "Geography and oceanography trivia.",
+    "options": [
+      { "id": 1, "optionText": "Atlantic Ocean", "isCorrect": false },
+      { "id": 2, "optionText": "Indian Ocean", "isCorrect": false },
+      { "id": 3, "optionText": "Pacific Ocean", "isCorrect": true },
+      { "id": 4, "optionText": "Southern Ocean", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Which animal is the largest mammal on Earth?",
+    "description": "Marine biology and wildlife trivia.",
+    "options": [
+      { "id": 1, "optionText": "African Elephant", "isCorrect": false },
+      { "id": 2, "optionText": "Blue Whale", "isCorrect": true },
+      { "id": 3, "optionText": "Giraffe", "isCorrect": false },
+      { "id": 4, "optionText": "Colossal Squid", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 19,
+    "question": "In which city is the Eiffel Tower located?",
+    "description": "Geography and famous monuments trivia.",
+    "options": [
+      { "id": 1, "optionText": "London", "isCorrect": false },
+      { "id": 2, "optionText": "Rome", "isCorrect": false },
+      { "id": 3, "optionText": "Paris", "isCorrect": true },
+      { "id": 4, "optionText": "Berlin", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 20,
+    "question": "What is the main ingredient in the traditional Japanese soup, Miso?",
+    "description": "Culinary and global food trivia.",
+    "options": [
+      { "id": 1, "optionText": "Rice", "isCorrect": false },
+      { "id": 2, "optionText": "Fermented Soybeans", "isCorrect": true },
+      { "id": 3, "optionText": "Seaweed", "isCorrect": false },
+      { "id": 4, "optionText": "Fish broth", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 21,
+    "question": "How many bones are in an adult human body?",
+    "description": "Human anatomy trivia.",
+    "options": [
+      { "id": 1, "optionText": "106", "isCorrect": false },
+      { "id": 2, "optionText": "206", "isCorrect": true },
+      { "id": 3, "optionText": "306", "isCorrect": false },
+      { "id": 4, "optionText": "156", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 22,
+    "question": "Which organ in the human body is responsible for pumping blood?",
+    "description": "Biology and anatomy trivia.",
+    "options": [
+      { "id": 1, "optionText": "Lungs", "isCorrect": false },
+      { "id": 2, "optionText": "Brain", "isCorrect": false },
+      { "id": 3, "optionText": "Heart", "isCorrect": true },
+      { "id": 4, "optionText": "Liver", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 23,
+    "question": "What is the national currency of the United Kingdom?",
+    "description": "Global finance and currency trivia.",
+    "options": [
+      { "id": 1, "optionText": "Euro", "isCorrect": false },
+      { "id": 2, "optionText": "Dollar", "isCorrect": false },
+      { "id": 3, "optionText": "Pound Sterling", "isCorrect": true },
+      { "id": 4, "optionText": "Yen", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Which is the tallest mountain peak in the world?",
+    "description": "Geography and mountain peaks trivia.",
+    "options": [
+      { "id": 1, "optionText": "K2", "isCorrect": false },
+      { "id": 2, "optionText": "Mount Kilimanjaro", "isCorrect": false },
+      { "id": 3, "optionText": "Mount Everest", "isCorrect": true },
+      { "id": 4, "optionText": "Mount Denali", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 25,
+    "question": "What temperature does water boil at in Celsius?",
+    "description": "Basic physics and temperature trivia.",
+    "options": [
+      { "id": 1, "optionText": "50 degrees C", "isCorrect": false },
+      { "id": 2, "optionText": "100 degrees C", "isCorrect": true },
+      { "id": 3, "optionText": "200 degrees C", "isCorrect": false },
+      { "id": 4, "optionText": "32 degrees C", "isCorrect": false }
+    ]
+  }
+]
