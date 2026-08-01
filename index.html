@@ -112,12 +112,11 @@
       if (window.__consentScriptsLoaded) return;
       window.__consentScriptsLoaded = true;
 
-      console.log("[Consent] Cookie consent accepted. Loading ads and tracking scripts.");
-
       // 1. Google AdSense Script Tag Injection
       var adScript = document.createElement('script');
       adScript.async = true;
       adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7547748414764075";
+      adScript.setAttribute('data-ad-client', 'ca-pub-7547748414764075');
       adScript.setAttribute('crossorigin', 'anonymous');
       document.head.appendChild(adScript);
 
@@ -156,7 +155,7 @@
       console.warn("[Consent] LocalStorage read failed:", e);
     }
   </script>
-  <script type="module" crossorigin src="/assets/index-CrX-6Wfh.js"></script>
+  <script type="module" crossorigin src="/assets/index-gizltPVf.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-B1FJdls4.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-emotion-ChpgmFbp.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-mui-BpcN90RQ.js">
