@@ -85,36 +85,60 @@ const AmazonProducts: React.FC = () => {
   const AMAZON_PLACEHOLDER = "/images/amazon_placeholder.png";
   const DEFAULT_SVG_PLACEHOLDER = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><rect width="300" height="300" fill="%231e293b"/><path d="M150 90 L210 190 L90 190 Z" fill="%23ff9900" opacity="0.8"/><text x="150" y="215" font-family="sans-serif" font-size="16" font-weight="bold" fill="%23ffffff" text-anchor="middle">AMAZON DEAL</text></svg>`;
 
-  const getAbsoluteImageUrl = (url: string | undefined | null) => {
-    if (!url || !url.trim()) return AMAZON_PLACEHOLDER;
-    let trimmed = url.trim();
-
-    if (trimmed.startsWith("data:")) return trimmed;
-
-    if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://") && !trimmed.startsWith("/images/")) {
-      if (!trimmed.includes(".")) {
-        trimmed = `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}.jpg`;
-      } else {
-        trimmed = `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+  const getAbsoluteImageUrl = (url: string | undefined | null, asin?: string) => {
+    if (url && url.trim()) {
+      const trimmed = url.trim();
+      if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
+        return trimmed;
+      }
+      if (trimmed.includes("m.media-amazon.com") || trimmed.includes("unsplash.com") || trimmed.includes("amazon-adsystem.com")) {
+        return trimmed;
       }
     }
 
-    if (trimmed.startsWith("/images/")) return trimmed;
-
-    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-      // Proxy external Amazon & CDN images through weserv.nl to bypass cross-origin hotlinking locks & tracking prevention blocks
-      return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
+    const cleanAsin = (asin || (url && !url.includes("/") && url.length === 10 ? url : "")).trim();
+    if (cleanAsin) {
+      return `https://ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=${cleanAsin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_`;
     }
 
-    return trimmed;
+    if (url && url.trim()) {
+      const trimmed = url.trim();
+      if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+        return trimmed;
+      }
+      return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+    }
+
+    return AMAZON_PLACEHOLDER;
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget;
-    if (!target.dataset.hasFailed) {
-      target.dataset.hasFailed = "true";
+    const asin = target.dataset.asin;
+
+    if (!target.dataset.attempt) {
+      target.dataset.attempt = "1";
+      if (asin) {
+        target.src = `https://ws-in.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_`;
+        return;
+      }
+    }
+
+    if (target.dataset.attempt === "1") {
+      target.dataset.attempt = "2";
+      if (asin) {
+        target.src = `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=IN&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL500_`;
+        return;
+      }
+    }
+
+    if (target.dataset.attempt === "2") {
+      target.dataset.attempt = "3";
       target.src = AMAZON_PLACEHOLDER;
-    } else if (target.src !== DEFAULT_SVG_PLACEHOLDER) {
+      return;
+    }
+
+    if (target.src !== DEFAULT_SVG_PLACEHOLDER) {
       target.src = DEFAULT_SVG_PLACEHOLDER;
     }
   };
@@ -158,10 +182,11 @@ const AmazonProducts: React.FC = () => {
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", py: 0.5 }}>
           <Box
             component="img"
-            src={getAbsoluteImageUrl(params.row.imageUrl)}
+            src={getAbsoluteImageUrl(params.row.imageUrl, params.row.asin)}
             alt={params.row.title || "Amazon Deal"}
             decoding="async"
             referrerPolicy="no-referrer"
+            data-asin={params.row.asin}
             onError={handleImageError}
             sx={{
               height: 54,
@@ -853,10 +878,11 @@ const AmazonProducts: React.FC = () => {
                 <Grid size={{ xs: 12, sm: 4 }} sx={{ display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#fff", p: 3 }}>
                   <Box
                     component="img"
-                    src={getAbsoluteImageUrl(parsedProduct.imageUrl)}
+                    src={getAbsoluteImageUrl(parsedProduct.imageUrl, parsedProduct.asin)}
                     alt={`${parsedProduct.title} - Amazon Deal India`}
                     decoding="async"
                     referrerPolicy="no-referrer"
+                    data-asin={parsedProduct.asin}
                     onError={handleImageError}
                     sx={{ maxHeight: 180, maxWidth: "100%", objectFit: "contain" }}
                   />
@@ -1093,10 +1119,11 @@ const AmazonProducts: React.FC = () => {
                     
                     <Box 
                       component="img" 
-                      src={getAbsoluteImageUrl(scratchDealProduct.imageUrl)} 
+                      src={getAbsoluteImageUrl(scratchDealProduct.imageUrl, scratchDealProduct.asin)} 
                       alt={`${scratchDealProduct.title} - Amazon Deal India`}
                       decoding="async"
                       referrerPolicy="no-referrer"
+                      data-asin={scratchDealProduct.asin}
                       onError={handleImageError}
                       sx={{ 
                         maxHeight: 180, 
@@ -1409,10 +1436,11 @@ const AmazonProducts: React.FC = () => {
                           <Box sx={{ position: "relative", p: 3, pt: 4, backgroundColor: isDark ? "#161b22" : "#fafafa", display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <Box 
                               component="img" 
-                              src={getAbsoluteImageUrl(product.imageUrl)} 
+                              src={getAbsoluteImageUrl(product.imageUrl, product.asin)} 
                               alt={`${product.title} - Amazon Deal India`}
                               decoding="async"
                               referrerPolicy="no-referrer"
+                              data-asin={product.asin}
                               onError={handleImageError}
                               sx={{ 
                                 height: 160, 
