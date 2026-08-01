@@ -87,14 +87,26 @@ const AmazonProducts: React.FC = () => {
 
   const getAbsoluteImageUrl = (url: string | undefined | null) => {
     if (!url || !url.trim()) return AMAZON_PLACEHOLDER;
-    const trimmed = url.trim();
-    if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
-      return trimmed;
+    let trimmed = url.trim();
+
+    if (trimmed.startsWith("data:")) return trimmed;
+
+    if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://") && !trimmed.startsWith("/images/")) {
+      if (!trimmed.includes(".")) {
+        trimmed = `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}.jpg`;
+      } else {
+        trimmed = `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+      }
     }
-    if (!trimmed.includes(".")) {
-      return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}.jpg`;
+
+    if (trimmed.startsWith("/images/")) return trimmed;
+
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+      // Proxy external Amazon & CDN images through weserv.nl to bypass cross-origin hotlinking locks & tracking prevention blocks
+      return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
     }
-    return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+
+    return trimmed;
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {

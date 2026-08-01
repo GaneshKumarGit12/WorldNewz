@@ -114,6 +114,7 @@ const Footer: React.FC = () => {
             ux_mode: "popup",
             auto_select: false,
             itp_support: true,
+            use_fedcm_for_prompt: true,
             callback: (res: any) => credentialCallbackRef.current(res),
           });
           try {
