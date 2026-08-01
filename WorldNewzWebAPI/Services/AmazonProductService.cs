@@ -33,7 +33,7 @@ namespace WorldNewzWebAPI.Services
             await EnsureDefaultProductsSeededAsync();
 
             var products = await _context.AmazonProducts
-                .OrderByDescending(p => p.LastUpdated)
+                .OrderByDescending(p => p.Id)
                 .ToListAsync();
 
             // Transform URLs on the fly to inject the tracking tag safely

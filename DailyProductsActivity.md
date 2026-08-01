@@ -81,7 +81,9 @@ def save_seen_asins(seen):
 
 Before seeding anything, persist every resolved product to a durable store so links are never re-processed or lost.
 
-1. **URL Registry**: Maintain `scratch/seen_asins.json` (or a proper DB table `AmazonLinkRegistry`) keyed by ASIN, storing: original short URL, resolved URL, date first seen, and current status (`new`, `seeded`, `failed`, `retired`).
+1. **Storage Location**:
+   - Primary ASIN registry: `scratch/seen_asins.json` (Stores all 30+ daily short links, resolved ASINs, and tracking status).
+   - Codebase seed repository: [AmazonProductService.cs](file:///c:/WorldNewz/WorldNewzWebAPI/Services/AmazonProductService.cs) (Stores structured C# seed objects).
 2. **Product Record Schema** — every stored/seeded product must carry the following fields:
 
    | Field | Type | Notes |
@@ -98,17 +100,25 @@ Before seeding anything, persist every resolved product to a durable store so li
    | `DateAdded` | DateTime | For rotation/aging logic |
    | `IsActive` | bool | Soft-disable without deleting history |
 
-3. **Deduplication Rule**: If an ASIN already exists in the registry, skip re-seeding it; instead update price/title if changed, and log the update.
+3. **Deduplication Rule**: If an ASIN already exists in the registry (`scratch/seen_asins.json`), skip re-seeding it; strip duplicate ASIN instances on both backend and frontend so no duplicate product cards are ever rendered.
 4. **Tracking Tag Integrity**: Ensure the tracking tag is kept clean and valid on every `AffiliateUrl` (`tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl`).
 
 ---
 
-## Step 3: Seed C# Backend Database
+## Step 3: Seed C# Backend Database & Enforce Newest-First Ordering
 
 1. Open [AmazonProductService.cs](file:///c:/WorldNewz/WorldNewzWebAPI/Services/AmazonProductService.cs).
 2. Scroll to the end of the `seedData` list in `EnsureDefaultProductsSeededAsync()`.
 3. Append the formatted C# `new AmazonProduct { ... }` blocks right before the list's closing brackets `};`, using the full schema from Step 2 (including `Description`, `ShareUrl`, and `IsActive = true`).
 4. Skip appending any ASIN already present in the seed list (cross-check against `scratch/seen_asins.json`).
+5. **Newest-First Display Requirement**:
+   - `GetAffiliateProductsAsync()` in `AmazonProductService.cs` **must** query products with `.OrderByDescending(p => p.Id)`:
+     ```csharp
+     var products = await _context.AmazonProducts
+         .OrderByDescending(p => p.Id)
+         .ToListAsync();
+     ```
+   - This guarantees that newly added/seeded daily products always appear **FIRST** (at the top of Page 1) in both DataGrid and Card View on the `/amazon-products` page.
 
 ---
 

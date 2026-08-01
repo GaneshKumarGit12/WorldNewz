@@ -836,8 +836,10 @@ const AmazonProducts: React.FC = () => {
   // Categories list
   const categories = ["All", "Electronics", "Kitchen & Home", "Home & Decor", "Home Appliances", "Gadgets", "Lifestyle", "Services", "Shopping", "Gift Cards", "Education"];
 
-  // Deduplicate products by ASIN to ensure no duplicate cards are displayed in grid
-  const uniqueProducts = Array.from(new Map(products.map(p => [p.asin, p])).values());
+  // Deduplicate products by ASIN while preserving newest-first API order
+  const uniqueProducts = products.filter((p, index, self) =>
+    Boolean(p.asin) && index === self.findIndex(t => (t.asin || "").trim().toUpperCase() === (p.asin || "").trim().toUpperCase())
+  );
 
   // Filter products based on selected category tab
   const filteredProducts = selectedTab === "All"
