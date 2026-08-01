@@ -80,6 +80,224 @@ const amazonDealsFaqs = [
   }
 ];
 
+interface DataGridShareCellProps {
+  row: AmazonProduct;
+  copiedAsin: string | null;
+  onCopy: (url: string, asin: string) => void;
+  getAbsoluteImageUrl: (url: string | undefined | null, asin?: string) => string;
+}
+
+// Stable MUI DataGrid Share Cell Component defined OUTSIDE main component to prevent unmounting on re-renders
+const DataGridShareCell: React.FC<DataGridShareCellProps> = React.memo(({ row, copiedAsin, onCopy, getAbsoluteImageUrl }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (event?: React.SyntheticEvent) => {
+    if (event) {
+      event.stopPropagation();
+    }
+    setAnchorEl(null);
+  };
+
+  const productUrl = row.productUrl || "";
+  const title = row.title || "";
+  const imageUrl = getAbsoluteImageUrl(row.imageUrl, row.asin);
+  const isCopied = copiedAsin === row.asin;
+
+  return (
+    <Box 
+      onClick={(e) => e.stopPropagation()} 
+      sx={{ display: "flex", alignItems: "center", gap: 0.4, height: "100%", py: 0.5 }}
+    >
+      <Tooltip title="Share on Facebook">
+        <IconButton
+          size="small"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          sx={{ color: "#1877F2", p: 0.4, "&:hover": { bgcolor: "rgba(24,119,242,0.12)" } }}
+        >
+          <FacebookIcon sx={{ fontSize: "0.95rem" }} />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Share on X (Twitter)">
+        <IconButton
+          size="small"
+          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(productUrl)}&text=${encodeURIComponent("Check out this deal on WorldNewzs: " + title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          sx={{ color: "text.primary", p: 0.4, "&:hover": { bgcolor: "action.hover" } }}
+        >
+          <TwitterIcon sx={{ fontSize: "0.95rem" }} />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Share on LinkedIn">
+        <IconButton
+          size="small"
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(productUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          sx={{ color: "#0A66C2", p: 0.4, "&:hover": { bgcolor: "rgba(10,102,194,0.12)" } }}
+        >
+          <LinkedInIcon sx={{ fontSize: "0.95rem" }} />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Share on Pinterest">
+        <IconButton
+          size="small"
+          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title.substring(0, 180))}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          sx={{ color: "#BD081C", p: 0.4, "&:hover": { bgcolor: "rgba(189,8,28,0.12)" } }}
+        >
+          <PinterestIcon sx={{ fontSize: "0.95rem" }} />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Share on WhatsApp">
+        <IconButton
+          size="small"
+          href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this deal: " + title + " " + productUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          sx={{ color: "#25D366", p: 0.4, "&:hover": { bgcolor: "rgba(37,211,102,0.12)" } }}
+        >
+          <WhatsAppIcon sx={{ fontSize: "0.95rem" }} />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Share Hub (All Social Platforms)">
+        <IconButton
+          size="small"
+          onClick={handleClick}
+          sx={{
+            color: "#FF9900",
+            border: "1px solid",
+            borderColor: "rgba(255,153,0,0.4)",
+            p: 0.4,
+            bgcolor: "rgba(255,153,0,0.08)",
+            "&:hover": { bgcolor: "rgba(255,153,0,0.18)" }
+          }}
+        >
+          <ShareIcon sx={{ fontSize: "0.95rem" }} />
+        </IconButton>
+      </Tooltip>
+
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={() => handleClose()}
+        disableRestoreFocus
+        slotProps={{
+          root: {
+            onClick: (e: React.MouseEvent) => e.stopPropagation()
+          }
+        }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        PaperProps={{
+          onClick: (e: React.MouseEvent) => e.stopPropagation(),
+          sx: {
+            borderRadius: 2,
+            boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+            bgcolor: "background.paper",
+            border: "1px solid",
+            borderColor: "divider",
+            minWidth: 195,
+            zIndex: 1400
+          }
+        }}
+      >
+        <MenuItem
+          component="a"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => handleClose(e)}
+        >
+          <ListItemIcon><FacebookIcon sx={{ color: "#1877F2", fontSize: "1.1rem" }} /></ListItemIcon>
+          <ListItemText primary="Facebook" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        </MenuItem>
+
+        <MenuItem
+          component="a"
+          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(productUrl)}&text=${encodeURIComponent("Check out this deal: " + title)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => handleClose(e)}
+        >
+          <ListItemIcon><TwitterIcon sx={{ color: "text.primary", fontSize: "1.1rem" }} /></ListItemIcon>
+          <ListItemText primary="X (Twitter)" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        </MenuItem>
+
+        <MenuItem
+          component="a"
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(productUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => handleClose(e)}
+        >
+          <ListItemIcon><LinkedInIcon sx={{ color: "#0A66C2", fontSize: "1.1rem" }} /></ListItemIcon>
+          <ListItemText primary="LinkedIn" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        </MenuItem>
+
+        <MenuItem
+          component="a"
+          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title.substring(0, 180))}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => handleClose(e)}
+        >
+          <ListItemIcon><PinterestIcon sx={{ color: "#BD081C", fontSize: "1.1rem" }} /></ListItemIcon>
+          <ListItemText primary="Pinterest" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        </MenuItem>
+
+        <MenuItem
+          component="a"
+          href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this deal: " + title + " " + productUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => handleClose(e)}
+        >
+          <ListItemIcon><WhatsAppIcon sx={{ color: "#25D366", fontSize: "1.1rem" }} /></ListItemIcon>
+          <ListItemText primary="WhatsApp" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        </MenuItem>
+
+        <Divider />
+
+        <MenuItem
+          onClick={(e) => {
+            onCopy(productUrl, row.asin);
+            handleClose(e);
+          }}
+        >
+          <ListItemIcon>
+            <ContentCopyIcon sx={{ color: isCopied ? "#22c55e" : "text.secondary", fontSize: "1.1rem" }} />
+          </ListItemIcon>
+          <ListItemText
+            primary={isCopied ? "Copied!" : "Copy Deal Link"}
+            primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: isCopied ? "#22c55e" : "text.primary" }}
+          />
+        </MenuItem>
+      </Menu>
+    </Box>
+  );
+});
+
 const AmazonProducts: React.FC = () => {
   const { mode } = useColorMode();
   const isDark = mode === "dark";
@@ -177,171 +395,6 @@ const AmazonProducts: React.FC = () => {
         setTimeout(() => setCopiedAsin(null), 2000);
       })
       .catch(() => {});
-  };
-
-  // MUI DataGrid Share Cell Component
-  const DataGridShareCell: React.FC<{ row: AmazonProduct }> = ({ row }) => {
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
-
-    const productUrl = row.productUrl || "";
-    const title = row.title || "";
-    const imageUrl = getAbsoluteImageUrl(row.imageUrl, row.asin);
-
-    return (
-      <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, height: "100%" }}>
-        <Tooltip title="Share on Facebook">
-          <IconButton
-            size="small"
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{ color: "#1877F2", p: 0.5, "&:hover": { bgcolor: "rgba(24,119,242,0.12)" } }}
-          >
-            <FacebookIcon sx={{ fontSize: "0.9rem" }} />
-          </IconButton>
-        </Tooltip>
-
-        <Tooltip title="Share on X">
-          <IconButton
-            size="small"
-            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(productUrl)}&text=${encodeURIComponent("Check out this deal on WorldNewzs: " + title)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{ color: "text.primary", p: 0.5, "&:hover": { bgcolor: "action.hover" } }}
-          >
-            <TwitterIcon sx={{ fontSize: "0.9rem" }} />
-          </IconButton>
-        </Tooltip>
-
-        <Tooltip title="Share on WhatsApp">
-          <IconButton
-            size="small"
-            href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this deal: " + title + " " + productUrl)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{ color: "#25D366", p: 0.5, "&:hover": { bgcolor: "rgba(37,211,102,0.12)" } }}
-          >
-            <WhatsAppIcon sx={{ fontSize: "0.9rem" }} />
-          </IconButton>
-        </Tooltip>
-
-        <Tooltip title="More Share Options">
-          <IconButton
-            size="small"
-            onClick={handleClick}
-            sx={{
-              color: "#FF9900",
-              border: "1px solid",
-              borderColor: "rgba(255,153,0,0.4)",
-              p: 0.5,
-              bgcolor: "rgba(255,153,0,0.08)",
-              "&:hover": { bgcolor: "rgba(255,153,0,0.18)" }
-            }}
-          >
-            <ShareIcon sx={{ fontSize: "0.9rem" }} />
-          </IconButton>
-        </Tooltip>
-
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-          PaperProps={{
-            sx: {
-              borderRadius: 2,
-              boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
-              bgcolor: "background.paper",
-              border: "1px solid",
-              borderColor: "divider",
-              minWidth: 180
-            }
-          }}
-        >
-          <MenuItem
-            component="a"
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productUrl)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClose}
-          >
-            <ListItemIcon><FacebookIcon sx={{ color: "#1877F2", fontSize: "1.1rem" }} /></ListItemIcon>
-            <ListItemText primary="Facebook" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
-          </MenuItem>
-
-          <MenuItem
-            component="a"
-            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(productUrl)}&text=${encodeURIComponent("Check out this deal: " + title)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClose}
-          >
-            <ListItemIcon><TwitterIcon sx={{ color: "text.primary", fontSize: "1.1rem" }} /></ListItemIcon>
-            <ListItemText primary="X (Twitter)" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
-          </MenuItem>
-
-          <MenuItem
-            component="a"
-            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(productUrl)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClose}
-          >
-            <ListItemIcon><LinkedInIcon sx={{ color: "#0A66C2", fontSize: "1.1rem" }} /></ListItemIcon>
-            <ListItemText primary="LinkedIn" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
-          </MenuItem>
-
-          <MenuItem
-            component="a"
-            href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title.substring(0, 180))}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClose}
-          >
-            <ListItemIcon><PinterestIcon sx={{ color: "#BD081C", fontSize: "1.1rem" }} /></ListItemIcon>
-            <ListItemText primary="Pinterest" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
-          </MenuItem>
-
-          <MenuItem
-            component="a"
-            href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this deal: " + title + " " + productUrl)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClose}
-          >
-            <ListItemIcon><WhatsAppIcon sx={{ color: "#25D366", fontSize: "1.1rem" }} /></ListItemIcon>
-            <ListItemText primary="WhatsApp" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
-          </MenuItem>
-
-          <Divider />
-
-          <MenuItem
-            onClick={() => {
-              handleCopyLink(productUrl, row.asin);
-              handleClose();
-            }}
-          >
-            <ListItemIcon>
-              <ContentCopyIcon sx={{ color: copiedAsin === row.asin ? "#22c55e" : "text.secondary", fontSize: "1.1rem" }} />
-            </ListItemIcon>
-            <ListItemText
-              primary={copiedAsin === row.asin ? "Copied!" : "Copy Link"}
-              primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: copiedAsin === row.asin ? "#22c55e" : "text.primary" }}
-            />
-          </MenuItem>
-        </Menu>
-      </Box>
-    );
   };
 
   // MUI DataGrid Columns Definition
@@ -497,11 +550,16 @@ const AmazonProducts: React.FC = () => {
     {
       field: "share",
       headerName: "Share Deal",
-      width: 195,
+      width: 235,
       sortable: false,
       filterable: false,
       renderCell: (params: GridRenderCellParams<AmazonProduct>) => (
-        <DataGridShareCell row={params.row} />
+        <DataGridShareCell 
+          row={params.row} 
+          copiedAsin={copiedAsin} 
+          onCopy={handleCopyLink} 
+          getAbsoluteImageUrl={getAbsoluteImageUrl}
+        />
       )
     },
     {
