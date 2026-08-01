@@ -37,6 +37,13 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Link as RouterLink } from "react-router-dom";
+import { DataGrid } from "@mui/x-data-grid";
+import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import ViewModuleIcon from "@mui/icons-material/ViewModule";
+import TableChartIcon from "@mui/icons-material/TableChart";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Tooltip from "@mui/material/Tooltip";
 
 import { fetchAmazonProducts, parseAmazonProductUrl } from "../api/apiClient";
 import type { AmazonProduct } from "../api/apiClient";
@@ -90,6 +97,8 @@ const AmazonProducts: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedTab, setSelectedTab] = useState<string>("All");
+  const [viewMode, setViewMode] = useState<"datagrid" | "grid">("datagrid");
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 9 });
   
   // Timer for deals
   const [timeLeft, setTimeLeft] = useState<string>("");
@@ -110,6 +119,212 @@ const AmazonProducts: React.FC = () => {
       })
       .catch(() => {});
   };
+
+  // MUI DataGrid Columns Definition
+  const columns: GridColDef<AmazonProduct>[] = [
+    {
+      field: "imageUrl",
+      headerName: "Image",
+      width: 95,
+      sortable: false,
+      filterable: false,
+      renderCell: (params: GridRenderCellParams<AmazonProduct>) => (
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", py: 0.5 }}>
+          <Box
+            component="img"
+            src={getAbsoluteImageUrl(params.row.imageUrl)}
+            alt={params.row.title || "Amazon Deal"}
+            loading="lazy"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              if (target.src !== AMAZON_PLACEHOLDER) {
+                target.src = AMAZON_PLACEHOLDER;
+              }
+            }}
+            sx={{
+              height: 54,
+              width: 54,
+              objectFit: "contain",
+              borderRadius: 2,
+              bgcolor: isDark ? "#111827" : "#fafafa",
+              p: 0.5,
+              border: "1px solid",
+              borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+              transition: "transform 0.2s",
+              "&:hover": { transform: "scale(1.15)" }
+            }}
+          />
+        </Box>
+      )
+    },
+    {
+      field: "title",
+      headerName: "Product Title & Category",
+      flex: 2,
+      minWidth: 260,
+      renderCell: (params: GridRenderCellParams<AmazonProduct>) => (
+        <Box sx={{ py: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.5 }}>
+            <Chip
+              label={params.row.category || "Deals"}
+              size="small"
+              sx={{
+                height: 18,
+                fontSize: "0.65rem",
+                fontWeight: 800,
+                bgcolor: isDark ? "#374151" : "#f3f4f6",
+                color: "text.primary",
+                textTransform: "uppercase"
+              }}
+            />
+            {params.row.asin && (
+              <Typography variant="caption" color="text.secondary" sx={{ fontSize: "0.68rem", fontFamily: "monospace" }}>
+                ASIN: {params.row.asin}
+              </Typography>
+            )}
+          </Box>
+          <Typography
+            variant="subtitle2"
+            component="a"
+            href={params.row.productUrl}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            sx={{
+              fontWeight: 800,
+              color: "text.primary",
+              textDecoration: "none",
+              fontSize: "0.88rem",
+              lineHeight: 1.3,
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              "&:hover": { color: "#FF9900", textDecoration: "underline" }
+            }}
+          >
+            {params.row.title}
+          </Typography>
+        </Box>
+      )
+    },
+    {
+      field: "rating",
+      headerName: "Rating",
+      width: 150,
+      renderCell: (params: GridRenderCellParams<AmazonProduct>) => (
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+            <Rating
+              value={params.row.rating || 4.5}
+              readOnly
+              precision={0.1}
+              size="small"
+              emptyIcon={<StarIcon style={{ opacity: 0.2 }} fontSize="inherit" />}
+            />
+            <Typography variant="caption" sx={{ fontWeight: 800, color: "#FF9900" }}>
+              {params.row.rating || 4.5}
+            </Typography>
+          </Box>
+          <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
+            ({(params.row.reviewCount || 100).toLocaleString()} reviews)
+          </Typography>
+        </Box>
+      )
+    },
+    {
+      field: "price",
+      headerName: "Deal Price",
+      width: 135,
+      renderCell: (params: GridRenderCellParams<AmazonProduct>) => (
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}>
+          <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "text.primary", lineHeight: 1.2 }}>
+            ₹{(params.row.price || 0).toLocaleString("en-IN")}
+          </Typography>
+          {params.row.originalPrice > params.row.price && (
+            <Typography variant="caption" color="text.secondary" sx={{ textDecoration: "line-through", fontSize: "0.72rem" }}>
+              M.R.P: ₹{params.row.originalPrice.toLocaleString("en-IN")}
+            </Typography>
+          )}
+        </Box>
+      )
+    },
+    {
+      field: "discount",
+      headerName: "Discount",
+      width: 110,
+      valueGetter: (_value, row) => Math.round((1 - (row.price / row.originalPrice)) * 100),
+      renderCell: (params: GridRenderCellParams<AmazonProduct>) => {
+        const discount = Math.round((1 - (params.row.price / params.row.originalPrice)) * 100);
+        return (
+          <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+            <Chip
+              label={`${isNaN(discount) || discount < 0 ? 0 : discount}% OFF`}
+              sx={{
+                bgcolor: "#ef4444",
+                color: "white",
+                fontWeight: 900,
+                fontSize: "0.72rem",
+                borderRadius: "8px",
+                height: 22,
+                px: 0.5
+              }}
+            />
+          </Box>
+        );
+      }
+    },
+    {
+      field: "action",
+      headerName: "Action",
+      width: 165,
+      sortable: false,
+      filterable: false,
+      renderCell: (params: GridRenderCellParams<AmazonProduct>) => (
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, height: "100%" }}>
+          <Button
+            id={`datagrid-buy-btn-${params.row.asin}`}
+            variant="contained"
+            size="small"
+            href={params.row.productUrl}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            startIcon={<ShoppingBagIcon sx={{ fontSize: "0.85rem !important" }} />}
+            sx={{
+              borderRadius: 2,
+              fontWeight: 800,
+              textTransform: "none",
+              fontSize: "0.78rem",
+              px: 1.5,
+              py: 0.5,
+              background: "linear-gradient(135deg, #FF9900 0%, #FF5500 100%)",
+              boxShadow: "none",
+              whiteSpace: "nowrap",
+              "&:hover": {
+                background: "linear-gradient(135deg, #FFAA22 0%, #FF6611 100%)",
+                boxShadow: "0 4px 10px rgba(255, 153, 0, 0.3)"
+              }
+            }}
+          >
+            Grab Deal ↗
+          </Button>
+          <Tooltip title="Copy deal link">
+            <IconButton
+              size="small"
+              onClick={() => handleCopyLink(params.row.productUrl || "", params.row.asin)}
+              sx={{
+                color: copiedAsin === params.row.asin ? "#22c55e" : "text.secondary",
+                border: "1px solid",
+                borderColor: copiedAsin === params.row.asin ? "#22c55e" : "divider",
+                p: 0.5
+              }}
+            >
+              <ContentCopyIcon sx={{ fontSize: "0.85rem" }} />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      )
+    }
+  ];
 
   const handleParseUrl = async () => {
     if (!urlInput.trim()) {
@@ -1008,13 +1223,63 @@ const AmazonProducts: React.FC = () => {
 
             {/* ─── PRODUCTS CATEGORY HEADING & TABS GRID ─── */}
             <Box sx={{ mb: 6 }}>
-              <Typography 
-                variant="h5" 
-                component="h2" 
-                sx={{ fontWeight: 800, mb: 2, fontFamily: "'Outfit', sans-serif" }}
+              <Box 
+                sx={{ 
+                  display: "flex", 
+                  flexDirection: { xs: "column", sm: "row" }, 
+                  alignItems: { xs: "flex-start", sm: "center" }, 
+                  justifyContent: "space-between", 
+                  gap: 2, 
+                  mb: 2 
+                }}
               >
-                Explore Today's Hand-Picked Flash Offers & Discounts
-              </Typography>
+                <Typography 
+                  variant="h5" 
+                  component="h2" 
+                  sx={{ fontWeight: 800, fontFamily: "'Outfit', sans-serif" }}
+                >
+                  Explore Today's Hand-Picked Flash Offers & Discounts
+                </Typography>
+
+                {/* View Mode Switcher */}
+                <ToggleButtonGroup
+                  value={viewMode}
+                  exclusive
+                  onChange={(_e, newMode) => {
+                    if (newMode) setViewMode(newMode);
+                  }}
+                  size="small"
+                  sx={{
+                    bgcolor: isDark ? "#1f2937" : "#f3f4f6",
+                    p: 0.5,
+                    borderRadius: 3,
+                    border: "1px solid",
+                    borderColor: "divider",
+                    "& .MuiToggleButton-root": {
+                      border: 0,
+                      borderRadius: 2,
+                      px: 2,
+                      py: 0.5,
+                      fontWeight: 800,
+                      textTransform: "none",
+                      fontSize: "0.82rem",
+                      color: "text.secondary",
+                      "&.Mui-selected": {
+                        bgcolor: "#FF9900",
+                        color: "white",
+                        "&:hover": { bgcolor: "#E27B00" }
+                      }
+                    }
+                  }}
+                >
+                  <ToggleButton value="datagrid">
+                    <TableChartIcon sx={{ fontSize: "1.1rem", mr: 0.75 }} /> DataGrid View
+                  </ToggleButton>
+                  <ToggleButton value="grid">
+                    <ViewModuleIcon sx={{ fontSize: "1.1rem", mr: 0.75 }} /> Cards View
+                  </ToggleButton>
+                </ToggleButtonGroup>
+              </Box>
 
               <Tabs
                 value={selectedTab}
@@ -1043,12 +1308,65 @@ const AmazonProducts: React.FC = () => {
                 <Typography variant="body1" color="text.secondary" sx={{ textAlign: "center", py: 6 }}>
                   No deals found in this category today. Check back tomorrow!
                 </Typography>
+              ) : viewMode === "datagrid" ? (
+                <Paper
+                  elevation={0}
+                  sx={{
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    border: "1px solid",
+                    borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+                    boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.3)" : "0 10px 30px rgba(0,0,0,0.04)"
+                  }}
+                >
+                  <Box sx={{ height: 780, width: "100%", overflowX: "auto" }}>
+                    <DataGrid
+                      rows={filteredProducts}
+                      columns={columns}
+                      getRowId={(row) => row.id || row.asin || `prod-${row.title}`}
+                      rowHeight={76}
+                      paginationModel={paginationModel}
+                      onPaginationModelChange={setPaginationModel}
+                      pageSizeOptions={[9, 18, 27]}
+                      disableRowSelectionOnClick
+                      sx={{
+                        border: "none",
+                        minWidth: 720,
+                        fontFamily: "inherit",
+                        "& .MuiDataGrid-columnHeaders": {
+                          backgroundColor: isDark ? "#1f2937" : "#fff8f0",
+                          borderBottom: "2px solid",
+                          borderColor: isDark ? "rgba(255,153,0,0.3)" : "#ffe0b2"
+                        },
+                        "& .MuiDataGrid-columnHeaderTitle": {
+                          fontWeight: 900,
+                          fontSize: "0.85rem",
+                          color: isDark ? "#FF9900" : "#d97706",
+                          textTransform: "uppercase",
+                          letterSpacing: 0.5
+                        },
+                        "& .MuiDataGrid-row": {
+                          borderBottom: "1px solid",
+                          borderColor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)",
+                          "&:hover": {
+                            backgroundColor: isDark ? "rgba(255, 153, 0, 0.04)" : "rgba(255, 153, 0, 0.03)"
+                          }
+                        },
+                        "& .MuiDataGrid-footerContainer": {
+                          borderTop: "1px solid",
+                          borderColor: "divider",
+                          backgroundColor: isDark ? "#111827" : "#fafafa"
+                        }
+                      }}
+                    />
+                  </Box>
+                </Paper>
               ) : (
                 <Grid container spacing={4}>
                   {filteredProducts.map((product) => {
                     const discount = Math.round((1 - (product.price / product.originalPrice)) * 100);
                     return (
-                      <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
+                      <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id || product.asin}>
                         <Card 
                           sx={{ 
                             height: "100%", 
@@ -1075,7 +1393,10 @@ const AmazonProducts: React.FC = () => {
                               alt={`${product.title} - Amazon Deal India`}
                               loading="lazy"
                               onError={(e) => {
-                                (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
+                                const target = e.target as HTMLImageElement;
+                                if (target.src !== AMAZON_PLACEHOLDER) {
+                                  target.src = AMAZON_PLACEHOLDER;
+                                }
                               }}
                               sx={{ 
                                 height: 160, 
