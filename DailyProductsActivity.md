@@ -174,3 +174,20 @@ const startIndex = fourHourBlock % list.length;
 - [ ] 4-hour rotation confirmed on both widgets
 - [ ] Backend and frontend both build cleanly
 - [ ] Changes committed and pushed to `main`
+
+---
+
+## Step 7: Troubleshooting & Common Pitfalls
+
+1. **PostgreSQL Database Schema Sync (`42703: column a.DateAdded does not exist`)**:
+   - Whenever new C# model properties (such as `IsActive` or `DateAdded`) are introduced to `AmazonProduct.cs`, you **must** update `DatabaseExtensions.cs` to include non-breaking `ALTER TABLE` statements:
+     ```csharp
+     ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""IsActive"" BOOLEAN NOT NULL DEFAULT TRUE;
+     ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""DateAdded"" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP;
+     ```
+   - This ensures production PostgreSQL databases on Render automatically apply schema migrations on deployment without raising 500 internal server errors.
+
+2. **Browser Storage Console Noise (`Tracking Prevention blocked access to storage`)**:
+   - Modern browser tracking protection (Edge/Chrome/Safari) emits console warnings when third-party ad networks or tracking scripts attempt to read storage.
+   - `worldnewz_UI/index.html` includes a global console override filtering `Tracking Prevention` and `blocked access to storage` notices across `console.warn`, `console.error`, `console.info`, and `console.log` to keep developer logs clean.
+

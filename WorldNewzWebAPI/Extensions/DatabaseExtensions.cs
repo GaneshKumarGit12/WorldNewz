@@ -163,9 +163,23 @@ namespace WorldNewzWebAPI.Extensions
                                 ""ReviewCount"" INTEGER NOT NULL,
                                 ""Category"" TEXT NOT NULL,
                                 ""ProductUrl"" TEXT NOT NULL,
+                                ""IsActive"" BOOLEAN NOT NULL DEFAULT TRUE,
+                                ""DateAdded"" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                 ""LastUpdated"" TIMESTAMP WITH TIME ZONE NOT NULL
                             );
                         ", "AmazonProducts", logger);
+
+                        try
+                        {
+                            db.Database.ExecuteSqlRaw(@"
+                                ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""IsActive"" BOOLEAN NOT NULL DEFAULT TRUE;
+                                ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""DateAdded"" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP;
+                            ");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"⚠️ Error altering PostgreSQL AmazonProducts table: {ex.Message}");
+                        }
 
                         SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""SeoKeywords"" (
@@ -455,9 +469,14 @@ namespace WorldNewzWebAPI.Extensions
                                 ReviewCount INTEGER NOT NULL,
                                 Category TEXT NOT NULL,
                                 ProductUrl TEXT NOT NULL,
+                                IsActive INTEGER NOT NULL DEFAULT 1,
+                                DateAdded TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                 LastUpdated TEXT NOT NULL
                             );
                         ");
+
+                        try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN IsActive INTEGER NOT NULL DEFAULT 1;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN DateAdded TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP;"); } catch {}
 
                         db.Database.ExecuteSqlRaw(@"
                             CREATE TABLE IF NOT EXISTS SeoKeywords (
