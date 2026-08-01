@@ -106,8 +106,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
   </noscript>
 
-  <!-- Centralized Consent Scripts Loader (GDPR/AdSense Compliance & Tracking Prevention Fix) -->
   <script>
+    (function() {
+      // Configure AdSense non-personalized mode to avoid unnecessary third-party storage tracking access
+      (window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+
+      // Filter browser-generated Tracking Prevention notice spam from console
+      var origWarn = console.warn;
+      console.warn = function() {
+        if (arguments[0] && typeof arguments[0] === 'string' && arguments[0].indexOf('Tracking Prevention') !== -1) return;
+        origWarn.apply(console, arguments);
+      };
+    })();
+
     window.loadConsentScripts = function() {
       if (window.__consentScriptsLoaded) return;
       window.__consentScriptsLoaded = true;
@@ -155,7 +166,7 @@
       console.warn("[Consent] LocalStorage read failed:", e);
     }
   </script>
-  <script type="module" crossorigin src="/assets/index-C0XckD0l.js"></script>
+  <script type="module" crossorigin src="/assets/index-BtTNmIeD.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-B1FJdls4.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-emotion-ChpgmFbp.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-mui-BpcN90RQ.js">
