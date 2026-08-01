@@ -210,3 +210,7 @@ const startIndex = fourHourBlock % list.length;
    - Ensure `getAbsoluteImageUrl` in `AmazonProducts.tsx` NEVER forcibly overrides valid `http://` or `https://` URLs (including `/images/P/` or `m.media-amazon.com/images/I/`) with generic stock fallback arrays (such as `VERIFIED_AMAZON_FALLBACK_IMAGES`).
    - Valid image URLs must be served directly through the fast image proxy `https://images.weserv.nl/?url=${encodeURIComponent(url)}&output=webp&q=85` to guarantee zero duplicate image fallbacks on cards and grids.
 
+5. **Target Visited Link Synchronization (`ProductUrl` & Share Options)**:
+   - Trace each short link (`https://amzn.to/XXXX`) to its exact destination target Amazon deal URL (`https://www.amazon.in/dp/{ASIN}?tag=ganeshd12-21...`).
+   - Every product record's `ProductUrl` (used for 'Grab Deal' buttons, card links, and Share options) MUST match the exact visited deal destination URL with active affiliate tracking tag.
+

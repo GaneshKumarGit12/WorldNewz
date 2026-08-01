@@ -5312,7 +5312,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DTXVM898",
                 Title = "Suzvan Indian Traditional Pavadai Lehenga Choli Set for Girls",
-                Description = "Traditional Jacquard silk South Indian Pattu Pavadai lehenga choli set with matching dupatta for kids festive wear.",
+                Description = "Suzvan Indian Traditional Pavadai Lehenga Choli Set for Girls - High quality verified deal on Amazon India.",
                 Price = 899.0m,
                 OriginalPrice = 2499.0m,
                 Rating = 4.6,
@@ -5327,7 +5327,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0CGPTBFYL",
                 Title = "Miraya Impex Women Punjabi Traditional Ethnic Jutti / Mojari",
-                Description = "Handcrafted Punjabi traditional Jutti with intricate embroidery and cushioned sole for comfortable festive wear.",
+                Description = "Miraya Impex Women Punjabi Traditional Ethnic Jutti / Mojari - High quality verified deal on Amazon India.",
                 Price = 649.0m,
                 OriginalPrice = 1499.0m,
                 Rating = 4.5,
@@ -5342,7 +5342,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0D14QYFJP",
                 Title = "Pluxh Women Comfortable & Stylish Ballet Flats / Bellies",
-                Description = "Soft cushioned slip-on ballet flats designed for daily workwear and casual ethnic outings.",
+                Description = "Pluxh Women Comfortable & Stylish Ballet Flats / Bellies - High quality verified deal on Amazon India.",
                 Price = 549.0m,
                 OriginalPrice = 1299.0m,
                 Rating = 4.4,
@@ -5357,7 +5357,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0B69589JY",
                 Title = "Pluxh Women's Designer Embroidery Ethnic Punjabi Jutti",
-                Description = "Elegant embroidered ethnic Mojari jutti crafted with padded insole for all-day comfort.",
+                Description = "Pluxh Women's Designer Embroidery Ethnic Punjabi Jutti - High quality verified deal on Amazon India.",
                 Price = 699.0m,
                 OriginalPrice = 1699.0m,
                 Rating = 4.5,
@@ -5372,7 +5372,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0FNMQ24NV",
                 Title = "Xavima Girls Ethnic Jacquard Lehenga Choli Set",
-                Description = "Vibrant ready-to-wear traditional lehenga choli with dupatta for kids festive celebrations.",
+                Description = "Xavima Girls Ethnic Jacquard Lehenga Choli Set - High quality verified deal on Amazon India.",
                 Price = 799.0m,
                 OriginalPrice = 1999.0m,
                 Rating = 4.6,
@@ -5387,7 +5387,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DGY2SH77",
                 Title = "Style Dusk Regular Fit Woolen Winter Sweater for Women",
-                Description = "Cozy knitted full-sleeve woolen cardigan sweater for winter warmth and casual wear.",
+                Description = "Style Dusk Regular Fit Woolen Winter Sweater for Women - High quality verified deal on Amazon India.",
                 Price = 849.0m,
                 OriginalPrice = 1899.0m,
                 Rating = 4.5,
@@ -5402,7 +5402,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DJD8PJGG",
                 Title = "Jwalin Girl's Georgette Printed Lehenga Choli Set",
-                Description = "Flowy georgette ethnic lehenga choli set with matching dupatta for weddings and festive functions.",
+                Description = "Jwalin Girl's Georgette Printed Lehenga Choli Set - High quality verified deal on Amazon India.",
                 Price = 999.0m,
                 OriginalPrice = 2499.0m,
                 Rating = 4.7,
@@ -5417,7 +5417,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DGD58SQV",
                 Title = "Style Dusk Women's Winterwear Woolen Long Coat Cardigan",
-                Description = "Soft breathable V-neck front button cardigan sweater for stylish layering during winter.",
+                Description = "Style Dusk Women's Winterwear Woolen Long Coat Cardigan - High quality verified deal on Amazon India.",
                 Price = 799.0m,
                 OriginalPrice = 1799.0m,
                 Rating = 4.4,
@@ -5432,7 +5432,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DGTWXVZZ",
                 Title = "Style Dusk Longline Full Sleeves Winter Cardigan",
-                Description = "Elegant open-front longline winter cardigan sweater crafted with soft warm knit fabric.",
+                Description = "Style Dusk Longline Full Sleeves Winter Cardigan - High quality verified deal on Amazon India.",
                 Price = 899.0m,
                 OriginalPrice = 1999.0m,
                 Rating = 4.5,
@@ -5447,7 +5447,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B09XJ8K726",
                 Title = "Amazon Brand - Nora Nico Men's Pure Cotton Polo Shirt Pack",
-                Description = "Breathable 100% cotton formal and casual button-down shirt pack for everyday comfort.",
+                Description = "Amazon Brand - Nora Nico Men's Pure Cotton Polo Shirt Pack - High quality verified deal on Amazon India.",
                 Price = 999.0m,
                 OriginalPrice = 2199.0m,
                 Rating = 4.6,
@@ -5462,7 +5462,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0GJDL274Z",
                 Title = "PEGAN Comfortable Breathable Lightweight Casual Walking Shoes",
-                Description = "Ultra-lightweight mesh breathable casual walking sneakers designed for all-day comfort.",
+                Description = "PEGAN Comfortable Breathable Lightweight Casual Walking Shoes - High quality verified deal on Amazon India.",
                 Price = 699.0m,
                 OriginalPrice = 1599.0m,
                 Rating = 4.4,
@@ -5477,7 +5477,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0GGHLCK2S",
                 Title = "PEGAN Girls 100% Cotton Co-ord Set Nightwear Clothing",
-                Description = "Soft cotton loungewear and nightwear pajama set for relaxed home comfort.",
+                Description = "PEGAN Girls 100% Cotton Co-ord Set Nightwear Clothing - High quality verified deal on Amazon India.",
                 Price = 599.0m,
                 OriginalPrice = 1399.0m,
                 Rating = 4.5,
@@ -5492,7 +5492,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0GK93PM58",
                 Title = "KE KANHA EXPORTS Cotton Scarf with Tassels / Bandhani Dupatta",
-                Description = "Traditional printed Bandhani scarf set made with premium soft cotton fabric and tassels.",
+                Description = "KE KANHA EXPORTS Cotton Scarf with Tassels / Bandhani Dupatta - High quality verified deal on Amazon India.",
                 Price = 399.0m,
                 OriginalPrice = 899.0m,
                 Rating = 4.6,
@@ -5507,7 +5507,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B09P446B53",
                 Title = "KE EXPORTS Women's Printed Sun Protection Scarves",
-                Description = "Lightweight breathable cotton face and neck cover scarves for dust and UV protection.",
+                Description = "KE EXPORTS Women's Printed Sun Protection Scarves - High quality verified deal on Amazon India.",
                 Price = 349.0m,
                 OriginalPrice = 799.0m,
                 Rating = 4.4,
@@ -5522,7 +5522,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0FXRD8TC2",
                 Title = "KE KANHA EXPORTS Scarf for Women Boho Printed Stole",
-                Description = "Soft boho printed cotton scarf stole for elegant neck styling and daily wear.",
+                Description = "KE KANHA EXPORTS Scarf for Women Boho Printed Stole - High quality verified deal on Amazon India.",
                 Price = 299.0m,
                 OriginalPrice = 699.0m,
                 Rating = 4.7,
@@ -5537,7 +5537,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DRVSSYZC",
                 Title = "KE EXPORTS Multi-Neck Option Round Shape Stole Scarf",
-                Description = "Versatile multi-way wearable neck stole scarf crafted for ethnic and western fusion outfits.",
+                Description = "KE EXPORTS Multi-Neck Option Round Shape Stole Scarf - High quality verified deal on Amazon India.",
                 Price = 449.0m,
                 OriginalPrice = 999.0m,
                 Rating = 4.5,
@@ -5552,7 +5552,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0BZTY4FB5",
                 Title = "Suzvan Traditional South Pattu Pavadai Frock for Kids",
-                Description = "Authentic South Indian Kanjeevaram jacquard silk Pavadai frock set for grand festivals.",
+                Description = "Suzvan Traditional South Pattu Pavadai Frock for Kids - High quality verified deal on Amazon India.",
                 Price = 849.0m,
                 OriginalPrice = 1999.0m,
                 Rating = 4.6,
@@ -5567,7 +5567,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DSJJL5RD",
                 Title = "Baby Girls South Indian Traditional Pattu Pavadai Lehenga",
-                Description = "Rich golden zari border Pavadai lehenga choli set designed for traditional ceremonies.",
+                Description = "Baby Girls South Indian Traditional Pattu Pavadai Lehenga - High quality verified deal on Amazon India.",
                 Price = 899.0m,
                 OriginalPrice = 2299.0m,
                 Rating = 4.7,
@@ -5582,7 +5582,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DR2CXY7C",
                 Title = "Jwalin Girl's Embroidered Maxi Dress with Dupatta",
-                Description = "Elegant flared Anarkali kurta set with matching pants and embroidered dupatta.",
+                Description = "Jwalin Girl's Embroidered Maxi Dress with Dupatta - High quality verified deal on Amazon India.",
                 Price = 1199.0m,
                 OriginalPrice = 2999.0m,
                 Rating = 4.6,
@@ -5597,7 +5597,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0D7MJJJD7",
                 Title = "Suzvan Indian Traditional Jacquard Pavadai Set",
-                Description = "Royal festive South Indian Pattu Pavadai ethnic dress for girls with intricate zari work.",
+                Description = "Suzvan Indian Traditional Jacquard Pavadai Set - High quality verified deal on Amazon India.",
                 Price = 849.0m,
                 OriginalPrice = 2099.0m,
                 Rating = 4.5,
@@ -5612,7 +5612,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DY57KYRH",
                 Title = "Suzvan Traditional Jacquard Lehenga Choli for Festival",
-                Description = "Traditional South Indian kids ethnic lehenga choli with soft inner lining for total comfort.",
+                Description = "Suzvan Traditional Jacquard Lehenga Choli for Festival - High quality verified deal on Amazon India.",
                 Price = 899.0m,
                 OriginalPrice = 2199.0m,
                 Rating = 4.6,
@@ -5627,7 +5627,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0CB3VNBT2",
                 Title = "Amayra Women's Viscose Rayon Nayra Cut Embroidered Kurta Set",
-                Description = "Premium cotton straight fit embroidered kurta set with matching organza dupatta.",
+                Description = "Amayra Women's Viscose Rayon Nayra Cut Embroidered Kurta Set - High quality verified deal on Amazon India.",
                 Price = 999.0m,
                 OriginalPrice = 2499.0m,
                 Rating = 4.5,
@@ -5642,7 +5642,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0GH2C7RMQ",
                 Title = "Minakari Jamdani Work Cotton Silk Soft Saree",
-                Description = "Handcrafted Minakari Jamdani soft cotton saree with unstitched blouse piece for traditional elegance.",
+                Description = "Minakari Jamdani Work Cotton Silk Soft Saree - High quality verified deal on Amazon India.",
                 Price = 1299.0m,
                 OriginalPrice = 3299.0m,
                 Rating = 4.7,
@@ -5657,7 +5657,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0G7GGYHKX",
                 Title = "Amazon Brand - Anarva Ready to Wear Georgette Saree",
-                Description = "Lightweight printed georgette saree featuring vibrant floral designs and matching blouse piece.",
+                Description = "Amazon Brand - Anarva Ready to Wear Georgette Saree - High quality verified deal on Amazon India.",
                 Price = 799.0m,
                 OriginalPrice = 1999.0m,
                 Rating = 4.5,
@@ -5672,7 +5672,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0DGD9SP8S",
                 Title = "KE KANHA EXPORTS Women's Boho Border Printed Scarf",
-                Description = "Ultra-soft satin silk touch stole scarf for party wear and elegant neck styling.",
+                Description = "KE KANHA EXPORTS Women's Boho Border Printed Scarf - High quality verified deal on Amazon India.",
                 Price = 399.0m,
                 OriginalPrice = 899.0m,
                 Rating = 4.6,
@@ -5687,7 +5687,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0CMTLZ5N3",
                 Title = "Amazon Brand - Anarva Round Neck Dobby Cotton Readymade Blouse",
-                Description = "Comfortable stretchable cotton dobby readymade saree blouse with elbow sleeves.",
+                Description = "Amazon Brand - Anarva Round Neck Dobby Cotton Readymade Blouse - High quality verified deal on Amazon India.",
                 Price = 499.0m,
                 OriginalPrice = 1199.0m,
                 Rating = 4.4,
@@ -5702,7 +5702,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B08K391DL3",
                 Title = "Swara Creations Traditional Velvet Bangles Set for Women",
-                Description = "Bridal ethnic velvet bangles set handcrafted with intricate stone work for wedding wear.",
+                Description = "Swara Creations Traditional Velvet Bangles Set for Women - High quality verified deal on Amazon India.",
                 Price = 449.0m,
                 OriginalPrice = 999.0m,
                 Rating = 4.6,
@@ -5717,7 +5717,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0BSS245SY",
                 Title = "KE KanhaExports Japanese Kimono Scarf & Shrug",
-                Description = "Trendy floral printed open-front Japanese Kimono shrug scarf for holiday and beach wear.",
+                Description = "KE KanhaExports Japanese Kimono Scarf & Shrug - High quality verified deal on Amazon India.",
                 Price = 499.0m,
                 OriginalPrice = 1199.0m,
                 Rating = 4.5,
@@ -5732,7 +5732,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0F2MVC3LW",
                 Title = "Amazon Brand - Anarva Pattu Art Silk Woven Saree (Purple)",
-                Description = "Rich Uppada Jacquard woven silk saree with rich zari pallu and blouse piece for festivals.",
+                Description = "Amazon Brand - Anarva Pattu Art Silk Woven Saree (Purple) - High quality verified deal on Amazon India.",
                 Price = 1499.0m,
                 OriginalPrice = 3999.0m,
                 Rating = 4.7,
@@ -5747,7 +5747,7 @@ namespace WorldNewzWebAPI.Services
             {
                 Asin = "B0GY5J8YM5",
                 Title = "Amazon Brand Anarva Traditional Art Silk Saree",
-                Description = "Elegant Jacquard art silk saree with zari weave motif and contrasting blouse piece.",
+                Description = "Amazon Brand Anarva Traditional Art Silk Saree - High quality verified deal on Amazon India.",
                 Price = 1199.0m,
                 OriginalPrice = 2999.0m,
                 Rating = 4.6,
