@@ -123,9 +123,14 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
                   sx={{ width: 110, height: 110, objectFit: "contain", p: 1, bgcolor: "#ffffff" }}
                   image={deal.imageUrl || "/images/amazon_placeholder.png"}
                   alt={deal.title}
-                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/images/amazon_placeholder.png";
+                    const target = e.target as HTMLImageElement;
+                    if (!target.dataset.hasFailed) {
+                      target.dataset.hasFailed = "true";
+                      target.src = "/images/amazon_placeholder.png";
+                    }
                   }}
                 />
                 <CardContent sx={{ flex: 1, p: 1.5, "&:last-child": { pb: 1.5 } }}>

@@ -83,14 +83,28 @@ const AmazonProducts: React.FC = () => {
   const currentMonthYear = new Date().toLocaleString("en-US", { month: "long", year: "numeric" });
 
   const AMAZON_PLACEHOLDER = "/images/amazon_placeholder.png";
+  const DEFAULT_SVG_PLACEHOLDER = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><rect width="300" height="300" fill="%231e293b"/><path d="M150 90 L210 190 L90 190 Z" fill="%23ff9900" opacity="0.8"/><text x="150" y="215" font-family="sans-serif" font-size="16" font-weight="bold" fill="%23ffffff" text-anchor="middle">AMAZON DEAL</text></svg>`;
 
   const getAbsoluteImageUrl = (url: string | undefined | null) => {
     if (!url || !url.trim()) return AMAZON_PLACEHOLDER;
     const trimmed = url.trim();
-    if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("/images/")) {
+    if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
       return trimmed;
     }
+    if (!trimmed.includes(".")) {
+      return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}.jpg`;
+    }
     return `https://images-eu.ssl-images-amazon.com/images/I/${trimmed}`;
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    if (!target.dataset.hasFailed) {
+      target.dataset.hasFailed = "true";
+      target.src = AMAZON_PLACEHOLDER;
+    } else if (target.src !== DEFAULT_SVG_PLACEHOLDER) {
+      target.src = DEFAULT_SVG_PLACEHOLDER;
+    }
   };
 
   const [products, setProducts] = useState<AmazonProduct[]>([]);
@@ -135,12 +149,8 @@ const AmazonProducts: React.FC = () => {
             src={getAbsoluteImageUrl(params.row.imageUrl)}
             alt={params.row.title || "Amazon Deal"}
             decoding="async"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              if (target.src !== AMAZON_PLACEHOLDER) {
-                target.src = AMAZON_PLACEHOLDER;
-              }
-            }}
+            referrerPolicy="no-referrer"
+            onError={handleImageError}
             sx={{
               height: 54,
               width: 54,
@@ -834,9 +844,8 @@ const AmazonProducts: React.FC = () => {
                     src={getAbsoluteImageUrl(parsedProduct.imageUrl)}
                     alt={`${parsedProduct.title} - Amazon Deal India`}
                     decoding="async"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
-                    }}
+                    referrerPolicy="no-referrer"
+                    onError={handleImageError}
                     sx={{ maxHeight: 180, maxWidth: "100%", objectFit: "contain" }}
                   />
                 </Grid>
@@ -1075,9 +1084,8 @@ const AmazonProducts: React.FC = () => {
                       src={getAbsoluteImageUrl(scratchDealProduct.imageUrl)} 
                       alt={`${scratchDealProduct.title} - Amazon Deal India`}
                       decoding="async"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
-                      }}
+                      referrerPolicy="no-referrer"
+                      onError={handleImageError}
                       sx={{ 
                         maxHeight: 180, 
                         objectFit: "contain", 
@@ -1392,12 +1400,8 @@ const AmazonProducts: React.FC = () => {
                               src={getAbsoluteImageUrl(product.imageUrl)} 
                               alt={`${product.title} - Amazon Deal India`}
                               decoding="async"
-                              onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                if (target.src !== AMAZON_PLACEHOLDER) {
-                                  target.src = AMAZON_PLACEHOLDER;
-                                }
-                              }}
+                              referrerPolicy="no-referrer"
+                              onError={handleImageError}
                               sx={{ 
                                 height: 160, 
                                 objectFit: "contain",

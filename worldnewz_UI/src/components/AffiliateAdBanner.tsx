@@ -141,8 +141,13 @@ export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category =
           component="img"
           src={activeProduct.imageUrl || "/images/amazon_placeholder.png"}
           alt={activeProduct.title || "Amazon Product"}
+          referrerPolicy="no-referrer"
           onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-            (e.currentTarget as HTMLImageElement).src = "/images/amazon_placeholder.png";
+            const target = e.currentTarget as HTMLImageElement;
+            if (!target.dataset.hasFailed) {
+              target.dataset.hasFailed = "true";
+              target.src = "/images/amazon_placeholder.png";
+            }
           }}
           sx={{
             maxHeight: "100%",
