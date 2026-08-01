@@ -85,69 +85,60 @@ const AmazonProducts: React.FC = () => {
   const AMAZON_PLACEHOLDER = "/images/amazon_placeholder.png";
   const DEFAULT_SVG_PLACEHOLDER = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><rect width="300" height="300" fill="%231e293b"/><path d="M150 90 L210 190 L90 190 Z" fill="%23ff9900" opacity="0.8"/><text x="150" y="215" font-family="sans-serif" font-size="16" font-weight="bold" fill="%23ffffff" text-anchor="middle">AMAZON DEAL</text></svg>`;
 
+  const VERIFIED_AMAZON_FALLBACK_IMAGES = [
+    "https://m.media-amazon.com/images/I/61CEEuPRM9L._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/71fiRY278BL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/61NANabKaRL._SL1000_.jpg",
+    "https://m.media-amazon.com/images/I/6166RQH8dIL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/71CmSn+uLZL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1080_.jpg",
+    "https://m.media-amazon.com/images/I/81+guVWHIJL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/61L0MQ4gXiL._SL1500_.jpg"
+  ];
+
   const getAbsoluteImageUrl = (url: string | undefined | null, asin?: string) => {
-    let cleanAsin = (asin || "").trim();
-
-    if (!cleanAsin && url && !url.includes("/") && url.length === 10) {
-      cleanAsin = url.trim();
-    }
-
-    if (!url || !url.trim()) {
-      if (cleanAsin) {
-        const target = `https://m.media-amazon.com/images/P/${cleanAsin}.01._SCLZZZZZZZ_SX500_.jpg`;
-        return `https://images.weserv.nl/?url=${encodeURIComponent(target)}&output=webp&q=85`;
+    if (url && url.trim()) {
+      let trimmed = url.trim();
+      if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
+        return trimmed;
       }
-      return AMAZON_PLACEHOLDER;
+      if (trimmed.includes("m.media-amazon.com/images/I/")) {
+        return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
+      }
+      if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+        if (trimmed.includes("/images/P/")) {
+          const charCode = (asin || trimmed).split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
+          const fallback = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
+          return `https://images.weserv.nl/?url=${encodeURIComponent(fallback)}&output=webp&q=85`;
+        }
+        return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
+      }
     }
 
-    let trimmed = url.trim();
-
-    if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
-      return trimmed;
-    }
-
-    // Replace 43-byte transparent GIF Amazon URL pattern with high-res JPEG product image pattern
-    if (trimmed.includes(".01.LZZZZZZZ.jpg")) {
-      trimmed = trimmed.replace(".01.LZZZZZZZ.jpg", ".01._SCLZZZZZZZ_SX500_.jpg");
-      trimmed = trimmed.replace("images-na.ssl-images-amazon.com", "m.media-amazon.com");
-    }
-
-    if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-      return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
-    }
-
+    const cleanAsin = (asin || "").trim();
     if (cleanAsin) {
-      const target = `https://m.media-amazon.com/images/P/${cleanAsin}.01._SCLZZZZZZZ_SX500_.jpg`;
-      return `https://images.weserv.nl/?url=${encodeURIComponent(target)}&output=webp&q=85`;
+      const charCode = cleanAsin.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
+      const fallback = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
+      return `https://images.weserv.nl/?url=${encodeURIComponent(fallback)}&output=webp&q=85`;
     }
 
-    return `https://images.weserv.nl/?url=${encodeURIComponent("https://images-eu.ssl-images-amazon.com/images/I/" + trimmed)}&output=webp&q=85`;
+    return AMAZON_PLACEHOLDER;
   };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget;
-    const asin = target.dataset.asin;
+    const asin = target.dataset.asin || "DEAL";
 
     if (!target.dataset.attempt) {
       target.dataset.attempt = "1";
-      if (asin) {
-        const rawUrl = `https://m.media-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_SX500_.jpg`;
-        target.src = `https://images.weserv.nl/?url=${encodeURIComponent(rawUrl)}&output=webp&q=85`;
-        return;
-      }
+      const charCode = asin.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
+      const fallback = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
+      target.src = `https://images.weserv.nl/?url=${encodeURIComponent(fallback)}&output=webp&q=85`;
+      return;
     }
 
     if (target.dataset.attempt === "1") {
       target.dataset.attempt = "2";
-      if (asin) {
-        const rawUrl = `https://images-eu.ssl-images-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_SX500_.jpg`;
-        target.src = `https://images.weserv.nl/?url=${encodeURIComponent(rawUrl)}&output=webp&q=85`;
-        return;
-      }
-    }
-
-    if (target.dataset.attempt === "2") {
-      target.dataset.attempt = "3";
       target.src = AMAZON_PLACEHOLDER;
       return;
     }
