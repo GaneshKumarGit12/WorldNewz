@@ -214,3 +214,7 @@ const startIndex = fourHourBlock % list.length;
    - Trace each short link (`https://amzn.to/XXXX`) to its exact destination target Amazon deal URL (`https://www.amazon.in/dp/{ASIN}?tag=ganeshd12-21...`).
    - Every product record's `ProductUrl` (used for 'Grab Deal' buttons, card links, and Share options) MUST match the exact visited deal destination URL with active affiliate tracking tag.
 
+6. **Pinterest Pin Destination URL (`url` Parameter)**:
+   - When constructing Pinterest share links (`https://www.pinterest.com/pin/create/button/?url=...&media=...&description=...`), the `url` parameter MUST be set to `encodeURIComponent(productUrl)` (the target Amazon ASIN affiliate URL `https://www.amazon.in/dp/{ASIN}?tag=ganeshd12-21...`).
+   - Never use `window.location.href` or site root URLs. This ensures that after a pin is created, clicking the pin on Pinterest redirects visitors straight to the target Amazon product listing.
+

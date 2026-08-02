@@ -157,7 +157,7 @@ const DataGridShareCell: React.FC<DataGridShareCellProps> = React.memo(({ row, c
       <Tooltip title="Share on Pinterest">
         <IconButton
           size="small"
-          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title.substring(0, 180))}`}
+          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(productUrl)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent((title + " - " + (row.description || "")).substring(0, 200))}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
@@ -257,7 +257,7 @@ const DataGridShareCell: React.FC<DataGridShareCellProps> = React.memo(({ row, c
 
         <MenuItem
           component="a"
-          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title.substring(0, 180))}`}
+          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(productUrl)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent((title + " - " + (row.description || "")).substring(0, 200))}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => handleClose(e)}
@@ -1192,7 +1192,7 @@ const AmazonProducts: React.FC = () => {
                           </IconButton>
                           <IconButton
                             id="share-pin-btn"
-                            href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(getAbsoluteImageUrl(parsedProduct.imageUrl))}&description=${encodeURIComponent((parsedProduct.title || "").substring(0, 180))}`}
+                            href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(parsedProduct.productUrl)}&media=${encodeURIComponent(getAbsoluteImageUrl(parsedProduct.imageUrl, parsedProduct.asin))}&description=${encodeURIComponent(((parsedProduct.title || "") + " - " + (parsedProduct.description || "")).substring(0, 200))}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={{ color: "#BD081C", border: "1px solid", borderColor: "divider", "&:hover": { bgcolor: "rgba(189,8,28,0.08)" } }}
@@ -1807,7 +1807,7 @@ const AmazonProducts: React.FC = () => {
                                 </IconButton>
                                 <IconButton
                                   size="small"
-                                  href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent("https://worldnewzs.in/amazon-products")}&media=${encodeURIComponent(getAbsoluteImageUrl(product.imageUrl))}&description=${encodeURIComponent((product.title || "").substring(0, 180))}`}
+                                  href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(product.productUrl || "")}&media=${encodeURIComponent(getAbsoluteImageUrl(product.imageUrl, product.asin))}&description=${encodeURIComponent(((product.title || "") + " - " + (product.description || "")).substring(0, 200))}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   sx={{ color: "#BD081C", border: "1px solid", borderColor: "divider", p: 0.5, "&:hover": { bgcolor: "rgba(189,8,28,0.08)" } }}
