@@ -218,3 +218,8 @@ const startIndex = fourHourBlock % list.length;
    - When constructing Pinterest share links (`https://www.pinterest.com/pin/create/button/?url=...&media=...&description=...`), the `url` parameter MUST be set to `encodeURIComponent(productUrl)` (the target Amazon ASIN affiliate URL `https://www.amazon.in/dp/{ASIN}?tag=ganeshd12-21...`).
    - Never use `window.location.href` or site root URLs. This ensures that after a pin is created, clicking the pin on Pinterest redirects visitors straight to the target Amazon product listing.
 
+7. **Support for `https://link.amazon/{SHORT_CODE}` & `https://amzn.to/{SHORT_CODE}` Formats**:
+   - Link resolution scripts must handle both `https://amzn.to/XXXX` and `https://link.amazon/XXXX` short link domains seamlessly.
+   - Follow all HTTP redirect hops to extract the true 10-character Amazon ASIN, exact `https://m.media-amazon.com/images/I/...` product image URL, full scrubbed title, and bullet-derived description summary.
+   - Always append new seed objects to `scratch/seen_asins.json` and `AmazonProductService.cs` with newest-first ordering (`.OrderByDescending(p => p.Id)`).
+
