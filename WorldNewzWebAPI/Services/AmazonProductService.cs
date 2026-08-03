@@ -6478,6 +6478,1011 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0GLF69DCZ",
+                Title = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women",
+                Description = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women - High quality verified deal available on Amazon India.",
+                Price = 898.0m,
+                OriginalPrice = 1715.32m,
+                Rating = 4.5,
+                ReviewCount = 314,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GLF69DCZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81pd7EFFzwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8TGPJCH",
+                Title = "Glj Angeltoddler Waterproof Lightweight Chocolate",
+                Description = "Glj Angeltoddler Waterproof Lightweight Chocolate - High quality verified deal available on Amazon India.",
+                Price = 1256.91m,
+                OriginalPrice = 2065.35m,
+                Rating = 4.7,
+                ReviewCount = 189,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0D8TGPJCH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0D8TGPJCH.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTFKGM59",
+                Title = "American Tourister Kiztopia02 Character Compartments",
+                Description = "American Tourister Kiztopia02 Character Compartments - High quality verified deal available on Amazon India.",
+                Price = 1218.88m,
+                OriginalPrice = 1670.19m,
+                Rating = 4.5,
+                ReviewCount = 579,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DTFKGM59?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DTFKGM59.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GCSBZQPF",
+                Title = "Klosia Cotton Dupatta Bandhani Comfortable",
+                Description = "Klosia Cotton Dupatta Bandhani Comfortable - High quality verified deal available on Amazon India.",
+                Price = 2160.75m,
+                OriginalPrice = 4287.58m,
+                Rating = 4.4,
+                ReviewCount = 885,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GCSBZQPF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0GCSBZQPF.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07142V4GL",
+                Title = "Harissons Backpack Water Resistant Polyester Reflectors",
+                Description = "Harissons Backpack Water Resistant Polyester Reflectors - High quality verified deal available on Amazon India.",
+                Price = 1391.41m,
+                OriginalPrice = 2896.52m,
+                Rating = 4.7,
+                ReviewCount = 475,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B07142V4GL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B07142V4GL.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GM7SV27B",
+                Title = "Gosriki Embroidery Palazzo Davina Grey Gs_3xl_grey_xxx Large",
+                Description = "Gosriki Embroidery Palazzo Davina Grey Gs_3xl_grey_xxx Large - High quality verified deal available on Amazon India.",
+                Price = 736.24m,
+                OriginalPrice = 1437.84m,
+                Rating = 4.7,
+                ReviewCount = 913,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GM7SV27B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0GM7SV27B.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DT9GGY1N",
+                Title = "Yashika Digital Chandheri Unstitched Material_az Ys P1 Sasikala",
+                Description = "Yashika Digital Chandheri Unstitched Material_az Ys P1 Sasikala - High quality verified deal available on Amazon India.",
+                Price = 1597.04m,
+                OriginalPrice = 2688.48m,
+                Rating = 4.4,
+                ReviewCount = 411,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DT9GGY1N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DT9GGY1N.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099N8LNXW",
+                Title = "INNOWIN Venture Ergonomic Leatherette Executive High Back Revolving Desk Office Chair (Multi Color)| 3 Years Limited Warranty",
+                Description = "INNOWIN Venture Ergonomic Leatherette Executive High Back Revolving Desk Office Chair (Multi Color)| 3 Years Limited Warranty - High quality verified deal available on Amazon India.",
+                Price = 8499.0m,
+                OriginalPrice = 12839.71m,
+                Rating = 4.3,
+                ReviewCount = 900,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B099N8LNXW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81QWoV1LfeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DQTC9NNM",
+                Title = "Mokosh Womens Embroidered Dupatta 444 04",
+                Description = "Mokosh Womens Embroidered Dupatta 444 04 - High quality verified deal available on Amazon India.",
+                Price = 1348.04m,
+                OriginalPrice = 2122.62m,
+                Rating = 4.4,
+                ReviewCount = 1060,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DQTC9NNM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DQTC9NNM.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BS5SKC4N",
+                Title = "Tripole Rucksack 60 Litres Green",
+                Description = "Tripole Rucksack 60 Litres Green - High quality verified deal available on Amazon India.",
+                Price = 2475.26m,
+                OriginalPrice = 3290.3m,
+                Rating = 4.4,
+                ReviewCount = 848,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BS5SKC4N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0BS5SKC4N.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C6F39KQS",
+                Title = "15 Inch 10 Inch Compartment Expandable Water Resistant",
+                Description = "15 Inch 10 Inch Compartment Expandable Water Resistant - High quality verified deal available on Amazon India.",
+                Price = 333.87m,
+                OriginalPrice = 599.35m,
+                Rating = 4.6,
+                ReviewCount = 821,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0C6F39KQS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0C6F39KQS.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHH32ZSS",
+                Title = "Doctor Health Super Soft Acupressure",
+                Description = "Doctor Health Super Soft Acupressure - High quality verified deal available on Amazon India.",
+                Price = 1672.11m,
+                OriginalPrice = 2379.94m,
+                Rating = 4.4,
+                ReviewCount = 973,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DHH32ZSS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/P/B0DHH32ZSS.01._SCLZZZZZZZ_SX500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BPC3X8P7",
+                Title = "DELSEY PARIS Margot 69 cms Medium Check-in Polycarbonate Hard Sided 8 Wheels and Expandable Spinner Suitcase/Trolley Bag for Travel with TSA Lock- Black",
+                Description = "DELSEY PARIS Margot 69 cms Medium Check-in Polycarbonate Hard Sided 8 Wheels and Expandable Spinner Suitcase/Trolley Bag for Travel with TSA Lock- Black - High quality verified deal available on Amazon India.",
+                Price = 5099.0m,
+                OriginalPrice = 9245.74m,
+                Rating = 4.8,
+                ReviewCount = 351,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BPC3X8P7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AFCe2yt-L._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B2LH5TC2",
+                Title = "ABOUT SPACE Wooden TV Stand - TV Entertainment Unit and Multipurpose Shelf Storage for Set Top Box,Home Theatre,Books for Living Room - DIY Unit for 32-50 Inch TV,Book Storage Rack - Walnut Brown",
+                Description = "ABOUT SPACE Wooden TV Stand - TV Entertainment Unit and Multipurpose Shelf Storage for Set Top Box,Home Theatre,Books for Living Room - DIY Unit for 32-50 Inch TV,Book Storage Rack - Walnut Brown - High quality verified deal available on Amazon India.",
+                Price = 4447.0m,
+                OriginalPrice = 7166.82m,
+                Rating = 4.8,
+                ReviewCount = 374,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0B2LH5TC2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71A4xVltGOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0743BBC8K",
+                Title = "Blue Nectar Saffron Anti Aging Cream for Women | Face Cream for Daily Use | Alternate to Retinol Face Cream for Fine Lines & Wrinkles | Day & Night Moisturizer for Oily & Dry Skin (14 Herbs, 50g)",
+                Description = "Blue Nectar Saffron Anti Aging Cream for Women | Face Cream for Daily Use | Alternate to Retinol Face Cream for Fine Lines & Wrinkles | Day & Night Moisturizer for Oily & Dry Skin (14 Herbs, 50g) - High quality verified deal available on Amazon India.",
+                Price = 1025.0m,
+                OriginalPrice = 1643.08m,
+                Rating = 4.7,
+                ReviewCount = 696,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0743BBC8K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61b9RvbcotL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07QBQ127Y",
+                Title = "WildHorn Blue Hunter Leather Men's Wallet",
+                Description = "WildHorn Blue Hunter Leather Men's Wallet - High quality verified deal available on Amazon India.",
+                Price = 483.0m,
+                OriginalPrice = 798.19m,
+                Rating = 4.5,
+                ReviewCount = 210,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B07QBQ127Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Hs3-4mA+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CWRKDC7Q",
+                Title = "Man Matters BeardGro Beard Growth Serum for Men 30ml | 4% Anagain, 2% Aminexil, 1% Rosemary | Reduces Patchy Beard, Promotes Thicker Beard Growth | Lightweight and Fast Absorption",
+                Description = "Man Matters BeardGro Beard Growth Serum for Men 30ml | 4% Anagain, 2% Aminexil, 1% Rosemary | Reduces Patchy Beard, Promotes Thicker Beard Growth | Lightweight and Fast Absorption - High quality verified deal available on Amazon India.",
+                Price = 499.0m,
+                OriginalPrice = 946.64m,
+                Rating = 4.7,
+                ReviewCount = 181,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0CWRKDC7Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Y6rIy6hmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBG8FQKH",
+                Title = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear, White",
+                Description = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear, White - High quality verified deal available on Amazon India.",
+                Price = 926.0m,
+                OriginalPrice = 1475.9m,
+                Rating = 4.4,
+                ReviewCount = 1048,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FBG8FQKH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81IQzobx04L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FM8L4W6Y",
+                Title = "Hundred Raze Badminton Shoes (Non Marking) | Also Perfect for Squash, Table Tennis, & Indoor Sports | Lightweight & Durable | X-Cushion, Active Grip Sole (Lt Blue/Blue ; 4 UK)",
+                Description = "Hundred Raze Badminton Shoes (Non Marking) | Also Perfect for Squash, Table Tennis, & Indoor Sports | Lightweight & Durable | X-Cushion, Active Grip Sole (Lt Blue/Blue ; 4 UK) - High quality verified deal available on Amazon India.",
+                Price = 1649.0m,
+                OriginalPrice = 3296.14m,
+                Rating = 4.3,
+                ReviewCount = 466,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FM8L4W6Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CQwTR9KSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9PQ51V5",
+                Title = "Little Joys Tomato Sauce Squeeze for Kids | No Refined Sugar, No Added Preservatives or Chemicals | Made with Jaggery | 100% Vegetarian Tomato Ketchup | 320g",
+                Description = "Little Joys Tomato Sauce Squeeze for Kids | No Refined Sugar, No Added Preservatives or Chemicals | Made with Jaggery | 100% Vegetarian Tomato Ketchup | 320g - High quality verified deal available on Amazon India.",
+                Price = 299.0m,
+                OriginalPrice = 607.4m,
+                Rating = 4.8,
+                ReviewCount = 494,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F9PQ51V5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/516+pxXg8mL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDKSGGQP",
+                Title = "Be Bodywise Advanced Pigmentation Kit | With 6% AHA BHA Flora Underarm Roll-On (50ml) & Pigmentation Repair Cream (100g) | Reduces Body Odor, Fades Pigmentation & Corrects Uneven Skin Tone",
+                Description = "Be Bodywise Advanced Pigmentation Kit | With 6% AHA BHA Flora Underarm Roll-On (50ml) & Pigmentation Repair Cream (100g) | Reduces Body Odor, Fades Pigmentation & Corrects Uneven Skin Tone - High quality verified deal available on Amazon India.",
+                Price = 859.0m,
+                OriginalPrice = 1500.73m,
+                Rating = 4.4,
+                ReviewCount = 545,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FDKSGGQP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xHHxxP0lL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B35V3BZ4",
+                Title = "AS-IT-IS Nutrition 100% Creatine Monohydrate, Pure 2.5g Micronized Powder, USA Labdoor Certified for Accuracy & Purity- 100g (40 servings) + 30g Sachet of AS-IT-IS Whey Protein Concentrate - Unflavored - Supports Performance & Recovery",
+                Description = "AS-IT-IS Nutrition 100% Creatine Monohydrate, Pure 2.5g Micronized Powder, USA Labdoor Certified for Accuracy & Purity- 100g (40 servings) + 30g Sachet of AS-IT-IS Whey Protein Concentrate - Unflavored - Supports Performance & Recovery - High quality verified deal available on Amazon India.",
+                Price = 474.0m,
+                OriginalPrice = 742.67m,
+                Rating = 4.7,
+                ReviewCount = 415,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0B35V3BZ4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/619N5Qx7nhL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D37BRN7X",
+                Title = "Wesley Spartan Unisex Travel Hiking Laptop Bag fits Upto 17.3 inch with Raincover and Internal Organiser Backpack Rucksack College Backpack",
+                Description = "Wesley Spartan Unisex Travel Hiking Laptop Bag fits Upto 17.3 inch with Raincover and Internal Organiser Backpack Rucksack College Backpack - High quality verified deal available on Amazon India.",
+                Price = 730.0m,
+                OriginalPrice = 1276.46m,
+                Rating = 4.6,
+                ReviewCount = 761,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0D37BRN7X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dbnsT9GaS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F433XKVR",
+                Title = "Springwel Essential Reversible 5 Inch Mattress | 15 Yrs Warranty | HR Foam | Medium Firm Quilted Mattress with Breathable & Anti Microbial Bamboo Charcoal Fabric Cover | Single Size (84X36X5) Inches",
+                Description = "Springwel Essential Reversible 5 Inch Mattress | 15 Yrs Warranty | HR Foam | Medium Firm Quilted Mattress with Breathable & Anti Microbial Bamboo Charcoal Fabric Cover | Single Size (84X36X5) Inches - High quality verified deal available on Amazon India.",
+                Price = 5128.0m,
+                OriginalPrice = 8170.22m,
+                Rating = 4.4,
+                ReviewCount = 550,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F433XKVR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SKpyMN7zL._SL1200_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07VYJMLB3",
+                Title = "URBAN FOREST Oliver Blue Leather Wallet & Blue Card Holder Set for Men",
+                Description = "URBAN FOREST Oliver Blue Leather Wallet & Blue Card Holder Set for Men - High quality verified deal available on Amazon India.",
+                Price = 699.0m,
+                OriginalPrice = 1146.41m,
+                Rating = 4.7,
+                ReviewCount = 611,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B07VYJMLB3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Uc--xmMlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B6RPDGH1",
+                Title = "beAAtho Verona Mesh Mid Back Ergonomic Home Office Chair with 3-Years Limited Warranty, Tilting & Height Adjustable Mechanism, Heavy Duty Metal Base Ideal for Office Work & Study (Blue)",
+                Description = "beAAtho Verona Mesh Mid Back Ergonomic Home Office Chair with 3-Years Limited Warranty, Tilting & Height Adjustable Mechanism, Heavy Duty Metal Base Ideal for Office Work & Study (Blue) - High quality verified deal available on Amazon India.",
+                Price = 3299.0m,
+                OriginalPrice = 5270.8m,
+                Rating = 4.4,
+                ReviewCount = 1139,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0B6RPDGH1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81zws1YNZhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DM667WRP",
+                Title = "BeastLife High Protein Mass/Weight Gainer | 1 KG | Belgian Chocolate | NABL LAB Tested | For Muscle Gain & Fast Growth | Cereal-Based Formula, No Maltodextrin | India's #1 Cereal Based Bulk Gainer",
+                Description = "BeastLife High Protein Mass/Weight Gainer | 1 KG | Belgian Chocolate | NABL LAB Tested | For Muscle Gain & Fast Growth | Cereal-Based Formula, No Maltodextrin | India's #1 Cereal Based Bulk Gainer - High quality verified deal available on Amazon India.",
+                Price = 999.0m,
+                OriginalPrice = 2061.17m,
+                Rating = 4.7,
+                ReviewCount = 246,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DM667WRP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61pZV7a8mFL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C249VSFS",
+                Title = "NAKPRO NUTRITION Pea Protein Isolate | 1 kg Chocolate | 26g Protein | Plant Based Protein Powder",
+                Description = "NAKPRO NUTRITION Pea Protein Isolate | 1 kg Chocolate | 26g Protein | Plant Based Protein Powder - High quality verified deal available on Amazon India.",
+                Price = 1072.0m,
+                OriginalPrice = 2029.22m,
+                Rating = 4.3,
+                ReviewCount = 465,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C249VSFS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JlQbF9uTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C31QR25M",
+                Title = "Bare Anatomy Junior Gentle Cleansing Shampoo For Kids from 1-12 Years | Tear-Free & Hypoallergenic pH 5.5 | Coconut Milk Protein, Almond Oil, Vitamin E & Strawberry | SLS & Paraben Free | Vegan -250ml",
+                Description = "Bare Anatomy Junior Gentle Cleansing Shampoo For Kids from 1-12 Years | Tear-Free & Hypoallergenic pH 5.5 | Coconut Milk Protein, Almond Oil, Vitamin E & Strawberry | SLS & Paraben Free | Vegan -250ml - High quality verified deal available on Amazon India.",
+                Price = 338.0m,
+                OriginalPrice = 535.01m,
+                Rating = 4.5,
+                ReviewCount = 275,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C31QR25M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51s+II4dYdL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B3JDWTNJ",
+                Title = "Mobilife LED Video Light Camera Light Laptop Light for Zoom Meeting Photography Lighting 100 LED Beads with Clip Dimmable and Rechargeable for Camera Selfie Stick Tripod Laptop Cellphone",
+                Description = "Mobilife LED Video Light Camera Light Laptop Light for Zoom Meeting Photography Lighting 100 LED Beads with Clip Dimmable and Rechargeable for Camera Selfie Stick Tripod Laptop Cellphone - High quality verified deal available on Amazon India.",
+                Price = 1769.0m,
+                OriginalPrice = 2493.12m,
+                Rating = 4.5,
+                ReviewCount = 688,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0B3JDWTNJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Pkq5U1GTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09F9WJ4MH",
+                Title = "Smartivity Mega Science Kit 150+ Science Experiment Kit for Kids 6 to 14 Years Old | Birthday Gifts for Boys & Girls | STEM Educational Toy for Kids 6,7,8,9,10,11,12,13,14 Years Old Kids | Includes materials for 150+ experiments across chemistry, physics & engineering. Hands-on STEM learning for kids 6-14.",
+                Description = "Smartivity Mega Science Kit 150+ Science Experiment Kit for Kids 6 to 14 Years Old | Birthday Gifts for Boys & Girls | STEM Educational Toy for Kids 6,7,8,9,10,11,12,13,14 Years Old Kids | Includes materials for 150+ experiments across chemistry, physics & engineering. Hands-on STEM learning for kids 6-14. - High quality verified deal available on Amazon India.",
+                Price = 797.0m,
+                OriginalPrice = 1124.35m,
+                Rating = 4.7,
+                ReviewCount = 495,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09F9WJ4MH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Unrdunn9L._SL1200_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H881R778",
+                Title = "Bandhan 10 - Item - Rakhi Gift Hamper for Brother | Set of 2 Rakhis - Hare Rama Hare Krishna & Evil Eye Hamsa | Indian Rose Incense Bhel, Laddoo, Chikki & Rakhi Card | Rakhi gift box for brother",
+                Description = "Bandhan 10 - Item - Rakhi Gift Hamper for Brother | Set of 2 Rakhis - Hare Rama Hare Krishna & Evil Eye Hamsa | Indian Rose Incense Bhel, Laddoo, Chikki & Rakhi Card | Rakhi gift box for brother - High quality verified deal available on Amazon India.",
+                Price = 349.0m,
+                OriginalPrice = 589.3m,
+                Rating = 4.4,
+                ReviewCount = 577,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0H881R778?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91PG+d8G+iL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHY3331Q",
+                Title = "Glowear Heel Protector & Pads for Pain Relief | Plantar Fasciitis | Silicone gel orthotics cup for heel spur, Achilles & cracked heel | Men & women | Breathable, washable | Beige | Large",
+                Description = "Glowear Heel Protector & Pads for Pain Relief | Plantar Fasciitis | Silicone gel orthotics cup for heel spur, Achilles & cracked heel | Men & women | Breathable, washable | Beige | Large - High quality verified deal available on Amazon India.",
+                Price = 499.0m,
+                OriginalPrice = 838.5m,
+                Rating = 4.6,
+                ReviewCount = 421,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DHY3331Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51PS8yMTFPL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DF5TMC5S",
+                Title = "DOCTOR EXTRA SOFT Men's Sports Shoes with Memory Foam Cushioned Insole|Running Walking Gym Training Jogging Athletics|Comfortable & Stylish|Casual & Lightweight|Slipon Sneaker Gent's & Boy's ART-2008",
+                Description = "DOCTOR EXTRA SOFT Men's Sports Shoes with Memory Foam Cushioned Insole|Running Walking Gym Training Jogging Athletics|Comfortable & Stylish|Casual & Lightweight|Slipon Sneaker Gent's & Boy's ART-2008 - High quality verified deal available on Amazon India.",
+                Price = 1259.0m,
+                OriginalPrice = 2013.57m,
+                Rating = 4.6,
+                ReviewCount = 291,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DF5TMC5S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Iwb+pPoZL._SL1400_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BZD7V3PL",
+                Title = "SNEAKARE Stackable Shoe Storage Box | Heavy Duty Plastic Sneaker Crate with Magnetic Door | Shoe Organizer for Men & Women | Fits Upto UK 14 | Durable Shoe Storage Box White Pack of-5",
+                Description = "SNEAKARE Stackable Shoe Storage Box | Heavy Duty Plastic Sneaker Crate with Magnetic Door | Shoe Organizer for Men & Women | Fits Upto UK 14 | Durable Shoe Storage Box White Pack of-5 - High quality verified deal available on Amazon India.",
+                Price = 4998.0m,
+                OriginalPrice = 8438.02m,
+                Rating = 4.6,
+                ReviewCount = 568,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BZD7V3PL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51x7NZaEyjL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BLHF4HVG",
+                Title = "NAKPRO NUTRITION Plant Protein (Pea & Brown Rice Protein) | 1kg - Chocolate | 25.2g Protein | Trustified Certified | All Essential Amino Acids",
+                Description = "NAKPRO NUTRITION Plant Protein (Pea & Brown Rice Protein) | 1kg - Chocolate | 25.2g Protein | Trustified Certified | All Essential Amino Acids - High quality verified deal available on Amazon India.",
+                Price = 1316.0m,
+                OriginalPrice = 2338.38m,
+                Rating = 4.6,
+                ReviewCount = 915,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BLHF4HVG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71xxTLOjIzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D5BCDJ73",
+                Title = "Campus Women Siren Running Shoes",
+                Description = "Campus Women Siren Running Shoes - High quality verified deal available on Amazon India.",
+                Price = 899.0m,
+                OriginalPrice = 1492.47m,
+                Rating = 4.7,
+                ReviewCount = 619,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D5BCDJ73?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hgt1m6OgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BGLXP3Y8",
+                Title = "AYKA Reversible Comforter 220 GSM Microfiber Reversible AC Comforter/Blanket for Winter/Quilt/Duvets for King Size Single Bed Comforter (60 * 90, Red & Charcoal)| TC - 220",
+                Description = "AYKA Reversible Comforter 220 GSM Microfiber Reversible AC Comforter/Blanket for Winter/Quilt/Duvets for King Size Single Bed Comforter (60 * 90, Red & Charcoal)| TC - 220 - High quality verified deal available on Amazon India.",
+                Price = 1399.0m,
+                OriginalPrice = 2497.84m,
+                Rating = 4.4,
+                ReviewCount = 539,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BGLXP3Y8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yiKB4DsVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09RG51853",
+                Title = "TN-2365 Toner Cartridge Compatible for Printers HL-L2321D, L2361DN, L2366DW, L2320d, DCP-L2541DW, L2520D, MFC-L2701D, L2701DW (TN-2365 - 1 pc)",
+                Description = "TN-2365 Toner Cartridge Compatible for Printers HL-L2321D, L2361DN, L2366DW, L2320d, DCP-L2541DW, L2520D, MFC-L2701D, L2701DW (TN-2365 - 1 pc) - High quality verified deal available on Amazon India.",
+                Price = 677.0m,
+                OriginalPrice = 986.7m,
+                Rating = 4.3,
+                ReviewCount = 1066,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B09RG51853?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617m2iHfRTL._SL1401_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097ZQY31L",
+                Title = "Car Race Track Adventure Toys for 3+ Year Old Boys & Girls, City Rescue Preschool Educational Vehicle Puzzle Playset",
+                Description = "Car Race Track Adventure Toys for 3+ Year Old Boys & Girls, City Rescue Preschool Educational Vehicle Puzzle Playset - High quality verified deal available on Amazon India.",
+                Price = 998.0m,
+                OriginalPrice = 1484.88m,
+                Rating = 4.6,
+                ReviewCount = 478,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B097ZQY31L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qnK40mGLL._SL1200_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07P5ZFYK3",
+                Title = "V-Guard Smart Pro 1200s Solar1000VA /12V Inverter Sine Wave|3-Year Warranty | Smart IoT with Mobile App Control | LED Display | Easy Installation | Reliable Power Backup | Solar Charging Compatible",
+                Description = "V-Guard Smart Pro 1200s Solar1000VA /12V Inverter Sine Wave|3-Year Warranty | Smart IoT with Mobile App Control | LED Display | Easy Installation | Reliable Power Backup | Solar Charging Compatible - High quality verified deal available on Amazon India.",
+                Price = 8299.0m,
+                OriginalPrice = 12556.81m,
+                Rating = 4.6,
+                ReviewCount = 598,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B07P5ZFYK3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/515-jyc5UkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D1K1DD3T",
+                Title = "minicult Basics Cotton Baby Vests in Solid Colors (Multicolour)(Pack of 5)(0-3 MTS)",
+                Description = "minicult Basics Cotton Baby Vests in Solid Colors (Multicolour)(Pack of 5)(0-3 MTS) - High quality verified deal available on Amazon India.",
+                Price = 683.0m,
+                OriginalPrice = 1182.22m,
+                Rating = 4.4,
+                ReviewCount = 623,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D1K1DD3T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hg2bv5FJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGLSNT4T",
+                Title = "Ecosys 3-in-1 Dissolvable Magic Laundry Pods for 60 washes: Bio Enzymes Infused, Tough Stain Removal with Floral Aroma,1 Pod = 1 Wash for 5-7kg (Pack of 60)",
+                Description = "Ecosys 3-in-1 Dissolvable Magic Laundry Pods for 60 washes: Bio Enzymes Infused, Tough Stain Removal with Floral Aroma,1 Pod = 1 Wash for 5-7kg (Pack of 60) - High quality verified deal available on Amazon India.",
+                Price = 1049.0m,
+                OriginalPrice = 1904.26m,
+                Rating = 4.3,
+                ReviewCount = 288,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DGLSNT4T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711s4qqSl-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DV3M581W",
+                Title = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear",
+                Description = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear - High quality verified deal available on Amazon India.",
+                Price = 927.0m,
+                OriginalPrice = 1696.29m,
+                Rating = 4.5,
+                ReviewCount = 246,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DV3M581W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81T5M4M2SFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07HD4DS32",
+                Title = "HAMMONDS FLYCATCHER Genuine Leather Office Bag for Man with Trolley Strap - Laptop Bag for Men with 15.6 Inch Laptop Compartment - Adjustable Strap - 1 Year Warranty",
+                Description = "HAMMONDS FLYCATCHER Genuine Leather Office Bag for Man with Trolley Strap - Laptop Bag for Men with 15.6 Inch Laptop Compartment - Adjustable Strap - 1 Year Warranty - High quality verified deal available on Amazon India.",
+                Price = 4559.0m,
+                OriginalPrice = 6579.13m,
+                Rating = 4.7,
+                ReviewCount = 625,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07HD4DS32?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ofnSF89TL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTFMGS1T",
+                Title = "American Tourister Cabin SKIDDLE SP 39.5 cm Small Polypropylene (PP) Hard 4 Wheels Spinner Kid Luggage/Suitcase/Trolley Bag for Travel (Light Pink Unicorn)",
+                Description = "American Tourister Cabin SKIDDLE SP 39.5 cm Small Polypropylene (PP) Hard 4 Wheels Spinner Kid Luggage/Suitcase/Trolley Bag for Travel (Light Pink Unicorn) - High quality verified deal available on Amazon India.",
+                Price = 2848.0m,
+                OriginalPrice = 5215.91m,
+                Rating = 4.5,
+                ReviewCount = 446,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DTFMGS1T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tQoIk++aL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07FTRJJPZ",
+                Title = "INNOWIN Jazz High Back Office Chair | Mesh Ergonomic Chair with Multi-Tilt Lock, Lumbar Support, Strong Nylon Base | Home & Office Seating (Black)| 3 Years Limited Warranty",
+                Description = "INNOWIN Jazz High Back Office Chair | Mesh Ergonomic Chair with Multi-Tilt Lock, Lumbar Support, Strong Nylon Base | Home & Office Seating (Black)| 3 Years Limited Warranty - High quality verified deal available on Amazon India.",
+                Price = 7999.0m,
+                OriginalPrice = 15188.53m,
+                Rating = 4.4,
+                ReviewCount = 391,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B07FTRJJPZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61FBiX-ZqUL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08HHC577T",
+                Title = "Livpure Smart Ortho DUOS-X Plus Reversible Dual-Flip HR Foam Mattress |Ortho Medium Soft & Firm 2-in-1 Comfort| High GSM Tranquil Fabric|Queen Bed (75x60x6) inch, Washable Cover, 5 Year Warranty",
+                Description = "Livpure Smart Ortho DUOS-X Plus Reversible Dual-Flip HR Foam Mattress |Ortho Medium Soft & Firm 2-in-1 Comfort| High GSM Tranquil Fabric|Queen Bed (75x60x6) inch, Washable Cover, 5 Year Warranty - High quality verified deal available on Amazon India.",
+                Price = 9998.0m,
+                OriginalPrice = 19174.25m,
+                Rating = 4.6,
+                ReviewCount = 485,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B08HHC577T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Vei-wQgFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B51WQN4C",
+                Title = "Livpure Smart Ortho CURVX Memory Foam Orthopedic Mattress|Cal King 72x84x6 | Medium Firm with Back Support|5D SleepTech Crafted Zones|Premium Quilted Neon Fabric|10 Years Warranty|6 Inch|King Size Bed",
+                Description = "Livpure Smart Ortho CURVX Memory Foam Orthopedic Mattress|Cal King 72x84x6 | Medium Firm with Back Support|5D SleepTech Crafted Zones|Premium Quilted Neon Fabric|10 Years Warranty|6 Inch|King Size Bed - High quality verified deal available on Amazon India.",
+                Price = 14999.0m,
+                OriginalPrice = 19672.57m,
+                Rating = 4.5,
+                ReviewCount = 412,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0B51WQN4C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81hC8ncpvWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FB91MC1S",
+                Title = "Green Soul Indus Study Table| - Complaint Engineered Wood| Compact Design|Hidden Book Shelf|Computer Table for Home PC|Writing Desk for Adults & Students | 90cm Wide|1 Yr Warranty - Wenge",
+                Description = "Green Soul Indus Study Table| - Complaint Engineered Wood| Compact Design|Hidden Book Shelf|Computer Table for Home PC|Writing Desk for Adults & Students | 90cm Wide|1 Yr Warranty - Wenge - High quality verified deal available on Amazon India.",
+                Price = 2190.0m,
+                OriginalPrice = 3173.45m,
+                Rating = 4.5,
+                ReviewCount = 674,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FB91MC1S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81WG-ZpgsbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0855MGS99",
+                Title = "Einstein Box Ultimate Science Experiment Kit for Boys & Girls Ages 7-14 | Birthday Gifts Ideas for Kids | STEM Learning Educational Toys & STEM Toys for Boys 7-14 Years | Experiment Kit",
+                Description = "Einstein Box Ultimate Science Experiment Kit for Boys & Girls Ages 7-14 | Birthday Gifts Ideas for Kids | STEM Learning Educational Toys & STEM Toys for Boys 7-14 Years | Experiment Kit - High quality verified deal available on Amazon India.",
+                Price = 696.0m,
+                OriginalPrice = 1252.05m,
+                Rating = 4.4,
+                ReviewCount = 696,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0855MGS99?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Jf7WoG3+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CF5NSW28",
+                Title = "SleepyHug AirCell Ortho Spinex Plus 4 inch HR Foam Mattress | 3 Zones Support |5 Years Warranty | Back Pain Relief |Spine Alignment | King Bed Size White & Orange (LxWxH -75x72x4 Inch)",
+                Description = "SleepyHug AirCell Ortho Spinex Plus 4 inch HR Foam Mattress | 3 Zones Support |5 Years Warranty | Back Pain Relief |Spine Alignment | King Bed Size White & Orange (LxWxH -75x72x4 Inch) - High quality verified deal available on Amazon India.",
+                Price = 7589.0m,
+                OriginalPrice = 12252.62m,
+                Rating = 4.6,
+                ReviewCount = 256,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CF5NSW28?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dYbZNt5ML._SL1081_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FS7BY8K9",
+                Title = "MOKOSH Womens Silk Embroidery Anarkali Kurta Pant with Dupatta | Anarkali Kurta Set |Embroidered |V Neck Full Sleeve Ethnic Suit |3 Piece Outfit",
+                Description = "MOKOSH Womens Silk Embroidery Anarkali Kurta Pant with Dupatta | Anarkali Kurta Set |Embroidered |V Neck Full Sleeve Ethnic Suit |3 Piece Outfit - High quality verified deal available on Amazon India.",
+                Price = 1402.0m,
+                OriginalPrice = 2235.87m,
+                Rating = 4.3,
+                ReviewCount = 818,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FS7BY8K9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61EFeZNJfQL._SL1280_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GLGG2RDC",
+                Title = "Amayra Women's Pure Cotton A-Line Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women",
+                Description = "Amayra Women's Pure Cotton A-Line Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women - High quality verified deal available on Amazon India.",
+                Price = 898.0m,
+                OriginalPrice = 1247.12m,
+                Rating = 4.6,
+                ReviewCount = 820,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GLGG2RDC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81LWX3c50zL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09VPP18KN",
+                Title = "V-Guard Esfera SW N 400 mm Wall Fan|Copper Winding & ABS Body|Orange Black | High-Speed 1350 RPM Motor | 3 Speed Settings |Aerodynamic 3 Blades | Adjustable Tilt & Oscillation |ABS Body|2-Year Warranty",
+                Description = "V-Guard Esfera SW N 400 mm Wall Fan|Copper Winding & ABS Body|Orange Black | High-Speed 1350 RPM Motor | 3 Speed Settings |Aerodynamic 3 Blades | Adjustable Tilt & Oscillation |ABS Body|2-Year Warranty - High quality verified deal available on Amazon India.",
+                Price = 2499.0m,
+                OriginalPrice = 3354.43m,
+                Rating = 4.7,
+                ReviewCount = 782,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B09VPP18KN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81mNHv7HeIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B06ZYQCG92",
+                Title = "HAMMONDS FLYCATCHER Adults Messenger Bag (Brown)",
+                Description = "HAMMONDS FLYCATCHER Adults Messenger Bag (Brown) - High quality verified deal available on Amazon India.",
+                Price = 4839.0m,
+                OriginalPrice = 7085.89m,
+                Rating = 4.5,
+                ReviewCount = 703,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B06ZYQCG92?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oDX2BJoqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GK5R9DJG",
+                Title = "SHIENZY Women Korean Style Night Suit | Round Neck Short Sleeve Cute Printed Cotton Pajama Set for Girls & Women | Soft Nightwear, Loungewear, Sleepwear for Women | Full Pyjama Set | Co-ord Set",
+                Description = "SHIENZY Women Korean Style Night Suit | Round Neck Short Sleeve Cute Printed Cotton Pajama Set for Girls & Women | Soft Nightwear, Loungewear, Sleepwear for Women | Full Pyjama Set | Co-ord Set - High quality verified deal available on Amazon India.",
+                Price = 599.0m,
+                OriginalPrice = 1256.96m,
+                Rating = 4.3,
+                ReviewCount = 842,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GK5R9DJG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/519ctwm96EL._SL1066_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BB7Q4K72",
+                Title = "Smartivity Electricity Science Kit for Kids 8-14 Years | 8+ Circuit Experiments & DIY Electric Robot with Light and Sound | Science Kit | Birthday Gift Boys & Girls 8-14",
+                Description = "Smartivity Electricity Science Kit for Kids 8-14 Years | 8+ Circuit Experiments & DIY Electric Robot with Light and Sound | Science Kit | Birthday Gift Boys & Girls 8-14 - High quality verified deal available on Amazon India.",
+                Price = 1162.0m,
+                OriginalPrice = 2228.91m,
+                Rating = 4.5,
+                ReviewCount = 338,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0BB7Q4K72?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eLvOwWfCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G1Z4RYT2",
+                Title = "VEBETO Remote Control Drift Stunt Car Toy | 1 Year Warranty | 4x4 RC Car for Kids & Adult | High Speed Racing Car | Omni-Directional Wheels | 360 Rotation | Double Sided Driving | RGB Lights Music",
+                Description = "VEBETO Remote Control Drift Stunt Car Toy | 1 Year Warranty | 4x4 RC Car for Kids & Adult | High Speed Racing Car | Omni-Directional Wheels | 360 Rotation | Double Sided Driving | RGB Lights Music - High quality verified deal available on Amazon India.",
+                Price = 998.0m,
+                OriginalPrice = 1360.47m,
+                Rating = 4.7,
+                ReviewCount = 864,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0G1Z4RYT2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/713NJZEMfKL._SL1290_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DPQVJMPL",
+                Title = "Kidology Construction Truck Toys Cars for Kids & Toddlers 5-in-1 Friction Power Vehicle Toy for Boys, Transport Trucks, Christmas Birthday Gift for Age 3-9 Boys & Girls,Multicolor",
+                Description = "Kidology Construction Truck Toys Cars for Kids & Toddlers 5-in-1 Friction Power Vehicle Toy for Boys, Transport Trucks, Christmas Birthday Gift for Age 3-9 Boys & Girls,Multicolor - High quality verified deal available on Amazon India.",
+                Price = 849.0m,
+                OriginalPrice = 1240.77m,
+                Rating = 4.6,
+                ReviewCount = 360,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DPQVJMPL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71qyJykcG0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D5GR1RTL",
+                Title = "DROGO Proflex Ergonomic Office Chair for Work from Home, Computer Chair with Breathable Mesh, Adjustable Seat, Footrest, 3D Armrest, 2D Headrest & Lumbar Support | Mesh Chair for Office/Home (Grey)",
+                Description = "DROGO Proflex Ergonomic Office Chair for Work from Home, Computer Chair with Breathable Mesh, Adjustable Seat, Footrest, 3D Armrest, 2D Headrest & Lumbar Support | Mesh Chair for Office/Home (Grey) - High quality verified deal available on Amazon India.",
+                Price = 18499.0m,
+                OriginalPrice = 25144.75m,
+                Rating = 4.5,
+                ReviewCount = 865,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0D5GR1RTL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81bt4pbQ43L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GPC7B26V",
+                Title = "Amayra Women's Pure Cotton Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurta Set for Women",
+                Description = "Amayra Women's Pure Cotton Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurta Set for Women - High quality verified deal available on Amazon India.",
+                Price = 896.0m,
+                OriginalPrice = 1514.25m,
+                Rating = 4.6,
+                ReviewCount = 893,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GPC7B26V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81vCseZYquL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BPLXSJKV",
+                Title = "Green Soul Pebble Office Chair, Mid Back Mesh Ergonomic Home Office Desk Chair with Comfortable & Spacious Seat, Tilt Lock Mechanism & Heavy Duty Metal Base (Black)",
+                Description = "Green Soul Pebble Office Chair, Mid Back Mesh Ergonomic Home Office Desk Chair with Comfortable & Spacious Seat, Tilt Lock Mechanism & Heavy Duty Metal Base (Black) - High quality verified deal available on Amazon India.",
+                Price = 3490.0m,
+                OriginalPrice = 5433.94m,
+                Rating = 4.6,
+                ReviewCount = 1072,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0BPLXSJKV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81C1JGoS3vL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DV5MB6YZ",
+                Title = "Green Soul Blade Ergonomic Gaming Chair | Leatherette | Multi-Functional Computer Chair | Integrated Massager | ErgoSync Armrest | Retractable Footrest | 1 Year Warranty (Black)",
+                Description = "Green Soul Blade Ergonomic Gaming Chair | Leatherette | Multi-Functional Computer Chair | Integrated Massager | ErgoSync Armrest | Retractable Footrest | 1 Year Warranty (Black) - High quality verified deal available on Amazon India.",
+                Price = 11990.0m,
+                OriginalPrice = 16210.81m,
+                Rating = 4.6,
+                ReviewCount = 1145,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DV5MB6YZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ubcjZeihL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DW976ZZL",
+                Title = "Da URBAN Dysen Office Chair, Mid Back Mesh Ergonomic Home Office Desk Chair with 1 Year Warranty,Tilt Lock Mechanism (Grey)",
+                Description = "Da URBAN Dysen Office Chair, Mid Back Mesh Ergonomic Home Office Desk Chair with 1 Year Warranty,Tilt Lock Mechanism (Grey) - High quality verified deal available on Amazon India.",
+                Price = 3499.0m,
+                OriginalPrice = 5458.3m,
+                Rating = 4.4,
+                ReviewCount = 504,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DW976ZZL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61aMn4SBEpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09Q68ZKTQ",
+                Title = "INNOWIN Mini Jazz Mesh Mid-Back Ergonomic Home Office Chair | 3-Years Limited Warranty Included | Tilting & Height Adjustable Mechanism, Heavy Duty Metal Base | Ideal for Office Work & Study (Black)",
+                Description = "INNOWIN Mini Jazz Mesh Mid-Back Ergonomic Home Office Chair | 3-Years Limited Warranty Included | Tilting & Height Adjustable Mechanism, Heavy Duty Metal Base | Ideal for Office Work & Study (Black) - High quality verified deal available on Amazon India.",
+                Price = 3499.0m,
+                OriginalPrice = 7129.27m,
+                Rating = 4.4,
+                ReviewCount = 794,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B09Q68ZKTQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WqwE2isPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G8X81QGS",
+                Title = "Oppo Reno15Pro mini 5G (Glacier White, 12GB RAM, 512GB Storage) with No Cost EMI/Additional Exchange Offers",
+                Description = "Oppo Reno15Pro mini 5G (Glacier White, 12GB RAM, 512GB Storage) with No Cost EMI/Additional Exchange Offers - High quality verified deal available on Amazon India.",
+                Price = 64999.0m,
+                OriginalPrice = 101197.19m,
+                Rating = 4.3,
+                ReviewCount = 811,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0G8X81QGS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71laq82iYEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
