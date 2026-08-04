@@ -7483,6 +7483,651 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0DX6XQYWT",
+                Title = "DOCTOR HEALTH SUPER SOFT Men's & Boys Anti-Skid Flip Flops with Acupressure Massage Footbed | Lightweight | Soft | Doctor-Recommended Slipper for Pain Relief | All Day Wear Acupressure Doctor Slipper",
+                Description = "DOCTOR HEALTH SUPER SOFT Men's & Boys Anti-Skid Flip Flops with Acupressure Massage Footbed | Lightweight | Soft | Doctor-Recommended Slipper for Pain Relief | All Day Wear Acupressure Doctor Slipper - High quality verified deal available on Amazon India.",
+                Price = 481.0m,
+                OriginalPrice = 680.32m,
+                Rating = 4.5,
+                ReviewCount = 520,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DX6XQYWT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rIM+QFHNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D1R62PXT",
+                Title = "Amayra Women's Cotton Printed Straight Kurta with Pant and Dupatta Set",
+                Description = "Amayra Women's Cotton Printed Straight Kurta with Pant and Dupatta Set - High quality verified deal available on Amazon India.",
+                Price = 827.0m,
+                OriginalPrice = 1231.2m,
+                Rating = 4.4,
+                ReviewCount = 902,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D1R62PXT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61MwDfidGeL._SL1440_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BVMNGZNZ",
+                Title = "Soch Womens Taffeta Solid Sleeveless Padded Blouse",
+                Description = "Soch Womens Taffeta Solid Sleeveless Padded Blouse - High quality verified deal available on Amazon India.",
+                Price = 689.0m,
+                OriginalPrice = 1073.9m,
+                Rating = 4.7,
+                ReviewCount = 549,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BVMNGZNZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71glox5+SRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BC98JLKZ",
+                Title = "SGF11- Women's Kanjivaram Woven Soft Silk Saree With Blouse Piece",
+                Description = "SGF11- Women's Kanjivaram Woven Soft Silk Saree With Blouse Piece - High quality verified deal available on Amazon India.",
+                Price = 910.0m,
+                OriginalPrice = 1352.0m,
+                Rating = 4.5,
+                ReviewCount = 187,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BC98JLKZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BI7LVomoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B081CGRL9R",
+                Title = "Hopscotch Girls Poly Cotton Sequin Embellished Gown in Blue Color",
+                Description = "Hopscotch Girls Poly Cotton Sequin Embellished Gown in Blue Color - High quality verified deal available on Amazon India.",
+                Price = 1149.0m,
+                OriginalPrice = 2145.24m,
+                Rating = 4.8,
+                ReviewCount = 491,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B081CGRL9R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61f9vRXulRL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTQ25GDW",
+                Title = "Fashion Frill Earrings For Women Floral Vintage Design Traditional Drop Jhumke For Women Girls Love Gifts 12 Pair of Earrings",
+                Description = "Fashion Frill Earrings For Women Floral Vintage Design Traditional Drop Jhumke For Women Girls Love Gifts 12 Pair of Earrings - High quality verified deal available on Amazon India.",
+                Price = 329.0m,
+                OriginalPrice = 599.18m,
+                Rating = 4.7,
+                ReviewCount = 925,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CTQ25GDW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91QrAapFvyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F1V3FWJY",
+                Title = "SIRIL Women's Cotton Linen Printed Saree with Unstitched Blouse Piece",
+                Description = "SIRIL Women's Cotton Linen Printed Saree with Unstitched Blouse Piece - High quality verified deal available on Amazon India.",
+                Price = 689.0m,
+                OriginalPrice = 1070.02m,
+                Rating = 4.3,
+                ReviewCount = 324,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F1V3FWJY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CccQW+l4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNSTNDCQ",
+                Title = "Asics Men Upcourt 6 Badminton Shoe",
+                Description = "Asics Men Upcourt 6 Badminton Shoe - High quality verified deal available on Amazon India.",
+                Price = 4198.0m,
+                OriginalPrice = 7753.13m,
+                Rating = 4.3,
+                ReviewCount = 541,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DNSTNDCQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HF8RSIPdL._SL1280_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRKKDJCD",
+                Title = "SGF11- Women's Kanjivaram Pure Soft Silk Handloom Saree Pure Golden Zari With Blouse Piece",
+                Description = "SGF11- Women's Kanjivaram Pure Soft Silk Handloom Saree Pure Golden Zari With Blouse Piece - High quality verified deal available on Amazon India.",
+                Price = 1499.0m,
+                OriginalPrice = 3068.34m,
+                Rating = 4.4,
+                ReviewCount = 1047,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BRKKDJCD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819-OEOkP1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BX428GVJ",
+                Title = "ASIAN Women's FIREFLY-09 Sports Running,Walking,Gym Shoes with Max Cushion Technology Lightweight Eva Sole with Memory Foam Insole Casual Sneaker Shoes for Women's & Girl's",
+                Description = "ASIAN Women's FIREFLY-09 Sports Running,Walking,Gym Shoes with Max Cushion Technology Lightweight Eva Sole with Memory Foam Insole Casual Sneaker Shoes for Women's & Girl's - High quality verified deal available on Amazon India.",
+                Price = 749.0m,
+                OriginalPrice = 1087.23m,
+                Rating = 4.4,
+                ReviewCount = 602,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BX428GVJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819+o3GHVjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09C11LB8C",
+                Title = "DEVANGI Women's Woven Banarasi Silk Zari Dupatta/Chunni, Width 1 Meter, Length 2.5 Meter",
+                Description = "DEVANGI Women's Woven Banarasi Silk Zari Dupatta/Chunni, Width 1 Meter, Length 2.5 Meter - High quality verified deal available on Amazon India.",
+                Price = 525.0m,
+                OriginalPrice = 861.64m,
+                Rating = 4.7,
+                ReviewCount = 369,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09C11LB8C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91DKFWJ5BxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2SHCMXH",
+                Title = "White Button Girls Silk Blend Readymade Lehenga choli",
+                Description = "White Button Girls Silk Blend Readymade Lehenga choli - High quality verified deal available on Amazon India.",
+                Price = 1139.0m,
+                OriginalPrice = 2167.47m,
+                Rating = 4.3,
+                ReviewCount = 477,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F2SHCMXH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uubVl0EiL._SL1280_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08WK551ML",
+                Title = "White Button Girls Jacket Style Gown | Designer Embroidered Maxi Dress for Weddings",
+                Description = "White Button Girls Jacket Style Gown | Designer Embroidered Maxi Dress for Weddings - High quality verified deal available on Amazon India.",
+                Price = 1279.0m,
+                OriginalPrice = 2094.45m,
+                Rating = 4.4,
+                ReviewCount = 601,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B08WK551ML?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71gZD4TrrwL._SL1447_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08P5RY73H",
+                Title = "Smartivity DIY Telescope STEM Toy for Kids 8-14 Years | Build Your Own Telescope | Measure Height & Distance | Science Toy & Birthday Gift for Boys & Girls 8-14 Years",
+                Description = "Smartivity DIY Telescope STEM Toy for Kids 8-14 Years | Build Your Own Telescope | Measure Height & Distance | Science Toy & Birthday Gift for Boys & Girls 8-14 Years - High quality verified deal available on Amazon India.",
+                Price = 698.0m,
+                OriginalPrice = 1445.41m,
+                Rating = 4.4,
+                ReviewCount = 1005,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08P5RY73H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZRd2AqAGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDQK3MWZ",
+                Title = "Amayra Women's Pure Cotton Printed A-Line Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear",
+                Description = "Amayra Women's Pure Cotton Printed A-Line Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear - High quality verified deal available on Amazon India.",
+                Price = 996.0m,
+                OriginalPrice = 1909.8m,
+                Rating = 4.8,
+                ReviewCount = 456,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GDQK3MWZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81-q-szqX1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08VNY71QD",
+                Title = "HerHome Slide for Kids - Playgro Super Senior Slider Toy - for Boys and Girls Perfect Slides/Toys for Home, Indoor or Outdoor (Super Senior Slide)",
+                Description = "HerHome Slide for Kids - Playgro Super Senior Slider Toy - for Boys and Girls Perfect Slides/Toys for Home, Indoor or Outdoor (Super Senior Slide) - High quality verified deal available on Amazon India.",
+                Price = 4199.0m,
+                OriginalPrice = 5658.43m,
+                Rating = 4.7,
+                ReviewCount = 992,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B08VNY71QD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dS+G5uKsL._SL1024_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DQLHM56Y",
+                Title = "VikriDA Remote Control Cars for Kids Adults, 8WD Gesture Sensor RC Stunt Car with Light, Music, RC Robot Dog Toys,Birthday Toy for 6 7 8 9 10 11 12 13 Years Old Boys Girls Kids,Black",
+                Description = "VikriDA Remote Control Cars for Kids Adults, 8WD Gesture Sensor RC Stunt Car with Light, Music, RC Robot Dog Toys,Birthday Toy for 6 7 8 9 10 11 12 13 Years Old Boys Girls Kids,Black - High quality verified deal available on Amazon India.",
+                Price = 2999.0m,
+                OriginalPrice = 5819.82m,
+                Rating = 4.4,
+                ReviewCount = 642,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DQLHM56Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/613fYDqcdJL._SL1024_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKR1GB9Z",
+                Title = "GS Brass Dhoop (Batti) Stand for Puja, God Pooja Temple, Home, Shop & Office - Small Size With Ash Catcher (8 x 1.5 cm)",
+                Description = "GS Brass Dhoop (Batti) Stand for Puja, God Pooja Temple, Home, Shop & Office - Small Size With Ash Catcher (8 x 1.5 cm) - High quality verified deal available on Amazon India.",
+                Price = 329.0m,
+                OriginalPrice = 640.23m,
+                Rating = 4.6,
+                ReviewCount = 685,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CKR1GB9Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51YISwrCbyL._SL1366_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXZS34GW",
+                Title = "Melodio 5PCS Flower Hair Ties, Cute Faux Shell Floral Elastic Hair Bands, Sweet Ponytail Holders for Women Girls Daily Wear",
+                Description = "Melodio 5PCS Flower Hair Ties, Cute Faux Shell Floral Elastic Hair Bands, Sweet Ponytail Holders for Women Girls Daily Wear - High quality verified deal available on Amazon India.",
+                Price = 474.0m,
+                OriginalPrice = 726.52m,
+                Rating = 4.8,
+                ReviewCount = 432,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0GXZS34GW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Ti-ru0cdL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGQJX1H1",
+                Title = "THE URBAN STORE Wall Mirror | Wall Decoration Wooden Brushed Golden Black Color 20\"x20\" Pack of One French Style Elegantly Hand Crafted Floral Carving Mirror for Home and Office Decor TUSMR51",
+                Description = "THE URBAN STORE Wall Mirror | Wall Decoration Wooden Brushed Golden Black Color 20\"x20\" Pack of One French Style Elegantly Hand Crafted Floral Carving Mirror for Home and Office Decor TUSMR51 - High quality verified deal available on Amazon India.",
+                Price = 1614.0m,
+                OriginalPrice = 2704.91m,
+                Rating = 4.7,
+                ReviewCount = 949,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FGQJX1H1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XgAtxeVqL._SL1024_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F6VM4WLV",
+                Title = "Traditional Thread's 100% Cotton Hand Towel | Ultra Soft, Kitchen Napkins Cotton, Lunch Towel for School Kids, Kitchen, Cleaning | Hand Towel | Napkins | Hand Towels Set of 6 Cotton | Pack of 6 Pcs",
+                Description = "Traditional Thread's 100% Cotton Hand Towel | Ultra Soft, Kitchen Napkins Cotton, Lunch Towel for School Kids, Kitchen, Cleaning | Hand Towel | Napkins | Hand Towels Set of 6 Cotton | Pack of 6 Pcs - High quality verified deal available on Amazon India.",
+                Price = 270.0m,
+                OriginalPrice = 456.1m,
+                Rating = 4.6,
+                ReviewCount = 211,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F6VM4WLV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/8130x7frYHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B8GZWC1D",
+                Title = "PINK PARROT Multi Colour Art Jacquard Silk Cushion Cover Set of 5-16x16 inch",
+                Description = "PINK PARROT Multi Colour Art Jacquard Silk Cushion Cover Set of 5-16x16 inch - High quality verified deal available on Amazon India.",
+                Price = 474.0m,
+                OriginalPrice = 761.2m,
+                Rating = 4.6,
+                ReviewCount = 907,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0B8GZWC1D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1JSU6gKQqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B078G7JRR5",
+                Title = "Wep India BP JOY Billing Printer, 2-inch, 700 Item Capacity (White)",
+                Description = "Wep India BP JOY Billing Printer, 2-inch, 700 Item Capacity (White) - High quality verified deal available on Amazon India.",
+                Price = 10440.0m,
+                OriginalPrice = 14977.08m,
+                Rating = 4.5,
+                ReviewCount = 409,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B078G7JRR5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hged6H9NL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFTPBLD3",
+                Title = "Stylish Sport Baseball Cap & Stylish Aviator Wayfarer Sunglass for Men's and Boy's (Pack of 2)",
+                Description = "Stylish Sport Baseball Cap & Stylish Aviator Wayfarer Sunglass for Men's and Boy's (Pack of 2) - High quality verified deal available on Amazon India.",
+                Price = 211.0m,
+                OriginalPrice = 411.83m,
+                Rating = 4.7,
+                ReviewCount = 320,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FFTPBLD3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51QDBpx8nFL._SL1272_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G5Y3Q6GX",
+                Title = "Gradient Glitter Magnetic Ring Stand Case for Samsung Galaxy S24 FE 5G- Shockproof, Stylish & Durable Soft TPU Slim Protective Cover with Removable Glitter Paper (Blue)",
+                Description = "Gradient Glitter Magnetic Ring Stand Case for Samsung Galaxy S24 FE 5G- Shockproof, Stylish & Durable Soft TPU Slim Protective Cover with Removable Glitter Paper (Blue) - High quality verified deal available on Amazon India.",
+                Price = 469.0m,
+                OriginalPrice = 694.65m,
+                Rating = 4.7,
+                ReviewCount = 365,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0G5Y3Q6GX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91DybeYm1OL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DYK44S7H",
+                Title = "Ireka Home Halo Glass Jar with Wooden Lid | Modular Transparent Storage Organizer Jars for Kitchen | Tea Coffee Sugar Dry Fruits Storage",
+                Description = "Ireka Home Halo Glass Jar with Wooden Lid | Modular Transparent Storage Organizer Jars for Kitchen | Tea Coffee Sugar Dry Fruits Storage - High quality verified deal available on Amazon India.",
+                Price = 499.0m,
+                OriginalPrice = 1005.23m,
+                Rating = 4.3,
+                ReviewCount = 580,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DYK44S7H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/715bD-7YvJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BQC4WRLH",
+                Title = "Lakshmi Ganesha Idol Pair for Home Decor | Laxmi Ganesh Murti Set for Mandir & Pooja Room | Resin Decorative Hindu God Idols for Gift & Temple",
+                Description = "Lakshmi Ganesha Idol Pair for Home Decor | Laxmi Ganesh Murti Set for Mandir & Pooja Room | Resin Decorative Hindu God Idols for Gift & Temple - High quality verified deal available on Amazon India.",
+                Price = 2848.0m,
+                OriginalPrice = 5593.48m,
+                Rating = 4.5,
+                ReviewCount = 554,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0BQC4WRLH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ixltyKHML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FM8MR4CZ",
+                Title = "Jungle Tiger Soft Stuffed Animal Plush Toy for Kids Boys Girls Birthday Gifting and Decoration (Color: Yellow & Black Size: 25 Cm)",
+                Description = "Jungle Tiger Soft Stuffed Animal Plush Toy for Kids Boys Girls Birthday Gifting and Decoration (Color: Yellow & Black Size: 25 Cm) - High quality verified deal available on Amazon India.",
+                Price = 499.0m,
+                OriginalPrice = 882.01m,
+                Rating = 4.8,
+                ReviewCount = 490,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FM8MR4CZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61z4Bffh+xL._SL1024_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DLKPX5W5",
+                Title = "WOMEN MARKS Textured Handbag and shoulder bag for women/girls",
+                Description = "WOMEN MARKS Textured Handbag and shoulder bag for women/girls - High quality verified deal available on Amazon India.",
+                Price = 990.0m,
+                OriginalPrice = 2040.76m,
+                Rating = 4.7,
+                ReviewCount = 666,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DLKPX5W5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/717JTJvHdWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08PF7QWY3",
+                Title = "Kids Bed Sheet Set | Micro Fabric Cotton Feel Soft Double Bed Sheet 90 x 100 Inches with 2 Pillow Covers | Animal Carnival Design | Durable No Pilling No Shrinking | Kids Bedding",
+                Description = "Kids Bed Sheet Set | Micro Fabric Cotton Feel Soft Double Bed Sheet 90 x 100 Inches with 2 Pillow Covers | Animal Carnival Design | Durable No Pilling No Shrinking | Kids Bedding - High quality verified deal available on Amazon India.",
+                Price = 645.0m,
+                OriginalPrice = 996.87m,
+                Rating = 4.6,
+                ReviewCount = 1000,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B08PF7QWY3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61KB4EKtX1L._SL1024_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRN5LK39",
+                Title = "Money Plant Live Indoor Plant in Bowl | Golden Lucky Air Purifier Real Plant for Home & Living Room Dcor, Without pot || pack of 1",
+                Description = "Money Plant Live Indoor Plant in Bowl | Golden Lucky Air Purifier Real Plant for Home & Living Room Dcor, Without pot || pack of 1 - High quality verified deal available on Amazon India.",
+                Price = 175.0m,
+                OriginalPrice = 288.18m,
+                Rating = 4.7,
+                ReviewCount = 308,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FRN5LK39?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71TWGxztPGL._SL1472_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6Q7KHR7",
+                Title = "P SEVEN 2 Pcs Buckle Less Belt for Men & Women, Adjustable Elastic Buckle Free Belt with Metal Hook, No Buckle Waist Belt for Jeans, Pants & Trousers, Comfortable Stretch Waist Belt",
+                Description = "P SEVEN 2 Pcs Buckle Less Belt for Men & Women, Adjustable Elastic Buckle Free Belt with Metal Hook, No Buckle Waist Belt for Jeans, Pants & Trousers, Comfortable Stretch Waist Belt - High quality verified deal available on Amazon India.",
+                Price = 283.0m,
+                OriginalPrice = 416.93m,
+                Rating = 4.7,
+                ReviewCount = 407,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H6Q7KHR7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/715cAKBqqBL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07SS2NC9N",
+                Title = "Plastic Planter, Red, 20 inch, 2 Pieces",
+                Description = "Plastic Planter, Red, 20 inch, 2 Pieces - High quality verified deal available on Amazon India.",
+                Price = 783.0m,
+                OriginalPrice = 1446.28m,
+                Rating = 4.5,
+                ReviewCount = 710,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07SS2NC9N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HselfSPtL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQQ7GQR2",
+                Title = "Indigo Plant/Avuri Healthly Live with Safe and Secure Packing - Pack of 1",
+                Description = "Indigo Plant/Avuri Healthly Live with Safe and Secure Packing - Pack of 1 - High quality verified deal available on Amazon India.",
+                Price = 280.0m,
+                OriginalPrice = 428.74m,
+                Rating = 4.5,
+                ReviewCount = 585,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GQQ7GQR2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611n6ujW8aL._SL1280_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZKKMF3V",
+                Title = "KROFF Espresso Coffee Pods | Dolce Gusto Compatible | Smooth Espresso - Pure Arabica Ground Coffee | 10 Pods Per Box",
+                Description = "KROFF Espresso Coffee Pods | Dolce Gusto Compatible | Smooth Espresso - Pure Arabica Ground Coffee | 10 Pods Per Box - High quality verified deal available on Amazon India.",
+                Price = 559.0m,
+                OriginalPrice = 1027.85m,
+                Rating = 4.5,
+                ReviewCount = 455,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GZKKMF3V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51l6mHiWjlL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B082SHYSCV",
+                Title = "ActiFiber Natural Sugar Control | Food for Special Dietary Use for Diabetes Management | Manage Blood Sugar Fluctuations Better | Clinically Proven | Plant Origin | Easy to Use (150Gms, 30 sachets)",
+                Description = "ActiFiber Natural Sugar Control | Food for Special Dietary Use for Diabetes Management | Manage Blood Sugar Fluctuations Better | Clinically Proven | Plant Origin | Easy to Use (150Gms, 30 sachets) - High quality verified deal available on Amazon India.",
+                Price = 844.0m,
+                OriginalPrice = 1377.03m,
+                Rating = 4.5,
+                ReviewCount = 1020,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B082SHYSCV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vb7tz1p9L._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CCL4WBH9",
+                Title = "Canton Rakhi For Brother With Chocolate Gift Hamper, Rakhi With Chocolate, Pack of 1 Designer Rakhi For brother (Design-48)",
+                Description = "Canton Rakhi For Brother With Chocolate Gift Hamper, Rakhi With Chocolate, Pack of 1 Designer Rakhi For brother (Design-48) - High quality verified deal available on Amazon India.",
+                Price = 249.0m,
+                OriginalPrice = 347.29m,
+                Rating = 4.3,
+                ReviewCount = 1018,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CCL4WBH9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71A2V9Uu4NL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GT9QHS32",
+                Title = "GoArt MDF Jharokha Wall Decor Set of 2 | Rajasthani Traditional Lady MDF Wall Decor | mdf Wooden Jharokha Wall Hanging | Vintage Ethnic Home Decor for Living Room Bedroom Office | Decorative Wall Art Gift Item 12x16 inch",
+                Description = "GoArt MDF Jharokha Wall Decor Set of 2 | Rajasthani Traditional Lady MDF Wall Decor | mdf Wooden Jharokha Wall Hanging | Vintage Ethnic Home Decor for Living Room Bedroom Office | Decorative Wall Art Gift Item 12x16 inch - High quality verified deal available on Amazon India.",
+                Price = 939.0m,
+                OriginalPrice = 1248.15m,
+                Rating = 4.7,
+                ReviewCount = 889,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GT9QHS32?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712Np-KGctL._SL1076_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7VSGLNN",
+                Title = "ACCOX Men's Striped Half Sleeves Regular Fit Cotton Formal Shirt(GO596)",
+                Description = "ACCOX Men's Striped Half Sleeves Regular Fit Cotton Formal Shirt(GO596) - High quality verified deal available on Amazon India.",
+                Price = 449.0m,
+                OriginalPrice = 609.75m,
+                Rating = 4.5,
+                ReviewCount = 850,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D7VSGLNN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6174oncPpRL._SL1100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKC34BWW",
+                Title = "Offo Demon Slayer Mitsuri 100cm Life-Size Wooden Katana Replica, Premium Anime Cosplay Prop with Scabbard for Display & Collection, Decorative Gift for Fans & Collectors",
+                Description = "Offo Demon Slayer Mitsuri 100cm Life-Size Wooden Katana Replica, Premium Anime Cosplay Prop with Scabbard for Display & Collection, Decorative Gift for Fans & Collectors - High quality verified deal available on Amazon India.",
+                Price = 2184.0m,
+                OriginalPrice = 3513.24m,
+                Rating = 4.6,
+                ReviewCount = 1078,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0CKC34BWW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Q9iBpOE8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00QZ5I4KW",
+                Title = "3M 6211PA1-A Dual Cartridge Paint Spray Respirator",
+                Description = "3M 6211PA1-A Dual Cartridge Paint Spray Respirator - High quality verified deal available on Amazon India.",
+                Price = 2356.0m,
+                OriginalPrice = 4043.75m,
+                Rating = 4.6,
+                ReviewCount = 771,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B00QZ5I4KW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71U9-ceStBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZ7634SP",
+                Title = "MOOVER Analog Watch for Women & Girls | Luxury Bracelet Style Ladies Wrist Watch | Crystal Dial with Premium Stainless Steel Chain Strap | Fashion Watch for Daily Wear, Party & Gift",
+                Description = "MOOVER Analog Watch for Women & Girls | Luxury Bracelet Style Ladies Wrist Watch | Crystal Dial with Premium Stainless Steel Chain Strap | Fashion Watch for Daily Wear, Party & Gift - High quality verified deal available on Amazon India.",
+                Price = 474.0m,
+                OriginalPrice = 949.77m,
+                Rating = 4.4,
+                ReviewCount = 398,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GZ7634SP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81v26D97fgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B077VHKVZG",
+                Title = "The Face Shop Rice & Ceramide Moisturizing Cream with Rice Extracts for Skin Brightening | Ceramide Moisturizer For Skin Barrier Repair | Paraben & Paraffins Free, Korean skin care products, 50ml",
+                Description = "The Face Shop Rice & Ceramide Moisturizing Cream with Rice Extracts for Skin Brightening | Ceramide Moisturizer For Skin Barrier Repair | Paraben & Paraffins Free, Korean skin care products, 50ml - High quality verified deal available on Amazon India.",
+                Price = 768.0m,
+                OriginalPrice = 1210.29m,
+                Rating = 4.5,
+                ReviewCount = 445,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B077VHKVZG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61mrxW180mL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
