@@ -8128,6 +8128,711 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FXXVRPL7",
+                Title = "Amazon Basics Multi-Purpose Large Organizer | Modular Storage Box for Clothes, Kitchen, Bedroom & Living Room | Stackable Rack, Space-Saving Wardrobe Cabinet (Off White), 8 Piece, 37.5LX44.7WX27H cm",
+                Description = "Amazon Basics Multi-Purpose Large Organizer | Modular Storage Box for Clothes, Kitchen, Bedroom & Living Room | Stackable Rack, Space-Saving Wardrobe Cabinet (Off White), 8 Piece, 37.5LX44.7WX27H cm - High quality verified deal available on Amazon India.",
+                Price = 5699.0m,
+                OriginalPrice = 11528.7m,
+                Rating = 4.6,
+                ReviewCount = 795,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FXXVRPL7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91BG1lxrHwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKBND48X",
+                Title = "Boldfit Pull Up Bar Door for Home Workout (200Kg) - Gym Equipment for Home Workout | Adjustable Door Way Chin Up Bar for Home Workout for Kids & Adults | PullUp Bar for Men & Women | Anti-Skid Grip (72-104 CM)",
+                Description = "Boldfit Pull Up Bar Door for Home Workout (200Kg) - Gym Equipment for Home Workout | Adjustable Door Way Chin Up Bar for Home Workout for Kids & Adults | PullUp Bar for Men & Women | Anti-Skid Grip (72-104 CM) - High quality verified deal available on Amazon India.",
+                Price = 1499.0m,
+                OriginalPrice = 2077.9m,
+                Rating = 4.7,
+                ReviewCount = 384,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0CKBND48X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71pfl5uuwJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07SBR4C8Z",
+                Title = "ACTIVA 10L Storage Water Heater Geyser | 3kW ISI Copper Heating Element | BEE 5 Star Rated | 0.8mm Anti-Rust Coated Tank | ABS Body | Fast Heating | 5 Year Warranty | Ivory",
+                Description = "ACTIVA 10L Storage Water Heater Geyser | 3kW ISI Copper Heating Element | BEE 5 Star Rated | 0.8mm Anti-Rust Coated Tank | ABS Body | Fast Heating | 5 Year Warranty | Ivory - High quality verified deal available on Amazon India.",
+                Price = 3197.0m,
+                OriginalPrice = 4818.95m,
+                Rating = 4.3,
+                ReviewCount = 215,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B07SBR4C8Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wWbaG37-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B005HWEZGG",
+                Title = "EPOS PC 8 USB A On-Ear Stereo Wired Headset with Microphone, Wired Headphones, Inline Volume Control, Mute Function, Noise-Canceling Microphone, for Laptop, PC, Mac - Online Calls, Teaching",
+                Description = "EPOS PC 8 USB A On-Ear Stereo Wired Headset with Microphone, Wired Headphones, Inline Volume Control, Mute Function, Noise-Canceling Microphone, for Laptop, PC, Mac - Online Calls, Teaching - High quality verified deal available on Amazon India.",
+                Price = 2326.0m,
+                OriginalPrice = 3600.24m,
+                Rating = 4.7,
+                ReviewCount = 852,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B005HWEZGG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51inTXG0M1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BLW427G7",
+                Title = "ROSIER A2 Gir Cow Ghee (1 litre) | Traditional Bilona Method A2 Gir Cow Ghee | Grassfed, Pure and Healthy Desi Cow Ghee (Glass Bottle - 1000 ML)",
+                Description = "ROSIER A2 Gir Cow Ghee (1 litre) | Traditional Bilona Method A2 Gir Cow Ghee | Grassfed, Pure and Healthy Desi Cow Ghee (Glass Bottle - 1000 ML) - High quality verified deal available on Amazon India.",
+                Price = 2023.0m,
+                OriginalPrice = 3480.82m,
+                Rating = 4.5,
+                ReviewCount = 896,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0BLW427G7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ubt1q9pqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09V7R98XC",
+                Title = "MOKOBARA The Transit Standard Backpack - 30 Litre Premium Nylon 15.6\" Laptop Backpack Bag With Luggage Sleeve (Home Grown Sunray) | Waterproof Polyester Hidden Bottle Pocket Suitcase Sleeve Padded Shoulder For Men Women College Work Durable Carry",
+                Description = "MOKOBARA The Transit Standard Backpack - 30 Litre Premium Nylon 15.6\" Laptop Backpack Bag With Luggage Sleeve (Home Grown Sunray) | Waterproof Polyester Hidden Bottle Pocket Suitcase Sleeve Padded Shoulder For Men Women College Work Durable Carry - High quality verified deal available on Amazon India.",
+                Price = 5999.0m,
+                OriginalPrice = 12161.46m,
+                Rating = 4.4,
+                ReviewCount = 946,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B09V7R98XC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61H+814g5PL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FVSG25HR",
+                Title = "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear, Green",
+                Description = "PARTHVI Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear, Green - High quality verified deal available on Amazon India.",
+                Price = 749.0m,
+                OriginalPrice = 1305.64m,
+                Rating = 4.4,
+                ReviewCount = 950,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FVSG25HR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716gXBFZjjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FN97FRVS",
+                Title = "ASUS Vivobook 15,13th Gen,Intel Core i5-13420H(Intel UHD iGPU/16GB RAM/1TB SSD/FHD/15.6\"/60Hz/Backlit Keyboard/Windows 11/M365 Basic (1Year)*/Office Home 2024/Quiet Blue/1.70 kg) X1502VA-BQ1297WS",
+                Description = "ASUS Vivobook 15,13th Gen,Intel Core i5-13420H(Intel UHD iGPU/16GB RAM/1TB SSD/FHD/15.6\"/60Hz/Backlit Keyboard/Windows 11/M365 Basic (1Year)*/Office Home 2024/Quiet Blue/1.70 kg) X1502VA-BQ1297WS - High quality verified deal available on Amazon India.",
+                Price = 69990.0m,
+                OriginalPrice = 126673.54m,
+                Rating = 4.4,
+                ReviewCount = 646,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FN97FRVS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Ws1bRoM3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWR2W88B",
+                Title = "Pureit Classic 23 L Gravity Based Water Purifier | Activated Carbon Filtration | No Electricity Required | Multi-Stage Purification: Uses programmed Germ Kill technology (White)",
+                Description = "Pureit Classic 23 L Gravity Based Water Purifier | Activated Carbon Filtration | No Electricity Required | Multi-Stage Purification: Uses programmed Germ Kill technology (White) - High quality verified deal available on Amazon India.",
+                Price = 2999.0m,
+                OriginalPrice = 5282.84m,
+                Rating = 4.5,
+                ReviewCount = 235,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GWR2W88B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51JgdtuoavL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKVTGBG1",
+                Title = "Garmin Vivoactive 5, Slate Aluminum Bezel with Black Case and Silicone Band",
+                Description = "Garmin Vivoactive 5, Slate Aluminum Bezel with Black Case and Silicone Band - High quality verified deal available on Amazon India.",
+                Price = 19999.0m,
+                OriginalPrice = 41862.57m,
+                Rating = 4.4,
+                ReviewCount = 642,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CKVTGBG1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tY2LAyFYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHZZG2XN",
+                Title = "Slovic Pull up Bar for Home for Kids & Adults [250 KG] | Pullup Bar for Home with Anti-Skid Grip | No-Drill Installation Pull up Bar for Home Workout | Gym Equipment for Home Workout (72-110 CM)",
+                Description = "Slovic Pull up Bar for Home for Kids & Adults [250 KG] | Pullup Bar for Home with Anti-Skid Grip | No-Drill Installation Pull up Bar for Home Workout | Gym Equipment for Home Workout (72-110 CM) - High quality verified deal available on Amazon India.",
+                Price = 1499.0m,
+                OriginalPrice = 3010.78m,
+                Rating = 4.8,
+                ReviewCount = 922,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0DHZZG2XN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71R0Q1cewPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7MCRMKT",
+                Title = "OnePlus Watch 2R with Wear OS 4 by Google,Snapdragon W5 Chipset,Upto 100hrs Battery Life,1.43 AMOLED Display,100+ Sports Mode,Dual Frequency GPS,5 ATM,IP68 & BT Calling [Forest Green]",
+                Description = "OnePlus Watch 2R with Wear OS 4 by Google,Snapdragon W5 Chipset,Upto 100hrs Battery Life,1.43 AMOLED Display,100+ Sports Mode,Dual Frequency GPS,5 ATM,IP68 & BT Calling [Forest Green] - High quality verified deal available on Amazon India.",
+                Price = 12499.0m,
+                OriginalPrice = 16970.49m,
+                Rating = 4.6,
+                ReviewCount = 1136,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0D7MCRMKT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bfBylbT2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08WB1Y5Y2",
+                Title = "Nutricook Stainless Steel Smart Pot 2 8QT (7.7 Litre),1200W 9-in-1 Instant Programmable Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Saut Pot, Sous Vide, Smart Lid, 2-Year Warranty",
+                Description = "Nutricook Stainless Steel Smart Pot 2 8QT (7.7 Litre),1200W 9-in-1 Instant Programmable Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Saut Pot, Sous Vide, Smart Lid, 2-Year Warranty - High quality verified deal available on Amazon India.",
+                Price = 9999.0m,
+                OriginalPrice = 14914.98m,
+                Rating = 4.6,
+                ReviewCount = 1034,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08WB1Y5Y2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71GrH78XeSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C5RK3X6F",
+                Title = "Nokia All-new 105 Single Sim Keypad Phone with Built-in UPI Payments, Long-Lasting Battery, Wireless FM Radio| 1 Year Replacement Guarantee | Charcoal",
+                Description = "Nokia All-new 105 Single Sim Keypad Phone with Built-in UPI Payments, Long-Lasting Battery, Wireless FM Radio| 1 Year Replacement Guarantee | Charcoal - High quality verified deal available on Amazon India.",
+                Price = 1249.0m,
+                OriginalPrice = 2314.62m,
+                Rating = 4.8,
+                ReviewCount = 473,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0C5RK3X6F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61FX8qveBNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZH342DX",
+                Title = "Itel Zeno 200 (Nightly Blue, 4 GB RAM, 128 GB Storage) | 6.75\" HD+ Display | 120 Hz Refresh Rate | IP65 Dust & Water Resistance | 13 MP Camera | 5000 mAh Battery | Charger in Box",
+                Description = "Itel Zeno 200 (Nightly Blue, 4 GB RAM, 128 GB Storage) | 6.75\" HD+ Display | 120 Hz Refresh Rate | IP65 Dust & Water Resistance | 13 MP Camera | 5000 mAh Battery | Charger in Box - High quality verified deal available on Amazon India.",
+                Price = 9999.0m,
+                OriginalPrice = 17862.12m,
+                Rating = 4.7,
+                ReviewCount = 869,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GZH342DX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ml+atINZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08243CLRL",
+                Title = "Happer Premium Clothes Stand for Drying with Wheels | Portable | 3 Layer Rack for Balcony | Foldable Wings | 24 Hanger Rods | Anti Rust Steel Metal (Orange | Prince Jumbo)",
+                Description = "Happer Premium Clothes Stand for Drying with Wheels | Portable | 3 Layer Rack for Balcony | Foldable Wings | 24 Hanger Rods | Anti Rust Steel Metal (Orange | Prince Jumbo) - High quality verified deal available on Amazon India.",
+                Price = 1599.0m,
+                OriginalPrice = 2204.52m,
+                Rating = 4.4,
+                ReviewCount = 748,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B08243CLRL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/811Vmj9ULwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D3392WC1",
+                Title = "Kaushalendra Sankheda 2 Seater Indoor Swing Color Wooden Patio Swings for Balcony, 300Kg Capacity, Elegant Yellow and Golden Finish, Comfortable (Yellow Golden),117 Cm",
+                Description = "Kaushalendra Sankheda 2 Seater Indoor Swing Color Wooden Patio Swings for Balcony, 300Kg Capacity, Elegant Yellow and Golden Finish, Comfortable (Yellow Golden),117 Cm - High quality verified deal available on Amazon India.",
+                Price = 40783.0m,
+                OriginalPrice = 80267.32m,
+                Rating = 4.5,
+                ReviewCount = 1142,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D3392WC1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81YbXsaMGiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8T61JZH",
+                Title = "RoboTouch EconoPremium Ultra Luxury Massage Chair: Touch Control, SL Track, Zero Gravity, Zero Space, Wireless Charging, Airbag Massage, Back Heating  Ideal for Elderly Comfort. (Grey+Black)",
+                Description = "RoboTouch EconoPremium Ultra Luxury Massage Chair: Touch Control, SL Track, Zero Gravity, Zero Space, Wireless Charging, Airbag Massage, Back Heating  Ideal for Elderly Comfort. (Grey+Black) - High quality verified deal available on Amazon India.",
+                Price = 119490.0m,
+                OriginalPrice = 169564.32m,
+                Rating = 4.4,
+                ReviewCount = 642,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0D8T61JZH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71IMQG98fJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMQW9LZD",
+                Title = "Hollyland Lark A1 Mini Duo Wireless Lavalier Microphone, 48kHz/24-bit Audio, 3-Level Noise Cancellation, 200m Range, Clip-On Mic for iPhone 15/16, Android, YouTube, Podcast & Vlog",
+                Description = "Hollyland Lark A1 Mini Duo Wireless Lavalier Microphone, 48kHz/24-bit Audio, 3-Level Noise Cancellation, 200m Range, Clip-On Mic for iPhone 15/16, Android, YouTube, Podcast & Vlog - High quality verified deal available on Amazon India.",
+                Price = 4398.0m,
+                OriginalPrice = 8921.75m,
+                Rating = 4.7,
+                ReviewCount = 211,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0FMQW9LZD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hqaMOuE1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DN162F92",
+                Title = "Nutricook 5L Air Fryer Slim with 100% Toxin-Free Ceramic CoatingNo PTFE, PFAS, PFOA or Microplastics, Clear Window, Light & Large Basket | 1500W, 4 Presets, 2-Year Warranty",
+                Description = "Nutricook 5L Air Fryer Slim with 100% Toxin-Free Ceramic CoatingNo PTFE, PFAS, PFOA or Microplastics, Clear Window, Light & Large Basket | 1500W, 4 Presets, 2-Year Warranty - High quality verified deal available on Amazon India.",
+                Price = 5999.0m,
+                OriginalPrice = 11506.03m,
+                Rating = 4.8,
+                ReviewCount = 466,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DN162F92?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51FU4hcXFqL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFTFYGLV",
+                Title = "Elgato 4K S  External Capture Card for PS5, Xbox Series X/S, Switch 2, PC, Mac, iPad | 4K60, 1440p120, or 1080p240 Passthrough and Capture, HDR10, VRR, USB-C, Near-Zero Latency",
+                Description = "Elgato 4K S  External Capture Card for PS5, Xbox Series X/S, Switch 2, PC, Mac, iPad | 4K60, 1440p120, or 1080p240 Passthrough and Capture, HDR10, VRR, USB-C, Near-Zero Latency - High quality verified deal available on Amazon India.",
+                Price = 18879.0m,
+                OriginalPrice = 34381.28m,
+                Rating = 4.6,
+                ReviewCount = 729,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0FFTFYGLV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51n-AAn1UBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F436HB4R",
+                Title = "Springwel Essential Reversible 4 Inch Mattress | 15 Yrs Warranty | HR Foam | Medium Firm Quilted Mattress with Breathable & Anti Microbial Bamboo Charcoal Fabric Cover | Double Size (72X48X4) Inches",
+                Description = "Springwel Essential Reversible 4 Inch Mattress | 15 Yrs Warranty | HR Foam | Medium Firm Quilted Mattress with Breathable & Anti Microbial Bamboo Charcoal Fabric Cover | Double Size (72X48X4) Inches - High quality verified deal available on Amazon India.",
+                Price = 4778.0m,
+                OriginalPrice = 8152.36m,
+                Rating = 4.7,
+                ReviewCount = 407,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F436HB4R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SKpyMN7zL._SL1200_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H75MS19S",
+                Title = "AYSIS Premium Foldable Plastic Shoe Rack for Home,    , Magnets, 5 Hook Steel Holder, Shoe Organizer, Portable Space Saving Storage for Entryway, Bedroom & Living Room, Black",
+                Description = "AYSIS Premium Foldable Plastic Shoe Rack for Home,    , Magnets, 5 Hook Steel Holder, Shoe Organizer, Portable Space Saving Storage for Entryway, Bedroom & Living Room, Black - High quality verified deal available on Amazon India.",
+                Price = 1694.0m,
+                OriginalPrice = 3116.76m,
+                Rating = 4.7,
+                ReviewCount = 1031,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H75MS19S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81aOhdQ6eCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GMP813M4",
+                Title = "vivo V70 5G (Passion Red, 12GB RAM, 256GB Storage) with No Cost EMI/Additional Exchange Offers",
+                Description = "vivo V70 5G (Passion Red, 12GB RAM, 256GB Storage) with No Cost EMI/Additional Exchange Offers - High quality verified deal available on Amazon India.",
+                Price = 64999.0m,
+                OriginalPrice = 88981.95m,
+                Rating = 4.8,
+                ReviewCount = 1126,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GMP813M4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uAly+24OL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07R27J1YS",
+                Title = "Hamilton Beach Professional Juicer Mixer Grinder 58770-IN, 1400 Watt Rated Motor, Triple Overload Protection, 3 Stainless Steel Leakproof Jars, Triple Safety Protection, Intelligent Controls, Black",
+                Description = "Hamilton Beach Professional Juicer Mixer Grinder 58770-IN, 1400 Watt Rated Motor, Triple Overload Protection, 3 Stainless Steel Leakproof Jars, Triple Safety Protection, Intelligent Controls, Black - High quality verified deal available on Amazon India.",
+                Price = 21990.0m,
+                OriginalPrice = 29933.95m,
+                Rating = 4.4,
+                ReviewCount = 978,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07R27J1YS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710CELyQLGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZHFCN3M",
+                Title = "Adorn India Premium Luster 3+2 Sofa Set | Velvet Suede Fabric | 3-Year Warranty | Color Grey with Golden Legs & Striped Pattern Cushion",
+                Description = "Adorn India Premium Luster 3+2 Sofa Set | Velvet Suede Fabric | 3-Year Warranty | Color Grey with Golden Legs & Striped Pattern Cushion - High quality verified deal available on Amazon India.",
+                Price = 31999.0m,
+                OriginalPrice = 64219.26m,
+                Rating = 4.5,
+                ReviewCount = 1011,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DZHFCN3M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71OiLJ0wVcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GGQWMFCM",
+                Title = "Whirlpool 207 L 5 Star Icemagic Pro Inverter Direct-Cool Single Door Refrigerator (230 IMPRO ROY 5S INV SAPPHIRE PEONY-Y, Blue, 2026 Model)",
+                Description = "Whirlpool 207 L 5 Star Icemagic Pro Inverter Direct-Cool Single Door Refrigerator (230 IMPRO ROY 5S INV SAPPHIRE PEONY-Y, Blue, 2026 Model) - High quality verified deal available on Amazon India.",
+                Price = 20490.0m,
+                OriginalPrice = 37759.19m,
+                Rating = 4.7,
+                ReviewCount = 909,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GGQWMFCM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Wy-dbNIaL._SL1286_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CCV98L46",
+                Title = "Samsung Galaxy Watch6 Classic (Smartchoice) (Silver, 47mm) | Rotating Bezel | LTE | Monitor BP and ECG | Track Sleep and Health | Upto 40hrs Charge with Fast Charging | Galaxy Ecosystem | IP68",
+                Description = "Samsung Galaxy Watch6 Classic (Smartchoice) (Silver, 47mm) | Rotating Bezel | LTE | Monitor BP and ECG | Track Sleep and Health | Upto 40hrs Charge with Fast Charging | Galaxy Ecosystem | IP68 - High quality verified deal available on Amazon India.",
+                Price = 14999.0m,
+                OriginalPrice = 27823.71m,
+                Rating = 4.7,
+                ReviewCount = 228,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0CCV98L46?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hg6m6m50L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5BZVJ31",
+                Title = "ASUS Vivobook 14 Flip (2026),Intel Core Ultra 7 256V,Intel Arc iGPU,16GB RAM,512GB SSD,OLED,14\"(35.5 cm),Windows 11,M365 Basic(1Y),Office 2024,Matte Gray,1.57 Kg,TP3407SA-SG184WS,AI Laptop",
+                Description = "ASUS Vivobook 14 Flip (2026),Intel Core Ultra 7 256V,Intel Arc iGPU,16GB RAM,512GB SSD,OLED,14\"(35.5 cm),Windows 11,M365 Basic(1Y),Office 2024,Matte Gray,1.57 Kg,TP3407SA-SG184WS,AI Laptop - High quality verified deal available on Amazon India.",
+                Price = 109990.0m,
+                OriginalPrice = 214955.22m,
+                Rating = 4.6,
+                ReviewCount = 878,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H5BZVJ31?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vkkBEm+zL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G8XDD6B4",
+                Title = "Oppo Reno15 5G (Twilight Blue, 12GB RAM, 512GB Storage) with No Cost EMI/Additional Exchange Offers",
+                Description = "Oppo Reno15 5G (Twilight Blue, 12GB RAM, 512GB Storage) with No Cost EMI/Additional Exchange Offers - High quality verified deal available on Amazon India.",
+                Price = 55999.0m,
+                OriginalPrice = 90411.67m,
+                Rating = 4.7,
+                ReviewCount = 826,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0G8XDD6B4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71K8WvXXMiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00RAETO9C",
+                Title = "Wakefit ShapeSense Orthopedic Classic Memory Foam Mattress | 10 Years Warranty | Mattress Single Bed, 5-Inch Bed Mattress, Single Size (72x42x5 Inches, Medium Firm)",
+                Description = "Wakefit ShapeSense Orthopedic Classic Memory Foam Mattress | 10 Years Warranty | Mattress Single Bed, 5-Inch Bed Mattress, Single Size (72x42x5 Inches, Medium Firm) - High quality verified deal available on Amazon India.",
+                Price = 8719.0m,
+                OriginalPrice = 14894.89m,
+                Rating = 4.8,
+                ReviewCount = 682,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B00RAETO9C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91wxHEnm4JL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2FJNFRM",
+                Title = "EF ECOFLOW DELTA 2 Portable Power Station | 1-3kWh Expandable | LiFePO4 Battery, 80Min Charge | 230V/50Hz India Use | Solar Generator for Home Backup, Camping, RV",
+                Description = "EF ECOFLOW DELTA 2 Portable Power Station | 1-3kWh Expandable | LiFePO4 Battery, 80Min Charge | 230V/50Hz India Use | Solar Generator for Home Backup, Camping, RV - High quality verified deal available on Amazon India.",
+                Price = 70990.0m,
+                OriginalPrice = 111597.52m,
+                Rating = 4.5,
+                ReviewCount = 344,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0F2FJNFRM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Z9aXPGFCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G5NG4FFW",
+                Title = "ASUS ROG Strix G16 (2025), AMD Ryzen 9 8940HX, RTX 5050-8GB, 16GB RAM, 1TB SSD, FHD+, 16\", 40 cm, Windows 11 Home, M365 Basic(1yr)* Office24, Eclipse Gray, 2.5 Kg, G614PH-RV073WS, Gaming Laptop",
+                Description = "ASUS ROG Strix G16 (2025), AMD Ryzen 9 8940HX, RTX 5050-8GB, 16GB RAM, 1TB SSD, FHD+, 16\", 40 cm, Windows 11 Home, M365 Basic(1yr)* Office24, Eclipse Gray, 2.5 Kg, G614PH-RV073WS, Gaming Laptop - High quality verified deal available on Amazon India.",
+                Price = 154990.0m,
+                OriginalPrice = 316883.56m,
+                Rating = 4.3,
+                ReviewCount = 764,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0G5NG4FFW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KmP-oCBBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BY2WYJKG",
+                Title = "The Sleep Company SmartGRID Luxe Royale Mattress | Japanese Patented Technology with 100% Natural Latex | Ultra Luxury Hotel Like Comfort | King Size Soft Bed Mattress 78x72x8",
+                Description = "The Sleep Company SmartGRID Luxe Royale Mattress | Japanese Patented Technology with 100% Natural Latex | Ultra Luxury Hotel Like Comfort | King Size Soft Bed Mattress 78x72x8 - High quality verified deal available on Amazon India.",
+                Price = 76990.0m,
+                OriginalPrice = 119280.7m,
+                Rating = 4.4,
+                ReviewCount = 685,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BY2WYJKG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Qn6OoitXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07RJG8M11",
+                Title = "TSC TE244 Desktop Thermal Transfer Barcode Printer with USB Connectivity 203 DPI Bar Code Label Printer, Black",
+                Description = "TSC TE244 Desktop Thermal Transfer Barcode Printer with USB Connectivity 203 DPI Bar Code Label Printer, Black - High quality verified deal available on Amazon India.",
+                Price = 12999.0m,
+                OriginalPrice = 26154.69m,
+                Rating = 4.7,
+                ReviewCount = 326,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B07RJG8M11?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51J91DrIVKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX9JGP2Q",
+                Title = "ASUS Zenbook 14 (2026),Smartchoice,Intel Core Ultra 5 225H,16GB RAM,1TB SSD,OLED,Touchscreen,14\"(35.5 cm),Win 11,M365 Basic(1Y), Office 24,Ponder Blue,1.28 Kg,UX3405CA-QL1014WS,Thin & Light Laptop",
+                Description = "ASUS Zenbook 14 (2026),Smartchoice,Intel Core Ultra 5 225H,16GB RAM,1TB SSD,OLED,Touchscreen,14\"(35.5 cm),Win 11,M365 Basic(1Y), Office 24,Ponder Blue,1.28 Kg,UX3405CA-QL1014WS,Thin & Light Laptop - High quality verified deal available on Amazon India.",
+                Price = 117990.0m,
+                OriginalPrice = 184364.27m,
+                Rating = 4.4,
+                ReviewCount = 601,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GX9JGP2Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61oSMroTB8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX9NHZN4",
+                Title = "ASUS Vivobook S14, Intel Core Ultra 7 255H, 16GB RAM, 512GB SSD, FHD+ 14\", Windows 11,Office Home 2024 M365 Basic (1Year)*, Cool Silver, 1.4Kg, S3407CA-LY084WS, Intel Arc iGPU, Metallic Design Laptop",
+                Description = "ASUS Vivobook S14, Intel Core Ultra 7 255H, 16GB RAM, 512GB SSD, FHD+ 14\", Windows 11,Office Home 2024 M365 Basic (1Year)*, Cool Silver, 1.4Kg, S3407CA-LY084WS, Intel Arc iGPU, Metallic Design Laptop - High quality verified deal available on Amazon India.",
+                Price = 86990.0m,
+                OriginalPrice = 139677.89m,
+                Rating = 4.5,
+                ReviewCount = 828,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GX9NHZN4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HDpwraNwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQTNXDYM",
+                Title = "OnePlus Nord Buds 4 Pro E518A Radiant Gray in",
+                Description = "OnePlus Nord Buds 4 Pro E518A Radiant Gray in - High quality verified deal available on Amazon India.",
+                Price = 3999.0m,
+                OriginalPrice = 8306.53m,
+                Rating = 4.4,
+                ReviewCount = 355,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GQTNXDYM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51x7nfLWtBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GHS4WQYV",
+                Title = "vivo V70 Elite 5G (Passion Red, 8GB RAM, 256GB Storage) with No Cost EMI/Additional Exchange Offers",
+                Description = "vivo V70 Elite 5G (Passion Red, 8GB RAM, 256GB Storage) with No Cost EMI/Additional Exchange Offers - High quality verified deal available on Amazon India.",
+                Price = 66999.0m,
+                OriginalPrice = 120561.16m,
+                Rating = 4.5,
+                ReviewCount = 878,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GHS4WQYV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71w5ntQwF9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GNMG31LQ",
+                Title = "ASUS TUF A15, Smartchoice,AMD Ryzen 7 170,RTX 3050-4GB,16GB RAM (Upgradeable),1TB SSD,FHD, 15.6\"(39.6 cm),Win 11 Home, M365 Basic(1Y),Office 2024, Black, 2.3 Kg, FA506NCQ-HN009WS, Gaming Laptop",
+                Description = "ASUS TUF A15, Smartchoice,AMD Ryzen 7 170,RTX 3050-4GB,16GB RAM (Upgradeable),1TB SSD,FHD, 15.6\"(39.6 cm),Win 11 Home, M365 Basic(1Y),Office 2024, Black, 2.3 Kg, FA506NCQ-HN009WS, Gaming Laptop - High quality verified deal available on Amazon India.",
+                Price = 83990.0m,
+                OriginalPrice = 148205.3m,
+                Rating = 4.4,
+                ReviewCount = 1113,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GNMG31LQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71D6e-XvCqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H25RSXK8",
+                Title = "ASUS ROG Zephyrus Duo 16 (2026),Intel Core Ultra 9 386H (Series 3),RTX 5090-24GB,64GB RAM,2TB SSD,3K OLED,16\"(40 cm),120Hz,Win 11,M365 Basic(1Y),Office 24,Grey,2.8 Kg,GX651AX-SR099WS,Gaming Laptop",
+                Description = "ASUS ROG Zephyrus Duo 16 (2026),Intel Core Ultra 9 386H (Series 3),RTX 5090-24GB,64GB RAM,2TB SSD,3K OLED,16\"(40 cm),120Hz,Win 11,M365 Basic(1Y),Office 24,Grey,2.8 Kg,GX651AX-SR099WS,Gaming Laptop - High quality verified deal available on Amazon India.",
+                Price = 729990.0m,
+                OriginalPrice = 1240722.85m,
+                Rating = 4.4,
+                ReviewCount = 487,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H25RSXK8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JBj4exrFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX5HFRHZ",
+                Title = "DREAME L50 Ultra CE Robot Vacuum and Mop, 25000Pa Strong Suction, Auto-Empty, 80C Hot Water Mop Self-Cleaning, Self-Drying, Auto Refill, Edge Cleaning, Ideal for Pet Hair & Carpets",
+                Description = "DREAME L50 Ultra CE Robot Vacuum and Mop, 25000Pa Strong Suction, Auto-Empty, 80C Hot Water Mop Self-Cleaning, Self-Drying, Auto Refill, Edge Cleaning, Ideal for Pet Hair & Carpets - High quality verified deal available on Amazon India.",
+                Price = 64999.0m,
+                OriginalPrice = 120113.78m,
+                Rating = 4.5,
+                ReviewCount = 731,
+                Category = "Kitchen & Home",
+                ProductUrl = "https://www.amazon.in/dp/B0GX5HFRHZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Do14rhR5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6WG2Y85",
+                Title = "Samsung Galaxy Z Fold8 5G Smartphone with Galaxy AI (Graphite, 12GB RAM, 256GB Storage), All New Shape, Content Native Ratio, 4800mAh Battery, Dual 50MP Camera, Now Nudge, Photo Assist",
+                Description = "Samsung Galaxy Z Fold8 5G Smartphone with Galaxy AI (Graphite, 12GB RAM, 256GB Storage), All New Shape, Content Native Ratio, 4800mAh Battery, Dual 50MP Camera, Now Nudge, Photo Assist - High quality verified deal available on Amazon India.",
+                Price = 179999.0m,
+                OriginalPrice = 330122.57m,
+                Rating = 4.6,
+                ReviewCount = 1059,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0H6WG2Y85?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716Gr0umEaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H1WVW8VY",
+                Title = "iQOO Z11 Lite 44W 5G (Midnight Blue, 6GB RAM, 128GB Storage) | 6500mAh Battery with 44W Fast Charging* | Dimensity 6300 with 579k+ AnTuTu Score* | OriginOS 6.0 with AI Creation* & Private Space*",
+                Description = "iQOO Z11 Lite 44W 5G (Midnight Blue, 6GB RAM, 128GB Storage) | 6500mAh Battery with 44W Fast Charging* | Dimensity 6300 with 579k+ AnTuTu Score* | OriginOS 6.0 with AI Creation* & Private Space* - High quality verified deal available on Amazon India.",
+                Price = 21499.0m,
+                OriginalPrice = 40564.41m,
+                Rating = 4.8,
+                ReviewCount = 350,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H1WVW8VY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51fSAo9QtVL._SL1200_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX5C1333",
+                Title = "vivo X300 Ultra 5G (Eclipse Black, 16GB+512GB) | Photographer KIT Edition | Dual 200MP ZEISS Camera | 50MP ZEISS Selfie Camera | Snapdragon 8 Elite Gen 5 with No Cost EMI/Additonal Exchange Offers",
+                Description = "vivo X300 Ultra 5G (Eclipse Black, 16GB+512GB) | Photographer KIT Edition | Dual 200MP ZEISS Camera | 50MP ZEISS Selfie Camera | Snapdragon 8 Elite Gen 5 with No Cost EMI/Additonal Exchange Offers - High quality verified deal available on Amazon India.",
+                Price = 209999.0m,
+                OriginalPrice = 410043.53m,
+                Rating = 4.8,
+                ReviewCount = 1092,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0GX5C1333?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ioZCO-biL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6WWPNYX",
+                Title = "Samsung Galaxy Z Fold8 Ultra 5G Smartphone with Galaxy AI (Violet Shadow, 12GB RAM, 256GB Storage), Customised Processor, 5000mAh Battery, 200MP Camera, Now Nudge, Photo Assist",
+                Description = "Samsung Galaxy Z Fold8 Ultra 5G Smartphone with Galaxy AI (Violet Shadow, 12GB RAM, 256GB Storage), Customised Processor, 5000mAh Battery, 200MP Camera, Now Nudge, Photo Assist - High quality verified deal available on Amazon India.",
+                Price = 199999.0m,
+                OriginalPrice = 395023.41m,
+                Rating = 4.5,
+                ReviewCount = 208,
+                Category = "Gadgets",
+                ProductUrl = "https://www.amazon.in/dp/B0H6WWPNYX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Ocpa1KaiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7S6LT9P",
+                Title = "OnePlus N6x | 4GB+128GB | Burgundy Red | 7000mAh Battery | Power for Days | 48-Months Smoothness | Smooth 120Hz Display | Largest 5300mm2 Cooling System | Military-Grade Durability",
+                Description = "OnePlus N6x | 4GB+128GB | Burgundy Red | 7000mAh Battery | Power for Days | 48-Months Smoothness | Smooth 120Hz Display | Largest 5300mm2 Cooling System | Military-Grade Durability - High quality verified deal available on Amazon India.",
+                Price = 20999.0m,
+                OriginalPrice = 33186.65m,
+                Rating = 4.6,
+                ReviewCount = 283,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H7S6LT9P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rbuaZn+AL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
