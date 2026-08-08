@@ -96,13 +96,20 @@ namespace WorldNewzWebAPI.Services
 
                 _logger.LogInformation("[AmazonCreatorApiService] Requesting fresh OAuth2 token from Amazon...");
 
-                var requestBody = new FormUrlEncodedContent(new[]
+                var formParams = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("grant_type", "client_credentials"),
                     new KeyValuePair<string, string>("client_id", _clientId),
-                    new KeyValuePair<string, string>("client_secret", _clientSecret),
-                    new KeyValuePair<string, string>("scope", "amazon_creator_api")
-                });
+                    new KeyValuePair<string, string>("client_secret", _clientSecret)
+                };
+
+                var scope = _config["AmazonCreatorApi:Scope"];
+                if (!string.IsNullOrWhiteSpace(scope))
+                {
+                    formParams.Add(new KeyValuePair<string, string>("scope", scope));
+                }
+
+                var requestBody = new FormUrlEncodedContent(formParams);
 
                 var response = await _httpClient.PostAsync(_tokenEndpoint, requestBody);
 
