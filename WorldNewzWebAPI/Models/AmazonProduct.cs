@@ -18,5 +18,8 @@ namespace WorldNewzWebAPI.Models
         public bool IsActive { get; set; } = true;
         public DateTime DateAdded { get; set; } = DateTime.UtcNow;
         public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
+        public DateTime? LastSyncedAt { get; set; }
+        public bool IsFallback { get; set; } = false;
     }
 }
+

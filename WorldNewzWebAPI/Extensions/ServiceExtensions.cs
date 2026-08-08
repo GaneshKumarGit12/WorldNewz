@@ -184,9 +184,14 @@ namespace WorldNewzWebAPI.Extensions
 
             // Hosted Services
             services.AddHostedService<FacebookWorkerService>();
+            services.AddHostedService<AmazonTokenBackgroundRefreshService>();
 
             // Http Clients
             services.AddHttpClient();
+            services.AddHttpClient<AmazonCreatorApiService>(client =>
+            {
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewzs.in)");
+            });
             services.AddHttpClient("NewsApiClient", client =>
             {
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewzs.in)");

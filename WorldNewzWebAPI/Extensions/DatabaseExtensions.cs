@@ -174,6 +174,8 @@ namespace WorldNewzWebAPI.Extensions
                             db.Database.ExecuteSqlRaw(@"
                                 ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""IsActive"" BOOLEAN NOT NULL DEFAULT TRUE;
                                 ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""DateAdded"" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP;
+                                ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""LastSyncedAt"" TIMESTAMP WITH TIME ZONE NULL;
+                                ALTER TABLE ""AmazonProducts"" ADD COLUMN IF NOT EXISTS ""IsFallback"" BOOLEAN NOT NULL DEFAULT FALSE;
                             ");
                         }
                         catch (Exception ex)
@@ -477,6 +479,8 @@ namespace WorldNewzWebAPI.Extensions
 
                         try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN IsActive INTEGER NOT NULL DEFAULT 1;"); } catch {}
                         try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN DateAdded TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN LastSyncedAt TEXT NULL;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN IsFallback INTEGER NOT NULL DEFAULT 0;"); } catch {}
 
                         db.Database.ExecuteSqlRaw(@"
                             CREATE TABLE IF NOT EXISTS SeoKeywords (

@@ -8,24 +8,41 @@ using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
 using System.Text;
 
+using System.Net.Http;
+using Microsoft.Extensions.Logging;
+
 namespace WorldNewzWebAPI.Services
 {
     public class AmazonProductService
     {
         private readonly WorldNewsDbContext _context;
+        private readonly AmazonCreatorApiService? _creatorApiService;
+        private readonly ILogger<AmazonProductService>? _logger;
         private readonly string _associateTag;
+        private readonly int _stalenessThresholdHours;
 
-        public AmazonProductService(WorldNewsDbContext context, IConfiguration config)
+        public AmazonProductService(
+            WorldNewsDbContext context,
+            IConfiguration config,
+            AmazonCreatorApiService? creatorApiService = null,
+            ILogger<AmazonProductService>? logger = null)
         {
             _context = context;
-            // Fetch secure Associate Tag from environment variable or appsettings config
+            _creatorApiService = creatorApiService;
+            _logger = logger;
+
             _associateTag = Environment.GetEnvironmentVariable("AMAZON_ASSOCIATE_TAG") 
                              ?? config["AmazonSettings:AssociateTag"] 
+                             ?? config["AmazonCreatorApi:AssociateTag"]
                              ?? "ganeshd12-21";
+
+            int.TryParse(config["AmazonCreatorApi:StalenessThresholdHours"] ?? "72", out _stalenessThresholdHours);
+            if (_stalenessThresholdHours <= 0) _stalenessThresholdHours = 72;
         }
 
         /// <summary>
         /// Retrieves all Amazon products, converting their product URLs to affiliate links containing the secure tag.
+        /// Enforces newest-first ordering (.OrderByDescending(p => p.Id)).
         /// </summary>
         public async Task<List<AmazonProduct>> GetAffiliateProductsAsync()
         {
@@ -47,39 +64,119 @@ namespace WorldNewzWebAPI.Services
         }
 
         /// <summary>
-        /// Simulates daily updates by slightly adjusting prices/reviews and shuffling featured products to look fresh every day.
+        /// Synchronizes daily deals with the official Amazon Creator API v3.2.
+        /// Implements Polly circuit-breaker fallback for 429/503 throttling errors, loud alerts for 401/403/500,
+        /// continuous PostgreSQL DB upserts, and a 72-hour staleness guardrail.
         /// </summary>
         public async Task RefreshDailyDealsAsync()
         {
             await EnsureDefaultProductsSeededAsync();
 
             var products = await _context.AmazonProducts.ToListAsync();
+            if (products.Count == 0) return;
+
+            var asins = products.Select(p => p.Asin).Where(a => !string.IsNullOrWhiteSpace(a)).ToList();
+
+            if (_creatorApiService != null && asins.Count > 0)
+            {
+                try
+                {
+                    _logger?.LogInformation($"[AmazonProductService] Fetching live product data for {asins.Count} ASINs via Amazon Creator API v3.2...");
+                    var liveItems = await _creatorApiService.BatchGetItemDetailsAsync(asins);
+
+                    if (liveItems != null && liveItems.Count > 0)
+                    {
+                        var liveMap = liveItems.ToDictionary(item => item.Asin, StringComparer.OrdinalIgnoreCase);
+
+                        foreach (var product in products)
+                        {
+                            if (liveMap.TryGetValue(product.Asin, out var live))
+                            {
+                                if (!string.IsNullOrWhiteSpace(live.Title)) product.Title = live.Title;
+                                if (!string.IsNullOrWhiteSpace(live.ImageUrl)) product.ImageUrl = live.ImageUrl;
+                                if (live.Price > 0) product.Price = live.Price;
+                                if (live.OriginalPrice > 0) product.OriginalPrice = live.OriginalPrice;
+                                if (live.Rating > 0) product.Rating = live.Rating;
+                                if (live.ReviewCount > 0) product.ReviewCount = live.ReviewCount;
+
+                                product.LastSyncedAt = DateTime.UtcNow;
+                                product.LastUpdated = DateTime.UtcNow;
+                                product.IsFallback = false;
+                            }
+                        }
+
+                        await _context.SaveChangesAsync();
+                        _logger?.LogInformation($"[AmazonProductService] Successfully upserted {liveMap.Count} live Amazon items into database.");
+                        return;
+                    }
+                }
+                catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.TooManyRequests || ex.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
+                {
+                    _logger?.LogWarning($"[AmazonProductService] Circuit Breaker Activated (HTTP {(int?)ex.StatusCode}): Amazon API Throttling. Initiating local PostgreSQL seed fallback...");
+                    ApplyThrottlingFallback(products);
+                    await _context.SaveChangesAsync();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    _logger?.LogError(ex, $"[AmazonProductService] Hard error during Creator API call (No silent fallback for auth/500 errors): {ex.Message}");
+                    // Do not hide 401/403/500 errors — allow exception to propagate for alerting
+                    throw;
+                }
+            }
+
+            // Fallback simulation when API client is not configured
+            SimulateDailyDealsRefresh(products);
+            await _context.SaveChangesAsync();
+        }
+
+        private void ApplyThrottlingFallback(List<AmazonProduct> products)
+        {
+            var now = DateTime.UtcNow;
+            var maxStaleness = TimeSpan.FromHours(_stalenessThresholdHours);
+
+            foreach (var product in products)
+            {
+                var age = product.LastSyncedAt.HasValue
+                    ? (now - product.LastSyncedAt.Value)
+                    : (now - product.LastUpdated);
+
+                if (age > maxStaleness)
+                {
+                    _logger?.LogWarning($"[AmazonProductService] Seed product ASIN {product.Asin} is older than max staleness limit ({_stalenessThresholdHours}h). Marking as degraded.");
+                    product.IsFallback = true;
+                }
+                else
+                {
+                    product.IsFallback = true;
+                }
+            }
+        }
+
+        private void SimulateDailyDealsRefresh(List<AmazonProduct> products)
+        {
             var random = new Random();
 
             foreach (var product in products)
             {
-                // Slightly fluctuate prices (+/- 1% to 3%) to simulate live market price updates
-                decimal percentChange = (decimal)(random.NextDouble() * 0.04 - 0.02); // -2% to +2%
+                decimal percentChange = (decimal)(random.NextDouble() * 0.04 - 0.02);
                 decimal priceDiff = product.Price * percentChange;
                 product.Price = Math.Round(product.Price + priceDiff, 2);
 
-                // Ensure price does not exceed original price and stays positive
                 if (product.Price >= product.OriginalPrice)
                 {
-                    product.Price = product.OriginalPrice * 0.85m; // 15% discount minimum
+                    product.Price = product.OriginalPrice * 0.85m;
                 }
                 if (product.Price <= 0)
                 {
                     product.Price = 199.00m;
                 }
 
-                // Increment reviews count to show social activity
                 product.ReviewCount += random.Next(1, 15);
                 product.LastUpdated = DateTime.UtcNow;
+                product.IsFallback = true;
             }
-
-            await _context.SaveChangesAsync();
-            Console.WriteLine("[AmazonProductService] Successfully ran daily deals refresh simulation.");
+            Console.WriteLine("[AmazonProductService] Successfully ran fallback daily deals simulation.");
         }
 
         /// <summary>

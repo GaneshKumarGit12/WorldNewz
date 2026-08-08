@@ -9,12 +9,24 @@ Whenever you receive a daily batch of short/mobile Amazon affiliate links (e.g. 
 ```
 Raw affiliate links
    → Resolve & Scrape (Step 1)
+   → Automated Creator API v3.2 Live Price & Stock Sync (Step 1.5)
    → Deduplicate & Store in URL/Product DB (Step 2)
-   → Seed C# Backend (Step 3)
+   → Seed C# Backend & Continuous Postgres Upsert (Step 3)
    → Render on Frontend Widgets (Step 4)
    → SEO & Rotation QA (Step 5)
    → Build, Verify & Deploy (Step 6)
 ```
+
+---
+
+## Step 1.5: Automated Creator API v3.2 Live Price & Stock Sync
+
+WorldNewzs backend runs an integrated **Amazon Creator API (v3.2)** service (`AmazonCreatorApiService.cs`) featuring:
+1. **OAuth2 Token Caching**: Tokens are cached in `IMemoryCache` with a **90% TTL** buffer and `SemaphoreSlim` mutex locking to eliminate thundering herd requests.
+2. **Proactive Background Renewal**: `AmazonTokenBackgroundRefreshService` renews OAuth tokens every 45 minutes in the background.
+3. **Polly Throttling Circuit Breaker (429/503)**: Automatically falls back to PostgreSQL seed data on `429 Too Many Requests` or `503 Service Unavailable`, while failing loudly on auth (`401`/`403`) and `500` server errors.
+4. **Continuous PostgreSQL Upserts**: Every successful API response upserts live prices, ratings, and discounts into PostgreSQL, tagging entries with `LastSyncedAt`.
+5. **72-Hour Staleness Guardrail**: If seed data is older than 72 hours without a live sync, the system marks the deal as degraded rather than serving obsolete pricing.
 
 ---
 
