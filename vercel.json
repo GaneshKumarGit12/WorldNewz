@@ -138,6 +138,10 @@
       "destination": "https://worldnewz.onrender.com/rss/:feedType"
     },
     {
+      "source": "/api/pinterest/:path*",
+      "destination": "https://worldnewz.onrender.com/api/pinterest/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
