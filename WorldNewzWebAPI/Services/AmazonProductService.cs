@@ -8946,6 +8946,1071 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FGVC1YZS",
+                Title = "Kaameri Bazaar Rakhi Gift for Brother with Chocolate - Chocolate Biscuit Balls (50 Grams) - Set of 2 Rakhi fro Siblings",
+                Description = "Get the best deal on Kaameri Bazaar Rakhi Gift for Brother with Chocolate - Chocolate Biscuit Balls (. High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 403.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0FGVC1YZS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HLhIfd4iL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09BR6XC4R",
+                Title = "Oblivion Rakhi with Chocolate for Brother – Golden Color OM Design Rakhi with Assorted Chocolate 10 Pcs, Silver Color Pooja Coin, Greeting Card & Tilak Set – Raksha Bandhan Combo Pack (K1_308_PC10)",
+                Description = "Get the best deal on Oblivion Rakhi with Chocolate for Brother – Golden Color OM Design Rakhi with As. High quality, durable, and highly rated on Amazon.",
+                Price = 109.00m,
+                OriginalPrice = 147.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09BR6XC4R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712QgIq6V+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B5LQ7KVR",
+                Title = "Oblivion Designer Murli Flute Rakhi for Brother with Choco Beats Chocolate 32gm, Pooja Coin, Roli Chawal & Card | Rakhi with Chocolate Combo for Raksha Bandhan",
+                Description = "Get the best deal on Oblivion Designer Murli Flute Rakhi for Brother with Choco Beats Chocolate 32gm,. High quality, durable, and highly rated on Amazon.",
+                Price = 109.00m,
+                OriginalPrice = 147.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0B5LQ7KVR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71E1u5vfglL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D4VPH1YB",
+                Title = "Louis Philippe Men's Slim Fit Premium High-End Pique in Superior Cotton Cut & Sew Design Color Block Shoulder Half Sleeve Polo Tshirt",
+                Description = "Get the best deal on Louis Philippe Men's Slim Fit Premium High-End Pique in Superior Cotton Cut & Se. High quality, durable, and highly rated on Amazon.",
+                Price = 959.00m,
+                OriginalPrice = 1294.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D4VPH1YB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51S7thkldPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C73P21L2",
+                Title = "Nippo Thor |Alkaline| AAA Batteries| Pack of 4",
+                Description = "Get the best deal on Nippo Thor |Alkaline| AAA Batteries| Pack of 4. High quality, durable, and highly rated on Amazon.",
+                Price = 69.00m,
+                OriginalPrice = 93.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C73P21L2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71wI04mvLvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09DCKXK3M",
+                Title = "Labnoft Men's Auto Lock Vegan Leather Belt",
+                Description = "Get the best deal on Labnoft Men's Auto Lock Vegan Leather Belt. High quality, durable, and highly rated on Amazon.",
+                Price = 610.00m,
+                OriginalPrice = 823.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09DCKXK3M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61aRAdQk9wL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B77X44MX",
+                Title = "Boldfit Hand Gripper for Men & Women Hand Grip Strengthener for Forearm, Wrist & Finger Workout Fitness Equipment for Home & Gym Training",
+                Description = "Get the best deal on Boldfit Hand Gripper for Men & Women Hand Grip Strengthener for Forearm, Wrist &. High quality, durable, and highly rated on Amazon.",
+                Price = 150.00m,
+                OriginalPrice = 202.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0B77X44MX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612AmJbiG1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B083G39X64",
+                Title = "Kraft Seeds Plant Cutter for Garden with Premium Stainless Steel Lock, Sharp Edges - Tree Cutter Tools & Gardening Tools, Grass Trimmer, Shear Cutting, Pruner for Plants and Leaves, Heavy Duty Cutter",
+                Description = "Get the best deal on Kraft Seeds Plant Cutter for Garden with Premium Stainless Steel Lock, Sharp Edg. High quality, durable, and highly rated on Amazon.",
+                Price = 169.00m,
+                OriginalPrice = 228.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B083G39X64?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71qsM1jKy+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097B2PQTG",
+                Title = "Safari Omega Plus Casual Laptop Backpack, 2 compartments, Raincover, Organizer, Full body print, Bottle holder, Front pockets Softline (Black)",
+                Description = "Get the best deal on Safari Omega Plus Casual Laptop Backpack, 2 compartments, Raincover, Organizer, . High quality, durable, and highly rated on Amazon.",
+                Price = 769.00m,
+                OriginalPrice = 1038.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B097B2PQTG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81RPmHSijhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFFQ7T7D",
+                Title = "eCraftIndia Set of 3 Red & Golden Trishul with Damru, Lord Ganesha, & Lord Krishna Playing Flute Religious Rakhis with Roli Chawal Pack and Best Bro Ever Fridge Magnet",
+                Description = "Get the best deal on eCraftIndia Set of 3 Red & Golden Trishul with Damru, Lord Ganesha, & Lord Krish. High quality, durable, and highly rated on Amazon.",
+                Price = 176.00m,
+                OriginalPrice = 237.60m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CFFQ7T7D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ibMbeT36L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FTFMNYBV",
+                Title = "Mivi DuoPods Marathon Earbuds Wireless | Fast Charge | 70H Playtime | BT v5.3 | 13mm Drivers | Noise Cancellation | IPX4.0 TWS",
+                Description = "Get the best deal on Mivi DuoPods Marathon Earbuds Wireless | Fast Charge | 70H Playtime | BT v5.3 | . High quality, durable, and highly rated on Amazon.",
+                Price = 799.00m,
+                OriginalPrice = 1078.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FTFMNYBV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61RIdNWxOgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZGL4KQV",
+                Title = "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set",
+                Description = "Get the best deal on KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set. High quality, durable, and highly rated on Amazon.",
+                Price = 619.00m,
+                OriginalPrice = 835.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GZGL4KQV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gAjZGwFoL._SL1024_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSJZZVXR",
+                Title = "ANNI Designer Kurta Sets for Women Viscose Blend Embroidered | Kurta Palazzo Dupatta Set | Designer Kurti Set for Women | V Neck Full Sleeve Ethnic Suit | Indian Kurta Outfit with Palazzo Pants",
+                Description = "Get the best deal on ANNI Designer Kurta Sets for Women Viscose Blend Embroidered | Kurta Palazzo Dup. High quality, durable, and highly rated on Amazon.",
+                Price = 719.00m,
+                OriginalPrice = 970.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GSJZZVXR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Y8Acy7Z4L._SL1440_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08CHFSZTL",
+                Title = "Friends Classic Adult Diaper M Size Pants | 30 Count (Medium) | Waist 25 – 48 inch | Aloe Vera | Unisex | Leakproof | Quick & Even Absorption | Long Protection hours | Brief-Like Fit | Odour Lock | Elastic Waist & Anti-Bacterial Absorbent Core",
+                Description = "Get the best deal on Friends Classic Adult Diaper M Size Pants | 30 Count (Medium) | Waist 25 – 48 in. High quality, durable, and highly rated on Amazon.",
+                Price = 749.00m,
+                OriginalPrice = 1011.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08CHFSZTL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81RfXY5wgWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CG6JKPDQ",
+                Title = "INSIGHT Lip & Cheek Tint - Strawberry Summer (3 g) | Matte Finish | With Vitamin E | Long-Lasting, Lightweight Multipurpose Tint for Lips & Cheeks | Smooth Application | All Skin Types",
+                Description = "Get the best deal on INSIGHT Lip & Cheek Tint - Strawberry Summer (3 g) | Matte Finish | With Vitamin. High quality, durable, and highly rated on Amazon.",
+                Price = 94.00m,
+                OriginalPrice = 126.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CG6JKPDQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/515P6DHLd-L._SL1200_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01C571752",
+                Title = "Lakme Perfect Radiance Pigmentation Treatment Day Gel Crème with 10% Niacinamide Resorcinol Complex 7 Antioxidants, 50g [Package might differ]",
+                Description = "Get the best deal on Lakme Perfect Radiance Pigmentation Treatment Day Gel Crème with 10% Niacinamide. High quality, durable, and highly rated on Amazon.",
+                Price = 217.00m,
+                OriginalPrice = 292.95m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B01C571752?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51nw5tpxApL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FCYHSSKQ",
+                Title = "Lifelong Shoe Bags for Travel, Drawstring Travel Shoe Bags for Packing, Dustproof Portable Travel Shoe Storage Bag for Men and Women, Clear, Large, 10 Pack",
+                Description = "Get the best deal on Lifelong Shoe Bags for Travel, Drawstring Travel Shoe Bags for Packing, Dustproo. High quality, durable, and highly rated on Amazon.",
+                Price = 149.00m,
+                OriginalPrice = 201.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FCYHSSKQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71sJX24y6yL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08H8KD72Q",
+                Title = "Boldfit Heavy Resistance Band for Workout Set Exercise & Stretching Pull Up Bands for Home Exercise for Gym Men & Women Loop Bands Toning Bands Resistance Band Yellow (3-7 Kg)",
+                Description = "Get the best deal on Boldfit Heavy Resistance Band for Workout Set Exercise & Stretching Pull Up Band. High quality, durable, and highly rated on Amazon.",
+                Price = 149.00m,
+                OriginalPrice = 201.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08H8KD72Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JlKYdhFdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CLTWHF13",
+                Title = "urban Wipe Kitchen Cleaner Spray Suitable For All Kitchen Surfaces, Gas Stove, Countertop, Tiles, Chimney And Sink_(500Ml)",
+                Description = "Get the best deal on urban Wipe Kitchen Cleaner Spray Suitable For All Kitchen Surfaces, Gas Stove, C. High quality, durable, and highly rated on Amazon.",
+                Price = 189.00m,
+                OriginalPrice = 255.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CLTWHF13?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61A+UIxRA5L._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07TPLCLC9",
+                Title = "Gulf PRIDE SCOOTER PLUS 10W-30 4-AT API SN, JASO MB|BS 6 and earlier emission norms| Advanced 2 Wheeler Scooter Synthetic Blend Engine Oil [800 ml] - Pack of 1",
+                Description = "Get the best deal on Gulf PRIDE SCOOTER PLUS 10W-30 4-AT API SN, JASO MB|BS 6 and earlier emission no. High quality, durable, and highly rated on Amazon.",
+                Price = 298.00m,
+                OriginalPrice = 402.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07TPLCLC9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EnmYhUmfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CSWJ1LXB",
+                Title = "Beco Natural Surface & Floor Cleaning Liquid | 5 Litre | Non Toxic Germ Kill Formula | Lemongrass & Basil Freshness | Safer than Phenyl | Kids Safe & Pet Friendly Floor Cleaner Liquid",
+                Description = "Get the best deal on Beco Natural Surface & Floor Cleaning Liquid | 5 Litre | Non Toxic Germ Kill For. High quality, durable, and highly rated on Amazon.",
+                Price = 425.00m,
+                OriginalPrice = 573.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CSWJ1LXB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61i3rnchcqL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07LB64P2D",
+                Title = "HomeMate® Wi-Fi Smart 4 Gang Touch Switch (Black, Pack of 1) | No Hub Required | Works with Amazon Alexa, Google Assistant & Siri",
+                Description = "Get the best deal on HomeMate® Wi-Fi Smart 4 Gang Touch Switch (Black, Pack of 1) | No Hub Required |. High quality, durable, and highly rated on Amazon.",
+                Price = 928.00m,
+                OriginalPrice = 1252.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07LB64P2D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xbUV8001S._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01GDC0GMA",
+                Title = "Absorbia Moisture Absorber | Classic Pack of 6 (300ml Each) | Moisture Absorber for Wardrobe | Dehumidifier for Room Moisture | Air Freshener for Room, Toilet | Compact Size | Moisture Absorbers",
+                Description = "Get the best deal on Absorbia Moisture Absorber | Classic Pack of 6 (300ml Each) | Moisture Absorber . High quality, durable, and highly rated on Amazon.",
+                Price = 948.00m,
+                OriginalPrice = 1279.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B01GDC0GMA?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71pzBkt6JtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D5YHSG7W",
+                Title = "Beco Natural Liquid Detergent Front Load-4L Refill Pack | Tough Stain Removal | Lavender & Vanilla Freshness | Retains Brightness & Shine | Chemical Free | Front Load Washing Machine Detergent Liquid",
+                Description = "Get the best deal on Beco Natural Liquid Detergent Front Load-4L Refill Pack | Tough Stain Removal | . High quality, durable, and highly rated on Amazon.",
+                Price = 399.00m,
+                OriginalPrice = 538.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D5YHSG7W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qRFP0NOlL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00U7CR97I",
+                Title = "Ethiglo Deep Cleansing Facial Foam Face Wash for Healthy, Soft and Smooth Skin | Removes Dirt, Impurities and Excess Oil | Suitable for normal to oily and acne prone skin | Pack of 1 (70gm)",
+                Description = "Get the best deal on Ethiglo Deep Cleansing Facial Foam Face Wash for Healthy, Soft and Smooth Skin |. High quality, durable, and highly rated on Amazon.",
+                Price = 231.00m,
+                OriginalPrice = 311.85m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B00U7CR97I?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wUKTgkisL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BD8VSV22",
+                Title = "Koparo Organic Dishwash Liquid | 2 Litres Refill Pack | Powerful Grease Cutting Dishwasher Liquid | Thick Foam Liquid Dishwash for Kitchen Utensils | Baby & Pet Safe | Lime & Basil Fragrance",
+                Description = "Get the best deal on Koparo Organic Dishwash Liquid | 2 Litres Refill Pack | Powerful Grease Cutting . High quality, durable, and highly rated on Amazon.",
+                Price = 210.00m,
+                OriginalPrice = 283.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BD8VSV22?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uF52MkfTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09MYGG3J9",
+                Title = "Colgate Strong Teeth Calcium-Boost Toothpaste, 700g (175g X 4) | 2X Stronger Teeth, Protects Enamel, Whitens Teeth, Fresh Breath, Prevents Cavities",
+                Description = "Get the best deal on Colgate Strong Teeth Calcium-Boost Toothpaste, 700g (175g X 4) | 2X Stronger Tee. High quality, durable, and highly rated on Amazon.",
+                Price = 327.00m,
+                OriginalPrice = 441.45m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09MYGG3J9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Au62YLGmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSLP1VCM",
+                Title = "L'Oréal Paris Hyaluron Pure 72H Purifying Shampoo, 800ml | Fresh scalp & hydrated hair | Removes oil & impurities",
+                Description = "Get the best deal on L'Oréal Paris Hyaluron Pure 72H Purifying Shampoo, 800ml | Fresh scalp & hydrate. High quality, durable, and highly rated on Amazon.",
+                Price = 511.00m,
+                OriginalPrice = 689.85m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DSLP1VCM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51LM0j4JpFL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D87JTRQV",
+                Title = "Bandhan - 10-Item Rakhi Gift Hamper for brother with set of 2 Premium Rakhis, Chocolate Coated Cashews & Almonds, Hazelnut Dry-Fruit Laddoos | Rakhi for Brother with Gift Combo Set by Eat Better Co",
+                Description = "Get the best deal on Bandhan - 10-Item Rakhi Gift Hamper for brother with set of 2 Premium Rakhis, Ch. High quality, durable, and highly rated on Amazon.",
+                Price = 349.00m,
+                OriginalPrice = 471.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D87JTRQV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vhzS9exiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097DFLDB8",
+                Title = "Carbamide Forte Vitamin D Tablets | Vitamin D3 K2 Supplement to support Bone & Heart Health | Veg D3 Lichen -120 Tablets",
+                Description = "Get the best deal on Carbamide Forte Vitamin D Tablets | Vitamin D3 K2 Supplement to support Bone & H. High quality, durable, and highly rated on Amazon.",
+                Price = 422.00m,
+                OriginalPrice = 569.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B097DFLDB8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eqDoo-fGL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09VLQ9D27",
+                Title = "Amazon Brand - Presto! Dishwash Gel Refill Pouch | Lemon | 2 Litre | Leaves No Residue And Foul Smell | Grease Cleaner For All Utensils",
+                Description = "Get the best deal on Amazon Brand - Presto! Dishwash Gel Refill Pouch | Lemon | 2 Litre | Leaves No R. High quality, durable, and highly rated on Amazon.",
+                Price = 209.00m,
+                OriginalPrice = 282.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09VLQ9D27?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/610T+Os7HML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4WQX1WR",
+                Title = "Garnier Bright Complete Vitamin C Face Wash for Brightness & Glow, 160g | Vitamin C facewash for women and men | Daily Cleanser Suitable for all skin types | For Brightening and Glowing skin",
+                Description = "Get the best deal on Garnier Bright Complete Vitamin C Face Wash for Brightness & Glow, 160g | Vitami. High quality, durable, and highly rated on Amazon.",
+                Price = 185.00m,
+                OriginalPrice = 249.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0G4WQX1WR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51O4CZnsiZL._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTW7HMZY",
+                Title = "Frido Orthotics Heel Protector for Heel Pain Relief | Gel Heel Pad with Velcro Strap | Anti-Slip Heel Cup Cushion for Men & Women | Plantar Fasciitis, Heel Spurs, Shoe Bite Support | Black| Size - L",
+                Description = "Get the best deal on Frido Orthotics Heel Protector for Heel Pain Relief | Gel Heel Pad with Velcro S. High quality, durable, and highly rated on Amazon.",
+                Price = 849.00m,
+                OriginalPrice = 1146.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GTW7HMZY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711gma7uWkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C7H5DXS2",
+                Title = "Milton Vintage Airtight Containers with Spoons for Kitchen Storage Food Grade Plastic, Stackable & Transparent Organizer Jars, Masala Dabba, Set of 2 (2 Litres each) for Tea, Coffee, Sugar, Dry Fruits",
+                Description = "Get the best deal on Milton Vintage Airtight Containers with Spoons for Kitchen Storage Food Grade Pl. High quality, durable, and highly rated on Amazon.",
+                Price = 309.00m,
+                OriginalPrice = 417.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C7H5DXS2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81GhXe2zOvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DLGXX585",
+                Title = "Amazon Brand - Presto! Active Wash Detergent Liquid | 10 Litre | Tough On Stains | Gentle On Fabrics | Machine And Hand Wash",
+                Description = "Get the best deal on Amazon Brand - Presto! Active Wash Detergent Liquid | 10 Litre | Tough On Stains. High quality, durable, and highly rated on Amazon.",
+                Price = 699.00m,
+                OriginalPrice = 943.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DLGXX585?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61vFMCJxqmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09BFW41H4",
+                Title = "Dyazo Water Resistant Laptop Sleeve | Laptop Case Cover for 15 Inches(38cm),15.6 Inch(39.6cm) Laptops & Notebook (Black)",
+                Description = "Get the best deal on Dyazo Water Resistant Laptop Sleeve | Laptop Case Cover for 15 Inches(38cm),15.6. High quality, durable, and highly rated on Amazon.",
+                Price = 277.00m,
+                OriginalPrice = 373.95m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09BFW41H4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819-2gnxg3L._SL1478_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07QF7R6B9",
+                Title = "Himalaya Anti-Hair Fall Bhringaraja Shampoo 1 Litre | with Bhringaraja & Natural Proteins | Up to 96% Less Hair Fall | Dermatologically Tested | Paraben Free | For Women & Men",
+                Description = "Get the best deal on Himalaya Anti-Hair Fall Bhringaraja Shampoo 1 Litre | with Bhringaraja & Natural. High quality, durable, and highly rated on Amazon.",
+                Price = 420.00m,
+                OriginalPrice = 567.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07QF7R6B9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51y2yV9Kg7L._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07FPRB9CR",
+                Title = "Godrej aer Matic Automatic Room Fresheners Refill Pack | Violet Valley Bloom | 2000 Sprays Guaranteed | Lasts up to 60 days (210ml)",
+                Description = "Get the best deal on Godrej aer Matic Automatic Room Fresheners Refill Pack | Violet Valley Bloom | 2. High quality, durable, and highly rated on Amazon.",
+                Price = 212.00m,
+                OriginalPrice = 286.20m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07FPRB9CR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EVBYj9wNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07Y3PS7NW",
+                Title = "Swiss Beauty Bold Matt Lip Liner | Long-lasting |Matte Finish | Non-drying | Shade-12, 1.6gm",
+                Description = "Get the best deal on Swiss Beauty Bold Matt Lip Liner | Long-lasting |Matte Finish | Non-drying | Sha. High quality, durable, and highly rated on Amazon.",
+                Price = 59.00m,
+                OriginalPrice = 79.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07Y3PS7NW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Uu-OYN-uL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGLHVLVQ",
+                Title = "Dettol Lime Fresh (Lime Cool) Bathing Soap Bar with 12hr Freshness (750gm) |Long Lasting Freshness, 150gm Pack of 5",
+                Description = "Get the best deal on Dettol Lime Fresh (Lime Cool) Bathing Soap Bar with 12hr Freshness (750gm) |Long. High quality, durable, and highly rated on Amazon.",
+                Price = 190.00m,
+                OriginalPrice = 256.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DGLHVLVQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61j4m95gw-L._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08W9TK8MN",
+                Title = "CELLO Modustack Glassy Storage Jars For Kitchen 1500ml Maroon | Freezer & Fridge Safe Airtight Stackable Leadfree Toughened Glass Kitchen Storage Container For Beans, Whole Grains, Spices & Dry Fruits",
+                Description = "Get the best deal on CELLO Modustack Glassy Storage Jars For Kitchen 1500ml Maroon | Freezer & Fridge. High quality, durable, and highly rated on Amazon.",
+                Price = 236.00m,
+                OriginalPrice = 318.60m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08W9TK8MN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71h5aDVYKUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRFXX2C3",
+                Title = "KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set",
+                Description = "Get the best deal on KLOSIA Women's Rayon Printed Anarkali Kurta and Pant with Dupatta Set. High quality, durable, and highly rated on Amazon.",
+                Price = 709.00m,
+                OriginalPrice = 957.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FRFXX2C3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51JtGs04X7L._SL1099_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07RM4GT8L",
+                Title = "Amazon Brand - Presto! Disinfectant Toilet Cleaner | Rose | 2 Litre | 1 L x 2 Packs | Kills 99.9% Germs | Removes Stains | Fights Odours",
+                Description = "Get the best deal on Amazon Brand - Presto! Disinfectant Toilet Cleaner | Rose | 2 Litre | 1 L x 2 Pa. High quality, durable, and highly rated on Amazon.",
+                Price = 189.00m,
+                OriginalPrice = 255.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07RM4GT8L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vTT7KlcUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C595MMWG",
+                Title = "Origami So Soft Toilet Tissue Paper | 3 Ply | Pack of 12 | 140 Pulls Each",
+                Description = "Get the best deal on Origami So Soft Toilet Tissue Paper | 3 Ply | Pack of 12 | 140 Pulls Each. High quality, durable, and highly rated on Amazon.",
+                Price = 228.00m,
+                OriginalPrice = 307.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C595MMWG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WzKr-bmrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D45H471Q",
+                Title = "Fortune Pehli Dhaar First Pressed Kachi Ghani Mustard Oil 1 L",
+                Description = "Get the best deal on Fortune Pehli Dhaar First Pressed Kachi Ghani Mustard Oil 1 L. High quality, durable, and highly rated on Amazon.",
+                Price = 210.00m,
+                OriginalPrice = 283.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D45H471Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719FMWhhL1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00KCD8NFY",
+                Title = "Philips India's No.1 Hair Styling Brand -Hair Dryer 1000W |Blow Dry for Men & Women | 2 Heat Settings| ThermoProtect tech |Travel-Friendly, Quick Dry, Frizz Control | For Indian Hair |HP8100/46 Purple",
+                Description = "Get the best deal on Philips India's No.1 Hair Styling Brand -Hair Dryer 1000W |Blow Dry for Men & Wo. High quality, durable, and highly rated on Amazon.",
+                Price = 649.00m,
+                OriginalPrice = 876.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B00KCD8NFY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51FGbb3EbgL._SL1227_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6NBHSY7",
+                Title = "Dr Trust USA Legend Smart Scale | 20+ Parameters | US FDA approved | Unlimited Users Bluetooth BMI Weight Scale with 3 Years Warranty Weighing Machine & Body Fat Analyzer for Health Monitoring (Black)",
+                Description = "Get the best deal on Dr Trust USA Legend Smart Scale | 20+ Parameters | US FDA approved | Unlimited U. High quality, durable, and highly rated on Amazon.",
+                Price = 799.00m,
+                OriginalPrice = 1078.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D6NBHSY7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71e+jdqTJ-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F4DHLH97",
+                Title = "Carbamide Forte 5X Strength Omega 3 Fish Oil Capsules 2730mg | Fish Oil Omega 3 Supplement To Support Overall Health & Skin With Added Aloevera, Vitamin D3, Vitamin E For Men & Women - 60 Softgels",
+                Description = "Get the best deal on Carbamide Forte 5X Strength Omega 3 Fish Oil Capsules 2730mg | Fish Oil Omega 3 . High quality, durable, and highly rated on Amazon.",
+                Price = 562.00m,
+                OriginalPrice = 758.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F4DHLH97?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xkjgkTiPL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFFPB6Y4",
+                Title = "eCraftIndia Green & Golden Om & Peacock Feather Religious Designer Rakhi with Roli Chawal Pack and Best Bro Ever Fridge Magnet - Rakhi for Brother, Bhaiya, Bhai",
+                Description = "Get the best deal on eCraftIndia Green & Golden Om & Peacock Feather Religious Designer Rakhi with Ro. High quality, durable, and highly rated on Amazon.",
+                Price = 129.00m,
+                OriginalPrice = 174.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CFFPB6Y4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BZUjUDo1L._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G1MYB7SX",
+                Title = "Himalaya Gentle Baby Powder 700g | Keeps baby's skin smooth & dry with natural goodness | Olive Oil, Almond Oil & Yashad Bhasma | No.1 Baby Powder Brand | No.1 Dr. Recommended | 99% NOI",
+                Description = "Get the best deal on Himalaya Gentle Baby Powder 700g | Keeps baby's skin smooth & dry with natural g. High quality, durable, and highly rated on Amazon.",
+                Price = 248.00m,
+                OriginalPrice = 334.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0G1MYB7SX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xyvWqxDeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSBCDNRB",
+                Title = "Cetaphil Gentle Skin Hydrating Face Wash 59ml, Paraben Free, Sulphate-Free Cleanser with Niacinamide, Vitamin B5 for Dry to Normal, Sensitive Skin",
+                Description = "Get the best deal on Cetaphil Gentle Skin Hydrating Face Wash 59ml, Paraben Free, Sulphate-Free Clean. High quality, durable, and highly rated on Amazon.",
+                Price = 178.00m,
+                OriginalPrice = 240.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GSBCDNRB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61N1UgIgzeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B071Z8M4KX",
+                Title = "boAt Bassheads 100 in Ear Wired Earphones with Mic(Black)",
+                Description = "Get the best deal on boAt Bassheads 100 in Ear Wired Earphones with Mic(Black). High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 403.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B071Z8M4KX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/513ugd16C6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPMJHV5X",
+                Title = "Dot & Key Meltie Lip Balm SPF 50+ With 2% Kojic & Vitamin C | Hydrates Dry, Chapped Lips, Lightens Pigmentation, Brightens Lips | With Shea & Mango Butters, Peptide Infused | Cocoa Creme | 4g",
+                Description = "Get the best deal on Dot & Key Meltie Lip Balm SPF 50+ With 2% Kojic & Vitamin C | Hydrates Dry, Chap. High quality, durable, and highly rated on Amazon.",
+                Price = 214.00m,
+                OriginalPrice = 288.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FPMJHV5X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Jd-emvNfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07X34F9MF",
+                Title = "Mee Mee Wet Wipes for Baby Skin with Aloe Vera | 72 Wipes x Pack of 3-216 Wipes | Paraben Free, Fragrance Free, pH Balanced, Dermatologically Safe, Baby Wipes Combo | Pack Lid",
+                Description = "Get the best deal on Mee Mee Wet Wipes for Baby Skin with Aloe Vera | 72 Wipes x Pack of 3-216 Wipes . High quality, durable, and highly rated on Amazon.",
+                Price = 184.00m,
+                OriginalPrice = 248.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07X34F9MF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71FQljFWNiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0789J9K2B",
+                Title = "Mee Mee Baby Liquid Detergent 1 L | pH Balanced, Free from Harsh Chemicals, Safe for Mother’s Hands & Baby’s Skin | Anti-Bacterial, Removes Stains & Odor with One Drop, Hypoallergenic | Mild Scent",
+                Description = "Get the best deal on Mee Mee Baby Liquid Detergent 1 L | pH Balanced, Free from Harsh Chemicals, Safe. High quality, durable, and highly rated on Amazon.",
+                Price = 189.00m,
+                OriginalPrice = 255.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0789J9K2B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6161bQC8ZSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00MVV81MK",
+                Title = "JK Copier Paper - A4, 75 GSM, 1 Ream, 500 Sheets",
+                Description = "Get the best deal on JK Copier Paper - A4, 75 GSM, 1 Ream, 500 Sheets. High quality, durable, and highly rated on Amazon.",
+                Price = 282.00m,
+                OriginalPrice = 380.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B00MVV81MK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kmALRtskL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08CBCRYDX",
+                Title = "DeoDap Designer Murli Flute Rakhi for Brother with Choco Coated Nut Butterscotch Chocolate 96gm, Pooja Coin, Roli Chawal & Card | Rakhi with Chocolate Combo for Raksha Bandhan",
+                Description = "Get the best deal on DeoDap Designer Murli Flute Rakhi for Brother with Choco Coated Nut Butterscotch. High quality, durable, and highly rated on Amazon.",
+                Price = 202.00m,
+                OriginalPrice = 272.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08CBCRYDX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CBjExfq3L._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08B8QN595",
+                Title = "Hamam Neem & Tulsi Bathing Soap for Body 150 g (Combo Pack of 8) Purifying Soap Bar",
+                Description = "Get the best deal on Hamam Neem & Tulsi Bathing Soap for Body 150 g (Combo Pack of 8) Purifying Soap . High quality, durable, and highly rated on Amazon.",
+                Price = 339.00m,
+                OriginalPrice = 457.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08B8QN595?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/519aoGkQD4L._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDKV3CK1",
+                Title = "Origami Online Facial Tissues | Soft Pack | Pack of 6 | 100 Pulls Each",
+                Description = "Get the best deal on Origami Online Facial Tissues | Soft Pack | Pack of 6 | 100 Pulls Each. High quality, durable, and highly rated on Amazon.",
+                Price = 129.00m,
+                OriginalPrice = 174.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FDKV3CK1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Es21qK1fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQM3WGNV",
+                Title = "Dettol Cologne Fresh Bathing Soap Bar with 12hr Freshness and Germ Protection, 100g Pack of 4, (400gm)",
+                Description = "Get the best deal on Dettol Cologne Fresh Bathing Soap Bar with 12hr Freshness and Germ Protection, 1. High quality, durable, and highly rated on Amazon.",
+                Price = 116.00m,
+                OriginalPrice = 156.60m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CQM3WGNV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61jXVC7IU0L._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B074F231SW",
+                Title = "Taj Mahal Tea 1 kg - Rich and Flavourful Chai - Premium Leaf Tea",
+                Description = "Get the best deal on Taj Mahal Tea 1 kg - Rich and Flavourful Chai - Premium Leaf Tea. High quality, durable, and highly rated on Amazon.",
+                Price = 520.00m,
+                OriginalPrice = 702.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B074F231SW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UxIhJaVeL._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09BM6XCF7",
+                Title = "DeoDap Rakhi with Chocolate for Brother – Sunflower & Flute Design Rakhi 2 Pc with Choco Magic Chocolate 32 GM, Silver Color Pooja Coin, Greeting Card & Tilak Set– Traditional Raksha Bandhan Pack",
+                Description = "Get the best deal on DeoDap Rakhi with Chocolate for Brother – Sunflower & Flute Design Rakhi 2 Pc wi. High quality, durable, and highly rated on Amazon.",
+                Price = 119.00m,
+                OriginalPrice = 160.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09BM6XCF7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CzzuSslkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D31473BC",
+                Title = "DABUR Fem Floral Bouquet Soft & Safe Handwash - 1500 Ml | Germ Protection | Enriched With Goodness Of Coconut Milk & Vitamin E | Long Lasting Fragrance",
+                Description = "Get the best deal on DABUR Fem Floral Bouquet Soft & Safe Handwash - 1500 Ml | Germ Protection | Enri. High quality, durable, and highly rated on Amazon.",
+                Price = 119.00m,
+                OriginalPrice = 160.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D31473BC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81hY-FYoAJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09G33GLP8",
+                Title = "Fiama Gel Bar Mega Celebration Pack 1kg (125g Pack of 8) | 8 Unique Soap Variants | Moisturised Skin with 30% Smoothing Body Serum | Bathing Soap Gift Set for Women & Men | All Skin Types",
+                Description = "Get the best deal on Fiama Gel Bar Mega Celebration Pack 1kg (125g Pack of 8) | 8 Unique Soap Variant. High quality, durable, and highly rated on Amazon.",
+                Price = 320.00m,
+                OriginalPrice = 432.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09G33GLP8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81mj1veG56L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08LQRXXNB",
+                Title = "Homestrap Set of 6 Non-Woven Printed Saree Cover/Cloth Storage/Wardrobe Organizer For Clothes with Transparent Window (Grey)(Shark Tank Featured) 45cmx33cmx22cm",
+                Description = "Get the best deal on Homestrap Set of 6 Non-Woven Printed Saree Cover/Cloth Storage/Wardrobe Organize. High quality, durable, and highly rated on Amazon.",
+                Price = 319.00m,
+                OriginalPrice = 430.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08LQRXXNB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81S6wB9CjnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPWJX447",
+                Title = "Aristocrat Nova 15L Laptop Backpack for Men & Women with Bottle Pocket | Padded Shoulder Straps, Multi Compartments | Travel & College Bag | Dark Blue | Side Pockets, Adjustable Straps, Durable Fabric & Zipper, Office/ College/ Casual Bag, Unisex, 1-Year Global Warranty",
+                Description = "Get the best deal on Aristocrat Nova 15L Laptop Backpack for Men & Women with Bottle Pocket | Padded . High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 403.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FPWJX447?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61chxvJ9RdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DDHM6D3L",
+                Title = "Portronics Conch Theta C in Ear Type C Wired Earphones with in Line HD Mic, Powerful Audio, 14.2mm Driver, Unique Earbuds Design, TPE Anti Tangle Wire, in line Controls, Wide Compatibility(White)",
+                Description = "Get the best deal on Portronics Conch Theta C in Ear Type C Wired Earphones with in Line HD Mic, Powe. High quality, durable, and highly rated on Amazon.",
+                Price = 303.00m,
+                OriginalPrice = 409.05m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DDHM6D3L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51GGwjwSr0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F6NTH43P",
+                Title = "Pilgrim Korean Light Gel Oil Free Hydra Glow Moisturizer Cream 100 g| With Hyaluronic Acids, 3% Niacinamide, Rice Water for 5x Hydration & Instant Glass Skin | Hydrating Gel for All Skin Type",
+                Description = "Get the best deal on Pilgrim Korean Light Gel Oil Free Hydra Glow Moisturizer Cream 100 g| With Hyalu. High quality, durable, and highly rated on Amazon.",
+                Price = 260.00m,
+                OriginalPrice = 351.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F6NTH43P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61aAYgj+D0L._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C86RTS5X",
+                Title = "Good Knight Flash Liquid Vaporiser | Pack Of 4 (45ml Each) | Lavender Fragrance | 2x Faster Than Before | Mosquito Repellent Refill | India s Most Powerful Liquid Vaporizer",
+                Description = "Get the best deal on Good Knight Flash Liquid Vaporiser | Pack Of 4 (45ml Each) | Lavender Fragrance . High quality, durable, and highly rated on Amazon.",
+                Price = 243.00m,
+                OriginalPrice = 328.05m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C86RTS5X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61FkoqGvnOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CH6BVFQG",
+                Title = "Orient Electric Moonlite 6W LED Ceiling Light, Cool White Light, Round, Pack of 1, Recessed Ceiling LED Light, Suited for 3 inch Junction Box (Aluminium) (6W, Pack of 1)",
+                Description = "Get the best deal on Orient Electric Moonlite 6W LED Ceiling Light, Cool White Light, Round, Pack of . High quality, durable, and highly rated on Amazon.",
+                Price = 105.00m,
+                OriginalPrice = 141.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CH6BVFQG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61fpqujOn7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B010Z0LH8I",
+                Title = "Himalaya Purifying Neem Face Wash, 150 ml | Soap Free | Paraben, Phthalates free | Best for Acne Prone Skin | Eliminates Pimples",
+                Description = "Get the best deal on Himalaya Purifying Neem Face Wash, 150 ml | Soap Free | Paraben, Phthalates free. High quality, durable, and highly rated on Amazon.",
+                Price = 169.00m,
+                OriginalPrice = 228.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B010Z0LH8I?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/518N3l4z1-L._SL1100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
@@ -8990,6 +10055,27 @@ namespace WorldNewzWebAPI.Services
             if (changed)
             {
                 await _context.SaveChangesAsync();
+
+                // Auto-create Pins on Pinterest for newly seeded products
+                if (_pinterestService != null)
+                {
+                    var newSeeds = seedData.ToList();
+                    _ = Task.Run(async () =>
+                    {
+                        foreach (var seed in newSeeds)
+                        {
+                            try
+                            {
+                                await _pinterestService.CreatePinForAmazonProductAsync(seed);
+                                await Task.Delay(1200); // 1.2s delay to prevent Pinterest API rate limits
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[PinterestService] Auto-pin seed exception for ASIN '{seed.Asin}': {ex.Message}");
+                            }
+                        }
+                    });
+                }
             }
         }
     }
