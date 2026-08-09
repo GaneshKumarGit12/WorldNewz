@@ -173,6 +173,7 @@ namespace WorldNewzWebAPI.Extensions
             services.AddScoped<ITextRefinementService, TextRefinementService>();
             services.AddScoped<NewsService>();
             services.AddScoped<AmazonProductService>();
+            services.AddScoped<PinterestService>();
             services.AddScoped<SeoKeywordService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IGoogleSearchService, GoogleSearchService>();
@@ -207,6 +208,7 @@ namespace WorldNewzWebAPI.Extensions
             services.AddHttpClient<ShortVideoService>();
             services.AddHttpClient<WeatherService>();
             services.AddHttpClient<FacebookService>();
+            services.AddHttpClient<PinterestService>();
             services.AddHttpClient<MarketDataService>();
 
             services.AddHttpClient<IFreeToGameService, FreeToGameService>(client =>

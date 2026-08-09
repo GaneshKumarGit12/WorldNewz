@@ -17,6 +17,7 @@ namespace WorldNewzWebAPI.Services
     {
         private readonly WorldNewsDbContext _context;
         private readonly AmazonCreatorApiService? _creatorApiService;
+        private readonly PinterestService? _pinterestService;
         private readonly ILogger<AmazonProductService>? _logger;
         private readonly string _associateTag;
         private readonly int _stalenessThresholdHours;
@@ -25,10 +26,12 @@ namespace WorldNewzWebAPI.Services
             WorldNewsDbContext context,
             IConfiguration config,
             AmazonCreatorApiService? creatorApiService = null,
+            PinterestService? pinterestService = null,
             ILogger<AmazonProductService>? logger = null)
         {
             _context = context;
             _creatorApiService = creatorApiService;
+            _pinterestService = pinterestService;
             _logger = logger;
 
             _associateTag = Environment.GetEnvironmentVariable("AMAZON_ASSOCIATE_TAG") 
@@ -217,6 +220,13 @@ namespace WorldNewzWebAPI.Services
                 productDto.LastUpdated = DateTime.UtcNow;
                 _context.AmazonProducts.Add(productDto);
                 await _context.SaveChangesAsync();
+
+                // Auto-create Pin on Pinterest for new product
+                if (_pinterestService != null)
+                {
+                    _ = Task.Run(() => _pinterestService.CreatePinForAmazonProductAsync(productDto));
+                }
+
                 return productDto;
             }
         }
@@ -325,6 +335,12 @@ namespace WorldNewzWebAPI.Services
             // 4. Save/Store the product in Amazon Deals Store (Db Store) so it displays on page
             _context.AmazonProducts.Add(newProduct);
             await _context.SaveChangesAsync();
+
+            // Auto-create Pin on Pinterest for new scraped/parsed product
+            if (_pinterestService != null)
+            {
+                _ = Task.Run(() => _pinterestService.CreatePinForAmazonProductAsync(newProduct));
+            }
 
             return newProduct;
         }
