@@ -10011,6 +10011,756 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0B4JMRBP8",
+                Title = "Featured Deal (ASIN B0B4JMRBP8)",
+                Description = "Get the best deal on Featured Deal (ASIN B0B4JMRBP8). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0B4JMRBP8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0B4JMRBP8.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8KLR8ZG",
+                Title = "Featured Deal (ASIN B0D8KLR8ZG)",
+                Description = "Get the best deal on Featured Deal (ASIN B0D8KLR8ZG). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D8KLR8ZG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0D8KLR8ZG.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B5WTLHML",
+                Title = "Featured Deal (ASIN B0B5WTLHML)",
+                Description = "Get the best deal on Featured Deal (ASIN B0B5WTLHML). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0B5WTLHML?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0B5WTLHML.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8KPC6NP",
+                Title = "Featured Deal (ASIN B0D8KPC6NP)",
+                Description = "Get the best deal on Featured Deal (ASIN B0D8KPC6NP). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D8KPC6NP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0D8KPC6NP.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3JCN9BF",
+                Title = "Featured Deal (ASIN B0F3JCN9BF)",
+                Description = "Get the best deal on Featured Deal (ASIN B0F3JCN9BF). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F3JCN9BF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0F3JCN9BF.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9MDRRFQ",
+                Title = "Featured Deal (ASIN B0D9MDRRFQ)",
+                Description = "Get the best deal on Featured Deal (ASIN B0D9MDRRFQ). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D9MDRRFQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0D9MDRRFQ.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZQ7MNKF",
+                Title = "Featured Deal (ASIN B0GZQ7MNKF)",
+                Description = "Get the best deal on Featured Deal (ASIN B0GZQ7MNKF). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GZQ7MNKF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0GZQ7MNKF.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FL7K141Q",
+                Title = "Featured Deal (ASIN B0FL7K141Q)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FL7K141Q). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FL7K141Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FL7K141Q.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7LJ23PT",
+                Title = "Featured Deal (ASIN B0F7LJ23PT)",
+                Description = "Get the best deal on Featured Deal (ASIN B0F7LJ23PT). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F7LJ23PT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0F7LJ23PT.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B5WV1KD7",
+                Title = "BIBA Women Cotton Anarkali Kurta Churidar Suit Set",
+                Description = "Get the best deal on BIBA Women Cotton Anarkali Kurta Churidar Suit Set. High quality, durable, and highly rated on Amazon.",
+                Price = 2369.00m,
+                OriginalPrice = 3198.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0B5WV1KD7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617aNbygB1L._SL1000_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F8BP221B",
+                Title = "Featured Deal (ASIN B0F8BP221B)",
+                Description = "Get the best deal on Featured Deal (ASIN B0F8BP221B). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F8BP221B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0F8BP221B.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FL7K64PQ",
+                Title = "Featured Deal (ASIN B0FL7K64PQ)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FL7K64PQ). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FL7K64PQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FL7K64PQ.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D73FKZ3X",
+                Title = "Libas Womens Yoke Design Silk Blend Straight Kurta With Trousers and Dupatta | daily wear suit",
+                Description = "Get the best deal on Libas Womens Yoke Design Silk Blend Straight Kurta With Trousers and Dupatta | d. High quality, durable, and highly rated on Amazon.",
+                Price = 1319.00m,
+                OriginalPrice = 1780.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D73FKZ3X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hoQ9lVlHL._SL1440_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZPBMGH8",
+                Title = "INDO ERA Women's Straight Linen Floral Print with Beads Work Kurta Pant with Dupatta Set (IEOUT9824)",
+                Description = "Get the best deal on INDO ERA Women's Straight Linen Floral Print with Beads Work Kurta Pant with Dup. High quality, durable, and highly rated on Amazon.",
+                Price = 1587.00m,
+                OriginalPrice = 2142.45m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DZPBMGH8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71q-VBO+o9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CC4Y7YF2",
+                Title = "BIBA Women Tunic Shirt",
+                Description = "Get the best deal on BIBA Women Tunic Shirt. High quality, durable, and highly rated on Amazon.",
+                Price = 1202.00m,
+                OriginalPrice = 1622.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CC4Y7YF2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71F4jgLg2-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9WCRH2P",
+                Title = "INDO ERA Women's Pure Cotton Floral Embroidered Straight Kurta & Pant with Dupatta Set | Cotton Kurta Set For Woman",
+                Description = "Get the best deal on INDO ERA Women's Pure Cotton Floral Embroidered Straight Kurta & Pant with Dupat. High quality, durable, and highly rated on Amazon.",
+                Price = 1774.00m,
+                OriginalPrice = 2394.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F9WCRH2P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Eys0Mi7dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F8BQXMFY",
+                Title = "Libas Womens Printed Cotton Straight Kurta With Salwar and Dupatta | daily wear suit",
+                Description = "Get the best deal on Libas Womens Printed Cotton Straight Kurta With Salwar and Dupatta | daily wear . High quality, durable, and highly rated on Amazon.",
+                Price = 1206.00m,
+                OriginalPrice = 1628.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F8BQXMFY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81M-Ucl17EL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRYVGFK3",
+                Title = "BIBA Women Cotton Floral Straight Suit Set",
+                Description = "Get the best deal on BIBA Women Cotton Floral Straight Suit Set. High quality, durable, and highly rated on Amazon.",
+                Price = 1549.00m,
+                OriginalPrice = 2091.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CRYVGFK3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71q7oE95oRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FS1ZMD39",
+                Title = "Libas Blue Printed Poly Crepe Straight Kurta set for Women | daily wear suit",
+                Description = "Get the best deal on Libas Blue Printed Poly Crepe Straight Kurta set for Women | daily wear suit. High quality, durable, and highly rated on Amazon.",
+                Price = 1044.00m,
+                OriginalPrice = 1409.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FS1ZMD39?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nCWmZ4T-L._SL1440_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CBMFTMVL",
+                Title = "VredeVogel Women's Cotton Blend Kurta Pant Set with Chanderi Silk Dupatta",
+                Description = "Get the best deal on VredeVogel Women's Cotton Blend Kurta Pant Set with Chanderi Silk Dupatta. High quality, durable, and highly rated on Amazon.",
+                Price = 687.00m,
+                OriginalPrice = 927.45m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CBMFTMVL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81p79Hfs3NL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F8N8JR9F",
+                Title = "Libas Womens Printed Silk Blend Straight Kurta with Trousers and Dupatta Suit",
+                Description = "Get the best deal on Libas Womens Printed Silk Blend Straight Kurta with Trousers and Dupatta Suit. High quality, durable, and highly rated on Amazon.",
+                Price = 1261.00m,
+                OriginalPrice = 1702.35m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F8N8JR9F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wwhJtHALL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHDW79YF",
+                Title = "Libas Womens Printed Cotton Straight Kurta With Trousers and Dupatta | daily wear suit",
+                Description = "Get the best deal on Libas Womens Printed Cotton Straight Kurta With Trousers and Dupatta | daily wea. High quality, durable, and highly rated on Amazon.",
+                Price = 1104.00m,
+                OriginalPrice = 1490.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FHDW79YF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AKR2SgVnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FT8KSXCZ",
+                Title = "Libas Printed Cotton Straight Kurta Set for Women | daily wear suit",
+                Description = "Get the best deal on Libas Printed Cotton Straight Kurta Set for Women | daily wear suit. High quality, durable, and highly rated on Amazon.",
+                Price = 1219.00m,
+                OriginalPrice = 1645.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FT8KSXCZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81G9Qx3FUCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLWR8SB4",
+                Title = "Libas Green Yoke Design Silk blend Straight Kurta set for Women | daily wear suit",
+                Description = "Get the best deal on Libas Green Yoke Design Silk blend Straight Kurta set for Women | daily wear sui. High quality, durable, and highly rated on Amazon.",
+                Price = 1122.00m,
+                OriginalPrice = 1514.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FLWR8SB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DSZOy3ImL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GG4VCY8Z",
+                Title = "INDO ERA Women's Georgette Floral Embroidered A-Line Kurta & Pant with Dupatta Set",
+                Description = "Get the best deal on INDO ERA Women's Georgette Floral Embroidered A-Line Kurta & Pant with Dupatta S. High quality, durable, and highly rated on Amazon.",
+                Price = 1629.00m,
+                OriginalPrice = 2199.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GG4VCY8Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sSSeqpScL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07R36SDT2",
+                Title = "Amazon Brand - Myx Women Printed Regular Cotton Short Kurti (Available in Plus Sizes)",
+                Description = "Get the best deal on Amazon Brand - Myx Women Printed Regular Cotton Short Kurti (Available in Plus S. High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 403.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07R36SDT2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81LpjoPNdlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09C6L8D88",
+                Title = "BIBA Women Salwar Kurta Dupatta",
+                Description = "Get the best deal on BIBA Women Salwar Kurta Dupatta. High quality, durable, and highly rated on Amazon.",
+                Price = 1689.00m,
+                OriginalPrice = 2280.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09C6L8D88?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Mmv7iiKSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQM7F31X",
+                Title = "BIBA Women Biba Women Rayon Straight Kurti",
+                Description = "Get the best deal on BIBA Women Biba Women Rayon Straight Kurti. High quality, durable, and highly rated on Amazon.",
+                Price = 799.00m,
+                OriginalPrice = 1078.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CQM7F31X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YjDwR4ktL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3JG5XNY",
+                Title = "BIBA Women Kurta Sets, Cotton, Printed",
+                Description = "Get the best deal on BIBA Women Kurta Sets, Cotton, Printed. High quality, durable, and highly rated on Amazon.",
+                Price = 1879.00m,
+                OriginalPrice = 2536.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F3JG5XNY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716JQyK-RfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGLKQDCK",
+                Title = "INDO ERA Women Pure Cotton Kurta Set with Dupatta | Festive Suit Set",
+                Description = "Get the best deal on INDO ERA Women Pure Cotton Kurta Set with Dupatta | Festive Suit Set. High quality, durable, and highly rated on Amazon.",
+                Price = 1443.00m,
+                OriginalPrice = 1948.05m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DGLKQDCK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81kiS6v9tNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLWP5GC1",
+                Title = "Featured Deal (ASIN B0FLWP5GC1)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FLWP5GC1). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FLWP5GC1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FLWP5GC1.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZ6CJTLV",
+                Title = "Featured Deal (ASIN B0DZ6CJTLV)",
+                Description = "Get the best deal on Featured Deal (ASIN B0DZ6CJTLV). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DZ6CJTLV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0DZ6CJTLV.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F31FSPHC",
+                Title = "Featured Deal (ASIN B0F31FSPHC)",
+                Description = "Get the best deal on Featured Deal (ASIN B0F31FSPHC). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F31FSPHC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0F31FSPHC.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DVH132LH",
+                Title = "Featured Deal (ASIN B0DVH132LH)",
+                Description = "Get the best deal on Featured Deal (ASIN B0DVH132LH). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DVH132LH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0DVH132LH.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D73GQJD7",
+                Title = "Featured Deal (ASIN B0D73GQJD7)",
+                Description = "Get the best deal on Featured Deal (ASIN B0D73GQJD7). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D73GQJD7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0D73GQJD7.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DQTRQ793",
+                Title = "Featured Deal (ASIN B0DQTRQ793)",
+                Description = "Get the best deal on Featured Deal (ASIN B0DQTRQ793). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DQTRQ793?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0DQTRQ793.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHDQRBHB",
+                Title = "Featured Deal (ASIN B0FHDQRBHB)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FHDQRBHB). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FHDQRBHB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FHDQRBHB.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHDRS93Q",
+                Title = "Featured Deal (ASIN B0FHDRS93Q)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FHDRS93Q). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FHDRS93Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FHDRS93Q.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7PQXP6D",
+                Title = "Featured Deal (ASIN B0D7PQXP6D)",
+                Description = "Get the best deal on Featured Deal (ASIN B0D7PQXP6D). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D7PQXP6D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0D7PQXP6D.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLWRW9VN",
+                Title = "Featured Deal (ASIN B0FLWRW9VN)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FLWRW9VN). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FLWRW9VN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FLWRW9VN.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DT9V9BW1",
+                Title = "Featured Deal (ASIN B0DT9V9BW1)",
+                Description = "Get the best deal on Featured Deal (ASIN B0DT9V9BW1). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DT9V9BW1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0DT9V9BW1.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLWPBZ53",
+                Title = "Featured Deal (ASIN B0FLWPBZ53)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FLWPBZ53). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FLWPBZ53?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FLWPBZ53.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B7SD78YS",
+                Title = "FIORRA Women's Maroon Poly Crepe Straight Kurta with Pant and Dupatta",
+                Description = "Get the best deal on FIORRA Women's Maroon Poly Crepe Straight Kurta with Pant and Dupatta. High quality, durable, and highly rated on Amazon.",
+                Price = 829.00m,
+                OriginalPrice = 1119.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0B7SD78YS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81271aov+AL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHWR7GXC",
+                Title = "Featured Deal (ASIN B0FHWR7GXC)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FHWR7GXC). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FHWR7GXC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FHWR7GXC.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DX2C5F4G",
+                Title = "Featured Deal (ASIN B0DX2C5F4G)",
+                Description = "Get the best deal on Featured Deal (ASIN B0DX2C5F4G). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DX2C5F4G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0DX2C5F4G.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F66GCD11",
+                Title = "BIBA Women Kurta Set, 60'S Cambric, Printed",
+                Description = "Get the best deal on BIBA Women Kurta Set, 60'S Cambric, Printed. High quality, durable, and highly rated on Amazon.",
+                Price = 2509.00m,
+                OriginalPrice = 3387.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F66GCD11?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71apJ7FNMRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJMHL611",
+                Title = "Featured Deal (ASIN B0FJMHL611)",
+                Description = "Get the best deal on Featured Deal (ASIN B0FJMHL611). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FJMHL611?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0FJMHL611.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRVG7DNG",
+                Title = "Featured Deal (ASIN B0BRVG7DNG)",
+                Description = "Get the best deal on Featured Deal (ASIN B0BRVG7DNG). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BRVG7DNG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0BRVG7DNG.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3JFGLPG",
+                Title = "BIBA Women Kurta Set",
+                Description = "Get the best deal on BIBA Women Kurta Set. High quality, durable, and highly rated on Amazon.",
+                Price = 1899.00m,
+                OriginalPrice = 2563.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F3JFGLPG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71mYKWEWDSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G5P7V1XB",
+                Title = "Featured Deal (ASIN B0G5P7V1XB)",
+                Description = "Get the best deal on Featured Deal (ASIN B0G5P7V1XB). High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0G5P7V1XB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://images-na.ssl-images-amazon.com/images/P/B0G5P7V1XB.01.LZZZZZZZ.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
