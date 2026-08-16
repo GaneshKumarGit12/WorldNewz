@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -608,7 +607,7 @@ const AdminDashboard: React.FC = () => {
         canonical="https://worldnewzs.in/admin" 
       />
 
-      <Container maxWidth="xl" sx={{ mt: 4 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, mt: 4 }}>
         
         {/* Central Header title */}
         <Box sx={{ mb: 4, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
@@ -993,7 +992,7 @@ const AdminDashboard: React.FC = () => {
             </Box>
           </Box>
         )}
-      </Container>
+      </Box>
 
       {/* Delete Confirmation Dialog */}
       <Dialog

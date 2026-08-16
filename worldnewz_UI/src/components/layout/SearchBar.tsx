@@ -74,7 +74,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         backgroundColor: isDark ? "rgba(15, 23, 42, 0.96)" : "rgba(248, 250, 252, 0.96)",
         backdropFilter: "blur(12px)",
         py: isExpanded ? { xs: 1.25, sm: 1.5 } : { xs: 0.5, sm: 0.75 },
-        px: { xs: 1.5, sm: 3 },
+        px: 0,
         borderBottom: "1px solid",
         borderColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
         boxShadow: isExpanded 
@@ -83,7 +83,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      <Box sx={{ maxWidth: 1200, mx: "auto" }}>
+      <Box sx={{ maxWidth: "1240px", mx: "auto", px: { xs: 2, sm: 3, md: 3.5 } }}>
         {/* Top Control Bar with Show/Hide Toggle */}
         <Box 
           sx={{ 

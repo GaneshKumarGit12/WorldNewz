@@ -359,7 +359,7 @@ const ResultPage: React.FC = () => {
   const author = getAuthorForCategory(article.category);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4, minHeight: "70vh" }}>
+    <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 4, minHeight: "70vh" }}>
       <SEOMeta
         title={article.headline || article.title}
         description={(article.summary || article.description || "").replace(/\s+/g, " ").trim()}
@@ -955,7 +955,7 @@ const ResultPage: React.FC = () => {
           }
         }}
       />
-    </Container>
+    </Box>
   );
 };
 

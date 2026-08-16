@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -117,7 +116,7 @@ const Stocks: React.FC = () => {
         ]}
       />
 
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 6 }}>
         {/* Header section */}
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 5, flexWrap: "wrap", gap: 3 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
@@ -357,7 +356,7 @@ const Stocks: React.FC = () => {
         )}
 
         <CategoryEditorial categoryKey="stocks" />
-      </Container>
+      </Box>
     </>
   );
 };

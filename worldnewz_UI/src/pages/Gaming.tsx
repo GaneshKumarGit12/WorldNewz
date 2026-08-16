@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -217,7 +216,7 @@ const Gaming: React.FC = () => {
           textAlign: "center"
         }}
       >
-        <Container maxWidth="lg">
+        <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 } }}>
           <Box display="flex" justifyContent="center" alignItems="center" mb={2}>
             <SportsEsportsIcon sx={{ fontSize: { xs: 40, md: 50 }, mr: 2, color: "#a855f7" }} />
             <Typography
@@ -241,10 +240,10 @@ const Gaming: React.FC = () => {
           >
             Access programmatically and visually the best free-to-play games and MMO games database. Sourced with attribution to FreeToGame.
           </Typography>
-        </Container>
+        </Box>
       </Box>
 
-      <Container maxWidth="lg" sx={{ pb: 8 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, pb: 8 }}>
         {/* Original Featured Game Promotion */}
         <Paper
           elevation={6}
@@ -639,7 +638,7 @@ const Gaming: React.FC = () => {
             </a>. All rights reserved.
           </Typography>
         </Box>
-      </Container>
+      </Box>
 
       {/* Specifications & Screenshots Modal */}
       <Dialog

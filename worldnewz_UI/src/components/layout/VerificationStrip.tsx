@@ -35,7 +35,7 @@ export const VerificationStrip: React.FC = () => {
         borderBottom: "1px solid var(--line)",
         width: "100%",
         py: 0.75,
-        px: { xs: 2, md: 3.5 },
+        px: 0,
       }}
     >
       <Box
@@ -43,6 +43,7 @@ export const VerificationStrip: React.FC = () => {
         sx={{
           maxWidth: "1240px",
           margin: "0 auto",
+          px: { xs: 2, sm: 3, md: 3.5 },
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",

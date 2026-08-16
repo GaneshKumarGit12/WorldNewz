@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({
           sx={{
             maxWidth: "1240px",
             margin: "0 auto",
-            padding: "0 28px",
+            px: { xs: 2, sm: 3, md: 3.5 },
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -224,7 +224,7 @@ export const Header: React.FC<HeaderProps> = ({
           sx={{
             maxWidth: "1240px",
             margin: "0 auto",
-            padding: "0 28px",
+            px: { xs: 2, sm: 3, md: 3.5 },
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -318,7 +318,7 @@ export const Header: React.FC<HeaderProps> = ({
           sx={{
             maxWidth: "1240px",
             margin: "0 auto",
-            padding: "0 28px",
+            px: { xs: 2, sm: 3, md: 3.5 },
             display: "flex",
             alignItems: "center",
             gap: { xs: 0.5, md: 1 },

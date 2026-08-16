@@ -117,7 +117,7 @@ const Jobs: React.FC = () => {
   };
 
   return (
-    <Box sx={{ p: { xs: 2, sm: 3 }, minHeight: "80vh" }}>
+    <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 3, minHeight: "80vh" }}>
       <SEOMeta
         title="Jobs – Latest Career Opportunities & Remote Openings"
         description="Explore the latest job listings, career openings, visa sponsorship, and remote employment opportunities on WorldNewzs."

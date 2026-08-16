@@ -1,6 +1,6 @@
 import { SEOMeta } from '../seo/SEOMeta';
 import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
-import { Container, Box, Typography, Card, CardContent, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Box, Typography, Card, CardContent, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
@@ -143,7 +143,7 @@ export const EditorialGuidelinesPage = () => {
         { name: 'Editorial Guidelines', url: `${SITE_URL}/editorial-guidelines` }
       ]} />
 
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 6 }}>
         <Box component="section">
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 6 }}>
@@ -412,7 +412,7 @@ export const EditorialGuidelinesPage = () => {
             </Typography>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </>
   );
 };

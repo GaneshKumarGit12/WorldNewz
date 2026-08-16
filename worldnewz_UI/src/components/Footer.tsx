@@ -204,13 +204,21 @@ const Footer: React.FC = () => {
       sx={{
         mt: 6,
         py: 5,
-        px: { xs: 2, sm: 4, md: 6 },
+        px: 0,
         backgroundColor: "var(--ink, #10172A)",
         color: "#9AA2B4",
         borderTop: "1px solid #1E293B",
       }}
     >
-      {/* ─── Newsletter Signup section ─── */}
+      <Box
+        className="wrap"
+        sx={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          px: { xs: 2, sm: 3, md: 3.5 },
+        }}
+      >
+        {/* ─── Newsletter Signup section ─── */}
       <Box
         sx={{
           mb: 4,
@@ -495,6 +503,7 @@ const Footer: React.FC = () => {
       <Typography variant="caption" sx={{ color: "#5C6474", display: "block", textAlign: "center", fontFamily: "var(--mono)", fontSize: "10.5px" }}>
         Independent editorial standards • Privacy-first platform • Strict AdSense content-commerce isolation
       </Typography>
+      </Box>
     </Box>
   );
 };

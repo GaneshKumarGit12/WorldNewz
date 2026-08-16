@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -257,7 +256,7 @@ export const TrendingVideos: React.FC = () => {
         ]}
       />
 
-      <Container maxWidth="xl" sx={{ pt: 3, pb: 4 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, pt: 3, pb: 4 }}>
         <BreadcrumbNav items={[{ label: "Trending Videos & Shorts" }]} />
 
         {/* ─── MASTHEAD HEADER ─── */}
@@ -688,7 +687,7 @@ export const TrendingVideos: React.FC = () => {
             )}
           </>
         )}
-      </Container>
+      </Box>
 
       {/* ─── THEATER-MODE LIGHTBOX MODAL ─── */}
       <Dialog

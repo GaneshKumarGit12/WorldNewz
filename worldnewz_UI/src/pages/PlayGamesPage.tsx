@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Box,
-  Container,
   Typography,
   Grid,
   Card,
@@ -331,7 +330,7 @@ const PlayGamesPage: React.FC = () => {
           boxShadow: 4
         }}
       >
-        <Container maxWidth="lg">
+        <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 } }}>
           <Grid container spacing={3} alignItems="center">
             <Grid size={{ xs: 12, md: 7 }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}>
@@ -438,11 +437,11 @@ const PlayGamesPage: React.FC = () => {
               </Paper>
             </Grid>
           </Grid>
-        </Container>
+        </Box>
       </Box>
 
       {/* Main Container */}
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, mt: 4 }}>
 
         {statusMessage && (
           <Alert
@@ -878,7 +877,7 @@ const PlayGamesPage: React.FC = () => {
           </Box>
         )}
 
-      </Container>
+      </Box>
 
       {/* Submit Score Dialog */}
       <Dialog open={scoreDialogOpen} onClose={() => setScoreDialogOpen(false)} maxWidth="xs" fullWidth>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -452,7 +451,7 @@ const DEFAULT_FALLBACK_POLLS: PollItem[] = [
         .animate-pulse-red { animation: pulse-red 1.5s infinite; }
       `}</style>
 
-      <Container maxWidth="md" sx={{ py: 6 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 6 }}>
         {/* Header */}
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4, flexWrap: "wrap", gap: 2 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
@@ -1006,7 +1005,7 @@ const DEFAULT_FALLBACK_POLLS: PollItem[] = [
           )}
         </Dialog>
 
-      </Container>
+      </Box>
     </>
   );
 };

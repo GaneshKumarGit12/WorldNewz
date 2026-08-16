@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -353,7 +352,7 @@ const BadgeQuiz: React.FC = () => {
         .animate-pulse-red { animation: pulse-red 1.5s infinite; }
       `}</style>
 
-      <Container maxWidth="md" sx={{ py: 6 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 6 }}>
         {/* Header */}
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4, flexWrap: "wrap", gap: 2 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
@@ -814,7 +813,7 @@ const BadgeQuiz: React.FC = () => {
             </DialogContent>
           )}
         </Dialog>
-      </Container>
+      </Box>
     </>
   );
 };

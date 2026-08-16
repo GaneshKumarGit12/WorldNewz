@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { 
-  Box, Container, Typography, Grid, Paper, Button, 
+  Box, Typography, Grid, Paper, Button, 
   Divider, LinearProgress, Alert, CardActionArea, 
   Autocomplete, TextField, CircularProgress, Chip, Stack, Tooltip, IconButton
 } from "@mui/material";
@@ -404,7 +404,7 @@ export const TransportationPage: React.FC = () => {
         ]}
       />
 
-      <Container maxWidth="xl" sx={{ pt: 4, pb: 4 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, pt: 4, pb: 4 }}>
         {/* Header */}
         <Box sx={{ mb: 4, textAlign: "left" }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
@@ -784,7 +784,7 @@ export const TransportationPage: React.FC = () => {
             )}
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     </main>
   );
 };

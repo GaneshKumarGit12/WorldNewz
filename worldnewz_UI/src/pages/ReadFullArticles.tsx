@@ -532,7 +532,7 @@ const ReadFullArticles: React.FC = () => {
   const catConfig = getCategoryConfig(article.category);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4, minHeight: "80vh" }}>
+    <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 4, minHeight: "80vh" }}>
       <SEOMeta
         title={article.headline || article.title}
         description={(article.summary || article.description || "").replace(/\s+/g, " ").trim()}
@@ -962,7 +962,7 @@ const ReadFullArticles: React.FC = () => {
           Back to Top Stories
         </Button>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

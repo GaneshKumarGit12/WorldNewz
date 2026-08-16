@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -258,7 +257,7 @@ const Movies: React.FC = () => {
           textAlign: "center"
         }}
       >
-        <Container maxWidth="lg">
+        <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 } }}>
           <Box display="flex" justifyContent="center" alignItems="center" mb={2}>
             <MovieIcon sx={{ fontSize: { xs: 40, md: 50 }, mr: 2, color: "#e11d48" }} />
             <Typography
@@ -282,10 +281,10 @@ const Movies: React.FC = () => {
           >
             Access cast directories, budget statistics, release specs, and trailers. Sourced with attribution to TMDB.
           </Typography>
-        </Container>
+        </Box>
       </Box>
 
-      <Container maxWidth="lg" sx={{ pb: 8 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, pb: 8 }}>
         {/* Filters Panel */}
         <Paper
           elevation={4}
@@ -533,7 +532,7 @@ const Movies: React.FC = () => {
             </a>.
           </Typography>
         </Box>
-      </Container>
+      </Box>
 
       {/* Specifications Details Dialog */}
       <Dialog

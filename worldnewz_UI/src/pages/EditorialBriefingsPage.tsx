@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Card, CardContent, Grid, Chip, Divider, Button, Alert } from '@mui/material';
+import { Box, Typography, Card, CardContent, Grid, Chip, Divider, Button, Alert } from '@mui/material';
 import { SEOMeta } from '../seo/SEOMeta';
 import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
 import { BreadcrumbNav } from '../components/BreadcrumbNav';
@@ -248,7 +248,7 @@ export const EditorialBriefingsPage = () => {
         { name: 'Editorial Briefings', url: `${SITE_URL}/editorial-briefings` }
       ]} />
 
-      <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 4 }}>
         <BreadcrumbNav
           items={[
             { label: "Editorial Briefings" }
@@ -425,7 +425,7 @@ export const EditorialBriefingsPage = () => {
             </Typography>
           </Box>
         </Box>
-      </Container>
+      </Box>
     </>
   );
 };

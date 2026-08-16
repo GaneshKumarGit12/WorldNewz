@@ -265,3 +265,33 @@ a:hover {
     opacity: 1;
   }
 }
+
+/* Universal Responsive Container Wrapper for Perfect Grid Alignment */
+.wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 599.95px) {
+  .wrap {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899.95px) {
+  .wrap {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .wrap {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+}

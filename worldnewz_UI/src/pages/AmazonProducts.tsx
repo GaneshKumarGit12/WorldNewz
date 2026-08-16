@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -561,7 +560,7 @@ export const AmazonProducts: React.FC = () => {
       <JSONLDFAQPage faqs={amazonDealsFaqs} />
       <JSONLDProductList products={products} />
 
-      <Container maxWidth="xl" sx={{ pt: 3, pb: 4 }}>
+      <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, pt: 3, pb: 4 }}>
         <BreadcrumbNav items={[{ label: "Amazon Deals Hub" }]} />
 
         {/* ─── MASTHEAD & TRUST STRIP ─── */}
@@ -1640,7 +1639,7 @@ export const AmazonProducts: React.FC = () => {
 
         </Box>
 
-      </Container>
+      </Box>
     </Box>
   );
 };

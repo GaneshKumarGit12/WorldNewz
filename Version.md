@@ -232,7 +232,23 @@ Derived from [worldnewzs-logo-mockup.html](file:///C:/WorldNewz/redesign_version
 4. **Enhanced Theater Player & Social Sharing:**
    - Responsive theater dialog with YouTube embeds, interactive reader comments feed, like count incrementation, and social sharing menu (WhatsApp, X, Facebook, LinkedIn, Clipboard).
 5. **Route Aliasing:**
-   - Added `/videos` and `/shorts` route aliases alongside `/trending-videos` in `main.tsx`.
+---
+
+## 15. Version 2.2.5 — Universal UI Screen Grid Alignment & Layout Harmonization
+**Release Date:** August 16, 2026  
+**Environment:** Local Development Only (`http://localhost:5173`)  
+**Status:** Completed & Validated  
+
+### Key Enhancements
+1. **Universal 1240px Container Grid (`.wrap`):**
+   - Harmonized Header (`masthead-top`, `masthead-main`, `nav.primary`), Verification Strip, Search & Filter Bar, Amazon Deals Strip, Page Bodies, and Site Footer to the exact same `1240px` max-width boundary.
+   - Standardized responsive horizontal gutters: `16px` on mobile (`xs`), `24px` on tablet (`sm`), and `28px` on desktop (`md`+).
+2. **Eliminated Screen Shift & Misalignment:**
+   - Replaced mismatched MUI `Container maxWidth="xl"` (1536px) and `maxWidth="lg"` (1200px) across `AmazonProducts.tsx`, `TrendingVideos.tsx`, `PlayGamesPage.tsx`, `Movies.tsx`, `Gaming.tsx`, `TransportationPage.tsx`, `Stocks.tsx`, `Jobs.tsx`, `Polls.tsx`, `BadgeQuiz.tsx`, `EditorialBriefingsPage.tsx`, `EditorialGuidelinesPage.tsx`, `ResultPage.tsx`, and `ReadFullArticles.tsx`.
+   - Constrained `Footer.tsx` with a clean `1240px` container wrap so newsletter forms and footer columns align flush with the header and body content.
+3. **Pixel-Perfect Global CSS Rule (`index.css`):**
+   - Added universal `.wrap` CSS rule with media queries ensuring zero layout shift across all viewport sizes.
+
 
 
 
