@@ -249,10 +249,20 @@ Derived from [worldnewzs-logo-mockup.html](file:///C:/WorldNewz/redesign_version
 3. **Pixel-Perfect Global CSS Rule (`index.css`):**
    - Added universal `.wrap` CSS rule with media queries ensuring zero layout shift across all viewport sizes.
 
+---
 
+## 16. Version 2.2.6 — 24/7 Category Live Stream & Dynamic Video Hero Integration
+**Release Date:** August 16, 2026  
+**Environment:** Production & Local  
+**Status:** Completed & Validated  
 
-
-
-
-
-
+### Key Enhancements
+1. **HeroLeadMedia Interactive Component (`HeroLeadMedia.tsx`):**
+   - Transformed static Lead Story hero images across all category pages, homepage Discover, and Local News into an interactive media player.
+   - Supports quick switching between `[🔴 Live Stream]` and `[📷 Lead Photo]`.
+   - Animated pulsing red `LIVE NOW` indicator badge and category attribution.
+2. **Auto-Updating Category Live Stream Backend (`LiveStreamService.cs` & `LiveStreamsController.cs`):**
+   - Integrates with YouTube Data API v3 (`WN_YOUTUBE_KEY`) searching `eventType=live` per category with in-memory caching.
+   - High-reliability fallback map guaranteeing 24/7 active streams (Sky News, Bloomberg, NASA, Sky Sports, Tech Live).
+3. **Agent Skill for Live Streams (`.agents/skills/livestream/SKILL.md`):**
+   - Created specialized agent skill documenting architecture, API quota management, fallback registries, and maintenance procedures.

@@ -26,8 +26,8 @@ import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
 import { PersonalizedTopicHub } from "./PersonalizedTopicHub";
 import { TopStoriesSection } from "./TopStoriesSection";
 import { TrendingShortVideos } from "./TrendingShortVideos";
+import { HeroLeadMedia } from "./common/HeroLeadMedia";
 import { formatTimeAgoLong } from "../utils/formatTime";
-import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
 import { fallbackDiscoverArticles } from "../utils/fallbackArticles";
 
 const Discover: React.FC = () => {
@@ -262,92 +262,80 @@ const Discover: React.FC = () => {
                 >
                   {/* Lead Story */}
                   <Box
-                    onClick={() => handleArticleClick(leadStory)}
                     sx={{
-                      cursor: "pointer",
                       display: "flex",
                       flexDirection: "column",
                       "&:hover .lead-title": { color: "var(--red-deep)" },
                     }}
                   >
+                    <HeroLeadMedia
+                      imageUrl={leadStory.urlToImage || leadStory.imageUrl}
+                      category={leadStory.category || "Top News"}
+                      title={leadStory.title}
+                      onArticleClick={() => handleArticleClick(leadStory)}
+                    />
+
                     <Box
-                      className="art tone-red"
-                      sx={{
-                        position: "relative",
-                        width: "100%",
-                        height: { xs: 220, sm: 300, md: 340 },
-                        borderRadius: "2px",
-                        overflow: "hidden",
-                        mb: 2,
-                        backgroundColor: "var(--paper-raise)",
-                      }}
+                      onClick={() => handleArticleClick(leadStory)}
+                      sx={{ cursor: "pointer" }}
                     >
-                      <img
-                        src={optimizeImageUrl(leadStory.urlToImage || leadStory.imageUrl, 800, leadStory.category, leadStory.title)}
-                        alt={leadStory.title}
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = getCategoryFallbackImage(leadStory.category, leadStory.title);
+                      <Typography
+                        className="eyebrow"
+                        sx={{
+                          fontFamily: "var(--mono)",
+                          fontSize: "11px",
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--red)",
+                          mb: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
                         }}
-                      />
+                      >
+                        Lead Story · {leadStory.category || "Top News"}
+                      </Typography>
+
+                      <Typography
+                        className="lead-title"
+                        component="h1"
+                        sx={{
+                          fontFamily: "var(--serif)",
+                          fontSize: { xs: "24px", sm: "30px", md: "34px" },
+                          fontWeight: 700,
+                          lineHeight: 1.15,
+                          letterSpacing: "-0.015em",
+                          color: "var(--text)",
+                          mb: 1.5,
+                          transition: "color 0.2s ease",
+                        }}
+                      >
+                        {leadStory.title}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontFamily: "var(--serif)",
+                          fontStyle: "italic",
+                          fontSize: "16px",
+                          color: "var(--slate)",
+                          lineHeight: 1.55,
+                          mb: 2,
+                        }}
+                      >
+                        {leadStory.description || leadStory.summary}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontFamily: "var(--mono)",
+                          fontSize: "11px",
+                          color: "var(--slate-light)",
+                        }}
+                      >
+                        By {(leadStory as any).author || "Editorial Desk"} · {formatTimeAgoLong(leadStory.publishedAt)}
+                      </Typography>
                     </Box>
-
-                    <Typography
-                      className="eyebrow"
-                      sx={{
-                        fontFamily: "var(--mono)",
-                        fontSize: "11px",
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                        color: "var(--red)",
-                        mb: 1,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                      }}
-                    >
-                      Lead Story · {leadStory.category || "Top News"}
-                    </Typography>
-
-                    <Typography
-                      className="lead-title"
-                      component="h1"
-                      sx={{
-                        fontFamily: "var(--serif)",
-                        fontSize: { xs: "24px", sm: "30px", md: "34px" },
-                        fontWeight: 700,
-                        lineHeight: 1.15,
-                        letterSpacing: "-0.015em",
-                        color: "var(--text)",
-                        mb: 1.5,
-                        transition: "color 0.2s ease",
-                      }}
-                    >
-                      {leadStory.title}
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        fontFamily: "var(--serif)",
-                        fontStyle: "italic",
-                        fontSize: "16px",
-                        color: "var(--slate)",
-                        lineHeight: 1.55,
-                        mb: 2,
-                      }}
-                    >
-                      {leadStory.description || leadStory.summary}
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        fontFamily: "var(--mono)",
-                        fontSize: "11px",
-                        color: "var(--slate-light)",
-                      }}
-                    >
-                      By {(leadStory as any).author || "Editorial Desk"} · {formatTimeAgoLong(leadStory.publishedAt)}
-                    </Typography>
                   </Box>
 
                   {/* Most Read Rail */}

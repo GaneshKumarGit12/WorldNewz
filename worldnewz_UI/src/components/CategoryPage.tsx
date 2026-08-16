@@ -21,7 +21,6 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
 import { deduplicateArticles } from "../utils/deduplicate";
-import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
 import { formatTimeAgoLong } from "../utils/formatTime";
 import { AffiliateDeals } from "./AffiliateDeals";
 import { CategoryEditorial } from "./CategoryEditorial";
@@ -31,6 +30,7 @@ import { TopStoriesSection } from "./TopStoriesSection";
 import { ShoppingWidget } from "./ShoppingWidget";
 import { WatchlistWidget } from "./WatchlistWidget";
 import { WeatherWidget } from "./WeatherWidget";
+import { HeroLeadMedia } from "./common/HeroLeadMedia";
 import { getCategoryFallbackArticles, fallbackDiscoverArticles } from "../utils/fallbackArticles";
 
 interface CategoryPageProps {
@@ -366,54 +366,39 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 >
                   {/* Lead Story */}
                   <Box
-                    onClick={() => handleArticleClick(leadStory)}
                     sx={{
-                      cursor: "pointer",
                       display: "flex",
                       flexDirection: "column",
                       "&:hover .lead-title": { color: "var(--red-deep)" },
                     }}
                   >
-                    <Box
-                      className="art tone-red"
-                      sx={{
-                        position: "relative",
-                        width: "100%",
-                        height: { xs: 220, sm: 300, md: 340 },
-                        borderRadius: "2px",
-                        overflow: "hidden",
-                        mb: 2,
-                        backgroundColor: "var(--paper-raise)",
-                      }}
-                    >
-                      <img
-                        src={optimizeImageUrl(leadStory.urlToImage || leadStory.imageUrl, 800, leadStory.category, leadStory.title)}
-                        alt={leadStory.title}
-                        loading="eager"
-                        fetchPriority="high"
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = getCategoryFallbackImage(leadStory.category, leadStory.title);
-                        }}
-                      />
-                    </Box>
+                    <HeroLeadMedia
+                      imageUrl={leadStory.urlToImage || leadStory.imageUrl}
+                      category={leadStory.category || title}
+                      title={leadStory.title}
+                      onArticleClick={() => handleArticleClick(leadStory)}
+                    />
 
-                    <Typography
-                      className="eyebrow"
-                      sx={{
-                        fontFamily: "var(--mono)",
-                        fontSize: "11px",
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                        color: "var(--red)",
-                        mb: 1,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                      }}
+                    <Box
+                      onClick={() => handleArticleClick(leadStory)}
+                      sx={{ cursor: "pointer" }}
                     >
-                      Featured Lead · {leadStory.category || title}
-                    </Typography>
+                      <Typography
+                        className="eyebrow"
+                        sx={{
+                          fontFamily: "var(--mono)",
+                          fontSize: "11px",
+                          letterSpacing: "0.08em",
+                          textTransform: "uppercase",
+                          color: "var(--red)",
+                          mb: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                        }}
+                      >
+                        Featured Lead · {leadStory.category || title}
+                      </Typography>
 
                     <Typography
                       className="lead-title"
@@ -454,6 +439,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                     >
                       By {(leadStory as any).author || "Editorial Desk"} · {formatTimeAgoLong(leadStory.publishedAt)}
                     </Typography>
+                    </Box>
                   </Box>
 
                   {/* Most Read Rail */}

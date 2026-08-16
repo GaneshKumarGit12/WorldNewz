@@ -727,6 +727,30 @@ export interface ShortVideosResponse {
 export const fetchShortVideos = () =>
   apiClient.get<ShortVideosResponse>("/shortvideos");
 
+// --- Live Streams API ---
+export interface LiveStreamItem {
+  videoId: string;
+  title: string;
+  channelTitle: string;
+  description: string;
+  thumbnailUrl: string;
+  embedUrl: string;
+  category: string;
+  isLive: boolean;
+  fetchedAt?: string;
+}
+
+export interface LiveStreamResponse {
+  status: string;
+  data: LiveStreamItem;
+}
+
+export const fetchLiveStream = (category?: string) =>
+  apiClient.get<LiveStreamResponse>("/livestreams", {
+    params: category ? { category } : undefined,
+  });
+
+
 // --- Newsletter Subscription API ---
 export interface NewsletterSubscriber {
   id: number;
