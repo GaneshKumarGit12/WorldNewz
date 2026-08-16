@@ -28,9 +28,14 @@ export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ items }) => {
         px: 1.6,
         mb: 3,
         borderRadius: "8px",
-        backgroundColor: "var(--paper-raise)",
-        border: "1px solid var(--line-soft)",
-        boxShadow: "0 1px 3px rgba(0,0,0,0.03)",
+        backgroundColor: (theme) =>
+          theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.04)" : "#FFFFFF",
+        border: (theme) =>
+          `1px solid ${theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.08)"}`,
+        boxShadow: (theme) =>
+          theme.palette.mode === "dark"
+            ? "0 2px 8px rgba(0,0,0,0.35)"
+            : "0 1px 3px rgba(0,0,0,0.04)",
         fontFamily: "var(--sans, 'IBM Plex Sans', sans-serif)",
       }}
     >
@@ -42,14 +47,16 @@ export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ items }) => {
           display: "flex",
           alignItems: "center",
           gap: 0.5,
-          color: "var(--slate)",
+          color: (theme) =>
+            theme.palette.mode === "dark" ? "#CBD5E1" : "#4B5563",
           textDecoration: "none",
           fontWeight: 600,
           fontSize: "13px",
           fontFamily: "var(--sans, 'IBM Plex Sans', sans-serif)",
           transition: "color 0.15s ease",
           "&:hover": {
-            color: "var(--red, #B7222B)",
+            color: (theme) =>
+              theme.palette.mode === "dark" ? "#F43F5E" : "#B7222B",
           },
         }}
       >
@@ -64,17 +71,18 @@ export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ items }) => {
             <NavigateNextIcon
               sx={{
                 fontSize: "15px",
-                color: "var(--slate-light, #8B92A3)",
+                color: (theme) =>
+                  theme.palette.mode === "dark" ? "#64748B" : "#9CA3AF",
                 flexShrink: 0,
-                opacity: 0.8,
               }}
             />
             {isLast || !item.path ? (
               <Typography
                 component="span"
                 sx={{
-                  color: "var(--text, #10172A)",
-                  fontWeight: 650,
+                  color: (theme) =>
+                    theme.palette.mode === "dark" ? "#F8FAFC" : "#111827",
+                  fontWeight: 700,
                   fontSize: "13px",
                   fontFamily: "var(--sans, 'IBM Plex Sans', sans-serif)",
                   overflow: "hidden",
@@ -96,14 +104,16 @@ export const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ items }) => {
                   display: "flex",
                   alignItems: "center",
                   gap: 0.4,
-                  color: "var(--slate)",
+                  color: (theme) =>
+                    theme.palette.mode === "dark" ? "#CBD5E1" : "#4B5563",
                   textDecoration: "none",
                   fontWeight: 600,
                   fontSize: "13px",
                   fontFamily: "var(--sans, 'IBM Plex Sans', sans-serif)",
                   transition: "color 0.15s ease",
                   "&:hover": {
-                    color: "var(--red, #B7222B)",
+                    color: (theme) =>
+                      theme.palette.mode === "dark" ? "#F43F5E" : "#B7222B",
                   },
                 }}
               >
