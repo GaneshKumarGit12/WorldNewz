@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MicIcon from "@mui/icons-material/Mic";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import AddIcon from "@mui/icons-material/Add";
@@ -20,6 +19,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import TuneIcon from "@mui/icons-material/Tune";
 
 import { categories, getCategoryPath } from "../../utils/navigationConfig";
+import { WzChatbotIcon } from "../common/WzChatbotIcon";
 
 interface SearchBarProps {
   searchTerm: string;
@@ -202,7 +202,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                         </Tooltip>
                         <Button
                           id="btn-copilot-search"
-                          startIcon={<SmartToyIcon sx={{ fontSize: 16 }} />}
+                          startIcon={<WzChatbotIcon size={18} variant="tile" borderRadius={4} bg="#10172A" zColor="#C4272F" />}
                           variant="contained"
                           color="primary"
                           size="small"

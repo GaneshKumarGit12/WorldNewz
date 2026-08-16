@@ -17,7 +17,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import PersonIcon from "@mui/icons-material/Person";
@@ -29,6 +28,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useColorMode } from "../../context/ThemeContext";
 import { askChatbot } from "../../api/apiClient";
 import type { ChatMessageDto } from "../../api/apiClient";
+import { WzChatbotIcon } from "../common/WzChatbotIcon";
 
 export type AssistantContextMode = "news" | "shopping" | "ideas" | "help";
 
@@ -441,16 +441,7 @@ export const WorldNewzAssistant: React.FC = () => {
               <ArrowBackIcon />
             </IconButton>
           )}
-          <Avatar
-            sx={{
-              backgroundColor: activeConfig.accentColor,
-              width: 38,
-              height: 38,
-              boxShadow: `0 0 10px ${activeConfig.accentColor}80`,
-            }}
-          >
-            <SmartToyIcon sx={{ color: "white" }} />
-          </Avatar>
+          <WzChatbotIcon size={38} variant="tile" borderRadius={10} bg="#10172A" zColor="#C4272F" />
           <Box>
             <Typography variant="subtitle1" sx={{ fontWeight: 800, lineHeight: 1.2 }}>
               WorldNewz Assistant
@@ -534,17 +525,21 @@ export const WorldNewzAssistant: React.FC = () => {
                 mb: 1,
               }}
             >
-              <Avatar
-                sx={{
-                  backgroundColor: isBot ? (isDark ? "#1e293b" : "#e2e8f0") : activeConfig.accentColor,
-                  color: isBot ? (isDark ? "#60a5fa" : "#1e293b") : "#ffffff",
-                  width: 32,
-                  height: 32,
-                  fontSize: 18,
-                }}
-              >
-                {isBot ? <SmartToyIcon fontSize="inherit" /> : <PersonIcon fontSize="inherit" />}
-              </Avatar>
+              {isBot ? (
+                <WzChatbotIcon size={32} variant="tile" borderRadius={8} bg="#10172A" zColor="#C4272F" />
+              ) : (
+                <Avatar
+                  sx={{
+                    backgroundColor: activeConfig.accentColor,
+                    color: "#ffffff",
+                    width: 32,
+                    height: 32,
+                    fontSize: 18,
+                  }}
+                >
+                  <PersonIcon fontSize="inherit" />
+                </Avatar>
+              )}
 
               <Box sx={{ maxWidth: "82%" }}>
                 <Paper
@@ -654,15 +649,7 @@ export const WorldNewzAssistant: React.FC = () => {
         {/* Loading / Typing indicator */}
         {loading && (
           <Box sx={{ display: "flex", gap: 1, alignItems: "center", pl: 0.5 }}>
-            <Avatar
-              sx={{
-                backgroundColor: isDark ? "#1e293b" : "#e2e8f0",
-                width: 32,
-                height: 32,
-              }}
-            >
-              <SmartToyIcon sx={{ fontSize: 18, color: activeConfig.accentColor }} />
-            </Avatar>
+            <WzChatbotIcon size={32} variant="tile" borderRadius={8} bg="#10172A" zColor="#C4272F" />
             <Box
               sx={{
                 p: 1.5,
@@ -856,15 +843,19 @@ export const WorldNewzAssistant: React.FC = () => {
                 width: isMobile ? 50 : 58,
                 height: isMobile ? 50 : 58,
                 borderRadius: "50%",
-                backgroundColor: activeConfig.accentColor,
+                backgroundColor: "#10172A",
                 color: "#ffffff",
                 boxShadow: `0 6px 20px ${activeConfig.accentColor}70`,
                 transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                border: "3px solid #ffffff",
+                border: `3px solid ${activeConfig.accentColor}`,
+                p: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 "&:hover": {
                   transform: "scale(1.08)",
                   boxShadow: `0 8px 26px ${activeConfig.accentColor}90`,
-                  backgroundColor: activeConfig.accentColor,
+                  backgroundColor: "#10172A",
                 },
                 "&:focus-visible": {
                   outline: `3px solid ${activeConfig.accentColor}`,
@@ -872,7 +863,7 @@ export const WorldNewzAssistant: React.FC = () => {
                 },
               }}
             >
-              <SmartToyIcon sx={{ fontSize: isMobile ? 26 : 30 }} />
+              <WzChatbotIcon size={isMobile ? 38 : 44} variant="transparent" zColor="#C4272F" />
             </IconButton>
           </Box>
         </Tooltip>

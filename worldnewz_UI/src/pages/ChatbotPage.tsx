@@ -5,7 +5,6 @@ import {
   Divider, Tooltip, Fade, Grid 
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
 import PersonIcon from "@mui/icons-material/Person";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
@@ -16,6 +15,7 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { askChatbot } from "../api/apiClient";
 import type { ChatMessageDto } from "../api/apiClient";
+import { WzChatbotIcon } from "../components/common/WzChatbotIcon";
 
 interface Message {
   id: string;
@@ -224,18 +224,20 @@ export const ChatbotPage: React.FC = () => {
       ]} />
 
       <Container maxWidth="lg" sx={{ mt: 4 }}>
-        <Typography 
-          variant="h4" 
-          component="h1" 
-          sx={{ 
-            fontWeight: 900, 
-            letterSpacing: -0.5, 
-            mb: 1, 
-            fontFamily: "'Outfit', 'Inter', sans-serif" 
-          }}
-        >
-          AI NewsBot 🤖
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
+          <WzChatbotIcon size={42} variant="tile" borderRadius={10} bg="#10172A" zColor="#C4272F" />
+          <Typography 
+            variant="h4" 
+            component="h1" 
+            sx={{ 
+              fontWeight: 900, 
+              letterSpacing: -0.5, 
+              fontFamily: "'Outfit', 'Inter', sans-serif" 
+            }}
+          >
+            WorldNewz AI Assistant
+          </Typography>
+        </Box>
         <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
           Have a chat with our smart virtual assistant. Get quick summaries, insights, and category links.
         </Typography>
@@ -267,12 +269,10 @@ export const ChatbotPage: React.FC = () => {
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Avatar sx={{ backgroundColor: "#3b82f6" }}>
-                    <SmartToyIcon />
-                  </Avatar>
+                  <WzChatbotIcon size={38} variant="tile" borderRadius={9} bg="#10172A" zColor="#C4272F" />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "white" }}>
-                      NewsBot v1.2
+                      WorldNewz Assistant
                     </Typography>
                     <Typography variant="caption" sx={{ color: "#10b981", fontWeight: 700, display: "flex", alignItems: "center", gap: 0.5 }}>
                       <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#10b981" }} /> Online
@@ -298,9 +298,13 @@ export const ChatbotPage: React.FC = () => {
                         }}
                       >
                         <Box sx={{ display: "flex", gap: 1.5, maxWidth: "80%", alignItems: "flex-start", flexDirection: isBot ? "row" : "row-reverse" }}>
-                          <Avatar sx={{ backgroundColor: isBot ? "#1e293b" : "#3b82f6", width: 36, height: 36 }}>
-                            {isBot ? <SmartToyIcon sx={{ fontSize: 20 }} /> : <PersonIcon sx={{ fontSize: 20 }} />}
-                          </Avatar>
+                          {isBot ? (
+                            <WzChatbotIcon size={36} variant="tile" borderRadius={8} bg="#10172A" zColor="#C4272F" />
+                          ) : (
+                            <Avatar sx={{ backgroundColor: "#3b82f6", width: 36, height: 36 }}>
+                              <PersonIcon sx={{ fontSize: 20 }} />
+                            </Avatar>
+                          )}
                           
                           <Box>
                             <Paper 
@@ -419,13 +423,11 @@ export const ChatbotPage: React.FC = () => {
                 {/* Thinking animation indicator */}
                 {loading && (
                   <Box sx={{ display: "flex", gap: 1.5, alignItems: "center", pl: 1 }}>
-                    <Avatar sx={{ backgroundColor: "#1e293b", width: 36, height: 36 }}>
-                      <SmartToyIcon sx={{ fontSize: 20 }} />
-                    </Avatar>
+                    <WzChatbotIcon size={36} variant="tile" borderRadius={8} bg="#10172A" zColor="#C4272F" />
                     <Box sx={{ p: 1.5, borderRadius: "4px 16px 16px 16px", backgroundColor: "#161b22", border: "1px solid rgba(255,255,255,0.06)", display: "flex", gap: 0.5 }}>
                       <CircularProgress size={16} sx={{ color: "#3b82f6" }} />
                       <Typography variant="body2" sx={{ color: "text.secondary", ml: 1 }}>
-                        NewsBot is thinking...
+                        WorldNewz Assistant is thinking...
                       </Typography>
                     </Box>
                   </Box>
