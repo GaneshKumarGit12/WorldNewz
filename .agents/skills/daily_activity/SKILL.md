@@ -50,7 +50,20 @@ headers_list = [
 
 ---
 
-## Step 3: Rotation Queue & SEO Verification
+## Step 3: Amazon Creator API v3.2 & Fallback Architecture
+WorldNewz operates on a dual-mode Amazon architecture:
+
+1. **Live Creator API Mode (When Credentials Configured)**:
+   - **Environment Variables**: `AMAZON_CLIENT_ID`, `AMAZON_CLIENT_SECRET`, `AMAZON_ASSOCIATE_TAG` (default: `ganeshd12-21`), `AMAZON_SCOPE` (default: `creators::api`), `AMAZON_MARKETPLACE_HOST` (default: `www.amazon.in`).
+   - **Token Refresh**: Uses LWA OAuth2 `grant_type=client_credentials` with `scope=creators::api` cached in memory with a 90% TTL buffer.
+   - **Background Sync**: `AmazonTokenBackgroundRefreshService` proactively refreshes tokens every 45 minutes; `AmazonProductRefreshJob` refreshes live pricing & images daily via Quartz.
+2. **Offline Fallback Catalog Mode (Default)**:
+   - When credentials are not provisioned, `AmazonCreatorApiService.IsConfigured` evaluates to `false`.
+   - The system automatically serves the high-performance PostgreSQL/SQLite seed catalog without failing HTTP requests or throwing auth exceptions.
+
+---
+
+## Step 4: Rotation Queue & SEO Verification
 Verify that both components on the frontend are correctly rotating the products in a 4-hour queue:
 
 1. **Shopping List (Home)**: [ShoppingWidget.tsx](file:///c:/WorldNewz/worldnewz_UI/src/components/ShoppingWidget.tsx) must fetch products dynamically and run `getRotatedProducts(products)` to rotate the active deck every 4 hours:
@@ -60,13 +73,13 @@ Verify that both components on the frontend are correctly rotating the products 
    ```
 2. **Contextual Deals (News Articles)**: [ContextualDealsWidget.tsx](file:///c:/WorldNewz/worldnewz_UI/src/components/ContextualDealsWidget.tsx) must fetch live products, filter them by article category, and rotate them using the same 4-hour epoch block calculation.
 3. **SEO Requirements**: All product cards must:
-   - Use semantic tags (e.g. `<section>` landmarks).
+   - Use semantic `<aside>` or `<section>` tags.
    - Lazy load images with explicit container sizes/ratios to prevent Cumulative Layout Shift (CLS).
-   - Use unique and descriptive button IDs: `id={`contextual-deal-btn-${deal.asin}`}`.
+   - Use unique and descriptive button IDs: `id={`btn-buy-amazon-${deal.asin}`}`.
 
 ---
 
-## Step 4: Verification & Deployment
+## Step 5: Verification & Deployment
 1. **Compile Backend**: Run `dotnet build` inside `WorldNewzWebAPI` to verify no compilation errors exist.
 2. **Compile Frontend**: Run `npm run build` inside `worldnewz_UI` to check for TypeScript type mismatches or build issues.
 3. **Commit & Push**:

@@ -80,7 +80,7 @@ namespace WorldNewzWebAPI.Services
 
             var asins = products.Select(p => p.Asin).Where(a => !string.IsNullOrWhiteSpace(a)).ToList();
 
-            if (_creatorApiService != null && asins.Count > 0)
+            if (_creatorApiService != null && _creatorApiService.IsConfigured && asins.Count > 0)
             {
                 try
                 {

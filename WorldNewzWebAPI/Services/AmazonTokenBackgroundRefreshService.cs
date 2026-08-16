@@ -26,6 +26,12 @@ namespace WorldNewzWebAPI.Services
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            if (!_apiService.IsConfigured)
+            {
+                _logger.LogInformation("[AmazonTokenBackgroundRefreshService] Amazon Creator API credentials not configured. Background token refresh suspended.");
+                return;
+            }
+
             _logger.LogInformation("[AmazonTokenBackgroundRefreshService] Background token refresh timer initialized.");
 
             while (!stoppingToken.IsCancellationRequested)

@@ -43,6 +43,16 @@ namespace WorldNewzWebAPI.Services
         private readonly string _associateTag;
         private readonly string _tokenEndpoint;
         private readonly string _marketplaceHost;
+        private readonly string _scope;
+
+        /// <summary>
+        /// Indicates whether real Amazon Creator API credentials are provided.
+        /// </summary>
+        public bool IsConfigured =>
+            !string.IsNullOrWhiteSpace(_clientId) &&
+            !_clientId.StartsWith("YOUR_", StringComparison.OrdinalIgnoreCase) &&
+            !string.IsNullOrWhiteSpace(_clientSecret) &&
+            !_clientSecret.StartsWith("YOUR_", StringComparison.OrdinalIgnoreCase);
 
         public AmazonCreatorApiService(
             HttpClient httpClient,
@@ -67,11 +77,17 @@ namespace WorldNewzWebAPI.Services
                              ?? config["AmazonCreatorApi:AssociateTag"]
                              ?? "ganeshd12-21";
 
-            _tokenEndpoint = config["AmazonCreatorApi:TokenEndpoint"]
+            _tokenEndpoint = Environment.GetEnvironmentVariable("AMAZON_TOKEN_ENDPOINT")
+                            ?? config["AmazonCreatorApi:TokenEndpoint"]
                             ?? "https://api.amazon.com/auth/o2/token";
 
-            _marketplaceHost = config["AmazonCreatorApi:MarketplaceHost"]
+            _marketplaceHost = Environment.GetEnvironmentVariable("AMAZON_MARKETPLACE_HOST")
+                               ?? config["AmazonCreatorApi:MarketplaceHost"]
                                ?? "www.amazon.in";
+
+            _scope = Environment.GetEnvironmentVariable("AMAZON_SCOPE")
+                     ?? config["AmazonCreatorApi:Scope"]
+                     ?? "creators::api";
         }
 
         /// <summary>
@@ -80,6 +96,12 @@ namespace WorldNewzWebAPI.Services
         /// </summary>
         public async Task<string> GetAccessTokenAsync()
         {
+            if (!IsConfigured)
+            {
+                _logger.LogDebug("[AmazonCreatorApiService] Amazon Creator API credentials are not configured. Using offline seed catalog.");
+                return string.Empty;
+            }
+
             if (_cache.TryGetValue<string>(TokenCacheKey, out var cachedToken) && !string.IsNullOrWhiteSpace(cachedToken))
             {
                 return cachedToken;
@@ -96,18 +118,14 @@ namespace WorldNewzWebAPI.Services
 
                 _logger.LogInformation("[AmazonCreatorApiService] Requesting fresh OAuth2 token from Amazon...");
 
+                var scopeToUse = !string.IsNullOrWhiteSpace(_scope) ? _scope : "creators::api";
                 var formParams = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("grant_type", "client_credentials"),
                     new KeyValuePair<string, string>("client_id", _clientId),
-                    new KeyValuePair<string, string>("client_secret", _clientSecret)
+                    new KeyValuePair<string, string>("client_secret", _clientSecret),
+                    new KeyValuePair<string, string>("scope", scopeToUse)
                 };
-
-                var scope = _config["AmazonCreatorApi:Scope"];
-                if (!string.IsNullOrWhiteSpace(scope))
-                {
-                    formParams.Add(new KeyValuePair<string, string>("scope", scope));
-                }
 
                 var requestBody = new FormUrlEncodedContent(formParams);
 
@@ -167,7 +185,7 @@ namespace WorldNewzWebAPI.Services
         /// </summary>
         public async Task<List<AmazonCreatorItemDto>> BatchGetItemDetailsAsync(List<string> asins)
         {
-            if (asins == null || asins.Count == 0) return new List<AmazonCreatorItemDto>();
+            if (!IsConfigured || asins == null || asins.Count == 0) return new List<AmazonCreatorItemDto>();
 
             var cleanAsins = asins.Where(a => !string.IsNullOrWhiteSpace(a)).Distinct().ToList();
             if (cleanAsins.Count == 0) return new List<AmazonCreatorItemDto>();
