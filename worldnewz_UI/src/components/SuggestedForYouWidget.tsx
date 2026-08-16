@@ -15,7 +15,7 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
-interface TopicItem {
+export interface TopicItem {
   id: string;
   name: string;
   icon: React.ReactNode;
@@ -23,51 +23,52 @@ interface TopicItem {
   categoryKeyword: string; // keyword mapped to filter news
 }
 
-interface SuggestedForYouWidgetProps {
+export interface SuggestedForYouWidgetProps {
   onTopicsChange?: (topics: string[]) => void;
+  onTopicSelect?: (topicId: string) => void;
+  activeTopicId?: string;
 }
 
-const defaultTopics = [
-  {
-    id: "top-movies",
-    name: "Movies",
-    icon: <MovieIcon sx={{ fontSize: 16 }} />,
-    followed: false,
-    categoryKeyword: "movies",
-  },
+export const defaultTopics: Omit<TopicItem, "followed">[] = [
   {
     id: "top-ai",
     name: "Artificial Intelligence",
     icon: <PsychologyIcon sx={{ fontSize: 16 }} />,
-    followed: false,
     categoryKeyword: "technology",
+  },
+  {
+    id: "top-movies",
+    name: "Movies",
+    icon: <MovieIcon sx={{ fontSize: 16 }} />,
+    categoryKeyword: "movies",
   },
   {
     id: "top-gaming",
     name: "Gaming Accessories",
     icon: <SportsEsportsIcon sx={{ fontSize: 16 }} />,
-    followed: false,
     categoryKeyword: "gaming",
   },
   {
     id: "top-playstation",
     name: "PlayStation",
     icon: <SportsEsportsIcon sx={{ fontSize: 16 }} />,
-    followed: false,
     categoryKeyword: "gaming",
   },
   {
     id: "top-stocks",
     name: "Stocks",
     icon: <ShowChartIcon sx={{ fontSize: 16 }} />,
-    followed: false,
     categoryKeyword: "stocks",
   },
 ];
 
 const LOCAL_STORAGE_KEY = "worldnewz_followed_topics";
 
-export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ onTopicsChange }) => {
+export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ 
+  onTopicsChange, 
+  onTopicSelect,
+  activeTopicId 
+}) => {
   const [topics, setTopics] = useState<TopicItem[]>(() => {
     const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (stored) {
@@ -78,10 +79,10 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ on
           followed: parsed.includes(topic.categoryKeyword),
         }));
       } catch {
-        return defaultTopics;
+        return defaultTopics.map((t) => ({ ...t, followed: false }));
       }
     }
-    return defaultTopics;
+    return defaultTopics.map((t) => ({ ...t, followed: false }));
   });
 
   useEffect(() => {
@@ -94,7 +95,8 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ on
     }
   }, []);
 
-  const handleToggleFollow = (id: string) => {
+  const handleToggleFollow = (id: string, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     const updated = topics.map((t) =>
       t.id === id ? { ...t, followed: !t.followed } : t
     );
@@ -109,6 +111,15 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ on
 
     if (onTopicsChange) {
       onTopicsChange(followedKeywords);
+    }
+    if (onTopicSelect) {
+      onTopicSelect(id);
+    }
+  };
+
+  const handleRowClick = (id: string) => {
+    if (onTopicSelect) {
+      onTopicSelect(id);
     }
   };
 
@@ -142,65 +153,82 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ on
         </Box>
 
         <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 2, fontWeight: 500 }}>
-          Follow topics to see more of what you like
+          Follow topics to see real-time intelligence feeds
         </Typography>
 
         {/* Topics checklist */}
         <Box sx={{ display: "flex", flexDirection: "column", gap: 1, flex: 1, overflowY: "auto", pr: 0.5 }}>
-          {topics.map((topic) => (
-            <Box
-              key={topic.id}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                bgcolor: "action.hover",
-                p: 1,
-                px: 1.5,
-                borderRadius: 3,
-                border: "1px solid",
-                borderColor: topic.followed ? "primary.light" : "divider",
-                transition: "border-color 0.2s",
-              }}
-            >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                <Avatar
-                  sx={{
-                    width: 28,
-                    height: 28,
-                    bgcolor: topic.followed ? "accent-bg" : "action.selected",
-                    color: topic.followed ? "primary.main" : "text.secondary",
-                  }}
-                >
-                  {topic.icon}
-                </Avatar>
-                <Typography variant="body2" sx={{ fontWeight: 700, fontSize: "0.85rem", color: "text.primary" }}>
-                  {topic.name}
-                </Typography>
-              </Box>
-
-              <IconButton
-                size="small"
-                onClick={() => handleToggleFollow(topic.id)}
-                id={`topic-toggle-${topic.name.replace(/\s+/g, "")}`}
+          {topics.map((topic) => {
+            const isSelected = activeTopicId === topic.id;
+            return (
+              <Box
+                key={topic.id}
+                onClick={() => handleRowClick(topic.id)}
                 sx={{
-                  bgcolor: topic.followed ? "primary.main" : "action.selected",
-                  color: topic.followed ? "primary.contrastText" : "text.secondary",
-                  width: 24,
-                  height: 24,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  bgcolor: isSelected ? "rgba(183, 34, 43, 0.08)" : "action.hover",
+                  p: 1,
+                  px: 1.5,
+                  borderRadius: 3,
+                  border: "1.5px solid",
+                  borderColor: isSelected ? "var(--red, #B7222B)" : (topic.followed ? "primary.light" : "divider"),
+                  cursor: "pointer",
+                  transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                   "&:hover": {
-                    bgcolor: topic.followed ? "primary.dark" : "action.hover",
+                    borderColor: "var(--red, #B7222B)",
+                    transform: "translateX(2px)",
                   },
                 }}
               >
-                {topic.followed ? (
-                  <CheckIcon sx={{ fontSize: 14 }} />
-                ) : (
-                  <AddIcon sx={{ fontSize: 14 }} />
-                )}
-              </IconButton>
-            </Box>
-          ))}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                  <Avatar
+                    sx={{
+                      width: 28,
+                      height: 28,
+                      bgcolor: isSelected || topic.followed ? "var(--red, #B7222B)" : "action.selected",
+                      color: isSelected || topic.followed ? "#FFFFFF" : "text.secondary",
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    {topic.icon}
+                  </Avatar>
+                  <Typography 
+                    variant="body2" 
+                    sx={{ 
+                      fontWeight: isSelected ? 800 : 700, 
+                      fontSize: "0.85rem", 
+                      color: isSelected ? "var(--red, #B7222B)" : "text.primary" 
+                    }}
+                  >
+                    {topic.name}
+                  </Typography>
+                </Box>
+
+                <IconButton
+                  size="small"
+                  onClick={(e) => handleToggleFollow(topic.id, e)}
+                  id={`topic-toggle-${topic.name.replace(/\s+/g, "")}`}
+                  sx={{
+                    bgcolor: topic.followed ? "primary.main" : "action.selected",
+                    color: topic.followed ? "primary.contrastText" : "text.secondary",
+                    width: 24,
+                    height: 24,
+                    "&:hover": {
+                      bgcolor: topic.followed ? "primary.dark" : "action.hover",
+                    },
+                  }}
+                >
+                  {topic.followed ? (
+                    <CheckIcon sx={{ fontSize: 14 }} />
+                  ) : (
+                    <AddIcon sx={{ fontSize: 14 }} />
+                  )}
+                </IconButton>
+              </Box>
+            );
+          })}
         </Box>
 
         {/* Footer Link */}

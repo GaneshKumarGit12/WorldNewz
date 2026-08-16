@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import React, { useEffect, useState, useMemo } from "react";
+import { useOutletContext, Link as RouterLink, useNavigate } from "react-router-dom";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import CircularProgress from "@mui/material/CircularProgress";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+
 import NewsGrid from "./NewsGrid";
 import SectionStatus from "./SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
@@ -15,11 +20,18 @@ import { useComments } from "../hooks/useComments";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
-import { useColorMode } from "../context/ThemeContext";
 import { deduplicateArticles } from "../utils/deduplicate";
-import { optimizeImageUrl } from "../utils/imageOptimizer";
+import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
+import { formatTimeAgoLong } from "../utils/formatTime";
 import { AffiliateDeals } from "./AffiliateDeals";
 import { CategoryEditorial } from "./CategoryEditorial";
+import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
+import { PersonalizedTopicHub } from "./PersonalizedTopicHub";
+import { TopStoriesSection } from "./TopStoriesSection";
+import { ShoppingWidget } from "./ShoppingWidget";
+import { WatchlistWidget } from "./WatchlistWidget";
+import { WeatherWidget } from "./WeatherWidget";
+import { getCategoryFallbackArticles, fallbackDiscoverArticles } from "../utils/fallbackArticles";
 
 interface CategoryPageProps {
   categoryKey: string;
@@ -30,45 +42,26 @@ interface CategoryPageProps {
 }
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  politics: `This page provides comprehensive, real-time updates on global and regional political developments, elections, government policy changes, and legislative reforms. Our system pulls from verified, high-authority news platforms, governmental press releases, and seasoned journalistic agencies. To guarantee the utmost accuracy and impartiality, all political stories undergo automated semantic analysis and fact-checking validations to filter out sensationalism or unverified rumors. By cross-referencing multiple reports of the same event, we deliver a balanced perspective on critical administrative decisions. This ensures that readers receive highly reliable updates suitable for authoritative research. Each news entry is enriched with contextual breakdowns, making complex political events easier to grasp.`,
-  
-  technology: `Stay ahead of the curve with our technology channel, highlighting breakthroughs in Artificial Intelligence, consumer electronics, software, cybersecurity, and tech policy. Our articles are sourced from elite technology blogs, scientific journals, industry summits, and developer network feeds. Every piece of technological news is filtered to focus on factual developments, verified benchmark results, and legitimate product releases rather than speculative vaporware. We cross-verify specs, company statements, and developer documentations to ensure readers get accurate information. This section serves as a premier resource for IT professionals, gadget enthusiasts, and researchers seeking credible technological insights. The data is optimized for rapid loading so you can browse the latest innovations on the go.`,
-  
-  business: `Our business vertical covers financial markets, startup ecosystem updates, corporate merges, macroeconomic policies, and thorough industry analysis. Sourced directly from major financial terminals, market registries, and reputable economic research bodies, the coverage is geared towards accuracy and relevance. We filter out speculative market chatters and focus on hard regulatory filings, quarterly statements, and concrete corporate actions. The news goes through rigorous validation and deduplication to ensure that you get a clear and clean picture of current economic shifts. Our goal is to provide investors and entrepreneurs with reliable intelligence they can act on confidently. Designed for maximum utility, the layout loads stock-related data and market highlights instantly.`,
-  
-  "science-health": `Explore the frontiers of human knowledge with our dedicated Science & Health page, featuring major medical breakthroughs, space exploration, and environmental studies. Sourced from peer-reviewed scientific journals, research institutions, healthcare registries, and environmental monitoring networks, our articles are both educational and highly accurate. We avoid sensationalized headlines and medical advice, focusing instead on verified studies, clinical trial results, and peer-reviewed consensus. Our enrichment service highlights key scientific metrics and provides a simplified overview of complex research methodologies. This ensures that students, professionals, and curious minds receive reliable, educational material free from pseudoscientific claims.`,
-  
-  lifestyle: `Welcome to our curated Lifestyle section, covering fashion, global culture, modern wellness, interior design, and personal growth. Our articles are sourced from renowned design journals, wellness experts, cultural commentators, and global trend reports. We focus on mindful living, expert wellness guidelines, and sustainable fashion choices, filtering out low-quality clickbait and influencer ads. Every story is selected for its high readability and inspirational value, ensuring a premium browsing experience. By verifying the credentials of wellness contributors and design professionals, we keep the content reliable and engaging. The pages are designed with soft, beautiful aesthetics that load fluidly, offering a relaxing and premium reading experience.`,
-  
-  education: `Our Education hub is designed for students, educators, and career seekers, offering study resources, exam schedules, academic news, and career guidance. We pull news from national education boards, university research offices, certified tutoring councils, and employment data agencies. Accuracy is crucial when it comes to dates, exam patterns, and career advice, which is why we run multi-source verification on all academic alerts. We filter out clickbait study tips and focus on actionable, verified educational policies and resources. This serves as a trusted guide to support personal growth, career navigation, and student success.`,
-  
-  opinion: `Engage with thoughtful editorials, expert analysis, and diverse reader perspectives in our Opinion section. Sourced from leading think-tanks, veteran journalists, policy advisors, and academic experts, these articles offer deep dives into contemporary social debates. While opinion pieces are subjective by nature, we maintain factual accuracy by verifying references, statistics, and historical claims mentioned in the columns. We filter out extreme bias or hateful content, presenting instead structured arguments that foster healthy intellectual dialogue. This section helps differentiate WorldNewzs from generic aggregators by providing high-quality, thought-provoking perspectives.`,
-  
-  trending: `Catch the pulse of the internet with our Trending page, compiling viral stories, social media buzz, popular memes, and pop culture updates. Sourced from social media analytics, trending index boards, and popular internet culture forums, we keep you informed on what the world is talking about. To prevent the spread of misinformation, we verify the origin of viral stories and label satirical or unverified reports clearly. We filter out low-value spam to deliver the most engaging, culturally relevant stories. This section keeps you connected to modern pop culture with high-speed updates.`,
-  
-  "podcasts-videos": `Dive into our rich multimedia section featuring engaging interviews, visual explainers, audio podcasts, and short documentary clips. Sourced from verified video journals, academic podcasters, and independent multimedia creators, these assets provide a highly engaging experience. We verify the authenticity and copyright status of all media to ensure they come from credible producers. The videos and audios are optimized for adaptive streaming and quick load times, ensuring a buffer-free experience on mobile and desktop. This section increases time-on-site and adds a rich layer of interactivity to our news platform.`,
-  
-  "local-news": `Stay updated with high-value regional news from Telangana, Hyderabad, and major cities across India. Sourced from regional news bureaus, local municipalities, state government updates, and regional correspondents, we cover local politics, development, traffic, and civic issues. We cross-verify all local updates against official municipal statements to ensure high accuracy. By prioritizing local stories, we bring regional relevance directly to your screen, ensuring that civic issues and regional achievements get the coverage they deserve.`,
-
-  sports: `Welcome to our sports arena, delivering real-time coverage of global athletics, soccer, basketball, tennis, cricket tournaments, and Olympic events. Sourced from authorized sports federations, official club announcements, and leading sports journalists, our reports keep you up-to-date with match results, transfer news, player statistics, and injury updates. All articles undergo verification to ensure accurate scores, schedules, and league tables, filtering out rumors and clickbait fan commentary. Whether you are tracking the Premier League, NBA, or regional championships, find objective and fact-checked reporting here.`,
-
-  money: `Navigate your personal finances, wealth management, savings, real estate trends, tax planning, and investment strategies with our dedicated Money channel. We pull insights from certified financial advisors, consumer protection bureaus, banking statements, and macroeconomic indices. To ensure the highest relevance, we filter out speculative get-rich-quick schemes, focusing instead on verified budgeting guidelines, interest rate updates, retirement planning advice, and secure wealth preservation techniques. Each story is verified to provide actionable and reliable guidance for managing your assets.`,
-
-  weather: `Get accurate and hyper-local meteorological updates, long-range forecasts, severe weather alerts, and climate analysis. Sourced from the national meteorological services, space agencies, and climate research stations, our reports cover temperature changes, precipitation levels, air quality indices, and UV advisories. To guarantee reliability, all meteorological alerts are cross-referenced with emergency broadcast networks and local municipal feeds, ensuring our readers receive timely safety warnings and precise climate data to plan their day.`,
-
-  shopping: `Discover the best consumer guides, product reviews, e-commerce deals, and retail trends in our Shopping vertical. Sourced from consumer protection groups, product testing labs, verified buyer feedback, and retail indices, our reviews help you make informed purchasing decisions. We run verification to check discount authenticity, product warranty claims, and recall notices, protecting you from counterfeit listings and artificial price inflations. Each article is curated alongside active affiliate deals to bring you verified savings.`,
-
-  travel: `Embark on your next journey with our comprehensive Travel guide, featuring destination reviews, transit advisories, hotel guides, cultural insights, and travel safety tips. Sourced from tourism boards, airline announcements, global health advisories, and local travel experts, we cover everything from budget backpacking to luxury cruises. We cross-verify travel requirements, visa regulations, and local safety updates to provide accurate, reliable instructions. Filtered to highlight authentic travel experiences and cultural respect, this channel is your trusted companion.`,
-
-  food: `Savor culinary trends, gourmet recipes, restaurant guides, food science, and dietary advice on our Food channel. Sourced from certified nutritionists, culinary institutes, restaurant critics, and food safety agencies, our articles celebrate global cuisines and healthy eating. We verify the accuracy of recipes, health benefits, and food recall reports to ensure a high-quality reading experience free from fad diets or unscientific nutrition advice. Perfect for home cooks and food enthusiasts looking for trustworthy kitchen guidance.`,
-
-  entertainment: `Get your front-row seat to the entertainment industry, featuring movie reviews, celebrity news, music releases, box office reports, and theatre updates. Sourced from industry registries, film festivals, streaming networks, and verified entertainment correspondents, we provide comprehensive coverage of pop culture. We cross-verify industry announcements and interview transcripts to ensure our coverage is factual, avoiding unfounded gossip. Find reliable reviews and behind-the-scenes insights here.`,
-
-  services: `Explore professional solutions, business consultancies, utilities, software-as-a-service (SaaS) reviews, and digital service platforms. We aggregate insights from industry analysts, software developers, corporate customer reviews, and technology consultants. To assist business managers and developers, we cross-verify platform features, pricing plans, security compliance, and user satisfaction ratings, delivering unbiased reviews of services that power modern enterprises.`,
-
-  gaming: `Level up your gaming knowledge with updates on video game releases, hardware reviews, e-sports tournaments, patch notes, and console specs. Sourced from gaming studios, e-sports leagues, certified hardware testers, and major gaming publications, we cover Xbox, PlayStation, Nintendo, PC, and mobile gaming. We verify technical specifications, launch dates, and e-sports scores, keeping our coverage accurate and free from rumor-mongering.`,
-
-  cartoons: `Delve into the vibrant world of animation, anime, manga, and comic books on our Cartoons page. Sourced from animation studios, comic conventions, comic book publishers, and pop culture historians, we cover everything from classic cartoons to modern anime. We verify release calendars, studio announcements, and character designs, providing a dedicated and accurate space for fans and researchers alike.`
+  politics: `Comprehensive, real-time updates on global and regional political developments, elections, government policy changes, and legislative reforms. Sourced from verified, high-authority news platforms and governmental press releases.`,
+  technology: `Breakthroughs in Artificial Intelligence, consumer electronics, software, cybersecurity, and tech policy. Sourced from elite technology journals, industry summits, and developer feeds.`,
+  business: `Financial markets, startup ecosystem updates, corporate merges, macroeconomic policies, and thorough industry analysis sourced directly from financial terminals and economic registries.`,
+  "science-health": `Frontiers of human knowledge featuring major medical breakthroughs, space exploration, and environmental studies sourced from peer-reviewed scientific journals and research institutions.`,
+  lifestyle: `Curated coverage on fashion, global culture, modern wellness, interior design, and personal growth sourced from renowned design journals and expert commentators.`,
+  education: `Study resources, exam schedules, academic news, and career guidance for students, educators, and career seekers.`,
+  opinion: `Thoughtful editorials, expert analysis, and diverse reader perspectives sourced from leading think-tanks, veteran journalists, and policy advisors.`,
+  trending: `Viral stories, social media buzz, popular memes, and pop culture updates compiled with real-time fact checking.`,
+  "podcasts-videos": `Multimedia section featuring engaging interviews, visual explainers, audio podcasts, and short documentary clips.`,
+  "local-news": `High-value regional news covering local politics, development, traffic, and civic issues.`,
+  sports: `Real-time coverage of global athletics, soccer, basketball, tennis, cricket tournaments, and Olympic events.`,
+  money: `Personal finances, wealth management, savings, real estate trends, tax planning, and investment strategies.`,
+  weather: `Accurate and hyper-local meteorological updates, long-range forecasts, severe weather alerts, and climate analysis.`,
+  shopping: `Consumer guides, product reviews, e-commerce deals, and retail trends sourced from consumer protection groups.`,
+  travel: `Destination reviews, transit advisories, hotel guides, cultural insights, and travel safety tips.`,
+  food: `Culinary trends, gourmet recipes, restaurant guides, food science, and dietary advice.`,
+  entertainment: `Movie reviews, celebrity news, music releases, box office reports, and theatre updates.`,
+  services: `Professional solutions, business consultancies, utilities, software-as-a-service (SaaS) reviews, and digital service platforms.`,
+  gaming: `Video game releases, hardware reviews, e-sports tournaments, patch notes, and console specs.`,
+  cartoons: `Animation, anime, manga, and comic books curated from animation studios and historians.`
 };
 
 const CategoryPage: React.FC<CategoryPageProps> = ({
@@ -78,8 +71,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   keywords,
   fetchApi
 }) => {
-  const { mode } = useColorMode();
-  const isDark = mode === "dark";
+  const navigate = useNavigate();
 
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
   const searchTerm = outletContext?.searchTerm ?? "";
@@ -87,6 +79,22 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [personalTab, setPersonalTab] = useState<"recommended" | "trending">("recommended");
+  const [followedTopics, setFollowedTopics] = useState<string[]>([]);
+  
+  const defaultTopicForCategory = useMemo(() => {
+    const key = (categoryKey || "").toLowerCase();
+    if (key.includes("movie") || key.includes("entertainment")) return "top-movies";
+    if (key.includes("game") || key.includes("gaming")) return "top-gaming";
+    if (key.includes("stock") || key.includes("money") || key.includes("business")) return "top-stocks";
+    return "top-ai";
+  }, [categoryKey]);
+
+  const [selectedTopicId, setSelectedTopicId] = useState<string>(defaultTopicForCategory);
+
+  useEffect(() => {
+    setSelectedTopicId(defaultTopicForCategory);
+  }, [defaultTopicForCategory]);
   
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
@@ -106,11 +114,46 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   const dynamicKeywordsData = useKeywords(categoryKey);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-  const filteredArticles = normalizedSearchTerm
-    ? articles.filter((a) =>
-        `${a.title} ${a.description ?? ""}`.toLowerCase().includes(normalizedSearchTerm)
+  const filteredArticles = useMemo(() => {
+    return normalizedSearchTerm
+      ? articles.filter((a) =>
+          `${a.title} ${a.description ?? ""}`.toLowerCase().includes(normalizedSearchTerm)
+        )
+      : articles;
+  }, [articles, normalizedSearchTerm]);
+
+  // Derived sections matching Home Page Editorial river
+  const leadStory = filteredArticles.length > 0 ? filteredArticles[0] : null;
+  const mostReadArticles = useMemo(() => {
+    const direct = filteredArticles.slice(1, 6);
+    if (direct.length >= 4) return direct;
+    const fallbacks = getCategoryFallbackArticles(title);
+    const pool = [...filteredArticles.slice(1), ...fallbacks, ...fallbackDiscoverArticles];
+    const unique: Article[] = [];
+    for (const item of pool) {
+      if (item && item.title !== leadStory?.title && !unique.some(u => u.title === item.title)) {
+        unique.push(item);
+      }
+      if (unique.length >= 5) break;
+    }
+    return unique;
+  }, [filteredArticles, leadStory, title]);
+
+  const topStoriesGrid = useMemo(() => filteredArticles.slice(6, 12), [filteredArticles]);
+  const remainingArticles = useMemo(() => (filteredArticles.length > 12 ? filteredArticles.slice(12) : filteredArticles), [filteredArticles]);
+
+  const recommendedArticles = useMemo(() => {
+    if (followedTopics.length === 0) return filteredArticles.slice(2, 6);
+    return filteredArticles.filter((art) =>
+      followedTopics.some(
+        (t) =>
+          (art.category && art.category.toLowerCase().includes(t.toLowerCase())) ||
+          (art.title && art.title.toLowerCase().includes(t.toLowerCase()))
       )
-    : articles;
+    ).slice(0, 5);
+  }, [filteredArticles, followedTopics]);
+
+  const trendingArticles = useMemo(() => filteredArticles.slice(5, 10), [filteredArticles]);
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
@@ -126,6 +169,16 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         }));
         
         if (formattedData.length === 0) {
+          if (currentPage === 1) {
+            setArticles(getCategoryFallbackArticles(title));
+            setHasMore(false);
+          } else {
+            setHasMore(false);
+          }
+        } else if (formattedData.length < 5 && currentPage === 1) {
+          const fallbacks = getCategoryFallbackArticles(title);
+          const combined = deduplicateArticles([...formattedData, ...fallbacks]);
+          setArticles(combined);
           setHasMore(false);
         } else {
           setArticles((prev) => {
@@ -135,8 +188,14 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         }
       })
       .catch((err) => {
-        console.error(`Error loading category: ${title}`, err);
-        setError(`Failed to load ${title.toLowerCase()} news`);
+        console.warn(`Category API request failed for ${title}, using curated fallback articles:`, err);
+        if (currentPage === 1) {
+          setArticles(getCategoryFallbackArticles(title));
+          setError(null);
+        } else {
+          setError(`Failed to load ${title.toLowerCase()} news`);
+        }
+        setHasMore(false);
       })
       .finally(() => {
         setLoading(false);
@@ -172,39 +231,23 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isFetchingMore, hasMore, loading]);
 
-  const description = CATEGORY_DESCRIPTIONS[categoryKey] || `Latest updates and news reports relating to ${title.toLowerCase()}.`;
-  const [dynamicDesc, setDynamicDesc] = useState(description.substring(0, 155) + "...");
+  const handleArticleClick = (art: Article) => {
+    const titleSlug = art.title?.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50) || "article";
+    navigate(`/read-article/${titleSlug}`, { state: { article: art } });
+  };
 
-  useEffect(() => {
-    const defaultDesc = CATEGORY_DESCRIPTIONS[categoryKey] || `Latest updates and news reports relating to ${title.toLowerCase()}.`;
-    if (articles.length > 0) {
-      const headlines = articles.slice(0, 3).map(a => a.title).join("; ");
-      const fullText = `Latest ${title} headlines: ${headlines}. Read verified reporting on WorldNewzs.`;
-      setDynamicDesc(fullText.substring(0, 155) + "...");
-    } else {
-      setDynamicDesc(defaultDesc.substring(0, 155) + "...");
-    }
-  }, [articles, categoryKey, title]);
+  const handlePlayGamesClick = () => {
+    navigate("/play-games");
+  };
 
-  // Dynamically preload the first article image to optimize LCP
-  useEffect(() => {
+  const description = CATEGORY_DESCRIPTIONS[categoryKey] || `Latest updates and verified news reports relating to ${title.toLowerCase()}.`;
+  const dynamicDesc = useMemo(() => {
     if (filteredArticles.length > 0) {
-      const firstArticle = filteredArticles[0];
-      const imageUrl = firstArticle.imageUrl || firstArticle.urlToImage;
-      if (imageUrl) {
-        const optimizedUrl = optimizeImageUrl(imageUrl, 500);
-        const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
-        if (!existingLink) {
-          const link = document.createElement("link");
-          link.rel = "preload";
-          link.as = "image";
-          link.href = optimizedUrl;
-          link.setAttribute("fetchpriority", "high");
-          document.head.appendChild(link);
-        }
-      }
+      const headlines = filteredArticles.slice(0, 3).map(a => a.title).join("; ");
+      return `Latest ${title} headlines: ${headlines}. Read verified reporting on WorldNewzs.`.substring(0, 155) + "...";
     }
-  }, [filteredArticles]);
+    return description.substring(0, 155) + "...";
+  }, [filteredArticles, title, description]);
 
   const combinedKeywords = dynamicKeywordsData
     ? [...new Set([...keywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
@@ -213,9 +256,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   const todayDate = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
   return (
-    <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
+    <Box sx={{ width: "100%", backgroundColor: "var(--paper)", minHeight: "100vh", py: { xs: 2, md: 4 } }}>
       <SEOMeta
-        title={`${title} News (${todayDate})`}
+        title={`${title} News (${todayDate}) — WorldNewzs`}
         description={`${descriptionToUse} (Updated ${todayDate})`}
         keywords={combinedKeywords}
         canonical={`https://worldnewzs.in/${categoryKey}`}
@@ -226,100 +269,675 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
         { name: title, url: `https://worldnewzs.in/${categoryKey}` }
       ]} />
 
-      {/* --- Reusable Premium Overview Info Box --- */}
-      <Card 
-        elevation={0}
-        sx={{ 
-          mb: 4, 
-          borderRadius: 4, 
-          border: "1px solid",
-          borderColor: "divider",
-          background: isDark 
-            ? "linear-gradient(135deg, #1e2530 0%, #161b22 100%)" 
-            : "linear-gradient(135deg, #f5f8ff 0%, #ffffff 100%)",
-          boxShadow: isDark 
-            ? "0 4px 20px rgba(0,0,0,0.3)" 
-            : "0 4px 20px rgba(0,0,0,0.03)"
+      <Box
+        className="wrap"
+        sx={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          px: { xs: 2, md: 3.5 },
         }}
       >
-        <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-          <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 2, mb: 2 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-              <Typography variant="h3" component="h1" sx={{ fontSize: { xs: "1.8rem", sm: "2.4rem" }, fontWeight: 800 }}>
-                {emoji} {title}
-              </Typography>
-            </Box>
-            
+        {/* --- Category Banner & Verification Status --- */}
+        <Box sx={{ mb: 3, pb: 2, borderBottom: "1px solid var(--line)" }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 1.5, mb: 1 }}>
+            <Typography
+              sx={{
+                fontFamily: "var(--mono)",
+                fontSize: "11px",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "var(--red)",
+              }}
+            >
+              Edition No. 4,821 · {title} Desk · Source Verification Active
+            </Typography>
+
             <Chip 
-              icon={<VerifiedIcon />}
+              icon={<VerifiedIcon sx={{ fontSize: "14px !important" }} />}
               label="Source Verification Active" 
               variant="outlined"
-              color="success"
+              size="small"
               sx={{ 
+                fontFamily: "var(--mono)",
+                fontSize: "10.5px",
                 fontWeight: 600,
-                borderRadius: 2,
+                color: "var(--gold)",
+                borderColor: "var(--gold)",
+                borderRadius: "2px",
               }}
             />
           </Box>
 
-          <Typography 
-            variant="body1" 
-            sx={{ 
-              color: "text.primary", 
-              lineHeight: 1.8, 
-              fontSize: { xs: "0.95rem", sm: "1.05rem" },
-              textAlign: "justify",
-              maxWidth: 900
+          <Typography
+            component="h1"
+            sx={{
+              fontFamily: "var(--serif)",
+              fontSize: { xs: "28px", sm: "36px", md: "40px" },
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              color: "var(--text)",
+              mb: 1,
+            }}
+          >
+            {emoji} {title}
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: "var(--sans)",
+              fontSize: { xs: "14px", sm: "15px" },
+              color: "var(--slate)",
+              lineHeight: 1.6,
+              maxWidth: 900,
             }}
           >
             {description}
           </Typography>
+        </Box>
 
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.25, mt: 3 }}>
-            <Chip label={`Latest coverage: ${filteredArticles.length} stories`} color="primary" variant="outlined" />
-            <Chip label={categoryKey === "services" ? "Service-focused discovery" : "Verified source pipeline"} color="success" variant="outlined" />
-            <Chip label={categoryKey === "sports" ? "Live sports updates" : "Editorially curated context"} color="default" variant="outlined" />
+        {/* --- 2-ZONE EDITORIAL RIVER LAYOUT --- */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", lg: "1fr 340px" },
+            gap: { xs: 3, lg: 5.5 },
+            alignItems: "start",
+          }}
+        >
+          {/* ================= LEFT MAIN EDITORIAL RIVER ================= */}
+          <Box component="section" sx={{ minWidth: 0 }}>
+            <SectionStatus 
+              loading={loading} 
+              error={error} 
+              hasData={filteredArticles.length > 0}
+              emptyText={normalizedSearchTerm ? "No results matching your search query." : `No articles currently available in ${title}.`}
+            >
+              {/* 1. HERO LEAD STORY & MOST READ RAIL */}
+              {leadStory && (
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", md: "1.65fr 1fr" },
+                    gap: 3.5,
+                    pb: 4,
+                    mb: 4,
+                    borderBottom: "1px solid var(--line)",
+                  }}
+                >
+                  {/* Lead Story */}
+                  <Box
+                    onClick={() => handleArticleClick(leadStory)}
+                    sx={{
+                      cursor: "pointer",
+                      display: "flex",
+                      flexDirection: "column",
+                      "&:hover .lead-title": { color: "var(--red-deep)" },
+                    }}
+                  >
+                    <Box
+                      className="art tone-red"
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: { xs: 220, sm: 300, md: 340 },
+                        borderRadius: "2px",
+                        overflow: "hidden",
+                        mb: 2,
+                        backgroundColor: "var(--paper-raise)",
+                      }}
+                    >
+                      <img
+                        src={optimizeImageUrl(leadStory.urlToImage || leadStory.imageUrl, 800, leadStory.category, leadStory.title)}
+                        alt={leadStory.title}
+                        loading="eager"
+                        fetchPriority="high"
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = getCategoryFallbackImage(leadStory.category, leadStory.title);
+                        }}
+                      />
+                    </Box>
+
+                    <Typography
+                      className="eyebrow"
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: "var(--red)",
+                        mb: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
+                      Featured Lead · {leadStory.category || title}
+                    </Typography>
+
+                    <Typography
+                      className="lead-title"
+                      component="h2"
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontSize: { xs: "24px", sm: "30px", md: "34px" },
+                        fontWeight: 700,
+                        lineHeight: 1.15,
+                        letterSpacing: "-0.015em",
+                        color: "var(--text)",
+                        mb: 1.5,
+                        transition: "color 0.2s ease",
+                      }}
+                    >
+                      {leadStory.title}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontStyle: "italic",
+                        fontSize: "16px",
+                        color: "var(--slate)",
+                        lineHeight: 1.55,
+                        mb: 2,
+                      }}
+                    >
+                      {leadStory.description || leadStory.summary}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        color: "var(--slate-light)",
+                      }}
+                    >
+                      By {(leadStory as any).author || "Editorial Desk"} · {formatTimeAgoLong(leadStory.publishedAt)}
+                    </Typography>
+                  </Box>
+
+                  {/* Most Read Rail */}
+                  <Box
+                    sx={{
+                      borderLeft: { xs: "none", md: "1px solid var(--line)" },
+                      pl: { xs: 0, md: 3 },
+                      pt: { xs: 2, md: 0 },
+                      borderTop: { xs: "1px solid var(--line)", md: "none" },
+                    }}
+                  >
+                    <Box
+                      className="section-head"
+                      sx={{
+                        display: "flex",
+                        alignItems: "baseline",
+                        justifyContent: "space-between",
+                        borderBottom: "1px solid var(--line)",
+                        pb: 1,
+                        mb: 2.5,
+                      }}
+                    >
+                      <Typography
+                        component="h2"
+                        sx={{
+                          fontFamily: "var(--serif)",
+                          fontSize: "18px",
+                          fontWeight: 700,
+                          color: "var(--text)",
+                        }}
+                      >
+                        Top Stories
+                      </Typography>
+                      <Typography
+                        component="span"
+                        sx={{
+                          fontFamily: "var(--mono)",
+                          fontSize: "10.5px",
+                          color: "var(--slate-light)",
+                        }}
+                      >
+                        Most Read
+                      </Typography>
+                    </Box>
+
+                    {mostReadArticles.map((art, idx) => (
+                      <Box
+                        key={art.url || idx}
+                        onClick={() => handleArticleClick(art)}
+                        sx={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 2,
+                          mb: 2.2,
+                          pb: 2,
+                          borderBottom: idx < mostReadArticles.length - 1 ? "1px solid var(--line-soft)" : "none",
+                          cursor: "pointer",
+                          "&:hover .rail-title": { color: "var(--red)" },
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontFamily: "var(--serif)",
+                            fontSize: "26px",
+                            fontWeight: 700,
+                            color: "var(--gold)",
+                            lineHeight: 1,
+                            minWidth: 22,
+                          }}
+                        >
+                          {idx + 1}
+                        </Typography>
+                        <Box>
+                          <Typography
+                            className="rail-title"
+                            sx={{
+                              fontFamily: "var(--sans)",
+                              fontSize: "13.5px",
+                              fontWeight: 600,
+                              lineHeight: 1.35,
+                              color: "var(--text)",
+                              mb: 0.5,
+                              transition: "color 0.2s ease",
+                            }}
+                          >
+                            {art.title}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontFamily: "var(--mono)",
+                              fontSize: "10.5px",
+                              color: "var(--slate-light)",
+                            }}
+                          >
+                            {art.category || title} · {formatTimeAgoLong(art.publishedAt)}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+
+              {/* 2. TOP STORIES WITH SELECTION & MULTI-API AGGREGATION */}
+              <TopStoriesSection
+                initialCategory={categoryKey}
+                initialArticles={topStoriesGrid}
+                onBookmark={addBookmark}
+                onRemoveBookmark={removeBookmark}
+                isBookmarked={isBookmarked}
+                onLike={toggleLike}
+                onDislike={toggleDislike}
+                onAddComment={addComment}
+                onDeleteComment={deleteComment}
+                onLikeComment={likeComment}
+                onDislikeComment={dislikeComment}
+                getEngagement={getEngagement}
+                columns={{ xs: 12, sm: 6 }}
+              />
+
+              {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB (DRIVEN BY TOPIC SELECTIONS) */}
+              <PersonalizedTopicHub
+                initialTopicId={selectedTopicId}
+                followedTopicIds={followedTopics}
+                onToggleFollow={(id) => {
+                  setFollowedTopics((prev) =>
+                    prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+                  );
+                }}
+              />
+
+              {/* 4. AFFILIATE DEALS FOR COMMERCE CATEGORIES */}
+              {["technology", "business", "science-health", "shopping", "money"].includes(categoryKey) && (
+                <Box sx={{ mb: 5 }}>
+                  <AffiliateDeals category={categoryKey} />
+                </Box>
+              )}
+
+              {/* 5. FULL CATEGORY FEED (NEWSGRID WITH LAYOUT CONTAINMENT) */}
+              <Box sx={{ mb: 4 }}>
+                <Box
+                  className="section-head"
+                  sx={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between",
+                    borderBottom: "1px solid var(--line)",
+                    pb: 1.2,
+                    mb: 3,
+                  }}
+                >
+                  <Typography
+                    component="h2"
+                    sx={{
+                      fontFamily: "var(--serif)",
+                      fontSize: "22px",
+                      fontWeight: 700,
+                      color: "var(--text)",
+                    }}
+                  >
+                    All {title} Coverage
+                  </Typography>
+                </Box>
+
+                <NewsGrid
+                  articles={remainingArticles}
+                  onBookmark={addBookmark}
+                  onRemoveBookmark={removeBookmark}
+                  isBookmarked={isBookmarked}
+                  onLike={toggleLike}
+                  onDislike={toggleDislike}
+                  onAddComment={addComment}
+                  onDeleteComment={deleteComment}
+                  onLikeComment={likeComment}
+                  onDislikeComment={dislikeComment}
+                  getEngagement={getEngagement}
+                  columns={{ xs: 12, sm: 6, md: 4 }}
+                  category={title}
+                />
+
+                {isFetchingMore && (
+                  <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+                    <CircularProgress size={36} sx={{ color: "var(--red)" }} />
+                  </Box>
+                )}
+              </Box>
+
+              {/* 6. CATEGORY SPECIFIC EDITORIAL PLAYBOOK */}
+              <CategoryEditorial categoryKey={categoryKey} />
+            </SectionStatus>
           </Box>
-        </CardContent>
-      </Card>
 
-      {/* --- Affiliate Deals --- */}
-      {["technology", "business", "science-health", "shopping", "money"].includes(categoryKey) && (
-        <AffiliateDeals category={categoryKey} />
-      )}
+          {/* ================= RIGHT FIXED SIDEBAR ================= */}
+          <Box component="aside" sx={{ display: "flex", flexDirection: "column", gap: 3.5, minWidth: 0 }}>
+            {/* 1. PERSONALIZATION TABBED CONTAINER ("For You") */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <Box sx={{ borderBottom: "1px solid var(--line)", pb: 1.5, mb: 2 }}>
+                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1 }}>
+                  <Typography
+                    sx={{
+                      fontFamily: "var(--mono)",
+                      fontSize: "11px",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "var(--red)",
+                    }}
+                  >
+                    Personalization
+                  </Typography>
+                </Box>
+                <Tabs
+                  value={personalTab}
+                  onChange={(_, val) => setPersonalTab(val)}
+                  sx={{
+                    minHeight: 32,
+                    "& .MuiTabs-indicator": { backgroundColor: "var(--red)", height: 2 },
+                  }}
+                >
+                  <Tab
+                    value="recommended"
+                    icon={<AutoAwesomeIcon sx={{ fontSize: 14 }} />}
+                    iconPosition="start"
+                    label="For You"
+                    sx={{
+                      fontSize: "12.5px",
+                      fontWeight: 600,
+                      fontFamily: "var(--sans)",
+                      textTransform: "none",
+                      minHeight: 32,
+                      py: 0.5,
+                      px: 1,
+                      color: "var(--slate)",
+                      "&.Mui-selected": { color: "var(--text)" },
+                    }}
+                  />
+                  <Tab
+                    value="trending"
+                    icon={<WhatshotIcon sx={{ fontSize: 14 }} />}
+                    iconPosition="start"
+                    label="Trending"
+                    sx={{
+                      fontSize: "12.5px",
+                      fontWeight: 600,
+                      fontFamily: "var(--sans)",
+                      textTransform: "none",
+                      minHeight: 32,
+                      py: 0.5,
+                      px: 1,
+                      color: "var(--slate)",
+                      "&.Mui-selected": { color: "var(--text)" },
+                    }}
+                  />
+                </Tabs>
+              </Box>
 
-      {/* --- Category Specific Editorial Guide --- */}
-      <CategoryEditorial categoryKey={categoryKey} />
+              <SuggestedForYouWidget 
+                onTopicsChange={setFollowedTopics} 
+                onTopicSelect={(topicId) => {
+                  setSelectedTopicId(topicId);
+                  const hubEl = document.getElementById("personalized-topic-hub");
+                  if (hubEl) {
+                    hubEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
+                activeTopicId={selectedTopicId}
+              />
 
-      {/* --- News Feed Rendering --- */}
-      <SectionStatus 
-        loading={loading} 
-        error={error} 
-        hasData={filteredArticles.length > 0}
-        emptyText={normalizedSearchTerm ? "No results matching your search query." : `No articles currently available in ${title}.`}
-        columns={{ xs: 12, sm: 6, md: 4 }}
-      >
-        <NewsGrid
-          articles={filteredArticles}
-          onBookmark={addBookmark}
-          onRemoveBookmark={removeBookmark}
-          isBookmarked={isBookmarked}
-          onLike={toggleLike}
-          onDislike={toggleDislike}
-          onAddComment={addComment}
-          onDeleteComment={deleteComment}
-          onLikeComment={likeComment}
-          onDislikeComment={dislikeComment}
-          getEngagement={getEngagement}
-          columns={{ xs: 12, sm: 6, md: 4 }}
-        />
-        
-        {isFetchingMore && (
-          <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
-            <CircularProgress size={36} />
+              <Box sx={{ mt: 2 }}>
+                {(personalTab === "recommended" ? recommendedArticles : trendingArticles).map((art, idx) => (
+                  <Box
+                    key={art.url || idx}
+                    onClick={() => handleArticleClick(art)}
+                    sx={{
+                      py: 1,
+                      borderBottom: idx < 3 ? "1px solid var(--line-soft)" : "none",
+                      cursor: "pointer",
+                      "&:hover .item-title": { color: "var(--red)" },
+                    }}
+                  >
+                    <Typography
+                      className="item-title"
+                      sx={{
+                        fontFamily: "var(--sans)",
+                        fontSize: "12.5px",
+                        fontWeight: 600,
+                        lineHeight: 1.35,
+                        color: "var(--text)",
+                        mb: 0.25,
+                      }}
+                    >
+                      {art.title}
+                    </Typography>
+                    <Typography sx={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--slate-light)" }}>
+                      {art.category || title}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Paper>
+
+            {/* 2. READER TOOLS (Quiz, Polls, Games) */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "var(--mono)",
+                  fontSize: "11px",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--slate-light)",
+                  mb: 1.5,
+                  pb: 1,
+                  borderBottom: "1px solid var(--line-soft)",
+                }}
+              >
+                Reader Utilities & Games
+              </Typography>
+
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "13.5px", fontWeight: 600, mb: 0.5, color: "var(--text)" }}>
+                    Daily News Quiz 🏆
+                  </Typography>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "12px", color: "var(--slate)", mb: 1 }}>
+                    Test your knowledge on today's headlines.
+                  </Typography>
+                  <Button
+                    component={RouterLink}
+                    to="/badge-quiz"
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      borderColor: "var(--line)",
+                      color: "var(--text)",
+                      fontSize: "11.5px",
+                      textTransform: "none",
+                      fontFamily: "var(--mono)",
+                    }}
+                  >
+                    Play Quiz →
+                  </Button>
+                </Box>
+
+                <Box sx={{ pt: 1.5, borderTop: "1px solid var(--line-soft)" }}>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "13.5px", fontWeight: 600, mb: 0.5, color: "var(--text)" }}>
+                    Community Opinion Poll 🗳️
+                  </Typography>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "12px", color: "var(--slate)", mb: 1 }}>
+                    Vote on active geopolitical and market questions.
+                  </Typography>
+                  <Button
+                    component={RouterLink}
+                    to="/polls"
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      borderColor: "var(--line)",
+                      color: "var(--text)",
+                      fontSize: "11.5px",
+                      textTransform: "none",
+                      fontFamily: "var(--mono)",
+                    }}
+                  >
+                    Vote in Poll →
+                  </Button>
+                </Box>
+
+                <Box sx={{ pt: 1.5, borderTop: "1px solid var(--line-soft)" }}>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "13.5px", fontWeight: 600, mb: 0.5, color: "var(--text)" }}>
+                    Arcade Games 🎮
+                  </Typography>
+                  <Button
+                    onClick={handlePlayGamesClick}
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      borderColor: "var(--line)",
+                      color: "var(--text)",
+                      fontSize: "11.5px",
+                      textTransform: "none",
+                      fontFamily: "var(--mono)",
+                    }}
+                  >
+                    Open Arcade →
+                  </Button>
+                </Box>
+              </Box>
+            </Paper>
+
+            {/* 3. MARKETPLACE PICKS (Sponsored) */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+                <Typography
+                  sx={{
+                    fontFamily: "var(--sans)",
+                    fontSize: "13.5px",
+                    fontWeight: 700,
+                    color: "var(--text)",
+                  }}
+                >
+                  Marketplace Picks
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "var(--mono)",
+                    fontSize: "10px",
+                    color: "var(--slate-light)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    backgroundColor: "var(--paper)",
+                    px: 1,
+                    py: 0.25,
+                    borderRadius: "2px",
+                  }}
+                >
+                  Sponsored
+                </Typography>
+              </Box>
+
+              <ShoppingWidget />
+            </Paper>
+
+            {/* 4. WATCHLIST & WEATHER DATA WIDGETS */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "var(--mono)",
+                  fontSize: "11px",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--slate-light)",
+                  mb: 1.5,
+                }}
+              >
+                Market Watchlist
+              </Typography>
+              <WatchlistWidget />
+            </Paper>
+
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <WeatherWidget />
+            </Paper>
           </Box>
-        )}
-      </SectionStatus>
+        </Box>
+      </Box>
     </Box>
   );
 };

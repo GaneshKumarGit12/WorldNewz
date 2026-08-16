@@ -21,7 +21,7 @@ export const PrivacyPolicyPage = () => (
     ]} />
 
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Box component="main" itemScope itemType="https://schema.org/WebPage">
+      <Box component="section" itemScope itemType="https://schema.org/WebPage">
         <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
           Privacy Policy
         </Typography>

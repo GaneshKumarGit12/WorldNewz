@@ -16,7 +16,7 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
-import { optimizeImageUrl } from "../utils/imageOptimizer";
+import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
 import { formatTimeAgoLong } from "../utils/formatTime";
 
 interface LocalNewsCardProps {
@@ -56,7 +56,7 @@ const LocalNewsCard: React.FC<LocalNewsCardProps> = ({
   const shareOpen = Boolean(shareAnchorEl);
 
   const originalUrl = article.urlToImage || article.imageUrl || "";
-  const optimizedUrl = React.useMemo(() => optimizeImageUrl(originalUrl, 500), [originalUrl]);
+  const optimizedUrl = React.useMemo(() => optimizeImageUrl(originalUrl, 500, article.category, article.title), [originalUrl, article.category, article.title]);
   const [imgSrc, setImgSrc] = useState(optimizedUrl);
 
   React.useEffect(() => {
@@ -64,7 +64,7 @@ const LocalNewsCard: React.FC<LocalNewsCardProps> = ({
   }, [optimizedUrl]);
 
   const handleImageError = () => {
-     setImgSrc("/placeholder.svg");
+     setImgSrc(getCategoryFallbackImage(article.category, article.title));
   };
 
   const articleEngagement = engagement || {

@@ -87,47 +87,56 @@ const Search: React.FC = () => {
       : "";
 
   return (
-    <Box sx={{ p: { xs: 2, sm: 3 } }}>
+    <Box sx={{ width: "100%", backgroundColor: "var(--paper)", minHeight: "100vh", py: { xs: 2, md: 4 } }}>
       <SEOMeta
         title={headingText ? `Search: ${headingText}` : "Search News"}
         description={headingText ? `Browse current news and headlines for ${headingText} on WorldNewzs.` : "Search across sports, technology, business, food, and travel news on WorldNewzs."}
         keywords="search news, latest news search, WorldNewzs news lookup, world news query"
         canonical="https://worldnewzs.in/search"
       />
-      <Typography variant="h4" component="h1" sx={{ mb: 1, fontWeight: 700 }}>
-        🔍 Search Results
-      </Typography>
-      <Typography variant="subtitle1" sx={{ mb: 3, color: "text.secondary" }}>
-        {hasSearch ? `Showing results for ${headingText}` : "Enter a search term to begin."}
-      </Typography>
-
-      {!hasSearch ? (
-        <Typography sx={{ color: "text.secondary" }}>
-          Use the search bar above or pick a category chip to get started.
+      <Box
+        className="wrap"
+        sx={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          px: { xs: 2, md: 3.5 },
+        }}
+      >
+        <Typography variant="h4" component="h1" sx={{ mb: 1, fontWeight: 700, fontFamily: "var(--serif)" }}>
+          🔍 Search Results
         </Typography>
-      ) : (
-        <SectionStatus
-          loading={loading}
-          error={error}
-          hasData={hasResults}
-          emptyText="No results found. Try a different query or category."
-        >
-          <NewsGrid
-            articles={articles}
-            onBookmark={addBookmark}
-            onRemoveBookmark={removeBookmark}
-            isBookmarked={isBookmarked}
-            onLike={toggleLike}
-            onDislike={toggleDislike}
-            onAddComment={addComment}
-            onDeleteComment={deleteComment}
-            onLikeComment={likeComment}
-            onDislikeComment={dislikeComment}
-            getEngagement={getEngagement}
-            columns={{ xs: 12, sm: 6, md: 4 }}
-          />
-        </SectionStatus>
-      )}
+        <Typography variant="subtitle1" sx={{ mb: 3, color: "var(--slate)" }}>
+          {hasSearch ? `Showing results for ${headingText}` : "Enter a search term to begin."}
+        </Typography>
+
+        {!hasSearch ? (
+          <Typography sx={{ color: "var(--slate)" }}>
+            Use the search bar above or pick a category chip to get started.
+          </Typography>
+        ) : (
+          <SectionStatus
+            loading={loading}
+            error={error}
+            hasData={hasResults}
+            emptyText="No results found. Try a different query or category."
+          >
+            <NewsGrid
+              articles={articles}
+              onBookmark={addBookmark}
+              onRemoveBookmark={removeBookmark}
+              isBookmarked={isBookmarked}
+              onLike={toggleLike}
+              onDislike={toggleDislike}
+              onAddComment={addComment}
+              onDeleteComment={deleteComment}
+              onLikeComment={likeComment}
+              onDislikeComment={dislikeComment}
+              getEngagement={getEngagement}
+              columns={{ xs: 12, sm: 6, md: 4 }}
+            />
+          </SectionStatus>
+        )}
+      </Box>
     </Box>
   );
 };

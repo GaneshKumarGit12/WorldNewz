@@ -73,6 +73,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
                 onDislikeComment={onDislikeComment}
                 engagement={article.url ? getEngagement(article.url) : undefined}
                 isDuplicateImage={isDuplicateImage}
+                cardIndex={index}
               />
             </Grid>
 

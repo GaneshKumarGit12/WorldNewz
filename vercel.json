@@ -122,7 +122,7 @@
       "destination": "/api/prerender?jobSlug=:slug"
     },
     {
-      "source": "/(politics|technology|business|science-health|lifestyle|education|opinion|trending|podcasts-videos|local-news|sports|money|weather|shopping|travel|food|entertainment|services|gaming|cartoons|stocks|badge-quiz|polls|about|contact|privacy-policy|terms|jobs|movies|transportation|chatbot|amazon-products)",
+      "source": "/(politics|technology|business|science-health|lifestyle|education|opinion|trending|podcasts-videos|local-news|sports|money|weather|shopping|travel|food|entertainment|services|gaming|cartoons|stocks|badge-quiz|polls|about|contact|privacy-policy|terms|jobs|movies|transportation|chatbot|amazon-products|deals|trending-videos|videos|shorts|disclaimer|editorial-briefings|editorial-guidelines|play-games|games|polls-history|quiz-history)",
       "destination": "/api/prerender?page=$1"
     },
     {

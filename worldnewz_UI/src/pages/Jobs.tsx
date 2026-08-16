@@ -12,7 +12,6 @@ import {
   TextField, 
   FormControlLabel, 
   Switch, 
-  Breadcrumbs, 
   Link,
   Pagination,
   InputAdornment
@@ -22,10 +21,10 @@ import WorkIcon from "@mui/icons-material/Work";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import BusinessIcon from "@mui/icons-material/Business";
 import SearchIcon from "@mui/icons-material/Search";
-import HomeIcon from "@mui/icons-material/Home";
 import { fetchJobs } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
 import { CategoryEditorial } from "../components/CategoryEditorial";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 interface Job {
   slug: string;
@@ -126,21 +125,11 @@ const Jobs: React.FC = () => {
       />
 
       {/* Breadcrumbs */}
-      <Breadcrumbs sx={{ mb: 2 }}>
-        <Link 
-          underline="hover" 
-          color="inherit" 
-          onClick={() => navigate("/")} 
-          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', fontSize: '0.85rem' }}
-        >
-          <HomeIcon sx={{ mr: 0.5, fontSize: 'inherit' }} />
-          Home
-        </Link>
-        <Typography color="text.primary" sx={{ display: 'flex', alignItems: 'center', fontSize: '0.85rem' }}>
-          <WorkIcon sx={{ mr: 0.5, fontSize: 'inherit' }} />
-          Jobs
-        </Typography>
-      </Breadcrumbs>
+      <BreadcrumbNav
+        items={[
+          { label: "Jobs" }
+        ]}
+      />
 
       {/* Header and Title */}
       <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3, flexWrap: "wrap", gap: 2 }}>

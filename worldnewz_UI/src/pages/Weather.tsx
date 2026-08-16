@@ -285,7 +285,7 @@ export const Weather: React.FC = () => {
   return (
     <Box
       id="weather-page-root"
-      component="main"
+      component="section"
       sx={{
         minHeight: "100vh",
         bgcolor: "#090e17",

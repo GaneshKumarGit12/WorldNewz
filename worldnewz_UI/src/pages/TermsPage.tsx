@@ -20,7 +20,7 @@ export const TermsPage = () => (
     ]} />
 
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Box component="main">
+      <Box component="section">
         <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
           Terms &amp; Conditions
         </Typography>

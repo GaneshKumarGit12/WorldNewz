@@ -1,0 +1,13 @@
+<svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WorldNewzs">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@700&display=swap');
+      .wordmark{ font-family:'Source Serif 4', Georgia, serif; font-weight:700; font-size:72px; letter-spacing:-0.01em; }
+      .ink{ fill:#10172A; }
+      .z{ fill:#B7222B; }
+    </style>
+  </defs>
+  <text x="0" y="78" class="wordmark">
+    <tspan class="ink">World</tspan><tspan class="ink">New</tspan><tspan class="z">z</tspan><tspan class="ink">s</tspan>
+  </text>
+</svg>

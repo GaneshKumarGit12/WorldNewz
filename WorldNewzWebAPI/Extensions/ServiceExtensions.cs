@@ -181,6 +181,7 @@ namespace WorldNewzWebAPI.Extensions
 
             // Singletons
             services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
+            services.AddSingleton<ISitemapPingService, SitemapPingService>();
             services.AddSingleton<SitemapPingService>();
 
             // Hosted Services
@@ -256,6 +257,13 @@ namespace WorldNewzWebAPI.Extensions
                     .ForJob(amazonJobKey)
                     .WithIdentity("AmazonProductRefreshJob-trigger")
                     .WithCronSchedule("0 30 2 * * ?"));
+
+                var sitemapPingJobKey = new JobKey("SitemapPingJob");
+                q.AddJob<SitemapPingJob>(opts => opts.WithIdentity(sitemapPingJobKey));
+                q.AddTrigger(opts => opts
+                    .ForJob(sitemapPingJobKey)
+                    .WithIdentity("SitemapPingJob-trigger")
+                    .WithSimpleSchedule(x => x.WithIntervalInHours(6).RepeatForever()));
             });
 
             services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);

@@ -234,7 +234,7 @@ const Food: React.FC = () => {
   return (
     <Box
       id="food-page-root"
-      component="main"
+      component="section"
       sx={{
         minHeight: "100vh",
         bgcolor: "#090e17",

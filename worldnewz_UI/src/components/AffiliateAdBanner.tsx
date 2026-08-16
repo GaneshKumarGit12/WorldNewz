@@ -77,7 +77,9 @@ export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category =
 
   return (
     <Card
-      component="article"
+      component="aside"
+      aria-label="Featured affiliate deal"
+      id="affiliate-deal-banner"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -192,6 +194,7 @@ export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category =
       {/* Actions & Interlinks */}
       <Box sx={{ display: "flex", flexDirection: "column", gap: 1, mt: 1 }}>
         <Button
+          id="btn-buy-amazon-deal"
           variant="contained"
           endIcon={<OpenInNewIcon />}
           component="a"
@@ -218,6 +221,7 @@ export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category =
         </Button>
 
         <Button
+          id="btn-explore-amazon-hub"
           component={Link}
           to="/amazon-products"
           size="small"

@@ -478,9 +478,11 @@ namespace WorldNewzWebAPI.Extensions
                         ");
 
                         try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN IsActive INTEGER NOT NULL DEFAULT 1;"); } catch {}
-                        try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN DateAdded TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN DateAdded TEXT NULL;"); } catch {}
                         try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN LastSyncedAt TEXT NULL;"); } catch {}
                         try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN IsFallback INTEGER NOT NULL DEFAULT 0;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("UPDATE AmazonProducts SET DateAdded = CURRENT_TIMESTAMP WHERE DateAdded IS NULL;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("UPDATE AmazonProducts SET LastUpdated = CURRENT_TIMESTAMP WHERE LastUpdated IS NULL;"); } catch {}
 
                         db.Database.ExecuteSqlRaw(@"
                             CREATE TABLE IF NOT EXISTS SeoKeywords (

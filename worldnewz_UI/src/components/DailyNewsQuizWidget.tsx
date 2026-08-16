@@ -155,8 +155,11 @@ export const DailyNewsQuizWidget: React.FC = () => {
             {idError && <Alert severity="error" sx={{ py: 0, borderRadius: 2 }}>{idError}</Alert>}
 
             <TextField
+              id="quiz-widget-name"
               label="Full Name"
               size="small"
+              autoComplete="name"
+              inputProps={{ "aria-label": "Full Name" }}
               value={name}
               onChange={(e) => setName(e.target.value)}
               fullWidth
@@ -164,9 +167,12 @@ export const DailyNewsQuizWidget: React.FC = () => {
             />
 
             <TextField
+              id="quiz-widget-email"
               label="Email Address"
               size="small"
               type="email"
+              autoComplete="email"
+              inputProps={{ "aria-label": "Email Address" }}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               fullWidth
@@ -174,6 +180,7 @@ export const DailyNewsQuizWidget: React.FC = () => {
             />
 
             <Button
+              id="btn-quiz-signin"
               type="submit"
               variant="contained"
               disabled={verifying}
@@ -205,6 +212,7 @@ export const DailyNewsQuizWidget: React.FC = () => {
               You've already finished today's quiz challenge. Return tomorrow to claim more coins!
             </Typography>
             <Button
+              id="btn-quiz-view-leaderboard"
               variant="outlined"
               onClick={handleGoToQuiz}
               sx={{ textTransform: "none", borderRadius: 2 }}
@@ -264,6 +272,7 @@ export const DailyNewsQuizWidget: React.FC = () => {
             </RadioGroup>
 
             <Button
+              id="btn-quiz-save-answer"
               variant="contained"
               disabled={selectedOptionId === null}
               onClick={saveAnswerAndContinue}
@@ -291,6 +300,7 @@ export const DailyNewsQuizWidget: React.FC = () => {
               Now continue playing the remaining questions to check your score and claim your coin reward.
             </Typography>
             <Button
+              id="btn-quiz-continue"
               variant="contained"
               onClick={handleGoToQuiz}
               endIcon={<ArrowForwardIcon />}

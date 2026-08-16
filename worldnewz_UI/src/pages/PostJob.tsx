@@ -9,7 +9,6 @@ import {
   TextField, 
   FormControlLabel, 
   Switch, 
-  Breadcrumbs, 
   Link,
   Grid,
   MenuItem,
@@ -17,12 +16,11 @@ import {
   Avatar,
   Divider
 } from "@mui/material";
-import WorkIcon from "@mui/icons-material/Work";
-import HomeIcon from "@mui/icons-material/Home";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import StarIcon from "@mui/icons-material/Star";
 import { postJob } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 const jobTypesOptions = [
   "Full-time",
@@ -129,29 +127,12 @@ const PostJob: React.FC = () => {
       />
 
       {/* Breadcrumbs */}
-      <Breadcrumbs sx={{ mb: 2 }}>
-        <Link 
-          underline="hover" 
-          color="inherit" 
-          onClick={() => navigate("/")} 
-          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', fontSize: '0.85rem' }}
-        >
-          <HomeIcon sx={{ mr: 0.5, fontSize: 'inherit' }} />
-          Home
-        </Link>
-        <Link 
-          underline="hover" 
-          color="inherit" 
-          onClick={() => navigate("/jobs")} 
-          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', fontSize: '0.85rem' }}
-        >
-          <WorkIcon sx={{ mr: 0.5, fontSize: 'inherit' }} />
-          Jobs
-        </Link>
-        <Typography color="text.primary" sx={{ display: 'flex', alignItems: 'center', fontSize: '0.85rem' }}>
-          Post a Job
-        </Typography>
-      </Breadcrumbs>
+      <BreadcrumbNav
+        items={[
+          { label: "Jobs", path: "/jobs" },
+          { label: "Post a Job" }
+        ]}
+      />
 
       {/* Action Button: Back */}
       <Button 

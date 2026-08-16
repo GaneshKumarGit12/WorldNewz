@@ -18,7 +18,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CommentDialog from "./CommentDialog";
 import type { Article } from "../types";
-import { optimizeImageUrl } from "../utils/imageOptimizer";
+import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
 import { getCategoryConfig } from "../utils/categoryConfig";
 import { formatTimeAgoLong } from "../utils/formatTime";
 
@@ -37,6 +37,7 @@ interface NewsCardProps {
   engagement?: any;
   loading?: "lazy" | "eager";
   isDuplicateImage?: boolean;
+  cardIndex?: number;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
@@ -53,6 +54,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   engagement,
   loading = "lazy",
   isDuplicateImage = false,
+  cardIndex = 0,
 }) => {
   const navigate = useNavigate();
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
@@ -60,11 +62,15 @@ const NewsCard: React.FC<NewsCardProps> = ({
   const shareOpen = Boolean(shareAnchorEl);
   const [expanded, setExpanded] = useState(false);
 
+  const fallbackImg = React.useMemo(() => {
+    return getCategoryFallbackImage(article.category, article.title || article.headline, cardIndex);
+  }, [article.category, article.title, article.headline, cardIndex]);
+
   const originalUrl = article.urlToImage || article.imageUrl || "";
   const optimizedUrl = React.useMemo(() => {
-    if (!originalUrl || isDuplicateImage) return "";
-    return optimizeImageUrl(originalUrl, 500);
-  }, [originalUrl, isDuplicateImage]);
+    if (!originalUrl || originalUrl === "null" || isDuplicateImage) return fallbackImg;
+    return optimizeImageUrl(originalUrl, 500, article.category, article.title || article.headline, cardIndex);
+  }, [originalUrl, isDuplicateImage, article.category, article.title, article.headline, cardIndex, fallbackImg]);
 
   const [imgSrc, setImgSrc] = useState(optimizedUrl);
 
@@ -73,7 +79,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   }, [optimizedUrl]);
 
   const handleImageError = () => {
-    setImgSrc("/placeholder.svg");
+    setImgSrc(fallbackImg);
   };
 
   const articleEngagement = engagement || {
@@ -192,6 +198,8 @@ const NewsCard: React.FC<NewsCardProps> = ({
           boxShadow: (theme) => theme.palette.mode === "light" ? "0 2px 6px rgba(0,0,0,0.05)" : "none",
           borderRadius: 2,
           overflow: "hidden",
+          contentVisibility: "auto",
+          containIntrinsicSize: "auto 400px",
           transition: "transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease",
           cursor: "pointer",
           "&:hover": {
@@ -275,13 +283,17 @@ const NewsCard: React.FC<NewsCardProps> = ({
               <Typography 
                 variant="subtitle2" 
                 component="h3"
+                color="text.primary"
                 sx={{ 
+                  fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)",
                   fontWeight: 600, 
+                  fontSize: "1.05rem",
                   display: "-webkit-box", 
                   WebkitLineClamp: 2, 
                   WebkitBoxOrient: "vertical", 
                   overflow: "hidden", 
                   lineHeight: 1.3,
+                  letterSpacing: "-0.01em",
                   mb: 0.5
                 }}
               >
@@ -293,12 +305,13 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 variant="body2" 
                 color="text.secondary" 
                 sx={{ 
+                  fontFamily: "var(--sans)",
                   display: "-webkit-box", 
                   WebkitLineClamp: 3, 
                   WebkitBoxOrient: "vertical", 
                   overflow: "hidden", 
-                  lineHeight: 1.4,
-                  fontSize: "0.8rem",
+                  lineHeight: 1.45,
+                  fontSize: "0.825rem",
                   mb: 0.5
                 }}
               >

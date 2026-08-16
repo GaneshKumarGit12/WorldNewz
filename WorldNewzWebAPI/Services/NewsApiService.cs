@@ -188,7 +188,7 @@ namespace WorldNewzWebAPI.Services
                             title = a.Title,
                             description = a.Description,
                             url = a.Url ?? "",
-                            urlToImage = a.ImageUrl,
+                            urlToImage = string.IsNullOrWhiteSpace(a.ImageUrl) ? GetCategoryFallbackImageUrl(categoryName, a.Title) : a.ImageUrl,
                             publishedAt = (a.PublishedAt ?? a.CachedAt).ToString("yyyy-MM-ddTHH:mm:ssZ"),
                             source = new { name = "WorldNewz Archive" }
                         }).ToList();
@@ -486,7 +486,7 @@ namespace WorldNewzWebAPI.Services
                     return new NewsApiFetchResult(false, responseBody, (int)response.StatusCode);
                 }
 
-                return new NewsApiFetchResult(true, AddQueryUsedField(responseBody, url), (int)response.StatusCode);
+                return new NewsApiFetchResult(true, AddQueryUsedField(responseBody, url, context.Category ?? context.Query ?? "general"), (int)response.StatusCode);
             }
             catch (Exception ex)
             {
@@ -620,7 +620,7 @@ namespace WorldNewzWebAPI.Services
             };
         }
 
-        private static string AddQueryUsedField(string json, string queryUsed)
+        private static string AddQueryUsedField(string json, string queryUsed, string category = "general")
         {
             try
             {
@@ -628,6 +628,21 @@ namespace WorldNewzWebAPI.Services
                 if (node != null)
                 {
                     node["queryUsed"] = queryUsed;
+                    if (node.TryGetPropertyValue("articles", out var articlesNode) && articlesNode is JsonArray arr)
+                    {
+                        foreach (var item in arr)
+                        {
+                            if (item is JsonObject articleObj)
+                            {
+                                string? currentImg = articleObj["urlToImage"]?.ToString();
+                                if (string.IsNullOrWhiteSpace(currentImg) || currentImg.Equals("null", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    string title = articleObj["title"]?.ToString() ?? "";
+                                    articleObj["urlToImage"] = GetCategoryFallbackImageUrl(category, title);
+                                }
+                            }
+                        }
+                    }
                     return node.ToJsonString();
                 }
             }
@@ -637,6 +652,95 @@ namespace WorldNewzWebAPI.Services
             }
 
             return json;
+        }
+
+        private static readonly string[] TechPool = new[]
+        {
+            "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=800&q=80"
+        };
+
+        private static readonly string[] BusinessPool = new[]
+        {
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
+        };
+
+        private static readonly string[] SciencePool = new[]
+        {
+            "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80"
+        };
+
+        private static readonly string[] SportsPool = new[]
+        {
+            "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80"
+        };
+
+        private static readonly string[] EntertainmentPool = new[]
+        {
+            "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+        };
+
+        private static readonly string[] GeneralPool = new[]
+        {
+            "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1476242906366-d816472b67ed?auto=format&fit=crop&w=800&q=80"
+        };
+
+        public static string GetCategoryFallbackImageUrl(string category, string title, int indexOffset = 0)
+        {
+            string cat = (category ?? "").ToLower();
+            string t = (title ?? "").ToLower();
+
+            string[] pool = GeneralPool;
+
+            if (cat.Contains("tech") || t.Contains("ai") || t.Contains("robot") || t.Contains("tech") || t.Contains("software") || t.Contains("cyber"))
+                pool = TechPool;
+            else if (cat.Contains("busin") || cat.Contains("econ") || cat.Contains("money") || t.Contains("market") || t.Contains("stock") || t.Contains("bank") || t.Contains("trade"))
+                pool = BusinessPool;
+            else if (cat.Contains("scien") || cat.Contains("health") || cat.Contains("med") || t.Contains("health") || t.Contains("doctor") || t.Contains("space") || t.Contains("nasa"))
+                pool = SciencePool;
+            else if (cat.Contains("sport") || t.Contains("match") || t.Contains("game") || t.Contains("cup") || t.Contains("league") || t.Contains("cricket") || t.Contains("football"))
+                pool = SportsPool;
+            else if (cat.Contains("enter") || cat.Contains("movie") || cat.Contains("music") || t.Contains("film") || t.Contains("actor") || t.Contains("cinema"))
+                pool = EntertainmentPool;
+
+            int hash = 0;
+            if (!string.IsNullOrEmpty(title))
+            {
+                foreach (char c in title) hash = (hash * 31) + c;
+            }
+            int seed = Math.Abs(hash) + indexOffset;
+            return pool[seed % pool.Length];
         }
     }
 }

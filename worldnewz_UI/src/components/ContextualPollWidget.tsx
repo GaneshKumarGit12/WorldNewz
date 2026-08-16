@@ -229,6 +229,7 @@ export const ContextualPollWidget: React.FC<ContextualPollWidgetProps> = ({ init
 
   return (
     <Paper
+      id="contextual-poll-widget"
       elevation={2}
       sx={{
         p: 3,

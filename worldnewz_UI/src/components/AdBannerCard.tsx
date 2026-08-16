@@ -32,7 +32,9 @@ const AdBannerCard: React.FC<AdBannerCardProps> = ({ category }) => {
 
   return (
     <Card
-      component="article"
+      component="aside"
+      aria-label="Sponsored advertisement"
+      id="ad-banner-card"
       sx={{
         display: "flex",
         flexDirection: "column",

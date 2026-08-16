@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useOutletContext, Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { fetchDiscover } from "../api/apiClient";
@@ -13,22 +13,22 @@ import { SEOMeta } from "../seo/SEOMeta";
 import { getDailyKeyword } from "../utils/dailyKeyword";
 import CircularProgress from "@mui/material/CircularProgress";
 import { deduplicateArticles } from "../utils/deduplicate";
-import { optimizeImageUrl } from "../utils/imageOptimizer";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Paper from "@mui/material/Paper";
 import { WatchlistWidget } from "./WatchlistWidget";
-import { TopEngagingNewsWidget } from "./TopEngagingNewsWidget";
 import { ShoppingWidget } from "./ShoppingWidget";
 import { WeatherWidget } from "./WeatherWidget";
 import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
+import { PersonalizedTopicHub } from "./PersonalizedTopicHub";
+import { TopStoriesSection } from "./TopStoriesSection";
 import { TrendingShortVideos } from "./TrendingShortVideos";
-
+import { formatTimeAgoLong } from "../utils/formatTime";
+import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
+import { fallbackDiscoverArticles } from "../utils/fallbackArticles";
 
 const Discover: React.FC = () => {
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
@@ -39,10 +39,11 @@ const Discover: React.FC = () => {
     e.preventDefault();
     navigate("/play-games");
   };
+
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { addBookmark, removeBookmark, isBookmarked } = useBookmarks(); // ✅ now URL-based
+  const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
     getEngagement, 
     toggleLike, 
@@ -53,12 +54,12 @@ const Discover: React.FC = () => {
     dislikeComment 
   } = useComments();
 
-
   const dailyKeyword = getDailyKeyword();
-  const [page, setPage] = useState(1);
+  const [_page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
+  const [selectedTopicId, setSelectedTopicId] = useState<string>("top-ai");
   const [personalTab, setPersonalTab] = useState<"recommended" | "trending">("recommended");
 
   const recommendedArticles = React.useMemo(() => {
@@ -112,7 +113,6 @@ const Discover: React.FC = () => {
     return true;
   });
 
-  // Fallback: If followed topics filter results in an empty feed, show all articles to prevent an empty homepage
   if (filteredArticles.length === 0 && articles.length > 0 && !normalizedSearchTerm) {
     filteredArticles = articles;
   }
@@ -133,7 +133,12 @@ const Discover: React.FC = () => {
         }));
 
         if (formattedData.length === 0) {
-          setHasMore(false);
+          if (currentPage === 1) {
+            setArticles(fallbackDiscoverArticles);
+            setHasMore(false);
+          } else {
+            setHasMore(false);
+          }
         } else {
           setArticles((prev) => {
             const combined = currentPage === 1 ? formattedData : [...prev, ...formattedData];
@@ -142,8 +147,15 @@ const Discover: React.FC = () => {
         }
       })
       .catch((err) => {
-        const apiError = axios.isAxiosError(err) ? err.response?.data?.error : null;
-        setError(apiError || "Failed to load discover news");
+        console.warn("Discover API request failed, using curated editorial fallback articles:", err);
+        if (currentPage === 1) {
+          setArticles(fallbackDiscoverArticles);
+          setError(null);
+        } else {
+          const apiError = axios.isAxiosError(err) ? err.response?.data?.error : null;
+          setError(apiError || "Failed to load discover news");
+        }
+        setHasMore(false);
       })
       .finally(() => {
         setLoading(false);
@@ -152,663 +164,673 @@ const Discover: React.FC = () => {
   };
 
   useEffect(() => {
-    setArticles([]);
     setPage(1);
     setHasMore(true);
     loadData(1);
-  }, [searchTerm]); // Re-fetch from page 1 when search term changes
+  }, [normalizedSearchTerm]);
 
-  useEffect(() => {
-    if (page > 1) {
-      loadData(page);
-    }
-  }, [page]);
-
-  // Infinite Scroll logic
   useEffect(() => {
     const handleScroll = () => {
       if (
-        window.innerHeight + document.documentElement.scrollTop + 100 >=
-        document.documentElement.offsetHeight
+        window.innerHeight + document.documentElement.scrollTop >=
+          document.documentElement.offsetHeight - 800 &&
+        hasMore &&
+        !isFetchingMore &&
+        !loading
       ) {
-        if (!isFetchingMore && hasMore && !loading) {
-          setPage((prev) => prev + 1);
-        }
+        setPage((prevPage) => {
+          const nextPage = prevPage + 1;
+          loadData(nextPage);
+          return nextPage;
+        });
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isFetchingMore, hasMore, loading]);
+  }, [hasMore, isFetchingMore, loading, normalizedSearchTerm]);
 
-  const topStoriesArticles = filteredArticles.slice(0, 6);
-  const remainingArticles = filteredArticles.slice(6);
+  const handleArticleClick = (article: Article) => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    const titleSlug = article.title?.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50) || "article";
+    navigate(`/article/${titleSlug}`, { state: { article } });
+  };
 
-  // Dynamically preload the first article image to optimize LCP
-  useEffect(() => {
-    if (filteredArticles.length > 0) {
-      const firstArticle = filteredArticles[0];
-      const imageUrl = firstArticle.imageUrl || firstArticle.urlToImage;
-      if (imageUrl) {
-        const optimizedUrl = optimizeImageUrl(imageUrl, 500);
-        const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
-        if (!existingLink) {
-          const link = document.createElement("link");
-          link.rel = "preload";
-          link.as = "image";
-          link.href = optimizedUrl;
-          link.setAttribute("fetchpriority", "high");
-          document.head.appendChild(link);
-        }
+  // Article breakdown for 2-zone editorial newsroom layout
+  const leadStory = filteredArticles[0];
+  const mostReadArticles = useMemo(() => {
+    const direct = filteredArticles.slice(1, 6);
+    if (direct.length >= 4) return direct;
+    const pool = [...filteredArticles.slice(1), ...fallbackDiscoverArticles];
+    const unique: Article[] = [];
+    for (const item of pool) {
+      if (item && item.title !== leadStory?.title && !unique.some((u) => u.title === item.title)) {
+        unique.push(item);
       }
+      if (unique.length >= 5) break;
     }
-  }, [filteredArticles]);
+    return unique;
+  }, [filteredArticles, leadStory]);
+  const topStoriesGrid = filteredArticles.slice(6, 12);
+  const globalNewsGrid = filteredArticles.slice(12);
 
   return (
-    <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
+    <Box sx={{ width: "100%", backgroundColor: "var(--paper)", minHeight: "100vh", py: { xs: 2, md: 4 } }}>
       <SEOMeta
-        title="Discover News"
-        description={`Stay updated with the latest news on ${dailyKeyword} and more.`}
-        keywords={['discover', 'news', dailyKeyword]}
+        title="WorldNewzs — Global News, Verified"
+        description={`Stay updated with verified world news on ${dailyKeyword}, politics, business, technology, and health.`}
+        keywords={['worldnewzs', 'news', 'breaking news', dailyKeyword]}
         canonical="https://worldnewzs.in"
       />
-      {/* Page Header Banner */}
-      <Box 
-        sx={{ 
-          mb: 4, 
-          p: { xs: 3, md: 4 }, 
-          borderRadius: 4, 
-          background: (theme) => theme.palette.mode === "dark" 
-            ? "linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.6))"
-            : "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-          border: "1px solid",
-          borderColor: "divider",
-          boxShadow: (theme) => theme.palette.mode === "dark"
-            ? "inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0,0,0,0.2)"
-            : "0 2px 10px rgba(0,0,0,0.02)",
-          position: "relative",
-          overflow: "hidden"
+
+      <Box
+        className="wrap"
+        sx={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          px: { xs: 2, md: 3.5 },
         }}
       >
-        <Box 
-          sx={{ 
-            position: "absolute", 
-            top: -100, 
-            right: -100, 
-            width: 300, 
-            height: 300, 
-            borderRadius: "50%", 
-            background: "radial-gradient(circle, rgba(200, 58, 21, 0.08) 0%, rgba(255,112,67,0) 70%)",
-            filter: "blur(40px)",
-            pointerEvents: "none"
-          }}
-        />
-        <Typography
-          variant="h3"
-          component="h1"
-          sx={{ 
-            fontWeight: 850, 
-            mb: 1, 
-            fontSize: { xs: "2rem", sm: "2.4rem", md: "2.8rem" },
-            letterSpacing: "-0.02em",
-            background: (theme) => theme.palette.mode === "dark"
-              ? "linear-gradient(90deg, #ffffff, #cbd5e1)"
-              : "linear-gradient(90deg, #0f172a, #475569)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
+        {/* 2-Zone Layout: Main Column + Fixed Sidebar */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", lg: "1fr 340px" },
+            gap: { xs: 3, lg: 5.5 },
+            alignItems: "start",
           }}
         >
-          Discover Global News – WorldNewzs
-        </Typography>
-        <Typography 
-          variant="body1" 
-          sx={{ 
-            color: "text.secondary", 
-            fontWeight: 500, 
-            maxWidth: "600px", 
-            lineHeight: 1.6,
-            fontSize: { xs: "0.9rem", sm: "1rem" } 
-          }}
-        >
-          Real-time curated news, deep editorial briefings, and global updates updated continuously.
-        </Typography>
-      </Box>
+          {/* ================= LEFT MAIN EDITORIAL RIVER ================= */}
+          <Box component="section" sx={{ minWidth: 0 }}>
+            <SectionStatus
+              loading={loading}
+              error={error}
+              hasData={filteredArticles.length > 0}
+              emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
+            >
+              {/* 1. HERO LEAD STORY & MOST READ RAIL */}
+              {leadStory && (
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", md: "1.65fr 1fr" },
+                    gap: 3.5,
+                    pb: 4,
+                    mb: 4,
+                    borderBottom: "1px solid var(--line)",
+                  }}
+                >
+                  {/* Lead Story */}
+                  <Box
+                    onClick={() => handleArticleClick(leadStory)}
+                    sx={{
+                      cursor: "pointer",
+                      display: "flex",
+                      flexDirection: "column",
+                      "&:hover .lead-title": { color: "var(--red-deep)" },
+                    }}
+                  >
+                    <Box
+                      className="art tone-red"
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: { xs: 220, sm: 300, md: 340 },
+                        borderRadius: "2px",
+                        overflow: "hidden",
+                        mb: 2,
+                        backgroundColor: "var(--paper-raise)",
+                      }}
+                    >
+                      <img
+                        src={optimizeImageUrl(leadStory.urlToImage || leadStory.imageUrl, 800, leadStory.category, leadStory.title)}
+                        alt={leadStory.title}
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = getCategoryFallbackImage(leadStory.category, leadStory.title);
+                        }}
+                      />
+                    </Box>
 
-      <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", md: "1.35fr 0.85fr" }, mb: 5 }}>
-        <Paper 
-          elevation={0} 
-          sx={{ 
-            p: { xs: 2.5, sm: 3.5 }, 
-            borderRadius: 4, 
-            border: "1px solid", 
-            borderColor: "divider", 
-            background: (theme) => theme.palette.mode === "dark" ? "rgba(30, 41, 59, 0.4)" : "#ffffff",
-            transition: "all 0.3s ease",
-            "&:hover": {
-              borderColor: "primary.main",
-              transform: "translateY(-2px)",
-              boxShadow: (theme) => theme.palette.mode === "dark" ? "0 8px 30px rgba(0,0,0,0.3)" : "0 8px 24px rgba(0,0,0,0.04)"
-            }
-          }}
-        >
-          <Typography variant="overline" sx={{ fontWeight: 800, color: "primary.main", letterSpacing: "0.18em", display: "block", mb: 0.5 }}>
-            TODAY'S NEWS FOCUS
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 800, mb: 1.5, lineHeight: 1.35, fontSize: { xs: "1.1rem", sm: "1.25rem" } }}>
-            The story mix is shifting fast — from market moves to major policy updates and cultural headlines.
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.875rem" }}>
-            WorldNewzs keeps this homepage tuned for speed, clarity, and context so readers can quickly scan what matters most without losing the broader picture.
-          </Typography>
-        </Paper>
-        <Paper 
-          elevation={0} 
-          sx={{ 
-            p: { xs: 2.5, sm: 3.5 }, 
-            borderRadius: 4, 
-            border: "1px solid", 
-            borderColor: "divider", 
-            background: (theme) => theme.palette.mode === "dark" ? "rgba(30, 41, 59, 0.45)" : "#f8fafc",
-            transition: "all 0.3s ease",
-            "&:hover": {
-              borderColor: "primary.main",
-              transform: "translateY(-2px)",
-              boxShadow: (theme) => theme.palette.mode === "dark" ? "0 8px 30px rgba(0,0,0,0.3)" : "0 8px 24px rgba(0,0,0,0.04)"
-            }
-          }}
-        >
-          <Typography variant="overline" sx={{ fontWeight: 800, color: "text.secondary", letterSpacing: "0.18em", display: "block", mb: 0.5 }}>
-            WHY READERS STAY
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 800, mb: 1.5, lineHeight: 1.35, fontSize: { xs: "1.1rem", sm: "1.25rem" } }}>
-            Verified coverage, editorial briefings, and useful tools in one place.
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7, fontSize: "0.875rem" }}>
-            The homepage now blends breaking headlines with deeper explainers, live utility widgets, and direct access to editorial analysis.
-          </Typography>
-        </Paper>
-      </Box>
+                    <Typography
+                      className="eyebrow"
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: "var(--red)",
+                        mb: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
+                      Lead Story · {leadStory.category || "Top News"}
+                    </Typography>
 
-      {/* ✅ 1. PRIMARY NEWS FEED ABOVE THE FOLD (Top Stories) */}
-      <SectionStatus
-        loading={loading}
-        error={error}
-        hasData={filteredArticles.length > 0}
-        emptyText={normalizedSearchTerm ? "No results matching your search." : "No news available."}
-        columns={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-      >
-        {topStoriesArticles.length > 0 && (
-          <Box sx={{ mb: 4 }}>
-            <Box 
-              sx={{ 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "space-between", 
-                mb: 3, 
-                pb: 1.5,
-                borderBottom: "2px solid",
-                borderColor: "divider"
+                    <Typography
+                      className="lead-title"
+                      component="h1"
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontSize: { xs: "24px", sm: "30px", md: "34px" },
+                        fontWeight: 700,
+                        lineHeight: 1.15,
+                        letterSpacing: "-0.015em",
+                        color: "var(--text)",
+                        mb: 1.5,
+                        transition: "color 0.2s ease",
+                      }}
+                    >
+                      {leadStory.title}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontStyle: "italic",
+                        fontSize: "16px",
+                        color: "var(--slate)",
+                        lineHeight: 1.55,
+                        mb: 2,
+                      }}
+                    >
+                      {leadStory.description || leadStory.summary}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        color: "var(--slate-light)",
+                      }}
+                    >
+                      By {(leadStory as any).author || "Editorial Desk"} · {formatTimeAgoLong(leadStory.publishedAt)}
+                    </Typography>
+                  </Box>
+
+                  {/* Most Read Rail */}
+                  <Box
+                    sx={{
+                      borderLeft: { xs: "none", md: "1px solid var(--line)" },
+                      pl: { xs: 0, md: 3 },
+                      pt: { xs: 2, md: 0 },
+                      borderTop: { xs: "1px solid var(--line)", md: "none" },
+                    }}
+                  >
+                    <Box
+                      className="section-head"
+                      sx={{
+                        display: "flex",
+                        alignItems: "baseline",
+                        justifyContent: "space-between",
+                        borderBottom: "1px solid var(--line)",
+                        pb: 1,
+                        mb: 2.5,
+                      }}
+                    >
+                      <Typography
+                        component="h2"
+                        sx={{
+                          fontFamily: "var(--serif)",
+                          fontSize: "18px",
+                          fontWeight: 700,
+                          color: "var(--text)",
+                        }}
+                      >
+                        Most Read
+                      </Typography>
+                      <Typography
+                        component="span"
+                        sx={{
+                          fontFamily: "var(--mono)",
+                          fontSize: "10.5px",
+                          color: "var(--slate-light)",
+                        }}
+                      >
+                        Top 5
+                      </Typography>
+                    </Box>
+
+                    {mostReadArticles.map((art: Article, idx: number) => (
+                      <Box
+                        key={art.url || idx}
+                        onClick={() => handleArticleClick(art)}
+                        sx={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 2,
+                          mb: 2.2,
+                          pb: 2,
+                          borderBottom: idx < mostReadArticles.length - 1 ? "1px solid var(--line-soft)" : "none",
+                          cursor: "pointer",
+                          "&:hover .rail-title": { color: "var(--red)" },
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontFamily: "var(--serif)",
+                            fontSize: "26px",
+                            fontWeight: 700,
+                            color: "var(--gold)",
+                            lineHeight: 1,
+                            minWidth: 22,
+                          }}
+                        >
+                          {idx + 1}
+                        </Typography>
+                        <Box>
+                          <Typography
+                            className="rail-title"
+                            sx={{
+                              fontFamily: "var(--sans, 'IBM Plex Sans', sans-serif)",
+                              fontSize: "13.5px",
+                              fontWeight: 600,
+                              lineHeight: 1.35,
+                              color: "var(--text)",
+                              mb: 0.5,
+                              transition: "color 0.2s ease",
+                            }}
+                          >
+                            {art.title}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontFamily: "var(--mono)",
+                              fontSize: "10.5px",
+                              color: "var(--slate-light)",
+                            }}
+                          >
+                            {art.category || "News"} · {formatTimeAgoLong(art.publishedAt)}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+
+              {/* 2. TOP STORIES WITH SELECTION & MULTI-API AGGREGATION */}
+              <TopStoriesSection
+                initialCategory="all"
+                initialArticles={topStoriesGrid}
+                onBookmark={addBookmark}
+                onRemoveBookmark={removeBookmark}
+                isBookmarked={isBookmarked}
+                onLike={toggleLike}
+                onDislike={toggleDislike}
+                onAddComment={addComment}
+                onDeleteComment={deleteComment}
+                onLikeComment={likeComment}
+                onDislikeComment={dislikeComment}
+                getEngagement={getEngagement}
+                columns={{ xs: 12, sm: 6, md: 4 }}
+              />
+
+              {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB (DRIVEN BY TOPIC SELECTIONS) */}
+              <PersonalizedTopicHub
+                initialTopicId={selectedTopicId}
+                followedTopicIds={followedTopics}
+                onToggleFollow={(id) => {
+                  setFollowedTopics((prev) =>
+                    prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+                  );
+                }}
+              />
+
+              {/* 4. EDITORIAL VIDEO RAIL */}
+              <Box sx={{ mb: 5 }}>
+                <TrendingShortVideos />
+              </Box>
+
+              {/* 5. MORE GLOBAL NEWS SCANNING GRID */}
+              {globalNewsGrid.length > 0 && (
+                <Box sx={{ mb: 4 }}>
+                  <Box
+                    className="section-head"
+                    sx={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      justifyContent: "space-between",
+                      borderBottom: "1px solid var(--line)",
+                      pb: 1.2,
+                      mb: 3,
+                    }}
+                  >
+                    <Typography
+                      component="h2"
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontSize: "22px",
+                        fontWeight: 700,
+                        color: "var(--text)",
+                      }}
+                    >
+                      More Global News
+                    </Typography>
+                    <Typography
+                      component="span"
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        color: "var(--slate-light)",
+                      }}
+                    >
+                      Worldwide Stream
+                    </Typography>
+                  </Box>
+
+                  <NewsGrid
+                    articles={globalNewsGrid}
+                    columns={{ xs: 12, sm: 6, md: 4 }}
+                    onBookmark={addBookmark}
+                    onRemoveBookmark={removeBookmark}
+                    isBookmarked={isBookmarked}
+                    onLike={toggleLike}
+                    onDislike={toggleDislike}
+                    onAddComment={addComment}
+                    onDeleteComment={deleteComment}
+                    onLikeComment={likeComment}
+                    onDislikeComment={dislikeComment}
+                    getEngagement={getEngagement}
+                  />
+                </Box>
+              )}
+
+              {isFetchingMore && (
+                <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
+                  <CircularProgress size={30} sx={{ color: "var(--red)" }} />
+                </Box>
+              )}
+            </SectionStatus>
+          </Box>
+
+          {/* ================= RIGHT FIXED SIDEBAR ================= */}
+          <Box component="aside" sx={{ display: "flex", flexDirection: "column", gap: 3.5, minWidth: 0 }}>
+            {/* 1. PERSONALIZATION TABBED CONTAINER ("For You") */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
               }}
             >
-              <Typography 
-                variant="h5" 
-                component="h2" 
-                sx={{ 
-                  fontWeight: 850, 
-                  display: "flex", 
-                  alignItems: "center", 
-                  gap: 1.25,
-                  fontSize: { xs: "1.3rem", sm: "1.5rem" }
+              <Box sx={{ borderBottom: "1px solid var(--line)", pb: 1.5, mb: 2 }}>
+                <Box sx={{ display: "flex", alignItems: "center", justifyBetween: "space-between", mb: 1 }}>
+                  <Typography
+                    sx={{
+                      fontFamily: "var(--mono)",
+                      fontSize: "11px",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "var(--red)",
+                    }}
+                  >
+                    Personalization
+                  </Typography>
+                </Box>
+                <Tabs
+                  value={personalTab}
+                  onChange={(_, val) => setPersonalTab(val)}
+                  sx={{
+                    minHeight: 32,
+                    "& .MuiTabs-indicator": { backgroundColor: "var(--red)", height: 2 },
+                  }}
+                >
+                  <Tab
+                    value="recommended"
+                    icon={<AutoAwesomeIcon sx={{ fontSize: 14 }} />}
+                    iconPosition="start"
+                    label="For You"
+                    sx={{
+                      fontSize: "12.5px",
+                      fontWeight: 600,
+                      fontFamily: "var(--sans)",
+                      textTransform: "none",
+                      minHeight: 32,
+                      py: 0.5,
+                      px: 1,
+                      color: "var(--slate)",
+                      "&.Mui-selected": { color: "var(--text)" },
+                    }}
+                  />
+                  <Tab
+                    value="trending"
+                    icon={<WhatshotIcon sx={{ fontSize: 14 }} />}
+                    iconPosition="start"
+                    label="Trending"
+                    sx={{
+                      fontSize: "12.5px",
+                      fontWeight: 600,
+                      fontFamily: "var(--sans)",
+                      textTransform: "none",
+                      minHeight: 32,
+                      py: 0.5,
+                      px: 1,
+                      color: "var(--slate)",
+                      "&.Mui-selected": { color: "var(--text)" },
+                    }}
+                  />
+                </Tabs>
+              </Box>
+
+              <SuggestedForYouWidget
+                onTopicsChange={setFollowedTopics}
+                onTopicSelect={setSelectedTopicId}
+                activeTopicId={selectedTopicId}
+              />
+
+              <Box sx={{ mt: 2 }}>
+                {(personalTab === "recommended" ? recommendedArticles : trendingArticles).map((art, idx) => (
+                  <Box
+                    key={art.url || idx}
+                    onClick={() => handleArticleClick(art)}
+                    sx={{
+                      py: 1,
+                      borderBottom: idx < 3 ? "1px solid var(--line-soft)" : "none",
+                      cursor: "pointer",
+                      "&:hover .item-title": { color: "var(--red)" },
+                    }}
+                  >
+                    <Typography
+                      className="item-title"
+                      sx={{
+                        fontFamily: "var(--sans)",
+                        fontSize: "12.5px",
+                        fontWeight: 600,
+                        lineHeight: 1.35,
+                        color: "var(--text)",
+                        mb: 0.25,
+                      }}
+                    >
+                      {art.title}
+                    </Typography>
+                    <Typography sx={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--slate-light)" }}>
+                      {art.category || "News"}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Paper>
+
+            {/* 2. READER TOOLS (Quiz, Polls, Games - clearly labeled as Utilities) */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "var(--mono)",
+                  fontSize: "11px",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--slate-light)",
+                  mb: 1.5,
+                  pb: 1,
+                  borderBottom: "1px solid var(--line-soft)",
                 }}
               >
-                Top Stories <span style={{ color: "#ef4444" }}>⚡</span>
+                Reader Utilities & Games
               </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                Curated Editorial Engine
-              </Typography>
-            </Box>
-            <NewsGrid
-              articles={topStoriesArticles}
-              onBookmark={addBookmark}
-              onRemoveBookmark={removeBookmark}
-              isBookmarked={isBookmarked}
-              onLike={toggleLike}
-              onDislike={toggleDislike}
-              onAddComment={addComment}
-              onDeleteComment={deleteComment}
-              onLikeComment={likeComment}
-              onDislikeComment={dislikeComment}
-              getEngagement={getEngagement}
-            />
-          </Box>
-        )}
-      </SectionStatus>
 
-      {/* ✅ 2. FEATURED EDITORIAL BRIEFINGS SPOTLIGHT */}
-      <Paper
-        elevation={0}
-        sx={{
-          mb: 5,
-          p: { xs: 2.5, sm: 3.5 },
-          borderRadius: 4,
-          background: (theme) =>
-            theme.palette.mode === "dark"
-              ? "linear-gradient(135deg, rgba(200, 58, 21, 0.15), rgba(255, 112, 67, 0.08))"
-              : "linear-gradient(135deg, #fff5f2, #fff0eb)",
-          border: "1px solid",
-          borderColor: "rgba(200, 58, 21, 0.25)",
-        }}
-      >
-        <Grid container spacing={3} alignItems="center">
-          <Grid size={{ xs: 12, md: 8 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
-              <AutoAwesomeIcon sx={{ color: "#c83a15", fontSize: "1.4rem" }} />
-              <Typography variant="overline" sx={{ fontWeight: 800, color: "#c83a15", letterSpacing: "0.1em" }}>
-                EDITORIAL BRIEFINGS & SYNTHESIS
-              </Typography>
-            </Box>
-            <Typography variant="h5" sx={{ fontWeight: 800, mb: 1, color: "text.primary" }}>
-              In-Depth Analytical Briefings & Global Impact Syntheses
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6, mb: 2 }}>
-              Explore original editorial analysis, cross-referenced multi-source takeaways, and strategic insights curated directly by our journalists and NLP synthesis desk.
-            </Typography>
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-              <Box sx={{ px: 1.5, py: 0.5, borderRadius: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", fontSize: "0.75rem", fontWeight: 700 }}>
-                💡 Global Trade & Market Resilience
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "13.5px", fontWeight: 600, mb: 0.5 }}>
+                    Daily News Quiz 🏆
+                  </Typography>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "12px", color: "var(--slate)", mb: 1 }}>
+                    Test your knowledge on today's headlines.
+                  </Typography>
+                  <Button
+                    component={RouterLink}
+                    to="/badge-quiz"
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      borderColor: "var(--line)",
+                      color: "var(--text)",
+                      fontSize: "11.5px",
+                      textTransform: "none",
+                      fontFamily: "var(--mono)",
+                    }}
+                  >
+                    Play Quiz →
+                  </Button>
+                </Box>
+
+                <Box sx={{ pt: 1.5, borderTop: "1px solid var(--line-soft)" }}>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "13.5px", fontWeight: 600, mb: 0.5 }}>
+                    Community Opinion Poll 🗳️
+                  </Typography>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "12px", color: "var(--slate)", mb: 1 }}>
+                    Vote on active geopolitical and market questions.
+                  </Typography>
+                  <Button
+                    component={RouterLink}
+                    to="/polls"
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      borderColor: "var(--line)",
+                      color: "var(--text)",
+                      fontSize: "11.5px",
+                      textTransform: "none",
+                      fontFamily: "var(--mono)",
+                    }}
+                  >
+                    Vote in Poll →
+                  </Button>
+                </Box>
+
+                <Box sx={{ pt: 1.5, borderTop: "1px solid var(--line-soft)" }}>
+                  <Typography sx={{ fontFamily: "var(--sans)", fontSize: "13.5px", fontWeight: 600, mb: 0.5 }}>
+                    Arcade Games 🎮
+                  </Typography>
+                  <Button
+                    onClick={handlePlayGamesClick}
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      borderColor: "var(--line)",
+                      color: "var(--text)",
+                      fontSize: "11.5px",
+                      textTransform: "none",
+                      fontFamily: "var(--mono)",
+                    }}
+                  >
+                    Open Arcade →
+                  </Button>
+                </Box>
               </Box>
-              <Box sx={{ px: 1.5, py: 0.5, borderRadius: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", fontSize: "0.75rem", fontWeight: 700 }}>
-                ⚽ Sports Analytics & Data Insights
+            </Paper>
+
+            {/* 3. MARKETPLACE PICKS (Amazon products - strictly isolated to sidebar under Sponsored tag!) */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1.5 }}>
+                <Typography
+                  sx={{
+                    fontFamily: "var(--sans)",
+                    fontSize: "13.5px",
+                    fontWeight: 700,
+                    color: "var(--text)",
+                  }}
+                >
+                  Marketplace Picks
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "var(--mono)",
+                    fontSize: "10px",
+                    color: "var(--slate-light)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    backgroundColor: "var(--paper)",
+                    px: 1,
+                    py: 0.25,
+                    borderRadius: "2px",
+                  }}
+                >
+                  Sponsored
+                </Typography>
               </Box>
-              <Box sx={{ px: 1.5, py: 0.5, borderRadius: 2, bgcolor: "background.paper", border: "1px solid", borderColor: "divider", fontSize: "0.75rem", fontWeight: 700 }}>
-                🤖 AI Regulation & Tech Frontiers
-              </Box>
-            </Box>
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }} sx={{ textAlign: { xs: "left", md: "right" } }}>
-            <Button
-              component={RouterLink}
-              to="/editorial-briefings"
-              variant="contained"
-              endIcon={<ArrowForwardIcon />}
-              sx={{
-                background: "linear-gradient(135deg, #c83a15, #ff7043)",
-                color: "#fff",
-                fontWeight: 800,
-                borderRadius: "20px",
-                px: 3,
-                py: 1.25,
-                textTransform: "none",
-                boxShadow: "0 4px 15px rgba(200, 58, 21, 0.3)",
-                "&:hover": {
-                  background: "linear-gradient(135deg, #ff7043, #c83a15)",
-                  boxShadow: "0 6px 20px rgba(200, 58, 21, 0.4)",
-                },
-              }}
-            >
-              Read Full Briefings
-            </Button>
-          </Grid>
-        </Grid>
-      </Paper>
 
-      {/* Personalized Feed Widget: Recommended For You & Trending Now */}
-      {articles.length > 0 && (
-        <Box sx={{ my: 5, p: 3, borderRadius: 3, border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, pb: 1, mb: 3 }}>
-            <Box>
-              <Typography variant="h5" sx={{ fontWeight: 850, mb: 0.5 }}>Personalized Portal 🎯</Typography>
-              <Typography variant="body2" color="text.secondary">Tailored headlines and community trending pulses updated in real-time.</Typography>
-            </Box>
-            <Tabs 
-              value={personalTab} 
-              onChange={(_, val) => setPersonalTab(val)}
+              <ShoppingWidget />
+            </Paper>
+
+            {/* 4. WATCHLIST & WEATHER DATA WIDGETS */}
+            <Paper
+              elevation={0}
               sx={{
-                '& .MuiTabs-indicator': { height: 3, borderRadius: '3px 3px 0 0' }
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
               }}
             >
-              <Tab 
-                value="recommended" 
-                icon={<AutoAwesomeIcon fontSize="small" />} 
-                iconPosition="start" 
-                label="For You" 
-                sx={{ fontWeight: 700 }}
-              />
-              <Tab 
-                value="trending" 
-                icon={<WhatshotIcon fontSize="small" />} 
-                iconPosition="start" 
-                label="Trending" 
-                sx={{ fontWeight: 700 }}
-              />
-            </Tabs>
+              <Typography
+                sx={{
+                  fontFamily: "var(--mono)",
+                  fontSize: "11px",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--slate-light)",
+                  mb: 1.5,
+                }}
+              >
+                Market Watchlist
+              </Typography>
+              <WatchlistWidget />
+            </Paper>
+
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2.5,
+                backgroundColor: "var(--paper-raise)",
+                border: "1px solid var(--line)",
+                borderRadius: "3px",
+              }}
+            >
+              <WeatherWidget />
+            </Paper>
           </Box>
-
-          <NewsGrid
-            articles={personalTab === "recommended" ? recommendedArticles : trendingArticles}
-            onBookmark={addBookmark}
-            onRemoveBookmark={removeBookmark}
-            isBookmarked={isBookmarked}
-            onLike={toggleLike}
-            onDislike={toggleDislike}
-            onAddComment={addComment}
-            onDeleteComment={deleteComment}
-            onLikeComment={likeComment}
-            onDislikeComment={dislikeComment}
-            getEngagement={getEngagement}
-          />
         </Box>
-      )}
-
-      {/* ✅ 3. DYNAMIC INTERACTIVE FEATURES (Polls, Badge Quiz, MoviesDB) */}
-      <Box 
-        sx={{ 
-          display: "flex", 
-          alignItems: "center", 
-          mb: 3, 
-          mt: 2,
-          pb: 1.5,
-          borderBottom: "2px solid",
-          borderColor: "divider"
-        }}
-      >
-        <Typography 
-          variant="h5" 
-          component="h2" 
-          sx={{ 
-            fontWeight: 850, 
-            display: "flex", 
-            alignItems: "center", 
-            gap: 1.25,
-            fontSize: { xs: "1.3rem", sm: "1.5rem" }
-          }}
-        >
-          Interactive & Fun Hub <span style={{ color: "#3b82f6" }}>🎮</span>
-        </Typography>
-      </Box>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {/* Polls Highlight Card */}
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 2.5,
-              borderRadius: 3,
-              background: "linear-gradient(135deg, rgba(0, 198, 255, 0.08), rgba(0, 114, 255, 0.08))",
-              border: "1px solid rgba(0, 114, 255, 0.2)",
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-              justifyContent: "space-between",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              "&:hover": {
-                transform: "translateY(-4px)",
-                boxShadow: "0 8px 24px rgba(0, 114, 255, 0.18)",
-              },
-            }}
-          >
-            <Box>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
-                Interactive Polls 🗳️
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
-                Vote on crucial daily topics and share your opinion on world events.
-              </Typography>
-            </Box>
-            <Button
-              component={RouterLink}
-              to="/polls"
-              variant="contained"
-              size="small"
-              sx={{
-                background: "linear-gradient(135deg, #00c6ff, #0072ff)",
-                color: "#fff",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                textTransform: "none",
-                alignSelf: "flex-start",
-              }}
-            >
-              Vote Now
-            </Button>
-          </Paper>
-        </Grid>
-
-        {/* GK Quiz Highlight Card */}
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 2.5,
-              borderRadius: 3,
-              background: "linear-gradient(135deg, rgba(248, 87, 166, 0.08), rgba(255, 88, 88, 0.08))",
-              border: "1px solid rgba(255, 88, 88, 0.2)",
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-              justifyContent: "space-between",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              "&:hover": {
-                transform: "translateY(-4px)",
-                boxShadow: "0 8px 24px rgba(255, 88, 88, 0.18)",
-              },
-            }}
-          >
-            <Box>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
-                GK Badge Quiz 🏆
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
-                Challenge your trivia skills, earn coin rewards, and claim profile badges!
-              </Typography>
-            </Box>
-            <Button
-              component={RouterLink}
-              to="/badge-quiz"
-              variant="contained"
-              size="small"
-              sx={{
-                background: "linear-gradient(135deg, #f857a6, #ff5858)",
-                color: "#fff",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                textTransform: "none",
-                alignSelf: "flex-start",
-              }}
-            >
-              Play Quiz
-            </Button>
-          </Paper>
-        </Grid>
-
-        {/* Movies DB Highlight Card */}
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 2.5,
-              borderRadius: 3,
-              background: "linear-gradient(135deg, rgba(225, 29, 72, 0.08), rgba(190, 18, 60, 0.08))",
-              border: "1px solid rgba(225, 29, 72, 0.2)",
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-              justifyContent: "space-between",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              "&:hover": {
-                transform: "translateY(-4px)",
-                boxShadow: "0 8px 24px rgba(225, 29, 72, 0.18)",
-              },
-            }}
-          >
-            <Box>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
-                Movies DB 🎬
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
-                Explore trending movies, box office hits, and detailed film ratings.
-              </Typography>
-            </Box>
-            <Button
-              component={RouterLink}
-              to="/movies"
-              variant="contained"
-              size="small"
-              sx={{
-                background: "linear-gradient(135deg, #e11d48, #be123c)",
-                color: "#fff",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                textTransform: "none",
-                alignSelf: "flex-start",
-              }}
-            >
-              Browse Movies
-            </Button>
-          </Paper>
-        </Grid>
-
-        {/* Play Arcade Games Highlight Card */}
-        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 2.5,
-              borderRadius: 3,
-              background: "linear-gradient(135deg, rgba(76, 175, 80, 0.08), rgba(56, 142, 60, 0.08))",
-              border: "1px solid rgba(76, 175, 80, 0.2)",
-              display: "flex",
-              flexDirection: "column",
-              height: "100%",
-              justifyContent: "space-between",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              "&:hover": {
-                transform: "translateY(-4px)",
-                boxShadow: "0 8px 24px rgba(76, 175, 80, 0.18)",
-              },
-            }}
-          >
-            <Box>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
-                Arcade Games 🎮
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: "0.85rem", lineHeight: 1.5 }}>
-                Play retro games like Snake, Mario, and Chess to challenge your highscore!
-              </Typography>
-            </Box>
-            <Button
-              onClick={handlePlayGamesClick}
-              variant="contained"
-              size="small"
-              sx={{
-                background: "linear-gradient(135deg, #4caf50, #388e3c)",
-                color: "#fff",
-                fontWeight: "bold",
-                borderRadius: "20px",
-                textTransform: "none",
-                alignSelf: "flex-start",
-              }}
-            >
-              Play Now
-            </Button>
-          </Paper>
-        </Grid>
-      </Grid>
-
-      {/* Trending Short Videos */}
-      <TrendingShortVideos />
-
-      {/* ✅ 4. MORE NEWS GRID */}
-      {remainingArticles.length > 0 && (
-        <Box sx={{ my: 4 }}>
-          <Box 
-            sx={{ 
-              display: "flex", 
-              alignItems: "center", 
-              mb: 3, 
-              pb: 1.5,
-              borderBottom: "2px solid",
-              borderColor: "divider"
-            }}
-          >
-            <Typography 
-              variant="h5" 
-              component="h2" 
-              sx={{ 
-                fontWeight: 850, 
-                display: "flex", 
-                alignItems: "center", 
-                gap: 1.25,
-                fontSize: { xs: "1.3rem", sm: "1.5rem" }
-              }}
-            >
-              More Global News <span style={{ color: "#10b981" }}>🌐</span>
-            </Typography>
-          </Box>
-          <NewsGrid
-            articles={remainingArticles}
-            onBookmark={addBookmark}
-            onRemoveBookmark={removeBookmark}
-            isBookmarked={isBookmarked}
-            onLike={toggleLike}
-            onDislike={toggleDislike}
-            onAddComment={addComment}
-            onDeleteComment={deleteComment}
-            onLikeComment={likeComment}
-            onDislikeComment={dislikeComment}
-            getEngagement={getEngagement}
-          />
-        </Box>
-      )}
-
-      {isFetchingMore && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', p: 3 }}>
-          <CircularProgress />
-        </Box>
-      )}
-
-      {/* ✅ 5. COLLAPSIBLE MARKET TOOLS & DASHBOARD (Below News Feed) */}
-      <Box sx={{ mt: 6, pt: 3, borderTop: "1px solid", borderColor: "divider" }}>
-        <Box 
-          sx={{ 
-            display: "flex", 
-            alignItems: "center", 
-            mb: 3, 
-            pb: 1.5,
-            borderBottom: "2px solid",
-            borderColor: "divider"
-          }}
-        >
-          <Typography 
-            variant="h5" 
-            component="h2" 
-            sx={{ 
-              fontWeight: 850, 
-              display: "flex", 
-              alignItems: "center", 
-              gap: 1.25,
-              fontSize: { xs: "1.3rem", sm: "1.5rem" }
-            }}
-          >
-            Market & Utility Tools <span style={{ color: "#f59e0b" }}>🛠️</span>
-          </Typography>
-        </Box>
-        <Grid container spacing={3} id="homepage-widgets-dashboard">
-          <Grid size={{ xs: 12, md: 4 }}>
-            <WatchlistWidget />
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <TopEngagingNewsWidget articles={articles} getEngagement={getEngagement} />
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <ShoppingWidget />
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <WeatherWidget />
-          </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
-            <SuggestedForYouWidget onTopicsChange={setFollowedTopics} />
-          </Grid>
-        </Grid>
       </Box>
     </Box>
   );

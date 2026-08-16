@@ -1,6 +1,7 @@
 import { Box, Container, Typography, Card, CardContent, Grid, Chip, Divider, Button, Alert } from '@mui/material';
 import { SEOMeta } from '../seo/SEOMeta';
 import { JSONLDBreadcrumb } from '../seo/JSONLDSchemas';
+import { BreadcrumbNav } from '../components/BreadcrumbNav';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import FlagIcon from '@mui/icons-material/Flag';
@@ -247,8 +248,13 @@ export const EditorialBriefingsPage = () => {
         { name: 'Editorial Briefings', url: `${SITE_URL}/editorial-briefings` }
       ]} />
 
-      <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Box component="main">
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <BreadcrumbNav
+          items={[
+            { label: "Editorial Briefings" }
+          ]}
+        />
+        <Box component="section">
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 6 }}>
             <Typography 

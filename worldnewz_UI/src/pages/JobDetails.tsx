@@ -8,19 +8,17 @@ import {
   Button, 
   Chip, 
   CircularProgress, 
-  Breadcrumbs, 
   Link,
   Divider
 } from "@mui/material";
-import WorkIcon from "@mui/icons-material/Work";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import BusinessIcon from "@mui/icons-material/Business";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LaunchIcon from "@mui/icons-material/Launch";
-import HomeIcon from "@mui/icons-material/Home";
 import { fetchJobDetail } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 interface Job {
   slug: string;
@@ -109,29 +107,12 @@ const JobDetails: React.FC = () => {
       />
 
       {/* Breadcrumbs */}
-      <Breadcrumbs sx={{ mb: 3 }}>
-        <Link 
-          underline="hover" 
-          color="inherit" 
-          onClick={() => navigate("/")} 
-          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', fontSize: '0.85rem' }}
-        >
-          <HomeIcon sx={{ mr: 0.5, fontSize: 'inherit' }} />
-          Home
-        </Link>
-        <Link 
-          underline="hover" 
-          color="inherit" 
-          onClick={() => navigate("/jobs")} 
-          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', fontSize: '0.85rem' }}
-        >
-          <WorkIcon sx={{ mr: 0.5, fontSize: 'inherit' }} />
-          Jobs
-        </Link>
-        <Typography color="text.primary" sx={{ display: 'flex', alignItems: 'center', fontSize: '0.85rem', maxWidth: 250, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          {job.title}
-        </Typography>
-      </Breadcrumbs>
+      <BreadcrumbNav
+        items={[
+          { label: "Jobs", path: "/jobs" },
+          { label: job.title }
+        ]}
+      />
 
       {/* Action Button: Back */}
       <Button 

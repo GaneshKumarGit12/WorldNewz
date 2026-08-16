@@ -25,7 +25,7 @@ export interface Article {
   imageUrl?: string;      // optional
   category?: string;      // optional
   publishedAt?: string;   // optional, guard in UI
-  source?: { name: string } | string;
+  source?: { id?: string; name: string } | string;
   featured?: boolean;
   engagement?: ArticleEngagement;
   headline?: string;

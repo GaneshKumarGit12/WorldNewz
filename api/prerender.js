@@ -269,6 +269,94 @@ const PAGE_METADATA = {
     canonical: 'https://worldnewzs.in/amazon-products',
     ogImage: 'https://worldnewzs.in/og-image.png',
     ogType: 'website'
+  },
+  'deals': {
+    title: 'Deals Hub – Amazon Product Deals & Shopping Guides',
+    description: 'Find curated shopping guides, promo coupons, and best direct Amazon products in the WorldNewzs Deals Hub.',
+    keywords: 'amazon deals, coupon deals, product savings, shopping guide',
+    canonical: 'https://worldnewzs.in/deals',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'disclaimer': {
+    title: 'Disclaimer – WorldNewzs',
+    description: 'WorldNewzs disclaimer covering news aggregation, third-party content, financial notices, and general informational purposes.',
+    keywords: 'disclaimer, editorial notice, terms of content, worldnewzs disclaimer',
+    canonical: 'https://worldnewzs.in/disclaimer',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'editorial-briefings': {
+    title: 'Editorial Briefings – In-Depth Journalism & Sector Analysis',
+    description: 'Read expert editorial briefings and deep-dive investigative analysis across global geopolitics, tech breakthroughs, finance, and science.',
+    keywords: 'editorial briefings, in-depth journalism, news analysis, investigative reports',
+    canonical: 'https://worldnewzs.in/editorial-briefings',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'editorial-guidelines': {
+    title: 'Editorial Guidelines – Standards of Accuracy & Integrity',
+    description: 'Learn about WorldNewzs editorial guidelines, verification methodologies, code of ethics, correction policies, and source transparency.',
+    keywords: 'editorial guidelines, journalistic ethics, fact-checking policy, news standards',
+    canonical: 'https://worldnewzs.in/editorial-guidelines',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'trending-videos': {
+    title: 'Trending Videos & News Shorts – Watch Curated Clips',
+    description: 'Watch viral trending video clips, breaking news shorts, insightful tech demos, and sports highlights on WorldNewzs.',
+    keywords: 'trending videos, news shorts, video highlights, viral clips',
+    canonical: 'https://worldnewzs.in/trending-videos',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'videos': {
+    title: 'Trending Videos & News Shorts – Watch Curated Clips',
+    description: 'Watch viral trending video clips, breaking news shorts, insightful tech demos, and sports highlights on WorldNewzs.',
+    keywords: 'trending videos, news shorts, video highlights, viral clips',
+    canonical: 'https://worldnewzs.in/videos',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'shorts': {
+    title: 'Trending Videos & News Shorts – Watch Curated Clips',
+    description: 'Watch viral trending video clips, breaking news shorts, insightful tech demos, and sports highlights on WorldNewzs.',
+    keywords: 'trending videos, news shorts, video highlights, viral clips',
+    canonical: 'https://worldnewzs.in/shorts',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'play-games': {
+    title: 'Play Games Online – Free Browser Games & Trivia',
+    description: 'Play interactive browser games online on WorldNewzs! Enjoy Retro Mario, Chess, Hit Goal, Snake Arena, and Daily Trivia Quizzes.',
+    keywords: 'play games, free online games, browser games, retro games, chess, mario',
+    canonical: 'https://worldnewzs.in/play-games',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'games': {
+    title: 'Play Games Online – Free Browser Games & Trivia',
+    description: 'Play interactive browser games online on WorldNewzs! Enjoy Retro Mario, Chess, Hit Goal, Snake Arena, and Daily Trivia Quizzes.',
+    keywords: 'play games, free online games, browser games, retro games, chess, mario',
+    canonical: 'https://worldnewzs.in/games',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'polls-history': {
+    title: 'Opinion Polls History – Public Sentiment Records',
+    description: 'Review historical opinion polls and survey results. Track community trends on politics, technology, economy, and sports over time.',
+    keywords: 'polls history, past voting results, public sentiment archives',
+    canonical: 'https://worldnewzs.in/polls-history',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
+  },
+  'quiz-history': {
+    title: 'Quiz History & Leaderboards – WorldNewzs',
+    description: 'View your trivia quiz attempt history, review past answers, check your earned coins, and inspect your global rank on the leaderboard.',
+    keywords: 'quiz history, trivia records, coin rewards, quiz score archive',
+    canonical: 'https://worldnewzs.in/quiz-history',
+    ogImage: 'https://worldnewzs.in/og-image.png',
+    ogType: 'website'
   }
 };
 

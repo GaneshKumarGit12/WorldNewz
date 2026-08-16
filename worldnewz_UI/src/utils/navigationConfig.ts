@@ -11,39 +11,39 @@ export const newsPillarLinks: NavLink[] = [
   { label: "Politics", path: "/politics" },
   { label: "Technology", path: "/technology" },
   { label: "Business", path: "/business" },
-  { label: "Sports", path: "/sports" },
-  { label: "Science & Health", path: "/science-health" },
-  { label: "Money", path: "/money" },
-  { label: "Local News (India)", path: "/local-news" },
-  { label: "Editorial Briefings", path: "/editorial-briefings" },
-  { label: "Trending News", path: "/trending" },
+  { label: "Sports ⚽", path: "/sports" },
+  { label: "Science & Health 🔬", path: "/science-health" },
+  { label: "Money 💰", path: "/money" },
+  { label: "Local News 🇮🇳", path: "/local-news" },
+  { label: "Editorial Briefings 📰", path: "/editorial-briefings" },
+  { label: "Trending News ⚡", path: "/trending", badge: "LIVE" },
 ];
 
 export const lifestylePillarLinks: NavLink[] = [
-  { label: "Lifestyle", path: "/lifestyle" },
-  { label: "Education", path: "/education" },
-  { label: "Travel", path: "/travel" },
-  { label: "Food", path: "/food" },
+  { label: "Lifestyle 🧘", path: "/lifestyle" },
+  { label: "Education 🎓", path: "/education" },
+  { label: "Travel ✈️", path: "/travel" },
+  { label: "Food 🍳", path: "/food" },
   { label: "Weather ⛅", path: "/weather" },
-  { label: "Opinion", path: "/opinion" },
+  { label: "Opinion ✍️", path: "/opinion" },
 ];
 
 export const explorePillarLinks: NavLink[] = [
   { label: "MoviesDB 🎬", path: "/movies" },
   { label: "Cartoons 🧸", path: "/cartoons" },
-  { label: "Jobs 💼", path: "/jobs" },
+  { label: "Jobs 💼", path: "/jobs", badge: "HIRE" },
   { label: "Stocks 📈", path: "/stocks" },
   { label: "Book Cab 🚗", path: "/transportation" },
-  { label: "Deals 🛍️", path: "/amazon-products" },
-  { label: "NewsBot AI 🤖", path: "/chatbot" },
+  { label: "Deals 🛍️", path: "/amazon-products", badge: "HOT" },
+  { label: "NewsBot AI 🤖", path: "/chatbot", badge: "AI" },
 ];
 
 export const playPillarLinks: NavLink[] = [
-  { label: "Play Games Services 🎮", path: "/play-games", badge: "SPECIAL" },
+  { label: "Play Games Services 🎮", path: "/play-games", badge: "PLAY" },
   { label: "GK Quiz 🏆", path: "/badge-quiz" },
   { label: "Interactive Polls 🗳️", path: "/polls" },
   { label: "DVCubie2026 🐍", path: "/games/dvcubie2026", badge: "NEW" },
-  { label: "Gaming 🎮", path: "/gaming" },
+  { label: "Gaming 🕹️", path: "/gaming" },
   { label: "Trending Videos 🎥", path: "/trending-videos", badge: "HOT" },
   { label: "Podcasts & Videos 🎙️", path: "/podcasts-videos" },
 ];

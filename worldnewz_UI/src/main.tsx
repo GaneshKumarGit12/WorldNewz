@@ -115,8 +115,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="quiz-history" element={<QuizHistory />} />
                   <Route path="movies" element={<Movies />} />
                   <Route path="amazon-products" element={<AmazonProducts />} />
+                  <Route path="deals" element={<AmazonProducts />} />
                   <Route path="jobs" element={<Jobs />} />
                   <Route path="trending-videos" element={<TrendingVideos />} />
+                  <Route path="videos" element={<TrendingVideos />} />
+                  <Route path="shorts" element={<TrendingVideos />} />
                   <Route path="jobs/detail/:slug" element={<JobDetails />} />
                   <Route path="jobs/post-job" element={<PostJob />} />
                   <Route path="search" element={<Search />} />
@@ -124,7 +127,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="bookmarks" element={<Bookmarks />} />
                   <Route path="comments" element={<CommentHistory />} />
                   <Route path="article/:id" element={<ResultPage />} />
+                  <Route path="read" element={<ReadFullArticles />} />
+                  <Route path="read-article" element={<ReadFullArticles />} />
                   <Route path="read-article/:id" element={<ReadFullArticles />} />
+                  <Route path="games" element={<PlayGamesPage />} />
                   <Route path="author/:slug" element={<AuthorBioPage />} />
                   <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
                   <Route path="terms" element={<TermsPage />} />

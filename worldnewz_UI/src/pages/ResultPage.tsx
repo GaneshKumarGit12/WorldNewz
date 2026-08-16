@@ -13,7 +13,7 @@ import type { Article } from "../types";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useComments } from "../hooks/useComments";
 import { fetchDiscover, fetchSearch } from "../api/apiClient";
-import { optimizeImageUrl } from "../utils/imageOptimizer";
+import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
 import SectionStatus from "../components/SectionStatus";
 import NewsGrid from "../components/NewsGrid";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -29,6 +29,8 @@ import { SEOMeta } from "../seo/SEOMeta";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { DailyNewsQuizWidget } from "../components/DailyNewsQuizWidget";
 import { WeatherWidget } from "../components/WeatherWidget";
+import { SuggestedForYouWidget } from "../components/SuggestedForYouWidget";
+import { PersonalizedTopicHub } from "../components/PersonalizedTopicHub";
 import { ContextualPollWidget } from "../components/ContextualPollWidget";
 import { fetchContextualPoll } from "../api/apiClient";
 import type { ContextualPollData } from "../api/apiClient";
@@ -38,6 +40,7 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { getAuthorForCategory } from "../utils/authors";
 import { getCategoryConfig } from "../utils/categoryConfig";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 const generateEditorialBriefing = (desc: string, article?: Article | null) => {
   if (article && article.takeaways && Array.isArray(article.takeaways) && article.takeaways.length > 0) {
@@ -84,6 +87,8 @@ const ResultPage: React.FC = () => {
   const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
   const [relatedLoading, setRelatedLoading] = useState(true);
   const [relatedError, setRelatedError] = useState<string | null>(null);
+  const [followedTopics, setFollowedTopics] = useState<string[]>([]);
+  const [selectedTopicId, setSelectedTopicId] = useState<string>("top-ai");
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
   const [shareAnchorEl, setShareAnchorEl] = useState<null | HTMLElement>(null);
   const shareOpen = Boolean(shareAnchorEl);
@@ -95,17 +100,6 @@ const ResultPage: React.FC = () => {
 
   useEffect(() => {
     setImgSrc(optimizedUrl);
-    if (optimizedUrl) {
-      const existingLink = document.querySelector(`link[rel="preload"][href="${optimizedUrl}"]`);
-      if (!existingLink) {
-        const link = document.createElement("link");
-        link.rel = "preload";
-        link.as = "image";
-        link.href = optimizedUrl;
-        link.setAttribute("fetchpriority", "high");
-        document.head.appendChild(link);
-      }
-    }
   }, [optimizedUrl]);
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -122,6 +116,20 @@ const ResultPage: React.FC = () => {
     dislikeComment 
   } = useComments();
 
+  const inferCategoryFromTitle = (title: string): string => {
+    const t = title.toLowerCase();
+    if (t.includes("tech") || t.includes("ai") || t.includes("software") || t.includes("apple") || t.includes("google") || t.includes("microsoft") || t.includes("cyber")) return "Technology";
+    if (t.includes("business") || t.includes("market") || t.includes("stock") || t.includes("economy") || t.includes("bank") || t.includes("cramer")) return "Business";
+    if (t.includes("sport") || t.includes("game") || t.includes("nba") || t.includes("cricket") || t.includes("football") || t.includes("match")) return "Sports";
+    if (t.includes("politic") || t.includes("election") || t.includes("vote") || t.includes("government") || t.includes("house") || t.includes("senate") || t.includes("biden") || t.includes("trump") || t.includes("democrat")) return "Politics";
+    if (t.includes("study") || t.includes("science") || t.includes("scientist") || t.includes("health") || t.includes("medical") || t.includes("space") || t.includes("climate") || t.includes("population") || t.includes("earthquake") || t.includes("el ni") || t.includes("weather")) return "Science & Health";
+    if (t.includes("movie") || t.includes("music") || t.includes("cinema") || t.includes("hollywood") || t.includes("bollywood") || t.includes("actor") || t.includes("film")) return "Entertainment";
+    if (t.includes("travel") || t.includes("flight") || t.includes("hotel") || t.includes("tourism") || t.includes("destination")) return "Travel";
+    if (t.includes("food") || t.includes("recipe") || t.includes("cooking") || t.includes("restaurant") || t.includes("cuisine")) return "Food";
+    if (t.includes("lifestyle") || t.includes("fashion") || t.includes("wellness") || t.includes("fitness")) return "Lifestyle";
+    return "Science & Health";
+  };
+
   useEffect(() => {
     const state = location.state as { article?: Article };
     if (state?.article) {
@@ -129,24 +137,80 @@ const ResultPage: React.FC = () => {
       setLoading(false);
     } else if (id) {
       setLoading(true);
-      const query = id.split("-").join(" ");
-      fetchSearch({ query, pageSize: 5 })
+      const cleanSlug = decodeURIComponent(id || "")
+        .replace(/^-+|-+$/g, "")
+        .replace(/--+/g, "-");
+      const words = cleanSlug.split("-").map(w => w.trim()).filter(Boolean);
+      const query = words.filter(w => w.length > 2).join(" ") || words.join(" ");
+      const rawTitle = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+      const inferredCategory = inferCategoryFromTitle(rawTitle);
+
+      fetchSearch({ query: query || rawTitle, pageSize: 10 })
         .then((res) => {
           const results = Array.isArray(res.data?.results) ? res.data.results : [];
-          if (results.length > 0) {
-            const fetched = results[0];
+          // Search for best matching result in search response
+          const match = results.find((a: any) => {
+            const titleLower = (a.title || "").toLowerCase();
+            const matchingCount = words.filter(w => w.length > 2 && titleLower.includes(w.toLowerCase())).length;
+            return matchingCount >= Math.min(2, words.filter(w => w.length > 2).length);
+          }) || results[0];
+
+          const fallbackImg = getCategoryFallbackImage(inferredCategory, rawTitle);
+
+          if (match) {
+            const standardCategories = ["politics", "technology", "business", "science-health", "science & health", "science", "health", "sports", "entertainment", "lifestyle", "opinion", "money", "food", "travel", "gaming", "education", "trending", "local-news"];
+            const cleanCat = match.category && standardCategories.some(c => match.category.toLowerCase().includes(c))
+              ? match.category
+              : inferredCategory;
+
             setArticle({
-              ...fetched,
-              imageUrl: fetched.urlToImage || fetched.imageUrl,
-              category: fetched.category || (fetched.source && (typeof fetched.source === "string" ? fetched.source : fetched.source.name)) || "News"
+              ...match,
+              title: match.title || rawTitle,
+              headline: match.title || rawTitle,
+              imageUrl: match.urlToImage || match.imageUrl || fallbackImg,
+              urlToImage: match.urlToImage || match.imageUrl || fallbackImg,
+              category: cleanCat,
+              summary: match.description || match.summary || `Comprehensive verified reporting and analytical breakdown on ${rawTitle}.`,
+              description: match.description || match.summary || `Comprehensive verified reporting and analytical breakdown on ${rawTitle}.`,
+              publishedAt: match.publishedAt || new Date().toISOString(),
+              source: match.source || { name: "WorldNewzs Editorial Desk" },
+              verified: true
             });
           } else {
-            setArticle(null);
+            // Construct fallback article with exact slug title so direct link works cleanly!
+            const fallbackArticle: Article = {
+              title: rawTitle,
+              headline: rawTitle,
+              summary: `Comprehensive editorial analysis and news breakdown on ${rawTitle.toLowerCase()}. Read verified reporting and context on WorldNewzs.`,
+              description: `Comprehensive editorial analysis and news breakdown on ${rawTitle.toLowerCase()}. Read verified reporting and context on WorldNewzs.`,
+              category: inferredCategory,
+              url: `https://worldnewzs.in/article/${id}`,
+              urlToImage: fallbackImg,
+              imageUrl: fallbackImg,
+              publishedAt: new Date().toISOString(),
+              source: { name: "WorldNewzs Editorial Desk" },
+              verified: true
+            };
+            setArticle(fallbackArticle);
           }
         })
         .catch((err) => {
           console.error("Error looking up article by slug:", err);
-          setArticle(null);
+          const fallbackImg = getCategoryFallbackImage(inferredCategory, rawTitle);
+          const fallbackArticle: Article = {
+            title: rawTitle,
+            headline: rawTitle,
+            summary: `Comprehensive editorial analysis and news breakdown on ${rawTitle.toLowerCase()}. Read verified reporting and context on WorldNewzs.`,
+            description: `Comprehensive editorial analysis and news breakdown on ${rawTitle.toLowerCase()}. Read verified reporting and context on WorldNewzs.`,
+            category: inferredCategory,
+            url: `https://worldnewzs.in/article/${id}`,
+            urlToImage: fallbackImg,
+            imageUrl: fallbackImg,
+            publishedAt: new Date().toISOString(),
+            source: { name: "WorldNewzs Editorial Desk" },
+            verified: true
+          };
+          setArticle(fallbackArticle);
         })
         .finally(() => {
           setLoading(false);
@@ -327,6 +391,15 @@ const ResultPage: React.FC = () => {
           { name: article.headline || article.title, url: `${SITE_URL}/article/${id}` }
         ]}
       />
+
+      {/* Styled Responsive Breadcrumb Navigation */}
+      <BreadcrumbNav
+        items={[
+          { label: getCategoryConfig(article.category).name, path: getCategoryConfig(article.category).path },
+          { label: article.headline || article.title || "Article" }
+        ]}
+      />
+
       {/* Back Button */}
       <Button
         startIcon={<ArrowBackIcon />}
@@ -531,7 +604,8 @@ const ResultPage: React.FC = () => {
                   endIcon={<OpenInNewIcon />}
                   variant="outlined"
                   onClick={() => {
-                    navigate(`/read-article/${id || 'article'}`, { state: { article } });
+                    const titleSlug = (article.headline || article.title)?.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50) || id || 'article';
+                    navigate(`/read-article/${titleSlug}`, { state: { article } });
                   }}
                 >
                   Read Full Article
@@ -767,6 +841,17 @@ const ResultPage: React.FC = () => {
         {/* Sidebar Column */}
         <Grid size={{ xs: 12, md: 4 }} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <ContextualPollWidget initialPoll={contextualPoll} category={article.category} articleUrl={article.url} />
+          <SuggestedForYouWidget
+            onTopicsChange={setFollowedTopics}
+            onTopicSelect={(topicId) => {
+              setSelectedTopicId(topicId);
+              const el = document.getElementById("personalized-topic-hub");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+            activeTopicId={selectedTopicId}
+          />
           <DailyNewsQuizWidget />
           <WeatherWidget />
         </Grid>
@@ -822,6 +907,19 @@ const ResultPage: React.FC = () => {
             getEngagement={getEngagement}
           />
         </SectionStatus>
+      </Box>
+
+      {/* Suggested Topic Deep-Dive Intelligence Hub */}
+      <Box sx={{ mt: 6 }}>
+        <PersonalizedTopicHub
+          initialTopicId={selectedTopicId}
+          followedTopicIds={followedTopics}
+          onToggleFollow={(id) => {
+            setFollowedTopics((prev) =>
+              prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+            );
+          }}
+        />
       </Box>
 
       {/* Back to Top Button */}

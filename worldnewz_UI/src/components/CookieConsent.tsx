@@ -76,6 +76,7 @@ export const CookieConsent: React.FC = () => {
           </Box>
           <Box sx={{ display: 'flex', gap: 1.5, width: { xs: '100%', sm: 'auto' }, justifyContent: 'flex-end', mt: { xs: 1, sm: 0 }, flexShrink: 0 }}>
             <Button 
+              id="btn-cookie-reject"
               variant="outlined" 
               size="small" 
               color="inherit" 
@@ -95,6 +96,7 @@ export const CookieConsent: React.FC = () => {
               Reject
             </Button>
             <Button 
+              id="btn-cookie-accept"
               variant="contained" 
               size="small" 
               color="primary"

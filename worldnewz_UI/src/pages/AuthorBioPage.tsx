@@ -12,6 +12,7 @@ import { fetchSports, fetchMoney, fetchSearch, fetchTravel, fetchFood, fetchEnte
 import type { Article } from "../types";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 const getArticlesFetch = (slug: string) => {
   switch (slug) {
@@ -120,6 +121,13 @@ const AuthorBioPage: React.FC = () => {
       />
 
       <Container maxWidth="md" sx={{ py: 6 }}>
+        <BreadcrumbNav
+          items={[
+            { label: "About", path: "/about" },
+            { label: author.name }
+          ]}
+        />
+
         <Button
           startIcon={<ArrowBackIcon />}
           variant="outlined"

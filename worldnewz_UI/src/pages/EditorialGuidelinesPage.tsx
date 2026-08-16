@@ -144,7 +144,7 @@ export const EditorialGuidelinesPage = () => {
       ]} />
 
       <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Box component="main">
+        <Box component="section">
           {/* Header */}
           <Box sx={{ textAlign: 'center', mb: 6 }}>
             <Typography 

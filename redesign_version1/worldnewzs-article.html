@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthright citizenship order faces its first appellate test — WorldNewzs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10172A;
+    --ink-soft:#1B2740;
+    --paper:#F4F5F7;
+    --paper-raise:#FFFFFF;
+    --text:#1A2233;
+    --slate:#5C6474;
+    --slate-light:#8B92A3;
+    --line:#DBDEE4;
+    --line-soft:#E9EBEF;
+    --red:#B7222B;
+    --red-deep:#8E1B22;
+    --gold:#9C7A2E;
+    --gold-soft:#F1E9D6;
+    --focus:#2255CC;
+
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'IBM Plex Sans', -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', 'SFMono-Regular', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--text); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+  .wrap{max-width:1240px; margin:0 auto; padding:0 28px;}
+
+  .art{position:relative; background:linear-gradient(135deg,#1c2740 0%, #2b3a5c 45%, #3c4d73 100%); overflow:hidden; display:flex; align-items:flex-end;}
+  .art::before{content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(115deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 9px);}
+  .art.tone-red{background:linear-gradient(135deg,#4a1418 0%, #7a2229 50%, #9c3239 100%);}
+  .art.tone-gold{background:linear-gradient(135deg,#3a2f14 0%, #6b5522 50%, #8f7130 100%);}
+  .art.tone-slate{background:linear-gradient(135deg,#232a38 0%, #3a4356 50%, #4c5670 100%);}
+  .art.tone-green{background:linear-gradient(135deg,#132a24 0%, #234a3d 50%, #316354 100%);}
+  .art-label{position:relative; z-index:1; font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:rgba(255,255,255,.75); background:rgba(0,0,0,.28); padding:5px 9px; margin:10px; border:1px solid rgba(255,255,255,.18);}
+
+  /* ================= MASTHEAD (shared) ================= */
+  .masthead-top{background:var(--ink); color:#C9CEDA;}
+  .masthead-top .wrap{display:flex; align-items:center; justify-content:space-between; height:34px; font-size:12px; font-family:var(--mono);}
+  .masthead-top .left{display:flex; gap:18px; align-items:center; color:#9AA2B4;}
+  .masthead-top .right{display:flex; gap:16px; align-items:center;}
+  .masthead-top .right a{color:#C9CEDA;}
+  .masthead-top .right a:hover{color:#fff;}
+  .dot{width:5px; height:5px; border-radius:50%; background:var(--red); display:inline-block; margin-right:6px; box-shadow:0 0 0 3px rgba(183,34,43,.25);}
+
+  .masthead-main{background:var(--ink); border-top:1px solid #232E48;}
+  .masthead-main .wrap{padding:22px 28px 18px; display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; align-items:baseline; gap:12px;}
+  .brand .mark{font-family:var(--serif); font-weight:700; font-size:30px; color:#fff; letter-spacing:-0.01em;}
+  .brand .mark em{font-style:normal; color:var(--red);}
+  .brand .tagline{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#7C86A0;}
+  .masthead-actions{display:flex; align-items:center; gap:22px;}
+  .search-pill{display:flex; align-items:center; gap:8px; border:1px solid #2E3A58; border-radius:20px; padding:8px 16px; color:#8C93A8; font-size:13px; min-width:200px;}
+  .btn-subscribe{background:var(--red); color:#fff; font-weight:600; font-size:13px; padding:10px 20px; border-radius:3px; border:none; letter-spacing:.02em;}
+  .btn-subscribe:hover{background:var(--red-deep);}
+
+  .verify-strip{background:var(--gold-soft); border-top:1px solid #E4D6AC; border-bottom:1px solid #E4D6AC;}
+  .verify-strip .wrap{display:flex; align-items:center; justify-content:space-between; height:36px; font-family:var(--mono); font-size:11px; color:#7A5F22; letter-spacing:.03em;}
+  .verify-strip .seg{display:flex; align-items:center; gap:22px;}
+  .verify-strip .seg span{display:flex; align-items:center; gap:6px;}
+  .verify-strip .seal{width:14px; height:14px; border-radius:50%; border:1.4px solid #7A5F22; display:inline-flex; align-items:center; justify-content:center; font-size:9px; font-weight:700;}
+
+  nav.primary{background:var(--paper-raise); border-bottom:1px solid var(--line);}
+  nav.primary .wrap{display:flex; align-items:center; gap:30px; height:48px; overflow-x:auto;}
+  nav.primary a{font-size:13px; font-weight:600; color:var(--slate); white-space:nowrap; padding:4px 0; border-bottom:2px solid transparent;}
+  nav.primary a.active{color:var(--text); border-color:var(--red);}
+  nav.primary a:hover{color:var(--text);}
+
+  /* ================= BREADCRUMB ================= */
+  .breadcrumb{padding:18px 0 0; font-family:var(--mono); font-size:11.5px; color:var(--slate-light); display:flex; gap:8px; align-items:center;}
+  .breadcrumb a:hover{color:var(--text);}
+  .breadcrumb .sep{color:var(--line);}
+  .breadcrumb .current{color:var(--slate);}
+
+  /* ================= ARTICLE LAYOUT ================= */
+  .article-layout{display:grid; grid-template-columns:1fr 300px; gap:48px; align-items:start; padding-top:22px;}
+  @media (max-width:980px){ .article-layout{grid-template-columns:1fr;} }
+
+  .article-head{max-width:760px; margin-bottom:26px;}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:8px; margin-bottom:14px;}
+  .eyebrow::before{content:''; width:14px; height:1.4px; background:var(--red); display:inline-block;}
+  .article-head h1{font-family:var(--serif); font-size:42px; line-height:1.14; font-weight:600; letter-spacing:-.015em; margin-bottom:16px;}
+  .article-head .dek{font-family:var(--serif); font-style:italic; font-size:19px; color:var(--slate); line-height:1.55; margin-bottom:22px; font-weight:400;}
+
+  .byline-row{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0;}
+  .author-block{display:flex; align-items:center; gap:12px;}
+  .avatar{width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#3a4356,#4c5670); flex-shrink:0;}
+  .author-name{font-size:13.5px; font-weight:600;}
+  .author-meta{font-family:var(--mono); font-size:11px; color:var(--slate-light); margin-top:2px;}
+  .article-tools{display:flex; gap:10px;}
+  .tool-btn{width:34px; height:34px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; color:var(--slate); background:var(--paper-raise);}
+  .tool-btn:hover{border-color:var(--slate-light); color:var(--text);}
+
+  .lead-media{margin:26px 0 8px;}
+  .lead-media .art{aspect-ratio:16/8.2; border-radius:2px;}
+  .caption{font-family:var(--mono); font-size:11.5px; color:var(--slate-light); padding-top:9px; max-width:760px;}
+
+  /* ---------- Article body ---------- */
+  .article-body{max-width:720px; font-family:var(--serif); font-size:18.5px; line-height:1.75; color:var(--text);}
+  .article-body p{margin-bottom:22px;}
+  .article-body p:first-of-type::first-letter{
+    font-size:64px; font-weight:600; float:left; line-height:.82; padding:5px 8px 0 0; color:var(--ink);
+  }
+  .article-body h2{font-family:var(--serif); font-size:26px; font-weight:600; margin:36px 0 16px; letter-spacing:-.01em;}
+  .article-body a.inline-link{color:var(--red-deep); text-decoration:underline; text-decoration-color:rgba(183,34,43,.35); text-underline-offset:3px;}
+
+  blockquote.pull{
+    font-family:var(--serif); font-style:italic; font-size:25px; line-height:1.45; color:var(--ink);
+    border-left:3px solid var(--red); padding:4px 0 4px 26px; margin:34px 0; max-width:640px;
+  }
+  blockquote.pull cite{display:block; font-style:normal; font-family:var(--mono); font-size:12px; color:var(--slate-light); margin-top:12px; letter-spacing:.03em;}
+
+  .inline-figure{margin:34px 0;}
+  .inline-figure .art{aspect-ratio:16/9.5; border-radius:2px;}
+  .inline-figure figcaption{font-family:var(--mono); font-size:11.5px; color:var(--slate-light); padding-top:9px;}
+
+  .stat-strip{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+    background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:3px; padding:24px; margin:34px 0;
+  }
+  .stat{text-align:left;}
+  .stat .num{font-family:var(--serif); font-size:30px; font-weight:600; color:var(--ink);}
+  .stat .lbl{font-family:var(--mono); font-size:10.5px; color:var(--slate); text-transform:uppercase; letter-spacing:.05em; margin-top:4px;}
+
+  .tag-row{display:flex; gap:10px; flex-wrap:wrap; margin:38px 0 30px; max-width:720px;}
+  .tag-row a{font-family:var(--mono); font-size:11.5px; color:var(--slate); border:1px solid var(--line); padding:6px 13px; border-radius:20px;}
+  .tag-row a:hover{border-color:var(--slate-light); color:var(--text);}
+
+  .author-card{
+    display:flex; gap:16px; max-width:720px; padding:22px; background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:3px; margin-bottom:40px;
+  }
+  .author-card .avatar{width:52px; height:52px;}
+  .author-card h4{font-family:var(--serif); font-size:16px; font-weight:600; margin-bottom:4px;}
+  .author-card p{font-size:12.5px; color:var(--slate); line-height:1.55; font-family:var(--sans);}
+  .author-card .role{font-family:var(--mono); font-size:10.5px; color:var(--slate-light); margin-bottom:8px; display:block;}
+
+  /* corrections block */
+  .corrections{max-width:720px; border-top:1px dashed var(--line); padding-top:18px; margin-bottom:40px;}
+  .corrections h5{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--slate-light); margin-bottom:8px;}
+  .corrections p{font-size:12.5px; color:var(--slate); font-family:var(--sans); line-height:1.6;}
+
+  /* comments */
+  .comments{max-width:720px; margin-bottom:60px;}
+  .comments .section-head{display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:22px;}
+  .comments .section-head h2{font-family:var(--serif); font-size:20px; font-weight:600;}
+  .comments .meta{font-family:var(--mono); font-size:11px; color:var(--slate-light);}
+  .comment{display:flex; gap:14px; padding:18px 0; border-bottom:1px solid var(--line-soft);}
+  .comment .avatar{width:36px; height:36px;}
+  .comment-name{font-size:13px; font-weight:600;}
+  .comment-time{font-family:var(--mono); font-size:10.5px; color:var(--slate-light); margin-left:8px; font-weight:400;}
+  .comment p{font-size:13.5px; color:var(--text); line-height:1.6; margin-top:6px; font-family:var(--sans);}
+  .comment-actions{display:flex; gap:16px; margin-top:8px; font-family:var(--mono); font-size:11px; color:var(--slate-light);}
+
+  /* ================= SIDEBAR ================= */
+  .side-block{margin-bottom:34px; background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:3px; padding:20px; position:sticky; top:22px;}
+  .side-block.static{position:static;}
+  .side-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+  .side-head h3{font-family:var(--serif); font-size:16px; font-weight:600;}
+
+  .mini-story{display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--line-soft);}
+  .mini-story:last-child{border-bottom:none; padding-bottom:0;}
+  .mini-art{width:56px; height:56px; border-radius:2px; flex-shrink:0;}
+  .mini-story h4{font-size:13px; font-weight:600; line-height:1.35; margin-bottom:4px;}
+  .mini-story .byline{font-family:var(--mono); font-size:10px; color:var(--slate-light);}
+
+  .side-block.market{border-color:var(--line);}
+  .sponsored-tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--slate-light); border:1px solid var(--line); padding:2px 7px; border-radius:20px;}
+  .market-item{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line-soft); align-items:center;}
+  .market-item:last-child{border-bottom:none;}
+  .market-art{width:52px; height:52px; border-radius:4px; flex-shrink:0; background:var(--paper);}
+  .market-item h5{font-size:12.5px; font-weight:600; margin-bottom:3px; line-height:1.3;}
+  .market-price{font-family:var(--mono); font-size:12px; color:var(--text); font-weight:600;}
+
+  .newsletter-block{background:var(--ink); color:#fff; border-radius:3px; padding:22px; margin-bottom:34px;}
+  .newsletter-block .eyebrow{color:var(--gold);}
+  .newsletter-block .eyebrow::before{background:var(--gold);}
+  .newsletter-block h3{font-family:var(--serif); font-size:18px; margin:8px 0 8px;}
+  .newsletter-block p{font-size:12.5px; color:#AEB4C4; line-height:1.55; margin-bottom:14px;}
+  .newsletter-block input{width:100%; padding:10px 12px; border-radius:3px; border:1px solid #2E3A58; background:#151F35; color:#fff; font-size:12.5px; margin-bottom:10px;}
+  .newsletter-block button{width:100%; background:var(--red); color:#fff; border:none; padding:10px; border-radius:3px; font-weight:600; font-size:12.5px;}
+  .newsletter-block button:hover{background:var(--red-deep);}
+
+  /* ---------- Related / more from section ---------- */
+  .section{margin-bottom:56px;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:22px;}
+  .section-head h2{font-family:var(--serif); font-size:23px; font-weight:600; letter-spacing:-.01em;}
+  .section-head .meta{font-family:var(--mono); font-size:11px; color:var(--slate-light);}
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  @media (max-width:980px){ .grid-4{grid-template-columns:repeat(2,1fr);} }
+  .story-card .art{aspect-ratio:16/10; border-radius:2px; margin-bottom:12px;}
+  .story-card .cat{font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--red); margin-bottom:7px; display:block;}
+  .story-card h3{font-family:var(--serif); font-size:17px; line-height:1.3; font-weight:600; margin-bottom:8px;}
+  .story-card .byline{font-family:var(--mono); font-size:10.5px; color:var(--slate-light); display:flex; justify-content:space-between;}
+
+  footer{background:var(--ink); color:#8C93A8; margin-top:20px;}
+  footer .wrap{padding:48px 28px 30px;}
+  .foot-grid{display:grid; grid-template-columns:2fr repeat(4,1fr); gap:36px; padding-bottom:34px; border-bottom:1px solid #232E48;}
+  .foot-grid h6{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#5C6685; margin-bottom:14px;}
+  .foot-grid li{margin-bottom:9px; font-size:13px;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-brand{font-family:var(--serif); font-size:22px; color:#fff; margin-bottom:12px;}
+  .foot-brand em{font-style:normal; color:var(--red);}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:22px; font-size:11.5px;}
+
+  ::-webkit-scrollbar{height:6px; width:6px;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:4px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead-top">
+    <div class="wrap">
+      <div class="left">
+        <span><span class="dot"></span>Live desk active</span>
+        <span>Wednesday, 12 August 2026</span>
+        <span>Hyderabad Edition</span>
+      </div>
+      <div class="right">
+        <a href="#">Editorial standards</a>
+        <a href="#">Corrections</a>
+        <a href="#">Newsletters</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="masthead-main">
+    <div class="wrap">
+      <div class="brand">
+        <span class="mark">World<em>Newzs</em></span>
+        <span class="tagline">Reporting, verified</span>
+      </div>
+      <div class="masthead-actions">
+        <div class="search-pill">⌕ Search coverage, topics, people…</div>
+        <button class="btn-subscribe">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="verify-strip">
+    <div class="wrap">
+      <div class="seg">
+        <span><span class="seal">✓</span> Edition No. 4,821</span>
+        <span>214 sources cross-checked today</span>
+      </div>
+      <div class="seg"><span>Last verified 6 min ago</span></div>
+    </div>
+  </div>
+
+  <nav class="primary">
+    <div class="wrap">
+      <a href="#">Top News</a>
+      <a href="#">World</a>
+      <a href="#" class="active">Politics</a>
+      <a href="#">Business</a>
+      <a href="#">Technology</a>
+      <a href="#">Culture</a>
+      <a href="#">Explainers</a>
+      <a href="#">Opinion</a>
+      <a href="#">Video</a>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="breadcrumb">
+    <a href="#">Home</a><span class="sep">/</span><a href="#">Politics</a><span class="sep">/</span><a href="#">Constitutional Law</a><span class="sep">/</span>
+    <span class="current">Birthright citizenship appellate review</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="article-layout">
+
+    <!-- ARTICLE MAIN -->
+    <article class="main-col">
+      <div class="article-head">
+        <span class="eyebrow">Constitutional Law · Analysis</span>
+        <h1>Birthright citizenship order faces its first full appellate test this week</h1>
+        <p class="dek">Three circuit courts have scheduled hearings within the same ten-day window, setting up a rare simultaneous review that legal scholars say could accelerate a Supreme Court decision.</p>
+
+        <div class="byline-row">
+          <div class="author-block">
+            <div class="avatar"></div>
+            <div>
+              <div class="author-name">Priya Nair</div>
+              <div class="author-meta">National Desk · Updated 4 hours ago · 7 min read</div>
+            </div>
+          </div>
+          <div class="article-tools">
+            <span class="tool-btn" title="Bookmark">🔖</span>
+            <span class="tool-btn" title="Share">↗</span>
+            <span class="tool-btn" title="Print">🖶</span>
+          </div>
+        </div>
+      </div>
+
+      <figure class="lead-media">
+        <div class="art tone-red"><span class="art-label">FEDERAL COURTHOUSE · 9TH CIRCUIT</span></div>
+        <figcaption class="caption">The Ninth Circuit Court of Appeals in San Francisco, one of three circuits hearing arguments this week. Photograph, National Desk.</figcaption>
+      </figure>
+
+      <div class="article-body">
+        <p>Three federal appellate courts will hear arguments on the administration's birthright citizenship order within the same ten-day span beginning Monday, an unusual convergence that legal scholars say increases the odds of a fast-tracked Supreme Court review.</p>
+
+        <p>The Ninth, Fourth, and First Circuits each inherited separate district-court rulings that blocked enforcement of the order on differing constitutional grounds, and appellate judges in all three venues have signaled they intend to rule on the merits rather than send the cases back for further fact-finding.</p>
+
+        <h2>Why the timing matters</h2>
+        <p>When multiple circuits rule on the same question close together, and especially when they reach different conclusions, the resulting "circuit split" is one of the strongest signals the Supreme Court uses to decide whether to grant certiorari. <a href="#" class="inline-link">Court watchers tracking the dockets</a> say a split this term is plausible given the panels assigned to each case.</p>
+
+        <blockquote class="pull">
+          "A near-simultaneous ruling from three circuits doesn't just move faster — it changes the shape of the record the Supreme Court would eventually be looking at."
+          <cite>— Constitutional law scholar, on background</cite>
+        </blockquote>
+
+        <p>Hospital administrators in four states have already altered intake procedures in anticipation of a ruling, according to internal memos reviewed by WorldNewzs, even though no order has taken effect. Several described the changes as precautionary, designed to avoid retroactive compliance costs if the policy is upheld.</p>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">3</div><div class="lbl">Circuits hearing arguments</div></div>
+          <div class="stat"><div class="num">10</div><div class="lbl">Days between first and last hearing</div></div>
+          <div class="stat"><div class="num">4</div><div class="lbl">States reporting procedural changes</div></div>
+        </div>
+
+        <h2>What happens next</h2>
+        <p>Arguments begin Monday in San Francisco, followed by Richmond on Wednesday and Boston the following week. Rulings are not expected immediately — appellate panels typically take several months to issue opinions on cases of this constitutional weight, though expedited timelines are not unheard of when panels signal urgency from the bench.</p>
+
+        <figure class="inline-figure">
+          <div class="art tone-slate"><span class="art-label">DOCKET TIMELINE</span></div>
+          <figcaption>Filing and hearing dates across the three circuits, compiled from public court records.</figcaption>
+        </figure>
+
+        <p>Regardless of how each panel rules, appeal to the Supreme Court is considered near-certain by attorneys on both sides. The Solicitor General's office has not commented on whether it would seek expedited review if the administration loses in one or more circuits.</p>
+      </div>
+
+      <div class="tag-row">
+        <a href="#">Citizenship</a><a href="#">Supreme Court</a><a href="#">Executive Orders</a><a href="#">Ninth Circuit</a><a href="#">Constitutional Law</a>
+      </div>
+
+      <div class="author-card">
+        <div class="avatar"></div>
+        <div>
+          <span class="role">National Desk</span>
+          <h4>Priya Nair</h4>
+          <p>Priya covers federal courts and constitutional law for WorldNewzs, with a focus on immigration and civil-rights litigation. Previously at the Associated Press.</p>
+        </div>
+      </div>
+
+      <div class="corrections">
+        <h5>Corrections policy</h5>
+        <p>WorldNewzs corrects errors of fact promptly and transparently. If you believe this story contains an inaccuracy, contact the National Desk via the editorial standards page linked in the masthead.</p>
+      </div>
+
+      <div class="comments">
+        <div class="section-head"><h2>Reader Discussion</h2><span class="meta">128 comments</span></div>
+        <div class="comment">
+          <div class="avatar"></div>
+          <div>
+            <span class="comment-name">A. Ramesh<span class="comment-time">2h ago</span></span>
+            <p>Useful breakdown of why the timing of the three hearings matters — hadn't seen the circuit-split angle explained this clearly elsewhere.</p>
+            <div class="comment-actions"><span>Reply</span><span>▲ 41</span></div>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar"></div>
+          <div>
+            <span class="comment-name">J. Fernandes<span class="comment-time">3h ago</span></span>
+            <p>Would be good to get a follow-up once the Richmond arguments happen — curious if the panel composition tips this one differently.</p>
+            <div class="comment-actions"><span>Reply</span><span>▲ 18</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MORE FROM THIS DESK -->
+      <section class="section">
+        <div class="section-head"><h2>More from the National Desk</h2><span class="meta">Updated continuously</span></div>
+        <div class="grid-4">
+          <article class="story-card">
+            <div class="art tone-slate"><span class="art-label">POLITICS</span></div>
+            <span class="cat">Cabinet</span>
+            <h3>What Tuesday's cabinet reshuffle signals for trade policy</h3>
+            <div class="byline"><span>Politics Desk</span><span>3h</span></div>
+          </article>
+          <article class="story-card">
+            <div class="art tone-gold"><span class="art-label">COURTS</span></div>
+            <span class="cat">Litigation</span>
+            <h3>A second challenge to the order clears its first procedural hurdle</h3>
+            <div class="byline"><span>National Desk</span><span>1d</span></div>
+          </article>
+          <article class="story-card">
+            <div class="art tone-green"><span class="art-label">EXPLAINER</span></div>
+            <span class="cat">Explainer</span>
+            <h3>How a circuit split actually reaches the Supreme Court</h3>
+            <div class="byline"><span>Explainers</span><span>2d</span></div>
+          </article>
+          <article class="story-card">
+            <div class="art tone-red"><span class="art-label">SOCIETY</span></div>
+            <span class="cat">Investigation</span>
+            <h3>Inside four hospitals' quiet procedural changes</h3>
+            <div class="byline"><span>National Desk</span><span>2d</span></div>
+          </article>
+        </div>
+      </section>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="side-col">
+      <div class="newsletter-block">
+        <span class="eyebrow">Free newsletter</span>
+        <h3>The Daily Brief</h3>
+        <p>Five stories, cross-verified and explained, in your inbox every morning.</p>
+        <input type="email" placeholder="you@email.com">
+        <button>Subscribe — it's free</button>
+      </div>
+
+      <div class="side-block">
+        <div class="side-head"><h3>Related Coverage</h3></div>
+        <div class="mini-story">
+          <div class="art mini-art tone-slate"></div>
+          <div><h4>A second challenge clears its first procedural hurdle</h4><div class="byline">National Desk · 1d</div></div>
+        </div>
+        <div class="mini-story">
+          <div class="art mini-art tone-gold"></div>
+          <div><h4>How a circuit split actually reaches the Supreme Court</h4><div class="byline">Explainers · 2d</div></div>
+        </div>
+        <div class="mini-story">
+          <div class="art mini-art tone-green"></div>
+          <div><h4>Inside four hospitals' quiet procedural changes</h4><div class="byline">National Desk · 2d</div></div>
+        </div>
+      </div>
+
+      <div class="side-block static market">
+        <div class="side-head"><h3>Marketplace Picks</h3><span class="sponsored-tag">Sponsored</span></div>
+        <div class="market-item">
+          <div class="art market-art tone-slate"></div>
+          <div><h5>Ceramic pour-over dripper, 2-cup</h5><div class="market-price">₹1,240</div></div>
+        </div>
+        <div class="market-item">
+          <div class="art market-art tone-gold"></div>
+          <div><h5>Desk lamp with warm/cool dial</h5><div class="market-price">₹2,890</div></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">World<em>Newzs</em></div>
+        <p style="font-size:12.5px; line-height:1.6; max-width:32ch; color:#8C93A8;">Independent reporting and cross-verified coverage from correspondents across six continents.</p>
+      </div>
+      <div><h6>Sections</h6><ul><li><a href="#">World</a></li><li><a href="#">Politics</a></li><li><a href="#">Business</a></li><li><a href="#">Technology</a></li></ul></div>
+      <div><h6>Newsroom</h6><ul><li><a href="#">About us</a></li><li><a href="#">Editorial standards</a></li><li><a href="#">Corrections</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div><h6>Reader Tools</h6><ul><li><a href="#">Newsletters</a></li><li><a href="#">Daily poll</a></li><li><a href="#">News quiz</a></li><li><a href="#">Markets sim</a></li></ul></div>
+      <div><h6>Legal</h6><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Sponsored content policy</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 WorldNewzs Media Group. All rights reserved.</span>
+      <span>Edition No. 4,821 · Hyderabad</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

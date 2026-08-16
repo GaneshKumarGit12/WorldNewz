@@ -48,8 +48,8 @@ namespace WorldNewzWebAPI.Services
             // 3. Generate metadata
             var enrichment = await GenerateMetadataAsync(title, description, category);
 
-            // 4. Build refined image URL
-            string refinedImageUrl = "https://images.unsplash.com/featured/800x600/?" + Uri.EscapeDataString(enrichment.ImageKeywords ?? category ?? "news");
+            // 4. Build refined image URL using verified Unsplash pool
+            string refinedImageUrl = NewsApiService.GetCategoryFallbackImageUrl(category ?? "General", title);
 
             // 5. Append quiz question to questions.json
             if (!string.IsNullOrEmpty(enrichment.QuizQuestion) && enrichment.QuizOptions != null && enrichment.QuizOptions.Any())
@@ -502,35 +502,36 @@ Requirements:
 
         private List<string> BuildFallbackArticle(string title, string? description, string? category, List<string>? scrapedParagraphs)
         {
-            var fallbackParagraphs = new List<string>();
-            var cleanTitle = Regex.Replace(title, @"[|:-].*$", "").Trim();
-            var cat = string.IsNullOrWhiteSpace(category) ? "General" : category.Trim();
-
-            fallbackParagraphs.Add($"## Overview & Analysis");
-            fallbackParagraphs.Add($"The latest developments surrounding \"{cleanTitle}\" point to an important shift in the {cat} landscape. WorldNewzs presents this update with editorial context so readers can understand not just what happened, but why it matters now.");
-            fallbackParagraphs.Add($"The story is especially relevant because it intersects public interest, market behavior, policy decisions, and broader audience expectations. By placing the update in context, our coverage helps readers evaluate the issue with greater clarity.");
-
-            if (scrapedParagraphs != null && scrapedParagraphs.Count > 0)
+            // 1. Try loading long-form category template from articles_content.json
+            try
             {
-                var cleaned = scrapedParagraphs
-                    .Select(CleanParagraph)
-                    .Where(p => !string.IsNullOrWhiteSpace(p) && p.Length > 80)
-                    .Take(3)
-                    .ToList();
-
-                if (cleaned.Count > 0)
+                var jsonPath = Path.Combine(Directory.GetCurrentDirectory(), "articles_content.json");
+                if (File.Exists(jsonPath))
                 {
-                    fallbackParagraphs.Add("## Key Context");
-                    fallbackParagraphs.AddRange(cleaned);
+                    var jsonStr = File.ReadAllText(jsonPath);
+                    if (!string.IsNullOrWhiteSpace(jsonStr))
+                    {
+                        using var doc = JsonDocument.Parse(jsonStr);
+                        var root = doc.RootElement;
+                        string catKey = (category ?? "technology").ToLowerInvariant().Replace("&", "").Replace(" ", "");
+                        
+                        if (root.TryGetProperty(catKey, out var catArr) && catArr.ValueKind == JsonValueKind.Array && catArr.GetArrayLength() > 0)
+                        {
+                            int index = Math.Abs(title.GetHashCode()) % catArr.GetArrayLength();
+                            var templateText = catArr[index].GetString();
+                            if (!string.IsNullOrWhiteSpace(templateText))
+                            {
+                                var parsed = SplitAndNormalizeParagraphs(templateText);
+                                if (parsed.Count >= 4) return parsed;
+                            }
+                        }
+                    }
                 }
             }
+            catch { /* Fallback to heuristic generation */ }
 
-            fallbackParagraphs.Add("## Why It Matters");
-            fallbackParagraphs.Add($"For readers following the {cat} space, this update is a strong signal of broader change. The best way to stay informed is to follow reliable reporting, compare sources, and monitor how the story evolves over time.");
-            fallbackParagraphs.Add("## Frequently Asked Questions (FAQs)");
-            fallbackParagraphs.Add($"**Q1: Why is \"{cleanTitle}\" important?**\n\n**A1:** It reflects a meaningful shift in the {cat} environment and is likely to influence how stakeholders respond next.");
-            fallbackParagraphs.Add($"**Q2: Where can I follow more updates?**\n\n**A2:** You can track the latest reporting and related context directly on [WorldNewzs](https://worldnewzs.in).");
-            return fallbackParagraphs;
+            // 2. Generate comprehensive 1000-1800 word structured article adhering to Google E-E-A-T and Content Policies
+            return GenerateLocalArticleHeuristics(title, description, category);
         }
 
         private string CleanParagraph(string? paragraph)

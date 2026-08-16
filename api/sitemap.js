@@ -26,6 +26,12 @@ export default async function handler(req, res) {
   <url><loc>https://worldnewzs.in/technology</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/business</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/science-health</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/lifestyle</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/education</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/opinion</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/trending</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/podcasts-videos</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/local-news</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/sports</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/money</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/weather</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
@@ -38,12 +44,24 @@ export default async function handler(req, res) {
   <url><loc>https://worldnewzs.in/cartoons</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/stocks</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/polls</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/polls-history</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/badge-quiz</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/quiz-history</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/movies</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/transportation</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/jobs</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/trending-videos</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/play-games</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/amazon-products</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/deals</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/chatbot</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/editorial-briefings</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/editorial-guidelines</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/about</loc><changefreq>monthly</changefreq><priority>0.5</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/contact</loc><changefreq>monthly</changefreq><priority>0.5</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
   <url><loc>https://worldnewzs.in/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/amazon-products</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/chatbot</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in/disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
 </urlset>`;
   
   res.setHeader('Content-Type', 'application/xml');

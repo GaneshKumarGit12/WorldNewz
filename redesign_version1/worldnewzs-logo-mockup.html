@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorldNewzs — Logo Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10172A; --paper:#F4F5F7; --paper-raise:#FFFFFF; --text:#1A2233;
+    --slate:#5C6474; --slate-light:#8B92A3; --line:#DBDEE4; --line-soft:#E9EBEF;
+    --red:#B7222B; --red-bright:#C4272F; --gold:#9C7A2E; --gold-soft:#F1E9D6;
+    --serif:'Source Serif 4', Georgia, serif; --sans:'IBM Plex Sans', sans-serif; --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--paper); color:var(--text); font-family:var(--sans); line-height:1.5;}
+  .wrap{max-width:1100px; margin:0 auto; padding:60px 28px 90px;}
+
+  .page-head{margin-bottom:48px;}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:8px; margin-bottom:12px;}
+  .eyebrow::before{content:''; width:14px; height:1.4px; background:var(--red); display:inline-block;}
+  .page-head h1{font-family:var(--serif); font-size:32px; font-weight:600; letter-spacing:-.01em; margin-bottom:10px;}
+  .page-head p{color:var(--slate); font-size:14.5px; max-width:62ch; line-height:1.6;}
+
+  /* the logo itself, built in real markup so it can be copy-pasted */
+  .logo{font-family:var(--serif); font-weight:700; letter-spacing:-.01em;}
+  .logo .z{color:var(--red-bright);}
+
+  section{margin-bottom:56px;}
+  .section-label{display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:22px;}
+  .section-label h2{font-family:var(--serif); font-size:19px; font-weight:600;}
+  .section-label span{font-family:var(--mono); font-size:11px; color:var(--slate-light);}
+
+  /* primary lockups */
+  .lockup-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .swatch{border-radius:4px; padding:56px 40px; display:flex; align-items:center; justify-content:center; position:relative; border:1px solid var(--line-soft);}
+  .swatch .tag{position:absolute; top:16px; left:18px; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;}
+  .swatch.light{background:var(--paper-raise);}
+  .swatch.light .tag{color:var(--slate-light);}
+  .swatch.dark{background:var(--ink);}
+  .swatch.dark .tag{color:#7C86A0;}
+  .swatch.gold{background:var(--gold-soft);}
+  .swatch.gold .tag{color:#7A5F22;}
+  .swatch.paper{background:var(--paper);}
+  .swatch.paper .tag{color:var(--slate-light);}
+  .logo.on-light .ink{color:var(--ink);}
+  .logo.on-dark .ink{color:#FFFFFF;}
+
+  .logo-lg{font-size:56px;}
+  .logo-md{font-size:34px;}
+  .logo-sm{font-size:20px;}
+
+  /* clear space / minimum size */
+  .spec-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .spec-card{background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:4px; padding:32px;}
+  .clearspace-box{border:1px dashed var(--line); padding:34px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; position:relative;}
+  .clearspace-box::before, .clearspace-box::after{content:'Z'; position:absolute; font-family:var(--mono); font-size:10px; color:var(--slate-light);}
+  .clearspace-box::before{top:6px; left:6px;}
+  .clearspace-box::after{bottom:6px; right:6px;}
+  .spec-card h4{font-family:var(--sans); font-size:13px; font-weight:600; margin-bottom:6px;}
+  .spec-card p{font-size:12.5px; color:var(--slate); line-height:1.55;}
+
+  .min-size-row{display:flex; align-items:flex-end; gap:28px; margin-top:10px;}
+  .min-size-row .item{text-align:center;}
+  .min-size-row .cap{font-family:var(--mono); font-size:10px; color:var(--slate-light); margin-top:8px;}
+
+  /* monogram / favicon */
+  .icon-row{display:flex; align-items:center; gap:24px; flex-wrap:wrap;}
+  .icon-tile{background:var(--ink); border-radius:14px; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:700; color:#fff; flex-shrink:0;}
+  .icon-tile .z{color:var(--red-bright);}
+  .icon-tile.sz-64{width:64px; height:64px; font-size:30px; border-radius:14px;}
+  .icon-tile.sz-40{width:40px; height:40px; font-size:19px; border-radius:9px;}
+  .icon-tile.sz-24{width:24px; height:24px; font-size:11px; border-radius:6px;}
+  .icon-label{font-family:var(--mono); font-size:10.5px; color:var(--slate-light); margin-top:8px; text-align:center;}
+  .icon-col{display:flex; flex-direction:column; align-items:center;}
+
+  /* browser tab mock */
+  .browser-tab{display:inline-flex; align-items:center; gap:8px; background:#E9EBEF; border-radius:8px 8px 0 0; padding:9px 16px 9px 12px; font-family:var(--sans); font-size:12.5px; color:var(--slate); border:1px solid var(--line);}
+  .browser-tab .fav{width:16px; height:16px; border-radius:4px;}
+
+  /* masthead context */
+  .masthead-demo{background:var(--ink); border-radius:4px; padding:26px 32px; display:flex; align-items:center; justify-content:space-between;}
+  .masthead-demo .tagline{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#7C86A0; margin-top:4px;}
+  .masthead-demo .search-pill{border:1px solid #2E3A58; border-radius:20px; padding:8px 16px; color:#8C93A8; font-size:12.5px;}
+
+  /* misuse */
+  .misuse-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .misuse-card{background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:4px; padding:26px; text-align:center;}
+  .misuse-card .demo{margin-bottom:16px; display:flex; align-items:center; justify-content:center; height:60px;}
+  .misuse-card p{font-size:12px; color:var(--slate); line-height:1.5;}
+  .no-badge{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:10px; color:var(--red); text-transform:uppercase; letter-spacing:.05em; margin-bottom:10px;}
+
+  .download-strip{background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:4px; padding:22px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  .download-strip .files{font-family:var(--mono); font-size:12px; color:var(--slate); line-height:1.8;}
+  .download-strip .files b{color:var(--text);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-head">
+    <span class="eyebrow">Brand Mark</span>
+    <h1>WorldNewzs — Logo Mockup</h1>
+    <p>Wordmark set in Source Serif 4 (weight 700), a distinct editorial serif from Google Fonts. The lowercase <strong>z</strong> in "Newzs" is set in the masthead red as the mark's single signature detail — a deliberate, legible nod to the brand name without needing a separate icon.</p>
+  </div>
+
+  <!-- PRIMARY LOCKUPS -->
+  <section>
+    <div class="section-label"><h2>Primary Lockup</h2><span>Source Serif 4 · 700</span></div>
+    <div class="lockup-grid">
+      <div class="swatch light"><span class="tag">On paper white</span>
+        <span class="logo on-light logo-lg"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+      </div>
+      <div class="swatch dark"><span class="tag">On ink navy</span>
+        <span class="logo on-dark logo-lg"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+      </div>
+      <div class="swatch gold"><span class="tag">On gold-soft (editorial)</span>
+        <span class="logo on-light logo-lg"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+      </div>
+      <div class="swatch paper"><span class="tag">On page background</span>
+        <span class="logo on-light logo-lg"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCALE -->
+  <section>
+    <div class="section-label"><h2>Scale &amp; Minimum Size</h2><span>Legibility check</span></div>
+    <div class="spec-card">
+      <div class="min-size-row">
+        <div class="item">
+          <span class="logo on-light logo-lg"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+          <div class="cap">56px — masthead</div>
+        </div>
+        <div class="item">
+          <span class="logo on-light logo-md"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+          <div class="cap">34px — section header</div>
+        </div>
+        <div class="item">
+          <span class="logo on-light logo-sm"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+          <div class="cap">20px — minimum size, footer/print</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLEAR SPACE -->
+  <section>
+    <div class="section-label"><h2>Clear Space</h2><span>Minimum padding = height of the "Z"</span></div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="clearspace-box">
+          <span class="logo on-light logo-md"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+        </div>
+        <h4>Keep the mark isolated</h4>
+        <p>No other logos, rules, or text should sit inside the dashed boundary. This protects the "z" highlight from being read as a typo or a UI badge.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Do not</h4>
+        <p style="margin-bottom:10px;">— Recolor the "z" to anything outside the red/gold pair defined in the token system<br>— Add a drop shadow, outline, or gradient fill<br>— Set the wordmark in a sans-serif substitute<br>— Stretch or condense the type</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONOGRAM / FAVICON -->
+  <section>
+    <div class="section-label"><h2>Monogram &amp; Favicon</h2><span>App icons, social avatars, browser tabs</span></div>
+    <div class="icon-row">
+      <div class="icon-col"><div class="icon-tile sz-64">W<span class="z">z</span></div><div class="icon-label">64×64 — app icon</div></div>
+      <div class="icon-col"><div class="icon-tile sz-40">W<span class="z">z</span></div><div class="icon-label">40×40 — avatar</div></div>
+      <div class="icon-col"><div class="icon-tile sz-24">W<span class="z">z</span></div><div class="icon-label">24×24 — favicon</div></div>
+      <div class="icon-col">
+        <div class="browser-tab"><span class="fav icon-tile sz-24" style="border-radius:4px;">W<span class="z" style="font-size:8px;">z</span></span>WorldNewzs — Top News</div>
+        <div class="icon-label">Browser tab context</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTHEAD CONTEXT -->
+  <section>
+    <div class="section-label"><h2>In Context — Masthead</h2><span>As used on worldnewzs.com</span></div>
+    <div class="masthead-demo">
+      <div>
+        <span class="logo on-dark logo-md"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span>
+        <div class="tagline">Reporting, verified</div>
+      </div>
+      <div class="search-pill">⌕ Search coverage, topics, people…</div>
+    </div>
+  </section>
+
+  <!-- MISUSE -->
+  <section>
+    <div class="section-label"><h2>Misuse</h2><span>What to avoid</span></div>
+    <div class="misuse-grid">
+      <div class="misuse-card">
+        <span class="no-badge">✕ Wrong color</span>
+        <div class="demo"><span class="logo on-light logo-md" style="color:#1E7A46;">WorldNewzs</span></div>
+        <p>Highlighting the "z" in any color outside the defined red/gold pair breaks the brand's semantic color system.</p>
+      </div>
+      <div class="misuse-card">
+        <span class="no-badge">✕ Wrong typeface</span>
+        <div class="demo"><span style="font-family:var(--sans); font-weight:700; font-size:22px;">World<span style="color:var(--red-bright);">Z</span>News</span></div>
+        <p>Substituting a sans-serif removes the editorial authority the serif face is chosen to signal.</p>
+      </div>
+      <div class="misuse-card">
+        <span class="no-badge">✕ Over-decorated</span>
+        <div class="demo"><span class="logo on-light logo-md" style="text-shadow:2px 2px 4px rgba(0,0,0,.3);"><span class="ink">World</span><span class="ink">New</span><span class="z">z</span><span class="ink">s</span></span></div>
+        <p>No shadows, gradients, or outlines — the mark stays flat and confident at every size.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD MANIFEST -->
+  <section style="margin-bottom:0;">
+    <div class="section-label"><h2>Files in This Package</h2><span>SVG · scalable, editable</span></div>
+    <div class="download-strip">
+      <div class="files">
+        <div><b>worldnewzs-logo.svg</b> — primary lockup, dark text, red "z", transparent background</div>
+        <div><b>worldnewzs-logo-dark.svg</b> — reversed lockup for navy/dark backgrounds</div>
+        <div><b>worldnewzs-monogram.svg</b> — square app-icon / favicon mark, "Wz" on ink navy</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

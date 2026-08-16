@@ -1,0 +1,5458 @@
+[
+  {
+    "ArticleUrl": "https://gizmodo.com/floridas-surgeon-general-blames-a-debunked-abortion-vaccine-claim-to-explain-measles-surge-2000792432",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10927,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Florida\u2019s Surgeon General Blames a Debunked Abortion Vaccine Claim to Explain Measles Surge\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/tech/973709/new-york-kalshi-lawsuit-illegal-gambling-operation",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10928,
+      "Question": "Which sector is primarily associated with the latest news on \u0027New York sues Kalshi for allegedly running an \u2018illegal gambling operation\u2019\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/ai-artificial-intelligence/971750/perplexity-personal-computer-windows-ai-agents",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10625,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Perplexity\u2019s Personal Computer turns Windows PCs into AI agents\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/tech/971101/apple-smart-glasses-privacy",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10831,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Apple is banking on privacy to set its smart glasses apart\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/policy/972850/xai-grok-minnesota-nudification-lawsuit",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10363,
+      "Question": "Which sector is primarily associated with the latest news on \u0027xAI\u2019s last-minute scramble to stop Minnesota\u2019s anti\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.usatoday.com/story/news/weather/2026/07/25/el-nino-updates-data-impacts/91028072007/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10994,
+      "Question": "Which sector is primarily associated with the latest news on \u0027\u0027Mind-blowing\u0027 El Ni\u00F1o stuns scientists. Why are they so concerned?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02249-2",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10659,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: The battery that could change everything\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/brookerobertsislam/2026/07/22/fashion-cfos-are-turning-sustainability-into-a-pl-issue/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10368,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Fashion CFOs Are Turning Sustainability Into A P\u0026L Issue\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02345-3",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10139,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: The science of The Odyssey\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02420-9",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10722,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: \u2018Raygun\u2019 AI can shrink or supersize proteins\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02400-z",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10363,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: Ice\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/s41467-026-75815-x.pdf",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10397,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Global trade\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02261-6",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10623,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: Naked mole rat queens use a smell to stay on top\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02355-1",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10651,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: The town heated by one big battery\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02272-3",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10074,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: CRISPR gets an AI\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02307-9",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10155,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: Orcas smash sunfish to smithereens\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c0jlz099q9xo",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10991,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Fit schools, hospitals and new homes with air con, say Lib Dems\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.techpowerup.com/351010/lenovo-publishes-fy2025-26-sustainability-report",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10804,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Lenovo Publishes FY2025/26 Sustainability Report\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.packaging-gateway.com/news/ardagh-group-metal-packaging-emissions-cuts/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10740,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Ardagh Group reports 16% emissions cuts in metal packaging\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/current-climate/2026/08/03/chinas-coal-addiction-begins-to-ease/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10832,
+      "Question": "Which sector is primarily associated with the latest news on \u0027China\u2019s Coal Addiction Begins To Ease\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.naturalnews.com/2026-08-11-study-proposes-cutting-global-population-to-achieve-sustainability.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10294,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Study Proposes Cutting Global Population to 4 Billion by 2200 to Achieve Sustainability\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/current-climate/2026/08/10/can-tariffs-boost-us-solar-component-production/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10216,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Can Tariffs Boost U.S. Solar Component Production?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/andrewwatman/2026/08/07/whole-foods-market-partners-with-national-young-farmers-coalition-to-launch-1-million-next-generation-farmer-fund/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10438,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Whole Foods Market Partners With National Young Farmers Coalition To Launch $1 Million Next Generation Farmer Fund\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.vox.com/culture/497499/wardrobe-digital-closet-catalog-app-indyx-environment",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10481,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Fast fashion is terrible for the planet. Can wardrobe cataloging apps help?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://cleantechnica.com/2026/07/22/its-time-to-adopt-a-new-mindset-about-the-planet/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10134,
+      "Question": "Which sector is primarily associated with the latest news on \u0027It\u2019s Time To Adopt A New Mindset About The Planet\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/current-climate/2026/07/27/the-hunt-for-natural-hydrogen-shifts-to-the-philippines/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10204,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The Hunt For Natural Hydrogen Shifts To The Philippines\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.americanthinker.com/articles/2026/07/what-europe-s-lack-of-air-conditioning-says-about-its-civilizational-direction/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10054,
+      "Question": "Which sector is primarily associated with the latest news on \u0027What Europe\u2019s Lack of Air Conditioning Says About Its Civilizational Direction\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/current-climate/2026/07/20/clean-energy-tech-deals-are-booming-powered-by-data-centers/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10608,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Clean Energy Tech Deals Are Booming\u2014Powered By Data Centers\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.rt.com/india/643696-india-chairship-brics-arctic-russia/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10101,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Can India give the Global South a voice in the Arctic?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/s41586-026-10778-z",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10960,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The planktonic microbiome of the Great Barrier Reef\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wwd.com/sourcing-journal/industry-news/textile-exchange-pivots-ambition-to-implementation-1239099681/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10402,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Textile Exchange Pivots From Ambition to Implementation\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bikehugger.com/posts/cargo-bikes-vs-cars-impact/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10445,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Cargo Bikes vs Cars Impact\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://finance.yahoo.com/economy/policy/articles/milk-snack-foods-more-products-100020581.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10622,
+      "Question": "Which sector is primarily associated with the latest news on \u0027From Milk to Snack Foods, More Products Going \u0027Regenerative\u0027...\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wattsupwiththat.com/2026/08/10/weekly-climate-and-energy-news-roundup-701/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10333,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Weekly Climate and Energy News Roundup #701\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://punchng.com/abia-completes-climate-change-policy-to-attract-global-funding/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10164,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Abia completes climate change policy to attract global funding\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nakedcapitalism.com/2026/07/links-7-26-2026.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10545,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Links 7/26/2026\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/colombia-earthquakes-venezuela-disaster-response-40ed966239ac5d945f6490c40462d0a1",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10059,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Colombia\u2019s earthquake is d\u00E9j\u00E0 vu for Venezuelans. The government response is anything but\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://theconversation.com/hosepipe-bans-make-climate-change-more-tangible-but-restrictions-can-provoke-resistance-289524",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10888,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Hosepipe bans make climate change more tangible \u2013 but restrictions can provoke resistance\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/execution-death-penalty-tennessee-alabama-oklahoma-062c601ee0ff9a5f6d7b79045a0cc6b5",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10092,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Alabama man put to death for the murder of a 5-year-old girl in last of three US executions in a day\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://punchng.com/unido-names-ogun-for-flagship-green-economy-project/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10345,
+      "Question": "Which sector is primarily associated with the latest news on \u0027UNIDO names Ogun for flagship green economy project\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.cnn.com/2026/08/13/politics/karoline-leavitt-potential-replacements",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10066,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Who could replace Karoline Leavitt as White House press secretary?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wattsupwiththat.com/2026/08/03/weekly-climate-and-energy-news-roundup-700/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10959,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Weekly Climate and Energy News Roundup #700\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.washingtonpost.com/national-security/2026/08/13/poor-conditions-are-reported-uss-abraham-lincoln-democrats-demand-answers/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11007,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Democrats seek answers after reports of poor conditions on USS Abraham Lincoln\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.com/news/live/c5y40d11zewt",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10376,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Votes being counted in Clacton by-election triggered by Nigel Farage\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.cnbc.com/2026/08/13/jim-cramer-says-ciscos-post-earnings-plunge-is-a-buying-opportunity-heres-why.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10213,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Jim Cramer says Cisco\u2019s post-earnings plunge is a buying opportunity. Here\u2019s why\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/ryanair-ntsb-passenger-sucked-out-window-5a1fa51fef28f6a8d27fec5a036808c3",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10307,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Broken engine parts shattered the Ryanair plane window that a passenger\u0027s head got sucked into: NTSB\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wsj.com/tech/ai/claude-dario-amodei-wife-anthropic-e1eeda7d",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10762,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Even Claude Is in the Dark About Dario Amodei\u2019s Wife\u2014and Her Influence at Anthropic\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://finance.yahoo.com/energy/articles/totalenergies-appeals-french-court-ruling-021000538.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10934,
+      "Question": "Which sector is primarily associated with the latest news on \u0027TotalEnergies Appeals French Court Ruling on Climate Duty of Vigilance\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.livemint.com/opinion/online-views/india-pharma-industry-resilience-climate-change-disruptions-pharmaceutical-11785232937001.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10751,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Prevention is better than cure: India\u0027s pharma industry must build resilience to climate change disruptions\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wattsupwiththat.com/2026/08/11/britains-agricultural-crisis-has-brought-out-the-climate-resilience-insect-protein-advocates/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10839,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Britain\u2019s \u201CClimate Crisis\u201D Drought has Brought out the Bug Eaters\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.insurancejournal.com/news/national/2026/08/12/881245.htm",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10912,
+      "Question": "Which sector is primarily associated with the latest news on \u0027AI Giants Are Quiet on Climate in Sign of Post\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.psychologytoday.com/us/blog/animal-emotions/202607/a-celebration-of-our-close-kinship-with-other-primates",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10367,
+      "Question": "Which sector is primarily associated with the latest news on \u0027A Celebration of Our Close Kinship with Other Primates\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wattsupwiththat.com/2026/07/20/weekly-climate-and-energy-news-roundup-698/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10274,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Weekly Climate and Energy News Roundup #698\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wattsupwiththat.com/2026/07/27/weekly-climate-and-energy-news-roundup-699/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10374,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Weekly Climate and Energy News Roundup #699\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02432-5",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10628,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily Briefing: How smallpox reached the Americas\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://punchng.com/sustyvibes-appoints-onye-to-lead-climate-advocacy/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10939,
+      "Question": "Which sector is primarily associated with the latest news on \u0027SustyVibes appoints Onye to lead climate advocacy\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.prnewswire.com/news-releases/gravity-launches-first-all-purpose-sustainability-agent-302833457.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10135,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Gravity Launches First All\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://musically.com/2026/07/31/music-climate-pact-and-seismic-to-help-music-companies-avoid-greenwashing/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10392,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Music Climate Pact and Seismic to help music companies avoid greenwashing\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02558-6",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10226,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: New evidence of the mysterious \u2018glueballs\u2019\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/s41586-026-10775-2",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10805,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Food systems transformation would reshape global agriculture\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/robertszczerba/2026/07/21/how-much-water-does-ai-use-the-58-billion-risk/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10891,
+      "Question": "Which sector is primarily associated with the latest news on \u0027How Much Water Does AI Use? The $58 Billion Risk\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02519-z",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10918,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Daily briefing: What scientists can learn from a solar eclipse\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.macrumors.com/2026/08/13/apple-september-announcement-rumors/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10148,
+      "Question": "Which sector is primarily associated with the latest news on \u0027What\u0027s Coming in September: New iPhones, Apple Watches and More\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "http://9to5google.com/2026/08/13/google-meet-take-notes-in-person/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10473,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Google Meet rolling out \u2018Take Notes\u2019 for in-person meetings on Android, web, \u0026 iOS\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/policy/979852/that-is-not-acceptable-judge-orders-google-to-make-rival-app-store-installs-easier",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10773,
+      "Question": "Which sector is primarily associated with the latest news on \u0027\u2018That is not acceptable\u2019: Judge orders Google to make rival app store installs easier\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://techcrunch.com/2026/08/13/if-apple-sends-you-a-push-notification-alerting-you-to-a-spyware-attack-take-it-seriously/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10804,
+      "Question": "Which sector is primarily associated with the latest news on \u0027If Apple sends you a push notification alerting you to a spyware attack, take it seriously\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bgr.com/2232436/future-roku-affordable-streaming-platform-bleak/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10899,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The Future Of Roku As An Affordable Streaming Platform Is Looking Bleak\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.gematsu.com/2026/08/neo-berlin-2087-launches-in-2028",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10195,
+      "Question": "Which sector is primarily associated with the latest news on \u0027NEO BERLIN 2087 launches in 2028\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.motor1.com/news/804726/2027-porsche-911-carrera-s-manual-package/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10547,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Porsche Heard You: The Manual 911 Carrera S Is Back\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.restart.run/articles/whats-next-for-restart",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10415,
+      "Question": "Which sector is primarily associated with the latest news on \u0027What\u0027s next for Restart\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-legacyhive-windows-zero-day-vulnerability/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10310,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Microsoft patches LegacyHive Windows zero-day vulnerability\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.androidauthority.com/tensor-g6-3nm-3698349/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10124,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Google\u0027s new Pixel 11 chip might not be 2nm, after all\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "http://9to5google.com/2026/08/13/google-pixel-tag-airtag-moto-tag/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10793,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Google\u2019s Pixel Tag picks a bold strategy in a sea of AirTag clones [Gallery]\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/the-white-house-is-going-to-expand-its-ai-policy/",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10929,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The White House Is Going to Expand Its AI Policy\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c2lq12z1xdlo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10729,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Burnham to promise new path for UK when he becomes new Labour leader\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.ign.com/articles/space-marine-2-maker-saber-interactive-confirms-it-will-an-add-ai-label-to-rideshare-stimulator-on-steam-following-controversy",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10727,
+      "Question": "Which sector is primarily associated with the latest news on \u0027\u0027We Aren\u0027t Shying Away From It\u0027: Space Marine 2 Maker Saber Interactive Confirms It Will an Add AI Label to Rideshare Stimulator on Steam Following Controversy\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cjd45xmexnyo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10352,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Labour pins hopes on Burnham reboot as he plans policy blitz\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cp9ezldrkkgo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10139,
+      "Question": "Which sector is primarily associated with the latest news on \u0027What does a Burnham\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://insider-gaming.com/gta-6-netflix-extended-look-could-be-three-episodes/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10317,
+      "Question": "Which sector is primarily associated with the latest news on \u0027GTA 6 Netflix Extended Look Could be Three Episodes\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c5y08z25q8eo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10282,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Andy Burnham to scrap digital ID to focus on cost of living in first major policy pledge\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.androidcentral.com/phones/google-pixel/made-by-google-2026-keynote-was-a-cringe-fest",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10116,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Google should have gone the GTA 6 route with its Pixel 11 show; instead, we got the Trevor Noah cringe fest\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cz64wx8yjjdo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10358,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Do declassified files support Trump\u0027s election security claims?\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/conspiracy-theorists-think-trumps-speech-paves-the-path-to-the-insurrection-act/",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 11039,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Conspiracy Theorists Think Trump\u2019s Speech Paves the Path to the Insurrection Act\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://gizmodo.com/pbs-station-sues-to-regain-access-to-70-years-of-archival-tv-history-2000798323",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10394,
+      "Question": "Which sector is primarily associated with the latest news on \u0027PBS Station Sues to Regain Access to 70 Years of Archival TV History\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cz7djw5dznpo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10321,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Zeffman: Burnham promises big change\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://techcrunch.com/2026/08/13/microsoft-kills-off-unsuccessful-ai-features-while-merging-its-separate-copilot-apps/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10826,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Microsoft kills off unsuccessful AI features while merging its separate Copilot apps\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cr7xgx831exo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10304,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Free school meal pupils falling further behind their peers, report warns\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/sounds/play/p0p2fq40?at_campaign=rss",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10550,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Why Does The Government Keep Releasing Prisoners Early?\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.pokemon.com/uk/news/pokemon-firered-version-and-pokemon-leafgreen-version-link-with-pokemon-home-this-october",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10518,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Pok\u00E9mon FireRed Version and Pok\u00E9mon LeafGreen Version Link with Pok\u00E9mon HOME This October\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://fox8.com/news/entertainment/ap-entertainment/ap-ultra-rare-nintendo-mario-game-cartridges-discovered-in-wisconsin/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10897,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Ultrarare Nintendo Mario game cartridges discovered in Wisconsin\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/clyem5lg78qo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10747,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Ballot paper for Clacton by\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.pushsquare.com/news/2026/08/still-not-sold-on-dawnwalker-dev-presents-everything-you-need-to-know-about-the-open-world-rpg",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10716,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Still Not Sold on Dawnwalker? Dev Presents \u0027Everything You Need to Know\u0027 About the Open World RPG\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c0ejwedl1gno",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10396,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Burnham says he will review early prisoner release scheme\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02346-2",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10156,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Values in science go beyond politics\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02333-7",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10972,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Wildfires rampaged across Europe in the dying days of the Triassic\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02339-1",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10308,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Sickle-cell disease linked to prematurely aged stem cells in mice\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02348-0",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10542,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Conversational AI: align commercial incentives with public interests\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02104-4",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10437,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Why some wool is wavy\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/d41586-026-02562-w",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10361,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Briefing Chat: Anthropic rolls out new AI watermark \u2014 will it make a difference?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/s41557-026-02200-y",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10916,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Oleic acid at the heart of olive oil\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cx2k76gydreo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10166,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Burnham will be bolder but stick to Labour manifesto, deputy leader says\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cy4kx8n2vwxo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10720,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Ex neo-Nazi activist withdraws as Tory election candidate\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c8dng1v72lno",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10431,
+      "Question": "Which sector is primarily associated with the latest news on \u0027\u0027This is just the start\u0027: India\u0027s Gen Z protesters force out a minister, but what next?\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/videos/c935kzyq6r4o",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 11057,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Andy Burnham rules out early election in exclusive BBC interview\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cq56ed827peo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10138,
+      "Question": "Which sector is primarily associated with the latest news on \u0027German politician faces calls to resign over surrogacy child\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/security-news-this-week-your-period-tracker-is-probably-spying-on-you/",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10296,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Your Period Tracker Is (Probably) Spying on You\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/trump-endorsed-the-mypillow-guy-as-minnesota-governor-the-state-gop-isnt-buying-it/",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10293,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Trump Endorsed the MyPillow Guy as Minnesota Governor. The State GOP Isn\u2019t Buying It\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/videos/c07y74d8y51o",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10457,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Watch Starmer sign off final PMQs to standing ovation\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cx2k9wvv5wyo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10258,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Trump alleges \u0027shocking vulnerabilities\u0027 in US election security ahead of midterms\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cly5zvv2kreo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10999,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Irish government jet leaves for UAE for Kinahan extradition\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cddj3j50rmpo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10946,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Greater Manchester mayor says Burnham\u0027s new powers will change lives\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c4gyg9452qlo",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10243,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Government failing Farage over security, says Jenrick\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c3r0v952ny3o",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10238,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Burnham pledges to be \u0027relentless\u0027 in curbing small boat crossings\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/sounds/play/w3ct8lzc?at_campaign=rss",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 11096,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Will Trump\u0027s primetime speech help him challenge the midterm elections?\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/national-design-studio-doge-recruiting/",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10211,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The National Design Studio Became a DOGE Landing Pad. Now \u2018Big Balls\u2019 Is Recruiting\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cy8m7k98p3no",
+    "Category": "Politics",
+    "Quiz": {
+      "Id": 10296,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Burnham to promise \u0027more breathing room\u0027 as he takes over as PM\u0027?",
+      "Description": "General knowledge trivia question based on recent Politics headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Politics",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.cnbc.com/2026/08/13/stock-market-today-live-updates.html",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 11056,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Stock futures are little changed after S\u0026P 500 sets record above 7,800, heads for winning week: Live updates\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wsj.com/business/telecom/charter-gets-final-state-approval-for-21-9-billion-cox-deal-ee47bd7c",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 10486,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Charter Gets Final State Approval for $21.9 Billion Cox Deal\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bloomberg.com/news/articles/2026-08-13/asian-stocks-set-for-gains-as-us-inflation-cools-markets-wrap",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 10963,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Asian Stocks Rise as US Inflation, Tech Spur Gains: Markets Wrap\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wsj.com/tech/apple-showcases-texas-mac-mini-factory-new-manufacturing-school-16fb8a10",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 10651,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Apple Showcases Texas Mac Mini Factory, New Manufacturing School\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bloomberg.com/news/articles/2026-08-13/openai-s-revenue-run-rate-tops-40-billion-ahead-of-ipo",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 10511,
+      "Question": "Which sector is primarily associated with the latest news on \u0027OpenAI\u2019s Revenue Run Rate Tops $40 Billion Ahead of IPO\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/forbes-randall-lane-editor-810d2c08ed57ec1b703247cc76c92fbe",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 11050,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Forbes editor out; report says he took $6M from founder of firm that does business with magazine\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.usatoday.com/story/money/food/2026/08/13/reeses-pumpkins-return-after-lawsuit-is-dismissed/91291996007/",
+    "Category": "Business",
+    "Quiz": {
+      "Id": 11047,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Reese\u2019s Pumpkins return after lawsuit is dismissed\u0027?",
+      "Description": "General knowledge trivia question based on recent Business headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Business",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.macrumors.com/2026/08/13/iphone-17-pro-one-year-later/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10837,
+      "Question": "Which sector is primarily associated with the latest news on \u0027iPhone 17 Pro One Year Later: What Held Up and What Didn\u0027t\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.androidcentral.com/phones/google-pixel/google-play-is-hiding-a-pixel-11-pro-discount-in-plain-sight",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10930,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Google Play is hiding a Pixel 11 Pro discount in plain sight\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.thestreet.com/investing/apple-next-iphone-battle-google-pixel-11",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10979,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Apple\u2019s next iPhone battle just got more complicated\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.pcmag.com/news/google-pixel-tag-bluetooth-tracker-targets-apple-airtag",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10954,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Google Targets Apple\u0027s AirTag With Its Pixel Tag Bluetooth Tracker\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "http://9to5google.com/2026/08/13/gboard-rambler-prompt/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10556,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Pixel 11\u2019s Gboard Rambler is prompt-based, rather than real-time\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://9to5mac.com/2026/08/13/chatgpt-for-mac-adds-opt-in-computer-history-feature-replacing-chronicle/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 11056,
+      "Question": "Which sector is primarily associated with the latest news on \u0027ChatGPT for Mac adds opt-in Computer History feature, replacing Chronicle\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://variety.com/2026/gaming/news/netflix-closes-unhinged-video-game-studio-night-school-1236834103/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10554,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Netflix Shuts Down Studio Behind \u2018Unhinged\u2019 Game 6 Weeks After Release\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "http://9to5google.com/2026/08/13/pixel-11-pistachio-should-be-old-avocado/",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10404,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Pixel 11\u2019s \u2018Pistachio\u2019 color option should be \u2018Old Avocado\u2019\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://gameinformer.com/review/wild-blue-skies/bland-homage",
+    "Category": "Technology",
+    "Quiz": {
+      "Id": 10629,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Wild Blue Skies Review: Bland Homage\u0027?",
+      "Description": "General knowledge trivia question based on recent Technology headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Technology",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/field-of-dreams-game-phillies-twins-mlb-a4c9dd1ae9a9c9ecb8383a84e333ec3f",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10345,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Field of Dreams becomes the Hall of Fame, as 26 members come out of the corn for Phillies-Twins game\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/california-womens-prison-investigation-sexual-abuse-6d0a99b44b4272a85487568af3fbba88",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10999,
+      "Question": "Which sector is primarily associated with the latest news on \u0027California prisons fail to stop guards from sexually abusing women, Justice Department finds\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.com/news/articles/cj4kppdk2qwo",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10140,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Israeli army tells Palestinians to leave homes in village where settlers besieged houses\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/best-car-vacuums/",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10844,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Best Car Vacuums (2026): Handheld, Cordless, Shopping Tips\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/gadgets/968645/back-to-school-shopping-guide-gifts",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 11065,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The Verge\u2019s 2026 back-to\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/business/971011/warner-bros-suing-amazon-poaching-employees",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10996,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Warner Bros. is suing Amazon for poaching employees\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/gadgets/971976/tile-pro-bluetooth-tracker-deal-sale",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 11074,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Tile\u2019s best Bluetooth tracker is down to its lowest price of the year\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.androidcentral.com/apps-software/ai/instacart-youtube-music-join-a-connected-apps-expansion-in-googles-ai-mode",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 11096,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Instacart, YouTube Music join a Connected Apps expansion in Google\u0027s AI Mode\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.cnet.com/tech/using-ai-shopping-carts-could-lead-you-to-spend-more-money-study-says/",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 11047,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Using AI Shopping Carts Could Lead You to Spend More Money, Study Says\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.androidcentral.com/accessories/storage/amazon-ugreen-nas-sale-july-2026",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10799,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Amazon just dropped a bunch of great UGREEN NAS deals \u2014 including a hefty discount on the \u0027best starter NAS\u0027 we\u0027ve tested\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.businessinsider.com/phoebe-gates-app-phia-offer-refunds-payment-attribution-issues-2026-7#article",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10421,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Phoebe Gates\u0027 shopping app Phia is in damage control mode and offering refunds after a payment scandal\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/gadgets/972547/back-to-school-giveaway-sweepstakes",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10256,
+      "Question": "Which sector is primarily associated with the latest news on \u0027We\u2019re giving away a back-to\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/cvgvxm1n3keo",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10644,
+      "Question": "Which sector is primarily associated with the latest news on \u0027B\u0026M fined \u00A32m over serious food hygiene failings\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.entrepreneur.com/building-a-business/shopping-habits-reworked-the-5-realities",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10672,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Your Customers Are Buying in 20 Different Places. Is Your Brand There?\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.businessinsider.com/unique-luxury-watches-to-buy-2026-7#article",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 11117,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Unique watches to buy if you want a luxury timepiece that stands out from the crowd\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.businessinsider.com/shopping-school-supplies-walmart-vs-target-which-is-better-2026-7#article",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10540,
+      "Question": "Which sector is primarily associated with the latest news on \u0027I shopped for school supplies at Walmart and Target. One had better prices for nearly everything on my list.\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.businessinsider.com/live-shopping-startup-whatnot-eyes-massive-20-billion-valuation-2026-7#article",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10605,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Whatnot is in talks to raise a new funding round at a $20 billion valuation\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.businessinsider.com/tiktok-shop-is-testing-a-managed-services-business-in-us-2026-7#article",
+    "Category": "Shopping",
+    "Quiz": {
+      "Id": 10774,
+      "Question": "Which sector is primarily associated with the latest news on \u0027TikTok is testing a new service that could reshape its shopping network\u0027?",
+      "Description": "General knowledge trivia question based on recent Shopping headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Shopping",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/the-apple-faceid-veteran-building-a-frontier-ai-model-for-the-human-brain/",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10204,
+      "Question": "Which sector is primarily associated with the latest news on \u0027The Apple FaceID Co\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://gizmodo.com/report-says-hundreds-of-users-asked-chatgpt-about-bioweapons-and-poisons-and-it-answered-2000791111",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10449,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Report Says \u2018Hundreds\u2019 of Users Asked ChatGPT About Bioweapons and Poisons, and It Answered\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/transportation/966563/tesla-texas-crash-ntsb-investigation",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10713,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Tesla driver in fatal Texas crash overrode FSD by pressing accelerator \u2018100 percent,\u2019 investigators confirm\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theverge.com/ai-artificial-intelligence/967781/chinese-ai-models-open-source-moonshot-kimi-k3-alibaba-qwen",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10237,
+      "Question": "Which sector is primarily associated with the latest news on \u0027China delivers a one\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.foxnews.com/live-news/iran-war-trump-strait-of-hormuz-08-14-26",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10845,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Iran targets tankers in \u2018unprovoked attacks\u2019 in Strait of Hormuz, UAE says\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.washingtonpost.com/nation/2026/08/14/mangione-admits-shooting-insurance-ceo-pleads-guilty-federal-charges/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10898,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Mangione admits to shooting insurance CEO, pleads guilty to federal charges\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://bleacherreport.com/articles/25472455-tua-underwhelms-final-box-score-stats-highlights-broncos-vs-falcons",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10939,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Tua Underwhelms, Final Box Score Stats \u0026 Highlights from Broncos vs. Falcons\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/sport/cricket/videos/cj9dnek1m2do",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10278,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Patience, power, perfection - Duckett\u0027s record\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/sport/cricket/articles/cglj4n91744o",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10812,
+      "Question": "Which sector is primarily associated with the latest news on \u0027England seal series with record Lord\u0027s ODI total\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c74gdgly3g3o",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10447,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Air India pilot\u0027s reported cannabis test: What it can and can\u0027t tell investigators\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/sport/football/videos/c5yz1n25892o",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10228,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Runs and records galore as England beat India to seal ODI series win\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/videos/cly893zrjgdo",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10344,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Liquor store employee narrowly escapes leopard attack\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.usatoday.com/story/news/nation/2026/08/07/jackie-bald-eagle-ojai-raptor-center-harassment-ai-photos/91190771007/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10724,
+      "Question": "Which sector is primarily associated with the latest news on \u0027As Jackie the bald eagle fights for life, her doctors face harassment\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.nature.com/articles/s41586-026-10805-z",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10775,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Agentic profiles for effective AI governance\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c4gdzlzprv1o",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10603,
+      "Question": "Which sector is primarily associated with the latest news on \u0027South Korean shares surge after chip stock rout\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/paultassi/2026/08/15/here-are-the-mcu-x-men-cast-members-revealed-at-d23/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10752,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Here Are The MCU X-Men Cast Members Revealed At D23\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.scientificamerican.com/article/can-ai-make-mathematics-more-human/",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 10829,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Can AI make mathematics more human?\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/indonesia-earthquake-magnitude-77-c31ad3cf07fa83d2d443e8d85e5c9d84",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10821,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Magnitude 7.7 earthquake strikes off Indonesia\u0027s coast, toppling buildings and killing at least 5\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.forbes.com/sites/lanceeliot/2026/07/24/artificial-wisdom-is-the-next-big-advance-in-ai-and-will-wisely-change-everything/",
+    "Category": "Search",
+    "Quiz": {
+      "Id": 11076,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Artificial Wisdom Is The Next Big Advance In AI And Will Wisely Change Everything\u0027?",
+      "Description": "General knowledge trivia question based on recent Search headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Search",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.washingtonpost.com/politics/2026/08/14/trump-stumps-ny-suburbs-highlighting-dilemma-his-party/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11022,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Trump stumps in N.Y. suburbs, highlighting a dilemma for his party\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://apnews.com/article/japan-minister-shrine-militarism-9395cb9241bea7e0cd6d12ffd36a183a",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10754,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Japan\u2019s defense chief visits shrine neighbors see as symbol of Japanese militarism\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.wired.com/story/meta-david-bowie-apocalypse-ad-is-optimistic-actually/",
+    "Category": "Podcasts \u0026 Videos",
+    "Quiz": {
+      "Id": 10437,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Meta\u2019s New Feel\u0027?",
+      "Description": "General knowledge trivia question based on recent Podcasts \u0026 Videos headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Podcasts \u0026 Videos",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.usatoday.com/story/news/politics/2026/07/20/trump-height-rodri-world-cup-final-video/90982097007/",
+    "Category": "Podcasts \u0026 Videos",
+    "Quiz": {
+      "Id": 10366,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Trump\u0027s height questioned after viral FIFA clip\u0027?",
+      "Description": "General knowledge trivia question based on recent Podcasts \u0026 Videos headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Podcasts \u0026 Videos",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c74grmy2v7ko",
+    "Category": "Podcasts \u0026 Videos",
+    "Quiz": {
+      "Id": 10614,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Putin can no longer claim victory in Ukraine, Nobel Peace Prize winner tells BBC\u0027?",
+      "Description": "General knowledge trivia question based on recent Podcasts \u0026 Videos headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Podcasts \u0026 Videos",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.bbc.co.uk/news/articles/c89n20wj9kko",
+    "Category": "Podcasts \u0026 Videos",
+    "Quiz": {
+      "Id": 10362,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Instagram accounts fuelling Ceuta crisis with paid advice for help to cross\u0027?",
+      "Description": "General knowledge trivia question based on recent Podcasts \u0026 Videos headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Podcasts \u0026 Videos",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.cnn.com/2026/08/12/politics/fact-check-nrsc-el-sayed-dangerous-comment",
+    "Category": "Podcasts \u0026 Videos",
+    "Quiz": {
+      "Id": 10741,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Fact check: How Tim Scott and a Republican attack ad misleadingly snipped key context from El\u0027?",
+      "Description": "General knowledge trivia question based on recent Podcasts \u0026 Videos headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Podcasts \u0026 Videos",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  }
+]

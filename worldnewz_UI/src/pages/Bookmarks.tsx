@@ -35,31 +35,39 @@ const Bookmarks: React.FC = () => {
   }, []);
 
   return (
-    <Box sx={{ p: { xs: 2, sm: 3 }, minHeight: "60vh" }}>
+    <Box sx={{ width: "100%", backgroundColor: "var(--paper)", minHeight: "100vh", py: { xs: 2, md: 4 } }}>
       <SEOMeta
         title="My Bookmarks"
         description="Access and read your saved news articles and stories on WorldNewzs."
         keywords="saved articles, bookmarked news, reading list, saved headlines"
         canonical="https://worldnewzs.in/bookmarks"
       />
-      <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, flexWrap: "wrap" }}>
-        <BookmarkIcon color="warning" sx={{ fontSize: 32 }} />
-        <Typography variant="h4" component="h1" sx={{ fontWeight: 700, flexGrow: 1 }}>
-          My Bookmarks
-        </Typography>
-        {bookmarks.length > 0 && (
-          <Button
-            id="bookmarks-clear-all-btn"
-            startIcon={<DeleteSweepIcon />}
-            variant="outlined"
-            color="error"
-            size="small"
-            onClick={clearAll}
-          >
-            Clear All
-          </Button>
-        )}
-      </Box>
+      <Box
+        className="wrap"
+        sx={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          px: { xs: 2, md: 3.5 },
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 3, flexWrap: "wrap" }}>
+          <BookmarkIcon color="warning" sx={{ fontSize: 32 }} />
+          <Typography variant="h4" component="h1" sx={{ fontWeight: 700, fontFamily: "var(--serif)", flexGrow: 1 }}>
+            My Bookmarks
+          </Typography>
+          {bookmarks.length > 0 && (
+            <Button
+              id="bookmarks-clear-all-btn"
+              startIcon={<DeleteSweepIcon />}
+              variant="outlined"
+              color="error"
+              size="small"
+              onClick={clearAll}
+            >
+              Clear All
+            </Button>
+          )}
+        </Box>
 
       {bookmarks.length === 0 ? (
         <Alert severity="info" sx={{ mt: 2 }}>
@@ -122,6 +130,7 @@ const Bookmarks: React.FC = () => {
           <KeyboardArrowUpIcon />
         </Fab>
       )}
+      </Box>
     </Box>
   );
 };

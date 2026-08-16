@@ -21,14 +21,14 @@ export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
         main: SECONDARY_COLOR,
       },
       background: {
-        default: isLight ? "#f8fafc" : "#0d1117",
-        paper: isLight ? "#ffffff" : "#161b22",
+        default: isLight ? "#F4F5F7" : "#0B0F19",
+        paper: isLight ? "#FFFFFF" : "#151C2C",
       },
       text: {
-        primary: isLight ? "#0f172a" : "#f3f4f6",
-        secondary: isLight ? "#475569" : "#9ca3af",
+        primary: isLight ? "#10172A" : "#F8FAFC",
+        secondary: isLight ? "#475569" : "#CBD5E1",
       },
-      divider: isLight ? "#e2e8f0" : "rgba(255, 255, 255, 0.08)",
+      divider: isLight ? "#DBDEE4" : "#242E42",
     },
     typography: {
       fontFamily: "'Inter', 'Outfit', 'Roboto', system-ui, sans-serif",

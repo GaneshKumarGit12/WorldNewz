@@ -156,7 +156,7 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
   return (
     <Box sx={{ mb: 5, mt: 1 }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.5 }}>
-        <LocalOfferIcon sx={{ color: "#ff8a65" }} />
+        <LocalOfferIcon sx={{ color: "var(--red, #B7222B)" }} />
         <Typography
           variant="h6"
           sx={{
@@ -164,13 +164,13 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
             letterSpacing: 0.5,
             textTransform: "uppercase",
             fontSize: "0.95rem",
-            color: isDark ? "#ff8a65" : "#c83a15"
+            color: "var(--text)"
           }}
         >
           Trending Deals & Recommendations
         </Typography>
       </Box>
-      <Typography variant="caption" sx={{ display: 'block', mb: 2, color: 'text.secondary', fontStyle: 'italic' }}>
+      <Typography variant="caption" sx={{ display: 'block', mb: 2, color: 'var(--slate)', fontStyle: 'italic' }}>
         Affiliate Disclosure: WorldNewzs may earn a small commission on qualifying purchases made through links on our site.
       </Typography>
 
@@ -182,12 +182,9 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
               sx={{
                 display: "flex",
                 flexDirection: { xs: "column", sm: "row" },
-                borderRadius: 4,
-                border: "1px solid",
-                borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
-                background: isDark
-                  ? "linear-gradient(135deg, #1b202a 0%, #161b22 100%)"
-                  : "linear-gradient(135deg, #ffffff 0%, #f7f9fc 100%)",
+                borderRadius: "8px",
+                border: "1px solid var(--line)",
+                backgroundColor: "var(--paper-raise)",
                 transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 overflow: "hidden",
                 "&:hover": {
@@ -195,7 +192,7 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                   boxShadow: isDark
                     ? "0 10px 25px rgba(0,0,0,0.4)"
                     : "0 10px 25px rgba(0,0,0,0.06)",
-                  borderColor: isDark ? "rgba(255,138,101,0.3)" : "rgba(200,58,21,0.2)"
+                  borderColor: "var(--red, #B7222B)"
                 }
               }}
             >
@@ -215,12 +212,12 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                       position: "absolute",
                       top: 10,
                       left: 10,
-                      bgcolor: "#ff8a65",
-                      color: "#000",
+                      bgcolor: "var(--red, #B7222B)",
+                      color: "#FFFFFF",
                       fontWeight: 700,
                       fontSize: "0.7rem",
                       borderRadius: 1.5,
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
                     }}
                   />
                 )}
@@ -241,7 +238,7 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
-                      color: isDark ? "#ffffff" : "#1a1a2e"
+                      color: "var(--text)"
                     }}
                   >
                     {deal.title}
@@ -249,14 +246,13 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
 
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1.5 }}>
                     <Rating value={deal.rating} precision={0.1} readOnly size="small" />
-                    <Typography variant="caption" sx={{ fontWeight: 600, color: "text.secondary" }}>
+                    <Typography variant="caption" sx={{ fontWeight: 600, color: "var(--slate)" }}>
                       {deal.rating}
                     </Typography>
                   </Box>
 
                   <Typography
                     variant="body2"
-                    color="text.secondary"
                     sx={{
                       fontSize: "0.85rem",
                       lineHeight: 1.5,
@@ -264,7 +260,8 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                       display: "-webkit-box",
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
-                      overflow: "hidden"
+                      overflow: "hidden",
+                      color: "var(--slate)"
                     }}
                   >
                     {deal.description}
@@ -275,24 +272,24 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                 <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mt: "auto", pt: 1, gap: 1 }}>
                   <Box>
                     <Box sx={{ display: "flex", alignItems: "baseline", gap: 1 }}>
-                      <Typography variant="h6" sx={{ fontWeight: 800, fontSize: "1.2rem", color: isDark ? "#4ade80" : "#16a34a" }}>
+                      <Typography variant="h6" sx={{ fontWeight: 800, fontSize: "1.2rem", color: isDark ? "#4ade80" : "#15803d" }}>
                         {deal.price}
                       </Typography>
-                      <Typography variant="caption" sx={{ textDecoration: "line-through", color: "text.secondary" }}>
+                      <Typography variant="caption" sx={{ textDecoration: "line-through", color: "var(--slate-light)" }}>
                         {deal.originalPrice}
                       </Typography>
                     </Box>
                     <Chip
                       label={deal.discount}
                       size="small"
-                      color="success"
-                      variant="outlined"
                       sx={{
                         fontSize: "0.65rem",
                         height: 18,
                         fontWeight: 700,
-                        borderColor: isDark ? "#4ade80" : "#16a34a",
-                        color: isDark ? "#4ade80" : "#16a34a",
+                        borderColor: isDark ? "#4ade80" : "#15803d",
+                        color: isDark ? "#4ade80" : "#15803d",
+                        bgcolor: isDark ? "rgba(74, 222, 128, 0.1)" : "rgba(21, 128, 61, 0.08)",
+                        border: "1px solid",
                         mt: 0.5
                       }}
                     />
@@ -307,17 +304,16 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
                     rel="sponsored noopener noreferrer"
                     endIcon={<LaunchIcon sx={{ fontSize: "0.9rem !important" }} />}
                     sx={{
-                      borderRadius: 2.5,
+                      borderRadius: "6px",
                       textTransform: "none",
                       fontWeight: 700,
                       px: 2,
                       py: 0.75,
-                      background: "linear-gradient(135deg, #ff8a65 0%, #c83a15 100%)",
+                      bgcolor: "var(--red, #B7222B)",
                       color: "#ffffff",
                       boxShadow: "none",
                       "&:hover": {
-                        background: "linear-gradient(135deg, #ff9e80 0%, #d84315 100%)",
-                        boxShadow: "0 4px 12px rgba(200, 58, 21, 0.2)"
+                        bgcolor: "var(--red-deep, #8E1B22)"
                       }
                     }}
                   >

@@ -1,464 +1,846 @@
-import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import { 
-  Box, 
-  Typography, 
-  Card, 
-  CardContent, 
-  Grid, 
-  Button, 
-  CircularProgress, 
-  Select, 
-  MenuItem, 
-  FormControl, 
-  InputLabel, 
-  Chip, 
-  Alert
+import React, { useEffect, useState, useMemo } from "react";
+import { useOutletContext, useNavigate } from "react-router-dom";
+import {
+  Box,
+  Typography,
+  Chip,
+  FormControl,
+  Select,
+  MenuItem,
+  CircularProgress,
+  Button
 } from "@mui/material";
 import type { SelectChangeEvent } from "@mui/material";
 import VerifiedIcon from "@mui/icons-material/Verified";
-import StarIcon from "@mui/icons-material/Star";
-import NewspaperIcon from "@mui/icons-material/Newspaper";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import AutorenewIcon from "@mui/icons-material/Autorenew";
 
-import LocalNewsCard from "../components/LocalNewsCard";
-import AdBannerCard from "../components/AdBannerCard";
-import { 
-  detectCountryCode, 
-  fetchTopHeadlines, 
-  fetchMoreLocalNews, 
-  SUPPORTED_COUNTRIES 
-} from "../api/localNewsService";
-import { useBookmarks } from "../hooks/useBookmarks";
-import { useComments } from "../hooks/useComments";
+import NewsGrid from "../components/NewsGrid";
+import SectionStatus from "../components/SectionStatus";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
-import { useColorMode } from "../context/ThemeContext";
-import type { Article } from "../types";
 import { CategoryEditorial } from "../components/CategoryEditorial";
+import { SuggestedForYouWidget } from "../components/SuggestedForYouWidget";
+import { PersonalizedTopicHub } from "../components/PersonalizedTopicHub";
+import { TopStoriesSection } from "../components/TopStoriesSection";
+import { WeatherWidget } from "../components/WeatherWidget";
+import { WatchlistWidget } from "../components/WatchlistWidget";
+import { ShoppingWidget } from "../components/ShoppingWidget";
+
+import {
+  detectCountryCode,
+  fetchTopHeadlines,
+  fetchMoreLocalNews,
+  SUPPORTED_COUNTRIES
+} from "../api/localNewsService";
+import { fetchLocalNews } from "../api/apiClient";
+import { useBookmarks } from "../hooks/useBookmarks";
+import { useComments } from "../hooks/useComments";
+import { deduplicateArticles } from "../utils/deduplicate";
+import { formatTimeAgoLong } from "../utils/formatTime";
+import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
+import { getCategoryFallbackArticles, fallbackDiscoverArticles } from "../utils/fallbackArticles";
+import type { Article } from "../types";
 
 const LocalNews: React.FC = () => {
-  const { mode } = useColorMode();
-  const isDark = mode === "dark";
+  const navigate = useNavigate();
 
   // Access global search term if present
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
   const searchTerm = outletContext?.searchTerm ?? "";
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
 
   // Bookmarks & Comments integration
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
-  const { 
-    getEngagement, 
-    toggleLike, 
-    toggleDislike, 
-    addComment, 
-    deleteComment, 
-    likeComment, 
-    dislikeComment 
+  const {
+    getEngagement,
+    toggleLike,
+    toggleDislike,
+    addComment,
+    deleteComment,
+    likeComment,
+    dislikeComment
   } = useComments();
 
   // Location and country state
-  const [detectedCountry, setDetectedCountry] = useState<string>("");
   const [selectedCountry, setSelectedCountry] = useState<string>("in");
-  const [countryDetecting, setCountryDetecting] = useState<boolean>(true);
 
   // News articles states
-  const [topHeadlines, setTopHeadlines] = useState<Article[]>([]);
-  const [moreLocalNews, setMoreLocalNews] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasMoreArticles, setHasMoreArticles] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [isFetchingMore, setIsFetchingMore] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Loading & Error states
-  const [loadingHeadlines, setLoadingHeadlines] = useState<boolean>(true);
-  const [loadingMore, setLoadingMore] = useState<boolean>(true);
-  const [loadingNextPage, setLoadingNextPage] = useState<boolean>(false);
-  const [headlinesError, setHeadlinesError] = useState<string | null>(null);
-  const [moreError, setMoreError] = useState<string | null>(null);
+  // Topic Hub state
+  const [followedTopics, setFollowedTopics] = useState<string[]>([]);
+  const [selectedTopicId, setSelectedTopicId] = useState<string>("top-ai");
 
   // Auto-detect location on mount
   useEffect(() => {
     const initLocation = async () => {
-      setCountryDetecting(true);
       try {
         const detected = await detectCountryCode();
-        setDetectedCountry(detected);
-        setSelectedCountry(detected);
+        if (detected) {
+          setSelectedCountry(detected);
+        }
       } catch (err) {
         console.error("Location initialization failed:", err);
         setSelectedCountry("in"); // Fallback
-      } finally {
-        setCountryDetecting(false);
       }
     };
     initLocation();
   }, []);
 
-  // Fetch top headlines when selected country changes
-  useEffect(() => {
-    const loadHeadlines = async () => {
-      if (!selectedCountry) return;
-      setLoadingHeadlines(true);
-      setHeadlinesError(null);
-      try {
-        const data = await fetchTopHeadlines(selectedCountry);
-        setTopHeadlines(data);
-      } catch (err: any) {
-        setHeadlinesError(err.message || "Failed to load top headlines.");
-      } finally {
-        setLoadingHeadlines(false);
-      }
-    };
+  // Fetch local news headlines and stream
+  const loadData = async (currentPage: number, countryCode: string) => {
+    if (currentPage === 1) setLoading(true);
+    else setIsFetchingMore(true);
 
-    loadHeadlines();
-  }, [selectedCountry]);
+    try {
+      let fetched: Article[] = [];
 
-  // Fetch more local news (national) when selected country or page changes
-  useEffect(() => {
-    const loadMoreNews = async () => {
-      if (!selectedCountry) return;
-      
-      if (page === 1) {
-        setLoadingMore(true);
-        setMoreError(null);
+      if (currentPage === 1) {
+        // Fetch top headlines + more news in parallel
+        const [headlines, more] = await Promise.allSettled([
+          fetchTopHeadlines(countryCode),
+          fetchMoreLocalNews(countryCode, 1)
+        ]);
+
+        const headlinesData = headlines.status === "fulfilled" ? headlines.value : [];
+        const moreData = more.status === "fulfilled" ? more.value : [];
+        fetched = deduplicateArticles([...headlinesData, ...moreData]);
       } else {
-        setLoadingNextPage(true);
+        fetched = await fetchMoreLocalNews(countryCode, currentPage);
       }
 
-      try {
-        const data = await fetchMoreLocalNews(selectedCountry, page);
-        if (data.length === 0) {
+      // Secondary fallback to primary backend local-news endpoint if GNews key limits
+      if (fetched.length < 4 && currentPage === 1) {
+        try {
+          const res = await fetchLocalNews({ page: 1, pageSize: 12 });
+          const raw = Array.isArray(res.data?.articles) ? res.data.articles : [];
+          const formatted = raw.map((a: any) => ({
+            ...a,
+            imageUrl: a.urlToImage || a.image || a.imageUrl,
+            category: a.category || "Local News",
+          }));
+          fetched = deduplicateArticles([...fetched, ...formatted]);
+        } catch (backendErr) {
+          console.warn("Backend local-news fallback skipped:", backendErr);
+        }
+      }
+
+      if (fetched.length === 0) {
+        if (currentPage === 1) {
+          const fallbacks = getCategoryFallbackArticles("Local News");
+          setArticles(fallbacks);
           setHasMoreArticles(false);
         } else {
-          setMoreLocalNews((prev) => {
-            const combined = page === 1 ? data : [...prev, ...data];
-            // Deduplicate
-            const uniqueUrls = new Set<string>();
-            return combined.filter(article => {
-              if (!article.url) return true;
-              if (uniqueUrls.has(article.url)) return false;
-              uniqueUrls.add(article.url);
-              return true;
-            });
-          });
-          // GNews free keys have limit on page sizes or total articles, cap around page 3-4 safely
-          if (data.length < 9 || page >= 4) {
-            setHasMoreArticles(false);
-          } else {
-            setHasMoreArticles(true);
-          }
+          setHasMoreArticles(false);
         }
-      } catch (err: any) {
-        setMoreError(err.message || "Failed to load more news.");
-      } finally {
-        setLoadingMore(false);
-        setLoadingNextPage(false);
+      } else if (fetched.length < 5 && currentPage === 1) {
+        const fallbacks = getCategoryFallbackArticles("Local News");
+        setArticles(deduplicateArticles([...fetched, ...fallbacks]));
+        setHasMoreArticles(false);
+      } else {
+        setArticles((prev) => {
+          const combined = currentPage === 1 ? fetched : [...prev, ...fetched];
+          return deduplicateArticles(combined);
+        });
+        setHasMoreArticles(fetched.length >= 6 && currentPage < 4);
       }
-    };
+    } catch (err: any) {
+      console.warn(`Local news fetch failed for ${countryCode}, using verified fallback articles:`, err);
+      if (currentPage === 1) {
+        setArticles(getCategoryFallbackArticles("Local News"));
+        setError(null);
+      } else {
+        setError("Failed to load additional local stories");
+      }
+      setHasMoreArticles(false);
+    } finally {
+      setLoading(false);
+      setIsFetchingMore(false);
+    }
+  };
 
-    loadMoreNews();
-  }, [selectedCountry, page]);
-
-  // Reset page when country changes
+  // Trigger data load on country change
   useEffect(() => {
-    setMoreLocalNews([]);
+    if (!selectedCountry) return;
+    setArticles([]);
     setPage(1);
     setHasMoreArticles(true);
+    loadData(1, selectedCountry);
   }, [selectedCountry]);
+
+  // Handle page pagination
+  useEffect(() => {
+    if (page > 1 && selectedCountry) {
+      loadData(page, selectedCountry);
+    }
+  }, [page]);
+
+  // Infinite scroll trigger
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 100 >=
+        document.documentElement.offsetHeight
+      ) {
+        if (!isFetchingMore && hasMoreArticles && !loading) {
+          setPage((prev) => prev + 1);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isFetchingMore, hasMoreArticles, loading]);
 
   // Country selector change handler
   const handleCountryChange = (event: SelectChangeEvent) => {
     setSelectedCountry(event.target.value as string);
   };
 
-  // Load next page of "More News"
-  const handleLoadMore = () => {
-    if (!loadingNextPage && hasMoreArticles) {
-      setPage((prev) => prev + 1);
+  // Filtered articles
+  const filteredArticles = useMemo(() => {
+    return normalizedSearchTerm
+      ? articles.filter((a) =>
+          `${a.title} ${a.description ?? ""}`.toLowerCase().includes(normalizedSearchTerm)
+        )
+      : articles;
+  }, [articles, normalizedSearchTerm]);
+
+  // Derived sections matching signature 2-zone newsroom layout
+  const leadStory = filteredArticles.length > 0 ? filteredArticles[0] : null;
+  const mostReadArticles = useMemo(() => {
+    const direct = filteredArticles.slice(1, 6);
+    if (direct.length >= 4) return direct;
+    const fallbacks = getCategoryFallbackArticles("Local News");
+    const pool = [...filteredArticles.slice(1), ...fallbacks, ...fallbackDiscoverArticles];
+    const unique: Article[] = [];
+    for (const item of pool) {
+      if (item && item.title !== leadStory?.title && !unique.some((u) => u.title === item.title)) {
+        unique.push(item);
+      }
+      if (unique.length >= 5) break;
     }
+    return unique;
+  }, [filteredArticles, leadStory]);
+
+  const regionalStream = useMemo(
+    () => (filteredArticles.length > 6 ? filteredArticles.slice(6) : []),
+    [filteredArticles]
+  );
+
+  const currentCountryName =
+    SUPPORTED_COUNTRIES.find((c) => c.code === selectedCountry)?.name || "Selected Location";
+  const todayDate = new Date().toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+
+  const handleArticleClick = (art: Article) => {
+    const titleSlug =
+      art.title?.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase().substring(0, 50) || "article";
+    navigate(`/read-article/${titleSlug}`, { state: { article: art } });
   };
 
-  // Filter headlines and more news based on global search term
-  const normalizedSearch = searchTerm.trim().toLowerCase();
-  
-  const filteredHeadlines = normalizedSearch
-    ? topHeadlines.filter((a) =>
-        `${a.title} ${a.description ?? ""}`.toLowerCase().includes(normalizedSearch)
-      )
-    : topHeadlines;
-
-  const filteredMoreNews = normalizedSearch
-    ? moreLocalNews.filter((a) =>
-        `${a.title} ${a.description ?? ""}`.toLowerCase().includes(normalizedSearch)
-      )
-    : moreLocalNews;
-
-  const currentCountryName = SUPPORTED_COUNTRIES.find(c => c.code === selectedCountry)?.name || "selected location";
-  const todayDate = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-
   return (
-    <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
+    <Box sx={{ width: "100%", backgroundColor: "var(--paper)", minHeight: "100vh", py: { xs: 2, md: 4 } }}>
       {/* SEO configuration */}
       <SEOMeta
-        title={`Local News in ${currentCountryName} (${todayDate})`}
-        description={`Read top headlines and local national updates in ${currentCountryName}. Verified regional updates from verified publishers on WorldNewzs.`}
-        keywords={["local news", currentCountryName.toLowerCase(), "regional updates", "breaking news", "national news"]}
-        canonical={`https://worldnewzs.in/local-news`}
+        title={`Local News in ${currentCountryName} (${todayDate}) — WorldNewzs`}
+        description={`Read top verified local headlines and regional news from ${currentCountryName}. Real-time geolocation updates on WorldNewzs.`}
+        keywords={[
+          "local news",
+          currentCountryName.toLowerCase(),
+          "regional updates",
+          "breaking local news",
+          "national news",
+          todayDate
+        ]}
+        canonical="https://worldnewzs.in/local-news"
       />
 
-      <JSONLDBreadcrumb crumbs={[
-        { name: "Home", url: "https://worldnewzs.in" },
-        { name: "Local News", url: "https://worldnewzs.in/local-news" }
-      ]} />
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Local News", url: "https://worldnewzs.in/local-news" }
+        ]}
+      />
 
-      {/* Hero Header Card */}
-      <Card 
-        elevation={0}
-        sx={{ 
-          mb: 4, 
-          borderRadius: 4, 
-          border: "1px solid",
-          borderColor: "divider",
-          background: isDark 
-            ? "linear-gradient(135deg, #0e1e25 0%, #061118 100%)" 
-            : "linear-gradient(135deg, #f0fafd 0%, #ffffff 100%)",
-          boxShadow: isDark 
-            ? "0 4px 20px rgba(0,0,0,0.3)" 
-            : "0 4px 20px rgba(0,0,0,0.02)"
+      <Box
+        className="wrap"
+        sx={{
+          maxWidth: "1240px",
+          margin: "0 auto",
+          px: { xs: 2, md: 3.5 }
         }}
       >
-        <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-          <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 3 }}>
-            <Box>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
-                <Typography variant="h3" component="h1" sx={{ fontSize: { xs: "1.8rem", sm: "2.4rem" }, fontWeight: 800 }}>
-                  📍 Local News
-                </Typography>
-                <Chip 
-                  icon={<VerifiedIcon />}
-                  label="Verified Regional Feed" 
-                  variant="outlined"
-                  color="info"
-                  sx={{ fontWeight: 600, borderRadius: 2, height: 28 }}
-                />
-              </Box>
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  color: "text.secondary", 
-                  fontSize: { xs: "0.95rem", sm: "1.05rem" },
-                  maxWidth: 700,
-                  lineHeight: 1.6
-                }}
-              >
-                Displaying news tailored to your location. We use your IP geolocation to automatically load stories from your region.
-              </Typography>
-              
-              {/* Location detection status */}
-              {!countryDetecting && detectedCountry && (
-                <Typography variant="caption" display="block" sx={{ mt: 1.5, color: "text.secondary", fontStyle: "italic" }}>
-                  System auto-detected location: <strong>{SUPPORTED_COUNTRIES.find(c => c.code === detectedCountry)?.name || detectedCountry.toUpperCase()}</strong>.
-                </Typography>
-              )}
-            </Box>
+        <BreadcrumbNav items={[{ label: "Local News" }]} />
 
-            {/* Country Selector Dropdown */}
-            <Box sx={{ minWidth: 200 }}>
-              <FormControl fullWidth variant="outlined" size="small">
-                <InputLabel id="country-select-label">Change Location</InputLabel>
+        {/* --- Unified Masthead & Location Selector --- */}
+        <Box sx={{ mb: 3, pb: 2, borderBottom: "1px solid var(--line)" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 1.5,
+              mb: 1
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "var(--mono)",
+                fontSize: "11px",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "var(--red)",
+              }}
+            >
+              Edition No. 4,821 · Regional Desk · Geolocation Verification Active
+            </Typography>
+
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+              <Chip
+                icon={<VerifiedIcon sx={{ fontSize: "14px !important" }} />}
+                label="Regional Verification Active"
+                variant="outlined"
+                size="small"
+                sx={{
+                  fontFamily: "var(--mono)",
+                  fontSize: "10.5px",
+                  fontWeight: 600,
+                  color: "var(--gold)",
+                  borderColor: "var(--gold)",
+                  borderRadius: "2px"
+                }}
+              />
+
+              {/* Country Selector Dropdown */}
+              <FormControl size="small" sx={{ minWidth: 160 }}>
                 <Select
-                  labelId="country-select-label"
-                  id="country-select"
                   value={selectedCountry}
                   onChange={handleCountryChange}
-                  label="Change Location"
-                  sx={{ 
-                    borderRadius: 2.5,
-                    bgcolor: "background.paper",
-                    fontWeight: 600
+                  displayEmpty
+                  sx={{
+                    fontFamily: "var(--sans)",
+                    fontSize: "12.5px",
+                    fontWeight: 600,
+                    height: "30px",
+                    backgroundColor: "var(--paper-raise)",
+                    color: "var(--text)",
+                    borderRadius: "4px",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "var(--line)",
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "var(--red)",
+                    }
                   }}
                 >
-                  {SUPPORTED_COUNTRIES.map((country) => (
-                    <MenuItem key={country.code} value={country.code}>
+                  {SUPPORTED_COUNTRIES.map((c) => (
+                    <MenuItem
+                      key={c.code}
+                      value={c.code}
+                      sx={{
+                        fontFamily: "var(--sans)",
+                        fontSize: "13px",
+                        fontWeight: c.code === selectedCountry ? 700 : 500
+                      }}
+                    >
                       <span style={{ marginRight: 8 }}>
-                        {country.code === "in" && "🇮🇳"}
-                        {country.code === "us" && "🇺🇸"}
-                        {country.code === "gb" && "🇬🇧"}
-                        {country.code === "ca" && "🇨🇦"}
-                        {country.code === "au" && "🇦🇺"}
-                        {country.code === "sg" && "🇸🇬"}
-                        {country.code === "pk" && "🇵🇰"}
-                        {country.code === "nz" && "🇳🇿"}
-                        {country.code === "ie" && "🇮🇪"}
-                        {country.code === "hk" && "🇭🇰"}
-                        {country.code === "ph" && "🇵🇭"}
-                        {country.code === "fr" && "🇫🇷"}
-                        {country.code === "de" && "🇩🇪"}
-                        {country.code === "jp" && "🇯🇵"}
+                        {c.code === "in" && "🇮🇳"}
+                        {c.code === "us" && "🇺🇸"}
+                        {c.code === "gb" && "🇬🇧"}
+                        {c.code === "ca" && "🇨🇦"}
+                        {c.code === "au" && "🇦🇺"}
+                        {c.code === "sg" && "🇸🇬"}
+                        {c.code === "pk" && "🇵🇰"}
+                        {c.code === "nz" && "🇳🇿"}
+                        {c.code === "ie" && "🇮🇪"}
+                        {c.code === "hk" && "🇭🇰"}
+                        {c.code === "ph" && "🇵🇭"}
+                        {c.code === "fr" && "🇫🇷"}
+                        {c.code === "de" && "🇩🇪"}
+                        {c.code === "jp" && "🇯🇵"}
                       </span>
-                      {country.name}
+                      {c.name}
                     </MenuItem>
                   ))}
                 </Select>
               </FormControl>
             </Box>
           </Box>
-        </CardContent>
-      </Card>
 
-      {/* ================= SECTION 1: TOP HEADLINES ================= */}
-      <Box sx={{ mb: 6 }}>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}>
-          <StarIcon sx={{ color: "#ff8f00" }} />
-          <Typography variant="h5" sx={{ fontWeight: 800, textTransform: "capitalize" }}>
-            Top Headlines in {currentCountryName}
+          <Typography
+            component="h1"
+            sx={{
+              fontFamily: "var(--serif)",
+              fontSize: { xs: "28px", sm: "36px", md: "40px" },
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              color: "var(--text)",
+              mb: 1
+            }}
+          >
+            📍 Local News — {currentCountryName}
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: "var(--sans)",
+              fontSize: { xs: "14px", sm: "15px" },
+              color: "var(--slate)",
+              lineHeight: 1.6,
+              maxWidth: 900
+            }}
+          >
+            Real-time verified reporting, municipal developments, and community updates tailored to{" "}
+            <strong>{currentCountryName}</strong> using IP-based regional geolocation.
           </Typography>
         </Box>
 
-        {loadingHeadlines ? (
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-            <CircularProgress color="info" />
-          </Box>
-        ) : headlinesError ? (
-          <Alert severity="error" sx={{ borderRadius: 2 }}>
-            {headlinesError}
-          </Alert>
-        ) : filteredHeadlines.length === 0 ? (
-          <Alert severity="info" sx={{ borderRadius: 2 }}>
-            No top headlines found matching your search.
-          </Alert>
-        ) : (
-          <Grid container spacing={3}>
-            {/* Display first headline as featured article (spans full width on desktop) */}
-            {(() => {
-              const elements: React.ReactNode[] = [];
-              filteredHeadlines.forEach((article, idx) => {
-                elements.push(
-                  <Grid size={idx === 0 ? { xs: 12 } : { xs: 12, sm: 6, md: 4 }} key={`headline-${idx}`}>
-                    <LocalNewsCard
-                      article={article}
-                      featured={idx === 0}
-                      isBookmarked={isBookmarked(article.url || "")}
-                      onBookmark={addBookmark}
-                      onRemoveBookmark={removeBookmark}
-                      onLike={toggleLike}
-                      onDislike={toggleDislike}
-                      onAddComment={addComment}
-                      onDeleteComment={deleteComment}
-                      onLikeComment={likeComment}
-                      onDislikeComment={dislikeComment}
-                      engagement={getEngagement(article.url || "")}
-                      loading={idx === 0 ? "eager" : "lazy"}
-                    />
-                  </Grid>
-                );
-                // Inject ad card after every 5 headlines
-                if (idx > 0 && idx % 5 === 4) {
-                  elements.push(
-                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`ad-headline-${idx}`}>
-                      <AdBannerCard />
-                    </Grid>
-                  );
-                }
-              });
-              return elements;
-            })()}
-          </Grid>
-        )}
-      </Box>
-
-      {/* ================= SECTION 2: MORE LOCAL NEWS ================= */}
-      <Box sx={{ mb: 4 }}>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}>
-          <NewspaperIcon sx={{ color: "#06b6d4" }} />
-          <Typography variant="h5" sx={{ fontWeight: 800 }}>
-            More Local & National Stories
-          </Typography>
-        </Box>
-
-        {loadingMore ? (
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-            <CircularProgress color="info" />
-          </Box>
-        ) : moreError ? (
-          <Alert severity="error" sx={{ borderRadius: 2 }}>
-            {moreError}
-          </Alert>
-        ) : filteredMoreNews.length === 0 ? (
-          <Alert severity="info" sx={{ borderRadius: 2 }}>
-            No additional local stories found.
-          </Alert>
-        ) : (
-          <>
-            <Grid container spacing={3}>
-              {(() => {
-                const elements: React.ReactNode[] = [];
-                filteredMoreNews.forEach((article, idx) => {
-                  elements.push(
-                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`more-${idx}`}>
-                      <LocalNewsCard
-                        article={article}
-                        isBookmarked={isBookmarked(article.url || "")}
-                        onBookmark={addBookmark}
-                        onRemoveBookmark={removeBookmark}
-                        onLike={toggleLike}
-                        onDislike={toggleDislike}
-                        onAddComment={addComment}
-                        onDeleteComment={deleteComment}
-                        onLikeComment={likeComment}
-                        onDislikeComment={dislikeComment}
-                        engagement={getEngagement(article.url || "")}
-                        loading="lazy"
-                      />
-                    </Grid>
-                  );
-                  // Inject ad card after every 5 articles
-                  if (idx % 5 === 4) {
-                    elements.push(
-                      <Grid size={{ xs: 12, sm: 6, md: 4 }} key={`ad-more-${idx}`}>
-                        <AdBannerCard />
-                      </Grid>
-                    );
-                  }
-                });
-                return elements;
-              })()}
-            </Grid>
-
-            {/* Load More Button */}
-            {hasMoreArticles && !searchTerm && (
-              <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-                <Button
-                  variant="outlined"
-                  onClick={handleLoadMore}
-                  disabled={loadingNextPage}
+        {/* --- 2-ZONE EDITORIAL RIVER LAYOUT --- */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", lg: "1fr 340px" },
+            gap: { xs: 3, lg: 5.5 },
+            alignItems: "start"
+          }}
+        >
+          {/* ================= LEFT MAIN EDITORIAL RIVER ================= */}
+          <Box component="section" sx={{ minWidth: 0 }}>
+            <SectionStatus
+              loading={loading}
+              error={error}
+              hasData={filteredArticles.length > 0}
+              emptyText={
+                normalizedSearchTerm
+                  ? "No regional news matching your search query."
+                  : `No verified local articles currently available for ${currentCountryName}.`
+              }
+            >
+              {/* 1. HERO LEAD STORY & MOST READ RAIL */}
+              {leadStory && (
+                <Box
                   sx={{
-                    borderRadius: 3,
-                    px: 4,
-                    py: 1,
-                    textTransform: "none",
-                    fontWeight: 700,
-                    borderColor: "#06b6d4",
-                    color: isDark ? "#26c6da" : "#00acc1",
-                    "&:hover": {
-                      borderColor: "#00acc1",
-                      backgroundColor: "rgba(6, 182, 212, 0.05)",
-                    }
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", md: "1.65fr 1fr" },
+                    gap: 3.5,
+                    pb: 4,
+                    mb: 4,
+                    borderBottom: "1px solid var(--line)"
                   }}
                 >
-                  {loadingNextPage ? (
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                      <CircularProgress size={20} color="inherit" />
-                      Loading Stories...
+                  {/* Lead Story */}
+                  <Box
+                    onClick={() => handleArticleClick(leadStory)}
+                    sx={{
+                      cursor: "pointer",
+                      display: "flex",
+                      flexDirection: "column",
+                      "&:hover .lead-title": { color: "var(--red-deep)" }
+                    }}
+                  >
+                    <Box
+                      className="art tone-red"
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: { xs: 220, sm: 300, md: 340 },
+                        borderRadius: "2px",
+                        overflow: "hidden",
+                        mb: 2,
+                        backgroundColor: "var(--paper-raise)"
+                      }}
+                    >
+                      <img
+                        src={optimizeImageUrl(
+                          leadStory.urlToImage || leadStory.imageUrl,
+                          800,
+                          leadStory.category,
+                          leadStory.title
+                        )}
+                        alt={leadStory.title}
+                        loading="eager"
+                        fetchPriority="high"
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = getCategoryFallbackImage(
+                            leadStory.category || "Local News",
+                            leadStory.title
+                          );
+                        }}
+                      />
                     </Box>
-                  ) : (
-                    "Load More Local News"
-                  )}
-                </Button>
-              </Box>
-            )}
-          </>
-        )}
 
-        <CategoryEditorial categoryKey="local-news" />
+                    <Typography
+                      className="eyebrow"
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        letterSpacing: "0.08em",
+                        textTransform: "uppercase",
+                        color: "var(--red)",
+                        mb: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1
+                      }}
+                    >
+                      Featured Regional Lead · {leadStory.category || currentCountryName}
+                    </Typography>
+
+                    <Typography
+                      className="lead-title"
+                      component="h2"
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontSize: { xs: "24px", sm: "30px", md: "34px" },
+                        fontWeight: 700,
+                        lineHeight: 1.15,
+                        letterSpacing: "-0.015em",
+                        color: "var(--text)",
+                        mb: 1.5,
+                        transition: "color 0.2s ease"
+                      }}
+                    >
+                      {leadStory.title}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontStyle: "italic",
+                        fontSize: "16px",
+                        color: "var(--slate)",
+                        lineHeight: 1.55,
+                        mb: 2
+                      }}
+                    >
+                      {leadStory.description || leadStory.summary}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        color: "var(--slate-light)"
+                      }}
+                    >
+                      By {(leadStory as any).author || "Regional Desk"} ·{" "}
+                      {formatTimeAgoLong(leadStory.publishedAt)}
+                    </Typography>
+                  </Box>
+
+                  {/* Most Read Rail */}
+                  <Box
+                    sx={{
+                      borderLeft: { xs: "none", md: "1px solid var(--line)" },
+                      pl: { xs: 0, md: 3 },
+                      pt: { xs: 2, md: 0 },
+                      borderTop: { xs: "1px solid var(--line)", md: "none" }
+                    }}
+                  >
+                    <Box
+                      className="section-head"
+                      sx={{
+                        display: "flex",
+                        alignItems: "baseline",
+                        justifyContent: "space-between",
+                        borderBottom: "1px solid var(--line)",
+                        pb: 1,
+                        mb: 2.5
+                      }}
+                    >
+                      <Typography
+                        component="h2"
+                        sx={{
+                          fontFamily: "var(--serif)",
+                          fontSize: "18px",
+                          fontWeight: 700,
+                          color: "var(--text)"
+                        }}
+                      >
+                        Top Stories
+                      </Typography>
+                      <Typography
+                        component="span"
+                        sx={{
+                          fontFamily: "var(--mono)",
+                          fontSize: "10.5px",
+                          color: "var(--slate-light)"
+                        }}
+                      >
+                        Most Read
+                      </Typography>
+                    </Box>
+
+                    {mostReadArticles.map((art, idx) => (
+                      <Box
+                        key={art.url || idx}
+                        onClick={() => handleArticleClick(art)}
+                        sx={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 2,
+                          mb: 2.2,
+                          pb: 2,
+                          borderBottom:
+                            idx < mostReadArticles.length - 1
+                              ? "1px solid var(--line-soft)"
+                              : "none",
+                          cursor: "pointer",
+                          "&:hover .rail-title": { color: "var(--red)" }
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontFamily: "var(--serif)",
+                            fontSize: "26px",
+                            fontWeight: 700,
+                            color: "var(--gold)",
+                            lineHeight: 1,
+                            minWidth: 22
+                          }}
+                        >
+                          {idx + 1}
+                        </Typography>
+                        <Box>
+                          <Typography
+                            className="rail-title"
+                            sx={{
+                              fontFamily: "var(--sans)",
+                              fontSize: "13.5px",
+                              fontWeight: 600,
+                              lineHeight: 1.35,
+                              color: "var(--text)",
+                              mb: 0.5,
+                              transition: "color 0.2s ease"
+                            }}
+                          >
+                            {art.title}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontFamily: "var(--mono)",
+                              fontSize: "10.5px",
+                              color: "var(--slate-light)"
+                            }}
+                          >
+                            {art.category || currentCountryName} ·{" "}
+                            {formatTimeAgoLong(art.publishedAt)}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+
+              {/* 2. TOP STORIES WITH SELECTION & MULTI-API AGGREGATION */}
+              <TopStoriesSection
+                initialCategory="local-news"
+                onBookmark={addBookmark}
+                onRemoveBookmark={removeBookmark}
+                isBookmarked={isBookmarked}
+                onLike={toggleLike}
+                onDislike={toggleDislike}
+                onAddComment={addComment}
+                onDeleteComment={deleteComment}
+                onLikeComment={likeComment}
+                onDislikeComment={dislikeComment}
+                getEngagement={getEngagement}
+                columns={{ xs: 12, sm: 6 }}
+              />
+
+              {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB */}
+              <PersonalizedTopicHub
+                initialTopicId={selectedTopicId}
+                followedTopicIds={followedTopics}
+                onToggleFollow={(id) => {
+                  setFollowedTopics((prev) =>
+                    prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+                  );
+                }}
+              />
+
+              {/* 4. REGIONAL DISPATCH STREAM */}
+              {regionalStream.length > 0 && (
+                <Box sx={{ my: 6 }}>
+                  <Box
+                    className="section-head"
+                    sx={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      justifyContent: "space-between",
+                      borderBottom: "1px solid var(--line)",
+                      pb: 1.2,
+                      mb: 3
+                    }}
+                  >
+                    <Typography
+                      component="h2"
+                      sx={{
+                        fontFamily: "var(--serif)",
+                        fontSize: "22px",
+                        fontWeight: 700,
+                        color: "var(--text)"
+                      }}
+                    >
+                      Regional Dispatch — {currentCountryName}
+                    </Typography>
+
+                    <Chip
+                      label={`${regionalStream.length} Stories`}
+                      size="small"
+                      variant="outlined"
+                      sx={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "10px",
+                        borderColor: "var(--line)"
+                      }}
+                    />
+                  </Box>
+
+                  <NewsGrid
+                    articles={regionalStream}
+                    onBookmark={addBookmark}
+                    onRemoveBookmark={removeBookmark}
+                    isBookmarked={isBookmarked}
+                    onLike={toggleLike}
+                    onDislike={toggleDislike}
+                    onAddComment={addComment}
+                    onDeleteComment={deleteComment}
+                    onLikeComment={likeComment}
+                    onDislikeComment={dislikeComment}
+                    getEngagement={getEngagement}
+                    columns={{ xs: 12, sm: 6 }}
+                    category="Local News"
+                  />
+                </Box>
+              )}
+
+              {/* Load More Pagination */}
+              {hasMoreArticles && !normalizedSearchTerm && (
+                <Box sx={{ display: "flex", justifyContent: "center", my: 5 }}>
+                  <Button
+                    variant="outlined"
+                    onClick={() => setPage((p) => p + 1)}
+                    disabled={isFetchingMore}
+                    startIcon={
+                      isFetchingMore ? (
+                        <CircularProgress size={16} color="inherit" />
+                      ) : (
+                        <AutorenewIcon />
+                      )
+                    }
+                    sx={{
+                      fontFamily: "var(--sans)",
+                      fontSize: "13px",
+                      fontWeight: 700,
+                      textTransform: "none",
+                      px: 3.5,
+                      py: 1,
+                      borderRadius: "2px",
+                      color: "var(--text)",
+                      borderColor: "var(--line)",
+                      backgroundColor: "var(--paper-raise)",
+                      "&:hover": {
+                        borderColor: "var(--red)",
+                        color: "var(--red)",
+                        backgroundColor: "rgba(183, 34, 43, 0.05)"
+                      }
+                    }}
+                  >
+                    {isFetchingMore ? "Loading Stories..." : "Load More Regional Stories"}
+                  </Button>
+                </Box>
+              )}
+
+              {/* 5. EDITORIAL GUIDELINE & BACKGROUND COVERAGE */}
+              <Box sx={{ mt: 6 }}>
+                <CategoryEditorial categoryKey="local-news" />
+              </Box>
+            </SectionStatus>
+          </Box>
+
+          {/* ================= RIGHT 340PX FIXED SIDEBAR ================= */}
+          <Box
+            component="aside"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 4,
+              position: { lg: "sticky" },
+              top: { lg: 84 }
+            }}
+          >
+            {/* Geolocation indicator card */}
+            <Box
+              sx={{
+                p: 2.5,
+                borderRadius: "2px",
+                border: "1px solid var(--line)",
+                backgroundColor: "var(--paper-raise)"
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+                <LocationOnIcon sx={{ fontSize: 18, color: "var(--red)" }} />
+                <Typography
+                  sx={{
+                    fontFamily: "var(--sans)",
+                    fontSize: "13.5px",
+                    fontWeight: 700,
+                    color: "var(--text)"
+                  }}
+                >
+                  Regional Feed Active
+                </Typography>
+              </Box>
+              <Typography
+                sx={{
+                  fontFamily: "var(--sans)",
+                  fontSize: "12px",
+                  color: "var(--slate)",
+                  lineHeight: 1.5
+                }}
+              >
+                Displaying news for <strong>{currentCountryName}</strong>. You can change your location
+                anytime from the masthead selector.
+              </Typography>
+            </Box>
+
+            {/* Weather Widget */}
+            <WeatherWidget />
+
+            {/* Suggested For You Widget (wires to Topic Hub) */}
+            <SuggestedForYouWidget
+              onTopicsChange={setFollowedTopics}
+              onTopicSelect={(topicId) => {
+                setSelectedTopicId(topicId);
+                const el = document.getElementById("personalized-topic-hub");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }}
+              activeTopicId={selectedTopicId}
+            />
+
+            {/* Financial Markets & Watchlist */}
+            <WatchlistWidget />
+
+            {/* Curated Products */}
+            <ShoppingWidget />
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

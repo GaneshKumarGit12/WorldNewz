@@ -131,6 +131,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
             <Tooltip title={isExpanded ? "Hide Category Bar & Search (-)" : "Show Category Bar & Search (+)"}>
               <Button
+                id="btn-toggle-search-nav"
                 size="small"
                 onClick={handleToggleExpand}
                 startIcon={isExpanded ? <RemoveIcon sx={{ fontSize: 14 }} /> : <AddIcon sx={{ fontSize: 14 }} />}
@@ -175,6 +176,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           {!(location.pathname === "/games/dvcubie2026" && hideSearchInGame) && (
             <Box component="form" onSubmit={onSearchSubmit} sx={{ display: "flex", justifyContent: "center", mb: 1.5, mt: 0.5 }}>
               <TextField
+                id="global-search-input"
+                name="q"
                 fullWidth
                 value={searchTerm}
                 onChange={onSearchChange}
@@ -182,6 +185,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 variant="outlined"
                 size="small"
                 autoComplete="off"
+                inputProps={{ "aria-label": "Search news, weather, shopping, sports" }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start" sx={{ ml: 1, mr: 0 }}>
@@ -192,11 +196,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                     <InputAdornment position="end" sx={{ mr: 0.5 }}>
                       <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                         <Tooltip title="Voice search">
-                          <IconButton size="small" aria-label="Voice search" onClick={onVoiceSearch} sx={{ p: 0.5 }}>
+                          <IconButton id="btn-voice-search" size="small" aria-label="Voice search" onClick={onVoiceSearch} sx={{ p: 0.5 }}>
                             <MicIcon sx={{ fontSize: 18 }} />
                           </IconButton>
                         </Tooltip>
                         <Button
+                          id="btn-copilot-search"
                           startIcon={<SmartToyIcon sx={{ fontSize: 16 }} />}
                           variant="contained"
                           color="primary"
@@ -255,35 +260,32 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                     onClick={() => navigate(path)}
                     sx={{
                       textTransform: "capitalize",
-                      fontSize: isPlayGames ? "0.88rem" : "0.85rem",
-                      fontWeight: isPlayGames || isActive ? 800 : 700,
-                      fontFamily: "'Outfit', 'Inter', 'Roboto', sans-serif",
+                      fontSize: isPlayGames ? "0.85rem" : "0.82rem",
+                      fontWeight: isPlayGames || isActive ? 700 : 600,
+                      fontFamily: "var(--sans)",
                       height: 32,
-                      px: isPlayGames ? 2.25 : 1.75,
+                      px: isPlayGames ? 2 : 1.5,
                       border: isPlayGames 
                         ? "2px solid #00e676"
-                        : "1px solid",
-                      borderColor: isPlayGames 
-                        ? "#00e676" 
-                        : (isActive ? "#c83a15" : (isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.15)")),
-                      borderRadius: "6px",
+                        : "1px solid var(--line)",
+                      borderRadius: "4px",
                       cursor: "pointer",
                       whiteSpace: "nowrap",
                       flexShrink: 0,
                       background: isPlayGames
                         ? "linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #006064 100%)"
-                        : (isActive ? "#c83a15" : (isDark ? "#161b22" : "#ffffff")),
+                        : (isActive ? "var(--red)" : "var(--paper-raise)"),
                       color: isPlayGames || isActive 
                         ? "#ffffff" 
-                        : (isDark ? "rgba(255, 255, 255, 0.85)" : "#1f2937"),
+                        : "var(--text)",
                       boxShadow: isPlayGames ? "0 2px 8px rgba(13, 71, 161, 0.4)" : "none",
                       transition: "all 0.2s ease-in-out",
                       "&:hover": {
                         transform: isPlayGames ? "scale(1.04)" : "none",
                         backgroundColor: isPlayGames
                           ? "#0d47a1"
-                          : (isActive ? "#d84315" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.04)")),
-                        borderColor: isPlayGames ? "#00c853" : (isActive ? "#d84315" : (isDark ? "rgba(255, 255, 255, 0.35)" : "rgba(0, 0, 0, 0.35)")),
+                          : (isActive ? "var(--red-deep)" : "var(--paper)"),
+                        borderColor: isPlayGames ? "#00c853" : (isActive ? "var(--red-deep)" : "var(--red)"),
                       },
                       "&:focus": {
                         outline: "none",
