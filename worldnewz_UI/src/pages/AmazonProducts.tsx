@@ -31,7 +31,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SecurityIcon from "@mui/icons-material/Security";
 import ShareIcon from "@mui/icons-material/Share";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PinterestIcon from "@mui/icons-material/Pinterest";
@@ -102,7 +102,6 @@ interface CardShareButtonProps {
 const CardShareButton: React.FC<CardShareButtonProps> = React.memo(({ product, getAbsoluteImageUrl }) => {
   const { mode } = useColorMode();
   const isDark = mode === "dark";
-  const cardBorderColor = isDark ? "#19202a" : "#e9e3e3";
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [copied, setCopied] = useState(false);
   const open = Boolean(anchorEl);
@@ -116,40 +115,92 @@ const CardShareButton: React.FC<CardShareButtonProps> = React.memo(({ product, g
   const handleClose = (e?: React.MouseEvent) => {
     if (e) {
       e.stopPropagation();
-      e.preventDefault();
     }
     setAnchorEl(null);
   };
 
-  const handleCopy = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    navigator.clipboard.writeText(product.productUrl || "")
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => {
-          setCopied(false);
-          handleClose();
-        }, 1500);
-      })
-      .catch(() => {});
-  };
-
   const title = product.title || "Amazon Deal";
-  const url = product.productUrl || "";
-  const imageUrl = getAbsoluteImageUrl(product.imageUrl, product.asin);
+  const tag = "ganeshd12-21";
+  const url = product.productUrl || (product.asin ? `https://www.amazon.in/dp/${product.asin}?tag=${tag}&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl` : "https://worldnewzs.in/amazon-products");
+  const rawImageUrl = product.imageUrl ? getAbsoluteImageUrl(product.imageUrl, product.asin) : "";
+  const imageUrl = rawImageUrl.startsWith("http")
+    ? rawImageUrl
+    : (rawImageUrl ? `https://worldnewzs.in${rawImageUrl}` : "https://worldnewzs.in/images/amazon_placeholder.png");
+
+  const handleSharePlatform = (platform: "whatsapp" | "x" | "facebook" | "linkedin" | "pinterest" | "copy") => (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (platform === "copy") {
+      navigator.clipboard.writeText(url)
+        .then(() => {
+          setCopied(true);
+          setTimeout(() => {
+            setCopied(false);
+            setAnchorEl(null);
+          }, 1200);
+        })
+        .catch(() => {
+          setAnchorEl(null);
+        });
+      return;
+    }
+
+    setAnchorEl(null);
+
+    let shareUrl = "";
+    switch (platform) {
+      case "whatsapp": {
+        const text = `Check out this deal: ${title}\nPrice: ₹${product.price?.toLocaleString("en-IN") || ""}\n${url}`;
+        shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+        break;
+      }
+      case "x": {
+        const text = `Check out this deal: ${title} (₹${product.price?.toLocaleString("en-IN") || ""})`;
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+        break;
+      }
+      case "facebook": {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      }
+      case "linkedin": {
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        break;
+      }
+      case "pinterest": {
+        // Direct Pinterest Pin Builder for Dhanvi Collections with product target URL, image, and description
+        const pinterestDesc = `${title} | ₹${product.price?.toLocaleString("en-IN") || ""} | Dhanvi Collections on Amazon & WorldNewzs Deals`;
+        shareUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(pinterestDesc)}`;
+        break;
+      }
+    }
+
+    if (shareUrl) {
+      window.open(shareUrl, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <>
       <Tooltip title="Share Deal">
         <IconButton
+          id={`card-share-btn-${product.asin || product.id}`}
           size="small"
           onClick={handleClick}
+          aria-label="Share Deal"
           sx={{
-            color: "var(--slate)",
-            border: `1px solid ${cardBorderColor}`,
+            color: isDark ? "#E2E8F0" : "#334155",
+            bgcolor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)",
+            border: `1px solid ${isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)"}`,
             borderRadius: "6px",
             p: 0.75,
-            "&:hover": { borderColor: "var(--red, #B7222B)", color: "var(--red, #B7222B)" }
+            transition: "all 0.2s ease-in-out",
+            "&:hover": {
+              borderColor: "var(--red, #B7222B)",
+              color: "var(--red, #B7222B)",
+              bgcolor: isDark ? "rgba(183, 34, 43, 0.18)" : "rgba(183, 34, 43, 0.08)"
+            }
           }}
         >
           <ShareIcon sx={{ fontSize: "1rem" }} />
@@ -162,79 +213,63 @@ const CardShareButton: React.FC<CardShareButtonProps> = React.memo(({ product, g
         onClose={() => handleClose()}
         disableRestoreFocus
         PaperProps={{
+          elevation: 8,
           sx: {
             borderRadius: "8px",
-            boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.5)" : "0 10px 30px rgba(0,0,0,0.08)",
-            bgcolor: "var(--paper-raise)",
-            color: "var(--text)",
-            border: `1px solid ${cardBorderColor}`,
-            minWidth: 180,
-            zIndex: 1400
+            bgcolor: isDark ? "#151C2C !important" : "#FFFFFF !important",
+            backgroundImage: "none !important",
+            color: isDark ? "#F8FAFC" : "#1A2233",
+            border: `1px solid ${isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.12)"}`,
+            boxShadow: isDark
+              ? "0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1)"
+              : "0 10px 30px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06)",
+            minWidth: 190,
+            zIndex: 1500,
+            py: 0.5,
+            "& .MuiMenuItem-root": {
+              px: 2,
+              py: 1,
+              transition: "background-color 0.15s ease",
+              cursor: "pointer",
+              "&:hover": {
+                bgcolor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"
+              }
+            }
           }
         }}
       >
-        <MenuItem
-          component="a"
-          href={`https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this deal: " + title + " " + url)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => handleClose(e)}
-        >
-          <ListItemIcon><WhatsAppIcon sx={{ color: "#10B981", fontSize: "1.1rem" }} /></ListItemIcon>
-          <ListItemText primary="WhatsApp" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        <MenuItem onClick={handleSharePlatform("whatsapp")}>
+          <ListItemIcon><WhatsAppIcon sx={{ color: "#25D366", fontSize: "1.15rem" }} /></ListItemIcon>
+          <ListItemText primary="WhatsApp" primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: isDark ? "#F8FAFC" : "#1A2233" }} />
         </MenuItem>
 
-        <MenuItem
-          component="a"
-          href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent("Check out this deal: " + title)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => handleClose(e)}
-        >
-          <ListItemIcon><TwitterIcon sx={{ color: "var(--slate)", fontSize: "1.1rem" }} /></ListItemIcon>
-          <ListItemText primary="X (Twitter)" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        <MenuItem onClick={handleSharePlatform("x")}>
+          <ListItemIcon><XIcon sx={{ color: isDark ? "#F8FAFC" : "#0F1419", fontSize: "1.15rem" }} /></ListItemIcon>
+          <ListItemText primary="X (Twitter)" primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: isDark ? "#F8FAFC" : "#1A2233" }} />
         </MenuItem>
 
-        <MenuItem
-          component="a"
-          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => handleClose(e)}
-        >
-          <ListItemIcon><FacebookIcon sx={{ color: "#3B82F6", fontSize: "1.1rem" }} /></ListItemIcon>
-          <ListItemText primary="Facebook" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        <MenuItem onClick={handleSharePlatform("facebook")}>
+          <ListItemIcon><FacebookIcon sx={{ color: "#1877F2", fontSize: "1.15rem" }} /></ListItemIcon>
+          <ListItemText primary="Facebook" primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: isDark ? "#F8FAFC" : "#1A2233" }} />
         </MenuItem>
 
-        <MenuItem
-          component="a"
-          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => handleClose(e)}
-        >
-          <ListItemIcon><LinkedInIcon sx={{ color: "#0A66C2", fontSize: "1.1rem" }} /></ListItemIcon>
-          <ListItemText primary="LinkedIn" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        <MenuItem onClick={handleSharePlatform("linkedin")}>
+          <ListItemIcon><LinkedInIcon sx={{ color: "#0A66C2", fontSize: "1.15rem" }} /></ListItemIcon>
+          <ListItemText primary="LinkedIn" primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: isDark ? "#F8FAFC" : "#1A2233" }} />
         </MenuItem>
 
-        <MenuItem
-          component="a"
-          href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(title)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => handleClose(e)}
-        >
-          <ListItemIcon><PinterestIcon sx={{ color: "#E60023", fontSize: "1.1rem" }} /></ListItemIcon>
-          <ListItemText primary="Pinterest" primaryTypographyProps={{ variant: "body2", fontWeight: 700 }} />
+        <MenuItem onClick={handleSharePlatform("pinterest")}>
+          <ListItemIcon><PinterestIcon sx={{ color: "#E60023", fontSize: "1.15rem" }} /></ListItemIcon>
+          <ListItemText primary="Pinterest" primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: isDark ? "#F8FAFC" : "#1A2233" }} />
         </MenuItem>
 
-        <MenuItem onClick={handleCopy}>
+        <MenuItem onClick={handleSharePlatform("copy")}>
           <ListItemIcon>
-            <ContentCopyIcon sx={{ color: copied ? "#10B981" : "var(--slate)", fontSize: "1.1rem" }} />
+            <ContentCopyIcon sx={{ color: copied ? "#10B981" : (isDark ? "#94A3B8" : "#64748B"), fontSize: "1.15rem" }} />
           </ListItemIcon>
           <ListItemText
             primary={copied ? "Copied!" : "Copy Link"}
-            primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: copied ? "#10B981" : "var(--text)" }}
+            primaryTypographyProps={{ variant: "body2", fontWeight: 700, color: copied ? "#10B981" : (isDark ? "#F8FAFC" : "#1A2233") }}
           />
         </MenuItem>
       </Menu>
@@ -751,8 +786,22 @@ export const AmazonProducts: React.FC = () => {
                           </Button>
                           <CardShareButton product={heroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
                           <IconButton
+                            id={`hero-bookmark-btn-${heroDeal.asin}`}
                             onClick={() => toggleBookmark(heroDeal.asin)}
-                            sx={{ color: bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : "var(--slate)", border: cardBorder, borderRadius: "6px" }}
+                            aria-label={bookmarkedAsins.has(heroDeal.asin) ? "Remove Bookmark" : "Save Deal"}
+                            sx={{
+                              color: bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "#E2E8F0" : "#334155"),
+                              bgcolor: bookmarkedAsins.has(heroDeal.asin) ? "rgba(183, 34, 43, 0.12)" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"),
+                              border: `1px solid ${bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)")}`,
+                              borderRadius: "6px",
+                              p: 0.75,
+                              transition: "all 0.2s ease-in-out",
+                              "&:hover": {
+                                borderColor: "var(--red, #B7222B)",
+                                color: "var(--red, #B7222B)",
+                                bgcolor: isDark ? "rgba(183, 34, 43, 0.18)" : "rgba(183, 34, 43, 0.08)"
+                              }
+                            }}
                           >
                             {bookmarkedAsins.has(heroDeal.asin) ? <BookmarkIcon /> : <BookmarkBorderIcon />}
                           </IconButton>
@@ -840,26 +889,29 @@ export const AmazonProducts: React.FC = () => {
                             <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "var(--text)", fontSize: "0.95rem" }}>
                               ₹{deal.price.toLocaleString("en-IN")}
                             </Typography>
-                            <Button
-                              size="small"
-                              variant="outlined"
-                              href={deal.productUrl}
-                              target="_blank"
-                              rel="sponsored noopener noreferrer"
-                              sx={{
-                                borderRadius: "4px",
-                                textTransform: "none",
-                                fontWeight: 800,
-                                fontSize: "0.72rem",
-                                px: 1.2,
-                                py: 0.3,
-                                borderColor: cardBorderColor,
-                                color: "var(--text)",
-                                "&:hover": { borderColor: "var(--red, #B7222B)", color: "var(--red, #B7222B)" }
-                              }}
-                            >
-                              Get Deal ↗
-                            </Button>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                href={deal.productUrl}
+                                target="_blank"
+                                rel="sponsored noopener noreferrer"
+                                sx={{
+                                  borderRadius: "4px",
+                                  textTransform: "none",
+                                  fontWeight: 800,
+                                  fontSize: "0.72rem",
+                                  px: 1.2,
+                                  py: 0.3,
+                                  borderColor: isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)",
+                                  color: "var(--text)",
+                                  "&:hover": { borderColor: "var(--red, #B7222B)", color: "var(--red, #B7222B)" }
+                                }}
+                              >
+                                Get Deal ↗
+                              </Button>
+                              <CardShareButton product={deal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+                            </Box>
                           </Box>
                         </Card>
                       </Grid>
@@ -1132,9 +1184,23 @@ export const AmazonProducts: React.FC = () => {
                               </Button>
                               <CardShareButton product={product} getAbsoluteImageUrl={getAbsoluteImageUrl} />
                               <IconButton
+                                id={`card-bookmark-btn-${product.asin || product.id}`}
                                 size="small"
                                 onClick={() => toggleBookmark(product.asin)}
-                                sx={{ color: isBookmarked ? "var(--red, #B7222B)" : "var(--slate)", border: cardBorder, borderRadius: "6px", p: 0.75 }}
+                                aria-label={isBookmarked ? "Remove Bookmark" : "Save Deal"}
+                                sx={{
+                                  color: isBookmarked ? "var(--red, #B7222B)" : (isDark ? "#E2E8F0" : "#334155"),
+                                  bgcolor: isBookmarked ? "rgba(183, 34, 43, 0.12)" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"),
+                                  border: `1px solid ${isBookmarked ? "var(--red, #B7222B)" : (isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)")}`,
+                                  borderRadius: "6px",
+                                  p: 0.75,
+                                  transition: "all 0.2s ease-in-out",
+                                  "&:hover": {
+                                    borderColor: "var(--red, #B7222B)",
+                                    color: "var(--red, #B7222B)",
+                                    bgcolor: isDark ? "rgba(183, 34, 43, 0.18)" : "rgba(183, 34, 43, 0.08)"
+                                  }
+                                }}
                               >
                                 {isBookmarked ? <BookmarkIcon fontSize="small" /> : <BookmarkBorderIcon fontSize="small" />}
                               </IconButton>
