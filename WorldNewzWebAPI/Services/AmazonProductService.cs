@@ -10761,6 +10761,456 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FCCCTT6T",
+                Title = "STITCHNEST Quilted Velvet Sofa Cover with Tassels – 48x60 Inch, Beige & Blue Chevron Pattern, Soft & Premium, Washable Sofa Protector for 2-Seater",
+                Description = "Get the best deal on STITCHNEST Quilted Velvet Sofa Cover with Tassels – 48x60 Inch, Beige & Blue Che. High quality, durable, and highly rated on Amazon.",
+                Price = 859.00m,
+                OriginalPrice = 1159.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FCCCTT6T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PGSn2aPmL._SL1350_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZMYP6Y6",
+                Title = "boAt 2026 Launch Airdopes Joy v2, 35H Battery, Pocketable Design, ASAP™ Charge, 13mm Drivers, Easy Touch Controls, ENx™ Tech, IWP™ & App Support TWS Bluetooth Earbuds with mic (Eclipse Black)",
+                Description = "Get the best deal on boAt 2026 Launch Airdopes Joy v2, 35H Battery, Pocketable Design, ASAP™ Charge, . High quality, durable, and highly rated on Amazon.",
+                Price = 1099.00m,
+                OriginalPrice = 1483.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GZMYP6Y6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ha05nY0kL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBRL5K25",
+                Title = "Sukkhi Rakhi Elegant Gold Plated AD Stones & Beads Preety Pink with Green Color Rakshabandhan Lumba Rakhi for Brother Bhaiya Bhabhi with Roli Chawal & Greeting Card|Set of 2|CBRAKL107455 at Amazon.in",
+                Description = "Get the best deal on Sukkhi Rakhi Elegant Gold Plated AD Stones & Beads Preety Pink with Green Color . High quality, durable, and highly rated on Amazon.",
+                Price = 249.00m,
+                OriginalPrice = 336.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FBRL5K25?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61732yfkeyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNW8W48F",
+                Title = "Airavat NOVA 101OL Pickleball Paddle/Racket Features a Fiberglass face, 12MM Thickness, Lightweight and Elongated Handle for Spin and Power. It Includes Cover and Carry Bag - Olive",
+                Description = "Get the best deal on Airavat NOVA 101OL Pickleball Paddle/Racket Features a Fiberglass face, 12MM Thi. High quality, durable, and highly rated on Amazon.",
+                Price = 979.00m,
+                OriginalPrice = 1321.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DNW8W48F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81U27OcnvUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09G9W3WFL",
+                Title = "Fashnex Resistance Bands Set for Exercise, Stretching and Workout Toning Tube Kit with Foam Handles, Door Anchor, Ankle Strap and Carry Bag for Men, Women (100LB)",
+                Description = "Get the best deal on Fashnex Resistance Bands Set for Exercise, Stretching and Workout Toning Tube Ki. High quality, durable, and highly rated on Amazon.",
+                Price = 664.00m,
+                OriginalPrice = 896.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09G9W3WFL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-87y93B+L._SL1484_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08GFQ5P44",
+                Title = "Pixaflo Fission Brass Chrome Finish Hot & Cold Single Lever Basin Mixer Tap Faucet with 450 mm Long Braided Hoses (Chrome)",
+                Description = "Get the best deal on Pixaflo Fission Brass Chrome Finish Hot & Cold Single Lever Basin Mixer Tap Fauc. High quality, durable, and highly rated on Amazon.",
+                Price = 1599.00m,
+                OriginalPrice = 2158.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08GFQ5P44?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41pJjhVzSHS._SL1366_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C974CMND",
+                Title = "CraftVatika Rakhi Set for Brother and Bhabhi, Lumba Floral Rakhi Kundan Bracelet Rakhis for Bhaiya Bhabhi Rakhis for Rakshabandhan Couple Pearl Set of 2 with Fridge Magnet Gift",
+                Description = "Get the best deal on CraftVatika Rakhi Set for Brother and Bhabhi, Lumba Floral Rakhi Kundan Bracelet. High quality, durable, and highly rated on Amazon.",
+                Price = 139.00m,
+                OriginalPrice = 187.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0C974CMND?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81jnBSq1CwL._SL1254_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B68HJ8F3",
+                Title = "AMATA Eagle 3 Seater Sofa Cum Bed Yellow Suede Velvet Fabric with Two Cushions Perfect for Home Living Office Room and Guests (Yellow, Medium)(3 Year Warranty)",
+                Description = "Get the best deal on AMATA Eagle 3 Seater Sofa Cum Bed Yellow Suede Velvet Fabric with Two Cushions P. High quality, durable, and highly rated on Amazon.",
+                Price = 17498.00m,
+                OriginalPrice = 23622.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0B68HJ8F3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gBITE6F6L._SL1080_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09B4XF3TL",
+                Title = "TIED RIBBONS Rakhi For Brother With Chocolate - Pack of 2 Premium Rakhi With Chocolates Pack Mini Greeting Card And Roli Chawal - Rakhi Gift For Brother,300 G",
+                Description = "Get the best deal on TIED RIBBONS Rakhi For Brother With Chocolate - Pack of 2 Premium Rakhi With Cho. High quality, durable, and highly rated on Amazon.",
+                Price = 1299.00m,
+                OriginalPrice = 1753.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09B4XF3TL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UA1ppjU3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D63W65D7",
+                Title = "FUJIFILM Instax Mini LiPlay Hybrid Instant Camera (Bronze) Online at Low Prices in India - Amazon.in",
+                Description = "Get the best deal on FUJIFILM Instax Mini LiPlay Hybrid Instant Camera (Bronze) Online at Low Prices . High quality, durable, and highly rated on Amazon.",
+                Price = 13999.00m,
+                OriginalPrice = 18898.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D63W65D7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31-zPM0+SJL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GCMCRV9S",
+                Title = "Lavie Women's Ushawu Satchel Bag | Satchel Handbag for Work | Ladies Purse | Stylish Shoulder Bag | Gift for Women at Amazon.in",
+                Description = "Get the best deal on Lavie Women's Ushawu Satchel Bag | Satchel Handbag for Work | Ladies Purse | Sty. High quality, durable, and highly rated on Amazon.",
+                Price = 1399.00m,
+                OriginalPrice = 1888.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GCMCRV9S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eIXJHgS4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBQJK87M",
+                Title = "Vu California 126cm (50 inches) Glo MiniLED Google 4K TV VUGLOMINILED 2026 | 600Nits HDR Brightness QLED Picture I 2xSpeaker+2xWoofer 50W VuFX Sound : Amazon.in: Computers & Accessories",
+                Description = "Get the best deal on Vu California 126cm (50 inches) Glo MiniLED Google 4K TV VUGLOMINILED 2026 | 600. High quality, durable, and highly rated on Amazon.",
+                Price = 40990.00m,
+                OriginalPrice = 55336.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0HBQJK87M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dikFj2GHL._SY350_PKmb-play-button-overlay_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097GHQJGP",
+                Title = "Safari Tazzo 8 Wheels Set of 3 Trolley Bag, Hard Case Polycarbonate, 360º Wheeling Small Check in Luggage, Suitcase for Travel, Trolley Bags for Travel, Printed",
+                Description = "Get the best deal on Safari Tazzo 8 Wheels Set of 3 Trolley Bag, Hard Case Polycarbonate, 360º Wheeli. High quality, durable, and highly rated on Amazon.",
+                Price = 7499.00m,
+                OriginalPrice = 10123.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B097GHQJGP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Soiutj5aL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097G96VT8",
+                Title = "Safari Pentagon Pro 8 Wheels Set of 3, (Cabin + Medium + Large) Trolley Bag, Hard Case Polypropylene, 360º Wheeling Luggage, Suitcase for Travel, Trolley Bags for Travel, Luxury Beige",
+                Description = "Get the best deal on Safari Pentagon Pro 8 Wheels Set of 3, (Cabin + Medium + Large) Trolley Bag, Har. High quality, durable, and highly rated on Amazon.",
+                Price = 6299.00m,
+                OriginalPrice = 8503.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B097G96VT8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61OR-2SKxdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01BUAVMQY",
+                Title = "Sony E Mount FE 24-70mm F2.8 GM Full-Frame Lens (SEL2470GM) | Standard Zoom| Premium G Master",
+                Description = "Get the best deal on Sony E Mount FE 24-70mm F2.8 GM Full-Frame Lens (SEL2470GM) | Standard Zoom| Pre. High quality, durable, and highly rated on Amazon.",
+                Price = 127490.00m,
+                OriginalPrice = 172111.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B01BUAVMQY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RI4m8sNjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F8QGHKT9",
+                Title = "HyperFoods® Rakhi Set for Brother Rakhi with Chocolate House of Treats Little Joys Chocolate gift Pack with Tiramisu BonBites Dragees 50g, Rakhis Roli & Rice Gift Hamper for Brother",
+                Description = "Get the best deal on HyperFoods® Rakhi Set for Brother Rakhi with Chocolate House of Treats Little Jo. High quality, durable, and highly rated on Amazon.",
+                Price = 219.00m,
+                OriginalPrice = 295.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F8QGHKT9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/813bn30gUFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8G9J1P5",
+                Title = "SEZNIK Vacuum Cleaner for House | Floor Mopping & Wet Spills + Dry Vacuuming | Turbo Sweep 3-in-1 Handheld Vacuum Cleaner | Vacuum & Mop | Corded, 600W, 20kpa Suction | 200ml Water Tank (SZ-V07)",
+                Description = "Get the best deal on SEZNIK Vacuum Cleaner for House | Floor Mopping & Wet Spills + Dry Vacuuming | T. High quality, durable, and highly rated on Amazon.",
+                Price = 4298.00m,
+                OriginalPrice = 5802.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D8G9J1P5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819Jw6LziOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8CN63RF",
+                Title = "REDMI Note 17 5G (Starlight Purple, 6GB RAM, 128GB ROM) | 8000mAh Battery + 45W Fast Charging | 6.99\" TrueColour AMOLED | Snapdragon 4 Gen 4 | 50MP Dual AI Camera | Corning® Gorilla® Glass 7i | IP65",
+                Description = "Get the best deal on REDMI Note 17 5G (Starlight Purple, 6GB RAM, 128GB ROM) | 8000mAh Battery + 45W . High quality, durable, and highly rated on Amazon.",
+                Price = 27999.00m,
+                OriginalPrice = 37798.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H8CN63RF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718NxFsqHOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7RB8NNL",
+                Title = "Nothing Phone (3), Black (16GB, 512 GB) | Snapdragon 8s Gen 4 | 50MP + 50MP + 50MP Rear Camera | 1.5K+ 120Hz AMOLED Flexible LTPS Display",
+                Description = "Get the best deal on Nothing Phone (3), Black (16GB, 512 GB) | Snapdragon 8s Gen 4 | 50MP + 50MP + 50. High quality, durable, and highly rated on Amazon.",
+                Price = 50999.00m,
+                OriginalPrice = 68848.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F7RB8NNL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/717z2bNF6DL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CBPPZPGP",
+                Title = "El Regalo 1PC Simple Red Thread Rakhi for Brother- Minimalist Antique German Silver Charm Rakhi with Roli Chawal, Rakhi",
+                Description = "Get the best deal on El Regalo 1PC Simple Red Thread Rakhi for Brother- Minimalist Antique German Sil. High quality, durable, and highly rated on Amazon.",
+                Price = 194.00m,
+                OriginalPrice = 261.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CBPPZPGP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91tuJ4WmKAL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B083JC172J",
+                Title = "Wakefit Water Proof Terry Cotton Mattress Protector | Grey | Machine Washable | Super Soft | Fits Mattress Upto 10 inche",
+                Description = "Get the best deal on Wakefit Water Proof Terry Cotton Mattress Protector | Grey | Machine Washable | . High quality, durable, and highly rated on Amazon.",
+                Price = 796.00m,
+                OriginalPrice = 1074.60m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B083JC172J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/613vlqkrKwL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BY2NM7C8",
+                Title = "Fire-Boltt Phoenix Ultra Smart Watch 1.39&quot; HD Display, Bluetooth Calling, AI Voice Assistant, 120 Sports Modes, IP6",
+                Description = "Get the best deal on Fire-Boltt Phoenix Ultra Smart Watch 1.39&quot; HD Display, Bluetooth Calling, A. High quality, durable, and highly rated on Amazon.",
+                Price = 1299.00m,
+                OriginalPrice = 1753.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BY2NM7C8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/714T+vgSOpL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY82SQZP",
+                Title = "Fire-Boltt Rise Round Smart Watch 1.85″ HD Display with Bluetooth Calling, Rotating Crown, AI Voice Assistant, SpO2 &amp",
+                Description = "Get the best deal on Fire-Boltt Rise Round Smart Watch 1.85″ HD Display with Bluetooth Calling, Rotat. High quality, durable, and highly rated on Amazon.",
+                Price = 1199.00m,
+                OriginalPrice = 1618.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DY82SQZP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Y87yVQ8fL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G6JQGB4C",
+                Title = "The Sleep Company SmartGRID Ortho Royale Mattress | Japanese Patented Technology with 100% Natural Latex | 5 Zone Suppor",
+                Description = "Get the best deal on The Sleep Company SmartGRID Ortho Royale Mattress | Japanese Patented Technology. High quality, durable, and highly rated on Amazon.",
+                Price = 68990.00m,
+                OriginalPrice = 93136.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0G6JQGB4C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81dd9X1cVLL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07ZKD8T1Q",
+                Title = "Cuzor Mini UPS 12V Router UPS up to 2A | Up to 5 Hours Backup | WiFi UPS Power Backup During powercuts | 2x2900 mAh | Mi",
+                Description = "Get the best deal on Cuzor Mini UPS 12V Router UPS up to 2A | Up to 5 Hours Backup | WiFi UPS Power B. High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07ZKD8T1Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NytjwzadL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBKCFSKY",
+                Title = "Fytika Sea Buckthorn Juice - 300 ML (PACK OF 1) | Pulp Concentrate Made for Your Total Body Care &amp; Wellness | Rich i",
+                Description = "Get the best deal on Fytika Sea Buckthorn Juice - 300 ML (PACK OF 1) | Pulp Concentrate Made for Your. High quality, durable, and highly rated on Amazon.",
+                Price = 584.00m,
+                OriginalPrice = 788.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FBKCFSKY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61gleJijjmL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H2RYQLY6",
+                Title = "White Button New latest maroon half Saree South Indian Langa Voni pattu pavadai lehenga choli for girls at",
+                Description = "Get the best deal on White Button New latest maroon half Saree South Indian Langa Voni pattu pavadai . High quality, durable, and highly rated on Amazon.",
+                Price = 1259.00m,
+                OriginalPrice = 1699.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H2RYQLY6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31HTHW8pOIL._SY445_SX342_QL70_ML2_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D5M32WBW",
+                Title = "Louis Philippe Cotton Men&#x27;s Classic Fit Shirt (LPSFMCLPG89904_White, 42 : : Clothing &amp; Accessories",
+                Description = "Get the best deal on Louis Philippe Cotton Men&#x27;s Classic Fit Shirt (LPSFMCLPG89904_White, 42 : :. High quality, durable, and highly rated on Amazon.",
+                Price = 1448.00m,
+                OriginalPrice = 1954.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D5M32WBW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hv4iSoLhL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FWRLQND8",
+                Title = "Amazon Basics 3-Way Foldable Cloth Drying Stand – Lightweight Mild Steel Collapsible Rack with 20 Rails &amp; 42 Ft Rack",
+                Description = "Get the best deal on Amazon Basics 3-Way Foldable Cloth Drying Stand – Lightweight Mild Steel Collaps. High quality, durable, and highly rated on Amazon.",
+                Price = 1249.00m,
+                OriginalPrice = 1686.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FWRLQND8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PtICHbLFL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDQJYWSB",
+                Title = "Samsung Galaxy Watch8 (44mm, Bluetooth, Silver) with 3nm Processor | Dual GPS | Sapphire Glass &amp; Armor Aluminum | 5A",
+                Description = "Get the best deal on Samsung Galaxy Watch8 (44mm, Bluetooth, Silver) with 3nm Processor | Dual GPS | . High quality, durable, and highly rated on Amazon.",
+                Price = 21999.00m,
+                OriginalPrice = 29698.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FDQJYWSB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61m+fKy7wzL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
