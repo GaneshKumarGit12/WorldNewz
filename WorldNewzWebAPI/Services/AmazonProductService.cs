@@ -10772,7 +10772,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0FCCCTT6T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71PGSn2aPmL._SL1350_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PGSn2aPmL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -10832,7 +10832,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B09G9W3WFL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71-87y93B+L._SL1484_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-87y93B+L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -10847,7 +10847,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B08GFQ5P44?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/41pJjhVzSHS._SL1366_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/41pJjhVzSHS._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -10862,7 +10862,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0C974CMND?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/81jnBSq1CwL._SL1254_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/81jnBSq1CwL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -10877,7 +10877,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0B68HJ8F3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/51gBITE6F6L._SL1080_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gBITE6F6L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -10937,7 +10937,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0HBQJK87M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61dikFj2GHL._SY350_PKmb-play-button-overlay_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dikFj2GHL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11072,7 +11072,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B083JC172J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/613vlqkrKwL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/613vlqkrKwL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11087,7 +11087,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0BY2NM7C8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/714T+vgSOpL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/714T+vgSOpL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11102,7 +11102,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0DY82SQZP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61Y87yVQ8fL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Y87yVQ8fL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11117,7 +11117,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0G6JQGB4C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/81dd9X1cVLL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/81dd9X1cVLL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11147,7 +11147,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0FBKCFSKY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61gleJijjmL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61gleJijjmL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11162,7 +11162,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0H2RYQLY6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/31HTHW8pOIL._SY445_SX342_QL70_ML2_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/31HTHW8pOIL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -11192,7 +11192,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0FWRLQND8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71PtICHbLFL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PtICHbLFL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },

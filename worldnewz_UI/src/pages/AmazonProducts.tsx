@@ -293,9 +293,10 @@ export const AmazonProducts: React.FC = () => {
     "https://m.media-amazon.com/images/I/61CEEuPRM9L._SL1500_.jpg",
     "https://m.media-amazon.com/images/I/71fiRY278BL._SL1500_.jpg",
     "https://m.media-amazon.com/images/I/61NANabKaRL._SL1000_.jpg",
+    "https://m.media-amazon.com/images/I/61NANabKaRL._SL1500_.jpg",
     "https://m.media-amazon.com/images/I/6166RQH8dIL._SL1500_.jpg",
     "https://m.media-amazon.com/images/I/71CmSn+uLZL._SL1500_.jpg",
-    "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1080_.jpg",
+    "https://m.media-amazon.com/images/I/61ROh33PBuL._SL1500_.jpg",
     "https://m.media-amazon.com/images/I/81+guVWHIJL._SL1500_.jpg",
     "https://m.media-amazon.com/images/I/61L0MQ4gXiL._SL1500_.jpg"
   ];
@@ -306,19 +307,24 @@ export const AmazonProducts: React.FC = () => {
       if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
         return trimmed;
       }
-      if (trimmed.includes("m.media-amazon.com/images/I/")) {
-        return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
+
+      // If it's an Amazon CDN image, clean resolution modifiers for 1500px Ultra HD crystal clarity
+      if (trimmed.includes("amazon.com/images/I/") || trimmed.includes("images-amazon.com/images/I/")) {
+        let cleanUrl = trimmed
+          .replace(/\._[A-Za-z0-9%_\-\+\.]+\.(jpg|png|jpeg|webp)/i, '._SL1500_.$1')
+          .replace(/\._[A-Za-z0-9%_\-\+\.]+\._/i, '._');
+        return cleanUrl;
       }
+
       if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-        return `https://images.weserv.nl/?url=${encodeURIComponent(trimmed)}&output=webp&q=85`;
+        return trimmed;
       }
     }
 
     const cleanAsin = (asin || "").trim();
     if (cleanAsin) {
       const charCode = cleanAsin.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-      const fallback = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
-      return `https://images.weserv.nl/?url=${encodeURIComponent(fallback)}&output=webp&q=85`;
+      return VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
     }
 
     return AMAZON_PLACEHOLDER;
@@ -331,8 +337,7 @@ export const AmazonProducts: React.FC = () => {
     if (!target.dataset.attempt) {
       target.dataset.attempt = "1";
       const charCode = asin.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-      const fallback = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
-      target.src = `https://images.weserv.nl/?url=${encodeURIComponent(fallback)}&output=webp&q=85`;
+      target.src = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
       return;
     }
 
@@ -428,7 +433,7 @@ export const AmazonProducts: React.FC = () => {
     );
   }, [products]);
 
-  // Editor's Choice Hero Deal Spotlight
+  // Editor's Choice Hero Deal Spotlight - Rotates day-wise every 24 hours
   const heroDeal = useMemo(() => {
     if (uniqueProducts.length === 0) return null;
     const sorted = [...uniqueProducts].sort((a, b) => {
@@ -436,7 +441,15 @@ export const AmazonProducts: React.FC = () => {
       const discB = Math.round((1 - (b.price / b.originalPrice)) * 100) || 0;
       return discB - discA;
     });
-    return sorted[0];
+
+    // Select top deals pool (top 15 highest discount deals)
+    const dealPool = sorted.slice(0, Math.min(15, sorted.length));
+    
+    // 24-hour day-wise epoch calculation for daily rotation
+    const dayEpoch = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
+    const dayIndex = dayEpoch % dealPool.length;
+
+    return dealPool[dayIndex] || sorted[0];
   }, [uniqueProducts]);
 
   // Flash Deals Ribbon (Next 4 items)
