@@ -21,6 +21,8 @@ services:
         sync: true
       - key: WORLDNEWS_API_KEY
         sync: true
+      - key: DOTNET_USE_POLLING_FILE_WATCHER
+        value: "true"
     healthCheckPath: "/health"
 
 databases:

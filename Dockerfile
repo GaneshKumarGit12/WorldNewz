@@ -12,5 +12,6 @@ RUN dotnet publish WorldNewzWebAPI.csproj -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "WorldNewzWebAPI.dll"]

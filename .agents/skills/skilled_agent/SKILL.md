@@ -129,6 +129,7 @@ Verify all parts of the site build correctly, then commit and push to the remote
 
 1. **Compile Backend**:
    - Run `dotnet build` inside [WorldNewzWebAPI](file:///c:/WorldNewz/WorldNewzWebAPI) to check for compilation issues.
+   - Refer to [139issue.md](file:///c:/WorldNewz/139issue.md) if Render.com reports Exit Status 139 (`inotify` user limit 128 crash). Ensure `DOTNET_USE_POLLING_FILE_WATCHER=true` is set.
 2. **Compile Frontend**:
    - Run `npm run build` inside [worldnewz_UI](file:///c:/WorldNewz/worldnewz_UI) to check for TypeScript type mismatches or build issues.
 3. **Commit & Push**:

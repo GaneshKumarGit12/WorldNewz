@@ -1,6 +1,9 @@
 using DotNetEnv;
 using WorldNewzWebAPI.Extensions;
 
+// Prevent Linux inotify limit (128) IOException crash (Exit Status 139) in containerized environments like Render.com
+Environment.SetEnvironmentVariable("DOTNET_USE_POLLING_FILE_WATCHER", "true");
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Try to load local .env file (safe for production if missing)
