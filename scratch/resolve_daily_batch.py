@@ -13,36 +13,44 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 urls = [
-    "https://link.amazon/B02JsAefU",
-    "https://link.amazon/B08Ov9Y0x",
-    "https://link.amazon/B0471GXgy",
-    "https://link.amazon/B0grdGZB1",
-    "https://link.amazon/B01OmQHys",
-    "https://link.amazon/B09OYzvTH",
-    "https://link.amazon/B06vxU8hk",
-    "https://link.amazon/B09kROCXj",
-    "https://link.amazon/B07QUfqlO",
-    "https://link.amazon/B0eTU50ri",
-    "https://link.amazon/B07wS6yxZ",
-    "https://link.amazon/B071Lwwlq",
-    "https://link.amazon/B03HCURN5",
-    "https://link.amazon/B05ywRKch",
-    "https://link.amazon/B01VeLhFT",
-    "https://link.amazon/B0hAINDhT",
-    "https://link.amazon/B0f1qGBeg",
-    "https://link.amazon/B05YeUpAK",
-    "https://link.amazon/B0fpGaC4e",
-    "https://link.amazon/B0is84D35",
-    "https://link.amazon/B050LeLl4",
-    "https://link.amazon/B0czHqrXf",
-    "https://link.amazon/B02L35bpe",
-    "https://link.amazon/B01lvpsDk",
-    "https://link.amazon/B08NeGdOB",
-    "https://link.amazon/B054pC28K",
-    "https://link.amazon/B09nQcLBY",
-    "https://link.amazon/B04MTd41f",
-    "https://link.amazon/B00OsDqXe",
-    "https://link.amazon/B0c8ljDCe"
+    "https://link.amazon/B05vaypaA",
+    "https://link.amazon/B0182rlR7",
+    "https://link.amazon/B07FRGH9T",
+    "https://link.amazon/B00jNGBYA",
+    "https://link.amazon/B0jbYEIxl",
+    "https://link.amazon/B0hrKDpqn",
+    "https://link.amazon/B0eYSGrLZ",
+    "https://link.amazon/B0g62wPtw",
+    "https://link.amazon/B0brcAoHD",
+    "https://link.amazon/B03rla9L5",
+    "https://link.amazon/B0aJFkqMJ",
+    "https://link.amazon/B09Vs0JnQ",
+    "https://link.amazon/B04MbGLoJ",
+    "https://link.amazon/B09us7v9V",
+    "https://link.amazon/B0h6Kp4Bq",
+    "https://link.amazon/B06Et7ett",
+    "https://link.amazon/B0am0oenM",
+    "https://link.amazon/B0bYeRr78",
+    "https://link.amazon/B0e6dlwHj",
+    "https://link.amazon/B02Jb64Kl",
+    "https://link.amazon/B0gVzSgGQ",
+    "https://link.amazon/B0dfwjjmO",
+    "https://link.amazon/B0eQlv969",
+    "https://link.amazon/B0iIGKe8L",
+    "https://link.amazon/B01pXaov8",
+    "https://link.amazon/B04pnqnMh",
+    "https://link.amazon/B05uUAQbO",
+    "https://link.amazon/B0iEBG9KF",
+    "https://link.amazon/B08Enevj2",
+    "https://link.amazon/B002ONspG",
+    "https://link.amazon/B0cmLwI9D",
+    "https://link.amazon/B0131A1JD",
+    "https://link.amazon/B0dHNUKOk",
+    "https://link.amazon/B00u6RA5z",
+    "https://link.amazon/B0cLEVekK",
+    "https://link.amazon/B0amOAdMH",
+    "https://link.amazon/B0aGUSgXO",
+    "https://link.amazon/B05INwZdz"
 ]
 
 SEEN_ASINS_PATH = "scratch/seen_asins.json"
@@ -61,36 +69,67 @@ user_agents = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15',
     'Mozilla/5.0 (iPhone; CPU iPhone OS 17_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Mobile/15E148 Safari/604.1',
+    'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0'
 ]
 
-def resolve_url(url):
-    headers = {'User-Agent': random.choice(user_agents)}
+class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+def clean_amazon_image_url(img_url):
+    if not img_url:
+        return ""
+    u = img_url.strip()
+    if "amazon.com/images/I/" in u:
+        u = re.sub(r'\._[A-Za-z0-9%_\-\+\.]+\.(jpg|png|jpeg|webp)', r'._SL1500_.\1', u, flags=re.IGNORECASE)
+        u = re.sub(r'\._[A-Za-z0-9%_\-\+\.]+\._', r'._', u, flags=re.IGNORECASE)
+    return u
+
+def resolve_initial_url(url):
+    # Try normal opener with desktop agent
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
     req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=12) as resp:
             final_url = resp.geturl()
             html = resp.read().decode('utf-8', errors='ignore')
             return final_url, html
+    except urllib.error.HTTPError as e:
+        # Check location header on 301/302
+        loc = e.headers.get('Location', '')
+        return loc, ""
     except Exception as e:
-        print(f"Error resolving {url}: {e}")
         return url, ""
 
-def extract_asin(url, html=""):
-    m = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})', url, re.IGNORECASE)
+def extract_asin_from_any_string(s):
+    if not s:
+        return None
+    # 1. Standard dp/gp
+    m = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})', s, re.IGNORECASE)
     if m:
         return m.group(1).upper()
-    m2 = re.search(r'asin=([A-Z0-9]{10})', url, re.IGNORECASE)
+    # 2. asin= param
+    m2 = re.search(r'asin=([A-Z0-9]{10})', s, re.IGNORECASE)
     if m2:
         return m2.group(1).upper()
-    m3 = re.search(r'link\.amazon/([A-Z0-9]{9,10})', url, re.IGNORECASE)
+    # 3. Intent browser fallback url
+    m3 = re.search(r'browser_fallback_url=.*?%2Fdp%2F([A-Z0-9]{10})', s, re.IGNORECASE)
     if m3:
-        code = m3.group(1)
+        return m3.group(1).upper()
+    # 4. In URL path: e.g. /dp/B0XXXXXX in unquoted format
+    m4 = re.search(r'%2Fdp%2F([A-Z0-9]{10})', s, re.IGNORECASE)
+    if m4:
+        return m4.group(1).upper()
+    # 5. link.amazon/B0XXXXXXX or amzlinks.in/B0XXXXXXX
+    m5 = re.search(r'(?:link\.amazon|amzlinks\.in)/([A-Z0-9]{9,10})', s, re.IGNORECASE)
+    if m5:
+        code = m5.group(1)
         if code.startswith("B0") and len(code) == 10:
             return code.upper()
     return None
 
-def extract_details_with_cookiejar(asin, resolved_url=""):
+def fetch_details_for_asin(asin):
     cj = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
     
@@ -114,7 +153,7 @@ def extract_details_with_cookiejar(asin, resolved_url=""):
             with opener.open(u, timeout=12) as resp:
                 html = resp.read().decode('utf-8', errors='ignore')
 
-                # Title extraction
+                # Title
                 title = ""
                 title_m = re.search(r'<span id="productTitle"[^>]*>\s*(.*?)\s*</span>', html, re.DOTALL)
                 if title_m:
@@ -135,6 +174,7 @@ def extract_details_with_cookiejar(asin, resolved_url=""):
                 if title:
                     title = re.sub(r'\s+', ' ', title)
                     title = re.sub(r'^(Amazon\.in:\s*|Buy\s*)', '', title, flags=re.IGNORECASE).strip()
+                    title = re.sub(r'\s*: Amazon\.in.*$', '', title, flags=re.IGNORECASE).strip()
 
                 # Image extraction
                 img_url = ""
@@ -150,7 +190,11 @@ def extract_details_with_cookiejar(asin, resolved_url=""):
                     if img_m:
                         img_url = img_m.group(0)
 
-                # Price extraction
+                # Clean image URL to 1500px HD
+                if img_url:
+                    img_url = clean_amazon_image_url(img_url)
+
+                # Price
                 price = 0.0
                 price_m = re.search(r'<span class="a-price-whole">\s*([\d,]+)', html)
                 if price_m:
@@ -165,13 +209,13 @@ def extract_details_with_cookiejar(asin, resolved_url=""):
                         price = 999.0
 
                     t_lower = title.lower()
-                    if any(k in t_lower for k in ['phone', 'mobile', 'charger', 'cable', 'headphone', 'earbuds', 'laptop', 'smartwatch', 'tv', 'electronics', 'speaker', 'led', 'pro', 'wifi']):
+                    if any(k in t_lower for k in ['phone', 'mobile', 'charger', 'cable', 'headphone', 'earbuds', 'laptop', 'smartwatch', 'tv', 'electronics', 'speaker', 'led', 'pro', 'wifi', 'watch', 'camera', 'ups', 'router']):
                         category = "Technology"
-                    elif any(k in t_lower for k in ['shirt', 'pant', 'shoes', 'dress', 'bag', 'fashion', 'watch', 'wear', 't-shirt', 'wallet', 'kurta', 'suit', 'saree']):
+                    elif any(k in t_lower for k in ['shirt', 'pant', 'shoes', 'dress', 'bag', 'fashion', 'watch', 'wear', 't-shirt', 'wallet', 'kurta', 'suit', 'saree', 'trolley', 'mattress', 'bed', 'sofa']):
                         category = "Lifestyle"
-                    elif any(k in t_lower for k in ['kitchen', 'home', 'bottle', 'cookware', 'clean', 'mat', 'light', 'furnishing', 'storage']):
+                    elif any(k in t_lower for k in ['kitchen', 'home', 'bottle', 'cookware', 'clean', 'mat', 'light', 'furnishing', 'storage', 'rakhi', 'vacuum', 'juice', 'cloth']):
                         category = "Shopping"
-                    elif any(k in t_lower for k in ['sport', 'fit', 'gym', 'cycle', 'ball', 'run', 'yoga']):
+                    elif any(k in t_lower for k in ['sport', 'fit', 'gym', 'cycle', 'ball', 'run', 'yoga', 'paddle', 'racket', 'band']):
                         category = "Sports"
                     else:
                         category = "Shopping"
@@ -180,13 +224,13 @@ def extract_details_with_cookiejar(asin, resolved_url=""):
 
                     return {
                         "asin": asin,
-                        "title": title,
+                        "title": title[:120],
                         "description": desc,
                         "imageUrl": img_url,
                         "price": price,
                         "originalPrice": original_price,
                         "category": category,
-                        "resolvedUrl": resolved_url or u
+                        "resolvedUrl": f"https://www.amazon.in/dp/{asin}?tag=ganeshd12-21"
                     }
         except Exception as e:
             pass
@@ -202,56 +246,54 @@ def main():
     print(f"Starting resolution of {len(urls)} Amazon links...")
 
     for idx, u in enumerate(urls, 1):
-        print(f"[{idx}/{len(urls)}] Resolving {u}...")
-        final_url, html = resolve_url(u)
-        asin = extract_asin(final_url, html)
+        print(f"[{idx}/{len(urls)}] Processing {u}...")
+        final_url, html = resolve_initial_url(u)
+        asin = extract_asin_from_any_string(final_url) or extract_asin_from_any_string(html) or extract_asin_from_any_string(u)
+
+        # If redirected to amzlinks.in
+        if not asin and "amzlinks.in" in final_url:
+            amz_final, amz_html = resolve_initial_url(final_url)
+            asin = extract_asin_from_any_string(amz_final) or extract_asin_from_any_string(amz_html)
 
         if not asin:
-            parts = u.rstrip('/').split('/')
-            last_part = parts[-1]
-            if len(last_part) == 9 and last_part.startswith("B0"):
-                asin = last_part.upper()
-
-        if not asin:
-            print(f"❌ Failed to extract ASIN for {u}")
+            print(f"  ❌ Could not resolve ASIN for {u} (Target: {final_url})")
             failed_links.append(u)
             continue
 
         if asin in seen_asins:
-            print(f"⏩ ASIN {asin} already in seen registry. Skipping.")
+            print(f"  ⏩ ASIN {asin} already in seen registry. Skipping duplicate.")
             skipped_duplicates += 1
             continue
 
-        # Fetch exact details via cookiejar session
-        details = extract_details_with_cookiejar(asin, final_url)
+        # Fetch product details
+        details = fetch_details_for_asin(asin)
+        if not details:
+            time.sleep(1.5)
+            details = fetch_details_for_asin(asin)
 
         if not details:
-            # Retry once with mobile header
-            time.sleep(1)
-            details = extract_details_with_cookiejar(asin, final_url)
-
-        if not details:
-            print(f"❌ Failed to fetch exact title/image for ASIN {asin}")
+            print(f"  ❌ Failed to fetch exact title/image for ASIN {asin}")
             failed_links.append(u)
             continue
 
         resolved_products.append(details)
         seen_asins.add(asin)
-        print(f"✅ [{details['category']}] {asin}: {details['title'][:55]} (₹{details['price']})")
-        print(f"   Img: {details['imageUrl']}")
-        time.sleep(random.uniform(0.6, 1.4))
+        print(f"  ✅ [{details['category']}] {asin}: {details['title'][:55]} (₹{details['price']})")
+        print(f"     Img: {details['imageUrl']}")
+        time.sleep(random.uniform(0.7, 1.5))
 
-    print("\n-------------------------------------------")
+    print("\n===========================================")
     print(f"Total Resolved: {len(resolved_products)}")
     print(f"Skipped Duplicates: {skipped_duplicates}")
     print(f"Failed Links: {len(failed_links)}")
+    print("===========================================")
 
     save_seen_asins(seen_asins)
 
     with open("scratch/resolved_daily_batch.json", "w", encoding="utf-8") as f:
         json.dump(resolved_products, f, indent=2)
 
-    print("Saved scratch/resolved_daily_batch.json")
+    print("Saved results to scratch/resolved_daily_batch.json")
 
 if __name__ == "__main__":
     main()
