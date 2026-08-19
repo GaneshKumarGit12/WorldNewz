@@ -11780,7 +11780,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B078KSL42N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61NfL9Z384L._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/P/B078KSL42N.01._SCLZZZZZZZ_SX500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },

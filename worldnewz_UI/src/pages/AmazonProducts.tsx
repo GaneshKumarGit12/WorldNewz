@@ -332,17 +332,23 @@ export const AmazonProducts: React.FC = () => {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.currentTarget;
-    const asin = target.dataset.asin || "DEAL";
+    const asin = (target.dataset.asin || "").trim();
 
     if (!target.dataset.attempt) {
       target.dataset.attempt = "1";
-      const charCode = asin.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-      target.src = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
-      return;
+      if (asin && asin.length === 10 && !asin.startsWith("DEAL")) {
+        target.src = `https://m.media-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_SX500_.jpg`;
+        return;
+      }
     }
 
     if (target.dataset.attempt === "1") {
       target.dataset.attempt = "2";
+      if (asin) {
+        const charCode = asin.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
+        target.src = VERIFIED_AMAZON_FALLBACK_IMAGES[charCode % VERIFIED_AMAZON_FALLBACK_IMAGES.length];
+        return;
+      }
       target.src = AMAZON_PLACEHOLDER;
       return;
     }
