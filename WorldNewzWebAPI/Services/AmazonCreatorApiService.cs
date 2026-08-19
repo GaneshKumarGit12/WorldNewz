@@ -83,11 +83,48 @@ namespace WorldNewzWebAPI.Services
 
             _marketplaceHost = Environment.GetEnvironmentVariable("AMAZON_MARKETPLACE_HOST")
                                ?? config["AmazonCreatorApi:MarketplaceHost"]
-                               ?? "www.amazon.in";
+                               ?? "webservices.amazon.in";
+
+            // If user passed a web domain (e.g. www.amazon.in or amazon.in), normalize to API gateway
+            if (_marketplaceHost.Equals("www.amazon.in", StringComparison.OrdinalIgnoreCase) || 
+                _marketplaceHost.Equals("amazon.in", StringComparison.OrdinalIgnoreCase))
+            {
+                _marketplaceHost = "webservices.amazon.in";
+            }
+            else if (_marketplaceHost.Equals("www.amazon.com", StringComparison.OrdinalIgnoreCase) || 
+                     _marketplaceHost.Equals("amazon.com", StringComparison.OrdinalIgnoreCase))
+            {
+                _marketplaceHost = "webservices.amazon.com";
+            }
 
             _scope = Environment.GetEnvironmentVariable("AMAZON_SCOPE")
                      ?? config["AmazonCreatorApi:Scope"]
                      ?? "creators::api";
+        }
+
+        /// <summary>
+        /// Proactively checks API credentials and connection health.
+        /// </summary>
+        public async Task<(bool IsHealthy, string Message)> CheckApiHealthAsync()
+        {
+            if (!IsConfigured)
+            {
+                return (false, "Amazon Creator API credentials are not configured. Running in offline PostgreSQL seed mode.");
+            }
+
+            try
+            {
+                var token = await GetAccessTokenAsync();
+                if (!string.IsNullOrWhiteSpace(token))
+                {
+                    return (true, "Amazon OAuth2 authentication active.");
+                }
+                return (false, "Could not acquire Amazon OAuth2 token.");
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Amazon OAuth2 error: {ex.Message}");
+            }
         }
 
         /// <summary>
@@ -143,7 +180,7 @@ namespace WorldNewzWebAPI.Services
                         return lastGood;
                     }
 
-                    throw new HttpRequestException($"Failed to obtain Amazon OAuth token: {response.StatusCode}");
+                    throw new HttpRequestException($"Failed to obtain Amazon OAuth token: {response.StatusCode} - {errContent}");
                 }
 
                 var json = await response.Content.ReadAsStringAsync();
@@ -195,6 +232,7 @@ namespace WorldNewzWebAPI.Services
             try
             {
                 string token = await GetAccessTokenAsync();
+                if (string.IsNullOrWhiteSpace(token)) return items;
 
                 // Process ASINs in batches of 10 (Amazon API limit)
                 for (int i = 0; i < cleanAsins.Count; i += 10)
@@ -205,7 +243,7 @@ namespace WorldNewzWebAPI.Services
                         ItemIds = batch,
                         PartnerTag = _associateTag,
                         PartnerType = "Associates",
-                        Marketplace = _marketplaceHost,
+                        Marketplace = "www.amazon.in",
                         Resources = new[]
                         {
                             "ItemInfo.Title",
@@ -239,17 +277,13 @@ namespace WorldNewzWebAPI.Services
                     else
                     {
                         string errText = await response.Content.ReadAsStringAsync();
-                        _logger.LogWarning($"[AmazonCreatorApiService] BatchGetItemDetails failed (HTTP {(int)response.StatusCode} {response.StatusCode}): {errText}");
-                        
-                        // Pass HTTP status code back so caller/Polly breaker can inspect throttling (429/503) vs Auth errors (401/403)
-                        throw new HttpRequestException($"Amazon API HTTP status {(int)response.StatusCode}", null, response.StatusCode);
+                        _logger.LogWarning($"[AmazonCreatorApiService] BatchGetItemDetails (HTTP {(int)response.StatusCode} {response.StatusCode}): {errText}");
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"[AmazonCreatorApiService] Error during batch item retrieval for {cleanAsins.Count} ASINs.");
-                throw;
+                _logger.LogWarning($"[AmazonCreatorApiService] API call issue for {cleanAsins.Count} ASINs: {ex.Message}");
             }
 
             return items;

@@ -41,6 +41,20 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
+        [HttpGet("health")]
+        public IActionResult GetHealth([FromServices] AmazonCreatorApiService? creatorApiService = null)
+        {
+            var isConfigured = creatorApiService?.IsConfigured ?? false;
+            return Ok(new
+            {
+                status = "operational",
+                creatorApiConfigured = isConfigured,
+                mode = isConfigured ? "Live Amazon Creator API" : "PostgreSQL Seed Catalog (Resilient Fallback)",
+                associateTag = Environment.GetEnvironmentVariable("AMAZON_ASSOCIATE_TAG") ?? "ganeshd12-21",
+                timestamp = DateTime.UtcNow
+            });
+        }
+
         [HttpPost("admin")]
         public async Task<IActionResult> AddOrUpdateProduct([FromBody] AmazonProduct productDto)
         {

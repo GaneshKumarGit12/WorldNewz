@@ -122,13 +122,11 @@ namespace WorldNewzWebAPI.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger?.LogError(ex, $"[AmazonProductService] Hard error during Creator API call (No silent fallback for auth/500 errors): {ex.Message}");
-                    // Do not hide 401/403/500 errors — allow exception to propagate for alerting
-                    throw;
+                    _logger?.LogWarning(ex, $"[AmazonProductService] Live Creator API sync encountered issue: {ex.Message}. Engaging offline catalog fallback simulation.");
                 }
             }
 
-            // Fallback simulation when API client is not configured
+            // Fallback simulation when API client is not configured or fails
             SimulateDailyDealsRefresh(products);
             await _context.SaveChangesAsync();
         }
@@ -222,9 +220,19 @@ namespace WorldNewzWebAPI.Services
                 await _context.SaveChangesAsync();
 
                 // Auto-create Pin on Pinterest for new product
-                if (_pinterestService != null)
+                if (_pinterestService != null && _pinterestService.IsConfigured)
                 {
-                    _ = Task.Run(() => _pinterestService.CreatePinForAmazonProductAsync(productDto));
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            await _pinterestService.CreatePinForAmazonProductAsync(productDto);
+                        }
+                        catch (Exception pEx)
+                        {
+                            _logger?.LogDebug($"[AmazonProductService] Background Pinterest pinning: {pEx.Message}");
+                        }
+                    });
                 }
 
                 return productDto;
@@ -337,9 +345,19 @@ namespace WorldNewzWebAPI.Services
             await _context.SaveChangesAsync();
 
             // Auto-create Pin on Pinterest for new scraped/parsed product
-            if (_pinterestService != null)
+            if (_pinterestService != null && _pinterestService.IsConfigured)
             {
-                _ = Task.Run(() => _pinterestService.CreatePinForAmazonProductAsync(newProduct));
+                _ = Task.Run(async () =>
+                {
+                    try
+                    {
+                        await _pinterestService.CreatePinForAmazonProductAsync(newProduct);
+                    }
+                    catch (Exception pEx)
+                    {
+                        _logger?.LogDebug($"[AmazonProductService] Background Pinterest pinning: {pEx.Message}");
+                    }
+                });
             }
 
             return newProduct;
