@@ -11830,7 +11830,7 @@ namespace WorldNewzWebAPI.Services
                 await _context.SaveChangesAsync();
 
                 // Auto-create Pins on Pinterest for newly seeded products
-                if (_pinterestService != null)
+                if (_pinterestService != null && _pinterestService.IsConfigured)
                 {
                     var newSeeds = seedData.ToList();
                     _ = Task.Run(async () =>
