@@ -18,37 +18,53 @@ export default async function handler(req, res) {
     console.error('Error fetching dynamic sitemap:', error);
   }
   
-  // Fallback to static routes sitemap
+  // Clean canonical fallback XML sitemap with 0 duplicate or redirected pages
+  const today = new Date().toISOString().split('T')[0];
   const fallbackXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://worldnewzs.in</loc><changefreq>daily</changefreq><priority>1.0</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/politics</loc><changefreq>hourly</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/technology</loc><changefreq>hourly</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/business</loc><changefreq>hourly</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/science-health</loc><changefreq>hourly</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/sports</loc><changefreq>hourly</changefreq><priority>0.95</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/money</loc><changefreq>hourly</changefreq><priority>0.85</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/weather</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/shopping</loc><changefreq>hourly</changefreq><priority>0.85</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/travel</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/food</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/entertainment</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/services</loc><changefreq>daily</changefreq><priority>0.75</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/gaming</loc><changefreq>daily</changefreq><priority>0.75</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/cartoons</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/stocks</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/polls</loc><changefreq>daily</changefreq><priority>0.75</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/about</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.4</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/amazon-products</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/chatbot</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/editorial-briefings</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
-  <url><loc>https://worldnewzs.in/editorial-guidelines</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>
+  <url><loc>https://worldnewzs.in</loc><changefreq>daily</changefreq><priority>1.0</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/politics</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/technology</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/business</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/science-health</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/sports</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/money</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/weather</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/shopping</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/travel</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/food</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/entertainment</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/services</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/gaming</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/cartoons</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/stocks</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/lifestyle</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/education</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/opinion</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/trending</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/podcasts-videos</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/local-news</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/polls</loc><changefreq>hourly</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/polls-history</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/badge-quiz</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/quiz-history</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/movies</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/transportation</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/jobs</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/trending-videos</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/play-games</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/amazon-products</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/chatbot</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/editorial-briefings</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/editorial-guidelines</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/about</loc><changefreq>monthly</changefreq><priority>0.5</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/contact</loc><changefreq>monthly</changefreq><priority>0.5</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>${today}</lastmod></url>
 </urlset>`;
   
   res.setHeader('Content-Type', 'application/xml');
-  res.setHeader('Cache-Control', 'public, max-age=300');
+  res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=1800');
   return res.status(200).send(fallbackXml);
 }

@@ -27,6 +27,8 @@ import { PersonalizedTopicHub } from "./PersonalizedTopicHub";
 import { TopStoriesSection } from "./TopStoriesSection";
 import { TrendingShortVideos } from "./TrendingShortVideos";
 import { HeroLeadMedia } from "./common/HeroLeadMedia";
+import { MoreNewsSection } from "./MoreNewsSection";
+import { InternalLinkHub } from "./InternalLinkHub";
 import { formatTimeAgoLong } from "../utils/formatTime";
 import { fallbackDiscoverArticles } from "../utils/fallbackArticles";
 
@@ -525,6 +527,12 @@ const Discover: React.FC = () => {
                   />
                 </Box>
               )}
+
+              {/* 6. AI MORE NEWS MULTI-CATEGORY BRIEFINGS */}
+              <MoreNewsSection />
+
+              {/* 7. CROSS-CATEGORY INTERNAL LINKING HUB */}
+              <InternalLinkHub />
 
               {isFetchingMore && (
                 <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>

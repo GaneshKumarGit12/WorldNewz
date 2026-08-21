@@ -390,49 +390,114 @@ const Footer: React.FC = () => {
           mb: 3
         }}
       >
-        {/* Left Side: Brand & Links */}
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: { xs: "center", md: "flex-start" } }}>
-          <Box component={Link} to="/" sx={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: 1, mb: 1.5 }}>
-            <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)", color: "white", letterSpacing: "-0.01em", fontSize: "22px" }}>
+        {/* Left Side: Brand & Structured Multi-Column Directory */}
+        <Box sx={{ display: "flex", flexDirection: "column", width: "100%", mb: 2 }}>
+          <Box component={Link} to="/" sx={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: 1, mb: 2.5 }}>
+            <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)", color: "white", letterSpacing: "-0.01em", fontSize: "24px" }}>
               WorldNew<Typography component="span" sx={{ color: "var(--red, #B7222B)", fontFamily: "inherit", fontWeight: 700, fontSize: "inherit" }}>z</Typography>s
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: { xs: "center", md: "flex-start" } }}>
-            {[
-              { label: "Home", to: "/" },
-              { label: "Sports", to: "/sports" },
-              { label: "Money", to: "/money" },
-              { label: "Weather", to: "/weather" },
-              { label: "Shopping", to: "/shopping" },
-              { label: "Travel", to: "/travel" },
-              { label: "Food", to: "/food" },
-              { label: "Entertainment", to: "/entertainment" },
-              { label: "Services", to: "/services" },
-              { label: "Gaming", to: "/gaming" },
-              { label: "Cartoons", to: "/cartoons" },
-              { label: "Polls", to: "/polls" },
-              { label: "GK Badge Quiz", to: "/badge-quiz" },
-              { label: "Stocks", to: "/stocks" },
-              { label: "Bookmarks", to: "/bookmarks" },
-              { label: "Editorial Briefings", to: "/editorial-briefings" },
-              { label: "Editorial Guidelines", to: "/editorial-guidelines" },
-              { label: "About Us", to: "/about" },
-              { label: "Contact Us", to: "/contact" },
-              { label: "Privacy Policy", to: "/privacy-policy" },
-              { label: "Terms", to: "/terms" },
-              { label: "Disclaimer", to: "/disclaimer" },
-              { label: "RSS Feed", to: "/rss/discover", isExternal: true },
-            ].map((link) => (
-              <MuiLink
-                key={link.to}
-                {...(link.isExternal ? { href: link.to } : { component: Link, to: link.to })}
-                underline="hover"
-                sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.85rem", fontFamily: "var(--sans)" }}
-                aria-label={link.label}
-              >
-                {link.label}
-              </MuiLink>
-            ))}
+
+          <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }, gap: 3 }}>
+            {/* Column 1: Core News Pillars */}
+            <Box>
+              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+                News Pillars
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                {[
+                  { label: "Top Discover", to: "/" },
+                  { label: "Politics", to: "/politics" },
+                  { label: "Technology & AI", to: "/technology" },
+                  { label: "Business & Markets", to: "/business" },
+                  { label: "Science & Health", to: "/science-health" },
+                  { label: "Sports Scores", to: "/sports" },
+                  { label: "Local News", to: "/local-news" },
+                  { label: "Podcasts & Videos", to: "/podcasts-videos" },
+                  { label: "Trending News", to: "/trending" },
+                ].map((l) => (
+                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                    {l.label}
+                  </MuiLink>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Column 2: Lifestyle & Culture */}
+            <Box>
+              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+                Lifestyle & Culture
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                {[
+                  { label: "Money & Finance", to: "/money" },
+                  { label: "Lifestyle & Wellness", to: "/lifestyle" },
+                  { label: "Education & Careers", to: "/education" },
+                  { label: "Opinion & Editorials", to: "/opinion" },
+                  { label: "Travel Guides", to: "/travel" },
+                  { label: "Food & Recipes", to: "/food" },
+                  { label: "Weather Forecast", to: "/weather" },
+                  { label: "Entertainment", to: "/entertainment" },
+                  { label: "Cartoons & Satire", to: "/cartoons" },
+                  { label: "Online Services", to: "/services" },
+                ].map((l) => (
+                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                    {l.label}
+                  </MuiLink>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Column 3: Interactive Utilities */}
+            <Box>
+              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+                Interactive Utilities
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                {[
+                  { label: "Stock Market Tracker", to: "/stocks" },
+                  { label: "Badge Trivia Quiz", to: "/badge-quiz" },
+                  { label: "Quiz History", to: "/quiz-history" },
+                  { label: "Opinion Polls", to: "/polls" },
+                  { label: "Polls History", to: "/polls-history" },
+                  { label: "Jobs Board", to: "/jobs" },
+                  { label: "Movies Database", to: "/movies" },
+                  { label: "Transportation Routes", to: "/transportation" },
+                  { label: "NewsBot AI Assistant", to: "/chatbot" },
+                  { label: "Deals & Shopping", to: "/amazon-products" },
+                  { label: "Play Games Arcade", to: "/play-games" },
+                  { label: "Trending Videos", to: "/trending-videos" },
+                  { label: "Saved Bookmarks", to: "/bookmarks" },
+                ].map((l) => (
+                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                    {l.label}
+                  </MuiLink>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Column 4: Editorial & Legal */}
+            <Box>
+              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+                Editorial & Company
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                {[
+                  { label: "Editorial Briefings", to: "/editorial-briefings" },
+                  { label: "Editorial Guidelines", to: "/editorial-guidelines" },
+                  { label: "About WorldNewzs", to: "/about" },
+                  { label: "Contact Editorial Desk", to: "/contact" },
+                  { label: "Privacy Policy", to: "/privacy-policy" },
+                  { label: "Terms & Conditions", to: "/terms" },
+                  { label: "Content Disclaimer", to: "/disclaimer" },
+                  { label: "RSS Feed", to: "/rss/discover", isExternal: true },
+                ].map((l) => (
+                  <MuiLink key={l.to} {...(l.isExternal ? { href: l.to } : { component: Link, to: l.to })} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                    {l.label}
+                  </MuiLink>
+                ))}
+              </Box>
+            </Box>
           </Box>
         </Box>
 

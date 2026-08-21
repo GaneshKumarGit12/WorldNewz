@@ -90,7 +90,6 @@ namespace WorldNewzWebAPI.Controllers
                 ("trending-videos", "0.8", "daily"),
                 ("play-games", "0.8", "daily"),
                 ("amazon-products", "0.9", "daily"),
-                ("deals", "0.9", "daily"),
                 ("privacy-policy", "0.3", "yearly"),
                 ("terms", "0.3", "yearly"),
                 ("disclaimer", "0.3", "yearly"),
@@ -227,6 +226,63 @@ Sitemap: {siteUrl}/sitemap.xml
 Sitemap: {siteUrl}/news-sitemap.xml";
             Response.Headers.CacheControl = "public, max-age=3600";
             return Content(content, "text/plain");
+        }
+
+        [HttpGet("llms.txt")]
+        public IActionResult LlmsTxt()
+        {
+            var content = @"# WorldNewzs
+
+> WorldNewzs is a real-time, multi-category news aggregation and editorial intelligence platform. We curate, verify, synthesize, and analyze breaking global headlines across politics, technology, business, science, health, sports, money, and lifestyle from trusted international publications.
+
+## Primary News Categories
+- [Top Discover News](https://worldnewzs.in/): Real-time curated breaking headlines, top stories, and editorial briefings.
+- [Politics News](https://worldnewzs.in/politics): Global governance, legislative reforms, international diplomacy, and geopolitical analysis.
+- [Technology & AI News](https://worldnewzs.in/technology): Breakthroughs in artificial intelligence, silicon hardware, cybersecurity, consumer gadgets, and software ecosystems.
+- [Business & Markets News](https://worldnewzs.in/business): Stock market summaries, macroeconomic trends, mergers and acquisitions, venture capital, and corporate earnings.
+- [Science & Health News](https://worldnewzs.in/science-health): Medical studies, clinical discoveries, public health guidance, space exploration, and climate science.
+- [Sports News](https://worldnewzs.in/sports): Global tournament scores, football transfers, cricket match analyses, tennis championships, and Olympic coverage.
+- [Money & Personal Finance](https://worldnewzs.in/money): Investment strategies, wealth planning, tax-saving guidelines, retirement planning, and cryptocurrency trends.
+- [Lifestyle & Culture](https://worldnewzs.in/lifestyle): Modern fashion, wellness practices, architectural trends, interior design, and mindful living.
+- [Education News](https://worldnewzs.in/education): Academic research, global universities, scholarship notifications, career guidance, and learning technologies.
+- [Opinion & Editorials](https://worldnewzs.in/opinion): In-depth commentary, viewpoint columns, expert debates, and think-tank policy reviews.
+- [Trending News](https://worldnewzs.in/trending): Viral social media moments, cultural highlights, and verified internet trends.
+- [Local News](https://worldnewzs.in/local-news): City-level civic reporting, municipal developments, regional infrastructure, and community events.
+- [Podcasts & Videos](https://worldnewzs.in/podcasts-videos): Curated multimedia interviews, investigative audio podcasts, and visual news explainers.
+- [Weather Forecasts](https://worldnewzs.in/weather): Hyper-local meteorological reports, severe weather alerts, temperature indices, and climate forecasts.
+- [Food & Dining](https://worldnewzs.in/food): Culinary guides, quick healthy recipes, dietary science, and restaurant critique.
+- [Travel Guides](https://worldnewzs.in/travel): Destination itineraries, booking tips, visa regulations, and transit advisories.
+- [Entertainment & Cinema](https://worldnewzs.in/entertainment): Box office reports, celebrity interviews, film reviews, and television broadcast schedules.
+- [Gaming & Esports](https://worldnewzs.in/gaming): Video game reviews, esports tournaments, console hardware updates, and patch guides.
+- [Cartoons & Satire](https://worldnewzs.in/cartoons): Daily editorial cartoons, comic illustrations, and cultural satire.
+
+## Interactive Tools & Reader Utilities
+- [Badge Trivia Quiz](https://worldnewzs.in/badge-quiz): Daily multi-category general knowledge trivia quizzes with coins and progression badges.
+- [Opinion Polls](https://worldnewzs.in/polls): Real-time public sentiment voting on geopolitical, economic, and technological topics.
+- [Polls History](https://worldnewzs.in/polls-history): Historical voting sentiment records and public opinion trends.
+- [Quiz History](https://worldnewzs.in/quiz-history): Personal trivia scoring history, leaderboard standings, and question reviews.
+- [Stock Market Dashboard](https://worldnewzs.in/stocks): Live indices updates, Nifty 50, Sensex, top gainers, losers, and market summaries.
+- [Jobs Board](https://worldnewzs.in/jobs): Curated remote and on-site career listings for developers, designers, marketers, and analysts.
+- [Movies Database](https://worldnewzs.in/movies): Film directory featuring trending cinema releases, ratings, reviews, and cast information.
+- [Transportation & Transit](https://worldnewzs.in/transportation): Commute route planner, cab listings, transit schedules, and city travel guides.
+- [NewsBot AI Assistant](https://worldnewzs.in/chatbot): Interactive AI news assistant for querying verified article archives and factual briefings.
+- [Deals & Shopping Hub](https://worldnewzs.in/amazon-products): Curated product deals, buying guides, and verified online shopping discounts.
+- [Trending Videos & Shorts](https://worldnewzs.in/trending-videos): Short-form video news clips, technology demonstrations, and sports highlights.
+- [Play Games Arcade](https://worldnewzs.in/play-games): Interactive web browser games including Retro Mario, Chess, Hit Goal, and DVCubie2026 Snake Arena.
+
+## Editorial Standards & Legal
+- [Editorial Briefings](https://worldnewzs.in/editorial-briefings): Deep-dive investigative journalism and sector-specific analytical briefings.
+- [Editorial Guidelines](https://worldnewzs.in/editorial-guidelines): Standards of accuracy, fact-checking methodology, correction policy, and source transparency.
+- [About WorldNewzs](https://worldnewzs.in/about): Our editorial mission, curation process, technology stack, and leadership team.
+- [Contact Us](https://worldnewzs.in/contact): Editorial tips, feedback submissions, corrections, and press inquiries.
+- [Privacy Policy](https://worldnewzs.in/privacy-policy): User privacy, GDPR/CCPA compliance, cookies disclosure, and data retention policies.
+- [Terms & Conditions](https://worldnewzs.in/terms): Website terms of service, acceptable use, and intellectual property disclaimers.
+- [Disclaimer](https://worldnewzs.in/disclaimer): News aggregation disclaimers, third-party content notices, and financial liability disclaimers.
+
+## Optional Extended Documentation
+- [Full LLM Context & Schemas](https://worldnewzs.in/llms-full.txt): Comprehensive platform documentation, JSON schemas, content cadence, and API endpoints.";
+            Response.Headers.CacheControl = "public, max-age=86400";
+            return Content(content, "text/markdown; charset=utf-8");
         }
     }
 }

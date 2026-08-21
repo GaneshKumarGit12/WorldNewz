@@ -31,6 +31,7 @@ import { ShoppingWidget } from "./ShoppingWidget";
 import { WatchlistWidget } from "./WatchlistWidget";
 import { WeatherWidget } from "./WeatherWidget";
 import { HeroLeadMedia } from "./common/HeroLeadMedia";
+import { InternalLinkHub } from "./InternalLinkHub";
 import { getCategoryFallbackArticles, fallbackDiscoverArticles } from "../utils/fallbackArticles";
 
 interface CategoryPageProps {
@@ -629,6 +630,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
 
               {/* 6. CATEGORY SPECIFIC EDITORIAL PLAYBOOK */}
               <CategoryEditorial categoryKey={categoryKey} />
+
+              {/* 7. CROSS-CATEGORY INTERNAL LINKING HUB */}
+              <InternalLinkHub currentCategory={categoryKey} />
             </SectionStatus>
           </Box>
 
