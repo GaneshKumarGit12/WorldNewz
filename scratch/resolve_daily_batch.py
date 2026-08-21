@@ -13,56 +13,86 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 urls = [
-    "https://link.amazon/B05vaypaA",
-    "https://link.amazon/B0182rlR7",
-    "https://link.amazon/B07FRGH9T",
-    "https://link.amazon/B00jNGBYA",
-    "https://link.amazon/B0jbYEIxl",
-    "https://link.amazon/B0hrKDpqn",
-    "https://link.amazon/B0eYSGrLZ",
-    "https://link.amazon/B0g62wPtw",
-    "https://link.amazon/B0brcAoHD",
-    "https://link.amazon/B03rla9L5",
-    "https://link.amazon/B0aJFkqMJ",
-    "https://link.amazon/B09Vs0JnQ",
-    "https://link.amazon/B04MbGLoJ",
-    "https://link.amazon/B09us7v9V",
-    "https://link.amazon/B0h6Kp4Bq",
-    "https://link.amazon/B06Et7ett",
-    "https://link.amazon/B0am0oenM",
-    "https://link.amazon/B0bYeRr78",
-    "https://link.amazon/B0e6dlwHj",
-    "https://link.amazon/B02Jb64Kl",
-    "https://link.amazon/B0gVzSgGQ",
-    "https://link.amazon/B0dfwjjmO",
-    "https://link.amazon/B0eQlv969",
-    "https://link.amazon/B0iIGKe8L",
-    "https://link.amazon/B01pXaov8",
-    "https://link.amazon/B04pnqnMh",
-    "https://link.amazon/B05uUAQbO",
-    "https://link.amazon/B0iEBG9KF",
-    "https://link.amazon/B08Enevj2",
-    "https://link.amazon/B002ONspG",
-    "https://link.amazon/B0cmLwI9D",
-    "https://link.amazon/B0131A1JD",
-    "https://link.amazon/B0dHNUKOk",
-    "https://link.amazon/B00u6RA5z",
-    "https://link.amazon/B0cLEVekK",
-    "https://link.amazon/B0amOAdMH",
-    "https://link.amazon/B0aGUSgXO",
-    "https://link.amazon/B05INwZdz"
+    "https://link.amazon/B0a3YSliO",
+    "https://link.amazon/B08p9HRzQ",
+    "https://link.amazon/B0c02Cem2",
+    "https://link.amazon/B0dMkaS44",
+    "https://link.amazon/B09qazuLg",
+    "https://link.amazon/B04GNcB9V",
+    "https://link.amazon/B0cafuTKw",
+    "https://link.amazon/B0ejTUahj",
+    "https://link.amazon/B0dH8gNt2",
+    "https://link.amazon/B0fyNXadd",
+    "https://link.amazon/B0fUxCexo",
+    "https://link.amazon/B03akAZ4i",
+    "https://link.amazon/B0bb71H0p",
+    "https://link.amazon/B0gkom1d1",
+    "https://link.amazon/B05PquCF5",
+    "https://link.amazon/B0g2iPbLm",
+    "https://link.amazon/B0dOSiWin",
+    "https://link.amazon/B0iECvAu1",
+    "https://link.amazon/B03CQhnFp",
+    "https://link.amazon/B0cIhZgec",
+    "https://link.amazon/B03lG0uuQ",
+    "https://link.amazon/B0iH1CzJq",
+    "https://link.amazon/B07ACw6KB",
+    "https://link.amazon/B0dSZPU0Z",
+    "https://link.amazon/B002kaYRH",
+    "https://link.amazon/B0bjUx41M",
+    "https://link.amazon/B06oVHuBw",
+    "https://link.amazon/B00U7lVGa",
+    "https://link.amazon/B0cSQYUee",
+    "https://link.amazon/B06rr9QFr",
+    "https://link.amazon/B00bNY87t",
+    "https://link.amazon/B0gvjD9gX",
+    "https://link.amazon/B0cgWFwR4",
+    "https://link.amazon/B01uFewcW",
+    "https://link.amazon/B01xMTsz3",
+    "https://link.amazon/B0ckVkPUQ",
+    "https://link.amazon/B084mKsYw",
+    "https://link.amazon/B0gGzZNMb",
+    "https://link.amazon/B0j8C1Xw9",
+    "https://link.amazon/B0bGJ7KNQ",
+    "https://link.amazon/B01XKjI65",
+    "https://link.amazon/B01Pg13uJ",
+    "https://link.amazon/B0dJq15ej",
+    "https://link.amazon/B0cffweJG",
+    "https://link.amazon/B0dE9ofTD",
+    "https://link.amazon/B0fmEAWEL",
+    "https://link.amazon/B05yNVGO9",
+    "https://link.amazon/B07O6BYPw",
+    "https://link.amazon/B0468ES2k",
+    "https://link.amazon/B0cCGjnfy",
+    "https://link.amazon/B06IFkpQ4",
+    "https://link.amazon/B00dC5Igg",
+    "https://link.amazon/B0iVZ0UJP",
+    "https://link.amazon/B08gy7eAN",
+    "https://link.amazon/B0cR2ezL5",
+    "https://link.amazon/B022f0Qtx",
+    "https://link.amazon/B0bIRD0nV",
+    "https://link.amazon/B0851cjoK",
+    "https://link.amazon/B0gYs8eqL",
+    "https://link.amazon/B0fyRy1bR",
+    "https://link.amazon/B0gdfCgy6",
+    "https://link.amazon/B0c9G4fJy",
+    "https://link.amazon/B0beJENSj",
+    "https://link.amazon/B0iRkejqy",
+    "https://link.amazon/B0a2r6Gkd",
+    "https://link.amazon/B02HcOvzP",
+    "https://link.amazon/B01wenQjk",
+    "https://link.amazon/B0fKPVl5N"
 ]
 
 SEEN_ASINS_PATH = "scratch/seen_asins.json"
 
 def load_seen_asins():
     if os.path.exists(SEEN_ASINS_PATH):
-        with open(SEEN_ASINS_PATH, "r") as f:
+        with open(SEEN_ASINS_PATH, "r", encoding="utf-8") as f:
             return set(json.load(f))
     return set()
 
 def save_seen_asins(seen):
-    with open(SEEN_ASINS_PATH, "w") as f:
+    with open(SEEN_ASINS_PATH, "w", encoding="utf-8") as f:
         json.dump(sorted(list(seen)), f, indent=2)
 
 user_agents = [
@@ -72,10 +102,6 @@ user_agents = [
     'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0'
 ]
-
-class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        return None
 
 def clean_amazon_image_url(img_url):
     if not img_url:
@@ -87,7 +113,6 @@ def clean_amazon_image_url(img_url):
     return u
 
 def resolve_initial_url(url):
-    # Try normal opener with desktop agent
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
     req = urllib.request.Request(url, headers=headers)
     try:
@@ -96,7 +121,6 @@ def resolve_initial_url(url):
             html = resp.read().decode('utf-8', errors='ignore')
             return final_url, html
     except urllib.error.HTTPError as e:
-        # Check location header on 301/302
         loc = e.headers.get('Location', '')
         return loc, ""
     except Exception as e:
@@ -105,23 +129,18 @@ def resolve_initial_url(url):
 def extract_asin_from_any_string(s):
     if not s:
         return None
-    # 1. Standard dp/gp
     m = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})', s, re.IGNORECASE)
     if m:
         return m.group(1).upper()
-    # 2. asin= param
     m2 = re.search(r'asin=([A-Z0-9]{10})', s, re.IGNORECASE)
     if m2:
         return m2.group(1).upper()
-    # 3. Intent browser fallback url
     m3 = re.search(r'browser_fallback_url=.*?%2Fdp%2F([A-Z0-9]{10})', s, re.IGNORECASE)
     if m3:
         return m3.group(1).upper()
-    # 4. In URL path: e.g. /dp/B0XXXXXX in unquoted format
     m4 = re.search(r'%2Fdp%2F([A-Z0-9]{10})', s, re.IGNORECASE)
     if m4:
         return m4.group(1).upper()
-    # 5. link.amazon/B0XXXXXXX or amzlinks.in/B0XXXXXXX
     m5 = re.search(r'(?:link\.amazon|amzlinks\.in)/([A-Z0-9]{9,10})', s, re.IGNORECASE)
     if m5:
         code = m5.group(1)
@@ -153,7 +172,6 @@ def fetch_details_for_asin(asin):
             with opener.open(u, timeout=12) as resp:
                 html = resp.read().decode('utf-8', errors='ignore')
 
-                # Title
                 title = ""
                 title_m = re.search(r'<span id="productTitle"[^>]*>\s*(.*?)\s*</span>', html, re.DOTALL)
                 if title_m:
@@ -176,7 +194,6 @@ def fetch_details_for_asin(asin):
                     title = re.sub(r'^(Amazon\.in:\s*|Buy\s*)', '', title, flags=re.IGNORECASE).strip()
                     title = re.sub(r'\s*: Amazon\.in.*$', '', title, flags=re.IGNORECASE).strip()
 
-                # Image extraction
                 img_url = ""
                 hires_m = re.search(r'data-old-hires="(https://m\.media-amazon\.com/images/I/[^"]+)"', html)
                 if hires_m:
@@ -190,11 +207,9 @@ def fetch_details_for_asin(asin):
                     if img_m:
                         img_url = img_m.group(0)
 
-                # Clean image URL to 1500px HD
                 if img_url:
                     img_url = clean_amazon_image_url(img_url)
 
-                # Price
                 price = 0.0
                 price_m = re.search(r'<span class="a-price-whole">\s*([\d,]+)', html)
                 if price_m:
@@ -250,7 +265,6 @@ def main():
         final_url, html = resolve_initial_url(u)
         asin = extract_asin_from_any_string(final_url) or extract_asin_from_any_string(html) or extract_asin_from_any_string(u)
 
-        # If redirected to amzlinks.in
         if not asin and "amzlinks.in" in final_url:
             amz_final, amz_html = resolve_initial_url(final_url)
             asin = extract_asin_from_any_string(amz_final) or extract_asin_from_any_string(amz_html)
@@ -265,7 +279,6 @@ def main():
             skipped_duplicates += 1
             continue
 
-        # Fetch product details
         details = fetch_details_for_asin(asin)
         if not details:
             time.sleep(1.5)
@@ -280,7 +293,7 @@ def main():
         seen_asins.add(asin)
         print(f"  ✅ [{details['category']}] {asin}: {details['title'][:55]} (₹{details['price']})")
         print(f"     Img: {details['imageUrl']}")
-        time.sleep(random.uniform(0.7, 1.5))
+        time.sleep(random.uniform(0.6, 1.3))
 
     print("\n===========================================")
     print(f"Total Resolved: {len(resolved_products)}")

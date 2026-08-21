@@ -218,12 +218,12 @@ const startIndex = fourHourBlock % list.length;
    - Every product record MUST use its exact listing image URL extracted directly from Amazon listing HTML (`hiRes`, `large`, `data-old-hires` e.g., `https://m.media-amazon.com/images/I/71kaUIAYZiL._SL1500_.jpg`).
    - Cross-check product title, description, image URL, category, share options, and Grab Deal affiliate link to ensure 100% visual consistency before committing.
 
-4. **Frontend Image Proxy & Fallback Overrides**:
-   - Ensure `getAbsoluteImageUrl` in `AmazonProducts.tsx` NEVER forcibly overrides valid `http://` or `https://` URLs (including `/images/P/` or `m.media-amazon.com/images/I/`) with generic stock fallback arrays (such as `VERIFIED_AMAZON_FALLBACK_IMAGES`).
-   - Valid image URLs must be served directly through the fast image proxy `https://images.weserv.nl/?url=${encodeURIComponent(url)}&output=webp&q=85` to guarantee zero duplicate image fallbacks on cards and grids.
+4. **Frontend Image Clarity & 1500px Ultra HD Resolution**:
+   - Ensure `getAbsoluteImageUrl` in `AmazonProducts.tsx` cleans low-res sizing modifiers (`._AC_QL10_...`, `._SY350_...`, `._SX342_...`) and requests full 1500px HD images (`._SL1500_.jpg`) directly from `https://m.media-amazon.com/images/I/...`.
+   - Avoid third-party lossy compression on Amazon CDN URLs so product cards remain crystal-clear on high-DPI screens.
 
 5. **Target Visited Link Synchronization (`ProductUrl` & Share Options)**:
-   - Trace each short link (`https://amzn.to/XXXX`) to its exact destination target Amazon deal URL (`https://www.amazon.in/dp/{ASIN}?tag=ganeshd12-21...`).
+   - Trace each short link (`https://amzn.to/XXXX` or `https://link.amazon/XXXX`) to its exact destination target Amazon deal URL (`https://www.amazon.in/dp/{ASIN}?tag=ganeshd12-21...`).
    - Every product record's `ProductUrl` (used for 'Grab Deal' buttons, card links, and Share options) MUST match the exact visited deal destination URL with active affiliate tracking tag.
 
 6. **Pinterest Pin Destination URL (`url` Parameter)**:
@@ -234,4 +234,9 @@ const startIndex = fourHourBlock % list.length;
    - Link resolution scripts must handle both `https://amzn.to/XXXX` and `https://link.amazon/XXXX` short link domains seamlessly.
    - Follow all HTTP redirect hops to extract the true 10-character Amazon ASIN, exact `https://m.media-amazon.com/images/I/...` product image URL, full scrubbed title, and bullet-derived description summary.
    - Always append new seed objects to `scratch/seen_asins.json` and `AmazonProductService.cs` with newest-first ordering (`.OrderByDescending(p => p.Id)`).
+
+8. **Day-Wise 24-Hour Deal of the Day Rotation**:
+   - The hero "Deal of the Day" spotlight card calculates its featured item using daily 24-hour epoch blocks (`Math.floor(Date.now() / (24 * 60 * 60 * 1000))`) cycling across top discount deals.
+   - This guarantees a fresh spotlighted deal each day automatically.
+
 
