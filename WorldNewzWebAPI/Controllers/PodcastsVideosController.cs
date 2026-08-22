@@ -1,14 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using WorldNewzWebAPI.Services;
 
 namespace WorldNewzWebAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     [Route("api/podcasts-videos")]
-    [Route("api/podcastsvideos")]
-    [Route("api/news/podcasts-videos")]
     public class PodcastsVideosController : ControllerBase
     {
         private readonly PodcastVideoService _podcastVideoService;
@@ -18,13 +16,8 @@ namespace WorldNewzWebAPI.Controllers
             _podcastVideoService = podcastVideoService;
         }
 
-        [HttpGet]
         [HttpGet("feed")]
-        [HttpGet("/api/podcasts-videos/feed")]
-        [HttpGet("/api/podcastsvideos/feed")]
-        [HttpGet("/api/podcasts-videos")]
-        [HttpGet("/api/podcastsvideos")]
-        public async Task<IActionResult> GetPodcastsVideosFeed([FromQuery] string? category)
+        public async Task<IActionResult> GetFeed([FromQuery] string? category)
         {
             try
             {
@@ -34,9 +27,7 @@ namespace WorldNewzWebAPI.Controllers
             }
             catch (Exception)
             {
-                // Fallback guarantee: Never return 500 error, return clean category feed
-                var fallback = PodcastVideoService.GetFallbackFeed(category ?? "All");
-                return Ok(fallback);
+                return Ok(PodcastVideoService.GetFallbackFeed(category ?? "All"));
             }
         }
     }
