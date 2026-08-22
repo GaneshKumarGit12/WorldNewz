@@ -272,8 +272,8 @@ const PodcastsVideos: React.FC = () => {
           setEpisodes(combined);
         }
       })
-      .catch((err) => {
-        console.warn("PodcastsVideos API feed request failed, utilizing resilient offline store:", err);
+      .catch(() => {
+        // Silently populate the resilient offline catalog
       })
       .finally(() => {
         if (isMounted) setLoading(false);
@@ -1172,6 +1172,7 @@ const PodcastsVideos: React.FC = () => {
                   key={activeModalItem.id}
                   src={getCleanEmbedUrl(activeModalItem.videoUrl || activeModalItem.id)}
                   title={activeModalItem.title}
+                  referrerPolicy="strict-origin-when-cross-origin"
                   style={{
                     position: "absolute",
                     top: 0,

@@ -16,17 +16,28 @@ const shouldCache = (url?: string) => {
          !lowercaseUrl.includes("weather");
 };
 
+const isStorageAvailable = (): boolean => {
+  try {
+    if (typeof window === "undefined" || !window.localStorage) return false;
+    const testKey = "__wn_storage_check__";
+    window.localStorage.setItem(testKey, "1");
+    window.localStorage.removeItem(testKey);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 apiClient.interceptors.request.use(
   config => {
-    if (typeof window !== "undefined" && window.localStorage && config.method === "get" && shouldCache(config.url)) {
+    if (isStorageAvailable() && config.method === "get" && shouldCache(config.url)) {
       const cacheKey = `api_cache_${config.url}_${JSON.stringify(config.params || {})}`;
       try {
-        const cached = localStorage.getItem(cacheKey);
+        const cached = window.localStorage.getItem(cacheKey);
         if (cached) {
           const { data, timestamp } = JSON.parse(cached);
           const isExpired = Date.now() - timestamp > 15 * 60 * 1000; // 15 minutes cache
           if (!isExpired) {
-            console.log(`[Cache Hit] Serving cached data for ${config.url}`);
             config.adapter = () => {
               return Promise.resolve({
                 data,
@@ -38,8 +49,8 @@ apiClient.interceptors.request.use(
             };
           }
         }
-      } catch (e) {
-        console.warn("Local storage cache read failed:", e);
+      } catch {
+        // Silently continue if storage is restricted by tracking prevention
       }
     }
     return config;
@@ -48,19 +59,19 @@ apiClient.interceptors.request.use(
 );
 
 const safeSetCache = (cacheKey: string, value: string) => {
-  if (typeof window === "undefined" || !window.localStorage) return;
+  if (!isStorageAvailable()) return;
   try {
-    localStorage.setItem(cacheKey, value);
+    window.localStorage.setItem(cacheKey, value);
   } catch {
-    // Storage quota exceeded - clean up expired api_cache_ entries first
+    // Storage quota exceeded or blocked - clean up expired api_cache_ entries first
     try {
       const now = Date.now();
       const keysToRemove: string[] = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
+      for (let i = 0; i < window.localStorage.length; i++) {
+        const key = window.localStorage.key(i);
         if (key && key.startsWith("api_cache_")) {
           try {
-            const item = localStorage.getItem(key);
+            const item = window.localStorage.getItem(key);
             if (item) {
               const parsed = JSON.parse(item);
               if (!parsed.timestamp || now - parsed.timestamp > 15 * 60 * 1000) {
@@ -74,20 +85,20 @@ const safeSetCache = (cacheKey: string, value: string) => {
           }
         }
       }
-      keysToRemove.forEach(k => localStorage.removeItem(k));
-      localStorage.setItem(cacheKey, value);
+      keysToRemove.forEach(k => window.localStorage.removeItem(k));
+      window.localStorage.setItem(cacheKey, value);
     } catch {
-      // Still failing - purge ALL api_cache_ entries to reclaim space
+      // Still failing - purge all api_cache_ entries
       try {
         const allApiKeys: string[] = [];
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i);
+        for (let i = 0; i < window.localStorage.length; i++) {
+          const key = window.localStorage.key(i);
           if (key && key.startsWith("api_cache_")) {
             allApiKeys.push(key);
           }
         }
-        allApiKeys.forEach(k => localStorage.removeItem(k));
-        localStorage.setItem(cacheKey, value);
+        allApiKeys.forEach(k => window.localStorage.removeItem(k));
+        window.localStorage.setItem(cacheKey, value);
       } catch {
         // Silently ignore if browser restrictions prevent storage write
       }
@@ -97,7 +108,7 @@ const safeSetCache = (cacheKey: string, value: string) => {
 
 apiClient.interceptors.response.use(
   response => {
-    if (typeof window !== "undefined" && window.localStorage && response.config.method === "get" && response.status === 200 && shouldCache(response.config.url)) {
+    if (isStorageAvailable() && response.config.method === "get" && response.status === 200 && shouldCache(response.config.url)) {
       const cacheKey = `api_cache_${response.config.url}_${JSON.stringify(response.config.params || {})}`;
       safeSetCache(cacheKey, JSON.stringify({
         data: response.data,
@@ -120,12 +131,11 @@ apiClient.interceptors.response.use(
     if (axios.isAxiosError(error)) {
       const config = error.config as any;
 
-      if (config && config.method === "get" && typeof window !== "undefined" && window.localStorage && shouldCache(config.url)) {
+      if (config && config.method === "get" && isStorageAvailable() && shouldCache(config.url)) {
         const cacheKey = `api_cache_${config.url}_${JSON.stringify(config.params || {})}`;
         try {
-          const cached = localStorage.getItem(cacheKey);
+          const cached = window.localStorage.getItem(cacheKey);
           if (cached) {
-            console.warn(`[Cache Fallback] Request to ${config.url} failed (${error.message || error.code}). Using expired/fallback cache.`);
             const { data } = JSON.parse(cached);
             return Promise.resolve({
               data,
@@ -135,8 +145,8 @@ apiClient.interceptors.response.use(
               config,
             });
           }
-        } catch (e) {
-          console.warn("Local storage fallback failed:", e);
+        } catch {
+          // Silently ignore fallback read failure
         }
       }
 

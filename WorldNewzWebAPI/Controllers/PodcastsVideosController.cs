@@ -6,6 +6,9 @@ namespace WorldNewzWebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Route("api/podcasts-videos")]
+    [Route("api/podcastsvideos")]
+    [Route("api/news/podcasts-videos")]
     public class PodcastsVideosController : ControllerBase
     {
         private readonly PodcastVideoService _podcastVideoService;
@@ -17,6 +20,10 @@ namespace WorldNewzWebAPI.Controllers
 
         [HttpGet]
         [HttpGet("feed")]
+        [HttpGet("/api/podcasts-videos/feed")]
+        [HttpGet("/api/podcastsvideos/feed")]
+        [HttpGet("/api/podcasts-videos")]
+        [HttpGet("/api/podcastsvideos")]
         public async Task<IActionResult> GetPodcastsVideosFeed([FromQuery] string? category)
         {
             var feed = await _podcastVideoService.GetPodcastsVideosFeedAsync(category);
