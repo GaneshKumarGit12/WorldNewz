@@ -5,8 +5,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
 
 namespace WorldNewzWebAPI.Services
 {
@@ -38,38 +36,32 @@ namespace WorldNewzWebAPI.Services
     public class PodcastVideoService
     {
         private readonly HttpClient _httpClient;
-        private readonly IMemoryCache _memoryCache;
-        private readonly ILogger<PodcastVideoService> _logger;
         private readonly string _apiKey;
         private static bool _quotaExceededTripped = false;
         private static DateTime _quotaExceededTripTime = DateTime.MinValue;
-        private const string CacheKeyPrefix = "WN_PODCASTS_VIDEOS_FEED_";
-        private static readonly TimeSpan CacheDuration = TimeSpan.FromHours(6);
+        private static readonly ConcurrentDictionary<string, (PodcastsVideosFeedResult result, DateTime expiresAt)> _feedCache = new();
 
-        public PodcastVideoService(HttpClient httpClient, IMemoryCache memoryCache, ILogger<PodcastVideoService> logger)
+        public PodcastVideoService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _memoryCache = memoryCache;
-            _logger = logger;
             _apiKey = Environment.GetEnvironmentVariable("WN_YOUTUBE_KEY") ?? "";
         }
 
         public async Task<PodcastsVideosFeedResult> GetPodcastsVideosFeedAsync(string? category = null)
         {
             var normalizedCat = string.IsNullOrWhiteSpace(category) ? "All" : category.Trim();
-            var cacheKey = $"{CacheKeyPrefix}{normalizedCat.ToLowerInvariant()}";
+            var cacheKey = normalizedCat.ToLowerInvariant();
 
-            if (_memoryCache.TryGetValue(cacheKey, out PodcastsVideosFeedResult? cachedResult) && cachedResult != null)
+            if (_feedCache.TryGetValue(cacheKey, out var cacheEntry) && cacheEntry.expiresAt > DateTime.UtcNow)
             {
-                return cachedResult;
+                return cacheEntry.result;
             }
 
             // Check if circuit breaker for quota is currently active (resets after 12 hours)
             if (_quotaExceededTripped && DateTime.UtcNow - _quotaExceededTripTime < TimeSpan.FromHours(12))
             {
-                _logger.LogInformation("[PodcastVideoService] Quota circuit-breaker active. Returning fallback store.");
                 var fallbackRes = GetFallbackFeed(normalizedCat);
-                _memoryCache.Set(cacheKey, fallbackRes, TimeSpan.FromHours(2));
+                _feedCache[cacheKey] = (fallbackRes, DateTime.UtcNow.AddHours(2));
                 return fallbackRes;
             }
 
@@ -82,19 +74,19 @@ namespace WorldNewzWebAPI.Services
                     if (liveFeed != null && liveFeed.Episodes.Count > 0)
                     {
                         _quotaExceededTripped = false;
-                        _memoryCache.Set(cacheKey, liveFeed, CacheDuration);
+                        _feedCache[cacheKey] = (liveFeed, DateTime.UtcNow.AddHours(6));
                         return liveFeed;
                     }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "[PodcastVideoService] Error fetching podcasts/videos from YouTube. Serving fallback data.");
+                    Console.WriteLine($"[PodcastVideoService] Error fetching from YouTube: {ex.Message}");
                 }
             }
 
             // Serve rich curated fallback seed store
             var fallback = GetFallbackFeed(normalizedCat);
-            _memoryCache.Set(cacheKey, fallback, TimeSpan.FromHours(1));
+            _feedCache[cacheKey] = (fallback, DateTime.UtcNow.AddHours(1));
             return fallback;
         }
 
@@ -114,13 +106,13 @@ namespace WorldNewzWebAPI.Services
             if (!response.IsSuccessStatusCode)
             {
                 var errorBody = await response.Content.ReadAsStringAsync();
-                _logger.LogWarning($"[PodcastVideoService] YouTube API responded with {response.StatusCode}: {errorBody}");
+                Console.WriteLine($"[PodcastVideoService] YouTube API responded with {response.StatusCode}: {errorBody}");
 
                 if ((int)response.StatusCode == 403 || errorBody.Contains("quotaExceeded", StringComparison.OrdinalIgnoreCase))
                 {
                     _quotaExceededTripped = true;
                     _quotaExceededTripTime = DateTime.UtcNow;
-                    _logger.LogWarning("[PodcastVideoService] YouTube quota exceeded. Tripping circuit breaker for 12 hours.");
+                    Console.WriteLine("[PodcastVideoService] YouTube quota exceeded. Tripping circuit breaker for 12 hours.");
                 }
                 return null;
             }
@@ -259,7 +251,7 @@ namespace WorldNewzWebAPI.Services
             if (text.Contains("rate") || text.Contains("wallet") || text.Contains("money") || text.Contains("invest") || text.Contains("inflation"))
                 return "Money";
 
-            return "General";
+            return "Business";
         }
 
         public static PodcastsVideosFeedResult GetFallbackFeed(string category = "All")

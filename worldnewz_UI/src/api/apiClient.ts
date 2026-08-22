@@ -164,12 +164,11 @@ apiClient.interceptors.response.use(
         error.response.status === 504
       );
 
-      if (config && (isNetworkError || isRetryableServerError)) {
+      if (config && !config.url?.includes("podcasts-videos") && (isNetworkError || isRetryableServerError)) {
         config._retryCount = config._retryCount ?? 0;
         if (config._retryCount < 3) {
           config._retryCount += 1;
           const backoffDelay = config._retryCount * 2000;
-          console.warn(`API call failed (${error.message || error.code}). Retrying attempt ${config._retryCount} in ${backoffDelay}ms...`);
           return new Promise((resolve) => {
             setTimeout(() => {
               resolve(apiClient(config));
