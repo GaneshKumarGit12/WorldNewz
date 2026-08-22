@@ -750,6 +750,36 @@ export const fetchLiveStream = (category?: string) =>
     params: category ? { category } : undefined,
   });
 
+// --- Podcasts & Videos API ---
+export interface PodcastEpisode {
+  id: string;
+  title: string;
+  description: string;
+  thumbnailUrl: string;
+  videoUrl: string;
+  category: string;
+  duration: string;
+  desk: string;
+  mediaType: "podcast" | "video";
+  isFeatured?: boolean;
+  formattedDate: string;
+  publishedAt?: string;
+  viewsCount?: string;
+}
+
+export interface PodcastsVideosFeedResponse {
+  status: string;
+  featured?: PodcastEpisode;
+  episodes: PodcastEpisode[];
+  lastUpdated?: string;
+}
+
+export const fetchPodcastsVideosFeed = (category?: string) =>
+  apiClient.get<PodcastsVideosFeedResponse>("/podcasts-videos/feed", {
+    params: category && category !== "All" ? { category } : undefined,
+  });
+
+
 
 // --- Newsletter Subscription API ---
 export interface NewsletterSubscriber {

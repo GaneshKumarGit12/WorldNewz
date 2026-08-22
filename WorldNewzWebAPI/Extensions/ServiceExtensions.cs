@@ -207,6 +207,7 @@ namespace WorldNewzWebAPI.Extensions
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewz.local)");
             });
             services.AddHttpClient<ShortVideoService>();
+            services.AddHttpClient<PodcastVideoService>();
             services.AddHttpClient<LiveStreamService>();
             services.AddHttpClient<WeatherService>();
             services.AddHttpClient<FacebookService>();
