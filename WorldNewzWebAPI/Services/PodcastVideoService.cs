@@ -103,8 +103,8 @@ namespace WorldNewzWebAPI.Services
             var query = GetCategorySearchQuery(category);
             var publishedAfter = DateTime.UtcNow.AddDays(-30).ToString("yyyy-MM-ddTHH:mm:ssZ");
 
-            // Query YouTube Search API for medium/long video podcasts & explainers
-            var url = $"https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q={Uri.EscapeDataString(query)}&maxResults=15&videoDuration=medium&publishedAfter={Uri.EscapeDataString(publishedAfter)}&order=relevance&key={_apiKey}";
+            // Query YouTube Search API for medium/long video podcasts & explainers that are strictly public and embeddable
+            var url = $"https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoEmbeddable=true&videoSyndicated=true&q={Uri.EscapeDataString(query)}&maxResults=15&videoDuration=medium&publishedAfter={Uri.EscapeDataString(publishedAfter)}&order=relevance&key={_apiKey}";
 
             using var request = new HttpRequestMessage(HttpMethod.Get, url);
             request.Headers.Add("User-Agent", "WorldNewzApp/1.0");
@@ -266,11 +266,11 @@ namespace WorldNewzWebAPI.Services
         {
             var featured = new PodcastVideoItem
             {
-                Id = "dp8PhLsUcFE",
+                Id = "PHe0bXAIuk8",
                 Title = "Weekly Wrap: Markets, Policy & the Stories Behind the Headlines",
                 Description = "Our editorial desk breaks down the week's biggest developments across politics, business, and technology, with context you won't get from the ticker alone.",
                 ThumbnailUrl = "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=1200&auto=format&fit=crop&q=80",
-                VideoUrl = "https://www.youtube-nocookie.com/embed/dp8PhLsUcFE?autoplay=1&enablejsapi=1&rel=0",
+                VideoUrl = "https://www.youtube-nocookie.com/embed/PHe0bXAIuk8?autoplay=1&enablejsapi=1&rel=0",
                 Category = "Business",
                 Duration = "18:42",
                 Desk = "WORLDNEWZS STUDIO",
@@ -285,11 +285,11 @@ namespace WorldNewzWebAPI.Services
             {
                 new PodcastVideoItem
                 {
-                    Id = "9Auq9mYxFEE",
+                    Id = "bixR-KIJKYM",
                     Title = "Inside the Committee Vote: What Changed Overnight",
                     Description = "A deep dive into the decisive committee vote, high-stakes negotiations, and what the policy shift means for upcoming legislation.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/9Auq9mYxFEE?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/bixR-KIJKYM?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Politics",
                     Duration = "9:14",
                     Desk = "WorldNewzs Desk",
@@ -301,11 +301,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "_yK2NfH_t6M",
+                    Id = "k2qgadSvNyU",
                     Title = "The Chip Supply Chain, Explained in Plain English",
                     Description = "Everything you need to know about advanced lithography, semiconductor fabrication plants, and the geopolitical battle for silicon supremacy.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/_yK2NfH_t6M?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/k2qgadSvNyU?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Technology",
                     Duration = "27:03",
                     Desk = "Tech Briefing",
@@ -317,11 +317,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "dp8PhLsUcFE_biz",
+                    Id = "YQ_xWvX1n9g",
                     Title = "Earnings Season Recap: Winners, Losers, Surprises",
                     Description = "Breaking down quarterly financial disclosures, executive forward guidance, and surprise winners in retail and cloud services.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/dp8PhLsUcFE?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/YQ_xWvX1n9g?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Business",
                     Duration = "6:48",
                     Desk = "Market Watch",
@@ -333,11 +333,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "21X5lGlDOfg",
+                    Id = "qT_hE3a_Q3g",
                     Title = "What the New Trial Data Actually Tells Us",
                     Description = "Leading medical researchers analyze phase 3 clinical results, statistical significance, and real-world therapeutic timelines.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/21X5lGlDOfg?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/qT_hE3a_Q3g?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Science & Health",
                     Duration = "33:12",
                     Desk = "Health Desk",
@@ -349,11 +349,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "vQK_p7x9bC0",
+                    Id = "VwQv_vM8tJc",
                     Title = "Transfer Window Roundup: The Deals That Matter",
                     Description = "An exhaustive breakdown of deadline day contracts, strategic player movements, and tactical rebalancing across major European leagues.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/vQK_p7x9bC0?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/VwQv_vM8tJc?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Sports",
                     Duration = "4:56",
                     Desk = "Sports Desk",
@@ -365,11 +365,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "M7lc1UVf-VE",
+                    Id = "fTt4B5yP1A8",
                     Title = "Rate Decisions and What They Mean for Your Wallet",
                     Description = "How central bank benchmark adjustments influence mortgage rates, personal borrowing, high-yield savings accounts, and equity valuations.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/fTt4B5yP1A8?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Money",
                     Duration = "21:37",
                     Desk = "Money Matters",
@@ -381,11 +381,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "5qap5aO4i9A",
+                    Id = "z-IR48Mb3W0",
                     Title = "AI Compute Clusters & Energy Demands: The Next Grid Crisis?",
                     Description = "Examining next-generation data centers, nuclear energy contracts, and how hyperscalers are securing continuous base-load power.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/5qap5aO4i9A?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/z-IR48Mb3W0?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Technology",
                     Duration = "15:20",
                     Desk = "Tech Briefing",
@@ -397,11 +397,11 @@ namespace WorldNewzWebAPI.Services
                 },
                 new PodcastVideoItem
                 {
-                    Id = "kJQP7kiw5Fk",
+                    Id = "_38JCsl3NxQ",
                     Title = "Global Trade Corridors: Shipping Disruptions & Supply Realities",
                     Description = "A tactical examination of maritime transit bottlenecks, container freight rates, and supply chain resilience measures.",
                     ThumbnailUrl = "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&auto=format&fit=crop&q=80",
-                    VideoUrl = "https://www.youtube-nocookie.com/embed/kJQP7kiw5Fk?autoplay=1&enablejsapi=1&rel=0",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/_38JCsl3NxQ?autoplay=1&enablejsapi=1&rel=0",
                     Category = "Politics",
                     Duration = "11:45",
                     Desk = "WorldNewzs Desk",
@@ -410,6 +410,22 @@ namespace WorldNewzWebAPI.Services
                     FormattedDate = "Aug 18",
                     PublishedAt = DateTime.UtcNow.AddDays(-4),
                     ViewsCount = "380K"
+                },
+                new PodcastVideoItem
+                {
+                    Id = "fN1cE01-nFU",
+                    Title = "The Architecture of Next-Gen Space Telescopes",
+                    Description = "Astronomers explain cryo-cooling mirrors, infrared spectrometry, and discovering early galaxy formations.",
+                    ThumbnailUrl = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+                    VideoUrl = "https://www.youtube-nocookie.com/embed/fN1cE01-nFU?autoplay=1&enablejsapi=1&rel=0",
+                    Category = "Science & Health",
+                    Duration = "19:05",
+                    Desk = "Health Desk",
+                    MediaType = "podcast",
+                    IsFeatured = false,
+                    FormattedDate = "Aug 18",
+                    PublishedAt = DateTime.UtcNow.AddDays(-4),
+                    ViewsCount = "430K"
                 }
             };
 

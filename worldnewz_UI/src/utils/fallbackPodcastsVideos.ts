@@ -1,11 +1,11 @@
 import type { PodcastEpisode } from "../api/apiClient";
 
 export const fallbackFeaturedPodcast: PodcastEpisode = {
-  id: "dp8PhLsUcFE",
+  id: "PHe0bXAIuk8",
   title: "Weekly Wrap: Markets, Policy & the Stories Behind the Headlines",
   description: "Our editorial desk breaks down the week's biggest developments across politics, business, and technology, with context you won't get from the ticker alone.",
   thumbnailUrl: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=1200&auto=format&fit=crop&q=80",
-  videoUrl: "https://www.youtube-nocookie.com/embed/dp8PhLsUcFE?autoplay=1&enablejsapi=1&rel=0",
+  videoUrl: "https://www.youtube-nocookie.com/embed/PHe0bXAIuk8?autoplay=1&enablejsapi=1&rel=0",
   category: "Business",
   duration: "18:42",
   desk: "WORLDNEWZS STUDIO",
@@ -18,11 +18,11 @@ export const fallbackFeaturedPodcast: PodcastEpisode = {
 
 export const fallbackPodcastEpisodes: PodcastEpisode[] = [
   {
-    id: "9Auq9mYxFEE",
+    id: "bixR-KIJKYM",
     title: "Inside the Committee Vote: What Changed Overnight",
     description: "A deep dive into the decisive committee vote, high-stakes negotiations, and what the policy shift means for upcoming legislation.",
     thumbnailUrl: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/9Auq9mYxFEE?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/bixR-KIJKYM?autoplay=1&enablejsapi=1&rel=0",
     category: "Politics",
     duration: "9:14",
     desk: "WorldNewzs Desk",
@@ -33,11 +33,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "320K"
   },
   {
-    id: "_yK2NfH_t6M",
+    id: "k2qgadSvNyU",
     title: "The Chip Supply Chain, Explained in Plain English",
     description: "Everything you need to know about advanced lithography, semiconductor fabrication plants, and the geopolitical battle for silicon supremacy.",
     thumbnailUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/_yK2NfH_t6M?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/k2qgadSvNyU?autoplay=1&enablejsapi=1&rel=0",
     category: "Technology",
     duration: "27:03",
     desk: "Tech Briefing",
@@ -48,11 +48,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "850K"
   },
   {
-    id: "dp8PhLsUcFE_biz",
+    id: "YQ_xWvX1n9g",
     title: "Earnings Season Recap: Winners, Losers, Surprises",
     description: "Breaking down quarterly financial disclosures, executive forward guidance, and surprise winners in retail and cloud services.",
     thumbnailUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/dp8PhLsUcFE?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/YQ_xWvX1n9g?autoplay=1&enablejsapi=1&rel=0",
     category: "Business",
     duration: "6:48",
     desk: "Market Watch",
@@ -63,11 +63,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "410K"
   },
   {
-    id: "21X5lGlDOfg",
+    id: "qT_hE3a_Q3g",
     title: "What the New Trial Data Actually Tells Us",
     description: "Leading medical researchers analyze phase 3 clinical results, statistical significance, and real-world therapeutic timelines.",
     thumbnailUrl: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/21X5lGlDOfg?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/qT_hE3a_Q3g?autoplay=1&enablejsapi=1&rel=0",
     category: "Science & Health",
     duration: "33:12",
     desk: "Health Desk",
@@ -78,11 +78,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "620K"
   },
   {
-    id: "vQK_p7x9bC0",
+    id: "VwQv_vM8tJc",
     title: "Transfer Window Roundup: The Deals That Matter",
     description: "An exhaustive breakdown of deadline day contracts, strategic player movements, and tactical rebalancing across major European leagues.",
     thumbnailUrl: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/vQK_p7x9bC0?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/VwQv_vM8tJc?autoplay=1&enablejsapi=1&rel=0",
     category: "Sports",
     duration: "4:56",
     desk: "Sports Desk",
@@ -93,11 +93,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "930K"
   },
   {
-    id: "M7lc1UVf-VE",
+    id: "fTt4B5yP1A8",
     title: "Rate Decisions and What They Mean for Your Wallet",
     description: "How central bank benchmark adjustments influence mortgage rates, personal borrowing, high-yield savings accounts, and equity valuations.",
     thumbnailUrl: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/fTt4B5yP1A8?autoplay=1&enablejsapi=1&rel=0",
     category: "Money",
     duration: "21:37",
     desk: "Money Matters",
@@ -108,11 +108,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "740K"
   },
   {
-    id: "5qap5aO4i9A",
+    id: "z-IR48Mb3W0",
     title: "AI Compute Clusters & Energy Demands: The Next Grid Crisis?",
     description: "Examining next-generation data centers, nuclear energy contracts, and how hyperscalers are securing continuous base-load power.",
     thumbnailUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/5qap5aO4i9A?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/z-IR48Mb3W0?autoplay=1&enablejsapi=1&rel=0",
     category: "Technology",
     duration: "15:20",
     desk: "Tech Briefing",
@@ -123,11 +123,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "510K"
   },
   {
-    id: "kJQP7kiw5Fk",
+    id: "_38JCsl3NxQ",
     title: "Global Trade Corridors: Shipping Disruptions & Supply Realities",
     description: "A tactical examination of maritime transit bottlenecks, container freight rates, and supply chain resilience measures.",
     thumbnailUrl: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/kJQP7kiw5Fk?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/_38JCsl3NxQ?autoplay=1&enablejsapi=1&rel=0",
     category: "Politics",
     duration: "11:45",
     desk: "WorldNewzs Desk",
@@ -138,11 +138,11 @@ export const fallbackPodcastEpisodes: PodcastEpisode[] = [
     viewsCount: "380K"
   },
   {
-    id: "gU2p1aWn-uI",
+    id: "fN1cE01-nFU",
     title: "The Architecture of Next-Gen Space Telescopes",
     description: "Astronomers explain cryo-cooling mirrors, infrared spectrometry, and discovering early galaxy formations.",
     thumbnailUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
-    videoUrl: "https://www.youtube-nocookie.com/embed/gU2p1aWn-uI?autoplay=1&enablejsapi=1&rel=0",
+    videoUrl: "https://www.youtube-nocookie.com/embed/fN1cE01-nFU?autoplay=1&enablejsapi=1&rel=0",
     category: "Science & Health",
     duration: "19:05",
     desk: "Health Desk",

@@ -23,6 +23,8 @@ import CheckIcon from "@mui/icons-material/Check";
 import PodcastsIcon from "@mui/icons-material/Podcasts";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 import { fetchPodcastsVideosFeed } from "../api/apiClient";
 import type { PodcastEpisode } from "../api/apiClient";
@@ -32,6 +34,27 @@ import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { BreadcrumbNav } from "../components/BreadcrumbNav";
 import { CategoryEditorial } from "../components/CategoryEditorial";
 import { useColorMode } from "../context/ThemeContext";
+
+const getCleanEmbedUrl = (raw: string): string => {
+  if (!raw) return "https://www.youtube-nocookie.com/embed/PHe0bXAIuk8?autoplay=1&enablejsapi=1&rel=0";
+  if (/^[a-zA-Z0-9_-]{11}$/.test(raw)) {
+    return `https://www.youtube-nocookie.com/embed/${raw}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1`;
+  }
+  const match = raw.match(/(?:embed\/|v=|vi\/|youtu\.be\/|\/v\/)([a-zA-Z0-9_-]{11})/);
+  if (match && match[1]) {
+    return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1`;
+  }
+  if (raw.startsWith("http")) {
+    return raw;
+  }
+  return `https://www.youtube-nocookie.com/embed/${raw}?autoplay=1&enablejsapi=1&rel=0`;
+};
+
+const getWatchOnYouTubeUrl = (raw: string): string => {
+  const match = raw ? raw.match(/(?:embed\/|v=|vi\/|youtu\.be\/|\/v\/)([a-zA-Z0-9_-]{11})/) : null;
+  const id = match && match[1] ? match[1] : (/^[a-zA-Z0-9_-]{11}$/.test(raw) ? raw : "PHe0bXAIuk8");
+  return `https://www.youtube.com/watch?v=${id}`;
+};
 
 const CATEGORIES = [
   "All",
@@ -922,7 +945,7 @@ const PodcastsVideos: React.FC = () => {
               }}
             >
               <iframe
-                src={`${activeModalItem.videoUrl}?autoplay=1&enablejsapi=1&rel=0`}
+                src={getCleanEmbedUrl(activeModalItem.videoUrl || activeModalItem.id)}
                 title={activeModalItem.title}
                 style={{
                   position: "absolute",
@@ -1013,7 +1036,32 @@ const PodcastsVideos: React.FC = () => {
                   </Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
+                  <Button
+                    size="small"
+                    component="a"
+                    href={getWatchOnYouTubeUrl(activeModalItem.videoUrl || activeModalItem.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    startIcon={<YouTubeIcon sx={{ color: "#ef4444 !important" }} />}
+                    endIcon={<LaunchIcon sx={{ fontSize: "0.85rem !important" }} />}
+                    sx={{
+                      color: "#f8fafc",
+                      bgcolor: "rgba(239, 68, 68, 0.12)",
+                      borderColor: "rgba(239, 68, 68, 0.35)",
+                      fontSize: "0.75rem",
+                      textTransform: "none",
+                      fontWeight: 700,
+                      "&:hover": {
+                        bgcolor: "rgba(239, 68, 68, 0.25)",
+                        borderColor: "#ef4444",
+                      },
+                    }}
+                    variant="outlined"
+                  >
+                    Watch on YouTube
+                  </Button>
+
                   <Tooltip title={copiedLink ? "Link Copied!" : "Copy Link"}>
                     <Button
                       size="small"
