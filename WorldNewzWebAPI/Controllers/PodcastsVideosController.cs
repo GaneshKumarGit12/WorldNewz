@@ -26,12 +26,18 @@ namespace WorldNewzWebAPI.Controllers
         [HttpGet("/api/podcastsvideos")]
         public async Task<IActionResult> GetPodcastsVideosFeed([FromQuery] string? category)
         {
-            var feed = await _podcastVideoService.GetPodcastsVideosFeedAsync(category);
-
-            // Allow edge and browser caching for 15 minutes (900 seconds) to conserve bandwidth
-            Response.Headers.CacheControl = "public, max-age=900";
-
-            return Ok(feed);
+            try
+            {
+                var feed = await _podcastVideoService.GetPodcastsVideosFeedAsync(category);
+                Response.Headers.CacheControl = "public, max-age=900";
+                return Ok(feed);
+            }
+            catch (Exception)
+            {
+                // Fallback guarantee: Never return 500 error, return clean category feed
+                var fallback = PodcastVideoService.GetFallbackFeed(category ?? "All");
+                return Ok(fallback);
+            }
         }
     }
 }

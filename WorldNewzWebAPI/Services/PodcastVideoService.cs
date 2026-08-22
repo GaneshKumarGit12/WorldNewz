@@ -107,8 +107,8 @@ namespace WorldNewzWebAPI.Services
             var url = $"https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoEmbeddable=true&videoSyndicated=true&q={Uri.EscapeDataString(query)}&maxResults=15&videoDuration=medium&publishedAfter={Uri.EscapeDataString(publishedAfter)}&order=relevance&key={_apiKey}";
 
             using var request = new HttpRequestMessage(HttpMethod.Get, url);
-            request.Headers.Add("User-Agent", "WorldNewzApp/1.0");
-            request.Headers.Add("Referer", "https://worldnewzs.in/");
+            request.Headers.TryAddWithoutValidation("User-Agent", "WorldNewzApp/1.0");
+            request.Headers.TryAddWithoutValidation("Referer", "https://worldnewzs.in/");
 
             using var response = await _httpClient.SendAsync(request);
             if (!response.IsSuccessStatusCode)

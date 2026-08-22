@@ -1,4 +1,5 @@
 import axios from "axios";
+import { fallbackFeaturedPodcast, fallbackPodcastEpisodes } from "../utils/fallbackPodcastsVideos";
 
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "https://worldnewz.onrender.com/api";
 
@@ -784,10 +785,27 @@ export interface PodcastsVideosFeedResponse {
   lastUpdated?: string;
 }
 
-export const fetchPodcastsVideosFeed = (category?: string) =>
-  apiClient.get<PodcastsVideosFeedResponse>("/podcasts-videos/feed", {
-    params: category && category !== "All" ? { category } : undefined,
-  });
+export const fetchPodcastsVideosFeed = async (category?: string): Promise<{ data: PodcastsVideosFeedResponse }> => {
+  try {
+    const res = await apiClient.get<PodcastsVideosFeedResponse>("/podcasts-videos/feed", {
+      params: category && category !== "All" ? { category } : undefined,
+    });
+    return res;
+  } catch {
+    const filteredEpisodes = !category || category === "All"
+      ? fallbackPodcastEpisodes
+      : fallbackPodcastEpisodes.filter(e => e.category.toLowerCase().includes(category.toLowerCase()));
+
+    return {
+      data: {
+        status: "success",
+        featured: fallbackFeaturedPodcast,
+        episodes: filteredEpisodes.length > 0 ? filteredEpisodes : fallbackPodcastEpisodes,
+        lastUpdated: new Date().toISOString()
+      }
+    };
+  }
+};
 
 
 
