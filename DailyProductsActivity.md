@@ -243,5 +243,10 @@ const startIndex = fourHourBlock % list.length;
    - Every daily link resolution run strictly consults `scratch/seen_asins.json` and existing seed blocks in `AmazonProductService.cs` before creating new records.
    - Any previously registered ASIN is skipped automatically to avoid duplicate card renders on frontend grids and redundant Pinterest pin publications.
 
+10. **Image HTTP 200 Pre-Flight Verification**:
+   - Before committing any batch, run a pre-flight test (`scratch/test_all_product_images.py`) verifying that every extracted `imageUrl` returns `HTTP 200 OK` with `Content-Type: image/*`.
+   - If an Amazon image ID was extracted from intermediate search or dynamic scripts, use a mobile CookieJar session lookup (`scratch/fetch_exact_listing_images.py`) to fetch the exact primary listing image (`hiRes` or `data-old-hires`) to prevent blank product cards on the frontend.
+
+
 
 

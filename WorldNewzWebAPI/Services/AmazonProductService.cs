@@ -13595,7 +13595,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0FC1YDXRS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61t7qK6+7VL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71X9DeiwmlL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -13625,7 +13625,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Lifestyle",
                 ProductUrl = "https://www.amazon.in/dp/B0HB5C5ZMN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61NlM3r30sL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/51OYQt1+CnL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -13640,7 +13640,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0D8G58Q18?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/71u9sW4f-cL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71R6r-3i91L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -13655,7 +13655,7 @@ namespace WorldNewzWebAPI.Services
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0H25P6QKJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/61Rz7n6M1fL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UXbjAbUJL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
