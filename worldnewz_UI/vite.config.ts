@@ -64,7 +64,10 @@ export default defineConfig({
             if (id.includes('react') || id.includes('scheduler')) {
               return 'vendor-react';
             }
-            if (id.includes('@mui/material') || id.includes('@mui/icons-material') || id.includes('@mui/system')) {
+            if (id.includes('@mui/icons-material')) {
+              return 'vendor-mui-icons';
+            }
+            if (id.includes('@mui/material') || id.includes('@mui/system')) {
               return 'vendor-mui';
             }
             if (id.includes('@mui/x-data-grid')) {

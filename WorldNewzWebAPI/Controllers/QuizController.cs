@@ -27,38 +27,31 @@ namespace WorldNewzWebAPI.Controllers
 
         private List<QuizQuestion> LoadQuestionsPool()
         {
-            const string cacheKey = "QuizQuestionsPool";
-            List<QuizQuestion> questions;
+            const string cacheKey = "QuizMergedQuestionsPool";
             if (_cache.TryGetValue(cacheKey, out object? cachedObj) && cachedObj is List<QuizQuestion> cachedQuestions)
             {
-                questions = new List<QuizQuestion>(cachedQuestions);
+                return new List<QuizQuestion>(cachedQuestions);
             }
-            else
+
+            var questions = new List<QuizQuestion>();
+
+            try
             {
-                try
+                var path = Path.Combine(AppContext.BaseDirectory, "quiz.json");
+                if (!System.IO.File.Exists(path))
                 {
-                    var path = Path.Combine(AppContext.BaseDirectory, "quiz.json");
-                    if (!System.IO.File.Exists(path))
-                    {
-                        path = Path.Combine(Directory.GetCurrentDirectory(), "quiz.json");
-                    }
-                    if (System.IO.File.Exists(path))
-                    {
-                        var json = System.IO.File.ReadAllText(path);
-                        var parsed = JsonSerializer.Deserialize<List<QuizQuestion>>(json, Shared.JsonSettings.CaseInsensitiveOptions);
-                        questions = parsed ?? new List<QuizQuestion>();
-                    }
-                    else
-                    {
-                        questions = new List<QuizQuestion>();
-                    }
-                    _cache.Set(cacheKey, questions, TimeSpan.FromHours(1));
+                    path = Path.Combine(Directory.GetCurrentDirectory(), "quiz.json");
                 }
-                catch (Exception ex)
+                if (System.IO.File.Exists(path))
                 {
-                    Console.WriteLine($"⚠️ Error loading quiz.json: {ex.Message}");
-                    questions = new List<QuizQuestion>();
+                    var json = System.IO.File.ReadAllText(path);
+                    var parsed = JsonSerializer.Deserialize<List<QuizQuestion>>(json, Shared.JsonSettings.CaseInsensitiveOptions);
+                    if (parsed != null) questions.AddRange(parsed);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Error loading quiz.json: {ex.Message}");
             }
 
             // Now merge dynamic questions from questions.json
@@ -100,6 +93,7 @@ namespace WorldNewzWebAPI.Controllers
                 Console.WriteLine($"⚠️ Error merging questions.json: {ex.Message}");
             }
 
+            _cache.Set(cacheKey, questions, TimeSpan.FromMinutes(10));
             return questions;
         }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, Suspense, lazy } from "react";
 import { useOutletContext, Link as RouterLink, useNavigate } from "react-router-dom";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
@@ -22,17 +22,19 @@ import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
 import { deduplicateArticles } from "../utils/deduplicate";
 import { formatTimeAgoLong } from "../utils/formatTime";
-import { AffiliateDeals } from "./AffiliateDeals";
-import { CategoryEditorial } from "./CategoryEditorial";
-import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
-import { PersonalizedTopicHub } from "./PersonalizedTopicHub";
 import { TopStoriesSection } from "./TopStoriesSection";
-import { ShoppingWidget } from "./ShoppingWidget";
-import { WatchlistWidget } from "./WatchlistWidget";
-import { WeatherWidget } from "./WeatherWidget";
 import { HeroLeadMedia } from "./common/HeroLeadMedia";
-import { InternalLinkHub } from "./InternalLinkHub";
 import { getCategoryFallbackArticles, fallbackDiscoverArticles } from "../utils/fallbackArticles";
+
+// Lazy load below-the-fold & sidebar widgets to minimize initial Category page bundle
+const AffiliateDeals = lazy(() => import("./AffiliateDeals").then(m => ({ default: m.AffiliateDeals })));
+const CategoryEditorial = lazy(() => import("./CategoryEditorial").then(m => ({ default: m.CategoryEditorial })));
+const SuggestedForYouWidget = lazy(() => import("./SuggestedForYouWidget").then(m => ({ default: m.SuggestedForYouWidget })));
+const PersonalizedTopicHub = lazy(() => import("./PersonalizedTopicHub").then(m => ({ default: m.PersonalizedTopicHub })));
+const ShoppingWidget = lazy(() => import("./ShoppingWidget").then(m => ({ default: m.ShoppingWidget })));
+const WatchlistWidget = lazy(() => import("./WatchlistWidget").then(m => ({ default: m.WatchlistWidget })));
+const WeatherWidget = lazy(() => import("./WeatherWidget").then(m => ({ default: m.WeatherWidget })));
+const InternalLinkHub = lazy(() => import("./InternalLinkHub").then(m => ({ default: m.InternalLinkHub })));
 
 interface CategoryPageProps {
   categoryKey: string;
@@ -562,20 +564,24 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
               />
 
               {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB (DRIVEN BY TOPIC SELECTIONS) */}
-              <PersonalizedTopicHub
-                initialTopicId={selectedTopicId}
-                followedTopicIds={followedTopics}
-                onToggleFollow={(id) => {
-                  setFollowedTopics((prev) =>
-                    prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-                  );
-                }}
-              />
+              <Suspense fallback={<Box sx={{ minHeight: 180 }} />}>
+                <PersonalizedTopicHub
+                  initialTopicId={selectedTopicId}
+                  followedTopicIds={followedTopics}
+                  onToggleFollow={(id) => {
+                    setFollowedTopics((prev) =>
+                      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+                    );
+                  }}
+                />
+              </Suspense>
 
               {/* 4. AFFILIATE DEALS FOR COMMERCE CATEGORIES */}
               {["technology", "business", "science-health", "shopping", "money"].includes(categoryKey) && (
                 <Box sx={{ mb: 5 }}>
-                  <AffiliateDeals category={categoryKey} />
+                  <Suspense fallback={null}>
+                    <AffiliateDeals category={categoryKey} />
+                  </Suspense>
                 </Box>
               )}
 
@@ -629,10 +635,14 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
               </Box>
 
               {/* 6. CATEGORY SPECIFIC EDITORIAL PLAYBOOK */}
-              <CategoryEditorial categoryKey={categoryKey} />
+              <Suspense fallback={null}>
+                <CategoryEditorial categoryKey={categoryKey} />
+              </Suspense>
 
               {/* 7. CROSS-CATEGORY INTERNAL LINKING HUB */}
-              <InternalLinkHub currentCategory={categoryKey} />
+              <Suspense fallback={null}>
+                <InternalLinkHub currentCategory={categoryKey} />
+              </Suspense>
             </SectionStatus>
           </Box>
 
@@ -707,17 +717,19 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 </Tabs>
               </Box>
 
-              <SuggestedForYouWidget 
-                onTopicsChange={setFollowedTopics} 
-                onTopicSelect={(topicId) => {
-                  setSelectedTopicId(topicId);
-                  const hubEl = document.getElementById("personalized-topic-hub");
-                  if (hubEl) {
-                    hubEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }
-                }}
-                activeTopicId={selectedTopicId}
-              />
+              <Suspense fallback={null}>
+                <SuggestedForYouWidget 
+                  onTopicsChange={setFollowedTopics} 
+                  onTopicSelect={(topicId) => {
+                    setSelectedTopicId(topicId);
+                    const hubEl = document.getElementById("personalized-topic-hub");
+                    if (hubEl) {
+                      hubEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  }}
+                  activeTopicId={selectedTopicId}
+                />
+              </Suspense>
 
               <Box sx={{ mt: 2 }}>
                 {(personalTab === "recommended" ? recommendedArticles : trendingArticles).map((art, idx) => (
@@ -886,7 +898,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 </Typography>
               </Box>
 
-              <ShoppingWidget />
+              <Suspense fallback={null}>
+                <ShoppingWidget />
+              </Suspense>
             </Paper>
 
             {/* 4. WATCHLIST & WEATHER DATA WIDGETS */}
@@ -911,7 +925,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
               >
                 Market Watchlist
               </Typography>
-              <WatchlistWidget />
+              <Suspense fallback={null}>
+                <WatchlistWidget />
+              </Suspense>
             </Paper>
 
             <Paper
@@ -923,7 +939,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                 borderRadius: "3px",
               }}
             >
-              <WeatherWidget />
+              <Suspense fallback={null}>
+                <WeatherWidget />
+              </Suspense>
             </Paper>
           </Box>
         </Box>

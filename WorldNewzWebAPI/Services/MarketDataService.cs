@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Caching.Memory;
 using WorldNewzWebAPI.Models;
 
 namespace WorldNewzWebAPI.Services
@@ -13,14 +14,32 @@ namespace WorldNewzWebAPI.Services
     {
         private readonly HttpClient _httpClient;
         private readonly string? _apiKey;
+        private readonly IMemoryCache _cache;
+        private static readonly TimeSpan CacheDuration = TimeSpan.FromSeconds(60);
 
-        public MarketDataService(HttpClient httpClient, IConfiguration config)
+        public MarketDataService(HttpClient httpClient, IConfiguration config, IMemoryCache cache)
         {
             _httpClient = httpClient;
             _apiKey = Environment.GetEnvironmentVariable("MARKETDATA_API_KEY") ?? config["MARKETDATA_API_KEY"];
+            _cache = cache;
         }
 
         public async Task<List<StockDto>> GetStocksAsync(string exchange)
+        {
+            string cleanExchange = (exchange ?? "NYSE").Trim().ToUpperInvariant();
+            string cacheKey = $"MarketData_Stocks_{cleanExchange}";
+
+            if (_cache.TryGetValue(cacheKey, out List<StockDto>? cachedStocks) && cachedStocks != null)
+            {
+                return cachedStocks;
+            }
+
+            var stocks = await FetchStocksInternalAsync(cleanExchange);
+            _cache.Set(cacheKey, stocks, CacheDuration);
+            return stocks;
+        }
+
+        private async Task<List<StockDto>> FetchStocksInternalAsync(string exchange)
         {
             // The tickers we want to query from marketdata.app
             // Since marketdata.app only supports US markets, we query US tickers and map/convert them for BSE and NSE

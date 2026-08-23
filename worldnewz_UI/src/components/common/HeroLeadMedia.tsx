@@ -124,6 +124,9 @@ export const HeroLeadMedia: React.FC<HeroLeadMediaProps> = ({
             alt={title}
             loading="eager"
             fetchPriority="high"
+            decoding="async"
+            width={800}
+            height={450}
             style={{
               width: "100%",
               height: "100%",

@@ -15,11 +15,11 @@ import { SearchBar } from "./components/layout/SearchBar";
 import { BackToTop } from "./components/layout/BackToTop";
 import { PushNotificationBanner } from "./components/layout/PushNotificationBanner";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
-import { WorldNewzAssistant } from "./components/layout/WorldNewzAssistant";
 
-// Lazy load footer and cookie consent
+// Lazy load non-critical site-wide widgets (footer, cookie consent, AI assistant)
 const Footer = lazy(() => import("./components/Footer"));
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
+const WorldNewzAssistant = lazy(() => import("./components/layout/WorldNewzAssistant").then(m => ({ default: m.WorldNewzAssistant })));
 
 const App: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -306,8 +306,10 @@ const App: React.FC = () => {
       {/* Back to Top */}
       <BackToTop show={showBackToTop} onClick={handleBackToTop} />
 
-      {/* Global Site-Wide Assistant Widget */}
-      <WorldNewzAssistant />
+      {/* Global Site-Wide Assistant Widget (Loaded asynchronously) */}
+      <Suspense fallback={null}>
+        <WorldNewzAssistant />
+      </Suspense>
 
       {/* Subscription Status Alerts */}
       <Snackbar

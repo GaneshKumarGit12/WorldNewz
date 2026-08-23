@@ -39,7 +39,7 @@ namespace WorldNewzWebAPI.Extensions
                         }
                         else if (!path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
                         {
-                            context.Response.Headers["Cache-Control"] = "public,max-age=600";
+                            context.Response.Headers["Cache-Control"] = "public, max-age=300, s-maxage=600, stale-while-revalidate=60";
                         }
                     }
                 }

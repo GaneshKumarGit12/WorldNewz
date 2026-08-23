@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace WorldNewzWebAPI.Controllers
         private readonly WorldNewsDbContext _context;
         private readonly UserPollsDbContext _userDb;
         private readonly IHubContext<PollsHub> _hubContext;
+        private readonly IMemoryCache _cache;
 
         private static readonly Dictionary<string, List<string[]>> StaticCategoryPolls = new Dictionary<string, List<string[]>>(StringComparer.OrdinalIgnoreCase)
         {
@@ -92,17 +94,24 @@ namespace WorldNewzWebAPI.Controllers
             }
         };
 
-        public PollsController(WorldNewsDbContext context, UserPollsDbContext userDb, IHubContext<PollsHub> hubContext)
+        public PollsController(WorldNewsDbContext context, UserPollsDbContext userDb, IHubContext<PollsHub> hubContext, IMemoryCache cache)
         {
             _context = context;
             _userDb = userDb;
             _hubContext = hubContext;
+            _cache = cache;
         }
 
         // GET: api/polls
         [HttpGet]
         public async Task<IActionResult> GetActivePolls()
         {
+            const string cacheKey = "ActivePollsList";
+            if (_cache.TryGetValue(cacheKey, out List<Poll>? cachedPolls) && cachedPolls != null)
+            {
+                return Ok(cachedPolls);
+            }
+
             try
             {
                 var allPolls = await _context.Polls
@@ -130,6 +139,7 @@ namespace WorldNewzWebAPI.Controllers
                     .Take(5)
                     .ToList();
 
+                _cache.Set(cacheKey, randomized, TimeSpan.FromSeconds(60));
                 return Ok(randomized);
             }
             catch (Exception ex)
@@ -252,6 +262,7 @@ namespace WorldNewzWebAPI.Controllers
             // Increment votes securely via transaction/SaveChanges
             option.Votes += 1;
             await _context.SaveChangesAsync();
+            _cache.Remove("ActivePollsList");
 
             // Calculate updated results
             int totalVotes = poll.Options.Sum(o => o.Votes);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, Suspense, lazy } from "react";
 import { useOutletContext, Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { fetchDiscover } from "../api/apiClient";
@@ -19,18 +19,20 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Paper from "@mui/material/Paper";
-import { WatchlistWidget } from "./WatchlistWidget";
-import { ShoppingWidget } from "./ShoppingWidget";
-import { WeatherWidget } from "./WeatherWidget";
-import { SuggestedForYouWidget } from "./SuggestedForYouWidget";
-import { PersonalizedTopicHub } from "./PersonalizedTopicHub";
 import { TopStoriesSection } from "./TopStoriesSection";
-import { TrendingShortVideos } from "./TrendingShortVideos";
 import { HeroLeadMedia } from "./common/HeroLeadMedia";
-import { MoreNewsSection } from "./MoreNewsSection";
-import { InternalLinkHub } from "./InternalLinkHub";
 import { formatTimeAgoLong } from "../utils/formatTime";
 import { fallbackDiscoverArticles } from "../utils/fallbackArticles";
+
+// Lazy load below-the-fold widgets to accelerate first contentful paint
+const WatchlistWidget = lazy(() => import("./WatchlistWidget").then(m => ({ default: m.WatchlistWidget })));
+const ShoppingWidget = lazy(() => import("./ShoppingWidget").then(m => ({ default: m.ShoppingWidget })));
+const WeatherWidget = lazy(() => import("./WeatherWidget").then(m => ({ default: m.WeatherWidget })));
+const SuggestedForYouWidget = lazy(() => import("./SuggestedForYouWidget").then(m => ({ default: m.SuggestedForYouWidget })));
+const PersonalizedTopicHub = lazy(() => import("./PersonalizedTopicHub").then(m => ({ default: m.PersonalizedTopicHub })));
+const TrendingShortVideos = lazy(() => import("./TrendingShortVideos").then(m => ({ default: m.TrendingShortVideos })));
+const MoreNewsSection = lazy(() => import("./MoreNewsSection").then(m => ({ default: m.MoreNewsSection })));
+const InternalLinkHub = lazy(() => import("./InternalLinkHub").then(m => ({ default: m.InternalLinkHub })));
 
 const Discover: React.FC = () => {
   const outletContext = useOutletContext<{ searchTerm?: string } | undefined>();
@@ -459,19 +461,23 @@ const Discover: React.FC = () => {
               />
 
               {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB (DRIVEN BY TOPIC SELECTIONS) */}
-              <PersonalizedTopicHub
-                initialTopicId={selectedTopicId}
-                followedTopicIds={followedTopics}
-                onToggleFollow={(id) => {
-                  setFollowedTopics((prev) =>
-                    prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-                  );
-                }}
-              />
+              <Suspense fallback={<Box sx={{ minHeight: 180 }} />}>
+                <PersonalizedTopicHub
+                  initialTopicId={selectedTopicId}
+                  followedTopicIds={followedTopics}
+                  onToggleFollow={(id) => {
+                    setFollowedTopics((prev) =>
+                      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+                    );
+                  }}
+                />
+              </Suspense>
 
               {/* 4. EDITORIAL VIDEO RAIL */}
               <Box sx={{ mb: 5 }}>
-                <TrendingShortVideos />
+                <Suspense fallback={<Box sx={{ minHeight: 280 }} />}>
+                  <TrendingShortVideos />
+                </Suspense>
               </Box>
 
               {/* 5. MORE GLOBAL NEWS SCANNING GRID */}
@@ -529,10 +535,14 @@ const Discover: React.FC = () => {
               )}
 
               {/* 6. AI MORE NEWS MULTI-CATEGORY BRIEFINGS */}
-              <MoreNewsSection />
+              <Suspense fallback={null}>
+                <MoreNewsSection />
+              </Suspense>
 
               {/* 7. CROSS-CATEGORY INTERNAL LINKING HUB */}
-              <InternalLinkHub />
+              <Suspense fallback={null}>
+                <InternalLinkHub />
+              </Suspense>
 
               {isFetchingMore && (
                 <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
@@ -613,11 +623,13 @@ const Discover: React.FC = () => {
                 </Tabs>
               </Box>
 
-              <SuggestedForYouWidget
-                onTopicsChange={setFollowedTopics}
-                onTopicSelect={setSelectedTopicId}
-                activeTopicId={selectedTopicId}
-              />
+              <Suspense fallback={null}>
+                <SuggestedForYouWidget
+                  onTopicsChange={setFollowedTopics}
+                  onTopicSelect={setSelectedTopicId}
+                  activeTopicId={selectedTopicId}
+                />
+              </Suspense>
 
               <Box sx={{ mt: 2 }}>
                 {(personalTab === "recommended" ? recommendedArticles : trendingArticles).map((art, idx) => (
@@ -786,7 +798,9 @@ const Discover: React.FC = () => {
                 </Typography>
               </Box>
 
-              <ShoppingWidget />
+              <Suspense fallback={null}>
+                <ShoppingWidget />
+              </Suspense>
             </Paper>
 
             {/* 4. WATCHLIST & WEATHER DATA WIDGETS */}
@@ -811,7 +825,9 @@ const Discover: React.FC = () => {
               >
                 Market Watchlist
               </Typography>
-              <WatchlistWidget />
+              <Suspense fallback={null}>
+                <WatchlistWidget />
+              </Suspense>
             </Paper>
 
             <Paper
@@ -823,7 +839,9 @@ const Discover: React.FC = () => {
                 borderRadius: "3px",
               }}
             >
-              <WeatherWidget />
+              <Suspense fallback={null}>
+                <WeatherWidget />
+              </Suspense>
             </Paper>
           </Box>
         </Box>

@@ -252,6 +252,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
             image={imgSrc || "/placeholder.svg"}
             alt={article.title}
             loading={loading}
+            decoding="async"
             fetchPriority={loading === "eager" ? "high" : undefined}
             sx={{
               position: "absolute",
