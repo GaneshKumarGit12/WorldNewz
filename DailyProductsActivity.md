@@ -239,4 +239,9 @@ const startIndex = fourHourBlock % list.length;
    - The hero "Deal of the Day" spotlight card calculates its featured item using daily 24-hour epoch blocks (`Math.floor(Date.now() / (24 * 60 * 60 * 1000))`) cycling across top discount deals.
    - This guarantees a fresh spotlighted deal each day automatically.
 
+9. **Deduplication Protocol**:
+   - Every daily link resolution run strictly consults `scratch/seen_asins.json` and existing seed blocks in `AmazonProductService.cs` before creating new records.
+   - Any previously registered ASIN is skipped automatically to avoid duplicate card renders on frontend grids and redundant Pinterest pin publications.
+
+
 
