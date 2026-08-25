@@ -13,64 +13,60 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 urls = [
-    "https://link.amazon/B0cVpjVSa",
-    "https://link.amazon/B0iNz30in",
-    "https://link.amazon/B0hzIFRHL",
-    "https://link.amazon/B05RnRtgX",
-    "https://link.amazon/B01L4kagg",
-    "https://link.amazon/B00K8WA0f",
-    "https://link.amazon/B0h0nOdta",
-    "https://link.amazon/B01K9BC8j",
-    "https://link.amazon/B0jettT3d",
-    "https://link.amazon/B0hHGIT8w",
-    "https://link.amazon/B0dWi3G7d",
-    "https://link.amazon/B0hxXEINj",
-    "https://link.amazon/B0dvrBLAy",
-    "https://link.amazon/B0aK7DLAK",
-    "https://link.amazon/B0bLp7s1f",
-    "https://link.amazon/B0eqz7kDH",
-    "https://link.amazon/B09logaOp",
-    "https://link.amazon/B091Fqyjd",
-    "https://link.amazon/B05SNyg9C",
-    "https://link.amazon/B05EzroMj",
-    "https://link.amazon/B01ExD2Re",
-    "https://link.amazon/B0adeVOSf",
-    "https://link.amazon/B09arWI1f",
-    "https://link.amazon/B0f4RjvdQ",
-    "https://link.amazon/B0guCa70V",
-    "https://link.amazon/B05JxxWEf",
-    "https://link.amazon/B0aj6ksM6",
-    "https://link.amazon/B07tTxVOT",
-    "https://link.amazon/B02AR88mt",
-    "https://link.amazon/B061bsViT",
-    "https://link.amazon/B0ctsEldC",
-    "https://link.amazon/B09x1TEcO",
-    "https://link.amazon/B00HMFJ4e",
-    "https://link.amazon/B06gX9TrK",
-    "https://link.amazon/B0iH7mzgc",
-    "https://link.amazon/B00MweXwG",
-    "https://link.amazon/B08VFkYcW",
-    "https://link.amazon/B0hOocVAl",
-    "https://link.amazon/B08mo9DOb",
-    "https://link.amazon/B0fphtqD9",
-    "https://link.amazon/B02F0TFp5",
-    "https://link.amazon/B0hLyiOsQ",
-    "https://link.amazon/B07NdmUrT",
-    "https://link.amazon/B0gdBZSZd",
-    "https://link.amazon/B031NkpEl",
-    "https://link.amazon/B008TeQ2j",
-    "https://link.amazon/B05Wd4ndw",
-    "https://link.amazon/B03sRbGa5",
-    "https://link.amazon/B01dX0nnq",
-    "https://link.amazon/B0bzV1gKe",
-    "https://link.amazon/B0bdaF7BK",
-    "https://link.amazon/B0hqb3Iuc",
-    "https://link.amazon/B0bP1kQjV",
-    "https://link.amazon/B0erIzVeh",
-    "https://link.amazon/B0hGHoJYP",
-    "https://link.amazon/B0cFg8KPK",
-    "https://link.amazon/B0ftNA3Uq",
-    "https://link.amazon/B0dtGZuXT"
+    "https://link.amazon/B05ZwBKPn",
+    "https://link.amazon/B00g7pDvR",
+    "https://link.amazon/B0hqbBXTU",
+    "https://link.amazon/B0i2ps6bS",
+    "https://link.amazon/B03hnKgTz",
+    "https://link.amazon/B0i8CtXZg",
+    "https://link.amazon/B01G5PLHO",
+    "https://link.amazon/B05k6NO3U",
+    "https://link.amazon/B0eOj8wfe",
+    "https://link.amazon/B0frjh73h",
+    "https://link.amazon/B01zEwYJB",
+    "https://link.amazon/B01AzW4fU",
+    "https://link.amazon/B05N7XAG2",
+    "https://link.amazon/B0ajK4zJF",
+    "https://link.amazon/B01MiwfB7",
+    "https://link.amazon/B09ZC0iZR",
+    "https://link.amazon/B04BQzgJA",
+    "https://link.amazon/B05J4Hi0f",
+    "https://link.amazon/B0akkiSsc",
+    "https://link.amazon/B02vWqL6U",
+    "https://link.amazon/B0iYNWXAx",
+    "https://link.amazon/B09xFFNrQ",
+    "https://link.amazon/B04akCIEc",
+    "https://link.amazon/B0hv1UFam",
+    "https://link.amazon/B0469SE98",
+    "https://link.amazon/B091bhOtU",
+    "https://link.amazon/B04pMqGzt",
+    "https://link.amazon/B0iFkfbOH",
+    "https://link.amazon/B0bhf45g4",
+    "https://link.amazon/B0beWnx1u",
+    "https://link.amazon/B02IJohRB",
+    "https://link.amazon/B05Br6EsI",
+    "https://link.amazon/B0hhX0dkZ",
+    "https://link.amazon/B00VlRd8w",
+    "https://link.amazon/B01zQbnM4",
+    "https://link.amazon/B05oxYJwy",
+    "https://link.amazon/B0671vEV7",
+    "https://link.amazon/B06llGLQM",
+    "https://link.amazon/B04wqPdOF",
+    "https://link.amazon/B0eiRZehB",
+    "https://link.amazon/B0dpwzdG4",
+    "https://link.amazon/B0azh0SD7",
+    "https://link.amazon/B0cu61uo6",
+    "https://link.amazon/B03xCD59s",
+    "https://link.amazon/B01uBTVc1",
+    "https://link.amazon/B0fUHpNa8",
+    "https://link.amazon/B0gosBV31",
+    "https://link.amazon/B01jsqKAW",
+    "https://link.amazon/B04aNVTUN",
+    "https://link.amazon/B0ef8HdqD",
+    "https://link.amazon/B00BtEht8",
+    "https://link.amazon/B09ilyH3o",
+    "https://link.amazon/B0fEZQopk",
+    "https://link.amazon/B0aMOMwVG"
 ]
 
 SEEN_ASINS_PATH = "scratch/seen_asins.json"
@@ -89,8 +85,7 @@ user_agents = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15',
     'Mozilla/5.0 (iPhone; CPU iPhone OS 17_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Mobile/15E148 Safari/604.1',
-    'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0'
+    'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36'
 ]
 
 def clean_amazon_image_url(img_url):
@@ -102,8 +97,18 @@ def clean_amazon_image_url(img_url):
         u = re.sub(r'\._[A-Za-z0-9%_\-\+\.]+\._', r'._', u, flags=re.IGNORECASE)
     return u
 
+def verify_image_accessible(url):
+    if not url:
+        return False
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': user_agents[0]})
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            return resp.status == 200 and resp.headers.get("Content-Type", "").startswith("image")
+    except:
+        return False
+
 def resolve_initial_url(url):
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
+    headers = {'User-Agent': user_agents[0]}
     req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=12) as resp:
@@ -193,12 +198,34 @@ def fetch_details_for_asin(asin):
                     if dynamic_m:
                         img_url = dynamic_m.group(1)
                 if not img_url:
+                    main_dyn = re.findall(r'"(https://m\.media-amazon\.com/images/I/[^"]+\.(?:jpg|png))"', html)
+                    for m_img in main_dyn:
+                        if not any(x in m_img for x in ['PKmb-play', 'sprite', 'icon', 'logo', 'G/01', 'G/31']):
+                            img_url = m_img
+                            break
+                if not img_url:
                     img_m = re.search(r'https://m\.media-amazon\.com/images/I/[A-Za-z0-9%_\-\+\.]+\.(?:jpg|png)', html)
                     if img_m:
                         img_url = img_m.group(0)
 
+                # Clean image URL to 1500px HD and test accessibility
                 if img_url:
-                    img_url = clean_amazon_image_url(img_url)
+                    cleaned_img = clean_amazon_image_url(img_url)
+                    if verify_image_accessible(cleaned_img):
+                        img_url = cleaned_img
+                    elif verify_image_accessible(img_url):
+                        pass # keep original if cleaned 404s
+                    else:
+                        # Try finding other valid images in html
+                        all_found = re.findall(r'https://m\.media-amazon\.com/images/I/[A-Za-z0-9%_\-\+\.]+\.(?:jpg|png)', html)
+                        for alt in all_found:
+                            alt_clean = clean_amazon_image_url(alt)
+                            if verify_image_accessible(alt_clean):
+                                img_url = alt_clean
+                                break
+                            elif verify_image_accessible(alt):
+                                img_url = alt
+                                break
 
                 price = 0.0
                 price_m = re.search(r'<span class="a-price-whole">\s*([\d,]+)', html)
@@ -216,11 +243,11 @@ def fetch_details_for_asin(asin):
                     t_lower = title.lower()
                     if any(k in t_lower for k in ['phone', 'mobile', 'charger', 'cable', 'headphone', 'earbuds', 'laptop', 'smartwatch', 'tv', 'electronics', 'speaker', 'led', 'pro', 'wifi', 'watch', 'camera', 'ups', 'router']):
                         category = "Technology"
-                    elif any(k in t_lower for k in ['shirt', 'pant', 'shoes', 'dress', 'bag', 'fashion', 'watch', 'wear', 't-shirt', 'wallet', 'kurta', 'suit', 'saree', 'trolley', 'mattress', 'bed', 'sofa', 'pajama', 'nightsuit']):
+                    elif any(k in t_lower for k in ['shirt', 'pant', 'shoes', 'dress', 'bag', 'fashion', 'watch', 'wear', 't-shirt', 'wallet', 'kurta', 'suit', 'saree', 'trolley', 'mattress', 'bed', 'sofa', 'pajama', 'nightsuit', 'lungi', 'dupatta']):
                         category = "Lifestyle"
-                    elif any(k in t_lower for k in ['kitchen', 'home', 'bottle', 'cookware', 'clean', 'mat', 'light', 'furnishing', 'storage', 'rakhi', 'vacuum', 'juice', 'cloth', 'glass', 'mug', 'cup', 'idol', 'frame']):
+                    elif any(k in t_lower for k in ['kitchen', 'home', 'bottle', 'cookware', 'clean', 'mat', 'light', 'furnishing', 'storage', 'rakhi', 'vacuum', 'juice', 'cloth', 'glass', 'mug', 'cup', 'idol', 'frame', 'pebbles', 'stones']):
                         category = "Shopping"
-                    elif any(k in t_lower for k in ['sport', 'fit', 'gym', 'cycle', 'ball', 'run', 'yoga', 'paddle', 'racket', 'band']):
+                    elif any(k in t_lower for k in ['sport', 'fit', 'gym', 'cycle', 'ball', 'run', 'yoga', 'paddle', 'racket', 'band', 'racket']):
                         category = "Sports"
                     else:
                         category = "Shopping"
