@@ -145,16 +145,17 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  bgcolor: isSelected ? "rgba(183, 34, 43, 0.08)" : "action.hover",
+                  bgcolor: isSelected ? "rgba(183, 34, 43, 0.06)" : "transparent",
                   p: 1,
                   px: 1.5,
-                  borderRadius: 3,
-                  border: "1.5px solid",
-                  borderColor: isSelected ? "var(--red, #B7222B)" : (isFollowed ? "primary.light" : "divider"),
+                  borderRadius: 2.5,
+                  border: isSelected ? "1.5px solid" : "1px solid",
+                  borderColor: isSelected ? "var(--red, #B7222B)" : "divider",
                   cursor: "pointer",
                   transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                   "&:hover": {
-                    borderColor: "var(--red, #B7222B)",
+                    borderColor: isSelected ? "var(--red, #B7222B)" : "text.secondary",
+                    bgcolor: isSelected ? "rgba(183, 34, 43, 0.09)" : "action.hover",
                     transform: "translateX(2px)",
                   },
                 }}
@@ -164,8 +165,8 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                     sx={{
                       width: 28,
                       height: 28,
-                      bgcolor: isSelected || isFollowed ? "var(--red, #B7222B)" : "action.selected",
-                      color: isSelected || isFollowed ? "#FFFFFF" : "text.secondary",
+                      bgcolor: isSelected ? "var(--red, #B7222B)" : "action.selected",
+                      color: isSelected ? "#FFFFFF" : "text.secondary",
                       transition: "all 0.2s",
                     }}
                   >
@@ -174,7 +175,7 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                   <Typography 
                     variant="body2" 
                     sx={{ 
-                      fontWeight: isSelected ? 800 : 700, 
+                      fontWeight: isSelected ? 800 : 600, 
                       fontSize: "0.85rem", 
                       color: isSelected ? "var(--red, #B7222B)" : "text.primary" 
                     }}
@@ -189,17 +190,20 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                   id={`topic-toggle-${topic.name.replace(/\s+/g, "")}`}
                   aria-label={`${isFollowed ? "Unfollow" : "Follow"} ${topic.name}`}
                   sx={{
-                    bgcolor: isFollowed ? "primary.main" : "action.selected",
-                    color: isFollowed ? "primary.contrastText" : "text.secondary",
+                    bgcolor: isFollowed ? "var(--red, #B7222B)" : "action.hover",
+                    color: isFollowed ? "#FFFFFF" : "text.secondary",
+                    border: "1px solid",
+                    borderColor: isFollowed ? "var(--red, #B7222B)" : "divider",
                     width: 24,
                     height: 24,
+                    transition: "all 0.2s",
                     "&:hover": {
-                      bgcolor: isFollowed ? "primary.dark" : "action.hover",
+                      bgcolor: isFollowed ? "var(--red-deep, #8E1B22)" : "action.selected",
                     },
                   }}
                 >
                   {isFollowed ? (
-                    <CheckIcon sx={{ fontSize: 14 }} />
+                    <CheckIcon sx={{ fontSize: 13 }} />
                   ) : (
                     <AddIcon sx={{ fontSize: 14 }} />
                   )}
