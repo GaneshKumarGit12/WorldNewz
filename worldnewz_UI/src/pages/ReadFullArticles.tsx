@@ -79,7 +79,7 @@ const ReadFullArticles: React.FC = () => {
   const [relatedLoading, setRelatedLoading] = useState(true);
   const [relatedError, setRelatedError] = useState<string | null>(null);
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
-  const [selectedTopicId, setSelectedTopicId] = useState<string>("top-ai");
+  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
 
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
@@ -870,9 +870,11 @@ const ReadFullArticles: React.FC = () => {
             onTopicsChange={setFollowedTopics}
             onTopicSelect={(topicId) => {
               setSelectedTopicId(topicId);
-              const el = document.getElementById("personalized-topic-hub");
-              if (el) {
-                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              if (topicId) {
+                const el = document.getElementById("personalized-topic-hub");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
               }
             }}
             activeTopicId={selectedTopicId}
@@ -914,7 +916,8 @@ const ReadFullArticles: React.FC = () => {
       {/* Suggested Topic Deep-Dive Intelligence Hub */}
       <Box sx={{ mt: 6 }}>
         <PersonalizedTopicHub
-          initialTopicId={selectedTopicId}
+          activeTopicId={selectedTopicId}
+          onTopicSelect={setSelectedTopicId}
           followedTopicIds={followedTopics}
           onToggleFollow={(id) => {
             setFollowedTopics((prev) =>

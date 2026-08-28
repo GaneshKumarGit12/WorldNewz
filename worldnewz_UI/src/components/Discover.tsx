@@ -64,7 +64,7 @@ const Discover: React.FC = () => {
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
-  const [selectedTopicId, setSelectedTopicId] = useState<string>("top-ai");
+  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
   const [personalTab, setPersonalTab] = useState<"recommended" | "trending">("recommended");
 
   const recommendedArticles = React.useMemo(() => {
@@ -451,7 +451,8 @@ const Discover: React.FC = () => {
               {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB (DRIVEN BY TOPIC SELECTIONS) */}
               <Suspense fallback={<Box sx={{ minHeight: 180 }} />}>
                 <PersonalizedTopicHub
-                  initialTopicId={selectedTopicId}
+                  activeTopicId={selectedTopicId}
+                  onTopicSelect={setSelectedTopicId}
                   followedTopicIds={followedTopics}
                   onToggleFollow={(id) => {
                     setFollowedTopics((prev) =>
@@ -486,12 +487,12 @@ const Discover: React.FC = () => {
                       component="h2"
                       sx={{
                         fontFamily: "var(--serif)",
-                        fontSize: "22px",
-                        fontWeight: 700,
+                        fontWeight: 750,
+                        fontSize: { xs: "18px", md: "20px" },
                         color: "var(--text)",
                       }}
                     >
-                      More Global News
+                      More Global Coverage
                     </Typography>
                     <Typography
                       component="span"
@@ -501,13 +502,13 @@ const Discover: React.FC = () => {
                         color: "var(--slate-light)",
                       }}
                     >
-                      Worldwide Stream
+                      Live Editorial Stream
                     </Typography>
                   </Box>
 
                   <NewsGrid
                     articles={globalNewsGrid}
-                    columns={{ xs: 12, sm: 6, md: 4 }}
+                    columns={{ xs: 12, sm: 6, md: 3 }}
                     onBookmark={addBookmark}
                     onRemoveBookmark={removeBookmark}
                     isBookmarked={isBookmarked}
@@ -522,12 +523,12 @@ const Discover: React.FC = () => {
                 </Box>
               )}
 
-              {/* 6. AI MORE NEWS MULTI-CATEGORY BRIEFINGS */}
+              {/* 6. EXTENDED EDITORIAL ARCHIVE (LAZY ACCORDION) */}
               <Suspense fallback={null}>
                 <MoreNewsSection />
               </Suspense>
 
-              {/* 7. CROSS-CATEGORY INTERNAL LINKING HUB */}
+              {/* 7. SEO INTERNAL LINKING HUB */}
               <Suspense fallback={null}>
                 <InternalLinkHub />
               </Suspense>
@@ -552,33 +553,19 @@ const Discover: React.FC = () => {
                 borderRadius: "3px",
               }}
             >
-              <Box sx={{ borderBottom: "1px solid var(--line)", pb: 1.5, mb: 2 }}>
-                <Box sx={{ display: "flex", alignItems: "center", justifyBetween: "space-between", mb: 1 }}>
-                  <Typography
-                    sx={{
-                      fontFamily: "var(--mono)",
-                      fontSize: "11px",
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                      color: "var(--red)",
-                    }}
-                  >
-                    Personalization
-                  </Typography>
-                </Box>
+              {/* Personalized recommended articles / Live Watchlist Tabs */}
+              <Box sx={{ borderBottom: 1, borderColor: "divider", mb: 1 }}>
                 <Tabs
                   value={personalTab}
-                  onChange={(_, val) => setPersonalTab(val)}
-                  sx={{
-                    minHeight: 32,
-                    "& .MuiTabs-indicator": { backgroundColor: "var(--red)", height: 2 },
-                  }}
+                  onChange={(_, v) => setPersonalTab(v)}
+                  variant="fullWidth"
+                  sx={{ minHeight: 36 }}
                 >
                   <Tab
                     value="recommended"
                     icon={<AutoAwesomeIcon sx={{ fontSize: 14 }} />}
                     iconPosition="start"
-                    label="For You"
+                    label="Recommended"
                     sx={{
                       fontSize: "12.5px",
                       fontWeight: 600,
@@ -616,9 +603,11 @@ const Discover: React.FC = () => {
                   onTopicsChange={setFollowedTopics}
                   onTopicSelect={(topicId) => {
                     setSelectedTopicId(topicId);
-                    const el = document.getElementById("personalized-topic-hub");
-                    if (el) {
-                      el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    if (topicId) {
+                      const el = document.getElementById("personalized-topic-hub");
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
                     }
                   }}
                   activeTopicId={selectedTopicId}

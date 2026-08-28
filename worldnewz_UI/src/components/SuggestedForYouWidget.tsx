@@ -26,8 +26,8 @@ export interface TopicItem {
 
 export interface SuggestedForYouWidgetProps {
   onTopicsChange?: (topicIds: string[]) => void;
-  onTopicSelect?: (topicId: string) => void;
-  activeTopicId?: string;
+  onTopicSelect?: (topicId: string | null) => void;
+  activeTopicId?: string | null;
 }
 
 export const defaultTopics: TopicItem[] = [
@@ -79,14 +79,12 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
   const handleToggleFollow = (id: string, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     toggleFollow(id);
-    if (onTopicSelect) {
-      onTopicSelect(id);
-    }
   };
 
   const handleRowClick = (id: string) => {
     if (onTopicSelect) {
-      onTopicSelect(id);
+      const next = activeTopicId === id ? null : id;
+      onTopicSelect(next);
     }
   };
 

@@ -76,7 +76,7 @@ const LocalNews: React.FC = () => {
 
   // Topic Hub state
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
-  const [selectedTopicId, setSelectedTopicId] = useState<string>("top-ai");
+  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
 
   // Auto-detect location on mount
   useEffect(() => {
@@ -641,7 +641,8 @@ const LocalNews: React.FC = () => {
 
               {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB */}
               <PersonalizedTopicHub
-                initialTopicId={selectedTopicId}
+                activeTopicId={selectedTopicId}
+                onTopicSelect={setSelectedTopicId}
                 followedTopicIds={followedTopics}
                 onToggleFollow={(id) => {
                   setFollowedTopics((prev) =>
@@ -804,9 +805,11 @@ const LocalNews: React.FC = () => {
               onTopicsChange={setFollowedTopics}
               onTopicSelect={(topicId) => {
                 setSelectedTopicId(topicId);
-                const el = document.getElementById("personalized-topic-hub");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (topicId) {
+                  const el = document.getElementById("personalized-topic-hub");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
                 }
               }}
               activeTopicId={selectedTopicId}

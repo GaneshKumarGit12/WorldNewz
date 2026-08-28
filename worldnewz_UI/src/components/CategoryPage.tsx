@@ -86,19 +86,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
   const [personalTab, setPersonalTab] = useState<"recommended" | "trending">("recommended");
   const [followedTopics, setFollowedTopics] = useState<string[]>([]);
   
-  const defaultTopicForCategory = useMemo(() => {
-    const key = (categoryKey || "").toLowerCase();
-    if (key.includes("movie") || key.includes("entertainment")) return "top-movies";
-    if (key.includes("game") || key.includes("gaming")) return "top-gaming";
-    if (key.includes("stock") || key.includes("money") || key.includes("business")) return "top-stocks";
-    return "top-ai";
-  }, [categoryKey]);
-
-  const [selectedTopicId, setSelectedTopicId] = useState<string>(defaultTopicForCategory);
-
-  useEffect(() => {
-    setSelectedTopicId(defaultTopicForCategory);
-  }, [defaultTopicForCategory]);
+  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
   
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
@@ -562,7 +550,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
               {/* 3. PERSONALIZED TOPIC INTELLIGENCE HUB (DRIVEN BY TOPIC SELECTIONS) */}
               <Suspense fallback={<Box sx={{ minHeight: 180 }} />}>
                 <PersonalizedTopicHub
-                  initialTopicId={selectedTopicId}
+                  activeTopicId={selectedTopicId}
+                  onTopicSelect={setSelectedTopicId}
                   followedTopicIds={followedTopics}
                   onToggleFollow={(id) => {
                     setFollowedTopics((prev) =>
@@ -718,9 +707,11 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
                   onTopicsChange={setFollowedTopics} 
                   onTopicSelect={(topicId) => {
                     setSelectedTopicId(topicId);
-                    const hubEl = document.getElementById("personalized-topic-hub");
-                    if (hubEl) {
-                      hubEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                    if (topicId) {
+                      const hubEl = document.getElementById("personalized-topic-hub");
+                      if (hubEl) {
+                        hubEl.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
                     }
                   }}
                   activeTopicId={selectedTopicId}
