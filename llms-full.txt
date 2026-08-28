@@ -1,0 +1,55 @@
+# WorldNewzs - Extended Platform Architecture & Content Documentation
+
+> Complete technical, editorial, schema, and API specifications for WorldNewzs (worldnewzs.in). Designed for AI search indexers, large language models, and automated crawler consumption.
+
+## 1. System Overview
+WorldNewzs is a modern real-time news aggregator and analytical journalism hub built on React, TypeScript, ASP.NET Core, PostgreSQL, and Google Gemini AI. The platform processes high-velocity news feeds from authoritative global sources (BBC, Reuters, AP News, Bloomberg, TechCrunch, Nature, etc.), enriches them with non-partisan synthesis, fact-checked editorial context, and categorical FAQs, and provides interactive community tools.
+
+## 2. Content Cadence & Pillar Guidelines
+- **Pillar News Categories**: Politics, Technology, Business, Science & Health. Minimum depth of 1,500–2,000 words per major topic with historical context, real-time updates, expert quotes, data points, and dedicated FAQs.
+- **Standard News Categories**: Sports, Money, Lifestyle, Education, Opinion, Trending, Local News, Podcasts-Videos, Food, Travel, Entertainment, Services, Gaming, Cartoons. Target depth of 600–1,000 words.
+- **AI Daily Briefings Engine**: Generates automated, deduplicated JSON briefings for today's Top News and category-by-category More News.
+
+## 3. URL Architecture & Canonical Map
+- Primary Domain: `https://worldnewzs.in`
+- Home / Top Discover: `https://worldnewzs.in/`
+- Politics: `https://worldnewzs.in/politics`
+- Technology: `https://worldnewzs.in/technology`
+- Business: `https://worldnewzs.in/business`
+- Science & Health: `https://worldnewzs.in/science-health`
+- Sports: `https://worldnewzs.in/sports`
+- Money: `https://worldnewzs.in/money`
+- Weather: `https://worldnewzs.in/weather`
+- Shopping & Deals: `https://worldnewzs.in/amazon-products`
+- Travel: `https://worldnewzs.in/travel`
+- Food: `https://worldnewzs.in/food`
+- Entertainment: `https://worldnewzs.in/entertainment`
+- Services: `https://worldnewzs.in/services`
+- Gaming: `https://worldnewzs.in/gaming`
+- Cartoons: `https://worldnewzs.in/cartoons`
+- Opinion Polls: `https://worldnewzs.in/polls`
+- Polls History: `https://worldnewzs.in/polls-history`
+- Trivia Badge Quiz: `https://worldnewzs.in/badge-quiz`
+- Quiz History: `https://worldnewzs.in/quiz-history`
+- Stock Market: `https://worldnewzs.in/stocks`
+- Jobs Board: `https://worldnewzs.in/jobs`
+- Movies Database: `https://worldnewzs.in/movies`
+- Transportation: `https://worldnewzs.in/transportation`
+- AI News Assistant: `https://worldnewzs.in/chatbot`
+- Trending Videos: `https://worldnewzs.in/trending-videos`
+- Play Games: `https://worldnewzs.in/play-games`
+- Editorial Briefings: `https://worldnewzs.in/editorial-briefings`
+- Editorial Guidelines: `https://worldnewzs.in/editorial-guidelines`
+- About Us: `https://worldnewzs.in/about`
+- Contact Us: `https://worldnewzs.in/contact`
+- Privacy Policy: `https://worldnewzs.in/privacy-policy`
+- Terms of Service: `https://worldnewzs.in/terms`
+- Disclaimer: `https://worldnewzs.in/disclaimer`
+
+## 4. API Endpoints
+- News Feeds: `GET https://worldnewz.onrender.com/api/news/{category}`
+- Daily Briefings: `GET https://worldnewz.onrender.com/api/news/daily-briefing`
+- Dynamic Sitemap: `GET https://worldnewzs.in/sitemap.xml`
+- Google News Sitemap: `GET https://worldnewzs.in/news-sitemap.xml`
+- Robots Configuration: `GET https://worldnewzs.in/robots.txt`
+- RSS Feed: `GET https://worldnewzs.in/rss/discover`
