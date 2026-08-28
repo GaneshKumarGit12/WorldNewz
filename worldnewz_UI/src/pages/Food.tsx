@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -22,6 +23,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Divider from "@mui/material/Divider";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
+import InputAdornment from "@mui/material/InputAdornment";
 
 import SearchIcon from "@mui/icons-material/Search";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -32,21 +34,25 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import CheckIcon from "@mui/icons-material/Check";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
+import SpaIcon from "@mui/icons-material/Spa";
 
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { useKeywords } from "../seo/useKeywords";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 import { CategoryEditorial } from "../components/CategoryEditorial";
 import AdBannerCard from "../components/AdBannerCard";
 
 import {
   fetchRecipesSearch,
   fetchRecipeDetails,
-  fetchRandomRecipes
+  fetchRandomRecipes,
 } from "../api/apiClient";
 import type {
   SpoonacularRecipe,
-  SpoonacularRecipeDetails
+  SpoonacularRecipeDetails,
 } from "../api/apiClient";
 
 const DIET_FILTERS = [
@@ -56,7 +62,7 @@ const DIET_FILTERS = [
   { value: "gluten free", label: "Gluten Free" },
   { value: "ketogenic", label: "Ketogenic" },
   { value: "dairy free", label: "Dairy Free" },
-  { value: "paleo", label: "Paleo" }
+  { value: "paleo", label: "Paleo" },
 ];
 
 const MEAL_FILTERS = [
@@ -67,10 +73,13 @@ const MEAL_FILTERS = [
   { value: "side dish", label: "Side Dish" },
   { value: "dessert", label: "Dessert" },
   { value: "salad", label: "Salad" },
-  { value: "soup", label: "Soup" }
+  { value: "soup", label: "Soup" },
 ];
 
 const Food: React.FC = () => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   const outletContext = useOutletContext<{ searchTerm?: string }>();
   const globalSearchTerm = outletContext?.searchTerm ?? "";
 
@@ -95,9 +104,25 @@ const Food: React.FC = () => {
 
   // SEO Keywords hook
   const dynamicKeywordsData = useKeywords("food");
-  const defaultKeywords = ["gourmet recipes", "dietary plan", "kitchen tips", "healthy ingredients", "home cooking", "culinary science", "vegan guides", "macronutrient calculations"];
+  const defaultKeywords = [
+    "gourmet recipes",
+    "dietary plan",
+    "kitchen tips",
+    "healthy ingredients",
+    "home cooking",
+    "culinary science",
+    "vegan guides",
+    "macronutrient calculations",
+  ];
   const combinedKeywords = dynamicKeywordsData
-    ? [...new Set([...defaultKeywords, ...dynamicKeywordsData.primary, ...dynamicKeywordsData.longtail, ...dynamicKeywordsData.trending])]
+    ? [
+        ...new Set([
+          ...defaultKeywords,
+          ...dynamicKeywordsData.primary,
+          ...dynamicKeywordsData.longtail,
+          ...dynamicKeywordsData.trending,
+        ]),
+      ]
     : defaultKeywords;
 
   // Sync global search from layout header if any
@@ -123,7 +148,7 @@ const Food: React.FC = () => {
             diet: selectedDiet || undefined,
             type: selectedType || undefined,
             page,
-            number: pageSize
+            number: pageSize,
           });
           setRecipes(response.data?.results || []);
           setTotalResults(response.data?.totalResults || 0);
@@ -169,9 +194,9 @@ const Food: React.FC = () => {
   };
 
   const handleToggleIngredient = (id: number) => {
-    setCheckedIngredients(prev => ({
+    setCheckedIngredients((prev) => ({
       ...prev,
-      [id]: !prev[id]
+      [id]: !prev[id],
     }));
   };
 
@@ -181,19 +206,23 @@ const Food: React.FC = () => {
   };
 
   const handleDietClick = (diet: string) => {
-    setSelectedDiet(prev => (prev === diet ? "" : diet));
+    setSelectedDiet((prev) => (prev === diet ? "" : diet));
     setPage(1);
   };
 
   const handleTypeClick = (type: string) => {
-    setSelectedType(prev => (prev === type ? "" : type));
+    setSelectedType((prev) => (prev === type ? "" : type));
     setPage(1);
   };
 
   // Extract Macronutrients
   const getNutrient = (name: string) => {
     if (!recipeDetails?.nutrition?.nutrients) return null;
-    return recipeDetails.nutrition.nutrients.find(n => n.name.toLowerCase() === name.toLowerCase()) || null;
+    return (
+      recipeDetails.nutrition.nutrients.find(
+        (n) => n.name.toLowerCase() === name.toLowerCase()
+      ) || null
+    );
   };
 
   const calories = getNutrient("Calories");
@@ -208,170 +237,320 @@ const Food: React.FC = () => {
     return {
       "@context": "https://schema.org",
       "@type": "Recipe",
-      "name": recipe.title,
-      "image": recipe.image,
-      "description": recipe.summary.replace(/<[^>]*>/g, "").substring(0, 150) + "...",
-      "prepTime": `PT${recipe.readyInMinutes}M`,
-      "cookTime": `PT${recipe.readyInMinutes}M`,
-      "recipeYield": `${recipe.servings} servings`,
-      "recipeCategory": recipe.dishTypes?.[0] || "Main Dish",
-      "recipeCuisine": recipe.cuisines?.[0] || "International",
-      "recipeIngredient": recipe.extendedIngredients?.map(i => i.original) || [],
-      "recipeInstructions": recipe.analyzedInstructions?.[0]?.steps?.map(s => ({
-        "@type": "HowToStep",
-        "text": s.step
-      })) || [],
-      "nutrition": {
+      name: recipe.title,
+      image: recipe.image,
+      description: recipe.summary.replace(/<[^>]*>/g, "").substring(0, 150) + "...",
+      prepTime: `PT${recipe.readyInMinutes}M`,
+      cookTime: `PT${recipe.readyInMinutes}M`,
+      recipeYield: `${recipe.servings} servings`,
+      recipeCategory: recipe.dishTypes?.[0] || "Main Dish",
+      recipeCuisine: recipe.cuisines?.[0] || "International",
+      recipeIngredient: recipe.extendedIngredients?.map((i) => i.original) || [],
+      recipeInstructions:
+        recipe.analyzedInstructions?.[0]?.steps?.map((s) => ({
+          "@type": "HowToStep",
+          text: s.step,
+        })) || [],
+      nutrition: {
         "@type": "NutritionInformation",
-        "calories": calories?.amount ? `${calories.amount} calories` : undefined,
-        "proteinContent": protein?.amount ? `${protein.amount} g` : undefined,
-        "fatContent": fat?.amount ? `${fat.amount} g` : undefined,
-        "carbohydrateContent": carbs?.amount ? `${carbs.amount} g` : undefined
-      }
+        calories: calories?.amount ? `${calories.amount} calories` : undefined,
+        proteinContent: protein?.amount ? `${protein.amount} g` : undefined,
+        fatContent: fat?.amount ? `${fat.amount} g` : undefined,
+        carbohydrateContent: carbs?.amount ? `${carbs.amount} g` : undefined,
+      },
     };
   };
+
+  // Theme styling tokens
+  const cardBg = isDark
+    ? "linear-gradient(145deg, #131b2e 0%, #1a243d 100%)"
+    : "linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)";
+  const cardBorder = isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)";
+  const cardShadow = isDark
+    ? "0 10px 25px rgba(0, 0, 0, 0.4)"
+    : "0 4px 20px rgba(0, 0, 0, 0.06)";
 
   return (
     <Box
       id="food-page-root"
-      component="section"
+      component="main"
       sx={{
         minHeight: "100vh",
-        bgcolor: "#090e17",
-        color: "#f8fafc",
-        py: 4,
-        px: { xs: 2, md: 4 },
-        fontFamily: "'Inter', sans-serif"
+        bgcolor: "background.default",
+        color: "text.primary",
+        py: { xs: 2.5, md: 4 },
+        px: { xs: 2, sm: 3, md: 4 },
+        maxWidth: 1440,
+        mx: "auto",
+        transition: "background-color 0.2s ease, color 0.2s ease",
       }}
     >
       <SEOMeta
-        title="Gourmet Recipes & Culinary Science | WorldNewzs Food"
-        description="Discover dietitian-approved recipes, cooking guides, macronutrient estimations, and meal filters (keto, vegan, vegetarian, gluten-free) on WorldNewzs."
+        title="Gourmet Recipes, Cooking Guides & Dietary Macros | WorldNewzs Food"
+        description="Discover dietitian-approved recipes, step-by-step cooking guides, macronutrient estimations, and meal filters (keto, vegan, vegetarian, gluten-free) on WorldNewzs."
         keywords={combinedKeywords}
         canonical="https://worldnewzs.in/food"
       />
-      <JSONLDBreadcrumb crumbs={[
-        { name: "Home", url: "https://worldnewzs.in" },
-        { name: "Food & Recipes", url: "https://worldnewzs.in/food" }
-      ]} />
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Food & Recipes", url: "https://worldnewzs.in/food" },
+        ]}
+      />
 
-      {/* Top Banner & Title */}
-      <Box component="header" sx={{ mb: 4, textAlign: "center" }}>
-        <Typography
-          variant="h3"
-          component="h1"
-          id="food-main-heading"
-          sx={{
-            fontWeight: 900,
-            fontSize: { xs: "2rem", md: "3rem" },
-            background: "linear-gradient(45deg, #f43f5e, #fb7185)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            mb: 1
-          }}
-        >
-          WorldNewzs Culinary Hub
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" sx={{ maxWidth: 600, mx: "auto" }}>
-          Savor verified recipes, compute dietary macros, and filter culinary inspiration tailored to your nutrition plan.
-        </Typography>
-      </Box>
+      {/* Visual Breadcrumb Navigation */}
+      <BreadcrumbNav items={[{ label: "Food & Culinary Recipes" }]} />
 
-      {/* Search and Filters Section */}
-      <Box sx={{ mb: 4, display: "flex", flexDirection: "column", gap: 2 }}>
-        {/* Search input */}
-        <Box component="form" onSubmit={handleSearchSubmit} sx={{ display: "flex", gap: 1, justifySelf: "center", width: "100%", maxWidth: 600, mx: "auto" }}>
-          <TextField
-            id="food-search-input"
-            placeholder="Search recipes (e.g. Pasta, Chicken, Tacos...)"
-            size="small"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            fullWidth
-            sx={{
-              bgcolor: "#111a2e",
-              borderRadius: 2,
-              input: { color: "#fff", fontSize: "0.95rem" },
-              "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.12)" },
-              "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "#f43f5e" },
-              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "#f43f5e" }
-            }}
-          />
-          <Button
-            id="food-search-submit"
-            type="submit"
-            variant="contained"
-            sx={{ bgcolor: "#f43f5e", color: "#fff", fontWeight: 800, "&:hover": { bgcolor: "#e11d48" }, px: 3 }}
-          >
-            <SearchIcon />
-          </Button>
-        </Box>
-
-        {/* Diets Chips */}
-        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
-          <Typography variant="body2" sx={{ fontWeight: 700, mr: 1, color: "text.secondary" }}>Diets:</Typography>
-          {DIET_FILTERS.map((d) => (
-            <Chip
-              key={d.value}
-              id={`diet-chip-${d.value || "all"}`}
-              label={d.label}
-              onClick={() => handleDietClick(d.value)}
-              variant={selectedDiet === d.value ? "filled" : "outlined"}
-              color={selectedDiet === d.value ? "error" : "default"}
+      {/* Hero Header Section */}
+      <Paper
+        elevation={0}
+        sx={{
+          p: { xs: 2.5, md: 4 },
+          mb: 4,
+          borderRadius: 4,
+          background: isDark
+            ? "linear-gradient(135deg, #1e1528 0%, #2a1b2d 50%, #151d2d 100%)"
+            : "linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fef2f2 100%)",
+          border: `1px solid ${isDark ? "rgba(244, 63, 94, 0.2)" : "rgba(225, 29, 72, 0.2)"}`,
+          boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.4)" : "0 4px 20px rgba(0,0,0,0.05)",
+        }}
+      >
+        <Grid container spacing={3} alignItems="center" justifyContent="space-between">
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.2, mb: 1 }}>
+              <Chip
+                icon={<RestaurantMenuIcon sx={{ fontSize: "1rem !important" }} />}
+                label="CULINARY DESK & NUTRITION"
+                size="small"
+                sx={{
+                  fontWeight: 800,
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.06em",
+                  bgcolor: isDark ? "rgba(244, 63, 94, 0.15)" : "rgba(225, 29, 72, 0.15)",
+                  color: isDark ? "#fb7185" : "#e11d48",
+                  border: `1px solid ${isDark ? "rgba(244, 63, 94, 0.3)" : "rgba(225, 29, 72, 0.3)"}`,
+                }}
+              />
+              <Chip
+                icon={<SpaIcon sx={{ fontSize: "1rem !important" }} />}
+                label="DIETARY MACRO CALCULATOR"
+                size="small"
+                sx={{
+                  fontWeight: 800,
+                  fontSize: "0.72rem",
+                  bgcolor: isDark ? "rgba(16, 185, 129, 0.15)" : "rgba(16, 185, 129, 0.15)",
+                  color: isDark ? "#34d399" : "#059669",
+                  border: `1px solid ${isDark ? "rgba(16, 185, 129, 0.3)" : "rgba(16, 185, 129, 0.3)"}`,
+                }}
+              />
+            </Box>
+            <Typography
+              variant="h3"
+              component="h1"
+              id="food-main-heading"
               sx={{
-                color: selectedDiet === d.value ? "#fff" : "#cbd5e1",
-                borderColor: selectedDiet === d.value ? "transparent" : "rgba(255,255,255,0.15)",
-                "&:hover": { bgcolor: selectedDiet === d.value ? "#e11d48" : "rgba(255,255,255,0.06)" }
+                fontWeight: 900,
+                fontSize: { xs: "2rem", md: "2.6rem" },
+                letterSpacing: "-0.02em",
+                background: "linear-gradient(45deg, #f43f5e, #fb7185, #e11d48)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                mb: 1,
               }}
-            />
-          ))}
-        </Box>
-
-        {/* Meal Type Chips */}
-        <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
-          <Typography variant="body2" sx={{ fontWeight: 700, mr: 1, color: "text.secondary" }}>Meals:</Typography>
-          {MEAL_FILTERS.map((m) => (
-            <Chip
-              key={m.value}
-              id={`meal-chip-${m.value || "all"}`}
-              label={m.label}
-              onClick={() => handleTypeClick(m.value)}
-              variant={selectedType === m.value ? "filled" : "outlined"}
-              color={selectedType === m.value ? "error" : "default"}
+            >
+              WorldNewzs Culinary Hub & Recipes
+            </Typography>
+            <Typography
+              variant="body1"
               sx={{
-                color: selectedType === m.value ? "#fff" : "#cbd5e1",
-                borderColor: selectedType === m.value ? "transparent" : "rgba(255,255,255,0.15)",
-                "&:hover": { bgcolor: selectedType === m.value ? "#e11d48" : "rgba(255,255,255,0.06)" }
+                color: isDark ? "#94a3b8" : "#475569",
+                maxWidth: 650,
+                lineHeight: 1.5,
               }}
-            />
-          ))}
+            >
+              Savor dietitian-approved recipes, compute instant macronutrient profiles (Calories, Protein, Carbs, Fats), and explore custom dietary meal plans tailored to your lifestyle.
+            </Typography>
+          </Grid>
+
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Box
+              component="form"
+              onSubmit={handleSearchSubmit}
+              sx={{
+                display: "flex",
+                gap: 1,
+                width: "100%",
+              }}
+            >
+              <TextField
+                id="food-search-input"
+                placeholder="Search recipes (e.g. Pasta, Salmon, Tacos...)"
+                size="small"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon sx={{ color: "text.secondary", fontSize: 20 }} />
+                    </InputAdornment>
+                  ),
+                }}
+                sx={{
+                  bgcolor: isDark ? "rgba(15, 23, 42, 0.6)" : "#ffffff",
+                  borderRadius: 2,
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)",
+                  },
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#f43f5e",
+                  },
+                }}
+              />
+              <Button
+                id="food-search-submit"
+                type="submit"
+                variant="contained"
+                sx={{
+                  bgcolor: "#f43f5e",
+                  color: "#fff",
+                  fontWeight: 800,
+                  px: 2.5,
+                  "&:hover": { bgcolor: "#e11d48" },
+                }}
+              >
+                Search
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+
+        {/* Filter Chips Bar */}
+        <Box sx={{ mt: 3, pt: 2, borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}` }}>
+          {/* Diets Row */}
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", alignItems: "center", mb: 1.5 }}>
+            <Typography variant="caption" sx={{ fontWeight: 800, color: "text.secondary", minWidth: 50, textTransform: "uppercase" }}>
+              Diets:
+            </Typography>
+            {DIET_FILTERS.map((d) => {
+              const isSelected = selectedDiet === d.value;
+              return (
+                <Chip
+                  key={d.value}
+                  id={`diet-chip-${d.value || "all"}`}
+                  label={d.label}
+                  onClick={() => handleDietClick(d.value)}
+                  variant={isSelected ? "filled" : "outlined"}
+                  sx={{
+                    bgcolor: isSelected
+                      ? "#f43f5e"
+                      : isDark
+                      ? "rgba(255,255,255,0.04)"
+                      : "rgba(0,0,0,0.04)",
+                    color: isSelected ? "#ffffff" : "text.primary",
+                    borderColor: isSelected
+                      ? "transparent"
+                      : isDark
+                      ? "rgba(255,255,255,0.12)"
+                      : "rgba(0,0,0,0.12)",
+                    fontWeight: 700,
+                    fontSize: "0.76rem",
+                    cursor: "pointer",
+                    "&:hover": {
+                      bgcolor: isSelected
+                        ? "#e11d48"
+                        : isDark
+                        ? "rgba(255,255,255,0.1)"
+                        : "rgba(0,0,0,0.08)",
+                    },
+                  }}
+                />
+              );
+            })}
+          </Box>
+
+          {/* Meals Row */}
+          <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", alignItems: "center" }}>
+            <Typography variant="caption" sx={{ fontWeight: 800, color: "text.secondary", minWidth: 50, textTransform: "uppercase" }}>
+              Meals:
+            </Typography>
+            {MEAL_FILTERS.map((m) => {
+              const isSelected = selectedType === m.value;
+              return (
+                <Chip
+                  key={m.value}
+                  id={`meal-chip-${m.value || "all"}`}
+                  label={m.label}
+                  onClick={() => handleTypeClick(m.value)}
+                  variant={isSelected ? "filled" : "outlined"}
+                  sx={{
+                    bgcolor: isSelected
+                      ? "#0284c7"
+                      : isDark
+                      ? "rgba(255,255,255,0.04)"
+                      : "rgba(0,0,0,0.04)",
+                    color: isSelected ? "#ffffff" : "text.primary",
+                    borderColor: isSelected
+                      ? "transparent"
+                      : isDark
+                      ? "rgba(255,255,255,0.12)"
+                      : "rgba(0,0,0,0.12)",
+                    fontWeight: 700,
+                    fontSize: "0.76rem",
+                    cursor: "pointer",
+                    "&:hover": {
+                      bgcolor: isSelected
+                        ? "#0369a1"
+                        : isDark
+                        ? "rgba(255,255,255,0.1)"
+                        : "rgba(0,0,0,0.08)",
+                    },
+                  }}
+                />
+              );
+            })}
+          </Box>
         </Box>
-      </Box>
+      </Paper>
 
       {/* Main Content Area */}
       {loading ? (
-        <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
-          <CircularProgress color="error" />
+        <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}>
+          <CircularProgress sx={{ color: "#f43f5e" }} />
         </Box>
       ) : error ? (
-        <Alert severity="error" sx={{ bgcolor: "#2c1518", color: "#f87171", border: "1px solid #7f1d1d", mx: "auto", maxWidth: 600 }}>
+        <Alert
+          severity="error"
+          sx={{
+            borderRadius: 3,
+            mx: "auto",
+            maxWidth: 650,
+            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+          }}
+        >
           {error}
         </Alert>
       ) : recipes.length === 0 ? (
-        <Box sx={{ textAlign: "center", py: 6 }}>
-          <Typography variant="h6">No recipes found matching your filters.</Typography>
-          <Typography variant="body2" color="text.secondary">Try clearing your filters or testing other terms.</Typography>
+        <Box sx={{ textAlign: "center", py: 8 }}>
+          <OutdoorGrillIcon sx={{ fontSize: 60, color: "text.secondary", mb: 1.5 }} />
+          <Typography variant="h5" sx={{ fontWeight: 800, mb: 1 }}>
+            No recipes found matching your filters
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Try adjusting your search query or removing dietary/meal constraints.
+          </Typography>
         </Box>
       ) : (
         <>
           <Grid container spacing={3}>
             {recipes.map((recipe) => {
               // Color code the health score badge
-              const scoreColor = recipe.healthScore >= 70
-                ? "#22c55e"
-                : recipe.healthScore >= 40
-                  ? "#eab308"
-                  : "#94a3b8";
+              const scoreColor =
+                recipe.healthScore >= 70
+                  ? "#10b981"
+                  : recipe.healthScore >= 40
+                  ? "#f59e0b"
+                  : "#64748b";
 
               return (
                 <Grid key={recipe.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
@@ -381,23 +560,24 @@ const Food: React.FC = () => {
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      bgcolor: "#111a2e",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: cardBg,
+                      border: `1px solid ${cardBorder}`,
                       borderRadius: 3,
                       overflow: "hidden",
-                      transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
+                      boxShadow: cardShadow,
+                      transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
                       "&:hover": {
                         transform: "translateY(-4px)",
                         borderColor: "#f43f5e",
-                        boxShadow: "0 10px 25px rgba(244, 63, 94, 0.15)"
-                      }
+                        boxShadow: "0 12px 30px rgba(244, 63, 94, 0.15)",
+                      },
                     }}
                   >
                     {/* Aspect ratio container to prevent layout shift */}
                     <Box sx={{ position: "relative", paddingTop: "56.25%", overflow: "hidden" }}>
                       <CardMedia
                         component="img"
-                        image={recipe.image || "https://via.placeholder.com/600x400?text=No+Image+Available"}
+                        image={recipe.image || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80"}
                         alt={recipe.title}
                         sx={{
                           position: "absolute",
@@ -406,24 +586,24 @@ const Food: React.FC = () => {
                           width: "100%",
                           height: "100%",
                           objectFit: "cover",
-                          transition: "transform 0.5s ease",
-                          "&:hover": { transform: "scale(1.05)" }
+                          transition: "transform 0.4s ease",
+                          "&:hover": { transform: "scale(1.06)" },
                         }}
                       />
                       {/* Health Score Badge overlay */}
                       <Box
                         sx={{
                           position: "absolute",
-                          top: 12,
-                          left: 12,
+                          top: 10,
+                          left: 10,
                           bgcolor: scoreColor,
                           color: "#fff",
-                          px: 1.5,
-                          py: 0.5,
-                          borderRadius: 2,
-                          fontSize: "0.75rem",
-                          fontWeight: 700,
-                          boxShadow: "0 2px 8px rgba(0,0,0,0.3)"
+                          px: 1.2,
+                          py: 0.4,
+                          borderRadius: 1.5,
+                          fontSize: "0.72rem",
+                          fontWeight: 800,
+                          boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
                         }}
                       >
                         Health: {recipe.healthScore}
@@ -436,35 +616,38 @@ const Food: React.FC = () => {
                         component="h2"
                         sx={{
                           fontWeight: 800,
-                          fontSize: "1.05rem",
-                          lineHeight: 1.3,
-                          color: "#fff",
+                          fontSize: "1rem",
+                          lineHeight: 1.35,
                           mb: 1.5,
-                          height: "2.6em",
+                          height: "2.7em",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
                           display: "-webkit-box",
                           WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical"
+                          WebkitBoxOrient: "vertical",
                         }}
                       >
                         {recipe.title}
                       </Typography>
 
-                      <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+                      <Box sx={{ display: "flex", gap: 2, mb: 1.5 }}>
                         <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, color: "text.secondary" }}>
-                          <AccessTimeIcon sx={{ fontSize: "1.1rem", color: "#f43f5e" }} />
-                          <Typography variant="caption" sx={{ fontWeight: 600 }}>{recipe.readyInMinutes} Min</Typography>
+                          <AccessTimeIcon sx={{ fontSize: "1rem", color: "#f43f5e" }} />
+                          <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                            {recipe.readyInMinutes} Min
+                          </Typography>
                         </Box>
                         <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, color: "text.secondary" }}>
-                          <RestaurantIcon sx={{ fontSize: "1.1rem", color: "#f43f5e" }} />
-                          <Typography variant="caption" sx={{ fontWeight: 600 }}>{recipe.servings} Srv</Typography>
+                          <RestaurantIcon sx={{ fontSize: "1rem", color: "#f43f5e" }} />
+                          <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                            {recipe.servings} Servings
+                          </Typography>
                         </Box>
                       </Box>
 
                       {recipe.diets && recipe.diets.length > 0 && (
                         <Box sx={{ display: "flex", gap: 0.5, flexWrap: "wrap", mb: 2 }}>
-                          {recipe.diets.slice(0, 2).map(diet => (
+                          {recipe.diets.slice(0, 2).map((diet) => (
                             <Chip
                               key={diet}
                               label={diet}
@@ -473,9 +656,9 @@ const Food: React.FC = () => {
                                 height: 18,
                                 fontSize: "0.65rem",
                                 fontWeight: 700,
-                                bgcolor: "rgba(255,255,255,0.06)",
-                                color: "#fb7185",
-                                textTransform: "capitalize"
+                                bgcolor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
+                                color: "#f43f5e",
+                                textTransform: "capitalize",
                               }}
                             />
                           ))}
@@ -486,18 +669,22 @@ const Food: React.FC = () => {
                         <Button
                           id={`recipe-view-btn-${recipe.id}`}
                           variant="outlined"
-                          color="error"
                           fullWidth
                           onClick={() => handleOpenDetails(recipe.id)}
                           sx={{
-                            borderWidth: 1.5,
+                            borderColor: "#f43f5e",
+                            color: "#f43f5e",
                             fontWeight: 800,
                             borderRadius: 2,
                             textTransform: "none",
-                            "&:hover": { borderWidth: 1.5, bgcolor: "rgba(244, 63, 94, 0.08)" }
+                            fontSize: "0.85rem",
+                            "&:hover": {
+                              borderColor: "#e11d48",
+                              bgcolor: "rgba(244, 63, 94, 0.08)",
+                            },
                           }}
                         >
-                          View Full Recipe
+                          View Full Recipe & Macros
                         </Button>
                       </Box>
                     </CardContent>
@@ -506,37 +693,49 @@ const Food: React.FC = () => {
               );
             })}
 
-            {/* Inline AdBannerCard placement to satisfy separation layout requirements */}
+            {/* Inline AdBannerCard placement for AdSense layout guidelines */}
             <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
               <AdBannerCard />
             </Grid>
           </Grid>
 
-          {/* Pagination */}
+          {/* Pagination Controls */}
           {totalPages > 1 && (
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 6, mb: 2 }}>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 1.5, mt: 6, mb: 2 }}>
               <Button
                 id="food-prev-page"
                 variant="outlined"
-                color="error"
                 disabled={page === 1}
-                onClick={() => setPage(p => Math.max(1, p - 1))}
-                sx={{ fontWeight: 800 }}
+                onClick={() => {
+                  setPage((p) => Math.max(1, p - 1));
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                sx={{
+                  fontWeight: 800,
+                  borderRadius: 2,
+                  borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)",
+                }}
               >
-                Prev
+                Previous
               </Button>
-              <Box sx={{ display: "flex", alignItems: "center", px: 2 }}>
-                <Typography variant="body2" sx={{ fontWeight: 700 }}>
-                  Page {page} of {totalPages}
+              <Box sx={{ px: 2 }}>
+                <Typography variant="body2" sx={{ fontWeight: 700, color: "text.secondary" }}>
+                  Page {page} of {Math.min(totalPages, 50)}
                 </Typography>
               </Box>
               <Button
                 id="food-next-page"
                 variant="outlined"
-                color="error"
-                disabled={page >= totalPages}
-                onClick={() => setPage(p => p + 1)}
-                sx={{ fontWeight: 800 }}
+                disabled={page >= Math.min(totalPages, 50)}
+                onClick={() => {
+                  setPage((p) => p + 1);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                sx={{
+                  fontWeight: 800,
+                  borderRadius: 2,
+                  borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)",
+                }}
               >
                 Next
               </Button>
@@ -545,25 +744,39 @@ const Food: React.FC = () => {
         </>
       )}
 
-      {/* Editorial Content Guidance Banner */}
-      <Box sx={{ mt: 6, mb: 4 }}>
+      {/* Editorial Content & SEO Hub */}
+      <Box sx={{ mt: 6 }}>
         <CategoryEditorial categoryKey="food" />
       </Box>
 
       {/* Accordion FAQ Section */}
-      <Box sx={{ mt: 6, mb: 4, maxWidth: 800, mx: "auto" }}>
+      <Box sx={{ mt: 6, mb: 4, maxWidth: 900, mx: "auto" }}>
         <Typography
           variant="h4"
           component="h2"
           id="food-faq-heading"
-          sx={{ fontWeight: 900, mb: 3, textAlign: "center", color: "#fff", fontSize: { xs: "1.5rem", md: "1.8rem" } }}
+          sx={{
+            fontWeight: 900,
+            mb: 3,
+            textAlign: "center",
+            fontSize: { xs: "1.5rem", md: "1.8rem" },
+          }}
         >
           Frequently Asked Questions (FAQs)
         </Typography>
 
-        <Accordion sx={{ bgcolor: "#111a2e", border: "1px solid rgba(255,255,255,0.06)", mb: 1, borderRadius: 2, overflow: "hidden", "&:before": { display: "none" } }}>
+        <Accordion
+          sx={{
+            bgcolor: cardBg,
+            border: `1px solid ${cardBorder}`,
+            mb: 1.5,
+            borderRadius: "12px !important",
+            overflow: "hidden",
+            "&:before": { display: "none" },
+          }}
+        >
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "#f43f5e" }} />}>
-            <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#fff" }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
               How do I filter recipes by specific dietary needs like vegan or ketogenic?
             </Typography>
           </AccordionSummary>
@@ -574,22 +787,40 @@ const Food: React.FC = () => {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion sx={{ bgcolor: "#111a2e", border: "1px solid rgba(255,255,255,0.06)", mb: 1, borderRadius: 2, overflow: "hidden", "&:before": { display: "none" } }}>
+        <Accordion
+          sx={{
+            bgcolor: cardBg,
+            border: `1px solid ${cardBorder}`,
+            mb: 1.5,
+            borderRadius: "12px !important",
+            overflow: "hidden",
+            "&:before": { display: "none" },
+          }}
+        >
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "#f43f5e" }} />}>
-            <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#fff" }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
               Are the nutritional values in the recipe details accurate?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-              Yes, the nutritional information is calculated dynamically based on the verified ingredient portions using Spoonacular's extensive ingredient database. We display a detailed macronutrient breakdown (calories, proteins, fats, and carbohydrates) to help you track your dietary goals safely.
+              Yes, the nutritional information is calculated dynamically based on verified ingredient portions using Spoonacular's extensive ingredient database. We display a detailed macronutrient breakdown (calories, proteins, fats, and carbohydrates) to help you track your dietary goals safely.
             </Typography>
           </AccordionDetails>
         </Accordion>
 
-        <Accordion sx={{ bgcolor: "#111a2e", border: "1px solid rgba(255,255,255,0.06)", mb: 1, borderRadius: 2, overflow: "hidden", "&:before": { display: "none" } }}>
+        <Accordion
+          sx={{
+            bgcolor: cardBg,
+            border: `1px solid ${cardBorder}`,
+            mb: 1.5,
+            borderRadius: "12px !important",
+            overflow: "hidden",
+            "&:before": { display: "none" },
+          }}
+        >
           <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "#f43f5e" }} />}>
-            <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "#fff" }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
               Can I save recipes or check off ingredients during cooking?
             </Typography>
           </AccordionSummary>
@@ -610,36 +841,44 @@ const Food: React.FC = () => {
         scroll="body"
         PaperProps={{
           sx: {
-            bgcolor: "#0f172a",
-            color: "#f8fafc",
+            bgcolor: "background.paper",
+            color: "text.primary",
             borderRadius: 4,
             backgroundImage: "none",
-            border: "1px solid rgba(255,255,255,0.12)",
+            border: `1px solid ${isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.1)"}`,
             p: 0,
-            overflow: "hidden"
-          }
+            overflow: "hidden",
+            boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+          },
         }}
       >
         {detailsLoading ? (
           <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}>
-            <CircularProgress color="error" />
+            <CircularProgress sx={{ color: "#f43f5e" }} />
           </Box>
         ) : detailsError ? (
           <Box sx={{ p: 4 }}>
             <Alert severity="error">{detailsError}</Alert>
-            <Button onClick={handleCloseDetails} color="error" variant="contained" sx={{ mt: 2 }}>Close</Button>
+            <Button onClick={handleCloseDetails} color="error" variant="contained" sx={{ mt: 2 }}>
+              Close
+            </Button>
           </Box>
         ) : recipeDetails ? (
           <>
             {/* Structured Schema Data inject */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateRecipeSchema(recipeDetails)) }} />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(generateRecipeSchema(recipeDetails)),
+              }}
+            />
 
             {/* Modal Title Banner */}
             <Box sx={{ position: "relative" }}>
               <CardMedia
                 component="img"
                 height="320"
-                image={recipeDetails.image || "https://via.placeholder.com/800x400?text=No+Image+Available"}
+                image={recipeDetails.image || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=80"}
                 alt={recipeDetails.title}
                 sx={{ objectFit: "cover" }}
               />
@@ -651,9 +890,9 @@ const Food: React.FC = () => {
                   position: "absolute",
                   top: 16,
                   right: 16,
-                  bgcolor: "rgba(0,0,0,0.5)",
+                  bgcolor: "rgba(0,0,0,0.6)",
                   color: "#fff",
-                  "&:hover": { bgcolor: "rgba(0,0,0,0.8)" }
+                  "&:hover": { bgcolor: "rgba(0,0,0,0.85)" },
                 }}
               >
                 <CloseIcon />
@@ -665,26 +904,65 @@ const Food: React.FC = () => {
                   bottom: 0,
                   left: 0,
                   width: "100%",
-                  bgcolor: "linear-gradient(to top, rgba(15,23,42,1), rgba(15,23,42,0))",
+                  background: "linear-gradient(to top, rgba(15,23,42,0.95), rgba(15,23,42,0))",
                   pt: 8,
                   pb: 3,
-                  px: 3
+                  px: 3,
                 }}
               >
-                <Typography variant="h4" component="h3" sx={{ fontWeight: 900, textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}>
+                <Typography
+                  variant="h4"
+                  component="h3"
+                  sx={{
+                    fontWeight: 900,
+                    color: "#ffffff",
+                    textShadow: "0 2px 6px rgba(0,0,0,0.6)",
+                    fontSize: { xs: "1.4rem", md: "1.8rem" },
+                  }}
+                >
                   {recipeDetails.title}
                 </Typography>
               </Box>
             </Box>
 
-            <DialogContent sx={{ px: 3, pb: 4, pt: 1 }}>
+            <DialogContent sx={{ px: { xs: 2.5, md: 3.5 }, pb: 4, pt: 2 }}>
               {/* Overview Details pills */}
               <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 3 }}>
-                <Chip icon={<AccessTimeIcon sx={{ color: "#fb7185" }} />} label={`${recipeDetails.readyInMinutes} Mins`} sx={{ bgcolor: "#1e293b", color: "#f8fafc", fontWeight: 700 }} />
-                <Chip icon={<RestaurantIcon sx={{ color: "#fb7185" }} />} label={`${recipeDetails.servings} Servings`} sx={{ bgcolor: "#1e293b", color: "#f8fafc", fontWeight: 700 }} />
-                <Chip icon={<FavoriteIcon sx={{ color: "#fb7185" }} />} label={`Health Score: ${recipeDetails.healthScore}`} sx={{ bgcolor: "#1e293b", color: "#f8fafc", fontWeight: 700 }} />
-                {recipeDetails.diets?.map(diet => (
-                  <Chip key={diet} label={diet} sx={{ bgcolor: "rgba(244,63,94,0.15)", color: "#fb7185", fontWeight: 700, textTransform: "capitalize" }} />
+                <Chip
+                  icon={<AccessTimeIcon sx={{ color: "#fb7185" }} />}
+                  label={`${recipeDetails.readyInMinutes} Mins`}
+                  sx={{
+                    bgcolor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
+                    fontWeight: 700,
+                  }}
+                />
+                <Chip
+                  icon={<RestaurantIcon sx={{ color: "#fb7185" }} />}
+                  label={`${recipeDetails.servings} Servings`}
+                  sx={{
+                    bgcolor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
+                    fontWeight: 700,
+                  }}
+                />
+                <Chip
+                  icon={<FavoriteIcon sx={{ color: "#fb7185" }} />}
+                  label={`Health Score: ${recipeDetails.healthScore}`}
+                  sx={{
+                    bgcolor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
+                    fontWeight: 700,
+                  }}
+                />
+                {recipeDetails.diets?.map((diet) => (
+                  <Chip
+                    key={diet}
+                    label={diet}
+                    sx={{
+                      bgcolor: "rgba(244,63,94,0.12)",
+                      color: "#f43f5e",
+                      fontWeight: 700,
+                      textTransform: "capitalize",
+                    }}
+                  />
                 ))}
               </Box>
 
@@ -695,18 +973,22 @@ const Food: React.FC = () => {
                 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}
                 sx={{
                   mb: 4,
-                  lineHeight: 1.6,
-                  "& a": { color: "#fb7185", fontWeight: 700, textDecoration: "none" }
+                  lineHeight: 1.65,
+                  "& a": { color: "#f43f5e", fontWeight: 700, textDecoration: "none" },
                 }}
               />
 
               <Grid container spacing={4}>
                 {/* Ingredients checklist (interactive checkoffs) */}
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <Typography variant="h5" component="h4" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
-                    <MenuBookIcon sx={{ color: "#f43f5e" }} /> Ingredients
+                  <Typography
+                    variant="h5"
+                    component="h4"
+                    sx={{ fontWeight: 900, mb: 1.5, display: "flex", alignItems: "center", gap: 1, fontSize: "1.2rem" }}
+                  >
+                    <MenuBookIcon sx={{ color: "#f43f5e" }} /> Ingredients Checklist
                   </Typography>
-                  <Divider sx={{ borderColor: "rgba(255,255,255,0.08)", mb: 2 }} />
+                  <Divider sx={{ mb: 2 }} />
                   <Box sx={{ display: "flex", flexDirection: "column" }}>
                     {recipeDetails.extendedIngredients?.map((ing) => (
                       <FormControlLabel
@@ -715,10 +997,8 @@ const Food: React.FC = () => {
                           <Checkbox
                             checked={!!checkedIngredients[ing.id]}
                             onChange={() => handleToggleIngredient(ing.id)}
-                            color="error"
                             sx={{
-                              color: "rgba(255,255,255,0.3)",
-                              "&.Mui-checked": { color: "#22c55e" }
+                              "&.Mui-checked": { color: "#10b981" },
                             }}
                           />
                         }
@@ -726,9 +1006,10 @@ const Food: React.FC = () => {
                           <Typography
                             variant="body2"
                             sx={{
-                              color: checkedIngredients[ing.id] ? "text.disabled" : "#fff",
+                              color: checkedIngredients[ing.id] ? "text.disabled" : "text.primary",
                               textDecoration: checkedIngredients[ing.id] ? "line-through" : "none",
-                              transition: "all 0.2s ease"
+                              transition: "all 0.2s ease",
+                              fontWeight: checkedIngredients[ing.id] ? 400 : 600,
                             }}
                           >
                             {ing.original}
@@ -742,14 +1023,28 @@ const Food: React.FC = () => {
 
                 {/* Nutrition breakdown visually */}
                 <Grid size={{ xs: 12, md: 6 }}>
-                  <Typography variant="h5" component="h4" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+                  <Typography
+                    variant="h5"
+                    component="h4"
+                    sx={{ fontWeight: 900, mb: 1.5, display: "flex", alignItems: "center", gap: 1, fontSize: "1.2rem" }}
+                  >
                     <LocalFireDepartmentIcon sx={{ color: "#f43f5e" }} /> Nutrition Facts
                   </Typography>
-                  <Divider sx={{ borderColor: "rgba(255,255,255,0.08)", mb: 2 }} />
-                  <Paper sx={{ p: 2.5, bgcolor: "#1e293b", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 3 }}>
+                  <Divider sx={{ mb: 2 }} />
+                  <Paper
+                    sx={{
+                      p: 2.5,
+                      background: cardBg,
+                      border: `1px solid ${cardBorder}`,
+                      borderRadius: 3,
+                      boxShadow: cardShadow,
+                    }}
+                  >
                     <Box sx={{ mb: 2.5, display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                      <Typography variant="body1" sx={{ fontWeight: 800 }}>Calories</Typography>
-                      <Typography variant="h5" sx={{ fontWeight: 900, color: "#fb7185" }}>
+                      <Typography variant="body1" sx={{ fontWeight: 800 }}>
+                        Estimated Energy
+                      </Typography>
+                      <Typography variant="h5" sx={{ fontWeight: 900, color: "#f43f5e" }}>
                         {calories?.amount ? Math.round(calories.amount) : "N/A"} kcal
                       </Typography>
                     </Box>
@@ -758,32 +1053,74 @@ const Food: React.FC = () => {
                     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                       <Box>
                         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
-                          <Typography variant="caption" sx={{ fontWeight: 700 }}>Protein ({protein?.amount || 0}g)</Typography>
-                          <Typography variant="caption" sx={{ fontWeight: 700, color: "#60a5fa" }}>
-                            {recipeDetails.nutrition?.caloricBreakdown?.percentProtein ? Math.round(recipeDetails.nutrition.caloricBreakdown.percentProtein) : 0}%
+                          <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                            Protein ({protein?.amount ? Math.round(protein.amount) : 0}g)
+                          </Typography>
+                          <Typography variant="caption" sx={{ fontWeight: 700, color: "#3b82f6" }}>
+                            {recipeDetails.nutrition?.caloricBreakdown?.percentProtein
+                              ? Math.round(recipeDetails.nutrition.caloricBreakdown.percentProtein)
+                              : 0}
+                            %
                           </Typography>
                         </Box>
-                        <LinearProgress variant="determinate" value={recipeDetails.nutrition?.caloricBreakdown?.percentProtein || 0} sx={{ height: 6, borderRadius: 3, bgcolor: "rgba(255,255,255,0.1)", "& .MuiLinearProgress-bar": { bgcolor: "#3b82f6" } }} />
+                        <LinearProgress
+                          variant="determinate"
+                          value={recipeDetails.nutrition?.caloricBreakdown?.percentProtein || 0}
+                          sx={{
+                            height: 7,
+                            borderRadius: 3,
+                            bgcolor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
+                            "& .MuiLinearProgress-bar": { bgcolor: "#3b82f6" },
+                          }}
+                        />
                       </Box>
 
                       <Box>
                         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
-                          <Typography variant="caption" sx={{ fontWeight: 700 }}>Carbohydrates ({carbs?.amount || 0}g)</Typography>
-                          <Typography variant="caption" sx={{ fontWeight: 700, color: "#34d399" }}>
-                            {recipeDetails.nutrition?.caloricBreakdown?.percentCarbs ? Math.round(recipeDetails.nutrition.caloricBreakdown.percentCarbs) : 0}%
+                          <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                            Carbohydrates ({carbs?.amount ? Math.round(carbs.amount) : 0}g)
+                          </Typography>
+                          <Typography variant="caption" sx={{ fontWeight: 700, color: "#10b981" }}>
+                            {recipeDetails.nutrition?.caloricBreakdown?.percentCarbs
+                              ? Math.round(recipeDetails.nutrition.caloricBreakdown.percentCarbs)
+                              : 0}
+                            %
                           </Typography>
                         </Box>
-                        <LinearProgress variant="determinate" value={recipeDetails.nutrition?.caloricBreakdown?.percentCarbs || 0} sx={{ height: 6, borderRadius: 3, bgcolor: "rgba(255,255,255,0.1)", "& .MuiLinearProgress-bar": { bgcolor: "#10b981" } }} />
+                        <LinearProgress
+                          variant="determinate"
+                          value={recipeDetails.nutrition?.caloricBreakdown?.percentCarbs || 0}
+                          sx={{
+                            height: 7,
+                            borderRadius: 3,
+                            bgcolor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
+                            "& .MuiLinearProgress-bar": { bgcolor: "#10b981" },
+                          }}
+                        />
                       </Box>
 
                       <Box>
                         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
-                          <Typography variant="caption" sx={{ fontWeight: 700 }}>Fats ({fat?.amount || 0}g)</Typography>
-                          <Typography variant="caption" sx={{ fontWeight: 700, color: "#f87171" }}>
-                            {recipeDetails.nutrition?.caloricBreakdown?.percentFat ? Math.round(recipeDetails.nutrition.caloricBreakdown.percentFat) : 0}%
+                          <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                            Fats ({fat?.amount ? Math.round(fat.amount) : 0}g)
+                          </Typography>
+                          <Typography variant="caption" sx={{ fontWeight: 700, color: "#ef4444" }}>
+                            {recipeDetails.nutrition?.caloricBreakdown?.percentFat
+                              ? Math.round(recipeDetails.nutrition.caloricBreakdown.percentFat)
+                              : 0}
+                            %
                           </Typography>
                         </Box>
-                        <LinearProgress variant="determinate" value={recipeDetails.nutrition?.caloricBreakdown?.percentFat || 0} sx={{ height: 6, borderRadius: 3, bgcolor: "rgba(255,255,255,0.1)", "& .MuiLinearProgress-bar": { bgcolor: "#ef4444" } }} />
+                        <LinearProgress
+                          variant="determinate"
+                          value={recipeDetails.nutrition?.caloricBreakdown?.percentFat || 0}
+                          sx={{
+                            height: 7,
+                            borderRadius: 3,
+                            bgcolor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
+                            "& .MuiLinearProgress-bar": { bgcolor: "#ef4444" },
+                          }}
+                        />
                       </Box>
                     </Box>
                   </Paper>
@@ -792,10 +1129,14 @@ const Food: React.FC = () => {
 
               {/* Cooking Instructions steps */}
               <Box sx={{ mt: 4 }}>
-                <Typography variant="h5" component="h4" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
-                  <CheckIcon sx={{ color: "#f43f5e" }} /> Cooking Steps
+                <Typography
+                  variant="h5"
+                  component="h4"
+                  sx={{ fontWeight: 900, mb: 1.5, display: "flex", alignItems: "center", gap: 1, fontSize: "1.2rem" }}
+                >
+                  <CheckIcon sx={{ color: "#f43f5e" }} /> Step-by-Step Cooking Guide
                 </Typography>
-                <Divider sx={{ borderColor: "rgba(255,255,255,0.08)", mb: 2 }} />
+                <Divider sx={{ mb: 2.5 }} />
 
                 {recipeDetails.analyzedInstructions && recipeDetails.analyzedInstructions.length > 0 ? (
                   recipeDetails.analyzedInstructions[0].steps.map((step) => (
@@ -813,12 +1154,12 @@ const Food: React.FC = () => {
                           fontWeight: 800,
                           fontSize: "0.85rem",
                           flexShrink: 0,
-                          mt: 0.2
+                          mt: 0.2,
                         }}
                       >
                         {step.number}
                       </Box>
-                      <Typography variant="body2" sx={{ lineHeight: 1.6, pt: 0.3 }}>
+                      <Typography variant="body2" sx={{ lineHeight: 1.65, pt: 0.3 }}>
                         {step.step}
                       </Typography>
                     </Box>
@@ -827,11 +1168,11 @@ const Food: React.FC = () => {
                   <Typography
                     variant="body2"
                     dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }}
-                    sx={{ lineHeight: 1.6, "& a": { color: "#fb7185", fontWeight: 700 } }}
+                    sx={{ lineHeight: 1.65, "& a": { color: "#f43f5e", fontWeight: 700 } }}
                   />
                 ) : (
                   <Typography variant="body2" color="text.secondary">
-                    No cooking instructions available.
+                    No detailed step instructions available for this recipe.
                   </Typography>
                 )}
               </Box>
