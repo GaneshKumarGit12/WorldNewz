@@ -23,6 +23,7 @@ import { TopStoriesSection } from "./TopStoriesSection";
 import { HeroLeadMedia } from "./common/HeroLeadMedia";
 import { formatTimeAgoLong } from "../utils/formatTime";
 import { fallbackDiscoverArticles } from "../utils/fallbackArticles";
+import { isArticleMatchingTopics } from "../utils/topicDefinitions";
 
 // Lazy load below-the-fold widgets to accelerate first contentful paint
 const WatchlistWidget = lazy(() => import("./WatchlistWidget").then(m => ({ default: m.WatchlistWidget })));
@@ -70,6 +71,12 @@ const Discover: React.FC = () => {
     try {
       const weights = JSON.parse(localStorage.getItem("worldnewz_category_weights") || "{}");
       return [...articles].sort((a, b) => {
+        const matchesA = isArticleMatchingTopics(a, followedTopics);
+        const matchesB = isArticleMatchingTopics(b, followedTopics);
+
+        if (matchesA && !matchesB) return -1;
+        if (!matchesA && matchesB) return 1;
+
         const catA = (a.category || "News").toLowerCase();
         const catB = (b.category || "News").toLowerCase();
         const weightA = weights[catA] || 0;
@@ -82,7 +89,7 @@ const Discover: React.FC = () => {
     } catch {
       return articles.slice(0, 4);
     }
-  }, [articles, getEngagement]);
+  }, [articles, followedTopics, getEngagement]);
 
   const trendingArticles = React.useMemo(() => {
     return [...articles].sort((a, b) => {
@@ -96,30 +103,11 @@ const Discover: React.FC = () => {
   }, [articles, getEngagement]);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-  let filteredArticles = articles.filter((article) => {
-    if (normalizedSearchTerm) {
-      const text = `${article.title} ${article.description ?? ""} ${article.category ?? ""}`.toLowerCase();
-      return text.includes(normalizedSearchTerm);
-    }
-    if (followedTopics.length > 0) {
-      const sourceName = typeof article.source === "object" && article.source !== null && "name" in article.source
-        ? article.source.name
-        : typeof article.source === "string"
-        ? article.source
-        : "";
-      const category = (article.category ?? sourceName ?? "").toLowerCase();
-      const title = article.title.toLowerCase();
-      return followedTopics.some(topic => 
-        category.includes(topic.toLowerCase()) || 
-        title.includes(topic.toLowerCase())
-      );
-    }
-    return true;
+  const filteredArticles = articles.filter((article) => {
+    if (!normalizedSearchTerm) return true;
+    const text = `${article.title} ${article.description ?? ""} ${article.category ?? ""}`.toLowerCase();
+    return text.includes(normalizedSearchTerm);
   });
-
-  if (filteredArticles.length === 0 && articles.length > 0 && !normalizedSearchTerm) {
-    filteredArticles = articles;
-  }
 
   const loadData = (currentPage: number) => {
     if (currentPage === 1) setLoading(true);
@@ -626,7 +614,13 @@ const Discover: React.FC = () => {
               <Suspense fallback={null}>
                 <SuggestedForYouWidget
                   onTopicsChange={setFollowedTopics}
-                  onTopicSelect={setSelectedTopicId}
+                  onTopicSelect={(topicId) => {
+                    setSelectedTopicId(topicId);
+                    const el = document.getElementById("personalized-topic-hub");
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  }}
                   activeTopicId={selectedTopicId}
                 />
               </Suspense>

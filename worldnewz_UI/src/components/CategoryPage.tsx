@@ -25,6 +25,7 @@ import { formatTimeAgoLong } from "../utils/formatTime";
 import { TopStoriesSection } from "./TopStoriesSection";
 import { HeroLeadMedia } from "./common/HeroLeadMedia";
 import { getCategoryFallbackArticles, fallbackDiscoverArticles } from "../utils/fallbackArticles";
+import { isArticleMatchingTopics } from "../utils/topicDefinitions";
 
 // Lazy load below-the-fold & sidebar widgets to minimize initial Category page bundle
 const AffiliateDeals = lazy(() => import("./AffiliateDeals").then(m => ({ default: m.AffiliateDeals })));
@@ -147,13 +148,8 @@ const CategoryPage: React.FC<CategoryPageProps> = ({
 
   const recommendedArticles = useMemo(() => {
     if (followedTopics.length === 0) return filteredArticles.slice(2, 6);
-    return filteredArticles.filter((art) =>
-      followedTopics.some(
-        (t) =>
-          (art.category && art.category.toLowerCase().includes(t.toLowerCase())) ||
-          (art.title && art.title.toLowerCase().includes(t.toLowerCase()))
-      )
-    ).slice(0, 5);
+    const matched = filteredArticles.filter((art) => isArticleMatchingTopics(art, followedTopics));
+    return matched.length > 0 ? matched.slice(0, 5) : filteredArticles.slice(2, 6);
   }, [filteredArticles, followedTopics]);
 
   const trendingArticles = useMemo(() => filteredArticles.slice(5, 10), [filteredArticles]);

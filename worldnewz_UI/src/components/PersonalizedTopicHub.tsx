@@ -29,6 +29,7 @@ import { fetchSearch } from "../api/apiClient";
 import { optimizeImageUrl, getCategoryFallbackImage } from "../utils/imageOptimizer";
 import { formatTimeAgoLong } from "../utils/formatTime";
 import { useBookmarks } from "../hooks/useBookmarks";
+import { useFollowedTopics } from "../hooks/useFollowedTopics";
 import { TOPIC_DEFINITIONS } from "../utils/topicDefinitions";
 
 interface PersonalizedTopicHubProps {
@@ -39,14 +40,18 @@ interface PersonalizedTopicHubProps {
 
 export const PersonalizedTopicHub: React.FC<PersonalizedTopicHubProps> = ({
   initialTopicId = "top-ai",
-  followedTopicIds = ["top-ai", "top-movies", "top-gaming", "top-playstation", "top-stocks"],
-  onToggleFollow
+  followedTopicIds: propFollowedTopicIds,
+  onToggleFollow: propOnToggleFollow
 }) => {
   const navigate = useNavigate();
   const [activeTopicId, setActiveTopicId] = useState<string>(initialTopicId);
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
+  const { followedTopicIds: hookFollowedTopicIds, toggleFollow: hookToggleFollow } = useFollowedTopics();
+
+  const followedTopicIds = propFollowedTopicIds !== undefined ? propFollowedTopicIds : hookFollowedTopicIds;
+  const handleToggleFollow = propOnToggleFollow || hookToggleFollow;
 
   // Sync activeTopicId if initialTopicId changes
   useEffect(() => {
@@ -285,32 +290,30 @@ export const PersonalizedTopicHub: React.FC<PersonalizedTopicHubProps> = ({
           </Typography>
         </Box>
 
-        {onToggleFollow && (
-          <Button
-            variant={isFollowed ? "outlined" : "contained"}
-            startIcon={isFollowed ? <CheckIcon sx={{ fontSize: 16 }} /> : <AddIcon sx={{ fontSize: 16 }} />}
-            onClick={() => onToggleFollow(activeTopic.id)}
-            sx={{
-              fontFamily: "var(--sans)",
-              fontWeight: 700,
-              fontSize: "13px",
-              textTransform: "none",
-              borderRadius: "6px",
-              px: 2.5,
-              py: 1,
-              whiteSpace: "nowrap",
-              backgroundColor: isFollowed ? "transparent" : "var(--red, #B7222B)",
-              color: isFollowed ? "var(--text)" : "#FFFFFF",
-              borderColor: isFollowed ? "var(--line)" : "transparent",
-              "&:hover": {
-                backgroundColor: isFollowed ? "rgba(183, 34, 43, 0.06)" : "var(--red-deep, #8E1B22)",
-                borderColor: isFollowed ? "var(--red)" : "transparent",
-              },
-            }}
-          >
-            {isFollowed ? "Following Topic" : "Follow Topic"}
-          </Button>
-        )}
+        <Button
+          variant={isFollowed ? "outlined" : "contained"}
+          startIcon={isFollowed ? <CheckIcon sx={{ fontSize: 16 }} /> : <AddIcon sx={{ fontSize: 16 }} />}
+          onClick={() => handleToggleFollow(activeTopic.id)}
+          sx={{
+            fontFamily: "var(--sans)",
+            fontWeight: 700,
+            fontSize: "13px",
+            textTransform: "none",
+            borderRadius: "6px",
+            px: 2.5,
+            py: 1,
+            whiteSpace: "nowrap",
+            backgroundColor: isFollowed ? "transparent" : "var(--red, #B7222B)",
+            color: isFollowed ? "var(--text)" : "#FFFFFF",
+            borderColor: isFollowed ? "var(--line)" : "transparent",
+            "&:hover": {
+              backgroundColor: isFollowed ? "rgba(183, 34, 43, 0.06)" : "var(--red-deep, #8E1B22)",
+              borderColor: isFollowed ? "var(--red)" : "transparent",
+            },
+          }}
+        >
+          {isFollowed ? "Following Topic" : "Follow Topic"}
+        </Button>
       </Box>
 
       {/* 3. STRUCTURED 6 TO 10 PARAGRAPH EDITORIAL DEEP-DIVE */}

@@ -9,6 +9,7 @@ export interface TopicDefinition {
   name: string;
   query: string;
   category: string;
+  keywords: string[];
   icon: React.ReactNode;
   tagline: string;
   overview: string[];
@@ -24,6 +25,7 @@ export const TOPIC_DEFINITIONS: Record<string, TopicDefinition> = {
     name: "Artificial Intelligence",
     query: "Artificial Intelligence AI machine learning neural models",
     category: "Technology",
+    keywords: ["ai", "artificial intelligence", "technology", "machine learning", "neural", "deep learning", "llm", "openai", "gemini", "chatgpt"],
     icon: <PsychologyIcon sx={{ fontSize: 18 }} />,
     tagline: "Autonomous systems, frontier model deployments, and global compute governance.",
     overview: [
@@ -63,6 +65,7 @@ export const TOPIC_DEFINITIONS: Record<string, TopicDefinition> = {
     name: "Movies & Cinema",
     query: "movies cinema Hollywood box office film theatrical",
     category: "Entertainment",
+    keywords: ["movies", "cinema", "entertainment", "hollywood", "film", "box office", "theatrical", "imax", "actor", "director"],
     icon: <MovieIcon sx={{ fontSize: 18 }} />,
     tagline: "Theatrical box office momentum, streaming convergence, and global production innovation.",
     overview: [
@@ -102,6 +105,7 @@ export const TOPIC_DEFINITIONS: Record<string, TopicDefinition> = {
     name: "Gaming Accessories",
     query: "gaming accessories peripherals mechanical keyboard OLED monitors headsets",
     category: "Gaming",
+    keywords: ["gaming accessories", "peripherals", "mechanical keyboard", "oled monitor", "gaming headset", "gaming mouse", "esports gear", "hardware", "controller"],
     icon: <SportsEsportsIcon sx={{ fontSize: 18 }} />,
     tagline: "Ultra-low latency wireless gear, QD-OLED displays, and competitive esports ergonomics.",
     overview: [
@@ -141,6 +145,7 @@ export const TOPIC_DEFINITIONS: Record<string, TopicDefinition> = {
     name: "PlayStation & Console Ecosystem",
     query: "PlayStation PS5 Sony games console exclusives DualSense",
     category: "Gaming",
+    keywords: ["playstation", "ps5", "sony", "dualsense", "psvr", "console", "playstation plus", "exclusive game", "playstation network"],
     icon: <SportsEsportsIcon sx={{ fontSize: 18 }} />,
     tagline: "Architectural console advancements, first-party blockbusters, and cloud cross-play.",
     overview: [
@@ -180,6 +185,7 @@ export const TOPIC_DEFINITIONS: Record<string, TopicDefinition> = {
     name: "Stocks & Financial Markets",
     query: "stocks market S&P 500 Wall Street Federal Reserve economy earnings",
     category: "Business",
+    keywords: ["stocks", "stock market", "s&p 500", "nasdaq", "dow", "wall street", "economy", "investing", "earnings", "finance", "equities", "dividend"],
     icon: <ShowChartIcon sx={{ fontSize: 18 }} />,
     tagline: "Macroeconomic indicators, central bank policies, and global equity index trends.",
     overview: [
@@ -215,3 +221,43 @@ export const TOPIC_DEFINITIONS: Record<string, TopicDefinition> = {
     ]
   }
 };
+
+export const getTopicById = (id: string): TopicDefinition | undefined => {
+  return TOPIC_DEFINITIONS[id];
+};
+
+export const isArticleMatchingTopics = (
+  article: { title?: string; description?: string; summary?: string; category?: string; source?: any },
+  topicIds: string[]
+): boolean => {
+  if (!topicIds || topicIds.length === 0) return false;
+
+  const titleText = (article.title || "").toLowerCase();
+  const descText = (article.description || article.summary || "").toLowerCase();
+  const catText = (article.category || "").toLowerCase();
+  const sourceName = typeof article.source === "object" && article.source !== null && "name" in article.source
+    ? String(article.source.name).toLowerCase()
+    : typeof article.source === "string"
+    ? article.source.toLowerCase()
+    : "";
+
+  const combinedText = `${titleText} ${descText} ${catText} ${sourceName}`;
+
+  return topicIds.some((id) => {
+    const def = TOPIC_DEFINITIONS[id];
+    if (!def) {
+      // Fallback for legacy keyword matching
+      return combinedText.includes(id.toLowerCase());
+    }
+
+    // Check category match
+    if (catText && def.category.toLowerCase() === catText) return true;
+
+    // Check name match
+    if (combinedText.includes(def.name.toLowerCase())) return true;
+
+    // Check keywords match
+    return def.keywords.some((kw) => combinedText.includes(kw.toLowerCase()));
+  });
+};
+

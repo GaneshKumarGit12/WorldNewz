@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -15,21 +15,22 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 
+import { useFollowedTopics } from "../hooks/useFollowedTopics";
+
 export interface TopicItem {
   id: string;
   name: string;
   icon: React.ReactNode;
-  followed: boolean;
-  categoryKeyword: string; // keyword mapped to filter news
+  categoryKeyword: string;
 }
 
 export interface SuggestedForYouWidgetProps {
-  onTopicsChange?: (topics: string[]) => void;
+  onTopicsChange?: (topicIds: string[]) => void;
   onTopicSelect?: (topicId: string) => void;
   activeTopicId?: string;
 }
 
-export const defaultTopics: Omit<TopicItem, "followed">[] = [
+export const defaultTopics: TopicItem[] = [
   {
     id: "top-ai",
     name: "Artificial Intelligence",
@@ -46,13 +47,13 @@ export const defaultTopics: Omit<TopicItem, "followed">[] = [
     id: "top-gaming",
     name: "Gaming Accessories",
     icon: <SportsEsportsIcon sx={{ fontSize: 16 }} />,
-    categoryKeyword: "gaming",
+    categoryKeyword: "gaming accessories",
   },
   {
     id: "top-playstation",
     name: "PlayStation",
     icon: <SportsEsportsIcon sx={{ fontSize: 16 }} />,
-    categoryKeyword: "gaming",
+    categoryKeyword: "playstation",
   },
   {
     id: "top-stocks",
@@ -62,56 +63,22 @@ export const defaultTopics: Omit<TopicItem, "followed">[] = [
   },
 ];
 
-const LOCAL_STORAGE_KEY = "worldnewz_followed_topics";
-
 export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({ 
   onTopicsChange, 
   onTopicSelect,
   activeTopicId 
 }) => {
-  const [topics, setTopics] = useState<TopicItem[]>(() => {
-    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (stored) {
-      try {
-        const parsed: string[] = JSON.parse(stored);
-        return defaultTopics.map((topic) => ({
-          ...topic,
-          followed: parsed.includes(topic.categoryKeyword),
-        }));
-      } catch {
-        return defaultTopics.map((t) => ({ ...t, followed: false }));
-      }
-    }
-    return defaultTopics.map((t) => ({ ...t, followed: false }));
-  });
+  const { followedTopicIds, toggleFollow } = useFollowedTopics();
 
   useEffect(() => {
-    // Notify parent of initially followed topics
-    const followedKeywords = topics
-      .filter((t) => t.followed)
-      .map((t) => t.categoryKeyword);
     if (onTopicsChange) {
-      onTopicsChange(followedKeywords);
+      onTopicsChange(followedTopicIds);
     }
-  }, []);
+  }, [followedTopicIds, onTopicsChange]);
 
   const handleToggleFollow = (id: string, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    const updated = topics.map((t) =>
-      t.id === id ? { ...t, followed: !t.followed } : t
-    );
-    setTopics(updated);
-
-    const followedKeywords = updated
-      .filter((t) => t.followed)
-      .map((t) => t.categoryKeyword);
-
-    // Save to localstorage
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(followedKeywords));
-
-    if (onTopicsChange) {
-      onTopicsChange(followedKeywords);
-    }
+    toggleFollow(id);
     if (onTopicSelect) {
       onTopicSelect(id);
     }
@@ -120,6 +87,14 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
   const handleRowClick = (id: string) => {
     if (onTopicSelect) {
       onTopicSelect(id);
+    }
+  };
+
+  const handleSeeMoreClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById("personalized-topic-hub");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -147,7 +122,7 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
               Suggested for you
             </Typography>
           </Box>
-          <IconButton size="small" id="suggested-topics-menu-btn">
+          <IconButton size="small" id="suggested-topics-menu-btn" aria-label="Suggested topics menu">
             <MoreHorizIcon fontSize="small" />
           </IconButton>
         </Box>
@@ -158,8 +133,10 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
 
         {/* Topics checklist */}
         <Box sx={{ display: "flex", flexDirection: "column", gap: 1, flex: 1, overflowY: "auto", pr: 0.5 }}>
-          {topics.map((topic) => {
+          {defaultTopics.map((topic) => {
             const isSelected = activeTopicId === topic.id;
+            const isFollowed = followedTopicIds.includes(topic.id);
+
             return (
               <Box
                 key={topic.id}
@@ -173,7 +150,7 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                   px: 1.5,
                   borderRadius: 3,
                   border: "1.5px solid",
-                  borderColor: isSelected ? "var(--red, #B7222B)" : (topic.followed ? "primary.light" : "divider"),
+                  borderColor: isSelected ? "var(--red, #B7222B)" : (isFollowed ? "primary.light" : "divider"),
                   cursor: "pointer",
                   transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                   "&:hover": {
@@ -187,8 +164,8 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                     sx={{
                       width: 28,
                       height: 28,
-                      bgcolor: isSelected || topic.followed ? "var(--red, #B7222B)" : "action.selected",
-                      color: isSelected || topic.followed ? "#FFFFFF" : "text.secondary",
+                      bgcolor: isSelected || isFollowed ? "var(--red, #B7222B)" : "action.selected",
+                      color: isSelected || isFollowed ? "#FFFFFF" : "text.secondary",
                       transition: "all 0.2s",
                     }}
                   >
@@ -210,17 +187,18 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
                   size="small"
                   onClick={(e) => handleToggleFollow(topic.id, e)}
                   id={`topic-toggle-${topic.name.replace(/\s+/g, "")}`}
+                  aria-label={`${isFollowed ? "Unfollow" : "Follow"} ${topic.name}`}
                   sx={{
-                    bgcolor: topic.followed ? "primary.main" : "action.selected",
-                    color: topic.followed ? "primary.contrastText" : "text.secondary",
+                    bgcolor: isFollowed ? "primary.main" : "action.selected",
+                    color: isFollowed ? "primary.contrastText" : "text.secondary",
                     width: 24,
                     height: 24,
                     "&:hover": {
-                      bgcolor: topic.followed ? "primary.dark" : "action.hover",
+                      bgcolor: isFollowed ? "primary.dark" : "action.hover",
                     },
                   }}
                 >
-                  {topic.followed ? (
+                  {isFollowed ? (
                     <CheckIcon sx={{ fontSize: 14 }} />
                   ) : (
                     <AddIcon sx={{ fontSize: 14 }} />
@@ -250,6 +228,7 @@ export const SuggestedForYouWidget: React.FC<SuggestedForYouWidgetProps> = ({
 
           <Link
             id="see-more-topics-link"
+            onClick={handleSeeMoreClick}
             sx={{
               fontSize: "0.8rem",
               fontWeight: 700,
