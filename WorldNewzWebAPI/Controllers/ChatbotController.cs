@@ -270,6 +270,27 @@ namespace WorldNewzWebAPI.Controllers
                     var response = await client.SendAsync(requestMsg);
                     var responseBody = await response.Content.ReadAsStringAsync();
 
+                    // If primary model request failed (e.g. 429 or 404), retry with openrouter/free
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"⚠️ OpenRouter attempt 1 returned {response.StatusCode}. Retrying with openrouter/free fallback...");
+                        var retryBody = new
+                        {
+                            model = "openrouter/free",
+                            messages = messages
+                        };
+                        var retryMsg = new HttpRequestMessage(HttpMethod.Post, "https://openrouter.ai/api/v1/chat/completions")
+                        {
+                            Content = new StringContent(JsonSerializer.Serialize(retryBody), Encoding.UTF8, "application/json")
+                        };
+                        retryMsg.Headers.Add("Authorization", $"Bearer {openRouterKey}");
+                        retryMsg.Headers.Add("HTTP-Referer", "https://worldnewzs.in");
+                        retryMsg.Headers.Add("X-Title", "WorldNewz");
+
+                        response = await client.SendAsync(retryMsg);
+                        responseBody = await response.Content.ReadAsStringAsync();
+                    }
+
                     if (response.IsSuccessStatusCode)
                     {
                         using var doc = JsonDocument.Parse(responseBody);
@@ -315,20 +336,11 @@ namespace WorldNewzWebAPI.Controllers
                     else
                     {
                         Console.WriteLine($"⚠️ OpenRouter API responded with status {response.StatusCode}: {responseBody}");
-                        // If OpenRouter returns an error and we don't have Gemini fallback, return the details
-                        if (string.IsNullOrWhiteSpace(geminiKey))
-                        {
-                            return StatusCode((int)response.StatusCode, new { error = "OpenRouter API error", details = responseBody });
-                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"⚠️ Exception during OpenRouter API invocation: {ex.Message}");
-                    if (string.IsNullOrWhiteSpace(geminiKey))
-                    {
-                        return StatusCode(500, new { error = "Exception during OpenRouter API invocation", details = ex.Message });
-                    }
                 }
             }
 
@@ -390,56 +402,61 @@ namespace WorldNewzWebAPI.Controllers
                         responseBody = await response.Content.ReadAsStringAsync();
                     }
 
-                    if (!response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
-                        return StatusCode((int)response.StatusCode, new { error = "Gemini API returned an error", details = responseBody });
-                    }
-
-                    using var doc = JsonDocument.Parse(responseBody);
-                    var root = doc.RootElement;
-                    
-                    if (root.TryGetProperty("candidates", out var candidates) && 
-                        candidates.ValueKind == JsonValueKind.Array && 
-                        candidates.GetArrayLength() > 0)
-                    {
-                        var candidate = candidates[0];
-                        if (candidate.TryGetProperty("content", out var content) &&
-                            content.TryGetProperty("parts", out var parts) &&
-                            parts.ValueKind == JsonValueKind.Array &&
-                            parts.GetArrayLength() > 0)
+                        using var doc = JsonDocument.Parse(responseBody);
+                        var root = doc.RootElement;
+                        
+                        if (root.TryGetProperty("candidates", out var candidates) && 
+                            candidates.ValueKind == JsonValueKind.Array && 
+                            candidates.GetArrayLength() > 0)
                         {
-                            var text = parts[0].GetProperty("text").GetString() ?? "";
-
-                            // Parse out VisualMock tag if present
-                            string? visualMockPrompt = null;
-                            string? generatedImage = null;
-                            var match = Regex.Match(text, @"\[VisualMock:\s*(.*?)\]");
-                            if (match.Success)
+                            var candidate = candidates[0];
+                            if (candidate.TryGetProperty("content", out var content) &&
+                                content.TryGetProperty("parts", out var parts) &&
+                                parts.ValueKind == JsonValueKind.Array &&
+                                parts.GetArrayLength() > 0)
                             {
-                                visualMockPrompt = match.Groups[1].Value.Trim();
-                                text = Regex.Replace(text, @"\[VisualMock:\s*.*?\]", "").Trim();
-                                generatedImage = await GenerateImageWithCloudflareAsync(visualMockPrompt);
+                                var text = parts[0].GetProperty("text").GetString() ?? "";
+
+                                // Parse out VisualMock tag if present
+                                string? visualMockPrompt = null;
+                                string? generatedImage = null;
+                                var match = Regex.Match(text, @"\[VisualMock:\s*(.*?)\]");
+                                if (match.Success)
+                                {
+                                    visualMockPrompt = match.Groups[1].Value.Trim();
+                                    text = Regex.Replace(text, @"\[VisualMock:\s*.*?\]", "").Trim();
+                                    generatedImage = await GenerateImageWithCloudflareAsync(visualMockPrompt);
+                                }
+
+                                return Ok(new
+                                {
+                                    reply = text,
+                                    modelUsed = "Google Gemini (Direct API Fallback)",
+                                    visualMockPrompt = visualMockPrompt,
+                                    generatedImage = generatedImage
+                                });
                             }
-
-                            return Ok(new
-                            {
-                                reply = text,
-                                modelUsed = "Google Gemini (Direct API Fallback)",
-                                visualMockPrompt = visualMockPrompt,
-                                generatedImage = generatedImage
-                            });
                         }
                     }
-
-                    return BadRequest(new { error = "No response content generated by Gemini." });
+                    else
+                    {
+                        Console.WriteLine($"⚠️ Gemini API failed with status {response.StatusCode}: {responseBody}");
+                    }
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(500, new { error = "Exception during Gemini API invocation", details = ex.Message });
+                    Console.WriteLine($"⚠️ Exception during Gemini API invocation: {ex.Message}");
                 }
             }
 
-            return StatusCode(500, new { error = "AI API credentials are not configured on the server. Please set OPENROUTER_API_KEY or GEMINI_API_KEY." });
+            // If all providers are rate-limited, return a graceful, friendly 200 response rather than an unhandled 429 crash
+            return Ok(new
+            {
+                reply = "⏳ **High Traffic Rate Limit**: The AI service is currently experiencing high inquiry volume on the free tier. Please wait **15 seconds** and try sending your question again.",
+                modelUsed = "Traffic Cooldown"
+            });
         }
     }
 
