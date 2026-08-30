@@ -92,61 +92,51 @@ namespace WorldNewzWebAPI.Controllers
                 },
                 new 
                 { 
-                    id = "google/gemini-2.0-flash-exp:free", 
-                    name = "Google Gemini 2.0 Flash", 
-                    provider = "Google", 
-                    description = "Ultra-fast response with high reasoning capability and latest knowledge", 
-                    badge = "Fast & Smart",
-                    isFree = true, 
-                    isDefault = false 
-                },
-                new 
-                { 
-                    id = "meta-llama/llama-3.3-70b-instruct:free", 
-                    name = "Meta Llama 3.3 70B", 
-                    provider = "Meta", 
-                    description = "Flagship open-weights 70B parameter model with nuanced understanding", 
-                    badge = "Powerful",
-                    isFree = true, 
-                    isDefault = false 
-                },
-                new 
-                { 
-                    id = "deepseek/deepseek-r1:free", 
-                    name = "DeepSeek R1", 
-                    provider = "DeepSeek", 
-                    description = "Cutting-edge deep reasoning and complex problem-solving model", 
-                    badge = "Reasoning",
-                    isFree = true, 
-                    isDefault = false 
-                },
-                new 
-                { 
-                    id = "qwen/qwen-2.5-72b-instruct:free", 
-                    name = "Qwen 2.5 72B", 
-                    provider = "Alibaba", 
-                    description = "High-performing model for coding, synthesis, and deep factual knowledge", 
-                    badge = "Accurate",
-                    isFree = true, 
-                    isDefault = false 
-                },
-                new 
-                { 
-                    id = "mistralai/mistral-7b-instruct:free", 
-                    name = "Mistral 7B Instruct", 
-                    provider = "Mistral AI", 
-                    description = "Compact, low-latency, and precise conversational responses", 
-                    badge = "Lightweight",
-                    isFree = true, 
-                    isDefault = false 
-                },
-                new 
-                { 
                     id = "openrouter/free", 
-                    name = "OpenRouter Auto Free", 
+                    name = "OpenRouter Free Router", 
                     provider = "OpenRouter", 
                     description = "Dynamic community-backed free routing endpoint", 
-                    badge = "Fallback",
+                    badge = "Auto Fast",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "minimax/minimax-m2.7:free", 
+                    name = "MiniMax M2.7", 
+                    provider = "MiniMax", 
+                    description = "Advanced reasoning, long-form synthesis and news comprehension", 
+                    badge = "Smart Reasoning",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "nvidia/nemotron-3-super-120b-a12b:free", 
+                    name = "NVIDIA Nemotron 3 Super 120B", 
+                    provider = "NVIDIA", 
+                    description = "Flagship 120B parameter model with nuanced understanding", 
+                    badge = "Flagship 120B",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "google/gemma-4-31b-it:free", 
+                    name = "Google Gemma 4 31B", 
+                    provider = "Google", 
+                    description = "Latest Google Gemma open weights model for informative responses", 
+                    badge = "Google Gemma",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "z-ai/glm-5.2:free", 
+                    name = "Z.ai GLM 5.2", 
+                    provider = "Z.ai", 
+                    description = "Compact, low-latency, and precise conversational responses", 
+                    badge = "Fast",
                     isFree = true, 
                     isDefault = false 
                 }
@@ -166,6 +156,10 @@ namespace WorldNewzWebAPI.Controllers
             var openRouterKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY")
                                 ?? _configuration["OPENROUTER_API_KEY"]
                                 ?? _configuration["OpenRouter:ApiKey"];
+
+            var geminiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY")
+                            ?? _configuration["GEMINI_API_KEY"]
+                            ?? _configuration["Gemini:ApiKey"];
 
             // Construct context-aware system instruction / persona according to WorldNewz Visual Chatbot Spec
             var contextMode = (request.Context ?? "news").ToLowerInvariant();
@@ -215,13 +209,13 @@ namespace WorldNewzWebAPI.Controllers
                     content = request.Query
                 });
 
-                // Determine whether to pass 'models' array (for automatic fallback) or single 'model'
+                // OpenRouter enforces max 3 items in 'models' fallback array
                 object requestBody;
                 if (request.Models != null && request.Models.Count > 0)
                 {
                     requestBody = new
                     {
-                        models = request.Models,
+                        models = request.Models.Take(3).ToList(),
                         messages = messages
                     };
                 }
@@ -235,32 +229,23 @@ namespace WorldNewzWebAPI.Controllers
                 }
                 else
                 {
-                    // Default fallback array across highest-performing free models
+                    // Default fallback array across highest-performing active free models (max 3 items)
                     var envModels = Environment.GetEnvironmentVariable("OPENROUTER_MODELS");
                     List<string> modelsFallback;
                     if (!string.IsNullOrWhiteSpace(envModels))
                     {
-                        modelsFallback = new List<string>(envModels.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
+                        modelsFallback = envModels.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                                                  .Take(3)
+                                                  .ToList();
                     }
                     else
                     {
-                        var singleModelEnv = Environment.GetEnvironmentVariable("OPENROUTER_MODEL");
-                        if (!string.IsNullOrWhiteSpace(singleModelEnv) && singleModelEnv != "openrouter/free" && singleModelEnv != "meta-llama/llama-3-8b-instruct:free")
+                        modelsFallback = new List<string>
                         {
-                            modelsFallback = new List<string> { singleModelEnv, "google/gemini-2.0-flash-exp:free", "meta-llama/llama-3.3-70b-instruct:free", "deepseek/deepseek-r1:free", "openrouter/free" };
-                        }
-                        else
-                        {
-                            modelsFallback = new List<string>
-                            {
-                                "google/gemini-2.0-flash-exp:free",
-                                "meta-llama/llama-3.3-70b-instruct:free",
-                                "deepseek/deepseek-r1:free",
-                                "qwen/qwen-2.5-72b-instruct:free",
-                                "mistralai/mistral-7b-instruct:free",
-                                "openrouter/free"
-                            };
-                        }
+                            "minimax/minimax-m2.7:free",
+                            "nvidia/nemotron-3-super-120b-a12b:free",
+                            "openrouter/free"
+                        };
                     }
 
                     requestBody = new
@@ -285,69 +270,71 @@ namespace WorldNewzWebAPI.Controllers
                     var response = await client.SendAsync(requestMsg);
                     var responseBody = await response.Content.ReadAsStringAsync();
 
-                    if (!response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
-                        return StatusCode((int)response.StatusCode, new { error = "OpenRouter API returned an error", details = responseBody });
-                    }
+                        using var doc = JsonDocument.Parse(responseBody);
+                        var root = doc.RootElement;
 
-                    using var doc = JsonDocument.Parse(responseBody);
-                    var root = doc.RootElement;
-
-                    string? modelUsed = null;
-                    if (root.TryGetProperty("model", out var modelProp))
-                    {
-                        modelUsed = modelProp.GetString();
-                    }
-
-                    if (root.TryGetProperty("choices", out var choices) && 
-                        choices.ValueKind == JsonValueKind.Array && 
-                        choices.GetArrayLength() > 0)
-                    {
-                        var choice = choices[0];
-                        if (choice.TryGetProperty("message", out var message) &&
-                            message.TryGetProperty("content", out var content))
+                        string? modelUsed = null;
+                        if (root.TryGetProperty("model", out var modelProp))
                         {
-                            var text = content.GetString() ?? "";
+                            modelUsed = modelProp.GetString();
+                        }
 
-                            // Parse out VisualMock tag if present
-                            string? visualMockPrompt = null;
-                            string? generatedImage = null;
-                            var match = Regex.Match(text, @"\[VisualMock:\s*(.*?)\]");
-                            if (match.Success)
+                        if (root.TryGetProperty("choices", out var choices) && 
+                            choices.ValueKind == JsonValueKind.Array && 
+                            choices.GetArrayLength() > 0)
+                        {
+                            var choice = choices[0];
+                            if (choice.TryGetProperty("message", out var message) &&
+                                message.TryGetProperty("content", out var content))
                             {
-                                visualMockPrompt = match.Groups[1].Value.Trim();
-                                text = Regex.Replace(text, @"\[VisualMock:\s*.*?\]", "").Trim();
-                                generatedImage = await GenerateImageWithCloudflareAsync(visualMockPrompt);
+                                var text = content.GetString() ?? "";
+
+                                // Parse out VisualMock tag if present
+                                string? visualMockPrompt = null;
+                                string? generatedImage = null;
+                                var match = Regex.Match(text, @"\[VisualMock:\s*(.*?)\]");
+                                if (match.Success)
+                                {
+                                    visualMockPrompt = match.Groups[1].Value.Trim();
+                                    text = Regex.Replace(text, @"\[VisualMock:\s*.*?\]", "").Trim();
+                                    generatedImage = await GenerateImageWithCloudflareAsync(visualMockPrompt);
+                                }
+
+                                return Ok(new
+                                {
+                                    reply = text,
+                                    modelUsed = modelUsed,
+                                    visualMockPrompt = visualMockPrompt,
+                                    generatedImage = generatedImage
+                                });
                             }
-
-                            return Ok(new
-                            {
-                                reply = text,
-                                modelUsed = modelUsed,
-                                visualMockPrompt = visualMockPrompt,
-                                generatedImage = generatedImage
-                            });
                         }
                     }
-
-                    return BadRequest(new { error = "No response content generated by OpenRouter." });
+                    else
+                    {
+                        Console.WriteLine($"⚠️ OpenRouter API responded with status {response.StatusCode}: {responseBody}");
+                        // If OpenRouter returns an error and we don't have Gemini fallback, return the details
+                        if (string.IsNullOrWhiteSpace(geminiKey))
+                        {
+                            return StatusCode((int)response.StatusCode, new { error = "OpenRouter API error", details = responseBody });
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(500, new { error = "Exception during OpenRouter API invocation", details = ex.Message });
+                    Console.WriteLine($"⚠️ Exception during OpenRouter API invocation: {ex.Message}");
+                    if (string.IsNullOrWhiteSpace(geminiKey))
+                    {
+                        return StatusCode(500, new { error = "Exception during OpenRouter API invocation", details = ex.Message });
+                    }
                 }
             }
-            else
-            {
-                // Fallback to Gemini API if OpenRouter key is not set
-                var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY")
-                             ?? _configuration["GEMINI_API_KEY"]
-                             ?? _configuration["Gemini:ApiKey"];
-                if (string.IsNullOrWhiteSpace(apiKey))
-                {
-                    return StatusCode(500, new { error = "AI API credentials are not configured on the server. Please set OPENROUTER_API_KEY or GEMINI_API_KEY." });
-                }
 
+            // Fallback to Gemini API if OpenRouter was not configured or failed
+            if (!string.IsNullOrWhiteSpace(geminiKey))
+            {
                 var contents = new List<object>();
 
                 if (request.History != null)
@@ -389,7 +376,7 @@ namespace WorldNewzWebAPI.Controllers
                 try
                 {
                     var client = _httpClientFactory.CreateClient();
-                    var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={apiKey}";
+                    var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={geminiKey}";
                     
                     var jsonContent = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
                     var response = await client.PostAsync(url, jsonContent);
@@ -398,7 +385,7 @@ namespace WorldNewzWebAPI.Controllers
                     if (!response.IsSuccessStatusCode)
                     {
                         Console.WriteLine($"⚠️ gemini-1.5-flash failed with {response.StatusCode}. Retrying with gemini-pro...");
-                        url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={apiKey}";
+                        url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={geminiKey}";
                         response = await client.PostAsync(url, jsonContent);
                         responseBody = await response.Content.ReadAsStringAsync();
                     }
@@ -437,7 +424,7 @@ namespace WorldNewzWebAPI.Controllers
                             return Ok(new
                             {
                                 reply = text,
-                                modelUsed = "Google Gemini (Direct API)",
+                                modelUsed = "Google Gemini (Direct API Fallback)",
                                 visualMockPrompt = visualMockPrompt,
                                 generatedImage = generatedImage
                             });
@@ -451,6 +438,8 @@ namespace WorldNewzWebAPI.Controllers
                     return StatusCode(500, new { error = "Exception during Gemini API invocation", details = ex.Message });
                 }
             }
+
+            return StatusCode(500, new { error = "AI API credentials are not configured on the server. Please set OPENROUTER_API_KEY or GEMINI_API_KEY." });
         }
     }
 
