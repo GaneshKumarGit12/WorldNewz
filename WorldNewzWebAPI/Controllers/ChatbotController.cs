@@ -14,19 +14,25 @@ namespace WorldNewzWebAPI.Controllers
     public class ChatbotController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public ChatbotController(IHttpClientFactory httpClientFactory)
+        public ChatbotController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         private async Task<string?> GenerateImageWithCloudflareAsync(string prompt)
         {
             var accountId = Environment.GetEnvironmentVariable("CLOUDFLARE_ACCOUNT_ID")
-                            ?? Environment.GetEnvironmentVariable("ImageGenerator_Account_ID");
+                            ?? Environment.GetEnvironmentVariable("ImageGenerator_Account_ID")
+                            ?? _configuration["CLOUDFLARE_ACCOUNT_ID"]
+                            ?? _configuration["Cloudflare:AccountId"];
             var apiKey = Environment.GetEnvironmentVariable("CLOUDFLARE_API_KEY")
                          ?? Environment.GetEnvironmentVariable("key")
-                         ?? Environment.GetEnvironmentVariable("CLOUDFLARE_API_TOKEN");
+                         ?? Environment.GetEnvironmentVariable("CLOUDFLARE_API_TOKEN")
+                         ?? _configuration["CLOUDFLARE_API_KEY"]
+                         ?? _configuration["Cloudflare:ApiKey"];
 
             if (string.IsNullOrWhiteSpace(accountId) || string.IsNullOrWhiteSpace(apiKey))
             {
@@ -157,7 +163,9 @@ namespace WorldNewzWebAPI.Controllers
                 return BadRequest(new { error = "Message query is required." });
             }
 
-            var openRouterKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY");
+            var openRouterKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY")
+                                ?? _configuration["OPENROUTER_API_KEY"]
+                                ?? _configuration["OpenRouter:ApiKey"];
 
             // Construct context-aware system instruction / persona according to WorldNewz Visual Chatbot Spec
             var contextMode = (request.Context ?? "news").ToLowerInvariant();
@@ -332,7 +340,9 @@ namespace WorldNewzWebAPI.Controllers
             else
             {
                 // Fallback to Gemini API if OpenRouter key is not set
-                var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+                var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY")
+                             ?? _configuration["GEMINI_API_KEY"]
+                             ?? _configuration["Gemini:ApiKey"];
                 if (string.IsNullOrWhiteSpace(apiKey))
                 {
                     return StatusCode(500, new { error = "AI API credentials are not configured on the server. Please set OPENROUTER_API_KEY or GEMINI_API_KEY." });
