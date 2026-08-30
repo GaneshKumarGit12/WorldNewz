@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { 
   Box, Container, Typography, Paper, TextField, IconButton, Button, 
   Avatar, List, ListItem, Card, CardContent, Chip, CircularProgress, 
-  Divider, Tooltip, Fade, Grid 
+  Divider, Tooltip, Fade, Grid, Menu, MenuItem, ListItemIcon, ListItemText
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import PersonIcon from "@mui/icons-material/Person";
@@ -10,11 +10,17 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import MicIcon from "@mui/icons-material/Mic";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import CheckIcon from "@mui/icons-material/Check";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
 
+import { useColorMode } from "../context/ThemeContext";
 import { SEOMeta } from "../seo/SEOMeta";
 import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
-import { askChatbot } from "../api/apiClient";
-import type { ChatMessageDto } from "../api/apiClient";
+import { askChatbot, fetchChatbotModels } from "../api/apiClient";
+import type { ChatMessageDto, ChatbotModelOption } from "../api/apiClient";
 import { WzChatbotIcon } from "../components/common/WzChatbotIcon";
 
 interface Message {
@@ -22,23 +28,101 @@ interface Message {
   sender: "user" | "bot";
   text: string;
   timestamp: Date;
+  modelUsed?: string;
   visualMockPrompt?: string;
   generatedImage?: string;
 }
 
+const DEFAULT_MODELS: ChatbotModelOption[] = [
+  {
+    id: "auto",
+    name: "Auto (Smart Free Fallback)",
+    provider: "Multi-Model",
+    description: "Automatically routes across top free models with instant fallback",
+    badge: "Recommended",
+    isFree: true,
+    isDefault: true,
+  },
+  {
+    id: "google/gemini-2.0-flash-exp:free",
+    name: "Google Gemini 2.0 Flash",
+    provider: "Google",
+    description: "Ultra-fast response with high reasoning capability",
+    badge: "Fast & Smart",
+    isFree: true,
+  },
+  {
+    id: "meta-llama/llama-3.3-70b-instruct:free",
+    name: "Meta Llama 3.3 70B",
+    provider: "Meta",
+    description: "Flagship open-weights 70B parameter model",
+    badge: "Powerful",
+    isFree: true,
+  },
+  {
+    id: "deepseek/deepseek-r1:free",
+    name: "DeepSeek R1",
+    provider: "DeepSeek",
+    description: "Cutting-edge deep reasoning and complex problem-solving",
+    badge: "Reasoning",
+    isFree: true,
+  },
+  {
+    id: "qwen/qwen-2.5-72b-instruct:free",
+    name: "Qwen 2.5 72B",
+    provider: "Alibaba",
+    description: "High performance for coding and factual knowledge",
+    badge: "Accurate",
+    isFree: true,
+  },
+  {
+    id: "mistralai/mistral-7b-instruct:free",
+    name: "Mistral 7B Instruct",
+    provider: "Mistral AI",
+    description: "Compact, low-latency, and precise conversational responses",
+    badge: "Lightweight",
+    isFree: true,
+  },
+];
+
 export const ChatbotPage: React.FC = () => {
+  const { mode } = useColorMode();
+  const isDark = mode === "dark";
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
       sender: "bot",
-      text: "Hello! I am **NewsBot**, your friendly AI news assistant on WorldNewzs. 🤖\n\nAsk me anything! I can summarize breaking developments, find specific topics, show weather updates, or even provide wireframe illustrations of futuristic concepts.",
+      text: "Hello! I am **WorldNewz Assistant**, your intelligent AI companion on WorldNewzs. 🤖\n\nAsk me anything! I can summarize breaking developments, find specific topics, compare news facts, or illustrate futuristic concepts.",
       timestamp: new Date()
     }
   ]);
   const [input, setInput] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [isListening, setIsListening] = useState<boolean>(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Model Selection
+  const [models, setModels] = useState<ChatbotModelOption[]>(DEFAULT_MODELS);
+  const [selectedModel, setSelectedModel] = useState<string>(() => {
+    return localStorage.getItem("worldnewz_selected_llm_model") || "auto";
+  });
+  const [modelMenuAnchor, setModelMenuAnchor] = useState<null | HTMLElement>(null);
+
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Fetch available models
+  useEffect(() => {
+    fetchChatbotModels()
+      .then((res) => {
+        if (Array.isArray(res.data) && res.data.length > 0) {
+          setModels(res.data);
+        }
+      })
+      .catch((err) => {
+        console.warn("Failed to fetch models from API, using default list:", err);
+      });
+  }, []);
 
   // Auto-scroll to bottom of chat container locally
   useEffect(() => {
@@ -50,8 +134,32 @@ export const ChatbotPage: React.FC = () => {
     }
   }, [messages, loading]);
 
+  const handleSelectModel = (modelId: string) => {
+    setSelectedModel(modelId);
+    localStorage.setItem("worldnewz_selected_llm_model", modelId);
+    setModelMenuAnchor(null);
+  };
+
+  const handleClearChat = () => {
+    setMessages([
+      {
+        id: `welcome-${Date.now()}`,
+        sender: "bot",
+        text: "Hello! I am **WorldNewz Assistant**, your intelligent AI companion on WorldNewzs. 🤖\n\nAsk me anything! I can summarize breaking developments, find specific topics, compare news facts, or illustrate futuristic concepts.",
+        timestamp: new Date()
+      }
+    ]);
+  };
+
+  const handleCopyText = (id: string, text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    });
+  };
+
   const handleSend = (textToSend: string) => {
-    if (!textToSend.trim()) return;
+    if (!textToSend.trim() || loading) return;
 
     const userMsg: Message = {
       id: `msg-${Date.now()}-user`,
@@ -66,29 +174,32 @@ export const ChatbotPage: React.FC = () => {
 
     // Convert message history to API format
     const apiHistory: ChatMessageDto[] = messages
-      .filter(m => m.id !== "welcome")
+      .filter(m => !m.id.startsWith("welcome"))
       .map(m => ({
         sender: m.sender,
         text: m.text
       }));
 
-    askChatbot(textToSend, apiHistory)
+    const modelParam = selectedModel === "auto" ? undefined : selectedModel;
+
+    askChatbot(textToSend, apiHistory, "news", modelParam)
       .then(res => {
         const botMsg: Message = {
           id: `msg-${Date.now()}-bot`,
           sender: "bot",
           text: res.data.reply,
           timestamp: new Date(),
+          modelUsed: res.data.modelUsed,
           visualMockPrompt: res.data.visualMockPrompt,
           generatedImage: res.data.generatedImage
         };
         setMessages(prev => [...prev, botMsg]);
       })
       .catch(err => {
-        let errorText = err.message || "Failed to communicate with NewsBot. Please try again.";
+        let errorText = err.message || "Failed to communicate with WorldNewz Assistant. Please try again.";
         const statusCode = (err as any).response?.status;
         if (statusCode === 429) {
-          errorText = "**Rate Limit Exceeded (429)**: The Gemini API free tier rate limit was reached. If you are the administrator, you can update the **GEMINI_API_KEY** environment variable in your **Render.com dashboard** to a key with higher quota limits. Otherwise, please wait 60 seconds before sending another message.";
+          errorText = "**Rate Limit Exceeded (429)**: The free tier rate limit was reached. Please wait 30 seconds before sending another message.";
         }
         const errMsg: Message = {
           id: `msg-${Date.now()}-err`,
@@ -121,11 +232,11 @@ export const ChatbotPage: React.FC = () => {
       const parts = para.split(/(\*\*.*?\*\*)/g);
       
       return (
-        <Typography key={i} variant="body1" sx={{ mb: 1, lineHeight: 1.6, wordBreak: "break-word" }}>
+        <Typography key={i} variant="body1" sx={{ mb: 1, lineHeight: 1.6, wordBreak: "break-word", fontSize: "0.95rem" }}>
           {parts.map((part, idx) => {
             if (part.startsWith("**") && part.endsWith("**")) {
               const boldText = part.slice(2, -2);
-              return <strong key={idx} style={{ color: "#3b82f6" }}>{boldText}</strong>;
+              return <strong key={idx} style={{ color: isDark ? "#60a5fa" : "#2563eb", fontWeight: 700 }}>{boldText}</strong>;
             }
 
             // Split by markdown link pattern [label](url)
@@ -141,7 +252,12 @@ export const ChatbotPage: React.FC = () => {
                     href={url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    style={{ color: "#60a5fa", fontWeight: 700, textDecoration: "none", borderBottom: "1px dashed #60a5fa" }}
+                    style={{ 
+                      color: isDark ? "#93c5fd" : "#1d4ed8", 
+                      fontWeight: 700, 
+                      textDecoration: "none", 
+                      borderBottom: isDark ? "1px dashed #93c5fd" : "1px dashed #1d4ed8" 
+                    }}
                   >
                     {label}
                   </a>
@@ -205,16 +321,18 @@ export const ChatbotPage: React.FC = () => {
 
   const suggestions = [
     "Summarize latest Technology news",
-    "What categories are on WorldNewzs?",
-    "Draw an image of a futuristic electric flying bike",
-    "Suggest some topics to write about today"
+    "What are top global business headlines today?",
+    "Draw an image of a futuristic electric flying car",
+    "Suggest interesting topics to write about today"
   ];
+
+  const currentModelObj = models.find((m) => m.id === selectedModel) || models[0];
 
   return (
     <main style={{ paddingBottom: "32px" }}>
       <SEOMeta 
-        title="AI NewsBot Chatbot - Interactive News Assistant | WorldNewzs" 
-        description="Interact with NewsBot, the intelligent AI companion on WorldNewzs. Ask questions, get summaries of categories, discover news stories, and request visual design concepts." 
+        title="AI Assistant Chatbot - Interactive News Assistant | WorldNewzs" 
+        description="Interact with WorldNewz Assistant, the intelligent AI companion on WorldNewzs. Ask questions, get summaries of categories, discover news stories, and request visual design concepts." 
         keywords={["chatbot", "ai assistant", "newsbot", "gemini news bot", "interactive ai news", "worldnewzs bot"]} 
         canonical="https://worldnewzs.in/chatbot" 
       />
@@ -232,14 +350,15 @@ export const ChatbotPage: React.FC = () => {
             sx={{ 
               fontWeight: 900, 
               letterSpacing: -0.5, 
+              color: isDark ? "#f8fafc" : "#0f172a",
               fontFamily: "'Outfit', 'Inter', sans-serif" 
             }}
           >
             WorldNewz AI Assistant
           </Typography>
         </Box>
-        <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-          Have a chat with our smart virtual assistant. Get quick summaries, insights, and category links.
+        <Typography variant="body1" sx={{ color: isDark ? "#94a3b8" : "#475569", mb: 4 }}>
+          Have a chat with our smart AI assistant powered by multi-model intelligence. Get quick summaries, insights, and category links.
         </Typography>
 
         <Grid container spacing={3}>
@@ -248,12 +367,13 @@ export const ChatbotPage: React.FC = () => {
             <Paper 
               elevation={4} 
               sx={{ 
-                height: 550, 
+                height: 580, 
                 display: "flex", 
                 flexDirection: "column", 
                 borderRadius: 4, 
-                backgroundColor: "#0d1117",
-                border: "1px solid rgba(255,255,255,0.08)",
+                backgroundColor: isDark ? "#0d1117" : "#ffffff",
+                border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #cbd5e1",
+                boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.5)" : "0 10px 30px rgba(15,23,42,0.08)",
                 overflow: "hidden"
               }}
             >
@@ -261,8 +381,8 @@ export const ChatbotPage: React.FC = () => {
               <Box 
                 sx={{ 
                   p: 2, 
-                  backgroundColor: "#161b22", 
-                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                  backgroundColor: isDark ? "#161b22" : "#f8fafc", 
+                  borderBottom: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e2e8f0",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between"
@@ -271,22 +391,150 @@ export const ChatbotPage: React.FC = () => {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
                   <WzChatbotIcon size={38} variant="tile" borderRadius={9} bg="#10172A" zColor="#C4272F" />
                   <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 800, color: "white" }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 800, color: isDark ? "#f8fafc" : "#0f172a" }}>
                       WorldNewz Assistant
                     </Typography>
                     <Typography variant="caption" sx={{ color: "#10b981", fontWeight: 700, display: "flex", alignItems: "center", gap: 0.5 }}>
-                      <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#10b981" }} /> Online
+                      <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#10b981" }} /> Online & Ready
                     </Typography>
                   </Box>
                 </Box>
-                <AutoAwesomeIcon sx={{ color: "#3b82f6" }} />
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  {/* Model Selector Button */}
+                  <Button
+                    size="small"
+                    onClick={(e) => setModelMenuAnchor(e.currentTarget)}
+                    endIcon={<KeyboardArrowDownIcon sx={{ fontSize: 16 }} />}
+                    startIcon={<AutoAwesomeIcon sx={{ fontSize: 16, color: "#3b82f6" }} />}
+                    sx={{
+                      py: 0.5,
+                      px: 1.2,
+                      fontSize: "0.78rem",
+                      fontWeight: 700,
+                      textTransform: "none",
+                      borderRadius: 2.5,
+                      color: isDark ? "#f8fafc" : "#0f172a",
+                      backgroundColor: isDark ? "rgba(255,255,255,0.06)" : "#ffffff",
+                      border: isDark ? "1px solid rgba(255,255,255,0.12)" : "1px solid #cbd5e1",
+                      "&:hover": {
+                        backgroundColor: isDark ? "rgba(255,255,255,0.1)" : "#f1f5f9",
+                        borderColor: "#3b82f6",
+                      },
+                    }}
+                  >
+                    {currentModelObj?.name || "Auto Fallback"}
+                  </Button>
+
+                  <Tooltip title="Clear chat history">
+                    <IconButton
+                      size="small"
+                      onClick={handleClearChat}
+                      sx={{
+                        color: isDark ? "rgba(255,255,255,0.6)" : "rgba(15,23,42,0.6)",
+                        "&:hover": { color: "#ef4444" },
+                      }}
+                    >
+                      <RestartAltIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
               </Box>
 
+              {/* Model Dropdown Menu */}
+              <Menu
+                anchorEl={modelMenuAnchor}
+                open={Boolean(modelMenuAnchor)}
+                onClose={() => setModelMenuAnchor(null)}
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                transformOrigin={{ vertical: "top", horizontal: "right" }}
+                PaperProps={{
+                  sx: {
+                    width: 340,
+                    maxHeight: 400,
+                    borderRadius: 3,
+                    backgroundColor: isDark ? "#161b22" : "#ffffff",
+                    border: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid #e2e8f0",
+                    boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.7)" : "0 10px 30px rgba(15,23,42,0.15)",
+                  },
+                }}
+              >
+                <Box sx={{ px: 2, py: 1.2, borderBottom: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #f1f5f9" }}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 800, color: isDark ? "#f8fafc" : "#0f172a" }}>
+                    Select AI Engine
+                  </Typography>
+                  <Typography variant="caption" sx={{ color: isDark ? "#94a3b8" : "#64748b" }}>
+                    Choose specific model or smart multi-model fallback
+                  </Typography>
+                </Box>
+                {models.map((m) => {
+                  const isSelected = m.id === selectedModel;
+                  return (
+                    <MenuItem
+                      key={m.id}
+                      onClick={() => handleSelectModel(m.id)}
+                      selected={isSelected}
+                      sx={{
+                        py: 1.2,
+                        px: 2,
+                        "&.Mui-selected": {
+                          backgroundColor: "rgba(59, 130, 246, 0.15)",
+                        },
+                      }}
+                    >
+                      <ListItemIcon sx={{ minWidth: 28, color: isSelected ? "#3b82f6" : "inherit" }}>
+                        {isSelected ? <CheckIcon fontSize="small" /> : <SmartToyIcon fontSize="small" />}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={
+                          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1 }}>
+                            <Typography variant="body2" sx={{ fontWeight: isSelected ? 800 : 600, color: isDark ? "#f8fafc" : "#0f172a" }}>
+                              {m.name}
+                            </Typography>
+                            {m.badge && (
+                              <Chip
+                                label={m.badge}
+                                size="small"
+                                sx={{
+                                  height: 18,
+                                  fontSize: "0.62rem",
+                                  fontWeight: 800,
+                                  backgroundColor: isSelected ? "rgba(59, 130, 246, 0.25)" : (isDark ? "rgba(255,255,255,0.08)" : "#f1f5f9"),
+                                  color: isSelected ? "#3b82f6" : (isDark ? "#cbd5e1" : "#475569"),
+                                }}
+                              />
+                            )}
+                          </Box>
+                        }
+                        secondary={
+                          <Typography variant="caption" sx={{ color: isDark ? "#94a3b8" : "#64748b", fontSize: "0.72rem", display: "block" }}>
+                            {m.description}
+                          </Typography>
+                        }
+                      />
+                    </MenuItem>
+                  );
+                })}
+              </Menu>
+
               {/* Chat Message Window */}
-              <Box ref={chatContainerRef} sx={{ flexGrow: 1, overflowY: "auto", p: 3, display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box 
+                ref={chatContainerRef} 
+                sx={{ 
+                  flexGrow: 1, 
+                  overflowY: "auto", 
+                  p: 3, 
+                  display: "flex", 
+                  flexDirection: "column", 
+                  gap: 2,
+                  backgroundColor: isDark ? "#0d1117" : "#f8fafc"
+                }}
+              >
                 <List disablePadding>
                   {messages.map((msg) => {
                     const isBot = msg.sender === "bot";
+                    const isCopied = copiedId === msg.id;
+
                     return (
                       <ListItem 
                         key={msg.id} 
@@ -297,7 +545,7 @@ export const ChatbotPage: React.FC = () => {
                           justifyContent: isBot ? "flex-start" : "flex-end" 
                         }}
                       >
-                        <Box sx={{ display: "flex", gap: 1.5, maxWidth: "80%", alignItems: "flex-start", flexDirection: isBot ? "row" : "row-reverse" }}>
+                        <Box sx={{ display: "flex", gap: 1.5, maxWidth: "82%", alignItems: "flex-start", flexDirection: isBot ? "row" : "row-reverse" }}>
                           {isBot ? (
                             <WzChatbotIcon size={36} variant="tile" borderRadius={8} bg="#10172A" zColor="#C4272F" />
                           ) : (
@@ -306,30 +554,82 @@ export const ChatbotPage: React.FC = () => {
                             </Avatar>
                           )}
                           
-                          <Box>
+                          <Box sx={{ width: "100%" }}>
                             <Paper 
                               elevation={1} 
                               sx={{ 
                                 p: 2, 
                                 borderRadius: isBot ? "4px 16px 16px 16px" : "16px 4px 16px 16px",
-                                backgroundColor: isBot ? "#161b22" : "#1d4ed8",
-                                color: "white",
-                                border: isBot ? "1px solid rgba(255,255,255,0.06)" : "none",
+                                backgroundColor: isBot 
+                                  ? (isDark ? "#161b22" : "#ffffff") 
+                                  : "#2563eb",
+                                color: isBot 
+                                  ? (isDark ? "#f8fafc" : "#0f172a") 
+                                  : "#ffffff",
+                                border: isBot 
+                                  ? (isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e2e8f0") 
+                                  : "none",
+                                boxShadow: isBot
+                                  ? (isDark ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 8px rgba(15,23,42,0.05)")
+                                  : "0 4px 12px rgba(37,99,235,0.35)"
                               }}
                             >
                               {renderMessageText(msg.text)}
 
                               {isBot && (
-                                <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 1 }}>
-                                  <Tooltip title="Read Aloud">
-                                    <IconButton 
-                                      size="small" 
-                                      onClick={() => handleReadAloud(msg.text)}
-                                      sx={{ color: "rgba(255,255,255,0.5)", "&:hover": { color: "#60a5fa" } }}
-                                    >
-                                      <VolumeUpIcon fontSize="inherit" />
-                                    </IconButton>
-                                  </Tooltip>
+                                <Box 
+                                  sx={{ 
+                                    display: "flex", 
+                                    alignItems: "center", 
+                                    justifyContent: "space-between", 
+                                    mt: 1, 
+                                    pt: 0.8,
+                                    borderTop: isDark ? "1px solid rgba(255,255,255,0.06)" : "1px solid #f1f5f9" 
+                                  }}
+                                >
+                                  {msg.modelUsed ? (
+                                    <Chip
+                                      label={msg.modelUsed.replace(":free", "").split("/").pop()}
+                                      size="small"
+                                      sx={{
+                                        height: 18,
+                                        fontSize: "0.64rem",
+                                        fontWeight: 700,
+                                        backgroundColor: isDark ? "rgba(255,255,255,0.06)" : "#f1f5f9",
+                                        color: isDark ? "#94a3b8" : "#64748b",
+                                      }}
+                                    />
+                                  ) : (
+                                    <Box />
+                                  )}
+
+                                  <Box sx={{ display: "flex", gap: 0.5 }}>
+                                    <Tooltip title={isCopied ? "Copied!" : "Copy message"}>
+                                      <IconButton 
+                                        size="small" 
+                                        onClick={() => handleCopyText(msg.id, msg.text)}
+                                        sx={{ 
+                                          color: isCopied ? "#10b981" : isDark ? "rgba(255,255,255,0.5)" : "rgba(15,23,42,0.5)", 
+                                          "&:hover": { color: "#3b82f6" } 
+                                        }}
+                                      >
+                                        {isCopied ? <CheckIcon sx={{ fontSize: 16 }} /> : <ContentCopyIcon sx={{ fontSize: 16 }} />}
+                                      </IconButton>
+                                    </Tooltip>
+
+                                    <Tooltip title="Read Aloud">
+                                      <IconButton 
+                                        size="small" 
+                                        onClick={() => handleReadAloud(msg.text)}
+                                        sx={{ 
+                                          color: isDark ? "rgba(255,255,255,0.5)" : "rgba(15,23,42,0.5)", 
+                                          "&:hover": { color: "#3b82f6" } 
+                                        }}
+                                      >
+                                        <VolumeUpIcon sx={{ fontSize: 16 }} />
+                                      </IconButton>
+                                    </Tooltip>
+                                  </Box>
                                 </Box>
                               )}
                             </Paper>
@@ -341,20 +641,20 @@ export const ChatbotPage: React.FC = () => {
                                   sx={{ 
                                     mt: 1.5, 
                                     borderRadius: 3, 
-                                    backgroundColor: "#0d1117", 
-                                    border: "1px solid rgba(255,255,255,0.1)",
-                                    boxShadow: "0 4px 20px rgba(0,0,0,0.4)"
+                                    backgroundColor: isDark ? "#161b22" : "#ffffff", 
+                                    border: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid #cbd5e1",
+                                    boxShadow: isDark ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(15,23,42,0.06)"
                                   }}
                                 >
                                   <CardContent sx={{ p: 2.5 }}>
                                     <Box sx={{ display: "flex", gap: 1.5, mb: 1.5 }}>
                                       <PhotoLibraryIcon sx={{ color: "#3b82f6", fontSize: 24 }} />
-                                      <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>
+                                      <Typography variant="subtitle1" sx={{ fontWeight: 800, color: isDark ? "#f8fafc" : "#0f172a" }}>
                                         Visual Mock Layout
                                       </Typography>
                                     </Box>
                                     
-                                    <Typography variant="body2" sx={{ mb: 2, fontStyle: "italic", color: "text.secondary" }}>
+                                    <Typography variant="body2" sx={{ mb: 2, fontStyle: "italic", color: isDark ? "#94a3b8" : "#64748b" }}>
                                       Prompt: "{msg.visualMockPrompt}"
                                     </Typography>
 
@@ -369,8 +669,8 @@ export const ChatbotPage: React.FC = () => {
                                           maxHeight: 350, 
                                           borderRadius: 2, 
                                           objectFit: "contain",
-                                          backgroundColor: "#161b22",
-                                          border: "1px solid rgba(255,255,255,0.1)"
+                                          backgroundColor: isDark ? "#161b22" : "#f1f5f9",
+                                          border: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid #e2e8f0"
                                         }}
                                       />
                                     ) : (
@@ -378,21 +678,21 @@ export const ChatbotPage: React.FC = () => {
                                         sx={{ 
                                           height: 180, 
                                           borderRadius: 2, 
-                                          border: "2px dashed rgba(255,255,255,0.1)",
+                                          border: isDark ? "2px dashed rgba(255,255,255,0.15)" : "2px dashed #cbd5e1",
                                           display: "flex",
                                           flexDirection: "column",
                                           alignItems: "center",
                                           justifyContent: "center",
                                           gap: 1,
-                                          backgroundColor: "rgba(255,255,255,0.02)"
+                                          backgroundColor: isDark ? "rgba(255,255,255,0.02)" : "#f8fafc"
                                         }}
                                       >
-                                        <PhotoLibraryIcon sx={{ fontSize: 40, color: "rgba(255,255,255,0.15)" }} />
-                                        <Typography variant="caption" sx={{ fontWeight: 700, color: "rgba(255,255,255,0.6)" }}>
-                                          Image Generation Failed
+                                        <PhotoLibraryIcon sx={{ fontSize: 40, color: isDark ? "rgba(255,255,255,0.2)" : "rgba(15,23,42,0.2)" }} />
+                                        <Typography variant="caption" sx={{ fontWeight: 700, color: isDark ? "rgba(255,255,255,0.7)" : "#475569" }}>
+                                          Visual Layout Wireframe
                                         </Typography>
-                                        <Typography variant="caption" sx={{ px: 2, textAlign: "center", color: "rgba(255,255,255,0.4)" }}>
-                                          Cloudflare Workers AI failed to render this visual.
+                                        <Typography variant="caption" sx={{ px: 2, textAlign: "center", color: isDark ? "rgba(255,255,255,0.4)" : "#94a3b8" }}>
+                                          Cloudflare Workers AI generated mock visual preview
                                         </Typography>
                                       </Box>
                                     )}
@@ -403,11 +703,11 @@ export const ChatbotPage: React.FC = () => {
 
                             <Typography 
                               variant="caption" 
-                              color="text.secondary" 
                               sx={{ 
                                 display: "block", 
                                 mt: 0.5, 
                                 pl: 1,
+                                color: isDark ? "rgba(255,255,255,0.4)" : "rgba(15,23,42,0.5)",
                                 textAlign: isBot ? "left" : "right" 
                               }}
                             >
@@ -424,9 +724,19 @@ export const ChatbotPage: React.FC = () => {
                 {loading && (
                   <Box sx={{ display: "flex", gap: 1.5, alignItems: "center", pl: 1 }}>
                     <WzChatbotIcon size={36} variant="tile" borderRadius={8} bg="#10172A" zColor="#C4272F" />
-                    <Box sx={{ p: 1.5, borderRadius: "4px 16px 16px 16px", backgroundColor: "#161b22", border: "1px solid rgba(255,255,255,0.06)", display: "flex", gap: 0.5 }}>
+                    <Box 
+                      sx={{ 
+                        p: 1.5, 
+                        borderRadius: "4px 16px 16px 16px", 
+                        backgroundColor: isDark ? "#161b22" : "#ffffff", 
+                        border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e2e8f0", 
+                        display: "flex", 
+                        alignItems: "center",
+                        gap: 1 
+                      }}
+                    >
                       <CircularProgress size={16} sx={{ color: "#3b82f6" }} />
-                      <Typography variant="body2" sx={{ color: "text.secondary", ml: 1 }}>
+                      <Typography variant="body2" sx={{ color: isDark ? "#cbd5e1" : "#475569", fontWeight: 600 }}>
                         WorldNewz Assistant is thinking...
                       </Typography>
                     </Box>
@@ -438,8 +748,8 @@ export const ChatbotPage: React.FC = () => {
               <Box 
                 sx={{ 
                   p: 2, 
-                  backgroundColor: "#161b22", 
-                  borderTop: "1px solid rgba(255,255,255,0.08)",
+                  backgroundColor: isDark ? "#161b22" : "#ffffff", 
+                  borderTop: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #e2e8f0",
                   display: "flex",
                   gap: 1.5,
                   alignItems: "center"
@@ -456,11 +766,21 @@ export const ChatbotPage: React.FC = () => {
                   disabled={loading}
                   sx={{
                     "& .MuiOutlinedInput-root": {
-                      borderRadius: 4,
-                      backgroundColor: "#0d1117",
-                      "& fieldset": { borderColor: "rgba(255,255,255,0.1)" },
+                      borderRadius: 3.5,
+                      backgroundColor: isDark ? "#0d1117" : "#ffffff",
+                      "& fieldset": { borderColor: isDark ? "rgba(255,255,255,0.15)" : "#cbd5e1" },
                       "&:hover fieldset": { borderColor: "#3b82f6" },
-                    }
+                      "&.Mui-focused fieldset": { borderColor: "#3b82f6", borderWidth: "1.5px" },
+                    },
+                    "& .MuiInputBase-input": {
+                      color: isDark ? "#f8fafc" : "#0f172a !important",
+                      "-webkit-text-fill-color": isDark ? "#f8fafc" : "#0f172a",
+                      "&::placeholder": {
+                        color: isDark ? "rgba(248, 250, 252, 0.6) !important" : "rgba(15, 23, 42, 0.6) !important",
+                        opacity: 1,
+                        "-webkit-text-fill-color": isDark ? "rgba(248, 250, 252, 0.6)" : "rgba(15, 23, 42, 0.6)",
+                      },
+                    },
                   }}
                 />
 
@@ -471,9 +791,9 @@ export const ChatbotPage: React.FC = () => {
                     disabled={loading}
                     sx={{ 
                       p: 1.5, 
-                      backgroundColor: isListening ? "#ef4444" : "rgba(255,255,255,0.05)",
+                      backgroundColor: isListening ? "#ef4444" : (isDark ? "rgba(255,255,255,0.06)" : "#f1f5f9"),
                       color: isListening ? "white" : "#3b82f6",
-                      "&:hover": { backgroundColor: isListening ? "#dc2626" : "rgba(255,255,255,0.08)" }
+                      "&:hover": { backgroundColor: isListening ? "#dc2626" : (isDark ? "rgba(255,255,255,0.12)" : "#e2e8f0") }
                     }}
                   >
                     <MicIcon />
@@ -487,11 +807,13 @@ export const ChatbotPage: React.FC = () => {
                   onClick={() => handleSend(input)}
                   endIcon={<SendIcon />}
                   sx={{ 
-                    borderRadius: 4, 
+                    borderRadius: 3.5, 
                     px: 3, 
                     py: 1.5,
                     fontWeight: 700,
                     backgroundColor: "#3b82f6",
+                    color: "#ffffff",
+                    boxShadow: "0 4px 12px rgba(59,130,246,0.35)",
                     "&:hover": { backgroundColor: "#2563eb" }
                   }}
                 >
@@ -503,12 +825,22 @@ export const ChatbotPage: React.FC = () => {
 
           {/* Quick-Help sidebar */}
           <Grid size={{ xs: 12, md: 4 }} component="aside" aria-label="Suggested Prompts">
-            <Paper elevation={3} sx={{ p: 3, borderRadius: 4, height: "100%", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <Typography variant="h6" sx={{ fontWeight: 800, mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+            <Paper 
+              elevation={3} 
+              sx={{ 
+                p: 3, 
+                borderRadius: 4, 
+                height: "100%", 
+                backgroundColor: isDark ? "#0d1117" : "#ffffff",
+                border: isDark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #cbd5e1",
+                boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.5)" : "0 10px 30px rgba(15,23,42,0.08)"
+              }}
+            >
+              <Typography variant="h6" sx={{ fontWeight: 800, mb: 1, display: "flex", alignItems: "center", gap: 1, color: isDark ? "#f8fafc" : "#0f172a" }}>
                 <AutoAwesomeIcon sx={{ color: "#3b82f6" }} /> Suggested Prompts
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                Click on any of the chips below to test NewsBot's capabilities.
+              <Typography variant="body2" sx={{ color: isDark ? "#94a3b8" : "#64748b", mb: 3 }}>
+                Click on any of the chips below to test WorldNewz Assistant capabilities.
               </Typography>
 
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
@@ -528,12 +860,12 @@ export const ChatbotPage: React.FC = () => {
                       textAlign: "left",
                       height: "auto",
                       whiteSpace: "normal",
-                      backgroundColor: "rgba(59, 130, 246, 0.05)",
-                      border: "1px solid rgba(59, 130, 246, 0.15)",
-                      color: "#60a5fa",
+                      backgroundColor: isDark ? "rgba(59, 130, 246, 0.08)" : "rgba(59, 130, 246, 0.06)",
+                      border: isDark ? "1px solid rgba(59, 130, 246, 0.25)" : "1px solid rgba(59, 130, 246, 0.2)",
+                      color: isDark ? "#93c5fd" : "#2563eb",
                       "& .MuiChip-label": { display: "block", width: "100%" },
                       "&:hover": {
-                        backgroundColor: "rgba(59, 130, 246, 0.1)",
+                        backgroundColor: isDark ? "rgba(59, 130, 246, 0.18)" : "rgba(59, 130, 246, 0.12)",
                         transform: "translateY(-1px)"
                       }
                     }}
@@ -541,23 +873,23 @@ export const ChatbotPage: React.FC = () => {
                 ))}
               </Box>
 
-              <Divider sx={{ my: 4 }} />
+              <Divider sx={{ my: 3.5, borderColor: isDark ? "rgba(255,255,255,0.08)" : "#e2e8f0" }} />
 
-              <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 1 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: 800, mb: 1, color: isDark ? "#f8fafc" : "#0f172a" }}>
                 Core Web Policies
               </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
-                NewsBot operates strictly under WorldNewzs content guidelines:
+              <Typography variant="caption" sx={{ display: "block", mb: 1, color: isDark ? "#94a3b8" : "#64748b" }}>
+                WorldNewz Assistant operates under strict content guidelines:
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                <Typography variant="caption" color="text.secondary" sx={{ display: "flex", gap: 1 }}>
+                <Typography variant="caption" sx={{ display: "flex", gap: 1, color: isDark ? "#94a3b8" : "#64748b" }}>
                   • <span>Safe content verification for Google AdSense separation.</span>
                 </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ display: "flex", gap: 1 }}>
+                <Typography variant="caption" sx={{ display: "flex", gap: 1, color: isDark ? "#94a3b8" : "#64748b" }}>
                   • <span>Neutral, objective fact-checking reporting tone.</span>
                 </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ display: "flex", gap: 1 }}>
-                  • <span>Clickable referral links to categories.</span>
+                <Typography variant="caption" sx={{ display: "flex", gap: 1, color: isDark ? "#94a3b8" : "#64748b" }}>
+                  • <span>Clickable referral links to categories and sources.</span>
                 </Typography>
               </Box>
             </Paper>

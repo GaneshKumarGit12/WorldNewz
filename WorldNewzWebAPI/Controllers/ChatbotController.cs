@@ -69,6 +69,86 @@ namespace WorldNewzWebAPI.Controllers
             return null;
         }
 
+        [HttpGet("models")]
+        public IActionResult GetAvailableModels()
+        {
+            var models = new[]
+            {
+                new 
+                { 
+                    id = "auto", 
+                    name = "Auto (Smart Free Fallback)", 
+                    provider = "Multi-Model", 
+                    description = "Automatically routes across top free models with instant fallback", 
+                    badge = "Recommended",
+                    isFree = true, 
+                    isDefault = true 
+                },
+                new 
+                { 
+                    id = "google/gemini-2.0-flash-exp:free", 
+                    name = "Google Gemini 2.0 Flash", 
+                    provider = "Google", 
+                    description = "Ultra-fast response with high reasoning capability and latest knowledge", 
+                    badge = "Fast & Smart",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "meta-llama/llama-3.3-70b-instruct:free", 
+                    name = "Meta Llama 3.3 70B", 
+                    provider = "Meta", 
+                    description = "Flagship open-weights 70B parameter model with nuanced understanding", 
+                    badge = "Powerful",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "deepseek/deepseek-r1:free", 
+                    name = "DeepSeek R1", 
+                    provider = "DeepSeek", 
+                    description = "Cutting-edge deep reasoning and complex problem-solving model", 
+                    badge = "Reasoning",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "qwen/qwen-2.5-72b-instruct:free", 
+                    name = "Qwen 2.5 72B", 
+                    provider = "Alibaba", 
+                    description = "High-performing model for coding, synthesis, and deep factual knowledge", 
+                    badge = "Accurate",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "mistralai/mistral-7b-instruct:free", 
+                    name = "Mistral 7B Instruct", 
+                    provider = "Mistral AI", 
+                    description = "Compact, low-latency, and precise conversational responses", 
+                    badge = "Lightweight",
+                    isFree = true, 
+                    isDefault = false 
+                },
+                new 
+                { 
+                    id = "openrouter/free", 
+                    name = "OpenRouter Auto Free", 
+                    provider = "OpenRouter", 
+                    description = "Dynamic community-backed free routing endpoint", 
+                    badge = "Fallback",
+                    isFree = true, 
+                    isDefault = false 
+                }
+            };
+
+            return Ok(models);
+        }
+
         [HttpPost("ask")]
         public async Task<IActionResult> AskChatbot([FromBody] ChatbotRequest request)
         {
@@ -78,11 +158,6 @@ namespace WorldNewzWebAPI.Controllers
             }
 
             var openRouterKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY");
-            var openRouterModel = Environment.GetEnvironmentVariable("OPENROUTER_MODEL") ?? "openrouter/free";
-            if (openRouterModel == "meta-llama/llama-3-8b-instruct:free")
-            {
-                openRouterModel = "openrouter/free";
-            }
 
             // Construct context-aware system instruction / persona according to WorldNewz Visual Chatbot Spec
             var contextMode = (request.Context ?? "news").ToLowerInvariant();
@@ -132,11 +207,60 @@ namespace WorldNewzWebAPI.Controllers
                     content = request.Query
                 });
 
-                var requestBody = new
+                // Determine whether to pass 'models' array (for automatic fallback) or single 'model'
+                object requestBody;
+                if (request.Models != null && request.Models.Count > 0)
                 {
-                    model = openRouterModel,
-                    messages = messages
-                };
+                    requestBody = new
+                    {
+                        models = request.Models,
+                        messages = messages
+                    };
+                }
+                else if (!string.IsNullOrWhiteSpace(request.Model) && !request.Model.Equals("auto", StringComparison.OrdinalIgnoreCase))
+                {
+                    requestBody = new
+                    {
+                        model = request.Model,
+                        messages = messages
+                    };
+                }
+                else
+                {
+                    // Default fallback array across highest-performing free models
+                    var envModels = Environment.GetEnvironmentVariable("OPENROUTER_MODELS");
+                    List<string> modelsFallback;
+                    if (!string.IsNullOrWhiteSpace(envModels))
+                    {
+                        modelsFallback = new List<string>(envModels.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
+                    }
+                    else
+                    {
+                        var singleModelEnv = Environment.GetEnvironmentVariable("OPENROUTER_MODEL");
+                        if (!string.IsNullOrWhiteSpace(singleModelEnv) && singleModelEnv != "openrouter/free" && singleModelEnv != "meta-llama/llama-3-8b-instruct:free")
+                        {
+                            modelsFallback = new List<string> { singleModelEnv, "google/gemini-2.0-flash-exp:free", "meta-llama/llama-3.3-70b-instruct:free", "deepseek/deepseek-r1:free", "openrouter/free" };
+                        }
+                        else
+                        {
+                            modelsFallback = new List<string>
+                            {
+                                "google/gemini-2.0-flash-exp:free",
+                                "meta-llama/llama-3.3-70b-instruct:free",
+                                "deepseek/deepseek-r1:free",
+                                "qwen/qwen-2.5-72b-instruct:free",
+                                "mistralai/mistral-7b-instruct:free",
+                                "openrouter/free"
+                            };
+                        }
+                    }
+
+                    requestBody = new
+                    {
+                        models = modelsFallback,
+                        messages = messages
+                    };
+                }
 
                 try
                 {
@@ -160,6 +284,12 @@ namespace WorldNewzWebAPI.Controllers
 
                     using var doc = JsonDocument.Parse(responseBody);
                     var root = doc.RootElement;
+
+                    string? modelUsed = null;
+                    if (root.TryGetProperty("model", out var modelProp))
+                    {
+                        modelUsed = modelProp.GetString();
+                    }
 
                     if (root.TryGetProperty("choices", out var choices) && 
                         choices.ValueKind == JsonValueKind.Array && 
@@ -185,6 +315,7 @@ namespace WorldNewzWebAPI.Controllers
                             return Ok(new
                             {
                                 reply = text,
+                                modelUsed = modelUsed,
                                 visualMockPrompt = visualMockPrompt,
                                 generatedImage = generatedImage
                             });
@@ -296,6 +427,7 @@ namespace WorldNewzWebAPI.Controllers
                             return Ok(new
                             {
                                 reply = text,
+                                modelUsed = "Google Gemini (Direct API)",
                                 visualMockPrompt = visualMockPrompt,
                                 generatedImage = generatedImage
                             });
@@ -322,6 +454,8 @@ namespace WorldNewzWebAPI.Controllers
     {
         public string Query { get; set; } = string.Empty;
         public string? Context { get; set; }
+        public string? Model { get; set; }
+        public List<string>? Models { get; set; }
         public List<ChatMessageDto>? History { get; set; }
     }
 }

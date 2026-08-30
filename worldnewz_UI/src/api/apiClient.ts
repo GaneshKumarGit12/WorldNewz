@@ -939,14 +939,34 @@ export interface ChatMessageDto {
   text: string;
 }
 
+export interface ChatbotModelOption {
+  id: string;
+  name: string;
+  provider: string;
+  description: string;
+  badge?: string;
+  isFree: boolean;
+  isDefault?: boolean;
+}
+
 export interface ChatbotResponse {
   reply: string;
+  modelUsed?: string;
   visualMockPrompt?: string;
   generatedImage?: string;
 }
 
-export const askChatbot = (query: string, history: ChatMessageDto[], context?: string) =>
-  apiClient.post<ChatbotResponse>("/chatbot/ask", { query, history, context });
+export const fetchChatbotModels = () =>
+  apiClient.get<ChatbotModelOption[]>("/chatbot/models");
+
+export const askChatbot = (
+  query: string,
+  history: ChatMessageDto[],
+  context?: string,
+  model?: string,
+  models?: string[]
+) =>
+  apiClient.post<ChatbotResponse>("/chatbot/ask", { query, history, context, model, models });
 
 // --- Spoonacular Recipes API ---
 export interface SpoonacularRecipe {
