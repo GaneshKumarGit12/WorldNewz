@@ -244,9 +244,11 @@ const startIndex = fourHourBlock % list.length;
    - Any previously registered ASIN is skipped automatically to avoid duplicate card renders on frontend grids and redundant Pinterest pin publications.
 
 10. **Image HTTP 200 Pre-Flight Verification**:
-   - Before committing any batch, run a pre-flight test (`scratch/test_all_product_images.py`) verifying that every extracted `imageUrl` returns `HTTP 200 OK` with `Content-Type: image/*`.
-   - If an Amazon image ID was extracted from intermediate search or dynamic scripts, use a mobile CookieJar session lookup (`scratch/fetch_exact_listing_images.py`) to fetch the exact primary listing image (`hiRes` or `data-old-hires`) to prevent blank product cards on the frontend.
+    - Before committing any batch, run a pre-flight test (`scratch/test_all_product_images.py`) verifying that every extracted `imageUrl` returns `HTTP 200 OK` with `Content-Type: image/*`.
+    - If an Amazon image ID was extracted from intermediate search or dynamic scripts, use a mobile CookieJar session lookup (`scratch/fetch_exact_listing_images.py`) to fetch the exact primary listing image (`hiRes` or `data-old-hires`) to prevent blank product cards on the frontend.
 
-
-
-
+11. **Depixelation & Social Media Viewport Crispness (Facebook, Pinterest, WhatsApp, X)**:
+    - Never pass low-resolution thumbnail strings (`._AC_SR100,100_`, `._AC_UF350,350_QL50_`, `._AC_SR75,100_`, `._SY350_`, etc.) into product database records or social share payloads (`media` parameter for Pinterest, Open Graph tags for Facebook).
+    - Social media crawlers (Facebook scrapers, Pinterest Pin creation) stretch low-res thumbnails to large card banners (1200x630px), leading to blurry and pixelated visuals.
+    - All product images MUST be scrubbed to full 1500px Ultra HD assets (`._SL1500_.jpg`) or clean uncompressed base CDN URLs (`https://m.media-amazon.com/images/I/{IMAGE_ID}.jpg`) with HTTP 200 pre-flight validation.
+    - On frontend UI components (`AmazonProducts.tsx`), image containers use responsive scaling (`maxHeight: 130`, `maxWidth: "100%"`, `objectFit: "contain"`, `imageRendering: "auto"`) to maintain pin-sharp clarity across retina and high-DPI smartphone/desktop viewports.

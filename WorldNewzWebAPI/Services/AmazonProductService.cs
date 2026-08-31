@@ -17379,6 +17379,876 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0DG8NDH12",
+                Title = "VAMA Fashions Golden Metal Balls Safety Pin Set Saree Pallu Pleats Hijab Locking Pinning Clothing Sewing Multipurpose Cr",
+                Description = "Get the best deal on VAMA Fashions Golden Metal Balls Safety Pin Set Saree Pallu Pleats Hijab Locking. High quality, durable, and highly rated on Amazon.",
+                Price = 108.00m,
+                OriginalPrice = 145.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DG8NDH12?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71A6icxZRGL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GJLNSSSV",
+                Title = "ZIBUYU® 10Pcs Knot Hair Rubber Band for Women, Stretchy Seamless Hair Scrunchies for Women, No Damage Elastic Ponytail H",
+                Description = "Get the best deal on ZIBUYU® 10Pcs Knot Hair Rubber Band for Women, Stretchy Seamless Hair Scrunchies. High quality, durable, and highly rated on Amazon.",
+                Price = 397.00m,
+                OriginalPrice = 535.95m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0GJLNSSSV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LkE7-fkDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09PF8Z4J7",
+                Title = "ZENEME Jewellery Set for Women American Diamond Combo of Necklace Set with Earrings, Bracelet and Ring for Girls and Wom",
+                Description = "Get the best deal on ZENEME Jewellery Set for Women American Diamond Combo of Necklace Set with Earri. High quality, durable, and highly rated on Amazon.",
+                Price = 999.00m,
+                OriginalPrice = 1348.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09PF8Z4J7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zwjky2vNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D928BSBS",
+                Title = "Peora Rakhshabandhan Thread Rakhi for Brother Bhaiya | Crystals & Pearl Studded | Red Green White | Rakhi Hamper Roli Ch",
+                Description = "Get the best deal on Peora Rakhshabandhan Thread Rakhi for Brother Bhaiya | Crystals & Pearl Studded . High quality, durable, and highly rated on Amazon.",
+                Price = 225.00m,
+                OriginalPrice = 303.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D928BSBS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81OkCP8ZVWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRM2BVB1",
+                Title = "Shining Diva Fashion Latest Stylish Design Fancy Traditional Necklace Jewellery Set for Women (16637s)",
+                Description = "Get the best deal on Shining Diva Fashion Latest Stylish Design Fancy Traditional Necklace Jewellery . High quality, durable, and highly rated on Amazon.",
+                Price = 466.00m,
+                OriginalPrice = 629.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FRM2BVB1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Ae2WGelIL._AC_SR100,100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7DPKV1G",
+                Title = "Shining Diva Fashion Bangles for Women Girls Set of 2 Traditional Latest Stylish Design (16496b_2.6)(Gold) at Amazon.in",
+                Description = "Get the best deal on Shining Diva Fashion Bangles for Women Girls Set of 2 Traditional Latest Stylish. High quality, durable, and highly rated on Amazon.",
+                Price = 625.00m,
+                OriginalPrice = 843.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F7DPKV1G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81RlxVIab+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09HZN1DM7",
+                Title = "Karatcart Traditional Kundan Jewellery Set for Women",
+                Description = "Get the best deal on Karatcart Traditional Kundan Jewellery Set for Women. High quality, durable, and highly rated on Amazon.",
+                Price = 353.00m,
+                OriginalPrice = 476.55m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09HZN1DM7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/717h0zZBXVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D28YLQJF",
+                Title = "VAMA FASHIONS Golden Bharatanatyam Dance Jewellery Nath Without Piercing Kempu Nose Ring Pin Nathiya For Women",
+                Description = "Get the best deal on VAMA FASHIONS Golden Bharatanatyam Dance Jewellery Nath Without Piercing Kempu N. High quality, durable, and highly rated on Amazon.",
+                Price = 298.00m,
+                OriginalPrice = 402.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D28YLQJF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tEccyVXkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0756YR9LG",
+                Title = "Shining Diva Fashion Royal Traditional Bangle Stylish Bracelet for Women & Girls(Multi-Colour)(8662b)",
+                Description = "Get the best deal on Shining Diva Fashion Royal Traditional Bangle Stylish Bracelet for Women & Girls. High quality, durable, and highly rated on Amazon.",
+                Price = 399.00m,
+                OriginalPrice = 538.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0756YR9LG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61jI8OEddbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHZG5YT8",
+                Title = "Peora Gold Plated Synthetic Stone Studded Ethnic Bangle Kada Jewellery for Women & Girls (2.8 inch, 1 Pc)",
+                Description = "Get the best deal on Peora Gold Plated Synthetic Stone Studded Ethnic Bangle Kada Jewellery for Women. High quality, durable, and highly rated on Amazon.",
+                Price = 789.00m,
+                OriginalPrice = 1065.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DHZG5YT8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/915RMlETKWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7FQYDND",
+                Title = "Shining Diva Fashion Bangles for Women Girls Set of 2 Traditional Latest Stylish Design (16500b_2.8)(Gold) at Amazon.in",
+                Description = "Get the best deal on Shining Diva Fashion Bangles for Women Girls Set of 2 Traditional Latest Stylish. High quality, durable, and highly rated on Amazon.",
+                Price = 833.00m,
+                OriginalPrice = 1124.55m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F7FQYDND?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UmMvAUDdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08K98LK6H",
+                Title = "Shining Diva Fashion Latest One Gram Gold Plated Set of 8 Traditional Bangles for Women and Girls",
+                Description = "Get the best deal on Shining Diva Fashion Latest One Gram Gold Plated Set of 8 Traditional Bangles fo. High quality, durable, and highly rated on Amazon.",
+                Price = 349.00m,
+                OriginalPrice = 471.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B08K98LK6H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81LWpXfWICL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CM28263S",
+                Title = "Sasitrends Traditional Micro Gold Plated Multi Color AD American Diamond Jewellery Necklace Jewellery Set for Women and",
+                Description = "Get the best deal on Sasitrends Traditional Micro Gold Plated Multi Color AD American Diamond Jewelle. High quality, durable, and highly rated on Amazon.",
+                Price = 1161.00m,
+                OriginalPrice = 1567.35m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CM28263S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Ugi-xPbnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSGRWJQN",
+                Title = "ZIBUYU® 7 Pcs Hairband For Women Stylish Headband For Girls Kids Baby Cute | Wide Hair Hoop Accessories Pink Floral Prin",
+                Description = "Get the best deal on ZIBUYU® 7 Pcs Hairband For Women Stylish Headband For Girls Kids Baby Cute | Wid. High quality, durable, and highly rated on Amazon.",
+                Price = 346.00m,
+                OriginalPrice = 467.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0DSGRWJQN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DKhnijwdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0761Y8CFY",
+                Title = "Ratnavali Jewels American Diamond Studded Gold Plated Traditional Green Emerald Round 6mm CZ/Diamond Bangles for Women/G",
+                Description = "Get the best deal on Ratnavali Jewels American Diamond Studded Gold Plated Traditional Green Emerald . High quality, durable, and highly rated on Amazon.",
+                Price = 849.00m,
+                OriginalPrice = 1146.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0761Y8CFY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Qc2pgfX+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09R1SVFFR",
+                Title = "CUTE GOLD 1 Gram Micro Gold Plated & Copper Traditional Designer Fashion Jewellery Chain for Women",
+                Description = "Get the best deal on CUTE GOLD 1 Gram Micro Gold Plated & Copper Traditional Designer Fashion Jewelle. High quality, durable, and highly rated on Amazon.",
+                Price = 493.00m,
+                OriginalPrice = 665.55m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09R1SVFFR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51-TluULdbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FK28MRMY",
+                Title = "VAMA FASHIONS 18K Gold Plated Belly Chain Combo for Women Girls Anti Tarnish Adjustable Waist Hip Belt Beads Herringbone",
+                Description = "Get the best deal on VAMA FASHIONS 18K Gold Plated Belly Chain Combo for Women Girls Anti Tarnish Adj. High quality, durable, and highly rated on Amazon.",
+                Price = 308.00m,
+                OriginalPrice = 415.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FK28MRMY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UuDdSb1vL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRM25DHT",
+                Title = "Shining Diva Fashion 22k Gold Plated Traditional Peacock Jhumka Earrings Necklace Jewellery Set for Women (16781s)",
+                Description = "Get the best deal on Shining Diva Fashion 22k Gold Plated Traditional Peacock Jhumka Earrings Necklac. High quality, durable, and highly rated on Amazon.",
+                Price = 398.00m,
+                OriginalPrice = 537.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FRM25DHT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RWzya8KnL._AC_SR75,100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GC7FW4KB",
+                Title = "Amazon Basics Bangle Organizer For Women | Bangle Holder | 35LX24BX10H cm|Brown & Golden",
+                Description = "Get the best deal on Amazon Basics Bangle Organizer For Women | Bangle Holder | 35LX24BX10H cm|Brown . High quality, durable, and highly rated on Amazon.",
+                Price = 708.00m,
+                OriginalPrice = 955.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GC7FW4KB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61guPM-DaiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GPYYKW67",
+                Title = "PACKNBUY Key Tray Catchall Tray Valet Bulldog Showpiece Resin Storage Butler Desk Organizer for Keys Wallet Coins Watch",
+                Description = "Get the best deal on PACKNBUY Key Tray Catchall Tray Valet Bulldog Showpiece Resin Storage Butler Des. High quality, durable, and highly rated on Amazon.",
+                Price = 2327.00m,
+                OriginalPrice = 3141.45m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GPYYKW67?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/610Fk280iWL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F5BH2N72",
+                Title = "SANJOYA Gold Tone Stone Studded Jewelry Set for Women Combo of Necklace Earrings and Maang Tikka Festive Wedding Set (Br",
+                Description = "Get the best deal on SANJOYA Gold Tone Stone Studded Jewelry Set for Women Combo of Necklace Earrings. High quality, durable, and highly rated on Amazon.",
+                Price = 1049.00m,
+                OriginalPrice = 1416.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F5BH2N72?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61nWIlkcixL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GKGKKTLT",
+                Title = "Traditional Antique Gold Plated Goddess Lakshmi Temple Jewelry Necklace Set with Matching Jhumka Earrings | Kemp Stone E",
+                Description = "Get the best deal on Traditional Antique Gold Plated Goddess Lakshmi Temple Jewelry Necklace Set with. High quality, durable, and highly rated on Amazon.",
+                Price = 474.00m,
+                OriginalPrice = 639.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GKGKKTLT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/817VK2UupyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN37L3NT",
+                Title = "Nilu's Collection Rose Gold Plated American Diamond Floral Leaf Necklace Set with Matching Drop Earrings For Women And G",
+                Description = "Get the best deal on Nilu's Collection Rose Gold Plated American Diamond Floral Leaf Necklace Set wit. High quality, durable, and highly rated on Amazon.",
+                Price = 1399.00m,
+                OriginalPrice = 1888.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GN37L3NT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51PPU2mkxmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9RXQ4W7",
+                Title = "Clara Pure 925 Sterling Silver Izan Adjustable Ring Gift for Men & Boys | Swiss Zirconia | Platinum Plated",
+                Description = "Get the best deal on Clara Pure 925 Sterling Silver Izan Adjustable Ring Gift for Men & Boys | Swiss . High quality, durable, and highly rated on Amazon.",
+                Price = 2603.00m,
+                OriginalPrice = 3514.05m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D9RXQ4W7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cX-QAtOWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B74YWYW7",
+                Title = "atorakushon Satin Makeup Jewellery Organizer Locker Box Set for Women and Girls for Necklaces Earring Ring Chains Case C",
+                Description = "Get the best deal on atorakushon Satin Makeup Jewellery Organizer Locker Box Set for Women and Girls . High quality, durable, and highly rated on Amazon.",
+                Price = 649.00m,
+                OriginalPrice = 876.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0B74YWYW7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81fTLZ1S6eL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZ3K9533",
+                Title = "CSN - CUTE SHOPPING NETWORK Fashion Jewelry Gift Set with 7 accessories, Gift hamper for women & girls, Birthday, Annive",
+                Description = "Get the best deal on CSN - CUTE SHOPPING NETWORK Fashion Jewelry Gift Set with 7 accessories, Gift ha. High quality, durable, and highly rated on Amazon.",
+                Price = 188.00m,
+                OriginalPrice = 253.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GZ3K9533?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CGFNpS8uL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTFDKB2C",
+                Title = "8-Piece Women’s Fashion Jewelry hamper & Hair Accessories Gift Set | Pendant Chain, Charm Bracelet, Oxidised Jhumki Earr",
+                Description = "Get the best deal on 8-Piece Women’s Fashion Jewelry hamper & Hair Accessories Gift Set | Pendant Cha. High quality, durable, and highly rated on Amazon.",
+                Price = 265.00m,
+                OriginalPrice = 357.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GTFDKB2C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71iUiJZnPNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CV4YFLBR",
+                Title = "Shining Diva Fashion Latest Stylish Design Fancy Pearl Bracelet Earrings Necklace Jewellery Set for Women (15214s)",
+                Description = "Get the best deal on Shining Diva Fashion Latest Stylish Design Fancy Pearl Bracelet Earrings Necklac. High quality, durable, and highly rated on Amazon.",
+                Price = 499.00m,
+                OriginalPrice = 673.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CV4YFLBR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-Pjc6MqXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07NHYQZJ1",
+                Title = "Nilu's Collection Infinity Shape Cubic Zirconia Diamond Bracelet for Women Jewelry for Gift, Adjustable Charm Bracelet",
+                Description = "Get the best deal on Nilu's Collection Infinity Shape Cubic Zirconia Diamond Bracelet for Women Jewel. High quality, durable, and highly rated on Amazon.",
+                Price = 296.00m,
+                OriginalPrice = 399.60m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B07NHYQZJ1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71chwIt5XHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F4KBLSYY",
+                Title = "SANJOYA by EVERSTYLISH Embroidered Earrings for Women | Hoop Earrings with Stones, Beads, Pearls & Glass Drops | Lightwe",
+                Description = "Get the best deal on SANJOYA by EVERSTYLISH Embroidered Earrings for Women | Hoop Earrings with Stone. High quality, durable, and highly rated on Amazon.",
+                Price = 949.00m,
+                OriginalPrice = 1281.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F4KBLSYY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61RrUXzxdaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZKPH8JT",
+                Title = "Shining Diva Fashion Long & Short Necklace Jewellery Set for Women with Maang Tikka and Kamarband | Latest Stylish Desig",
+                Description = "Get the best deal on Shining Diva Fashion Long & Short Necklace Jewellery Set for Women with Maang Ti. High quality, durable, and highly rated on Amazon.",
+                Price = 798.00m,
+                OriginalPrice = 1077.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GZKPH8JT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kD5qkGIzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVG3YY4V",
+                Title = "MITNIK Crochet Cotton Tatting Thread Yarn for Knitting and Craft Making Combo 35 to 40 M Approximate and Crosia Thread S",
+                Description = "Get the best deal on MITNIK Crochet Cotton Tatting Thread Yarn for Knitting and Craft Making Combo 35. High quality, durable, and highly rated on Amazon.",
+                Price = 227.00m,
+                OriginalPrice = 306.45m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GVG3YY4V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61MBy6-de+L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H29LLFC3",
+                Title = "American Diamond Cubic Zirconia Mangalsutra Set for Women | Rhodium Plated Brass Mangalsutra with Earrings | Geometric T",
+                Description = "Get the best deal on American Diamond Cubic Zirconia Mangalsutra Set for Women | Rhodium Plated Brass. High quality, durable, and highly rated on Amazon.",
+                Price = 426.00m,
+                OriginalPrice = 575.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H29LLFC3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51OYt918vgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7N971LN",
+                Title = "Habba Blouse Piece with Cow Design Kumkum Set, Pasupu Kumkum Dome Glass Bottle, Traditional Haldi Kumkum Return Gift for",
+                Description = "Get the best deal on Habba Blouse Piece with Cow Design Kumkum Set, Pasupu Kumkum Dome Glass Bottle, . High quality, durable, and highly rated on Amazon.",
+                Price = 426.00m,
+                OriginalPrice = 575.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H7N971LN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91FMBS8Ak+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FR9P7V5X",
+                Title = "Bohemian Macrame Plant Hangers Indoor Flower Pot Holder Rope Hanging Planter Basket for Wall Home Decor, Off-White, Pack",
+                Description = "Get the best deal on Bohemian Macrame Plant Hangers Indoor Flower Pot Holder Rope Hanging Planter Bas. High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 403.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FR9P7V5X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WZ3trlnQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C5YL7BJ6",
+                Title = "Vientiq Silver-Plated Blue Crystal Heart Link-Chain Bracelet for Women/Girl's at Amazon.in",
+                Description = "Get the best deal on Vientiq Silver-Plated Blue Crystal Heart Link-Chain Bracelet for Women/Girl's at. High quality, durable, and highly rated on Amazon.",
+                Price = 259.00m,
+                OriginalPrice = 349.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0C5YL7BJ6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51dsTPTvloL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY4WZ795",
+                Title = "AJ ELECTRICALS USB Moduler Ultrafast Charger 25 Watt Rush Charger For Headphone, White",
+                Description = "Get the best deal on AJ ELECTRICALS USB Moduler Ultrafast Charger 25 Watt Rush Charger For Headphone,. High quality, durable, and highly rated on Amazon.",
+                Price = 799.00m,
+                OriginalPrice = 1078.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DY4WZ795?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41H8EO5XfXL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H112RD44",
+                Title = "Powerful Oxalic Stain Remover, Multi Purpose Oxalic Cleaner, Multi-Purpose Spray for Stain Removing and Bathroom Cleaner",
+                Description = "Get the best deal on Powerful Oxalic Stain Remover, Multi Purpose Oxalic Cleaner, Multi-Purpose Spray. High quality, durable, and highly rated on Amazon.",
+                Price = 268.00m,
+                OriginalPrice = 361.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H112RD44?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614F2qiIhYL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GFG7XJFW",
+                Title = "MITNIK Homemade Decorative Door Toran with Pom Poms & Golden Bells, Traditional Bandhanwar for Home, Festival Entrance &",
+                Description = "Get the best deal on MITNIK Homemade Decorative Door Toran with Pom Poms & Golden Bells, Traditional . High quality, durable, and highly rated on Amazon.",
+                Price = 246.00m,
+                OriginalPrice = 332.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GFG7XJFW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71xFDUhL7wL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ9KL875",
+                Title = "JIKRAA® Pichwai Art Peacock 2-in-1 Use Ceramic Designer Wall and Table Top Plate with Stand and Hook | Decor Hanging Wal",
+                Description = "Get the best deal on JIKRAA® Pichwai Art Peacock 2-in-1 Use Ceramic Designer Wall and Table Top Plate. High quality, durable, and highly rated on Amazon.",
+                Price = 526.00m,
+                OriginalPrice = 710.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ9KL875?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716wMucKXnL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5K93VX1",
+                Title = "Palindrom 2% Salicylic Acid & 2% Niacinamide Face Wash (300 ml)",
+                Description = "Get the best deal on Palindrom 2% Salicylic Acid & 2% Niacinamide Face Wash (300 ml). High quality, durable, and highly rated on Amazon.",
+                Price = 265.00m,
+                OriginalPrice = 357.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H5K93VX1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51QbZ4osQNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BKVTBGDF",
+                Title = "Period Heating Pad for Cramps,Portable Menstrual Heating Pad with 3 Heat Levels and 3 Massage Modes for Women and Girl (",
+                Description = "Get the best deal on Period Heating Pad for Cramps,Portable Menstrual Heating Pad with 3 Heat Levels . High quality, durable, and highly rated on Amazon.",
+                Price = 329.00m,
+                OriginalPrice = 444.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BKVTBGDF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71POf1iXHVL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BD5MZYWW",
+                Title = "AROPANA Vegan Leather Desk Mat 90x45cm | Large Reversible Mouse Pad & Computer Table Protector | Dual-Side Waterproof Ex",
+                Description = "Get the best deal on AROPANA Vegan Leather Desk Mat 90x45cm | Large Reversible Mouse Pad & Computer T. High quality, durable, and highly rated on Amazon.",
+                Price = 759.00m,
+                OriginalPrice = 1024.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BD5MZYWW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6119un4kDwL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQ241RST",
+                Title = "Golden Fish Melamine Round Multicolor Full Size Dinner Plate || Veg. Bowl Floral Printed Dinner Plates (Set of 12) Dishw",
+                Description = "Get the best deal on Golden Fish Melamine Round Multicolor Full Size Dinner Plate || Veg. Bowl Floral. High quality, durable, and highly rated on Amazon.",
+                Price = 922.00m,
+                OriginalPrice = 1244.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CQ241RST?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81juH5W5bbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DR7F5JHW",
+                Title = "Antique Bronze Pocket Premium Vintage Theme Metallic Home Key Chain & Key Rings | Best Gift for Men, Woman, Boys & Girls",
+                Description = "Get the best deal on Antique Bronze Pocket Premium Vintage Theme Metallic Home Key Chain & Key Rings . High quality, durable, and highly rated on Amazon.",
+                Price = 429.00m,
+                OriginalPrice = 579.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DR7F5JHW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Q5y79fD4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F92J1JBQ",
+                Title = "Vehicle Fridge Magnets for Kids – 23 Pieces Strong, Waterproof, Durable Transport Magnets for Refrigerator, Almirah, Whi",
+                Description = "Get the best deal on Vehicle Fridge Magnets for Kids – 23 Pieces Strong, Waterproof, Durable Transpor. High quality, durable, and highly rated on Amazon.",
+                Price = 348.00m,
+                OriginalPrice = 469.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F92J1JBQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71q4gzPNAyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSZ2ZWGQ",
+                Title = "Cable Organisers Large Cable Management Box with Lid | Cord Organizer Box for Power Strip, Extension Board & Charging St",
+                Description = "Get the best deal on Cable Organisers Large Cable Management Box with Lid | Cord Organizer Box for Po. High quality, durable, and highly rated on Amazon.",
+                Price = 426.00m,
+                OriginalPrice = 575.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GSZ2ZWGQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/514lZkZ1lXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07DPK12SP",
+                Title = "Rahul Phate's Research Product Lipo-Soft Moisturizer Lotion/Body Butter With Spf For Men, Women And Children 100Ml",
+                Description = "Get the best deal on Rahul Phate's Research Product Lipo-Soft Moisturizer Lotion/Body Butter With Spf. High quality, durable, and highly rated on Amazon.",
+                Price = 269.00m,
+                OriginalPrice = 363.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07DPK12SP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/413hiKNTpRL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GY5RH1KQ",
+                Title = "Kids Toy Camera 3.0MP 1080P with 2-Inch Screen & 32GB Capacity USB Rechargeable with Games,Filters,Time-Lapse Educationa",
+                Description = "Get the best deal on Kids Toy Camera 3.0MP 1080P with 2-Inch Screen & 32GB Capacity USB Rechargeable . High quality, durable, and highly rated on Amazon.",
+                Price = 564.00m,
+                OriginalPrice = 761.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GY5RH1KQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51rTe-0DMZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZVKNGLR",
+                Title = "Mosquito Net for Double Bed, 6.5x6.5 Feet 30 GSM Premium Double Bed Machardani, Strong and Durable, PVC Coated Tent Type",
+                Description = "Get the best deal on Mosquito Net for Double Bed, 6.5x6.5 Feet 30 GSM Premium Double Bed Machardani, . High quality, durable, and highly rated on Amazon.",
+                Price = 569.00m,
+                OriginalPrice = 768.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GZVKNGLR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61I3bfsGSsL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC79J9XV",
+                Title = "AJIGNA MART 4-in-1 Electric Blackhead Remover Vacuum | Derma Suction Pore Cleaner Tool for Men & Women | Acne, Pimple &",
+                Description = "Get the best deal on AJIGNA MART 4-in-1 Electric Blackhead Remover Vacuum | Derma Suction Pore Cleane. High quality, durable, and highly rated on Amazon.",
+                Price = 284.00m,
+                OriginalPrice = 383.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0HC79J9XV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71NpUoDFdRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJXWGFJK",
+                Title = "SHOPOGENIX Cordless Electric Grass Cutter Machine, 2Pcs 48V Battery | Adjustable Height, Portable, 8 Types Blades, Weed",
+                Description = "Get the best deal on SHOPOGENIX Cordless Electric Grass Cutter Machine, 2Pcs 48V Battery | Adjustable. High quality, durable, and highly rated on Amazon.",
+                Price = 2789.00m,
+                OriginalPrice = 3765.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FJXWGFJK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61vfI+Y3etL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FN5D974Y",
+                Title = "Lakshmi Jadai Billai Wedding Hair Braid Accessories I Jada billalu for hair I Indian Traditional Hairpins Girls/women |",
+                Description = "Get the best deal on Lakshmi Jadai Billai Wedding Hair Braid Accessories I Jada billalu for hair I In. High quality, durable, and highly rated on Amazon.",
+                Price = 806.00m,
+                OriginalPrice = 1088.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FN5D974Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/717ZUtX6XAL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNXWGLZY",
+                Title = "Shining Diva Fashion Set Of 2 Latest Traditional Design 18k Gold Plated Adjustable Bracelet Bangles for Women (Golden)(1",
+                Description = "Get the best deal on Shining Diva Fashion Set Of 2 Latest Traditional Design 18k Gold Plated Adjustab. High quality, durable, and highly rated on Amazon.",
+                Price = 349.00m,
+                OriginalPrice = 471.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CNXWGLZY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-IL8kbdPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F93HCF98",
+                Title = "Rubans 22K Gold-Plated White Kundan Studded & Green Pearls Beaded Choker Necklace Set for Women – for Bridal & Festive L",
+                Description = "Get the best deal on Rubans 22K Gold-Plated White Kundan Studded & Green Pearls Beaded Choker Necklac. High quality, durable, and highly rated on Amazon.",
+                Price = 851.00m,
+                OriginalPrice = 1148.85m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0F93HCF98?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/715MoX-0ccL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BN6PZXH9",
+                Title = "Tanvi Gold Plated Shankha Pola Bangles Set for Women Traditional Bengali Bridal Jewelry",
+                Description = "Get the best deal on Tanvi Gold Plated Shankha Pola Bangles Set. High quality, durable, and highly rated on Amazon.",
+                Price = 399.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BN6PZXH9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91i4pWItKAL._AC_UY1100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSW6RCTZ",
+                Title = "Unniyarcha 925 Sterling Silver Hallmarked Jewelry Lightweight Necklace for Women",
+                Description = "Get the best deal on Unniyarcha 925 Sterling Silver Hallmarked Jewelry. High quality, durable, and highly rated on Amazon.",
+                Price = 1899.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GSW6RCTZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61yT0U5+hTL._AC_UY1100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C4TDNPRZ",
+                Title = "Shining Diva Fashion Latest Traditional Gold Plated Kundan Necklace Set with Earrings",
+                Description = "Get the best deal on Shining Diva Fashion Latest Traditional Gold Plated Kundan Necklace. High quality, durable, and highly rated on Amazon.",
+                Price = 499.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0C4TDNPRZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91ScvUD5xXL._AC_UY1100_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
