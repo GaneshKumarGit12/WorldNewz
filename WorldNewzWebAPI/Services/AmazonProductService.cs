@@ -18249,6 +18249,336 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0H7XGCYHR",
+                Title = "DOCTOR HEALTH SUPER SOFT Women's Orthopedic Cross Strap Slides | Ultra Soft Cushioned Lightweight Slip-On Slippers | Ant",
+                Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women's Orthopedic Cross Strap Slides | Ultra Soft Cush. High quality, durable, and highly rated on Amazon.",
+                Price = 598.00m,
+                OriginalPrice = 807.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H7XGCYHR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YaC62i6FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7MLJ7XR",
+                Title = "DOCTOR HEALTH SUPER SOFT Women's Orthopedic Toe Ring Sandals | Adjustable Buckle Comfort Flip Flops | Soft Cushioned Lig",
+                Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women's Orthopedic Toe Ring Sandals | Adjustable Buckle. High quality, durable, and highly rated on Amazon.",
+                Price = 598.00m,
+                OriginalPrice = 807.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H7MLJ7XR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZTxr95YoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H74D986X",
+                Title = "DOCTOR HEALTH SUPER SOFT Women’s Orthopedic Soft Platform Slippers | Ultra-Cushioned Shock Absorbing Footbed | Lightweig",
+                Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women’s Orthopedic Soft Platform Slippers | Ultra-Cushi. High quality, durable, and highly rated on Amazon.",
+                Price = 598.00m,
+                OriginalPrice = 807.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H74D986X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HJPMhPOTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6G5TKBG",
+                Title = "UrbanWipe Magic Eraser Cleaning Sponge | Pack of 4 | Powerful Multi-Purpose Stain Remover | No Chemicals Required | Effo",
+                Description = "Get the best deal on UrbanWipe Magic Eraser Cleaning Sponge | Pack of 4 | Powerful Multi-Purpose Stai. High quality, durable, and highly rated on Amazon.",
+                Price = 249.00m,
+                OriginalPrice = 336.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H6G5TKBG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ulBXik+3L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H667K4WP",
+                Title = "TEKCOOL Bionic Heated Massager, Wireless Portable Shiatsu Neck and Back Massager, Electric Deep Tissue 4D Kneading Massa",
+                Description = "Get the best deal on TEKCOOL Bionic Heated Massager, Wireless Portable Shiatsu Neck and Back Massager. High quality, durable, and highly rated on Amazon.",
+                Price = 1599.00m,
+                OriginalPrice = 2158.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H667K4WP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716zfjOWDOL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4112NK1",
+                Title = "GROOTS Premium Foot pads, Foot Patches Stress Relief Patch Solution, Toxin Remover cleansing , Pain Relief ,Weight Loss",
+                Description = "Get the best deal on GROOTS Premium Foot pads, Foot Patches Stress Relief Patch Solution, Toxin Remov. High quality, durable, and highly rated on Amazon.",
+                Price = 349.00m,
+                OriginalPrice = 471.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H4112NK1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61u1t863DuL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCM2SG4N",
+                Title = "Roli Chawal Set - 1 Pc",
+                Description = "Get the best deal on Roli Chawal Set - 1 Pc. High quality, durable, and highly rated on Amazon.",
+                Price = 398.00m,
+                OriginalPrice = 537.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0HCM2SG4N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Ta4p+ovkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H42GHS2K",
+                Title = "Printed Luggage Cover for Traveling Bag & Suitcase - Stretchable & Scratchproof Trolley Protector with Velcro Lock & Lig",
+                Description = "Get the best deal on Printed Luggage Cover for Traveling Bag & Suitcase - Stretchable & Scratchproof . High quality, durable, and highly rated on Amazon.",
+                Price = 499.00m,
+                OriginalPrice = 673.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H42GHS2K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hLreyrJvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4CYJMQ1",
+                Title = "Automatic Travel Umbrella - Stylish Windproof For Rain & Compact, Strong for Wind, Auto Open/Close Button, Travel-Friend",
+                Description = "Get the best deal on Automatic Travel Umbrella - Stylish Windproof For Rain & Compact, Strong for Win. High quality, durable, and highly rated on Amazon.",
+                Price = 269.00m,
+                OriginalPrice = 363.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H4CYJMQ1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41CkJVfXJGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H429S991",
+                Title = "Core Large Check-in Suitcase 75cm 28 inch Polypropylene Hard Trolley Bag, 8 Spinner Wheels, Recessed Number Lock, Lightw",
+                Description = "Get the best deal on Core Large Check-in Suitcase 75cm 28 inch Polypropylene Hard Trolley Bag, 8 Spin. High quality, durable, and highly rated on Amazon.",
+                Price = 1999.00m,
+                OriginalPrice = 2698.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H429S991?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SMsA7-JpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6S34YB9",
+                Title = "PESOMA Mini Umbrella with Case for Men & Women (Manual Open) Compact Travelling Pocket Umbrella, Polyester & UV Protect",
+                Description = "Get the best deal on PESOMA Mini Umbrella with Case for Men & Women (Manual Open) Compact Travelling . High quality, durable, and highly rated on Amazon.",
+                Price = 949.00m,
+                OriginalPrice = 1281.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H6S34YB9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Vx5VIIMrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7S93Q4Q",
+                Title = "FLYNGO Umbrella for Rain Big Size with Carabiner Handle, UV Coated 3-Fold Travel Umbrella for Sun Protection, Windproof",
+                Description = "Get the best deal on FLYNGO Umbrella for Rain Big Size with Carabiner Handle, UV Coated 3-Fold Travel. High quality, durable, and highly rated on Amazon.",
+                Price = 549.00m,
+                OriginalPrice = 741.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H7S93Q4Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51UQZq+6X1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFDV666D",
+                Title = "3-in-1 Bathroom Cleaning Brush with Wiper – 180° Rotating V-Shaped Brush | Long Handle Built-in Squeegee | Heavy Duty De",
+                Description = "Get the best deal on 3-in-1 Bathroom Cleaning Brush with Wiper – 180° Rotating V-Shaped Brush | Long . High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 403.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0HFDV666D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CaeVD8ABL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H3424P29",
+                Title = "RORIAN Gas Lighter for Kitchen Use | C-Type Rechargeable Electric Lighter Stove & Candle Lighter with USB Charging Port",
+                Description = "Get the best deal on RORIAN Gas Lighter for Kitchen Use | C-Type Rechargeable Electric Lighter Stove . High quality, durable, and highly rated on Amazon.",
+                Price = 308.00m,
+                OriginalPrice = 415.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H3424P29?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YOedUkcQL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00LXTFMRS",
+                Title = "Fevicryl Acrylic Colours Sunflower Kit | 10 Colours x 15 ml | DIY Paint, Rich Pigment | Multicolour & Multi-surface | No",
+                Description = "Get the best deal on Fevicryl Acrylic Colours Sunflower Kit | 10 Colours x 15 ml | DIY Paint, Rich Pi. High quality, durable, and highly rated on Amazon.",
+                Price = 203.00m,
+                OriginalPrice = 274.05m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B00LXTFMRS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ZZ9aMQfoL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07HRV1YZW",
+                Title = "Fevicryl Mould It Clay 900 g | Clay Set for Modelling and Sculpting | Quick Air Dry Clay for Art and Craft | Create Mura",
+                Description = "Get the best deal on Fevicryl Mould It Clay 900 g | Clay Set for Modelling and Sculpting | Quick Air . High quality, durable, and highly rated on Amazon.",
+                Price = 264.00m,
+                OriginalPrice = 356.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07HRV1YZW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51i1HrH6hAL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BL3X9Q4Q",
+                Title = "Doms Pastel Brush Pens (14 Shades | 12 + 1 + 1) (Pack of 1), Multicolor",
+                Description = "Get the best deal on Doms Pastel Brush Pens (14 Shades | 12 + 1 + 1) (Pack of 1), Multicolor. High quality, durable, and highly rated on Amazon.",
+                Price = 180.00m,
+                OriginalPrice = 243.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BL3X9Q4Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81iiY0HtJ0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HB58PJ8H",
+                Title = "Magic Eraser Sponge Pack of 4 | Premium Melamine Cleaning Sponge | No Scratch Multi Surface Cleaner | Removes Tough Stai",
+                Description = "Get the best deal on Magic Eraser Sponge Pack of 4 | Premium Melamine Cleaning Sponge | No Scratch Mu. High quality, durable, and highly rated on Amazon.",
+                Price = 155.00m,
+                OriginalPrice = 209.25m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0HB58PJ8H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+sJ+HOtiL._AC_UF350,350_QL50_AIweblab1381794,T1_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC7H3C7W",
+                Title = "Shasvat Microfiber Twist Mop with Long Handle | Super Absorbent Floor Cleaning Mop | Easy Twist Wringing Wet & Dry Clean",
+                Description = "Get the best deal on Shasvat Microfiber Twist Mop with Long Handle | Super Absorbent Floor Cleaning M. High quality, durable, and highly rated on Amazon.",
+                Price = 269.00m,
+                OriginalPrice = 363.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0HC7H3C7W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dDbf3Wu-L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6JXGV6V",
+                Title = "YETI 3-in-1 Bathroom Cleaning Brush with Wiper - Bathroom Cleaning Brush Long Handle 180° Rotate Toilet Brush Bathroom T",
+                Description = "Get the best deal on YETI 3-in-1 Bathroom Cleaning Brush with Wiper - Bathroom Cleaning Brush Long Ha. High quality, durable, and highly rated on Amazon.",
+                Price = 279.00m,
+                OriginalPrice = 376.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H6JXGV6V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41rYsbxjQnL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H952R639",
+                Title = "Purocell 3pcs Bag Filter for Water Tank, 5 Micron Sediment Filter for Overhead Water Tank & 20 Inch Big Blue Housing | R",
+                Description = "Get the best deal on Purocell 3pcs Bag Filter for Water Tank, 5 Micron Sediment Filter for Overhead W. High quality, durable, and highly rated on Amazon.",
+                Price = 399.00m,
+                OriginalPrice = 538.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H952R639?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71OvbaOf-bL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D2S3RVWS",
+                Title = "ShopyVid Backpack for Women & Girls | Casual Daypack College Travel Bag",
+                Description = "Get the best deal on ShopyVid Backpack for Women & Girls. High quality, durable, and highly rated on Amazon.",
+                Price = 399.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D2S3RVWS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NyII2aHHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
