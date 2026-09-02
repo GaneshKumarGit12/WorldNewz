@@ -18579,6 +18579,441 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0H556CBYY",
+                Title = "Premium 3D Detangling Hair Brush for Women & Men- Anti Hair Fall Comb for Curly, Wavy & Straight Hair | Hair Straighteni",
+                Description = "Get the best deal on Premium 3D Detangling Hair Brush for Women & Men- Anti Hair Fall Comb for Curly,. High quality, durable, and highly rated on Amazon.",
+                Price = 93.00m,
+                OriginalPrice = 125.55m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H556CBYY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WoToNt-rL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H1RRMW1Q",
+                Title = "Stoa Paris 100% Cotton King Size Bedsheet with 2 Pillow Covers, 180TC Printed Bedding Set, Breathable, All-Season Comfor",
+                Description = "Get the best deal on Stoa Paris 100% Cotton King Size Bedsheet with 2 Pillow Covers, 180TC Printed Be. High quality, durable, and highly rated on Amazon.",
+                Price = 1999.00m,
+                OriginalPrice = 2698.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H1RRMW1Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wm8nT1r4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBDTGN9L",
+                Title = "rytras Women's Cotton Printed A-Line Kurta with Palazzo Pant Set(Mustard,RYT583,XXL) at Amazon.in",
+                Description = "Get the best deal on rytras Women's Cotton Printed A-Line Kurta with Palazzo Pant Set(Mustard,RYT583,. High quality, durable, and highly rated on Amazon.",
+                Price = 891.00m,
+                OriginalPrice = 1202.85m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DBDTGN9L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61r67q9q9FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "9353768950",
+                Title = "Hanuman Chalisa: हनुमान चालीसा – Hanuman Chalisa Pocket Size Book (Hindi & English) – Hanuman Aarti with 108 Names | God",
+                Description = "Get the best deal on Hanuman Chalisa: हनुमान चालीसा – Hanuman Chalisa Pocket Size Book (Hindi & Engli. High quality, durable, and highly rated on Amazon.",
+                Price = 145.00m,
+                OriginalPrice = 195.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/9353768950?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j9kEJ1Y7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B9SY5LZL",
+                Title = "BODYCARE Cotton Pure Cotton Multicolor Vest 100% Regular Fit, for Girls",
+                Description = "Get the best deal on BODYCARE Cotton Pure Cotton Multicolor Vest 100% Regular Fit, for Girls. High quality, durable, and highly rated on Amazon.",
+                Price = 326.00m,
+                OriginalPrice = 440.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0B9SY5LZL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tgR5y84IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DWKRXX3R",
+                Title = "DOCTOR EXTRA SOFT Men's Sports Shoes with Memory Foam Cushioned Insole|Running Walking Gym Training Jogging Athletics|Co",
+                Description = "Get the best deal on DOCTOR EXTRA SOFT Men's Sports Shoes with Memory Foam Cushioned Insole|Running W. High quality, durable, and highly rated on Amazon.",
+                Price = 1199.00m,
+                OriginalPrice = 1618.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DWKRXX3R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71E6OUF4woL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJFWPSL8",
+                Title = "London Hills Women's Casual Printed Round Neck Oversized Longline Drop Shoulder Boho Style T-Shirt",
+                Description = "Get the best deal on London Hills Women's Casual Printed Round Neck Oversized Longline Drop Shoulder . High quality, durable, and highly rated on Amazon.",
+                Price = 298.00m,
+                OriginalPrice = 402.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CJFWPSL8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/616nYsuLiIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZCHP4N2",
+                Title = "TRYLO Riza T-FIT Women's Non-Padded,Non-Wired,Full Coverage,Seamless 100% Cotton Feel Fabric Bra Available in Multicolor",
+                Description = "Get the best deal on TRYLO Riza T-FIT Women's Non-Padded,Non-Wired,Full Coverage,Seamless 100% Cotton. High quality, durable, and highly rated on Amazon.",
+                Price = 374.00m,
+                OriginalPrice = 504.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DZCHP4N2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Vak3ddC7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DG5Y74N1",
+                Title = "Baybee Kitty Kick Scooter for Kids | Foldable 3 Wheel Kid Scooter with 4 Height Adjustable Handle & Brake | Skate Scoote",
+                Description = "Get the best deal on Baybee Kitty Kick Scooter for Kids | Foldable 3 Wheel Kid Scooter with 4 Height . High quality, durable, and highly rated on Amazon.",
+                Price = 1298.00m,
+                OriginalPrice = 1752.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DG5Y74N1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Y2IABsb0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07QS7V426",
+                Title = "Fortune Dishwasher Detergent Powder",
+                Description = "Get the best deal on Fortune Dishwasher Detergent Powder. High quality, durable, and highly rated on Amazon.",
+                Price = 560.00m,
+                OriginalPrice = 756.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B07QS7V426?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81vEIeRqK9L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C4GPQRNJ",
+                Title = "Baby GO Baby Boys & Baby Girls 100% Cotton Full Sleeve Front Open T-Shirt Pack of 3 | Soft Breathable Infant Clothing wi",
+                Description = "Get the best deal on Baby GO Baby Boys & Baby Girls 100% Cotton Full Sleeve Front Open T-Shirt Pack o. High quality, durable, and highly rated on Amazon.",
+                Price = 419.00m,
+                OriginalPrice = 565.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0C4GPQRNJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ekBaZZzXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPM2VC6Q",
+                Title = "Buy Logitech MX Master 4, Ergonomic Wireless Mouse with Advanced Performance Haptic Feedback, Ultra-Fast Scrolling, USB-",
+                Description = "Get the best deal on Buy Logitech MX Master 4, Ergonomic Wireless Mouse with Advanced Performance Hap. High quality, durable, and highly rated on Amazon.",
+                Price = 11995.00m,
+                OriginalPrice = 16193.25m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FPM2VC6Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61z3ENJubZL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FYP7849L",
+                Title = "Mirada Adorable Brown Hanging Monkey Soft Plush Toy – Long Arm Stuffed Animal for Kids | Cute Jungle Theme Gift for Boys",
+                Description = "Get the best deal on Mirada Adorable Brown Hanging Monkey Soft Plush Toy – Long Arm Stuffed Animal fo. High quality, durable, and highly rated on Amazon.",
+                Price = 449.00m,
+                OriginalPrice = 606.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0FYP7849L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51f58NH3xTL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097JM7K35",
+                Title = "Safari Cabin Trolley Bag with Laptop Compartment, Hardside Polycarbonate Small (55cm) Suitcase | 360° 8 Wheel Spinner Tr",
+                Description = "Get the best deal on Safari Cabin Trolley Bag with Laptop Compartment, Hardside Polycarbonate Small (. High quality, durable, and highly rated on Amazon.",
+                Price = 1599.00m,
+                OriginalPrice = 2158.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B097JM7K35?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uNY+zpzBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CX8ZTM7H",
+                Title = "Teakwood Unisex Trolley Bag, Hard Cabin Trolley Small, 55 CM Trolley Bag for Travel, Lock System 360 Degree 8 Rotating W",
+                Description = "Get the best deal on Teakwood Unisex Trolley Bag, Hard Cabin Trolley Small, 55 CM Trolley Bag for Tra. High quality, durable, and highly rated on Amazon.",
+                Price = 999.00m,
+                OriginalPrice = 1348.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CX8ZTM7H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51cxCk59EYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CV73XDKV",
+                Title = "Amazon Brand - Solimo Adult Bed Bath Wipes | Count 100 | 10 Wipes x 10 Packs | With Aloe Vera, Olive Oil & Vitamin E | A",
+                Description = "Get the best deal on Amazon Brand - Solimo Adult Bed Bath Wipes | Count 100 | 10 Wipes x 10 Packs | W. High quality, durable, and highly rated on Amazon.",
+                Price = 339.00m,
+                OriginalPrice = 457.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CV73XDKV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71lfn7qZuoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGTTKCJX",
+                Title = "boAt Rockerz 480, RGB LEDs,6 Light Modes, 40mm Drivers,Beast Mode, 60H Battery, ENx Tech, App Support, Bluetooth Headpho",
+                Description = "Get the best deal on boAt Rockerz 480, RGB LEDs,6 Light Modes, 40mm Drivers,Beast Mode, 60H Battery, . High quality, durable, and highly rated on Amazon.",
+                Price = 1799.00m,
+                OriginalPrice = 2428.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DGTTKCJX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cIHzCDl6L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GCW5YJVD",
+                Title = "White Button New latest Rani Banarasi Jacquard Zari Weaving Readymade kids Lehenga Choli for girls dress at Amazon.in",
+                Description = "Get the best deal on White Button New latest Rani Banarasi Jacquard Zari Weaving Readymade kids Lehen. High quality, durable, and highly rated on Amazon.",
+                Price = 1199.00m,
+                OriginalPrice = 1618.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GCW5YJVD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XgJQ+Q3KL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKMVB7R9",
+                Title = "Godrej aer Plug Electric Air Freshener 2 Refills (20ml each) | Violet Bloom | Lasts up to 120 days",
+                Description = "Get the best deal on Godrej aer Plug Electric Air Freshener 2 Refills (20ml each) | Violet Bloom | La. High quality, durable, and highly rated on Amazon.",
+                Price = 179.00m,
+                OriginalPrice = 241.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FKMVB7R9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71gtfhJWvBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CG6C2JDQ",
+                Title = "Webby Plush Adorable Cute Duck Soft Toy for Kids and Adults | Birthday Gift for Boys & Girls - 40 CM",
+                Description = "Get the best deal on Webby Plush Adorable Cute Duck Soft Toy for Kids and Adults | Birthday Gift for . High quality, durable, and highly rated on Amazon.",
+                Price = 336.00m,
+                OriginalPrice = 453.60m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0CG6C2JDQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YHQdMSk6L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09MC18C3P",
+                Title = "NYRWANA Coffee Mug, Birthday Gifts for Women, Mugs for Present, Rakshabandhan Gift for Sister, Ceramic Mug, Cute Coffee",
+                Description = "Get the best deal on NYRWANA Coffee Mug, Birthday Gifts for Women, Mugs for Present, Rakshabandhan Gi. High quality, durable, and highly rated on Amazon.",
+                Price = 520.00m,
+                OriginalPrice = 702.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09MC18C3P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XEu6WHEQL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6G3SKW4",
+                Title = "Urban Space Embroidery Curtains for Door, 100% Cotton 8 Feett Pack of 1 Decorative Curtain with Tassels, Tieback & Eyele",
+                Description = "Get the best deal on Urban Space Embroidery Curtains for Door, 100% Cotton 8 Feett Pack of 1 Decorati. High quality, durable, and highly rated on Amazon.",
+                Price = 1199.00m,
+                OriginalPrice = 1618.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D6G3SKW4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tYCmlAECL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNJXJS35",
+                Title = "OnePlus Nord Buds 3 Truly Wireless Bluetooth Earbuds with up to 32dB Active Noise Cancellation, 10mins for 11Hours Fast",
+                Description = "Get the best deal on OnePlus Nord Buds 3 Truly Wireless Bluetooth Earbuds with up to 32dB Active Nois. High quality, durable, and highly rated on Amazon.",
+                Price = 2599.00m,
+                OriginalPrice = 3508.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DNJXJS35?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Lm9GFu8ML._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GFWFBJPG",
+                Title = "Noise Newly Launched Airwave Max 2 Wireless On-Ear Headphones with 50H Playtime, 40mm Drivers - Deep Bass, 3 Preset EQ M",
+                Description = "Get the best deal on Noise Newly Launched Airwave Max 2 Wireless On-Ear Headphones with 50H Playtime,. High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2023.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GFWFBJPG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tHXdXOvdL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GRGP1B8Y",
+                Title = "Philips India's No.1 Men's Trimmer* | Lift & Trim Technology | Skin Friendly Beard Trimmer for Men | Effortless Styling",
+                Description = "Get the best deal on Philips India's No.1 Men's Trimmer* | Lift & Trim Technology | Skin Friendly Bea. High quality, durable, and highly rated on Amazon.",
+                Price = 1049.00m,
+                OriginalPrice = 1416.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0GRGP1B8Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/613UQ+C5RBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZJ63Z3C",
+                Title = "CCE Scooty Activa Front Baby Seat | Foldable Kids Scooter Chair | Soft Cushion Comfort | Adjustable Secure Child Riding",
+                Description = "Get the best deal on CCE Scooty Activa Front Baby Seat | Foldable Kids Scooter Chair | Soft Cushion C. High quality, durable, and highly rated on Amazon.",
+                Price = 442.00m,
+                OriginalPrice = 596.70m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GZJ63Z3C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YCwnnPAXL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GNM75P3L",
+                Title = "DTWOC Paper Cup Dispenser Holder | Wall Mounted Plastic Drinking Water Cup Dispenser | Glass Dispenser Holder | Disposab",
+                Description = "Get the best deal on DTWOC Paper Cup Dispenser Holder | Wall Mounted Plastic Drinking Water Cup Dispe. High quality, durable, and highly rated on Amazon.",
+                Price = 283.00m,
+                OriginalPrice = 382.05m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GNM75P3L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41Yq3vTFMoL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HF833BTF",
+                Title = "DOCTOR HEALTH SUPER SOFT Women's Lightweight Orthopedic Platform Slides Slippers",
+                Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women's Lightweight Slippers. High quality, durable, and highly rated on Amazon.",
+                Price = 598.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0HF833BTF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YaC62i6FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DK7HM2QB",
+                Title = "Toy Imagine 3 Pcs Insect-Themed Suction Cup Baby Spinner Toys for High Chair Bath",
+                Description = "Get the best deal on Toy Imagine 3 Pcs Insect-Themed Suction Cup Baby Spinner Toys. High quality, durable, and highly rated on Amazon.",
+                Price = 299.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0DK7HM2QB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41slkmD5oAL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
