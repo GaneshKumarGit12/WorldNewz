@@ -13,39 +13,55 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 urls = [
-    "https://link.amazon/B04UPoGuQ",
-    "https://link.amazon/B0axiviZU",
-    "https://link.amazon/B08CotuSz",
-    "https://link.amazon/B04m0FPiU",
-    "https://link.amazon/B05uujUDA",
-    "https://link.amazon/B07QtuZoP",
-    "https://link.amazon/B0iMSEguY",
-    "https://link.amazon/B01RAJDKL",
-    "https://link.amazon/B058SKA5t",
-    "https://link.amazon/B03DcQepe",
-    "https://link.amazon/B02RIk2Fs",
-    "https://link.amazon/B09HfMWzy",
-    "https://link.amazon/B03lRcmKT",
-    "https://link.amazon/B0acGqtZ8",
-    "https://link.amazon/B06qUgVkP",
-    "https://link.amazon/B05cLySTE",
-    "https://link.amazon/B0hx3Mr0J",
-    "https://link.amazon/B0724OJxb",
-    "https://link.amazon/B0hssxa82",
-    "https://link.amazon/B02RATdel",
-    "https://link.amazon/B06Qi8uLz",
-    "https://link.amazon/B05pxks7L",
-    "https://link.amazon/B0d4jKxRp",
-    "https://link.amazon/B0bhVNv6V",
-    "https://link.amazon/B09XV8PaD",
-    "https://link.amazon/B0bNnVsbZ",
-    "https://link.amazon/B08qKosFT",
-    "https://link.amazon/B01Vrlm8a",
-    "https://link.amazon/B0hC7xtm3",
-    "https://link.amazon/B04AIs8eB",
-    "https://link.amazon/B0f9IMVfW",
-    "https://link.amazon/B00VU0ogh",
-    "https://link.amazon/B0gSbrGRj"
+    "https://link.amazon/B0855Vges",
+    "https://link.amazon/B07sS3emY",
+    "https://link.amazon/B0fjf0ypp",
+    "https://link.amazon/B080OIHnP",
+    "https://link.amazon/B02q3SUQH",
+    "https://link.amazon/B0gbzGWC8",
+    "https://link.amazon/B00h1R3ow",
+    "https://link.amazon/B0gUTqBtA",
+    "https://link.amazon/B01ISxQG0",
+    "https://link.amazon/B05x2H6yJ",
+    "https://link.amazon/B00szCLK9",
+    "https://link.amazon/B0dVfdwtz",
+    "https://link.amazon/B05FMEoMJ",
+    "https://link.amazon/B04f7OXUy",
+    "https://link.amazon/B0egycvo8",
+    "https://link.amazon/B0fxhJUDZ",
+    "https://link.amazon/B0iQKGYkT",
+    "https://link.amazon/B0a1DbqEK",
+    "https://link.amazon/B0j1ip3t2",
+    "https://link.amazon/B0j38gITe",
+    "https://link.amazon/B04xRjvau",
+    "https://link.amazon/B0fPWdgl4",
+    "https://link.amazon/B06enAdr8",
+    "https://link.amazon/B0aM3pxKL",
+    "https://link.amazon/B09bLrWIw",
+    "https://link.amazon/B0isDQ6Gm",
+    "https://link.amazon/B09E9lW4x",
+    "https://link.amazon/B01Mwenx0",
+    "https://link.amazon/B0h0hk8id",
+    "https://link.amazon/B0c2EiIzg",
+    "https://link.amazon/B02geC0y4",
+    "https://link.amazon/B0dHfbrf6",
+    "https://link.amazon/B02IvqXQq",
+    "https://link.amazon/B01zauHnZ",
+    "https://link.amazon/B09fakjPp",
+    "https://link.amazon/B0iHalCP0",
+    "https://link.amazon/B0ecRTjT8",
+    "https://link.amazon/B0aczEnj6",
+    "https://link.amazon/B0j0EIVCU",
+    "https://link.amazon/B0bk0R3au",
+    "https://link.amazon/B02QbDi0E",
+    "https://link.amazon/B06iUFEgM",
+    "https://link.amazon/B00DwPMiy",
+    "https://link.amazon/B0ixPfQfa",
+    "https://link.amazon/B004bzaWk",
+    "https://link.amazon/B0deu9MB9",
+    "https://link.amazon/B0ecJK1aR",
+    "https://link.amazon/B0fLbzE7v",
+    "https://link.amazon/B0gU8fhep"
 ]
 
 SEEN_ASINS_PATH = "scratch/seen_asins.json"
@@ -183,7 +199,7 @@ def fetch_details_for_asin(asin):
                 if not img_url:
                     main_dyn = re.findall(r'"(https://m\.media-amazon\.com/images/I/[^"]+\.(?:jpg|png))"', html)
                     for m_img in main_dyn:
-                        if not any(x in m_img for x in ['PKmb-play', 'sprite', 'icon', 'logo', 'G/01', 'G/31', 'SX38', 'SY50']):
+                        if not any(x in m_img for x in ['PKmb-play', 'sprite', 'icon', 'logo', 'G/01', 'G/31', 'SX38', 'SY50', 'SR38', 'SR50']):
                             img_url = m_img
                             break
                 if not img_url:
@@ -223,13 +239,13 @@ def fetch_details_for_asin(asin):
                         price = 999.0
 
                     t_lower = title.lower()
-                    if any(k in t_lower for k in ['phone', 'mobile', 'charger', 'cable', 'headphone', 'earbuds', 'laptop', 'smartwatch', 'tv', 'electronics', 'speaker', 'led', 'pro', 'wifi', 'watch', 'camera', 'ups', 'router', 'adapter', 'cable', 'battery', 'memory', 'keyboard', 'mouse', 'usb', 'spoiler', 'drill', 'cordless', 'lighter']):
+                    if any(k in t_lower for k in ['phone', 'mobile', 'charger', 'cable', 'headphone', 'earbuds', 'laptop', 'smartwatch', 'tv', 'electronics', 'speaker', 'led', 'pro', 'wifi', 'watch', 'camera', 'ups', 'router', 'adapter', 'cable', 'battery', 'memory', 'keyboard', 'mouse', 'usb', 'spoiler', 'drill', 'cordless', 'lighter', 'gadget', 'bluetooth']):
                         category = "Technology"
                     elif any(k in t_lower for k in ['shirt', 'pant', 'shoes', 'dress', 'bag', 'fashion', 'wear', 't-shirt', 'wallet', 'kurta', 'suit', 'saree', 'trolley', 'mattress', 'bed', 'sofa', 'pajama', 'nightsuit', 'lungi', 'dupatta', 'sandal', 'heel', 'bangles', 'jewel', 'necklace', 'earring', 'perfume', 'attar', 'skirt', 'bra', 'loafer', 'sweater', 'vest', 'ring', 'slipper', 'sandals', 'jhumka']):
                         category = "Lifestyle"
-                    elif any(k in t_lower for k in ['kitchen', 'home', 'bottle', 'cookware', 'clean', 'mat', 'light', 'furnishing', 'storage', 'rakhi', 'vacuum', 'juice', 'cloth', 'glass', 'mug', 'cup', 'idol', 'frame', 'pebbles', 'stones', 'trivet', 'towel', 'detergent', 'plant', 'succulent', 'curtain', 'diwan', 'scented', 'candle', 'tea', 'seeds', 'jug', 'scrubber', 'spoon', 'dabba', 'ghee', 'oil', 'organizer', 'sponge', 'mop', 'brush', 'umbrella', 'luggage']):
+                    elif any(k in t_lower for k in ['kitchen', 'home', 'bottle', 'cookware', 'clean', 'mat', 'light', 'furnishing', 'storage', 'rakhi', 'vacuum', 'juice', 'cloth', 'glass', 'mug', 'cup', 'idol', 'frame', 'pebbles', 'stones', 'trivet', 'towel', 'detergent', 'plant', 'succulent', 'curtain', 'diwan', 'scented', 'candle', 'tea', 'seeds', 'jug', 'scrubber', 'spoon', 'dabba', 'ghee', 'oil', 'organizer', 'sponge', 'mop', 'brush', 'umbrella', 'luggage', 'cooker', 'pan', 'peeler', 'grater']):
                         category = "Shopping"
-                    elif any(k in t_lower for k in ['sport', 'fit', 'gym', 'cycle', 'ball', 'run', 'yoga', 'paddle', 'racket', 'band', 'racket', 'knee', 'teether', 'game', 'toy', 'spin', 'brace', 'bike', 'valve', 'massager', 'foot pad']):
+                    elif any(k in t_lower for k in ['sport', 'fit', 'gym', 'cycle', 'ball', 'run', 'yoga', 'paddle', 'racket', 'band', 'racket', 'knee', 'teether', 'game', 'toy', 'spin', 'brace', 'bike', 'valve', 'massager', 'foot pad', 'spinner']):
                         category = "Sports"
                     else:
                         category = "Shopping"

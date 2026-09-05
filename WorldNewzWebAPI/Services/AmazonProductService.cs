@@ -19014,6 +19014,666 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0CW1LRT9J",
+                Title = "Dr. Arya's Shivlingi Beej 100gm | Shivlingi Seeds | Bryonia laciniosa seed | 100gm",
+                Description = "Get the best deal on Dr. Arya's Shivlingi Beej 100gm | Shivlingi Seeds | Bryonia laciniosa seed | 100. High quality, durable, and highly rated on Amazon.",
+                Price = 274.00m,
+                OriginalPrice = 369.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CW1LRT9J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kwExaxxaL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H2S9MK2Z",
+                Title = "Lighter Holder, Wall Mount with Pre-Applied Double-Sided Tape, Biodegradable PLA, Secure Vertical Drip-Free Stand, Pack",
+                Description = "Get the best deal on Lighter Holder, Wall Mount with Pre-Applied Double-Sided Tape, Biodegradable PLA. High quality, durable, and highly rated on Amazon.",
+                Price = 125.00m,
+                OriginalPrice = 168.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H2S9MK2Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61nqzwqsqwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GC6MH3N7",
+                Title = "Wynzen Premium Ankle Support Brace for Men & Women | Adjustable Compression Ankle Support Band| Neoprene Ankle Brace for",
+                Description = "Get the best deal on Wynzen Premium Ankle Support Brace for Men & Women | Adjustable Compression Ankl. High quality, durable, and highly rated on Amazon.",
+                Price = 474.00m,
+                OriginalPrice = 639.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GC6MH3N7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81apNABOAmL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08HQRJZ6Q",
+                Title = "SHIVARATNA Wood Shree Kashi Vishwanath Vibhuti Bhasma (Medium, White) Online at Low Prices in India - Amazon.in",
+                Description = "Get the best deal on SHIVARATNA Wood Shree Kashi Vishwanath Vibhuti Bhasma (Medium, White) Online at . High quality, durable, and highly rated on Amazon.",
+                Price = 379.00m,
+                OriginalPrice = 511.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08HQRJZ6Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81BOhofpElL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08Z88S5CK",
+                Title = "EshoppyZon Gas Lighter For Gas Kitchen Stove, Refilable, Adjustable Flame, BBQ, Diya, Barbecue, Candle, Home Use, Pack o",
+                Description = "Get the best deal on EshoppyZon Gas Lighter For Gas Kitchen Stove, Refilable, Adjustable Flame, BBQ, . High quality, durable, and highly rated on Amazon.",
+                Price = 359.00m,
+                OriginalPrice = 484.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08Z88S5CK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51xO5GKQRPL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B081P14MGT",
+                Title = "HS HINDUSTANI SAUDAGAR Mughal Mist Ceramic Pickle Jar Set Of 2(300 ml Each) Multipurpose Container Salt Sugar Spices Cer",
+                Description = "Get the best deal on HS HINDUSTANI SAUDAGAR Mughal Mist Ceramic Pickle Jar Set Of 2(300 ml Each) Mult. High quality, durable, and highly rated on Amazon.",
+                Price = 759.00m,
+                OriginalPrice = 1024.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B081P14MGT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71TSxD-42gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CX1VCQHC",
+                Title = "Lotus Flower Painting with Brown Frame | Peaceful Floral Wall Art for Positive Energy & Home Decor | Nature Wall Paintin",
+                Description = "Get the best deal on Lotus Flower Painting with Brown Frame | Peaceful Floral Wall Art for Positive E. High quality, durable, and highly rated on Amazon.",
+                Price = 284.00m,
+                OriginalPrice = 383.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0CX1VCQHC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41z4rsHgIjL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GL76DHXV",
+                Title = "White Ceramic Vase Set, 5 Pieces, Modern Minimalist Design, Decorative Home Decor Flower Vase, Modern Planter for Office",
+                Description = "Get the best deal on White Ceramic Vase Set, 5 Pieces, Modern Minimalist Design, Decorative Home Deco. High quality, durable, and highly rated on Amazon.",
+                Price = 949.00m,
+                OriginalPrice = 1281.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GL76DHXV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61R9K+qrvKL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DS9X1STC",
+                Title = "BOXCO Velocity Full Size Wooden Cricket Bat with Hanging Practice Ball | Tennis Cricket Bat for Adults & Teens | Durable",
+                Description = "Get the best deal on BOXCO Velocity Full Size Wooden Cricket Bat with Hanging Practice Ball | Tennis . High quality, durable, and highly rated on Amazon.",
+                Price = 1329.00m,
+                OriginalPrice = 1794.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B0DS9X1STC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YBOKeTq6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FN4GJ285",
+                Title = "Gandharaj Flower Plant Live – Grafted Hybrid Gardenia | Fragrant Desi Sugandharaj for Home Garden & Outdoor | All Season",
+                Description = "Get the best deal on Gandharaj Flower Plant Live – Grafted Hybrid Gardenia | Fragrant Desi Sugandhara. High quality, durable, and highly rated on Amazon.",
+                Price = 152.00m,
+                OriginalPrice = 205.20m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FN4GJ285?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+HdEE5vyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DP34LQRW",
+                Title = "DEW MAT Jhumkas for women traditional Earrings For Women Floral Design Traditional Drop Jhumke For Women Girls Love Gift",
+                Description = "Get the best deal on DEW MAT Jhumkas for women traditional Earrings For Women Floral Design Tradition. High quality, durable, and highly rated on Amazon.",
+                Price = 246.00m,
+                OriginalPrice = 332.10m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DP34LQRW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/B1zpIf+joML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLQMZR6Z",
+                Title = "Wefour Sheesham Wood 5 Tier Wall Mounted Bookcase Ladder Shelf for Home Living Room Bedroom Brown Finish",
+                Description = "Get the best deal on Wefour Sheesham Wood 5 Tier Wall Mounted Bookcase Ladder Shelf for Home Living R. High quality, durable, and highly rated on Amazon.",
+                Price = 4490.00m,
+                OriginalPrice = 6061.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FLQMZR6Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/515+TUvNmeL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ1JRK3Q",
+                Title = "TSS The Sanatan Setu Handcrafted Jagannath ji Idol | 10 cm Marble Dust Multicolour Decorative Showpiece, Murti for Car D",
+                Description = "Get the best deal on TSS The Sanatan Setu Handcrafted Jagannath ji Idol | 10 cm Marble Dust Multicolo. High quality, durable, and highly rated on Amazon.",
+                Price = 829.00m,
+                OriginalPrice = 1119.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ1JRK3Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vOxVJnAtL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQYPYRPR",
+                Title = "Harfi Works Wooden Geometric Shapes Set for Students & Teachers | 12-Piece 3D Geometry Model Kit in Box | Educational Ma",
+                Description = "Get the best deal on Harfi Works Wooden Geometric Shapes Set for Students & Teachers | 12-Piece 3D Ge. High quality, durable, and highly rated on Amazon.",
+                Price = 759.00m,
+                OriginalPrice = 1024.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CQYPYRPR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51MV2e9tTZL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTTWNZQC",
+                Title = "ShreeVoke Nonstick Frying Pan Egg Pan, 8 Inch Nonstick Skillet, Granite Egg Frying Pan, Dishwasher and Oven Safe, Induct",
+                Description = "Get the best deal on ShreeVoke Nonstick Frying Pan Egg Pan, 8 Inch Nonstick Skillet, Granite Egg Fryi. High quality, durable, and highly rated on Amazon.",
+                Price = 899.00m,
+                OriginalPrice = 1213.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0DTTWNZQC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/619+Wy-QiIL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6JXD616",
+                Title = "(30 Pcs) Detox Foot Patches for Deep Cleansing & Relaxation | Herbal Ginger Overnight Foot Pads for Tired Feet, Wellness",
+                Description = "Get the best deal on (30 Pcs) Detox Foot Patches for Deep Cleansing & Relaxation | Herbal Ginger Over. High quality, durable, and highly rated on Amazon.",
+                Price = 260.00m,
+                OriginalPrice = 351.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H6JXD616?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HAwK0DyrL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D45XVV55",
+                Title = "TAGROCK Apple Shape Steel Net Multipurpose Fruits & Vegetables Storage Basket Rice Stainer for Kitchen, Pack of 1 (Gold)",
+                Description = "Get the best deal on TAGROCK Apple Shape Steel Net Multipurpose Fruits & Vegetables Storage Basket Ri. High quality, durable, and highly rated on Amazon.",
+                Price = 529.00m,
+                OriginalPrice = 714.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0D45XVV55?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91V+VkLid3L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTMBBG8T",
+                Title = "ABVIN Premium Solid Brass Knurled Cabinet Bar Pull Handles Matt Gold Furniture Hardware Drawers Kitchens Cupboard Door (",
+                Description = "Get the best deal on ABVIN Premium Solid Brass Knurled Cabinet Bar Pull Handles Matt Gold Furniture H. High quality, durable, and highly rated on Amazon.",
+                Price = 949.00m,
+                OriginalPrice = 1281.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CTMBBG8T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DG96X+3VL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BCGMS1GQ",
+                Title = "YELLOWDELIGHT Boys Cotton Striped Drawer Pack of 5 (Multicolor, 2-3 Years) at Amazon.in",
+                Description = "Get the best deal on YELLOWDELIGHT Boys Cotton Striped Drawer Pack of 5 (Multicolor, 2-3 Years) at Am. High quality, durable, and highly rated on Amazon.",
+                Price = 289.00m,
+                OriginalPrice = 390.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BCGMS1GQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sCx9SwwxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7T6RSJH",
+                Title = "dockstreet Mens Baggy fit Jogger/Sweatpants .JOGRMN2506JA-BAGYFITGreyMenJOGR38",
+                Description = "Get the best deal on dockstreet Mens Baggy fit Jogger/Sweatpants .JOGRMN2506JA-BAGYFITGreyMenJOGR38. High quality, durable, and highly rated on Amazon.",
+                Price = 398.00m,
+                OriginalPrice = 537.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0D7T6RSJH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/514XS-s7NmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F94C3LP1",
+                Title = "Classic Wired Guruji Mantra Box with 4-Inch LED Display Pre-recorded 2 in 1 Kirtan Bhajan Speaker Guru JI Mantra",
+                Description = "Get the best deal on Classic Wired Guruji Mantra Box with 4-Inch LED Display Pre-recorded 2 in 1 Kirt. High quality, durable, and highly rated on Amazon.",
+                Price = 379.00m,
+                OriginalPrice = 511.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F94C3LP1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51TvnI3G-rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0788KHR1N",
+                Title = "VINSHRA Plastic Planter with Bottom Tray Set, Terracotta, 20 inch, 2 Pieces (1 Small Pot Free)",
+                Description = "Get the best deal on VINSHRA Plastic Planter with Bottom Tray Set, Terracotta, 20 inch, 2 Pieces (1 S. High quality, durable, and highly rated on Amazon.",
+                Price = 995.00m,
+                OriginalPrice = 1343.25m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0788KHR1N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617NeL58-QL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09VBYCGX7",
+                Title = "Packard (LC 303 Wooden Clocks in Indian Languages Bangla, Devanagari, Gujrati, Gurmukhi, Kannada, Malayalam, Odia, Tamil",
+                Description = "Get the best deal on Packard (LC 303 Wooden Clocks in Indian Languages Bangla, Devanagari, Gujrati, G. High quality, durable, and highly rated on Amazon.",
+                Price = 1099.00m,
+                OriginalPrice = 1483.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09VBYCGX7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81bsTHxDmKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08HSFJS8C",
+                Title = "Kemjo Wall Mounted Wash Basin for Bathroom | Wall Hung Wash Basin/Ceramic Sink (16.3 x 13.8 x 4.3 Inch, Perry)",
+                Description = "Get the best deal on Kemjo Wall Mounted Wash Basin for Bathroom | Wall Hung Wash Basin/Ceramic Sink (. High quality, durable, and highly rated on Amazon.",
+                Price = 1329.00m,
+                OriginalPrice = 1794.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B08HSFJS8C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61se7bjL9UL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07BHMXLLG",
+                Title = "ReDesign Apparels Men's Sports Shorts for Gym, Running, Badminton, Tennis, Basketball, Training, Football, Cyling (Black",
+                Description = "Get the best deal on ReDesign Apparels Men's Sports Shorts for Gym, Running, Badminton, Tennis, Baske. High quality, durable, and highly rated on Amazon.",
+                Price = 759.00m,
+                OriginalPrice = 1024.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports",
+                ProductUrl = "https://www.amazon.in/dp/B07BHMXLLG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BMfUmAdyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTQ8N93T",
+                Title = "Dog car seat Cover",
+                Description = "Get the best deal on Dog car seat Cover. High quality, durable, and highly rated on Amazon.",
+                Price = 1519.00m,
+                OriginalPrice = 2050.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CTQ8N93T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/419oBl7laIL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLK6Z9KS",
+                Title = "ROOMISH Black Satin Peel and Stick Wallpaper Metallic Textured Modern Waterproof Wallpapers Removable Self Adhesive Viny",
+                Description = "Get the best deal on ROOMISH Black Satin Peel and Stick Wallpaper Metallic Textured Modern Waterproof. High quality, durable, and highly rated on Amazon.",
+                Price = 228.00m,
+                OriginalPrice = 307.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FLK6Z9KS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/510MYpghIiL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08VJ4RKFJ",
+                Title = "Jaipur Linen 1200GSM Hollow Fibre Mattress Padding/Topper White for Single Bed-36 Inch X 78 Inch",
+                Description = "Get the best deal on Jaipur Linen 1200GSM Hollow Fibre Mattress Padding/Topper White for Single Bed-3. High quality, durable, and highly rated on Amazon.",
+                Price = 1748.00m,
+                OriginalPrice = 2359.80m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B08VJ4RKFJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Jm6g34bWL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BQR3ZDBQ",
+                Title = "Jaity Export Laboratory Plastic Measuring Beaker Cup Conical Measure, 25 ML/50 ML/125 ML, Combo of 3 Online at Low Price",
+                Description = "Get the best deal on Jaity Export Laboratory Plastic Measuring Beaker Cup Conical Measure, 25 ML/50 M. High quality, durable, and highly rated on Amazon.",
+                Price = 179.00m,
+                OriginalPrice = 241.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0BQR3ZDBQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61czFFWG3HL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMQ2DZS9",
+                Title = "Adenium Desert Rose Live Plant, Pink and White Multi-Petal Hybrid, Grafted Indoor/Outdoor Flowering Plant, without pot (",
+                Description = "Get the best deal on Adenium Desert Rose Live Plant, Pink and White Multi-Petal Hybrid, Grafted Indoo. High quality, durable, and highly rated on Amazon.",
+                Price = 152.00m,
+                OriginalPrice = 205.20m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FMQ2DZS9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xZwPG7alL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ69NBG4",
+                Title = "Trendifly Ghungroo Metal Shagun Silver Gold Coin Sikka Chain Storage Anklet Holder Box | Gifting Purpose Decorative Ginn",
+                Description = "Get the best deal on Trendifly Ghungroo Metal Shagun Silver Gold Coin Sikka Chain Storage Anklet Hold. High quality, durable, and highly rated on Amazon.",
+                Price = 372.00m,
+                OriginalPrice = 502.20m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ69NBG4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71qvH7EEwpL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F285S73K",
+                Title = "Amazon Premium Steel Pakad for Kitchen with Grip | Red Handle Pincers | BAAAN Sandasi, Sansi, Pakkad, Chimta for Kitchen",
+                Description = "Get the best deal on Amazon Premium Steel Pakad for Kitchen with Grip | Red Handle Pincers | BAAAN Sa. High quality, durable, and highly rated on Amazon.",
+                Price = 185.00m,
+                OriginalPrice = 249.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F285S73K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/415ABr86RxL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHYHZBHK",
+                Title = "RN Enterprise Premium Polycotton Elegant Flower Mosquito Net with Coloring Cotton Tape & Designing Bottom (Ivory, Queen",
+                Description = "Get the best deal on RN Enterprise Premium Polycotton Elegant Flower Mosquito Net with Coloring Cotto. High quality, durable, and highly rated on Amazon.",
+                Price = 359.00m,
+                OriginalPrice = 484.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0DHYHZBHK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bFLab-FlL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09FS7965S",
+                Title = "MOUNTRAX 5 in 1 Electric Scalp Massager, Portable Heated Head Massager Kneading 88 Massage Nodes, 2 Massage Styles & 3 S",
+                Description = "Get the best deal on MOUNTRAX 5 in 1 Electric Scalp Massager, Portable Heated Head Massager Kneading . High quality, durable, and highly rated on Amazon.",
+                Price = 479.00m,
+                OriginalPrice = 646.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B09FS7965S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61kEZ7evexL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B094Y8QP7R",
+                Title = "GOPALDHARA Darjeeling Tea First Flush Flowery Orange Pekoe 200 Gm Paper Box - (Regular Series) Ftgfop1 Leaf First Flush",
+                Description = "Get the best deal on GOPALDHARA Darjeeling Tea First Flush Flowery Orange Pekoe 200 Gm Paper Box - (R. High quality, durable, and highly rated on Amazon.",
+                Price = 484.00m,
+                OriginalPrice = 653.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B094Y8QP7R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611bBOIfmbL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CL9VDHGD",
+                Title = "Aqsa Leather PU Leather 4 Slots Watch Box for Watches and Watch Case Organizer with Soft Pillow Display Watch Storage Bo",
+                Description = "Get the best deal on Aqsa Leather PU Leather 4 Slots Watch Box for Watches and Watch Case Organizer w. High quality, durable, and highly rated on Amazon.",
+                Price = 569.00m,
+                OriginalPrice = 768.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CL9VDHGD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81TTokO34IL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CXJFKCHB",
+                Title = "CLUEMART Camping Cup,4pc Stainless Steel Camping Campfire Mug with Handle, Portable Cups with Folding Handle & Mesh Bag",
+                Description = "Get the best deal on CLUEMART Camping Cup,4pc Stainless Steel Camping Campfire Mug with Handle, Porta. High quality, durable, and highly rated on Amazon.",
+                Price = 999.00m,
+                OriginalPrice = 1348.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CXJFKCHB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ltUQXSgiL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09WHRP4VJ",
+                Title = "Ortho + Rest Women's Hawai Ortho Slippers | Orthopedic Footwear | Doctor Chappal | Comfortable Flip Flops for Home Daily",
+                Description = "Get the best deal on Ortho + Rest Women's Hawai Ortho Slippers | Orthopedic Footwear | Doctor Chappal. High quality, durable, and highly rated on Amazon.",
+                Price = 293.00m,
+                OriginalPrice = 395.55m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B09WHRP4VJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Q6UfGLuVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQ337YM6",
+                Title = "curioSprout Alphabet Activity Kit for Kids 2 3 4 Years Old | Tracing Writing Matching Practice for Toddlers | Reusable V",
+                Description = "Get the best deal on curioSprout Alphabet Activity Kit for Kids 2 3 4 Years Old | Tracing Writing Mat. High quality, durable, and highly rated on Amazon.",
+                Price = 569.00m,
+                OriginalPrice = 768.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FQ337YM6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81kTF1nBrZL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJ7D74YT",
+                Title = "ABVIN Antique Classical Cup Pulls Cabinet Handles for Hardware Cabinets, Cupboards and Drawers - 1 pcs (3.4 inch)",
+                Description = "Get the best deal on ABVIN Antique Classical Cup Pulls Cabinet Handles for Hardware Cabinets, Cupboar. High quality, durable, and highly rated on Amazon.",
+                Price = 465.00m,
+                OriginalPrice = 627.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CJ7D74YT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611VCTk0AWL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVNMGSKC",
+                Title = "Original Type C Earphones for JBL Tune 310 C Deep Bass Stereo Sound Flat Tangle-Free Cable (Black)",
+                Description = "Get the best deal on Original Type C Earphones for JBL Tune 310 C Deep Bass Stereo Sound Flat Tangle-. High quality, durable, and highly rated on Amazon.",
+                Price = 879.00m,
+                OriginalPrice = 1186.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GVNMGSKC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41EZdd7muwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GHXTC7Z2",
+                Title = "RAAHII 10 Piece Transparent Saree Packing Cover with Zip | Single Saree Gift & Wedding Packing Bag | Saree bag for stora",
+                Description = "Get the best deal on RAAHII 10 Piece Transparent Saree Packing Cover with Zip | Single Saree Gift & W. High quality, durable, and highly rated on Amazon.",
+                Price = 350.00m,
+                OriginalPrice = 472.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GHXTC7Z2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719RzN2bLGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GW3XCG67",
+                Title = "Chutki Brass Masala Box with Spoon | Brass Spice Bowls | Handcrafted Masala Box Organizer | Kitchen Spice Storage Box",
+                Description = "Get the best deal on Chutki Brass Masala Box with Spoon | Brass Spice Bowls | Handcrafted Masala Box . High quality, durable, and highly rated on Amazon.",
+                Price = 2245.00m,
+                OriginalPrice = 3030.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GW3XCG67?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91VhNv6OztL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQBFK4W2",
+                Title = "DIL SE Boyshorts Panties for Women Cotton Stretch Boyshort Underwear (Pack of 3)",
+                Description = "Get the best deal on DIL SE Boyshorts Panties for Women. High quality, durable, and highly rated on Amazon.",
+                Price = 399.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GQBFK4W2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71TVgR8UUfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
