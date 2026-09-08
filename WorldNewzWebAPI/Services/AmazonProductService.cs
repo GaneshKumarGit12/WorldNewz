@@ -21594,6 +21594,546 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0DV4Z3YZ6",
+                Title = "BOSCH GDS 18V-350 Cordless Impact Wrench for Car & Professional Use | Brushless Motor | 350 Nm Torque | Compact 131mm He",
+                Description = "Get the best deal on BOSCH GDS 18V-350 Cordless Impact Wrench for Car & Professional Use | Brushless . High quality, durable, and highly rated on Amazon.",
+                Price = 10774.00m,
+                OriginalPrice = 14544.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DV4Z3YZ6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JcMis95AL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GRN34T32",
+                Title = "Arayna Women’s Pure Cotton Floral Printed Kurta Pant Dupatta Set | Elegant Ethnic Suit Set with Soft Floral Motifs | Str",
+                Description = "Get the best deal on Arayna Women’s Pure Cotton Floral Printed Kurta Pant Dupatta Set | Elegant Ethni. High quality, durable, and highly rated on Amazon.",
+                Price = 998.00m,
+                OriginalPrice = 1347.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0GRN34T32?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81xfs12TF3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BWTCLMBD",
+                Title = "Maharaja Whiteline 500W Mixer Grinder with 3 Stainless Steel Jars with lid and 20,000 RPM Motor Speed (White & Cherry Re",
+                Description = "Get the best deal on Maharaja Whiteline 500W Mixer Grinder with 3 Stainless Steel Jars with lid and 2. High quality, durable, and highly rated on Amazon.",
+                Price = 1599.00m,
+                OriginalPrice = 2158.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0BWTCLMBD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71sngoJAQUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G657KV19",
+                Title = "EarFun [2025 VGP Winner] Air Pro 4+ Adaptive Hybrid Noise Cancelling Wireless Earbuds Bluetooth 6.0,Qualcomm Snapdragon",
+                Description = "Get the best deal on EarFun [2025 VGP Winner] Air Pro 4+ Adaptive Hybrid Noise Cancelling Wireless Ea. High quality, durable, and highly rated on Amazon.",
+                Price = 8797.00m,
+                OriginalPrice = 11875.95m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G657KV19?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ZeYix5cbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVK6WS2H",
+                Title = "amazon basics 160W Soundbar with Subwoofer, 2.1 Channel Sound System for TV, 6.5\" Bass Driver, HDMI ARC, Optical, Blueto",
+                Description = "Get the best deal on amazon basics 160W Soundbar with Subwoofer, 2.1 Channel Sound System for TV, 6.5. High quality, durable, and highly rated on Amazon.",
+                Price = 4199.00m,
+                OriginalPrice = 5668.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GVK6WS2H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cgyqrnA3L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H2LZCPBV",
+                Title = "Harry Potter x American Tourister Hermione Backpack | 27L School Bag for Girls | Multiple Compartments | Crookshanks Zip",
+                Description = "Get the best deal on Harry Potter x American Tourister Hermione Backpack | 27L School Bag for Girls |. High quality, durable, and highly rated on Amazon.",
+                Price = 600.00m,
+                OriginalPrice = 810.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0H2LZCPBV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oN0ie+45L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPX1NF2D",
+                Title = "Studio Shringaar Women Cotton blend Half Sleeve Readymade Saree Blouse",
+                Description = "Get the best deal on Studio Shringaar Women Cotton blend Half Sleeve Readymade Saree Blouse. High quality, durable, and highly rated on Amazon.",
+                Price = 790.00m,
+                OriginalPrice = 1066.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FPX1NF2D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61KCbA+whtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPX1CSYD",
+                Title = "Studio Shringaar Women Cotton Half Sleeve Madras Checks Saree Blouse with Stretchable Sides",
+                Description = "Get the best deal on Studio Shringaar Women Cotton Half Sleeve Madras Checks Saree Blouse with Stretc. High quality, durable, and highly rated on Amazon.",
+                Price = 597.00m,
+                OriginalPrice = 805.95m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FPX1CSYD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Jp1Gs7QcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08FCGLYFZ",
+                Title = "Skullcandy Crusher Evo Wireless Over-Ear Bluetooth Headphones with Microphone, 40 Hour Battery, Personal Sound, Extra Ba",
+                Description = "Get the best deal on Skullcandy Crusher Evo Wireless Over-Ear Bluetooth Headphones with Microphone, 4. High quality, durable, and highly rated on Amazon.",
+                Price = 14999.00m,
+                OriginalPrice = 20248.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08FCGLYFZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AXcd2I4+L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DH8984MM",
+                Title = "Vu 139cm (55 inches) Masterpiece Frame Series 4K QLED TV 55MASTERPIECE (Armani Gold)",
+                Description = "Get the best deal on Vu 139cm (55 inches) Masterpiece Frame Series 4K QLED TV 55MASTERPIECE (Armani G. High quality, durable, and highly rated on Amazon.",
+                Price = 50990.00m,
+                OriginalPrice = 68836.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DH8984MM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dxaG90qPL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXPB4FGH",
+                Title = "VW 165 cm (65 inches) 4K Ultra HD QLED Smart Mini LED Google TV VW65MINIQ1",
+                Description = "Get the best deal on VW 165 cm (65 inches) 4K Ultra HD QLED Smart Mini LED Google TV VW65MINIQ1. High quality, durable, and highly rated on Amazon.",
+                Price = 44999.00m,
+                OriginalPrice = 60748.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GXPB4FGH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81QR4dL88SL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVDMWCHL",
+                Title = "HUION HS64 Drawing Tablet, 6.3 x 4 inch with 16384 Pressure Sensitivity Battery-Free Pen & Tilt Support, for Digital Art",
+                Description = "Get the best deal on HUION HS64 Drawing Tablet, 6.3 x 4 inch with 16384 Pressure Sensitivity Battery-. High quality, durable, and highly rated on Amazon.",
+                Price = 2999.00m,
+                OriginalPrice = 4048.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GVDMWCHL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51aILmsc6dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQFJNRQ5",
+                Title = "Apple Watch Series 11 GPS + Cellular 46mm Rose Gold Aluminium Case with Light Blush Sport Band - M/L",
+                Description = "Get the best deal on Apple Watch Series 11 GPS + Cellular 46mm Rose Gold Aluminium Case with Light Bl. High quality, durable, and highly rated on Amazon.",
+                Price = 56999.00m,
+                OriginalPrice = 76948.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FQFJNRQ5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+dElEzRfL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C4DMRHYG",
+                Title = "Prestige Iris Eco 1200 Watts Induction Cooktop",
+                Description = "Get the best deal on Prestige Iris Eco 1200 Watts Induction Cooktop. High quality, durable, and highly rated on Amazon.",
+                Price = 1850.00m,
+                OriginalPrice = 2497.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0C4DMRHYG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Vu80YcolL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CP9PLWTF",
+                Title = "Noise Vortex Plus 1.46” AMOLED Display, AoD, BT Calling, Sleek Metal Finish, 7 Days Battery Life, All New OS with 100+ W",
+                Description = "Get the best deal on Noise Vortex Plus 1.46” AMOLED Display, AoD, BT Calling, Sleek Metal Finish, 7 D. High quality, durable, and highly rated on Amazon.",
+                Price = 2299.00m,
+                OriginalPrice = 3103.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CP9PLWTF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61u80FL9BVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7XNF1QF",
+                Title = "ZEBRONICS 90 Watts, Compact Soundbar, Home Theatre, Dual Driver Soundbar, 11.43cm Subwoofer, HDMI ARC, Bluetooth v5.1, W",
+                Description = "Get the best deal on ZEBRONICS 90 Watts, Compact Soundbar, Home Theatre, Dual Driver Soundbar, 11.43c. High quality, durable, and highly rated on Amazon.",
+                Price = 3299.00m,
+                OriginalPrice = 4453.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F7XNF1QF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71+Y1B4HaqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJM2NST8",
+                Title = "ZEBRONICS Juke bar 9550 pro 5.2 Soundbar (625 Watts), Dolby Audio, Dual Wireless Subwoofer & Wired Satellite, BT v5.3, H",
+                Description = "Get the best deal on ZEBRONICS Juke bar 9550 pro 5.2 Soundbar (625 Watts), Dolby Audio, Dual Wireless. High quality, durable, and highly rated on Amazon.",
+                Price = 13499.00m,
+                OriginalPrice = 18223.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CJM2NST8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71r-bf42LqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GGRJD7KY",
+                Title = "ASUS Vivobook 16 (2026), AMD Ryzen AI 7 445, AMD Radeon iGPU, 16GB RAM, 512GB SSD, FHD+, 16\", (40 cm), Windows 11, M365",
+                Description = "Get the best deal on ASUS Vivobook 16 (2026), AMD Ryzen AI 7 445, AMD Radeon iGPU, 16GB RAM, 512GB SS. High quality, durable, and highly rated on Amazon.",
+                Price = 92990.00m,
+                OriginalPrice = 125536.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GGRJD7KY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WOKTkjNDL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H698MM7K",
+                Title = "Lenovo LOQ 27-10 (Smartchoice) | 27\" (68.5cm) FHD (1920x1080) IPS 200Hz Gaming Monitor | 0.5ms, HDR10 Compliance, AMD Fr",
+                Description = "Get the best deal on Lenovo LOQ 27-10 (Smartchoice) | 27\" (68.5cm) FHD (1920x1080) IPS 200Hz Gaming M. High quality, durable, and highly rated on Amazon.",
+                Price = 10999.00m,
+                OriginalPrice = 14848.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0H698MM7K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81L4FC5jQoL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBQBNXQ7",
+                Title = "Vu California 108cm (43 inches) GloQLED Smart Google 4K TV VuGLOQLEDDV",
+                Description = "Get the best deal on Vu California 108cm (43 inches) GloQLED Smart Google 4K TV VuGLOQLEDDV. High quality, durable, and highly rated on Amazon.",
+                Price = 29999.00m,
+                OriginalPrice = 40498.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0HBQBNXQ7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/815GOQlOg4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWMH3LQW",
+                Title = "vivo X300 Ultra 5G (Eclipse Black, 16GB RAM, 512GB Storage) with No Cost EMI/Additional Exchange Offers",
+                Description = "Get the best deal on vivo X300 Ultra 5G (Eclipse Black, 16GB RAM, 512GB Storage) with No Cost EMI/Add. High quality, durable, and highly rated on Amazon.",
+                Price = 159999.00m,
+                OriginalPrice = 215998.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GWMH3LQW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ioZCO-biL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H9XM7K3Z",
+                Title = "Dell Alienware 15 Gaming Laptop, AMD Ryzen R7 260 Processor, NVIDIA GeForce RTX 5050 8 GB GDDR7, 16GB:512GB SSD, 15.3\" W",
+                Description = "Get the best deal on Dell Alienware 15 Gaming Laptop, AMD Ryzen R7 260 Processor, NVIDIA GeForce RTX . High quality, durable, and highly rated on Amazon.",
+                Price = 155490.00m,
+                OriginalPrice = 209911.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H9XM7K3Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WlubHu3LL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GYD62GPS",
+                Title = "HP OmniStudio All-in-One, Intel Core 3 (i3 14th gen), (8GB DDR5, 512GB SSD) FHD, IPS, Anti-Glare, 23.8''(60.5cm), Win 11",
+                Description = "Get the best deal on HP OmniStudio All-in-One, Intel Core 3 (i3 14th gen), (8GB DDR5, 512GB SSD) FHD,. High quality, durable, and highly rated on Amazon.",
+                Price = 69999.00m,
+                OriginalPrice = 94498.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GYD62GPS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Oh1HnBOaL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTTXHPSK",
+                Title = "ZEBRONICS Juke BAR 9900 Soundbar, 725 Watts, DTS X, Dolby Atmos, 5.2.4 CH, 2X Wireless (Subwoofer & Satellites), BT v5.3",
+                Description = "Get the best deal on ZEBRONICS Juke BAR 9900 Soundbar, 725 Watts, DTS X, Dolby Atmos, 5.2.4 CH, 2X Wi. High quality, durable, and highly rated on Amazon.",
+                Price = 26999.00m,
+                OriginalPrice = 36448.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CTTXHPSK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SwuatflqL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTZJVD3Y",
+                Title = "Lenovo LOQ Essential AMD Ryzen 7 7735HS | NVIDIA RTX 3050 6GB (16GB RAM/512GB SSD/144Hz Refresh Rate/15.6\" (39.6cm)/Wind",
+                Description = "Get the best deal on Lenovo LOQ Essential AMD Ryzen 7 7735HS | NVIDIA RTX 3050 6GB (16GB RAM/512GB SS. High quality, durable, and highly rated on Amazon.",
+                Price = 98990.00m,
+                OriginalPrice = 133636.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GTZJVD3Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uIKhayZPL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQF9VJ9Y",
+                Title = "Apple Watch SE 3 GPS 44mm Starlight Aluminium Case with Starlight Sport Band - S/M",
+                Description = "Get the best deal on Apple Watch SE 3 GPS 44mm Starlight Aluminium Case with Starlight Sport Band - S. High quality, durable, and highly rated on Amazon.",
+                Price = 26999.00m,
+                OriginalPrice = 36448.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FQF9VJ9Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BFLzrJ8lL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBB6W6GQ",
+                Title = "Haier 6 kg 5 Star Oceanus Wave Drum Washing Machine Fully Automatic Top Load (HWM60-AEN, Moonlight Silver)",
+                Description = "Get the best deal on Haier 6 kg 5 Star Oceanus Wave Drum Washing Machine Fully Automatic Top Load (HW. High quality, durable, and highly rated on Amazon.",
+                Price = 13890.00m,
+                OriginalPrice = 18751.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0HBB6W6GQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eH5s890WL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVSC6V4Z",
+                Title = "DeLonghi La Specialista Arte Professional Coffee Machine with Cold Brew, Original Italian Brand, Built In Grinder, Range",
+                Description = "Get the best deal on DeLonghi La Specialista Arte Professional Coffee Machine with Cold Brew, Origina. High quality, durable, and highly rated on Amazon.",
+                Price = 59999.00m,
+                OriginalPrice = 80998.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CVSC6V4Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81zM--4VmpL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQCF2TCZ",
+                Title = "Onida 139 cm (55 inches) Ultra HD 4K Smart LED Fire TV 55UFD",
+                Description = "Get the best deal on Onida 139 cm (55 inches) Ultra HD 4K Smart LED Fire TV 55UFD. High quality, durable, and highly rated on Amazon.",
+                Price = 30999.00m,
+                OriginalPrice = 41848.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GQCF2TCZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81REdiu1BcL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7R82LHJ",
+                Title = "Nothing Phone (3), White (16GB, 512GB) | Snapdragon 8s Gen 4 | 50MP + 50MP + 50MP Rear Camera | 1.5K+ 120Hz AMOLED Flexi",
+                Description = "Get the best deal on Nothing Phone (3), White (16GB, 512GB) | Snapdragon 8s Gen 4 | 50MP + 50MP + 50M. High quality, durable, and highly rated on Amazon.",
+                Price = 51999.00m,
+                OriginalPrice = 70198.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F7R82LHJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71k2mnrt8dL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7X29WXX",
+                Title = "Sony 108 cm (43 inches) BRAVIA 2M2 Series 4K Ultra HD Smart LED Google TV K-43S22BM2",
+                Description = "Get the best deal on Sony 108 cm (43 inches) BRAVIA 2M2 Series 4K Ultra HD Smart LED Google TV K-43S2. High quality, durable, and highly rated on Amazon.",
+                Price = 50990.00m,
+                OriginalPrice = 68836.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F7X29WXX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81qddOopy4L._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX9L2H28",
+                Title = "vivo X300 FE 5G (Lilac Purple, 12GB RAM, 512GB Storage) with No Cost EMI/Additional Exchange Offers",
+                Description = "Get the best deal on vivo X300 FE 5G (Lilac Purple, 12GB RAM, 512GB Storage) with No Cost EMI/Additio. High quality, durable, and highly rated on Amazon.",
+                Price = 96999.00m,
+                OriginalPrice = 130948.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GX9L2H28?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71p7b0Xb2kL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GYRRLP87",
+                Title = "Samsung 55 inches Crystal UHD 4K Samsung Vision AI Smart TV UA55UE85AHULXL",
+                Description = "Get the best deal on Samsung 55 inches Crystal UHD 4K Samsung Vision AI Smart TV UA55UE85AHULXL. High quality, durable, and highly rated on Amazon.",
+                Price = 45990.00m,
+                OriginalPrice = 62086.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GYRRLP87?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81tilPzs7sL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GW5XR5J6",
+                Title = "Tecno POP X 5G (Midnight Blue, 4GB+128GB) | 6500mAh+45W Fast Charger | IP64 Pro | MIL-STD 810H Protection | Upto 12GB* R",
+                Description = "Get the best deal on Tecno POP X 5G (Midnight Blue, 4GB+128GB) | 6500mAh+45W Fast Charger | IP64 Pro . High quality, durable, and highly rated on Amazon.",
+                Price = 15999.00m,
+                OriginalPrice = 21598.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GW5XR5J6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DJNPWP1gL._AC_UF350,350_QL50_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GGRDMFS7",
+                Title = "Zebronics Sound Feast 100 Portable BT Speaker with RGB Lights, 12H Playback",
+                Description = "Get the best deal on Zebronics Sound Feast 100 Portable BT Speaker. High quality, durable, and highly rated on Amazon.",
+                Price = 1499.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GGRDMFS7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/418fu38Fw7L.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZCC8QZW",
+                Title = "Lenovo IdeaPad Slim 3 14\" FHD IPS Laptop, MediaTek Dimensity AI Processor",
+                Description = "Get the best deal on Lenovo IdeaPad Slim 3 14\" Laptop. High quality, durable, and highly rated on Amazon.",
+                Price = 38990.00m,
+                OriginalPrice = 59990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DZCC8QZW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51v+1rS1YxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
