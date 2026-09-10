@@ -316,6 +316,11 @@ namespace WorldNewzWebAPI.Extensions
                             );
                         ", "PlayGamesSavedGames", logger);
 
+                        SafeExecuteSql(db, @"
+                            DELETE FROM ""AmazonProducts"" 
+                            WHERE ""Asin"" = 'B0GR1YWWQ6' OR ""Title"" ILIKE '%D-Force Vitamin D3 60000 IU%';
+                        ", "PurgeExpiredAmazonProducts", logger);
+
                         logger.LogInformation("✓ PostgreSQL tables verified successfully.");
                     }
                 }

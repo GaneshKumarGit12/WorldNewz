@@ -53,6 +53,7 @@ namespace WorldNewzWebAPI.Services
             await EnsureDefaultProductsSeededAsync();
 
             var products = await _context.AmazonProducts
+                .Where(p => p.IsActive && p.Asin != "B0GR1YWWQ6")
                 .OrderByDescending(p => p.Id)
                 .ToListAsync();
 
@@ -22967,7 +22968,19 @@ namespace WorldNewzWebAPI.Services
             var validAsins = new HashSet<string>(seedData.Select(s => s.Asin), StringComparer.OrdinalIgnoreCase);
             var existingDbProducts = await _context.AmazonProducts.ToListAsync();
 
-             // Seed data check and initialization only. User-submitted products are preserved.
+            // Purge known expired or dead products (e.g. B0GR1YWWQ6) directly from database table
+            var knownExpiredAsins = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "B0GR1YWWQ6" };
+            var expiredToPurge = existingDbProducts
+                .Where(p => !string.IsNullOrEmpty(p.Asin) && (knownExpiredAsins.Contains(p.Asin) || p.Title.Contains("D-Force Vitamin D3 60000 IU", StringComparison.OrdinalIgnoreCase)))
+                .ToList();
+
+            if (expiredToPurge.Count > 0)
+            {
+                _context.AmazonProducts.RemoveRange(expiredToPurge);
+                changed = true;
+            }
+
+            // Seed data check and initialization only. User-submitted products are preserved.
 
             foreach (var seed in seedData)
             {

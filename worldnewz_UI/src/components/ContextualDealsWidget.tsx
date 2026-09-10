@@ -38,7 +38,12 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
     fetchAmazonProducts()
       .then((res) => {
         if (res.data && res.data.products && res.data.products.length > 0) {
-          setProducts(res.data.products);
+          const clean = res.data.products.filter(
+            (p: Partial<AmazonProduct>) =>
+              p.asin !== "B0GR1YWWQ6" &&
+              !p.title?.toLowerCase().includes("d-force vitamin d3 60000 iu")
+          );
+          setProducts(clean);
         }
       })
       .catch((err) => {

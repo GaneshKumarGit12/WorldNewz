@@ -432,11 +432,17 @@ export const AmazonProducts: React.FC = () => {
     }
   };
 
-  // Deduplicate products by ASIN while preserving order
+  // Deduplicate products by ASIN while preserving order and permanently filtering expired/dead ASINs
   const uniqueProducts = useMemo(() => {
-    return products.filter((p, index, self) =>
-      Boolean(p.asin) && index === self.findIndex(t => (t.asin || "").trim().toUpperCase() === (p.asin || "").trim().toUpperCase())
-    );
+    const EXPIRED_ASIN_BLACKLIST = new Set(["B0GR1YWWQ6"]);
+    return products.filter((p, index, self) => {
+      const asinUpper = (p.asin || "").trim().toUpperCase();
+      const titleLower = (p.title || "").toLowerCase();
+      if (!asinUpper || EXPIRED_ASIN_BLACKLIST.has(asinUpper) || titleLower.includes("d-force vitamin d3 60000 iu")) {
+        return false;
+      }
+      return index === self.findIndex(t => (t.asin || "").trim().toUpperCase() === asinUpper);
+    });
   }, [products]);
 
   // Editor's Choice Hero Deal Spotlight - Rotates day-wise every 24 hours
