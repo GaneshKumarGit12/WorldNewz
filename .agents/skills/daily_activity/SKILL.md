@@ -13,9 +13,10 @@ Whenever you receive a daily batch of short/mobile Amazon affiliate links (e.g. 
 Use a robust Python scraper script to bypass Captcha blocks and extract accurate, high-quality, actual product images, pricing, categories, and titles.
 
 1. **Short URL Resolution**: Resolve redirects to obtain the true landing page URL, extracting the true 10-character Amazon ASIN (e.g. `B0XXXX`).
-2. **Image Preservation**: Extract the high-res listing image directly (preferring `data-old-hires` or `"hiRes"` from the HTML, or falling back to `https://images-na.ssl-images-amazon.com/images/P/{ASIN}.01.LZZZZZZZ.jpg`).
-3. **Data Scrubbing**: Clean titles and format descriptions. Strip out browse nodes/sign-in pages that are not actual products.
-4. **C# Code Formatting**: Output the scraped products as valid C# `AmazonProduct` seed instances.
+2. **Expired Product Detection**: Detect non-functioning / expired Amazon pages (e.g., *"not a functioning page on our site"*, *"We're sorry. The Web address you entered is not a functioning page"*, 404s, or *"Currently unavailable"*) and skip them from being seeded.
+3. **Image Preservation & Depixelation**: Extract the high-res listing image directly (`data-old-hires` or `"hiRes"` from HTML) and convert thumbnail modifiers to full 1500px Ultra HD (`_SL1500_.jpg`), verifying HTTP 200 accessibility.
+4. **Data Scrubbing**: Clean titles and format descriptions. Strip out browse nodes/sign-in pages that are not actual products.
+5. **C# Code Formatting**: Output the scraped products as valid C# `AmazonProduct` seed instances.
 
 Here is the reference script layout to save under `scratch/resolve_daily_links.py`:
 
@@ -37,7 +38,7 @@ headers_list = [
     {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15'}
 ]
 
-# ... resolve links, extract ASIN, title, image, price, originalPrice, category ...
+# ... resolve links, filter expired pages, extract ASIN, title, image, price, originalPrice, category ...
 ```
 
 ---
@@ -50,14 +51,17 @@ headers_list = [
 
 ---
 
-## Step 3: Amazon Creator API v3.2 & Fallback Architecture
-WorldNewz operates on a dual-mode Amazon architecture:
+## Step 3: Amazon Creator API v3.2 & Expired Process
+WorldNewz operates on a dual-mode Amazon architecture with automated expired product handling:
 
 1. **Live Creator API Mode (When Credentials Configured)**:
    - **Environment Variables**: `AMAZON_CLIENT_ID`, `AMAZON_CLIENT_SECRET`, `AMAZON_ASSOCIATE_TAG` (default: `ganeshd12-21`), `AMAZON_SCOPE` (default: `creators::api`), `AMAZON_MARKETPLACE_HOST` (default: `www.amazon.in`).
    - **Token Refresh**: Uses LWA OAuth2 `grant_type=client_credentials` with `scope=creators::api` cached in memory with a 90% TTL buffer.
    - **Background Sync**: `AmazonTokenBackgroundRefreshService` proactively refreshes tokens every 45 minutes; `AmazonProductRefreshJob` refreshes live pricing & images daily via Quartz.
-2. **Offline Fallback Catalog Mode (Default)**:
+2. **Expired Product Cleanup Process (`ExpiredProcess.cs`)**:
+   - `ExpiredProcess.cs` continuously inspects database listings for expired signatures (`not a functioning page on our site`, 404s, `Currently unavailable`).
+   - Automatically purges or marks inactive any expired products to keep the frontend catalog 100% active and healthy.
+3. **Offline Fallback Catalog Mode (Default)**:
    - When credentials are not provisioned, `AmazonCreatorApiService.IsConfigured` evaluates to `false`.
    - The system automatically serves the high-performance PostgreSQL/SQLite seed catalog without failing HTTP requests or throwing auth exceptions.
 

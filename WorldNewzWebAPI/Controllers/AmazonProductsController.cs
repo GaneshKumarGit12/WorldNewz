@@ -98,6 +98,25 @@ namespace WorldNewzWebAPI.Controllers
             }
         }
 
+        [HttpPost("admin/purge-expired")]
+        public async Task<IActionResult> PurgeExpiredProducts([FromServices] ExpiredProcess expiredProcess)
+        {
+            if (!IsAuthorized())
+            {
+                return Unauthorized(new { error = "Invalid credentials or unauthorized request." });
+            }
+
+            try
+            {
+                int purgedCount = await expiredProcess.VerifyAndPurgeExpiredProductsAsync();
+                return Ok(new { status = "success", purgedCount = purgedCount, message = $"Purged {purgedCount} expired products from the database." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = $"Failed to purge expired products: {ex.Message}" });
+            }
+        }
+
         [HttpGet("parse-url")]
         public async Task<IActionResult> ParseUrl([FromQuery] string url)
         {

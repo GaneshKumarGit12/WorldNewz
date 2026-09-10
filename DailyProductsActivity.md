@@ -252,3 +252,8 @@ const startIndex = fourHourBlock % list.length;
     - Social media crawlers (Facebook scrapers, Pinterest Pin creation) stretch low-res thumbnails to large card banners (1200x630px), leading to blurry and pixelated visuals.
     - All product images MUST be scrubbed to full 1500px Ultra HD assets (`._SL1500_.jpg`) or clean uncompressed base CDN URLs (`https://m.media-amazon.com/images/I/{IMAGE_ID}.jpg`) with HTTP 200 pre-flight validation.
     - On frontend UI components (`AmazonProducts.tsx`), image containers use responsive scaling (`maxHeight: 130`, `maxWidth: "100%"`, `objectFit: "contain"`, `imageRendering: "auto"`) to maintain pin-sharp clarity across retina and high-DPI smartphone/desktop viewports.
+
+12. **Expired Products & Non-Functioning Link Verification Protocol (`ExpiredProcess.cs`)**:
+    - Any Amazon listing that returns *"not a functioning page on our site"*, *"We're sorry. The Web address you entered is not a functioning page"*, *"Looking for something? We're sorry"*, *"Page Not Found"*, HTTP 404, or *"Currently unavailable"* is classified as expired.
+    - Expired products MUST be rejected during link resolution and never inserted into `seen_asins.json` or `AmazonProductService.cs`.
+    - WorldNewzs WebAPI backend features `ExpiredProcess.cs` (registered in DI via `ServiceExtensions.cs`) providing automated signature matching and database purging (`VerifyAndPurgeExpiredProductsAsync()`) to verify live Amazon listings and automatically soft-delete or remove expired products from the database so they are never served to users.

@@ -13,45 +13,65 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 urls = [
-    "https://link.amazon/B09vytk7s",
-    "https://link.amazon/B0hpdBDko",
-    "https://link.amazon/B0hELk6Uu",
-    "https://link.amazon/B0bOkjrj3",
-    "https://link.amazon/B0etkFr8U",
-    "https://link.amazon/B0dBYYHnM",
-    "https://link.amazon/B029t80eH",
-    "https://link.amazon/B05MGx2N8",
-    "https://link.amazon/B0d1300MZ",
-    "https://link.amazon/B0bG8oCzu",
-    "https://link.amazon/B08wLSEL6",
-    "https://link.amazon/B03ad9f7X",
-    "https://link.amazon/B07PjEBTJ",
-    "https://link.amazon/B00PKxz6o",
-    "https://link.amazon/B0gvBgV0I",
-    "https://link.amazon/B0b93o6GM",
-    "https://link.amazon/B00iWRa3W",
-    "https://link.amazon/B0bx93EUa",
-    "https://link.amazon/B0af74h40",
-    "https://link.amazon/B01mU4DqV",
-    "https://link.amazon/B0fIoCETd",
-    "https://link.amazon/B0ccabYua",
-    "https://link.amazon/B0fZRrekx",
-    "https://link.amazon/B02yTGlen",
-    "https://link.amazon/B0bIVBCKl",
-    "https://link.amazon/B06CO2Lsy",
-    "https://link.amazon/B0g7RBolZ",
-    "https://link.amazon/B0hqkA5dj",
-    "https://link.amazon/B02vE3IrP",
-    "https://link.amazon/B0iODjREk",
-    "https://link.amazon/B0j1wrGFe",
-    "https://link.amazon/B02PKiSiw",
-    "https://link.amazon/B0cXBblCb",
-    "https://link.amazon/B017qqFJw",
-    "https://link.amazon/B0d9XT8pY",
-    "https://link.amazon/B0fKwqYZk",
-    "https://link.amazon/B0g0aZnaO",
-    "https://link.amazon/B0agCDqcW",
-    "https://link.amazon/B0aQdLcgR"
+    "https://link.amazon/B04dH7LXC",
+    "https://link.amazon/B0h7AXgWs",
+    "https://link.amazon/B0i0BAgXl",
+    "https://link.amazon/B0fZEBuAE",
+    "https://link.amazon/B081NC065",
+    "https://link.amazon/B0e4sWyJS",
+    "https://link.amazon/B01m7PamL",
+    "https://link.amazon/B0ayZ5Nfn",
+    "https://link.amazon/B0bQ1V8Uo",
+    "https://link.amazon/B0asGg6lb",
+    "https://link.amazon/B04xe2ZGV",
+    "https://link.amazon/B0a1OfLi2",
+    "https://link.amazon/B0gOW5YfO",
+    "https://link.amazon/B0h02fQa2",
+    "https://link.amazon/B0eR2hUBn",
+    "https://link.amazon/B0cWgXImD",
+    "https://link.amazon/B0eEtDwrV",
+    "https://link.amazon/B09e6iqxt",
+    "https://link.amazon/B01zBMtI1",
+    "https://link.amazon/B0cdFE5AL",
+    "https://link.amazon/B0gBhwfQN",
+    "https://link.amazon/B0cbwez9t",
+    "https://link.amazon/B01WGcXnj",
+    "https://link.amazon/B0czlK5JL",
+    "https://link.amazon/B0ih23lWU",
+    "https://link.amazon/B0fJc7pJW",
+    "https://link.amazon/B06NKxYDg",
+    "https://link.amazon/B07FuRAuG",
+    "https://link.amazon/B0blROEt9",
+    "https://link.amazon/B03p5Tb6Q",
+    "https://link.amazon/B03RwxcCK",
+    "https://link.amazon/B0hCurOSE",
+    "https://link.amazon/B03oky560",
+    "https://link.amazon/B05dcdnE7",
+    "https://link.amazon/B0fFnA0uo",
+    "https://link.amazon/B0fVM4BE4",
+    "https://link.amazon/B0a0vt5mz",
+    "https://link.amazon/B0iJwRH99",
+    "https://link.amazon/B0holD4BF",
+    "https://link.amazon/B0dioCny0",
+    "https://link.amazon/B0dFaseNk",
+    "https://link.amazon/B0enp2u4f",
+    "https://link.amazon/B0eTD50IS",
+    "https://link.amazon/B06ujMijj",
+    "https://link.amazon/B0dbSjvM1",
+    "https://link.amazon/B0aeuyypw",
+    "https://link.amazon/B00yw7oct",
+    "https://link.amazon/B0deC2FTM",
+    "https://link.amazon/B0a0i3MD8",
+    "https://link.amazon/B0ahdkWfv",
+    "https://link.amazon/B02ojPsya",
+    "https://link.amazon/B08B05nbs",
+    "https://link.amazon/B0a3pnyvT",
+    "https://link.amazon/B00p4n1Jk",
+    "https://link.amazon/B05bxZt4B",
+    "https://link.amazon/B0iASnaGn",
+    "https://link.amazon/B0fETQjUm",
+    "https://link.amazon/B062SU4Rt",
+    "https://link.amazon/B0bo4BzNF"
 ]
 
 SEEN_ASINS_PATH = "scratch/seen_asins.json"
@@ -72,6 +92,24 @@ user_agents = [
     'Mozilla/5.0 (iPhone; CPU iPhone OS 17_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Mobile/15E148 Safari/604.1',
     'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36'
 ]
+
+def is_expired_page(html, status_code=200):
+    if status_code == 404:
+        return True
+    if not html:
+        return False
+    expired_signatures = [
+        "not a functioning page on our site",
+        "We're sorry. The Web address you entered is not a functioning page",
+        "Looking for something? We're sorry",
+        "Page Not Found",
+        "The page you are looking for doesn't exist",
+        "Currently unavailable"
+    ]
+    for sig in expired_signatures:
+        if sig.lower() in html.lower():
+            return True
+    return False
 
 def clean_amazon_image_url(img_url):
     """
@@ -103,12 +141,12 @@ def resolve_initial_url(url):
         with urllib.request.urlopen(req, timeout=12) as resp:
             final_url = resp.geturl()
             html = resp.read().decode('utf-8', errors='ignore')
-            return final_url, html
+            return final_url, html, resp.status
     except urllib.error.HTTPError as e:
         loc = e.headers.get('Location', '')
-        return loc, ""
+        return loc, "", e.code
     except Exception as e:
-        return url, ""
+        return url, "", 0
 
 def extract_asin_from_any_string(s):
     if not s:
@@ -155,6 +193,10 @@ def fetch_details_for_asin(asin):
         try:
             with opener.open(u, timeout=12) as resp:
                 html = resp.read().decode('utf-8', errors='ignore')
+
+                if is_expired_page(html, resp.status):
+                    print(f"  ⚠️ ASIN {asin} is an expired page on Amazon ('not a functioning page')")
+                    return "EXPIRED"
 
                 title = ""
                 title_m = re.search(r'<span id="productTitle"[^>]*>\s*(.*?)\s*</span>', html, re.DOTALL)
@@ -252,6 +294,9 @@ def fetch_details_for_asin(asin):
                         "category": category,
                         "resolvedUrl": f"https://www.amazon.in/dp/{asin}?tag=ganeshd12-21"
                     }
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return "EXPIRED"
         except Exception as e:
             pass
 
@@ -261,17 +306,28 @@ def main():
     seen_asins = load_seen_asins()
     resolved_products = []
     skipped_duplicates = 0
+    expired_links = []
     failed_links = []
 
-    print(f"Starting resolution of {len(urls)} Amazon links...")
+    print(f"Starting resolution of {len(urls)} Amazon links with Expired Filter...")
 
     for idx, u in enumerate(urls, 1):
         print(f"[{idx}/{len(urls)}] Processing {u}...")
-        final_url, html = resolve_initial_url(u)
+        final_url, html, status = resolve_initial_url(u)
+
+        if is_expired_page(html, status):
+            print(f"  🚫 EXPIRED: Link {u} returned 'not a functioning page' or 404. Skipping.")
+            expired_links.append(u)
+            continue
+
         asin = extract_asin_from_any_string(final_url) or extract_asin_from_any_string(html) or extract_asin_from_any_string(u)
 
         if not asin and "amzlinks.in" in final_url:
-            amz_final, amz_html = resolve_initial_url(final_url)
+            amz_final, amz_html, amz_status = resolve_initial_url(final_url)
+            if is_expired_page(amz_html, amz_status):
+                print(f"  🚫 EXPIRED: Target {amz_final} returned 'not a functioning page'. Skipping.")
+                expired_links.append(u)
+                continue
             asin = extract_asin_from_any_string(amz_final) or extract_asin_from_any_string(amz_html)
 
         if not asin:
@@ -285,9 +341,18 @@ def main():
             continue
 
         details = fetch_details_for_asin(asin)
+        if details == "EXPIRED":
+            print(f"  🚫 EXPIRED: ASIN {asin} is not functioning on Amazon. Skipping.")
+            expired_links.append(u)
+            continue
+
         if not details:
             time.sleep(1.5)
             details = fetch_details_for_asin(asin)
+            if details == "EXPIRED":
+                print(f"  🚫 EXPIRED: ASIN {asin} is not functioning on Amazon. Skipping.")
+                expired_links.append(u)
+                continue
 
         if not details:
             print(f"  ❌ Failed to fetch exact title/image for ASIN {asin}")
@@ -303,7 +368,10 @@ def main():
     print("\n===========================================")
     print(f"Total Resolved: {len(resolved_products)}")
     print(f"Skipped Duplicates: {skipped_duplicates}")
+    print(f"Expired Links Filtered: {len(expired_links)}")
     print(f"Failed Links: {len(failed_links)}")
+    if expired_links:
+        print("Expired links:", expired_links)
     if failed_links:
         print("Failed links:", failed_links)
     print("===========================================")

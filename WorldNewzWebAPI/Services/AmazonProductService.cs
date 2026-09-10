@@ -22134,6 +22134,156 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FB46DZ95",
+                Title = "VARSHA INTERNATIONAL Metal Contemporary Modern Design Vintage Cycle With Basket Wall Mounted Hanging Showpiece Multicolo",
+                Description = "Get the best deal on VARSHA INTERNATIONAL Metal Contemporary Modern Design Vintage Cycle With Basket . High quality, durable, and highly rated on Amazon.",
+                Price = 939.00m,
+                OriginalPrice = 1267.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Lifestyle",
+                ProductUrl = "https://www.amazon.in/dp/B0FB46DZ95?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Wf33cTLBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3DFDW8N",
+                Title = "Picfest Coffee Jar Storage Container with Wooden Lid, Airtight Kitchen Canister, Green Tin, 1100 ml Online at Low Prices",
+                Description = "Get the best deal on Picfest Coffee Jar Storage Container with Wooden Lid, Airtight Kitchen Canister,. High quality, durable, and highly rated on Amazon.",
+                Price = 349.00m,
+                OriginalPrice = 471.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0F3DFDW8N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71wnVwbWrxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F5BLDT8Y",
+                Title = "Type-C USB 2 in 1 Type C and USB SATA 3 Cable Sata to USB 3.0 Adapter UP to 6 Gbps Support 2.5 Inch External SSD HDD Har",
+                Description = "Get the best deal on Type-C USB 2 in 1 Type C and USB SATA 3 Cable Sata to USB 3.0 Adapter UP to 6 Gb. High quality, durable, and highly rated on Amazon.",
+                Price = 377.00m,
+                OriginalPrice = 508.95m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F5BLDT8Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51RM6derJVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CP4F6ZDD",
+                Title = "Vegan Melatonin Gummies 5mg with Ashwagandha – Sugar-Free Blueberry Sleep Gummies with Tagar Root, Chamomile & Lemon Bal",
+                Description = "Get the best deal on Vegan Melatonin Gummies 5mg with Ashwagandha – Sugar-Free Blueberry Sleep Gummie. High quality, durable, and highly rated on Amazon.",
+                Price = 499.00m,
+                OriginalPrice = 673.65m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0CP4F6ZDD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71xR0P5pEtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FYXXQRX7",
+                Title = "Mylap Battery for Lenovo G505S G500S G400S G50-70 G50-80 G50-30 PN: L12L4A02 L12L4E01 L12M4A02 L12M4E01 L12S4A02 L12S4E0",
+                Description = "Get the best deal on Mylap Battery for Lenovo G505S G500S G400S G50-70 G50-80 G50-30 PN: L12L4A02 L12. High quality, durable, and highly rated on Amazon.",
+                Price = 1329.00m,
+                OriginalPrice = 1794.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FYXXQRX7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DvckHHsbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "9355428588",
+                Title = "The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win (Grayscale Indian Edition)",
+                Description = "Get the best deal on The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win (Gr. High quality, durable, and highly rated on Amazon.",
+                Price = 1224.00m,
+                OriginalPrice = 1652.40m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/9355428588?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CmV-KFA0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G449B9CJ",
+                Title = "Feather Premium Elephant Shape Metal Buttons – Antique Gold Finish Decorative Buttons for Kurtis, Shirts, Blazers, Bags,",
+                Description = "Get the best deal on Feather Premium Elephant Shape Metal Buttons – Antique Gold Finish Decorative Bu. High quality, durable, and highly rated on Amazon.",
+                Price = 345.00m,
+                OriginalPrice = 465.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G449B9CJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81cwd63WHUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCLH6QSS",
+                Title = "DIY Ganesha Painting Kit for Kids | 4 Inch POP Ganesha Idol with 12 Paint Colours & Paint Brush | Art & Craft Activity K",
+                Description = "Get the best deal on DIY Ganesha Painting Kit for Kids | 4 Inch POP Ganesha Idol with 12 Paint Colour. High quality, durable, and highly rated on Amazon.",
+                Price = 198.00m,
+                OriginalPrice = 267.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0HCLH6QSS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6156aRr6XWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GFW3HRS1",
+                Title = "Bergner Argent Elements Triply Stainless Steel 3.5 L Outer Lid Pressure Pan, Healthy Cooking, Even Heat Distribution, St",
+                Description = "Get the best deal on Bergner Argent Elements Triply Stainless Steel 3.5 L Outer Lid Pressure Pan, Hea. High quality, durable, and highly rated on Amazon.",
+                Price = 3209.00m,
+                OriginalPrice = 4332.15m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0GFW3HRS1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612DziFXYaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4MZFP3Q",
+                Title = "Neodocs 3-in-1 Postpartum Belt After Delivery for Women – C-Section Belt Postpartum & Belly Wrap for After Delivery Reco",
+                Description = "Get the best deal on Neodocs 3-in-1 Postpartum Belt After Delivery for Women – C-Section Belt Postpar. High quality, durable, and highly rated on Amazon.",
+                Price = 678.00m,
+                OriginalPrice = 915.30m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Shopping",
+                ProductUrl = "https://www.amazon.in/dp/B0G4MZFP3Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/511xQOfjNIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;

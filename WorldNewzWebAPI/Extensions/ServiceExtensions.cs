@@ -173,6 +173,7 @@ namespace WorldNewzWebAPI.Extensions
             services.AddScoped<ITextRefinementService, TextRefinementService>();
             services.AddScoped<NewsService>();
             services.AddScoped<AmazonProductService>();
+            services.AddScoped<ExpiredProcess>();
             services.AddScoped<PinterestService>();
             services.AddScoped<SeoKeywordService>();
             services.AddScoped<IEmailService, EmailService>();
