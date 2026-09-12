@@ -43,7 +43,17 @@ headers_list = [
 
 ---
 
-## Step 2: Seed C# Database list
+## Step 2: Comprehensive Multi-Dimensional Deduplication Protocol
+Before seeding or committing, verify that every candidate product satisfies all deduplication constraints:
+1. **ASIN Uniqueness**: Discard any ASIN already present in `scratch/seen_asins.json` or `AmazonProductService.cs`.
+2. **Image Uniqueness**: Do not accept duplicate/identical images (`ImageUrl` or Amazon image asset ID `https://m.media-amazon.com/images/I/{IMAGE_ID}...`). Each product must feature its own distinct visual asset.
+3. **Title & Description Text Uniqueness**: Do not accept duplicate title text or identical descriptions across products. Ensure each product has distinct, scrubbed naming and clear descriptive copy.
+4. **Accurate Distinct Rates & Discounts**: Extract distinct live prices, calculated original prices, and actual discount rates for each listing. Never apply uniform placeholder rates or identical discounts across multiple distinct items.
+5. **Cross-Layer Enforcement**: Deduplication is enforced during Python scraping/resolution, backend C# EF Core queries, and frontend React UI state (`useMemo` unique filters in `AmazonProducts.tsx`, `ShoppingWidget.tsx`, `ContextualDealsWidget.tsx`).
+
+---
+
+## Step 3: Seed C# Database list
 1. Open [AmazonProductService.cs](file:///c:/WorldNewz/WorldNewzWebAPI/Services/AmazonProductService.cs).
 2. Scroll to the end of the `seedData` list in `EnsureDefaultProductsSeededAsync()`.
 3. Append the formatted C# `new AmazonProduct { ... }` blocks right before the list's closing brackets `};`.

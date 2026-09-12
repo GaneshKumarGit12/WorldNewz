@@ -112,7 +112,12 @@ Before seeding anything, persist every resolved product to a durable store so li
    | `DateAdded` | DateTime | For rotation/aging logic |
    | `IsActive` | bool | Soft-disable without deleting history |
 
-3. **Deduplication Rule**: If an ASIN already exists in the registry (`scratch/seen_asins.json`), skip re-seeding it; strip duplicate ASIN instances on both backend and frontend so no duplicate product cards are ever rendered.
+3. **Comprehensive Multi-Dimensional Deduplication Protocol**:
+   - **ASIN Uniqueness**: If an ASIN already exists in the registry (`scratch/seen_asins.json`) or C# seed repository, skip re-seeding it.
+   - **Image Uniqueness**: Do not accept products with duplicate/identical images (`ImageUrl` or Amazon image asset ID `https://m.media-amazon.com/images/I/{IMAGE_ID}...`). Each product card must have its own distinct visual asset.
+   - **Title & Description Text Uniqueness**: Do not accept duplicate title text or identical descriptions across products. Ensure each product has distinct, scrubbed naming and clear descriptive copy.
+   - **Accurate Distinct Rates & Discounts**: Extract distinct live prices, calculated original prices, and actual discount rates for each listing. Never apply uniform placeholder rates or identical discounts across multiple distinct items.
+   - **Frontend & Backend Consistency**: Strip duplicate ASINs and duplicate image instances on both backend and frontend so no duplicate product cards are ever rendered.
 4. **Tracking Tag Integrity**: Ensure the tracking tag is kept clean and valid on every `AffiliateUrl` (`tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl`).
 
 ---
@@ -239,9 +244,12 @@ const startIndex = fourHourBlock % list.length;
    - The hero "Deal of the Day" spotlight card calculates its featured item using daily 24-hour epoch blocks (`Math.floor(Date.now() / (24 * 60 * 60 * 1000))`) cycling across top discount deals.
    - This guarantees a fresh spotlighted deal each day automatically.
 
-9. **Deduplication Protocol**:
-   - Every daily link resolution run strictly consults `scratch/seen_asins.json` and existing seed blocks in `AmazonProductService.cs` before creating new records.
-   - Any previously registered ASIN is skipped automatically to avoid duplicate card renders on frontend grids and redundant Pinterest pin publications.
+9. **Comprehensive Deduplication Protocol (ASIN, Image, Title, Description, Rates & Discounts)**:
+    - **ASIN Uniqueness**: Strictly consult `scratch/seen_asins.json` and existing seed blocks in `AmazonProductService.cs` before creating new records. Any previously registered ASIN is skipped automatically.
+    - **Image Uniqueness**: Do not accept products with duplicate/identical images (`ImageUrl` or Amazon media asset ID `https://m.media-amazon.com/images/I/{IMAGE_ID}...`). Each product must feature its own distinct visual asset.
+    - **Title & Description Text Uniqueness**: Do not accept duplicate title text or identical descriptions across products. Ensure each product has distinct, scrubbed naming and clear descriptive copy.
+    - **Accurate Distinct Rates & Discounts**: Extract distinct live prices, calculated original prices, and actual discount rates for each listing. Never apply uniform placeholder rates or identical discounts across multiple distinct items.
+    - **Cross-Layer Enforcement**: Deduplication is enforced during Python scraping/resolution, backend C# EF Core queries, and frontend React UI state (`useMemo` unique filters in `AmazonProducts.tsx`, `ShoppingWidget.tsx`, `ContextualDealsWidget.tsx`).
 
 10. **Image HTTP 200 Pre-Flight Verification**:
     - Before committing any batch, run a pre-flight test (`scratch/test_all_product_images.py`) verifying that every extracted `imageUrl` returns `HTTP 200 OK` with `Content-Type: image/*`.
