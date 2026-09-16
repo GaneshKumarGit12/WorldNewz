@@ -28247,6 +28247,651 @@ namespace WorldNewzWebAPI.Services
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0F4XS45P8",
+                Title = "amazon basics Designed for Samsung Galaxy S24 Ultra Case | Strong Magnet Camera Protection Translucent Matte Hard Back Cover Compatible with Mag-Safe (TPU+Polycarbonate | Frost Purple)",
+                Description = "Electronics • Mobiles & Accessories",
+                Price = 269.00m,
+                OriginalPrice = 749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F4XS45P8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719ETTK9g+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GLGGGK83",
+                Title = "Swara Creations Lac | Lah | Lakh bangle/Kada set for woman Lahthi | Lehthi set Traditional Rajasthani Kade Set Zircon work for Women and Girls (4pcs)(408)",
+                Description = "Bangles & Bracelets • Image Unavailable  Image not available forColour:",
+                Price = 379.00m,
+                OriginalPrice = 1000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GLGGGK83?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819B6mUeIeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DQJ91FN1",
+                Title = "KE KANHA EXPORT Women Scarf|Stole For Women|Scarf For Women Stylish|Stall For Women|Border Print Face Cover Head Wrap|Boho|Beach|Multicolor|180x50cm|Pack Of 1|FREE Scrunchie Included",
+                Description = "Clothing & Accessories • Accessories",
+                Price = 499.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DQJ91FN1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71gEFinGdmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4W6GNYQ",
+                Title = "Rajeshwar Fashion Women's Lime Green Floral Print Linen Cotton Saree with Contrast Pallu, Tassel Border, Traditional Summer Festive with Blouse Piece",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 474.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G4W6GNYQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71A7YD+JfJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVDP6J5Y",
+                Title = "Dress for Women | New Rayon Floral Printed Flared Maxi Dress for Women & Girl's",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 499.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVDP6J5Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71L4ALrEr0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BSRRPJZB",
+                Title = "SAMEEHA ™ Jacquard Banarasi Traditional Silk Dupatta for Women",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 442.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BSRRPJZB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/810R6d9NLWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GT9LJ6DK",
+                Title = "KE KANHA EXPORTS Cotton Scarf|Scarf for Women|Cotton Stole|Soft Beach Wrap|Tassel Design|Easily fits 180 * 50cm",
+                Description = "Clothing & Accessories • Accessories",
+                Price = 498.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GT9LJ6DK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71BJUMLRN3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXF767TT",
+                Title = "KE KANHA EXPORTS Scarf for Women Stylish|Premium Cotton Stole|Dual Color Boho Beach Wrap|Soft Travel Layer for Outings and Casual Wear|Multicolor|Easily fits 180 x 50cm|Pack of 1",
+                Description = "Clothing & Accessories • Accessories",
+                Price = 499.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GXF767TT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81S4DHmRBQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHXJP594",
+                Title = "Fuda T-Shirt Collection for Car Enthusiast for Men & Women Oversized T Shirts 100% Cotton Printed T-Shirt Collections.",
+                Description = "Clothing & Accessories • T-shirts, Polos & Shirts",
+                Price = 682.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DHXJP594?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51IED1M4Z2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D2RLRBY6",
+                Title = "Women's Traditional Handloom Zari Work Lata Border Cotton Silk Saree With Blous Piece",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 474.00m,
+                OriginalPrice = 3279.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D2RLRBY6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81gxVmMxTJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CX8M87ZH",
+                Title = "Jwalin Girl's Above Knee Length Fit and Flared Dresses",
+                Description = "Clothing & Accessories • Dresses & Jumpsuits",
+                Price = 467.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CX8M87ZH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71a1Zs33zlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BFRJ5C25",
+                Title = "Jwalin Girl's Silk Blend Foil Printed Kurta With Dhoti Pant Kids Top And pant Set|Kids Dhoti Set",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 665.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BFRJ5C25?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DpIQWIhQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09SCZHG4B",
+                Title = "Jwalin Girl's A-Line long Jumpsuit",
+                Description = "Clothing & Accessories • Dresses & Jumpsuits",
+                Price = 569.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09SCZHG4B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XjHS4Wu+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09HY73Z95",
+                Title = "ILLI LONDON Women's Off-Shoulder TOP",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 474.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09HY73Z95?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81dVJmmKu0S._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CYH5CC32",
+                Title = "Women's Lycra Stretchable Designer Embroidered Readymade Saree Blouse",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 395.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CYH5CC32?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81QrnDg0jnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVZ23SPS",
+                Title = "Half Sleeve Night Suit for Kids Girls | 100% Pure Cotton Night Suit for Girls | Breathable Summer Night Dress for Kids Girls (Age 3-8 Years)",
+                Description = "Clothing & Accessories • Pyjama Sets",
+                Price = 474.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GVZ23SPS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zpJP2EH+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BF9G4WDL",
+                Title = "KE KANHA EXPORTS Women Shrug|Shrugs for Women Stylish|Cardigan |Boho Beach Cover Up|Border Print|Easily fits S-M-L|Bust 30-42 Inches|Length 28 Inches",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BF9G4WDL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81B5XwozRBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07TGK4NRH",
+                Title = "Prijam Women Jacket",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 948.00m,
+                OriginalPrice = 2899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07TGK4NRH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71OSr+63V9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09XHRJGW9",
+                Title = "KE KANHA EXPORTS Halter Neck Wrap Top|top for Women|Backless Tops for Women|Halter Neck Tops|Adjustable wrap Waist|Boho Beach Border Print|Easily fits S-M|Bust30-36Inch|LengthUpTo 18Inch",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 799.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09XHRJGW9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81iXOzlQSQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FK3M8JQ5",
+                Title = "KE KANHA EXPORTS Shrugs for Women Stylish | Cover up on Jeans Tops for Women | Western Beach Outfits | Summer Clothes | Kimono FREE Scrunchie Included",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FK3M8JQ5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71G2DyQhNCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX5YRLNR",
+                Title = "Amazon Brand - Supples Baby Bed Mattress with Mosquito net | Toy Vehicle Print | Blue",
+                Description = "Baby Bedding • Bedding Accessories",
+                Price = 649.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GX5YRLNR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71lPJe5Ed0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GJ6VP73F",
+                Title = "amazon basics Premium Mag-Safe Case for iPhone 14 | Shockproof & Anti-Scratch Cover | Soft Silicone with Wireless Charging | Camera Lens Guard - Blue",
+                Description = "Electronics • Mobiles & Accessories",
+                Price = 249.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GJ6VP73F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614L-BUTA+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F1TVGKJD",
+                Title = "Amazon Brand - Jam & Honey 2-in-1 Rocking and Climbing Dome for Toddlers | Indoor/Outdoor Wobble Disk | 25kg Weight Capacity | Kids 2-5 Years | Balancing Board for Kids",
+                Description = "Toys & Games • Sport & Outdoor",
+                Price = 1599.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F1TVGKJD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XAbzoxgsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4MLL6XZ",
+                Title = "KE KANHA EXPORTS Scarf for Women Boho | Border Print Stylish | Stole for Women Breathable Summer Beach Wrap with Tassels | Multicolour |180 x 50 cm",
+                Description = "Clothing & Accessories • Accessories",
+                Price = 498.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G4MLL6XZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Mive0QmYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2FXMZVZ",
+                Title = "ZECVA Women's Pure Soft Spun Cotton Lichi Silk Saree For Women With Attach Unstitch Blouse Piece | Sari for women",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 801.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F2FXMZVZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YzKWdyV3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G2Y4M4ZZ",
+                Title = "KE Kanha Exports Skirt for Woman & Women Dresses 3 in 1 Convertible Dress for Woman, Wrap Around Long Skirt Halter Maxi Dress for Women Stylish Western Boho Printed",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 998.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G2Y4M4ZZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/813pKEvSvSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DT9CCRTX",
+                Title = "Amazon Brand - Jam & Honey Baby Puppy Push On Ride On for Kids | Backrest | Easy Grip | Four Wheel | Durable and Safe | Non-Toxic | Portable | Lightweight | Animal Theme | 1-4 Years Old | Green",
+                Description = "Toys & Games • Bikes, Trikes & Ride-Ons",
+                Price = 899.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DT9CCRTX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bwmB-sxRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07TB3Q8NT",
+                Title = "Stainless steel Plate stand Kitchen countertop Plate Rack for Home & Kitchen Plate storage rack Thali stand",
+                Description = "Home & Kitchen • Kitchen & Dining",
+                Price = 489.00m,
+                OriginalPrice = 48900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07TB3Q8NT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614S+ZqrOWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C65XZ9P6",
+                Title = "Byond Club House Sandra Long Lasting Perfume for Women, No Gas Body Spray with Vanilla Musk Patchouli, Premium Fragrance Mist, 120ml",
+                Description = "Image Unavailable  Image not available forColour: • Sandra Perfume for WomenAryan Care Pvt Ltd",
+                Price = 209.00m,
+                OriginalPrice = 359.02m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0C65XZ9P6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eGBo7g13L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08JXFW7HM",
+                Title = "BANGE The Clownfish Sling Bags Water & Scratch Resistant Anti Theft Chest Crossbody Bags with USB Port fits up to 7.9 inches for Men and Women, (Black)",
+                Description = "Bags, Wallets and Luggage • Bags & Backpacks",
+                Price = 1999.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08JXFW7HM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Ke5wKC0uL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GL2T6NF7",
+                Title = "(Pack of 24) Haldi Ceremony Maang Tikka Bridal Floral Jewellery Mehendi Function Wedding",
+                Description = "Hair Accessories • Maang Tikkas",
+                Price = 599.00m,
+                OriginalPrice = 788.14m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GL2T6NF7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nqNnflpWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BS16F6FS",
+                Title = "Neelam (Neeli) Flower Live Plant | Blue Color Flowering Plant for Home Garden | Easy to Grow Indoor Outdoor Plant",
+                Description = "Outdoor Living • Plants, Seeds & Bulbs",
+                Price = 199.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BS16F6FS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51uvRAitM7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BL6BNW4G",
+                Title = "LacyLuxe Women Padded/Full Coverage Bra (Nude,36B) at Amazon.in",
+                Description = "#134,095 in Clothing & Accessories (See Top 100 in Clothing & Accessories) • #3,242 in Women's Everyday Bras",
+                Price = 493.00m,
+                OriginalPrice = 559.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BL6BNW4G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718BttFnzFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F5BJL2VX",
+                Title = "Wanderthreads Lifestyle Co. Mens Regular fit Solid Casual Cotton Shirt with Spread Collar and Full Sleeves | Stylish & Comfortable | Ideal for Office, Casual Outings, Meetings(Grey, XL)",
+                Description = "#133,176 in Clothing & Accessories (See Top 100 in Clothing & Accessories) • #6,171 in Men's Shirts",
+                Price = 379.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F5BJL2VX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yMvvSOnVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTZ1GYQ8",
+                Title = "Girls Ready to Wear Supernet Saree with Unstitched Blouse Piece | Embellished Traditional Ethnic Ocassion Wear Wear Saree | Fancy Wedding, Festival, Birthday Dress for Kids",
+                Description = "Clothing & Accessories • Ethnic Wear",
+                Price = 759.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DTZ1GYQ8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AaxvjNwAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BWDN16FT",
+                Title = "KE KANHA EXPORTS Convertible Halter Short Dresses|Beach Wear Dress for Women|Backless Dress Women|2-in-1 Skirt One Shoulder|Easily fits S-M-L|Bust 30-36 in|Length 40 in|Boho Free Scrunchie Included",
+                Description = "Clothing & Accessories • Western Wear",
+                Price = 999.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BWDN16FT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Py4fiusPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08BK6CXYR",
+                Title = "REVOLTEK Printed Vest Baniyan Cotton Inner Wear For Baby Wear Sleeveless Undershirts For Kids Sando Ganji Tank-Tops Toddler Girls/Boys Pack Of 6 (Light Color, 12-18 Months, Regular Fit)",
+                Description = "#3,204 in Clothing & Accessories (See Top 100 in Clothing & Accessories) • #9 in Baby Boys' Innerwear",
+                Price = 474.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08BK6CXYR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YZn7SgSiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBLWSL43",
+                Title = "KE KANHA EXPORTS Women's Boho Border Print Shrug|Stylish Kimono Jacket Cover Up|Soft Silky-Feel Premium Fabric|Blue Multicolor|Easily Fits S-M-L|Bust 30-42 in|Length 28 in|Pack of 1 (1147) at Amazon.in",
+                Description = "#7,753 in Clothing & Accessories (See Top 100 in Clothing & Accessories) • #24 in Women's Shrugs",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DBLWSL43?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81CLWV7goDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ2KXDVH",
+                Title = "Jwalin Girl's Cotton Blend Embroidered Salwar Suit Set|Kids Salwar Suit Set|Ethnic Wear for Kids Girls|Suit for Girls(JWGSET00220 PNK 32_Pink_9-10Yrs) at Amazon.in",
+                Description = "#42,940 in Clothing & Accessories (See Top 100 in Clothing & Accessories) • #189 in Girls' Salwar Suit Sets",
+                Price = 759.00m,
+                OriginalPrice = 2699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ2KXDVH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71VRHht3lwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6LKFYMS",
+                Title = "KE KANHA EXPORTS Multi Wear Skirt for Women|Long Skirts for Woman|Wrap for Women|3 in 1 Wrap Skirt |Halter|Dress|Boho Beach|Easily fits XS to XXL|Waist24-38in|Length38in Free Scrunchie Included at Amazon.in",
+                Description = "#36,601 in Clothing & Accessories (See Top 100 in Clothing & Accessories) • #501 in Women's Skirts & Shorts",
+                Price = 1499.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D6LKFYMS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81AJaAC24KL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRSWCX1M",
+                Title = "DARKFISH Cordless Table Lamp for Outdoor Indoor, Portable Desk Lamp, Rechargeable LED Crystal Lantern Lamp, 3 Color Stepless Dimming Touch, Battery Powered Table Light for Bedroom (Golden) Online at Low Prices in India - Amazon.in",
+                Description = "EMAIL DELIVERY ONLY: Download your extended warranty certificate by sharing your device details. The link is available under buyer/seller messages at www.amazon.in/msg and is also sent to your Amazon registered email ID • REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give ...",
+                Price = 995.00m,
+                OriginalPrice = 1449.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FRSWCX1M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51oVhhvBKBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D3VMPFX2",
+                Title = "Natural Bamboo Sticks Skewer (4 MM, 12 INCHES, Pack of 100), Natural Wooden Barbecue Kabob Skewers, Best for Grill, BBQ, Kebab, Marshmallow Roasting or Fruit Sticks",
+                Description = "Outdoor Living • Barbecue & Outdoor Dining",
+                Price = 266.00m,
+                OriginalPrice = 416.33m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D3VMPFX2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41z4rsHgIjL.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBQMW16D",
+                Title = "SAFFROCUS 5 Gram Premium Kesar Saffron Original - Pure Kashmiri Mongra Kesar | Organic Saffron For Cooking, Milk, & Pooja | Kashmiri Kesar A+ Grade (5 Gm)",
+                Description = "Brand            Eurohaus • Item Form            Flake",
+                Price = 654.00m,
+                OriginalPrice = 13080.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HBQMW16D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51aQmMm494L.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
