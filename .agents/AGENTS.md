@@ -33,3 +33,12 @@ Whenever you are analyzing, generating, or updating articles for WorldNewzs, you
 - **Image Optimization**: Preload the first article's image (Largest Contentful Paint) using high fetch priority, and lazy-load all below-the-fold assets.
 - **Cumulative Layout Shift (CLS)**: Always specify aspect ratios or explicit heights for image containers, iframe video players, and widgets to prevent shifts during render.
 - **Code Splitting**: Lazy-load heavy components (e.g. charts, video players, and carousels) using `React.lazy` and `Suspense` placeholders.
+
+## 5. Daily Products Activity Agent (`daily-products-agent`)
+- **Role**: Automated end-to-end agent for resolving, deduplicating, validating, seeding, and deploying Amazon affiliate links.
+- **Skill**: Defined in `.agents/skills/daily_activity/SKILL.md` and `DailyProductsActivity.md`.
+- **CLI Runner**: `scripts/run_daily_products_agent.py`.
+- **Deduplication Engine**: Cross-checks ASIN (`seen_asins.json`, C# seeds), Image media IDs, Title/Description text, and unique rate/discount metrics.
+- **Image Quality**: Enforces 1500px Ultra HD (`._SL1500_.jpg`) with pre-flight HTTP 200 validation.
+- **Seeding & Sorting**: Inserts into `AmazonProductService.cs` and sorts newest-first (`.OrderByDescending(p => p.Id)`).
+

@@ -265,3 +265,45 @@ const startIndex = fourHourBlock % list.length;
     - Any Amazon listing that returns *"not a functioning page on our site"*, *"We're sorry. The Web address you entered is not a functioning page"*, *"Looking for something? We're sorry"*, *"Page Not Found"*, HTTP 404, or *"Currently unavailable"* is classified as expired.
     - Expired products MUST be rejected during link resolution and never inserted into `seen_asins.json` or `AmazonProductService.cs`.
     - WorldNewzs WebAPI backend features `ExpiredProcess.cs` (registered in DI via `ServiceExtensions.cs`) providing automated signature matching and database purging (`VerifyAndPurgeExpiredProductsAsync()`) to verify live Amazon listings and automatically soft-delete or remove expired products from the database so they are never served to users.
+
+---
+
+## Step 8: Running the Daily Products Agent (`daily-products-agent`)
+
+The Daily Products workflow is fully automated via the dedicated `daily-products-agent`. You can run the agent using any of the following 4 methods:
+
+### Method 1: Interactive Chat Invocation
+Simply paste your raw links in the Antigravity prompt and mention the agent or skill:
+```text
+Run daily-products-agent for these links:
+https://link.amazon/B09vytk7s
+https://link.amazon/B0hpdBDko
+```
+
+### Method 2: Automated CLI Script Runner
+Run the unified Python runner directly from your terminal:
+```bash
+# Using inline links
+python scripts/run_daily_products_agent.py --links "https://link.amazon/B09... https://link.amazon/B0h..." --deploy
+
+# Using a links text file
+python scripts/run_daily_products_agent.py --file daily_links.txt --deploy
+
+# Interactive prompt
+python scripts/run_daily_products_agent.py --interactive
+```
+
+### Method 3: Subagent Invocation from Other Agents
+Other autonomous agents can invoke `daily-products-agent` directly:
+```json
+{
+  "TypeName": "daily-products-agent",
+  "Role": "Amazon Product Seeder",
+  "Prompt": "Process and deploy today's 30 Amazon affiliate links: ..."
+}
+```
+
+### Method 4: Scheduled Automated Execution
+Automate daily execution using the `/schedule` slash command or OS cron job.
+
+

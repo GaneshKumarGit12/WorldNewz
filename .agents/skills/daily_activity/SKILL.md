@@ -102,3 +102,13 @@ Verify that both components on the frontend are correctly rotating the products 
    git commit -m "feat: Add daily Amazon affiliate products and update rotation seeds"
    git push origin main
    ```
+
+---
+
+## Step 6: Running the Automated Agent (`daily-products-agent`)
+The Daily Products workflow is automated by the `daily-products-agent`. Run via CLI or chat:
+- **CLI Runner**: `python scripts/run_daily_products_agent.py --links "url1 url2" --deploy`
+- **File Input**: `python scripts/run_daily_products_agent.py --file links.txt --deploy`
+- **Interactive**: `python scripts/run_daily_products_agent.py --interactive`
+- **Agent Subagent**: `invoke_subagent` with `TypeName: "daily-products-agent"`
+
