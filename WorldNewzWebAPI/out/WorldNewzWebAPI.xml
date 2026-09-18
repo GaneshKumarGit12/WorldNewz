@@ -22,7 +22,47 @@
             Returns { results: [...] } matching the UI's SearchPage expectation.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:WorldNewzWebAPI.Controllers.NewsController.GetUnifiedStory(System.String,System.String,System.String)" -->
+        <member name="M:WorldNewzWebAPI.Controllers.NewsController.GetUnifiedStory(System.String,System.String,System.String)">
+            <summary>
+            Unified AI &amp; Data Pipeline endpoint. Assembles AI Briefing (3-sentence summary + 3 takeaways),
+            Whitelisted Sources, and Category Contextual Poll into a unified DTO payload.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.GetStatus">
+            <summary>
+            Get current Pinterest Access Token status, live account connectivity, and expiration info.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.GetAuthUrl(System.String)">
+            <summary>
+            Generates the Pinterest OAuth2 Authorization URL to initiate user login and token generation.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.ExchangeToken(WorldNewzWebAPI.Controllers.ExchangePinterestTokenRequest)">
+            <summary>
+            Exchanges an OAuth authorization code for an Access Token &amp; Refresh Token.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.RefreshToken(WorldNewzWebAPI.Controllers.RefreshPinterestTokenRequest)">
+            <summary>
+            Refreshes the Pinterest Access Token using the OAuth2 refresh token.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.SetToken(WorldNewzWebAPI.Controllers.SetPinterestTokenRequest)">
+            <summary>
+            Dynamically updates the active Pinterest access token or board ID in-memory.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.GetBoards">
+            <summary>
+            Fetch list of available Pinterest boards for the authenticated account.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Controllers.PinterestController.PinProductByAsin(System.String,System.String)">
+            <summary>
+            Manually pin an existing Amazon product by ASIN.
+            </summary>
+        </member>
         <member name="M:WorldNewzWebAPI.Controllers.PlayGamesController.AuthenticateGoogle(WorldNewzWebAPI.Models.GoogleAuthRequest)">
             <summary>
             Authenticate or register player via Google Sign-In token
@@ -74,14 +114,43 @@
             Only used by Search.
             </summary>
         </member>
+        <member name="P:WorldNewzWebAPI.Services.AmazonCreatorApiService.IsConfigured">
+            <summary>
+            Indicates whether real Amazon Creator API credentials are provided.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonCreatorApiService.CheckApiHealthAsync">
+            <summary>
+            Proactively checks API credentials and connection health.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonCreatorApiService.GetAccessTokenAsync">
+            <summary>
+            Retrieves a valid OAuth access token using IMemoryCache and 90% TTL buffer.
+            Uses SemaphoreSlim double-checked locking to avoid thundering-herd token refresh requests.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonCreatorApiService.GetItemDetailsAsync(System.String)">
+            <summary>
+            Fetches product details for a single ASIN from Amazon Creator API v3.2.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.AmazonCreatorApiService.BatchGetItemDetailsAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            Batch fetches product details for multiple ASINs from Amazon Creator API v3.2.
+            </summary>
+        </member>
         <member name="M:WorldNewzWebAPI.Services.AmazonProductService.GetAffiliateProductsAsync">
             <summary>
             Retrieves all Amazon products, converting their product URLs to affiliate links containing the secure tag.
+            Enforces newest-first ordering (.OrderByDescending(p => p.Id)).
             </summary>
         </member>
         <member name="M:WorldNewzWebAPI.Services.AmazonProductService.RefreshDailyDealsAsync">
             <summary>
-            Simulates daily updates by slightly adjusting prices/reviews and shuffling featured products to look fresh every day.
+            Synchronizes daily deals with the official Amazon Creator API v3.2.
+            Implements Polly circuit-breaker fallback for 429/503 throttling errors, loud alerts for 401/403/500,
+            continuous PostgreSQL DB upserts, and a 72-hour staleness guardrail.
             </summary>
         </member>
         <member name="M:WorldNewzWebAPI.Services.AmazonProductService.SaveProductAsync(WorldNewzWebAPI.Models.AmazonProduct)">
@@ -110,9 +179,67 @@
             Seeds and synchronizes default high-converting product deals in Amazon India
             </summary>
         </member>
+        <member name="T:WorldNewzWebAPI.Services.AmazonTokenBackgroundRefreshService">
+            <summary>
+            Background HostedService that periodically refreshes the Amazon Creator API OAuth2 access token
+            before it expires, removing authentication latency from user-facing requests.
+            </summary>
+        </member>
+        <member name="T:WorldNewzWebAPI.Services.ExpiredProcess">
+            <summary>
+            ExpiredProcess - Automated verification and purge service for expired or non-functioning Amazon products.
+            Detects 'not a functioning page on our site' 404/dog pages and immediately removes them from the database
+            so they are never displayed on the website application.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.ExpiredProcess.VerifyAndPurgeExpiredProductsAsync">
+            <summary>
+            Scans all Amazon products in the database table and purges any expired or non-functioning listings.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.ExpiredProcess.CheckIfProductIsExpiredAsync(WorldNewzWebAPI.Models.AmazonProduct)">
+            <summary>
+            Checks a single product URL or ASIN against Amazon web endpoints to determine if the page is expired or non-functioning.
+            </summary>
+        </member>
         <member name="T:WorldNewzWebAPI.Services.GoogleSearchResult">
             <summary>
             Model representing a structured Google Search Result.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.GetAuthorizationUrl(System.String,System.String)">
+            <summary>
+            Generates the official Pinterest OAuth2 Authorization URL.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.ExchangeCodeForTokensAsync(System.String,System.String)">
+            <summary>
+            Exchanges an OAuth authorization code for Access &amp; Refresh tokens.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.RefreshTokenAsync(System.String)">
+            <summary>
+            Renews access token using the OAuth2 refresh_token grant.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.GetAccountInfoAsync">
+            <summary>
+            Retrieves authenticated Pinterest account details and validates token.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.CheckTokenExpiryStatus">
+            <summary>
+            Checks the token creation date and returns token status and expiry reminder info.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.GetUserBoardsAsync">
+            <summary>
+            Fetches user's Pinterest boards to help identify available Board IDs.
+            </summary>
+        </member>
+        <member name="M:WorldNewzWebAPI.Services.PinterestService.CreatePinForAmazonProductAsync(WorldNewzWebAPI.Models.AmazonProduct,System.String)">
+            <summary>
+            Automatically creates a Pin on Pinterest for an Amazon Product.
             </summary>
         </member>
     </members>

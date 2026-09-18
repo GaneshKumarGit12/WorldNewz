@@ -1,0 +1,172 @@
+[
+  {
+    "question": "Which tech innovation will have the greatest impact on daily life by 2030?",
+    "category": "Technology",
+    "options": ["Generative AI assistants", "Virtual/Augmented reality glasses", "Autonomous delivery vehicles", "Brain-computer interfaces"]
+  },
+  {
+    "question": "What is your main concern regarding the rise of artificial intelligence?",
+    "category": "Technology",
+    "options": ["Job displacement", "Spreading of misinformation", "Lack of algorithmic transparency", "Autonomous weaponry systems"]
+  },
+  {
+    "question": "Would you purchase a smartphone that is 100% repairable by consumers?",
+    "category": "Technology",
+    "options": ["Yes, sustainability is crucial", "Only if it is cheaper", "No, I prefer professional service", "Indifferent"]
+  },
+  {
+    "question": "Is cloud gaming ready to fully replace traditional console gaming?",
+    "category": "Technology",
+    "options": ["Yes, internet speeds are sufficient", "No, latency is still too high", "Only for casual games", "Unsure / Haven't tried it"]
+  },
+  {
+    "question": "Do you believe electric vertical takeoff (eVTOL) air taxis will succeed commercially?",
+    "category": "Technology",
+    "options": ["Yes, within this decade", "Yes, but will remain a luxury", "No, regulatory hurdles are too big", "No, safety concerns will kill it"]
+  },
+  {
+    "question": "How will remote-first working models affect corporate commercial real estate values?",
+    "category": "Business",
+    "options": ["Severe decline in office valuations", "Minor dip followed by hybrid stabilization", "Valuations will shift to suburbs", "No significant long-term impact"]
+  },
+  {
+    "question": "Which corporate sustainability metric is most important to you as a consumer?",
+    "category": "Business",
+    "options": ["Carbon footprint reduction", "Fair wages and employee treatment", "Ethical raw material sourcing", "Plastic-free product packaging"]
+  },
+  {
+    "question": "Should central banks implement digital currencies (CBDCs) immediately?",
+    "category": "Business",
+    "options": ["Yes, it modernizes transaction speed", "No, it presents massive privacy risks", "Only under strict parliamentary oversight", "Unsure / Needs more research"]
+  },
+  {
+    "question": "What is the primary factor limiting global supply chain recovery today?",
+    "category": "Business",
+    "options": ["Geopolitical trade tensions", "Labor shortages in logistics", "Rising fuel and energy costs", "Lack of manufacturing capacity"]
+  },
+  {
+    "question": "Should high-frequency algorithmic trading be restricted on public markets?",
+    "category": "Business",
+    "options": ["Yes, it increases market volatility", "No, it provides necessary liquidity", "Only during major economic crises", "Unsure"]
+  },
+  {
+    "question": "What is the most critical issue for voters in upcoming regional elections?",
+    "category": "Politics",
+    "options": ["Inflation and living costs", "Climate change policy", "Healthcare accessibility", "National security and defense"]
+  },
+  {
+    "question": "Do you agree with implementing age verification rules for social media platforms?",
+    "category": "Politics",
+    "options": ["Yes, to protect minor safety", "No, it compromises general privacy", "It should be parental choice", "Neutral"]
+  },
+  {
+    "question": "Should global carbon emissions taxes be enforced on international shipping?",
+    "category": "Politics",
+    "options": ["Yes, absolutely necessary", "No, it raises consumer prices too much", "Only for developed countries", "A carbon cap-and-trade system is better"]
+  },
+  {
+    "question": "What is the best approach to resolving regional water security issues?",
+    "category": "Politics",
+    "options": ["Bilateral sharing treaties", "Investing in desalination plants", "Strict conservation mandates", "Privatization of distribution"]
+  },
+  {
+    "question": "Will space tourism become a mainstream industry by the year 2040?",
+    "category": "Science-Health",
+    "options": ["Yes, for the general public", "Only for ultra-high-net-worth individuals", "No, space debris makes it unsafe", "No, it is an ecological disaster"]
+  },
+  {
+    "question": "Should public funding for deep-space exploration be redirected to ocean floor research?",
+    "category": "Science-Health",
+    "options": ["Yes, Earth's oceans hold more value", "No, space exploration drives technological spin-offs", "Both deserve equal funding", "Neither should be funded"]
+  },
+  {
+    "question": "What is the most effective policy to reduce microplastic contamination in food?",
+    "category": "Science-Health",
+    "options": ["Banning single-use plastic wrap", "Improving municipal wastewater filtration", "Taxing plastic manufacturing", "Public education on sorting"]
+  },
+  {
+    "question": "Would you support gene-editing technology (CRISPR) to eradicate genetic diseases?",
+    "category": "Science-Health",
+    "options": ["Yes, it relieves human suffering", "Only under strict global health mandates", "No, it raises massive ethical concerns", "Unsure"]
+  },
+  {
+    "question": "Is the integration of video replay reviews (VAR) improving professional sports?",
+    "category": "Sports",
+    "options": ["Yes, it corrects critical referee errors", "No, it disrupts game pacing and emotion", "Yes, but rules must be simplified", "Only for championship events"]
+  },
+  {
+    "question": "Should eSports be officially included in the Olympic Games?",
+    "category": "Sports",
+    "options": ["Yes, they require high competitive skill", "No, they lack traditional physical activity", "Only in a separate digital Olympics", "Indifferent"]
+  },
+  {
+    "question": "What is the main driver of athletic success in modern professional leagues?",
+    "category": "Sports",
+    "options": ["Advanced sports science and recovery", "Raw natural talent and practice", "Tactical analysis and coaching data", "Financial funding and scouting"]
+  },
+  {
+    "question": "Which financial metric is most important when choosing an index fund?",
+    "category": "Money",
+    "options": ["Expense ratio (management fees)", "Historical annual return rate", "Fund manager credentials", "ESG/ethical ratings of companies"]
+  },
+  {
+    "question": "What is the best asset class to hedge against high consumer inflation?",
+    "category": "Money",
+    "options": ["Real estate and property", "Gold and precious commodities", "Inflation-linked government bonds", "High-growth technology equities"]
+  },
+  {
+    "question": "Is a 20% savings rate realistic for middle-income families today?",
+    "category": "Money",
+    "options": ["Yes, with disciplined budgeting", "No, housing costs are too high", "No, inflation has eroded margins", "It requires secondary income streams"]
+  },
+  {
+    "question": "Which gaming platform will dominate the market in terms of active players?",
+    "category": "Gaming",
+    "options": ["Mobile devices (phones/tablets)", "Dedicated consoles (PlayStation/Xbox/Switch)", "High-performance PC setups", "Web browser based HTML5 games"]
+  },
+  {
+    "question": "Do you support the inclusion of microtransactions in premium video games?",
+    "category": "Gaming",
+    "options": ["Only if they are cosmetic items", "Yes, they fund free content updates", "No, it ruins game progression design", "Never under any circumstances"]
+  },
+  {
+    "question": "What is the most important factor in a competitive multiplayer game?",
+    "category": "Gaming",
+    "options": ["Server tick rate and low latency", "Balanced character and weapon design", "Regular content seasons and updates", "Anti-cheat detection and fair play"]
+  },
+  {
+    "question": "What is the most critical benefit when evaluating a new job offer?",
+    "category": "Jobs",
+    "options": ["Base salary and performance bonuses", "Flexible working location (hybrid/remote)", "Comprehensive healthcare and retirement match", "Career growth and learning stipends"]
+  },
+  {
+    "question": "Will traditional 4-year university degrees remain a requirement for tech hiring?",
+    "category": "Jobs",
+    "options": ["Yes, it verifies baseline discipline", "No, skills-based testing is replacing it", "Only for senior leadership roles", "Bootcamps and certifications are preferred"]
+  },
+  {
+    "question": "Is a 4-day workweek (32 hours for 100% pay) sustainable globally?",
+    "category": "Jobs",
+    "options": ["Yes, it increases employee productivity", "No, it puts firms at a global disadvantage", "Only in service and knowledge sectors", "It requires matching daily hour extensions"]
+  },
+  {
+    "question": "How do you analyze stock market trends for personal investments?",
+    "category": "Stocks",
+    "options": ["Fundamental analysis (earnings, debt, revenue)", "Technical analysis (chart patterns, moving averages)", "Passive dollar-cost averaging into ETFs", "Following recommendations from brokers"]
+  },
+  {
+    "question": "Do you believe retail traders have a fair chance against institutional hedge funds?",
+    "category": "Stocks",
+    "options": ["Yes, due to information democratization", "No, high-frequency algorithms hold the edge", "Only when coordinating in online communities", "Unsure"]
+  },
+  {
+    "question": "What is the best medium for narrative storytelling today?",
+    "category": "Entertainment",
+    "options": ["High-budget streaming television series", "Traditional theatrical feature films", "Interactive storytelling in video games", "Indie podcasts and audio dramas"]
+  },
+  {
+    "question": "Should theatrical film releases retain an exclusive window before streaming?",
+    "category": "Movies",
+    "options": ["Yes, it preserves the cinematic experience", "No, day-and-date streaming is more convenient", "Only for blockbuster action movies", "A 30-day window is the ideal compromise"]
+  }
+]
