@@ -32847,15 +32847,21 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 changed = true;
             }
 
-            // Seed data check and initialization only. User-submitted products are preserved.
+            var existingMap = existingDbProducts
+                .Where(p => !string.IsNullOrEmpty(p.Asin))
+                .GroupBy(p => p.Asin, StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(g => g.Key, g => g.First(), StringComparer.OrdinalIgnoreCase);
+
+            var newProductsToAdd = new List<AmazonProduct>();
 
             foreach (var seed in seedData)
             {
-                var existing = await _context.AmazonProducts.FirstOrDefaultAsync(p => p.Asin == seed.Asin);
-                if (existing == null)
+                if (string.IsNullOrWhiteSpace(seed.Asin)) continue;
+
+                if (!existingMap.TryGetValue(seed.Asin, out var existing))
                 {
                     seed.LastUpdated = DateTime.UtcNow;
-                    _context.AmazonProducts.Add(seed);
+                    newProductsToAdd.Add(seed);
                     changed = true;
                 }
                 else
@@ -32865,7 +32871,9 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                         existing.Title != seed.Title || 
                         existing.Description != seed.Description || 
                         existing.ImageUrl != seed.ImageUrl ||
-                        existing.Category != seed.Category)
+                        existing.Category != seed.Category ||
+                        existing.Price != seed.Price ||
+                        existing.OriginalPrice != seed.OriginalPrice)
                     {
                         existing.Title = seed.Title;
                         existing.Description = seed.Description;
@@ -32880,6 +32888,11 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                         changed = true;
                     }
                 }
+            }
+
+            if (newProductsToAdd.Count > 0)
+            {
+                await _context.AmazonProducts.AddRangeAsync(newProductsToAdd);
             }
 
             if (changed)
