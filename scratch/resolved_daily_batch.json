@@ -1,398 +1,416 @@
 [
   {
-    "asin": "B0F4XS45P8",
-    "title": "amazon basics Designed for Samsung Galaxy S24 Ultra Case | Strong Magnet Camera Protection Translucent Matte Hard Back Cover Compatible with Mag-Safe (TPU+Polycarbonate | Frost Purple)",
-    "description": "Electronics \u2022 Mobiles & Accessories",
+    "asin": "B071HPCPGK",
+    "title": "SYGA 6 Pcs Measuring Baking Spoons Cups Kitchen Tools Teaspoon Rainbow Colors Utensil",
+    "description": "Colour            Multicolor \u2022 Material            Plastic",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/719ETTK9g+L._SL1500_.jpg",
-    "price": 269.0,
-    "originalPrice": 749.0
-  },
-  {
-    "asin": "B0GLGGGK83",
-    "title": "Swara Creations Lac | Lah | Lakh bangle/Kada set for woman Lahthi | Lehthi set Traditional Rajasthani Kade Set Zircon work for Women and Girls (4pcs)(408)",
-    "description": "Bangles & Bracelets \u2022 Image Unavailable  Image not available forColour:",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/819B6mUeIeL._SL1500_.jpg",
-    "price": 379.0,
-    "originalPrice": 1000.0
-  },
-  {
-    "asin": "B0DQJ91FN1",
-    "title": "KE KANHA EXPORT Women Scarf|Stole For Women|Scarf For Women Stylish|Stall For Women|Border Print Face Cover Head Wrap|Boho|Beach|Multicolor|180x50cm|Pack Of 1|FREE Scrunchie Included",
-    "description": "Clothing & Accessories \u2022 Accessories",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71gEFinGdmL._SL1500_.jpg",
-    "price": 499.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0G4W6GNYQ",
-    "title": "Rajeshwar Fashion Women's Lime Green Floral Print Linen Cotton Saree with Contrast Pallu, Tassel Border, Traditional Summer Festive with Blouse Piece",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71A7YD+JfJL._SL1500_.jpg",
-    "price": 474.0,
-    "originalPrice": 2999.0
-  },
-  {
-    "asin": "B0CVDP6J5Y",
-    "title": "Dress for Women | New Rayon Floral Printed Flared Maxi Dress for Women & Girl's",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71L4ALrEr0L._SL1500_.jpg",
-    "price": 499.0,
-    "originalPrice": 2499.0
-  },
-  {
-    "asin": "B0BSRRPJZB",
-    "title": "SAMEEHA \u2122 Jacquard Banarasi Traditional Silk Dupatta for Women",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/810R6d9NLWL._SL1500_.jpg",
-    "price": 442.0,
-    "originalPrice": 999.0
-  },
-  {
-    "asin": "B0GT9LJ6DK",
-    "title": "KE KANHA EXPORTS Cotton Scarf|Scarf for Women|Cotton Stole|Soft Beach Wrap|Tassel Design|Easily fits 180 * 50cm",
-    "description": "Clothing & Accessories \u2022 Accessories",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71BJUMLRN3L._SL1500_.jpg",
-    "price": 498.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0GXF767TT",
-    "title": "KE KANHA EXPORTS Scarf for Women Stylish|Premium Cotton Stole|Dual Color Boho Beach Wrap|Soft Travel Layer for Outings and Casual Wear|Multicolor|Easily fits 180 x 50cm|Pack of 1",
-    "description": "Clothing & Accessories \u2022 Accessories",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/81S4DHmRBQL._SL1500_.jpg",
-    "price": 499.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0DHXJP594",
-    "title": "Fuda T-Shirt Collection for Car Enthusiast for Men & Women Oversized T Shirts 100% Cotton Printed T-Shirt Collections.",
-    "description": "Clothing & Accessories \u2022 T-shirts, Polos & Shirts",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/51IED1M4Z2L._SL1500_.jpg",
-    "price": 682.0,
-    "originalPrice": 1500.0
-  },
-  {
-    "asin": "B0D2RLRBY6",
-    "title": "Women's Traditional Handloom Zari Work Lata Border Cotton Silk Saree With Blous Piece",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/81gxVmMxTJL._SL1500_.jpg",
-    "price": 474.0,
-    "originalPrice": 3279.0
-  },
-  {
-    "asin": "B0CX8M87ZH",
-    "title": "Jwalin Girl's Above Knee Length Fit and Flared Dresses",
-    "description": "Clothing & Accessories \u2022 Dresses & Jumpsuits",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71a1Zs33zlL._SL1500_.jpg",
-    "price": 467.0,
-    "originalPrice": 1699.0
-  },
-  {
-    "asin": "B0BFRJ5C25",
-    "title": "Jwalin Girl's Silk Blend Foil Printed Kurta With Dhoti Pant Kids Top And pant Set|Kids Dhoti Set",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71DpIQWIhQL._SL1500_.jpg",
-    "price": 665.0,
-    "originalPrice": 2499.0
-  },
-  {
-    "asin": "B09SCZHG4B",
-    "title": "Jwalin Girl's A-Line long Jumpsuit",
-    "description": "Clothing & Accessories \u2022 Dresses & Jumpsuits",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/61XjHS4Wu+L._SL1500_.jpg",
-    "price": 569.0,
-    "originalPrice": 2499.0
-  },
-  {
-    "asin": "B09HY73Z95",
-    "title": "ILLI LONDON Women's Off-Shoulder TOP",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/81dVJmmKu0S._SL1500_.jpg",
-    "price": 474.0,
-    "originalPrice": 1499.0
-  },
-  {
-    "asin": "B0CYH5CC32",
-    "title": "Women's Lycra Stretchable Designer Embroidered Readymade Saree Blouse",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/81QrnDg0jnL._SL1500_.jpg",
-    "price": 395.0,
-    "originalPrice": 1500.0
-  },
-  {
-    "asin": "B0GVZ23SPS",
-    "title": "Half Sleeve Night Suit for Kids Girls | 100% Pure Cotton Night Suit for Girls | Breathable Summer Night Dress for Kids Girls (Age 3-8 Years)",
-    "description": "Clothing & Accessories \u2022 Pyjama Sets",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/61zpJP2EH+L._SL1500_.jpg",
-    "price": 474.0,
-    "originalPrice": 999.0
-  },
-  {
-    "asin": "B0BF9G4WDL",
-    "title": "KE KANHA EXPORTS Women Shrug|Shrugs for Women Stylish|Cardigan |Boho Beach Cover Up|Border Print|Easily fits S-M-L|Bust 30-42 Inches|Length 28 Inches",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/81B5XwozRBL._SL1500_.jpg",
-    "price": 999.0,
-    "originalPrice": 2999.0
-  },
-  {
-    "asin": "B07TGK4NRH",
-    "title": "Prijam Women Jacket",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71OSr+63V9L._SL1500_.jpg",
-    "price": 948.0,
-    "originalPrice": 2899.0
-  },
-  {
-    "asin": "B09XHRJGW9",
-    "title": "KE KANHA EXPORTS Halter Neck Wrap Top|top for Women|Backless Tops for Women|Halter Neck Tops|Adjustable wrap Waist|Boho Beach Border Print|Easily fits S-M|Bust30-36Inch|LengthUpTo 18Inch",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/81iXOzlQSQL._SL1500_.jpg",
-    "price": 799.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0FK3M8JQ5",
-    "title": "KE KANHA EXPORTS Shrugs for Women Stylish | Cover up on Jeans Tops for Women | Western Beach Outfits | Summer Clothes | Kimono FREE Scrunchie Included",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71G2DyQhNCL._SL1500_.jpg",
-    "price": 999.0,
-    "originalPrice": 2999.0
-  },
-  {
-    "asin": "B0CMQJX6J7",
-    "title": "KE KANHA EXPORTS Halter Neck Wrap Top|top for Women|Backless Tops for Women|Halter Neck Tops|Adjustable wrap Waist|Boho Beach Border Print|Easily fits S-M|Bust30-36Inch|LengthUpTo 18Inch",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/81ps1gHyqAL._SL1500_.jpg",
-    "price": 799.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0GX5YRLNR",
-    "title": "Amazon Brand - Supples Baby Bed Mattress with Mosquito net | Toy Vehicle Print | Blue",
-    "description": "Baby Bedding \u2022 Bedding Accessories",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71lPJe5Ed0L._SL1500_.jpg",
-    "price": 649.0,
-    "originalPrice": 999.0
-  },
-  {
-    "asin": "B0GJ6VP73F",
-    "title": "amazon basics Premium Mag-Safe Case for iPhone 14 | Shockproof & Anti-Scratch Cover | Soft Silicone with Wireless Charging | Camera Lens Guard - Blue",
-    "description": "Electronics \u2022 Mobiles & Accessories",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/614L-BUTA+L._SL1500_.jpg",
-    "price": 249.0,
-    "originalPrice": 899.0
-  },
-  {
-    "asin": "B0F1TVGKJD",
-    "title": "Amazon Brand - Jam & Honey 2-in-1 Rocking and Climbing Dome for Toddlers | Indoor/Outdoor Wobble Disk | 25kg Weight Capacity | Kids 2-5 Years | Balancing Board for Kids",
-    "description": "Toys & Games \u2022 Sport & Outdoor",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71XAbzoxgsL._SL1500_.jpg",
-    "price": 1599.0,
-    "originalPrice": 4999.0
-  },
-  {
-    "asin": "B0G4MLL6XZ",
-    "title": "KE KANHA EXPORTS Scarf for Women Boho | Border Print Stylish | Stole for Women Breathable Summer Beach Wrap with Tassels | Multicolour |180 x 50 cm",
-    "description": "Clothing & Accessories \u2022 Accessories",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71Mive0QmYL._SL1500_.jpg",
-    "price": 498.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0F2FXMZVZ",
-    "title": "ZECVA Women's Pure Soft Spun Cotton Lichi Silk Saree For Women With Attach Unstitch Blouse Piece | Sari for women",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/61YzKWdyV3L._SL1500_.jpg",
-    "price": 801.0,
-    "originalPrice": 3999.0
-  },
-  {
-    "asin": "B0G2Y4M4ZZ",
-    "title": "KE Kanha Exports Skirt for Woman & Women Dresses 3 in 1 Convertible Dress for Woman, Wrap Around Long Skirt Halter Maxi Dress for Women Stylish Western Boho Printed",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/813pKEvSvSL._SL1500_.jpg",
-    "price": 998.0,
-    "originalPrice": 2999.0
-  },
-  {
-    "asin": "B0DT9CCRTX",
-    "title": "Amazon Brand - Jam & Honey Baby Puppy Push On Ride On for Kids | Backrest | Easy Grip | Four Wheel | Durable and Safe | Non-Toxic | Portable | Lightweight | Animal Theme | 1-4 Years Old | Green",
-    "description": "Toys & Games \u2022 Bikes, Trikes & Ride-Ons",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71bwmB-sxRL._SL1500_.jpg",
-    "price": 899.0,
-    "originalPrice": 2999.0
-  },
-  {
-    "asin": "B07TB3Q8NT",
-    "title": "Stainless steel Plate stand Kitchen countertop Plate Rack for Home & Kitchen Plate storage rack Thali stand",
-    "description": "Home & Kitchen \u2022 Kitchen & Dining",
-    "category": "Home & Kitchen",
-    "imageUrl": "https://m.media-amazon.com/images/I/614S+ZqrOWL._SL1500_.jpg",
-    "price": 489.0,
-    "originalPrice": 48900.0
-  },
-  {
-    "asin": "B0C65XZ9P6",
-    "title": "Byond Club House Sandra Long Lasting Perfume for Women, No Gas Body Spray with Vanilla Musk Patchouli, Premium Fragrance Mist, 120ml",
-    "description": "Image Unavailable  Image not available forColour: \u2022 Sandra Perfume for WomenAryan Care Pvt Ltd",
-    "category": "Beauty & Personal Care",
-    "imageUrl": "https://m.media-amazon.com/images/I/71eGBo7g13L._SL1500_.jpg",
-    "price": 209.0,
-    "originalPrice": 359.02
-  },
-  {
-    "asin": "B08JXFW7HM",
-    "title": "BANGE The Clownfish Sling Bags Water & Scratch Resistant Anti Theft Chest Crossbody Bags with USB Port fits up to 7.9 inches for Men and Women, (Black)",
-    "description": "Bags, Wallets and Luggage \u2022 Bags & Backpacks",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/61Ke5wKC0uL._SL1500_.jpg",
-    "price": 1999.0,
-    "originalPrice": 3499.0
-  },
-  {
-    "asin": "B0GL2T6NF7",
-    "title": "(Pack of 24) Haldi Ceremony Maang Tikka Bridal Floral Jewellery Mehendi Function Wedding",
-    "description": "Hair Accessories \u2022 Maang Tikkas",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71nqNnflpWL._SL1500_.jpg",
-    "price": 599.0,
-    "originalPrice": 788.14
-  },
-  {
-    "asin": "B0BS16F6FS",
-    "title": "Neelam (Neeli) Flower Live Plant | Blue Color Flowering Plant for Home Garden | Easy to Grow Indoor Outdoor Plant",
-    "description": "Outdoor Living \u2022 Plants, Seeds & Bulbs",
-    "category": "Home & Kitchen",
-    "imageUrl": "https://m.media-amazon.com/images/I/51uvRAitM7L._SL1500_.jpg",
-    "price": 199.0,
+    "imageUrl": "https://m.media-amazon.com/images/I/61JWij5AvaL._AC_UF350,350_QL50_.jpg",
+    "price": 175.0,
     "originalPrice": 499.0
   },
   {
-    "asin": "B0BL6BNW4G",
-    "title": "LacyLuxe Women Padded/Full Coverage Bra (Nude,36B) at Amazon.in",
-    "description": "#134,095 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #3,242 in Women's Everyday Bras",
+    "asin": "B0H8FDBDGF",
+    "title": "Himalayan Sea Buckthorn Pulp Concentrate 300ml | Cold-Pressed | Makes 50 Glasses | Extra Omega with seeds | Vitamin C, Omega 3 6 7 9, Antioxidants | Immunity, Skin Glow & Gut Health | Juice Seabuckthorn",
+    "description": "Image Unavailable  Image not available forColour: \u2022 Premium Quality & Himalayan Sourced \u2013 Nutri+ Sea Buckthorn Juice is made from wild-grown berries handpicked from the pristine Himalayan forests of Nubra Valley. 100% natural, cold-pressed, and unadulterated \u2014 packed fresh in a 300ml bottle for m...",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/718BttFnzFL._SL1500_.jpg",
-    "price": 493.0,
-    "originalPrice": 559.0
+    "imageUrl": "https://m.media-amazon.com/images/I/71nwtJtl9YL._SL1500_.jpg",
+    "price": 616.0,
+    "originalPrice": 1056.53
   },
   {
-    "asin": "B0F5BJL2VX",
-    "title": "Wanderthreads Lifestyle Co. Mens Regular fit Solid Casual Cotton Shirt with Spread Collar and Full Sleeves | Stylish & Comfortable | Ideal for Office, Casual Outings, Meetings(Grey, XL)",
-    "description": "#133,176 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #6,171 in Men's Shirts",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71yMvvSOnVL._SL1500_.jpg",
-    "price": 379.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B0DTZ1GYQ8",
-    "title": "Girls Ready to Wear Supernet Saree with Unstitched Blouse Piece | Embellished Traditional Ethnic Ocassion Wear Wear Saree | Fancy Wedding, Festival, Birthday Dress for Kids",
-    "description": "Clothing & Accessories \u2022 Ethnic Wear",
+    "asin": "B0F9F179Z4",
+    "title": "Shree Bageshwar Dham Hanuman Pendant Tulasi | Sitaram Tulsi | Bageshwar Dham Wood | Tulsi Hanuman Ji Pendant Kanthi Wood 16 INCH",
+    "description": "Home & Kitchen \u2022 Religious & Spiritual Items",
     "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/71AaxvjNwAL._SL1500_.jpg",
-    "price": 759.0,
-    "originalPrice": 2999.0
-  },
-  {
-    "asin": "B0BWDN16FT",
-    "title": "KE KANHA EXPORTS Convertible Halter Short Dresses|Beach Wear Dress for Women|Backless Dress Women|2-in-1 Skirt One Shoulder|Easily fits S-M-L|Bust 30-36 in|Length 40 in|Boho Free Scrunchie Included",
-    "description": "Clothing & Accessories \u2022 Western Wear",
-    "category": "Fashion",
-    "imageUrl": "https://m.media-amazon.com/images/I/81Py4fiusPL._SL1500_.jpg",
-    "price": 999.0,
-    "originalPrice": 1999.0
-  },
-  {
-    "asin": "B08BK6CXYR",
-    "title": "REVOLTEK Printed Vest Baniyan Cotton Inner Wear For Baby Wear Sleeveless Undershirts For Kids Sando Ganji Tank-Tops Toddler Girls/Boys Pack Of 6 (Light Color, 12-18 Months, Regular Fit)",
-    "description": "#3,204 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #9 in Baby Boys' Innerwear",
-    "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/61YZn7SgSiL._SL1500_.jpg",
-    "price": 474.0,
+    "imageUrl": "https://m.media-amazon.com/images/I/61QaEM8njHL._SL1500_.jpg",
+    "price": 284.0,
     "originalPrice": 999.0
   },
   {
-    "asin": "B0DBLWSL43",
-    "title": "KE KANHA EXPORTS Women's Boho Border Print Shrug|Stylish Kimono Jacket Cover Up|Soft Silky-Feel Premium Fabric|Blue Multicolor|Easily Fits S-M-L|Bust 30-42 in|Length 28 in|Pack of 1 (1147) at Amazon.in",
-    "description": "#7,753 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #24 in Women's Shrugs",
+    "asin": "B07GKG113Y",
+    "title": "Aaswad premium Single clove Black garlic 500 grams",
+    "description": "Grocery & Gourmet Foods \u2022 Cooking & Baking Supplies",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/81CLWV7goDL._SL1500_.jpg",
-    "price": 999.0,
-    "originalPrice": 2999.0
+    "imageUrl": "https://m.media-amazon.com/images/I/21IlsHhNx9L._SL1500_.jpg",
+    "price": 1295.0,
+    "originalPrice": 23545.45
   },
   {
-    "asin": "B0DJ2KXDVH",
-    "title": "Jwalin Girl's Cotton Blend Embroidered Salwar Suit Set|Kids Salwar Suit Set|Ethnic Wear for Kids Girls|Suit for Girls(JWGSET00220 PNK 32_Pink_9-10Yrs) at Amazon.in",
-    "description": "#42,940 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #189 in Girls' Salwar Suit Sets",
+    "asin": "B0H6XJWL16",
+    "title": "ECO HAWAN Black Soil (Kali Mitti) 500g I Kali Mitti for Parthiv Shivling Making & Abhishek | Pure Natural Sacred Mitti for Shiv Puja,Mahashivratri ,Natural Shivling nirman, spiritual rituals| Chemical Free Pure and Natural Black Soil",
+    "description": "Brand            ECO HAWAN \u2022 Colour            Black",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/71VRHht3lwL._SL1500_.jpg",
-    "price": 759.0,
-    "originalPrice": 2699.0
+    "imageUrl": "https://m.media-amazon.com/images/I/71gd6KF588L._AC_UF350,350_QL50_.jpg",
+    "price": 285.0,
+    "originalPrice": 399.0
   },
   {
-    "asin": "B0D6LKFYMS",
-    "title": "KE KANHA EXPORTS Multi Wear Skirt for Women|Long Skirts for Woman|Wrap for Women|3 in 1 Wrap Skirt |Halter|Dress|Boho Beach|Easily fits XS to XXL|Waist24-38in|Length38in Free Scrunchie Included at Amazon.in",
-    "description": "#36,601 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #501 in Women's Skirts & Shorts",
+    "asin": "B0FRR1GJR3",
+    "title": "Qin Pro Leather Case with Slide Camera Cover for iPhone 17 Pro 6.3\" (2025) \u2013 Premium PU Leather Flip Wallet Case with Card Slot, Shockproof TPU Bumper, Soft Lining, Full Body Protection \u2013 Black",
+    "description": "Electronics \u2022 Mobiles & Accessories",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/81AJaAC24KL._SL1500_.jpg",
-    "price": 1499.0,
-    "originalPrice": 2999.0
+    "imageUrl": "https://m.media-amazon.com/images/I/71whSOBGdXL._SL1500_.jpg",
+    "price": 949.0,
+    "originalPrice": 2499.0
   },
   {
-    "asin": "B0FRSWCX1M",
-    "title": "DARKFISH Cordless Table Lamp for Outdoor Indoor, Portable Desk Lamp, Rechargeable LED Crystal Lantern Lamp, 3 Color Stepless Dimming Touch, Battery Powered Table Light for Bedroom (Golden) Online at Low Prices in India - Amazon.in",
+    "asin": "B0C9X634RH",
+    "title": "Shyam Antique Creation 7 Inch Sitting Ganesha On Lotus Murti God Ganesh Ji Blessing Idol Ganpati Bappa Idol for Home Entrance Vinayak Sculpture Figurine for Home Office Diwali Puja and Pooja Room Online at Low Prices in India - Amazon.in",
+    "description": "This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25000 \u2022 Products Cover...",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/81IMxLuH2WL._AC_UF350,350_QL50_.jpg",
+    "price": 3039.0,
+    "originalPrice": 4999.0
+  },
+  {
+    "asin": "B0F56RNWD8",
+    "title": "Trillion Jacquard Men's Polo T Shirt for Men (Polyester Blend | Regular Fit) Beige at Amazon.in",
+    "description": "#7,550 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #175 in Men's Polos",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/61UkCjcVidL._SL1500_.jpg",
+    "price": 399.0,
+    "originalPrice": 1499.0
+  },
+  {
+    "asin": "B0C3XQQGSX",
+    "title": "RANDOM 12 Inch Classic & Modern Multi Stylish Sweep Silent Movement Wall Clock for Home, Living Room, Bedroom, Lobby, Office, and Kitchen (Yellow) Online at Low Prices in India - Amazon.in",
     "description": "EMAIL DELIVERY ONLY: Download your extended warranty certificate by sharing your device details. The link is available under buyer/seller messages at www.amazon.in/msg and is also sent to your Amazon registered email ID \u2022 REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give ...",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/51oVhhvBKBL._SL1500_.jpg",
-    "price": 995.0,
-    "originalPrice": 1449.0
+    "imageUrl": "https://m.media-amazon.com/images/I/614AhQ0NJ2L._AC_UF350,350_QL50_.jpg",
+    "price": 584.0,
+    "originalPrice": 1499.0
   },
   {
-    "asin": "B0D3VMPFX2",
-    "title": "Natural Bamboo Sticks Skewer (4 MM, 12 INCHES, Pack of 100), Natural Wooden Barbecue Kabob Skewers, Best for Grill, BBQ, Kebab, Marshmallow Roasting or Fruit Sticks",
-    "description": "Outdoor Living \u2022 Barbecue & Outdoor Dining",
+    "asin": "B0FCDLXTCQ",
+    "title": "Rotating Rice and Grain Dispenser with Lid for Kitchen \u2013 Modular Storage Container for Dry Food, Dal, Cereal, Flour \u2013 Plastic Pantry Organizer Jar Dabba for Home, Pulses Box for Kitchen Use (Cream)",
+    "description": "Brand            Royser \u2022 Colour            Cream",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/41z4rsHgIjL.jpg",
-    "price": 266.0,
-    "originalPrice": 416.33
+    "imageUrl": "https://m.media-amazon.com/images/I/51u2wRMiSCL._AC_UF350,350_QL50_.jpg",
+    "price": 1599.0,
+    "originalPrice": 3599.0
   },
   {
-    "asin": "B0HBQMW16D",
-    "title": "SAFFROCUS 5 Gram Premium Kesar Saffron Original - Pure Kashmiri Mongra Kesar | Organic Saffron For Cooking, Milk, & Pooja | Kashmiri Kesar A+ Grade (5 Gm)",
-    "description": "Brand            Eurohaus \u2022 Item Form            Flake",
+    "asin": "B0FTGB574W",
+    "title": "Kitchen Organizer Tray - Multipurpose White Metal Storage Rack for Spice Bottles & Oil, Countertop Caddy for Kitchen Cabinet, Pantry, Bathroom & Vanity | Rust-Proof (33x19cm)",
+    "description": "Brand            Raxily \u2022 Colour            White",
     "category": "Technology",
-    "imageUrl": "https://m.media-amazon.com/images/I/51aQmMm494L.jpg",
-    "price": 654.0,
-    "originalPrice": 13080.0
+    "imageUrl": "https://m.media-amazon.com/images/I/512vdLM3XxL._AC_UF350,350_QL50_.jpg",
+    "price": 391.0,
+    "originalPrice": 499.0
+  },
+  {
+    "asin": "B0GPQHG6DP",
+    "title": "SERONA FABRICS Women's Rani Pink Faux Georgette Sharara Suit Set at Amazon.in",
+    "description": "#253,512 in Clothing & Accessories (See Top 100 in Clothing & Accessories) \u2022 #20,536 in Women's Kurtas & Kurtis",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/811FAWmfrWL._SL1500_.jpg",
+    "price": 2294.0,
+    "originalPrice": 4999.0
+  },
+  {
+    "asin": "B0DQGZFDZZ",
+    "title": "AAKARSHAK Small Madhubani Fish Painting Framed 6x8 Inch - Hand Painted Mithila Table Top and Wall Hanging Decor Return Gift for Office Desk Study Table Cash Box",
+    "description": "Home & Kitchen \u2022 Image Unavailable  Image not available forColour:",
+    "category": "Fashion",
+    "imageUrl": "https://m.media-amazon.com/images/I/81btDPP7xLL._SL1500_.jpg",
+    "price": 426.0,
+    "originalPrice": 1000.0
+  },
+  {
+    "asin": "B0CQX7YMVJ",
+    "title": "Lord Ganesha Pocket Temple for Pooja RoomI Gold Plated Decorative Shri Ganeshay Namah Photo Frame & Charan Paduka | Best Gift for Family & Friends I Diwali Gift & Home Decor 7.6 cm",
+    "description": "Home & Kitchen \u2022 Religious & Spiritual Items",
+    "category": "Home & Kitchen",
+    "imageUrl": "https://m.media-amazon.com/images/I/81z8RrWTk3L._SL1500_.jpg",
+    "price": 284.0,
+    "originalPrice": 699.0
+  },
+  {
+    "asin": "B0DG6G6DV7",
+    "title": "A Perfect Gifter Personalized Newborn Baby Birth Details Photo Frame | Custom Baby Birth Stats Frame with Name Date Time Weight | Baby Announcement Gift for New Parents | Nursery Wall Decor Picture Frame 10 X 14 Inch)",
+    "description": "Brand            Generic \u2022 Colour            New Born Baby Frame",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71K53W8Cm6L._AC_UF350,350_QL50_.jpg",
+    "price": 470.0,
+    "originalPrice": 999.0
+  },
+  {
+    "asin": "B0FNLQVSQ8",
+    "title": "Manishaware Slim Handle Silver 24 Pcs Stainless Steel Cutlery Set for Dining Table, Dishwasher Safe Glossy Flatware (6 Spoon Set + 6 Forks Set + 6 Butter Knife + 6 Dessert Spoon)",
+    "description": "Brand            Manishaware \u2022 Number of Pieces            24",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/61EDFrrfxxL._AC_UF350,350_QL50_.jpg",
+    "price": 1172.0,
+    "originalPrice": 1856.0
+  },
+  {
+    "asin": "B09XLMZTPL",
+    "title": "NEWWAYSS Bhuvan Handloom Jute, Braided Reversible Hand Woven Rectangular Rug/Carpet/Mat, For Living & Bedroom (Beige & Black, 5X7 Feet) Online at Low Prices in India - Amazon.in",
+    "description": "Brand            NEWWAYSS \u2022 Size            5' x 7' (Rectangular)",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71uRNvjLxxS._AC_UF350,350_QL50_.jpg",
+    "price": 3510.0,
+    "originalPrice": 5999.0
+  },
+  {
+    "asin": "B076D4HXFC",
+    "title": "Lithara Terry Cotton Fitted Mattress Protector for Queen/Double Bed | Waterproof & Elastic Band | Ultra Soft & Hypoallergenic Mattress Cover | Size : 66 x 78 Inches (5.5 x 6.5 Feet) | (Sky Blue) Online at Low Prices in India - Amazon.in",
+    "description": "This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25000 \u2022 Products Cover...",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/91Rk4pya-JL._AC_UF350,350_QL50_.jpg",
+    "price": 730.0,
+    "originalPrice": 2399.0
+  },
+  {
+    "asin": "B0C9ZML9FX",
+    "title": "SAVSOL\u00ae Eyelet Projector Screen 60 Inch Diagonal, 133 CM W x 75 CM H, 16:9 Aspect Ratio 1.2 Gain Matte White Screen, Full HD 1080P, UHD, 3D, 4K & 8K Ready",
+    "description": "EMAIL DELIVERY ONLY: Download your extended warranty certificate by sharing your device details. The link is available under buyer/seller messages at www.amazon.in/msg and is also sent to your Amazon registered email ID \u2022 REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give ...",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/61vrDkdoi8L._AC_UF350,350_QL50_.jpg",
+    "price": 759.0,
+    "originalPrice": 1999.0
+  },
+  {
+    "asin": "B078Q7KLKS",
+    "title": "Premium Elegance 100% Cotton/Soft/Highly Absorbent / 450 GSM (Multi Colored, Pack of 3 Ladies Bath Towel Set)",
+    "description": "Home & Kitchen \u2022 Home Furnishing",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71DuxSoGoPL._SL1500_.jpg",
+    "price": 892.0,
+    "originalPrice": 3999.0
+  },
+  {
+    "asin": "B0FT87Z7YG",
+    "title": "NEFERTITI HOME Twillbone Digital Print 85% Blackout Curtains for Long Door/Window, Thermal Insulated, Tie Back, Wider Width 50 in, Eyelet Curtains for Living Room/Bedroom(D Pink_9_Set of 2)",
+    "description": "This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25000 \u2022 Products Cover...",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/91XL7-ajtfL._AC_UF350,350_QL50_.jpg",
+    "price": 2199.0,
+    "originalPrice": 6000.0
+  },
+  {
+    "asin": "B09SBN8ZXL",
+    "title": "RKPM HOMES Blackhead Remover | Pimple Comedown Extractor Tool with Case | Whitehead Popping | Treatment for Blemish | Zit Removing for Nose Face Skin | Remover Tools Kit - Set of 4",
+    "description": "Tools & Accessories \u2022 Skin Care Tools",
+    "category": "Home & Kitchen",
+    "imageUrl": "https://m.media-amazon.com/images/I/710LD4Y4RDL._SL1500_.jpg",
+    "price": 175.0,
+    "originalPrice": 499.0
+  },
+  {
+    "asin": "B0FP52S4XX",
+    "title": "The MMasala Box Co. Bay Leaf | Premium Tej Patta | 100% Natural & Aromatic | Whole Dried Spice | Handmade in India | 25g each Pack of 2",
+    "description": "Brand            THE MMASALA BOX CO. \u2022 Item Form            Whole",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/41M99qgb3SL._AC_UF350,350_QL50_.jpg",
+    "price": 148.0,
+    "originalPrice": 592.0
+  },
+  {
+    "asin": "9349308045",
+    "title": "Math and Brain Games for Smart Kids - 5 to 6 Years Old - Activity Book for Kids | Book to develop early Math skills | Smart Math Practice for Bright Young Kids : Brainland Books",
+    "description": "#6,298 in Books (See Top 100 in Books) \u2022 #24 in Children's Books on Math",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/819iEZ4WhfL._AC_UF350,350_QL50_.jpg",
+    "price": 178.0,
+    "originalPrice": 270.0
+  },
+  {
+    "asin": "B0DV9B9NRK",
+    "title": "Live Money Plant, Indoor Potted Epipremnum Aureum with Variegated Leaves, Home and Garden Decor,Live Money Indoor Plant For Home and Garden without Pot, Big Leaf Money Plant (Pack of 1)",
+    "description": "Outdoor Living \u2022 Plants, Seeds & Bulbs",
+    "category": "Home & Kitchen",
+    "imageUrl": "https://m.media-amazon.com/images/I/617IWuBbC8L._SL1500_.jpg",
+    "price": 140.0,
+    "originalPrice": 349.0
+  },
+  {
+    "asin": "B0FRF8HH2T",
+    "title": "PurePrakriti Herbal Hair Mask with Amla, Reetha, Shikakai, Bhringraj & Hibiscus | Ayurvedic Haircare Powder for Hair Fall Control, Growth, Dandruff Care, Shine & Strength | For Dry & Frizzy Hair | 100g + Free Gloves",
+    "description": "Brand            PurePrakriti \u2022 Hair Type            All",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71CUUa1GN-L._AC_UF350,350_QL50_.jpg",
+    "price": 235.0,
+    "originalPrice": 402.43
+  },
+  {
+    "asin": "B0FCZFYK95",
+    "title": "Skinkart Original Type C VOOC Flash Charging Cable | Fast Charger for Oppo Reno 11/10/8/7/6/2/2Z/2F, Realme X/XT/X2/X2 Pro/5/6/6T | SuperVOOC Compatible USB-C Cable (Oppo Vooc Type C 1M)",
+    "description": "Defective: Verification by Brand or Amazon, through on-call support followed by inspection at your location or nearest brand service center if required. \u2022 Physical Damage, Wrong, Missing Items: Remote verification by Amazon.",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/51-YbPaFNwL._AC_UF350,350_QL50_.jpg",
+    "price": 275.0,
+    "originalPrice": 999.0
+  },
+  {
+    "asin": "B09495JM39",
+    "title": "Beadsnfashion 100 Meters Black Cotton Cord 0.5mm for Bracelet, Necklace, Beading, Macrame and DIY Handmade Crafts, Strong Thread String for Jewellery Making",
+    "description": "Home & Kitchen \u2022 Craft Materials",
+    "category": "Fashion",
+    "imageUrl": "https://m.media-amazon.com/images/I/71wcVSl-M-L._SL1500_.jpg",
+    "price": 265.0,
+    "originalPrice": 445.55
+  },
+  {
+    "asin": "B0G717TSJV",
+    "title": "Jiffix Premium Hair Comb Rotating Detangler Brush for Curly Hair, Anti-Frizz Self Cleaning Hair Brush with Flexible Bristles, Scalp Massage Comb for Men Women Kids Online at Low Prices in India - Amazon.in",
+    "description": "Brand            JIFFIX \u2022 Colour            Multicolor",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/316dSzSEgsL._AC_UF350,350_QL50_.jpg",
+    "price": 275.0,
+    "originalPrice": 999.0
+  },
+  {
+    "asin": "B09NQ5DJBX",
+    "title": "Breathable Pure Cotton Summer Full Face Cover for Biker, Face Protection Mask, Summer Face Cover, Winter, Dust Protection Mask, Helmet Cover for Bikers (Black Plain Mask Full)",
+    "description": "Car & Motorbike \u2022 Motorbike Accessories & Parts",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/51Sj6XtcLNL._SL1500_.jpg",
+    "price": 371.0,
+    "originalPrice": 1299.0
+  },
+  {
+    "asin": "B0H6C6C34N",
+    "title": "Handmade Keychain Collection | Crochet Floral, Fruit & Nazar Evil Eye | Boho Protection Charm for Bag, Purse, Backpack & Car | Aesthetic Meaningful Handcrafted Gift for Women & Girls",
+    "description": "Bags, Wallets and Luggage \u2022 Travel Accessories",
+    "category": "Fashion",
+    "imageUrl": "https://m.media-amazon.com/images/I/71bxAY958SL._SL1500_.jpg",
+    "price": 284.0,
+    "originalPrice": 999.0
+  },
+  {
+    "asin": "B0H6G72J49",
+    "title": "Wooden Key Holder for Wall MDF Key Organizer Rack for Home Office Entryway (21 Hook)",
+    "description": "Home & Kitchen \u2022 Home Storage & Organisation",
+    "category": "Home & Kitchen",
+    "imageUrl": "https://m.media-amazon.com/images/I/71bLLtGDaAL._SL1500_.jpg",
+    "price": 474.0,
+    "originalPrice": 599.0
+  },
+  {
+    "asin": "B0H99H4HZR",
+    "title": "BIRDLINE Reusable Waterproof Shoe Covers With Zipper & Drawstring | Anti-Skid Sole, Durable, PVC, Overshoes Non-Slip Snow & Rain Shoe Protectors for Men & Women | Outdoor & Travel Use Shoe Covers.",
+    "description": "Manufacturer:  BIRDLINE \u2022 Packer:  BIRDLINE, For Inquries\\Feedback\\Queries Write Us On : [birdline999@gmail.com] Call On : 9328352911",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/51g65tBOubL._AC_UF350,350_QL50_.jpg",
+    "price": 236.0,
+    "originalPrice": 416.12
+  },
+  {
+    "asin": "B0H6P7DTBJ",
+    "title": "Jewelry Organizer Tray for Drawers, 4 PCS Stackable Velvet Set",
+    "description": "Jewellery Accessories \u2022 Boxes & Organisers",
+    "category": "Fashion",
+    "imageUrl": "https://m.media-amazon.com/images/I/61yPdul0zFL._SL1500_.jpg",
+    "price": 379.0,
+    "originalPrice": 999.0
+  },
+  {
+    "asin": "B0GFTT5VVJ",
+    "title": "Women Printed Pure Cotton Anarkali Kurta || Floral Anarkali Gown || Long Gown for Women Pink",
+    "description": "Clothing & Accessories \u2022 Ethnic Wear",
+    "category": "Fashion",
+    "imageUrl": "https://m.media-amazon.com/images/I/81Ytoei2UdL._SL1500_.jpg",
+    "price": 409.0,
+    "originalPrice": 1999.0
+  },
+  {
+    "asin": "B0CRKQT8ZJ",
+    "title": "ADONIS Grip Hair Fall Control Shampoo with Dead Sea Minerals, Saw Palmetto & Biotin | Anti Hair Fall Shampoo for Men & Women | 150ml Online at Low Prices in India - Amazon.in",
+    "description": "Brand            ADONIS \u2022 Item Form            Gel",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/61asAbutEVL._AC_UF350,350_QL50_.jpg",
+    "price": 559.0,
+    "originalPrice": 818.77
+  },
+  {
+    "asin": "B0H1JBXCV6",
+    "title": "Kidoyz Magnetic Writing Board for Kids | Magnetic Slate & Drawing Pad | Erasable Doodle Board for Boys & Girls 2-5 Years | Educational Learning Toy | Magnet Toy, Random Color - MagPad",
+    "description": "Toys & Games \u2022 Arts & Crafts",
+    "category": "Home & Kitchen",
+    "imageUrl": "https://m.media-amazon.com/images/I/61O0X0udDYL._SL1500_.jpg",
+    "price": 284.0,
+    "originalPrice": 999.0
+  },
+  {
+    "asin": "B0FV32W7TY",
+    "title": "JEWEL FUEL 5g Laxmi ganesh Pure Silver plated coin Silver Coin - 5 gram Silver | Ideal Gift for Ganesh Chautrthi, Diwali, Corpate Gifts, Dhanteras,wedding gift",
+    "description": "Anwar abbas5 out of 5 starsVerified PurchaseGoodReviewed in India on 16 October 2025Brief content visible, double tap to read full content.Full content visible, double tap to read brief content.NiceRead moreRead lessOne person found this helpfulHelpfulSending feedback...Thank you for your feedbac...",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/41FOU1GHb7L._SL1500_.jpg",
+    "price": 370.0,
+    "originalPrice": 1499.0
+  },
+  {
+    "asin": "B0F221RN77",
+    "title": "Sheux Artificial Maple Orange Leaves String - Autumn Like Decor for Home, Office, and Events Decoration, Heavy Leaves Plant String (8 feet Long, Pack of 24) Safe & Non-Toxic Feng Shui Plant",
+    "description": "Home & Kitchen \u2022 Home & D\u00e9cor",
+    "category": "Home & Kitchen",
+    "imageUrl": "https://m.media-amazon.com/images/I/81rAy0rlhuL._SL1500_.jpg",
+    "price": 608.0,
+    "originalPrice": 1799.0
+  },
+  {
+    "asin": "B0F248NJ7R",
+    "title": "Disposable Underarm Sweat Pads |Pack of 30 | for Men | Women \u2013 Highly Absorbent, Cotton, Anti-Allergic, Anti-Bacterial, and Odor-Control Underarm Sweat Pads, Peel-off",
+    "description": "Bath & Body \u2022 Deodorants & Antiperspirants",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71BVn8vvnlL._SL1500_.jpg",
+    "price": 188.0,
+    "originalPrice": 899.0
+  },
+  {
+    "asin": "B0DYJ6HHWG",
+    "title": "PARADYSE PERFUME Mafia Oud Men's EDP, Smoky & Woody Fragrance | Blends Oakmoss, Pineapple & Sandalwood Extracts,Packaged in a heavy glass bottle, Somky, Woody, Earthy & Fruity scent,100 ml Online at Low Prices in India - Amazon.in",
+    "description": "Brand            PARADYSE PERFUME \u2022 Item Form            Liquid",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/61G7Jw1lqBL._AC_UF350,350_QL50_.jpg",
+    "price": 1172.0,
+    "originalPrice": 1799.0
+  },
+  {
+    "asin": "B0FM46RGBY",
+    "title": "PULOKA Universal Mobile PU Leather Holster Pouch Belt Loop Carry Two Phone up to 6.9 Inch and Cash Card ID Proof and Accessories Perfect for Travel Companion - Black",
+    "description": "Electronics \u2022 Mobiles & Accessories",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71CIlNK0yUL._SL1500_.jpg",
+    "price": 949.0,
+    "originalPrice": 2999.0
+  },
+  {
+    "asin": "B0F4X6192C",
+    "title": "Day Care 600 TC Super Soft 100% Egyptian Cotton Pillow Covers 20 x 40 Inches - Egyptian Cotton Set of 2 Pillow Cover Set Envelope Closure Pillowcase - Orange",
+    "description": "Home & Kitchen \u2022 Home Furnishing",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/71knJGG3DIL._SL1500_.jpg",
+    "price": 616.0,
+    "originalPrice": 1299.0
+  },
+  {
+    "asin": "B08XBPV5H8",
+    "title": "Adjustable FootRest, Ergonomic Desk Footrest with Massage Function, 6 Adjustable Height Footrest Non-Slip Foot Stools for Office, Relieve Leg, Knee and Back Pain, Great for Home & Office & Travel",
+    "description": "Plan is valid for a period of 1 year and covers accidental damage and liquid spills \u2022 Manufacturing defects, normal wear & tear, comfort-related issues, misuse, and intentional damage are not covered; plan is not valid if purchased standalone.",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/61sEzFHEirL._AC_UF350,350_QL50_.jpg",
+    "price": 1517.0,
+    "originalPrice": 2599.0
+  },
+  {
+    "asin": "B0DTQ4ZMLR",
+    "title": "Anti-Burst Peanut Ball with Foot Pump, Shaped Swiss Stability Yoga Exercise Balance Ball for Kids, Labor Birthing, Physical Therapy Fitness,Gym Workout Exercise Ball (Multicolour)",
+    "description": "Sports, Fitness & Outdoors \u2022 Exercise & Fitness",
+    "category": "Health & Fitness",
+    "imageUrl": "https://m.media-amazon.com/images/I/61IuB28IclL._SL1500_.jpg",
+    "price": 854.0,
+    "originalPrice": 1899.0
+  },
+  {
+    "asin": "B0GM6WW3VG",
+    "title": "Trillion Men's Textured Fabric Solid Color Basic Half-Open Collar T-Shirt, Fall Long Sleeve Men Shirt | Tshirt for Men White",
+    "description": "Track Pants \u2022 NUCOUTHSMen Straight Fit White Jeans Stylish Everyday Denim Pants\u20b9899\u20b9899FREE delivery Wed, 23 Sept",
+    "category": "Technology",
+    "imageUrl": "https://m.media-amazon.com/images/I/81lZnvc8dOL._SL1500_.jpg",
+    "price": 398.0,
+    "originalPrice": 1599.0
   }
 ]
