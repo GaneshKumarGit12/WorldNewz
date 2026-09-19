@@ -32829,6 +32829,501 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B08MQ8D1XN",
+                Title = "BANGE The Clownfish Men's And Women's Water&Scratch Resistant Anti Theft Standard Messenger/Sling/Chest/Crossbody/Hiking/Shoulder/Sling Bag With Usb Port Fits Up To 7.9 Inches Ipad (Camouflage), 6L",
+                Description = "#12,373 in Bags, Wallets and Luggage (See Top 100 in Bags, Wallets and Luggage) • #592 in Messenger & Sling Bags",
+                Price = 1898.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08MQ8D1XN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71GLwxBVgaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BKTD22MG",
+                Title = "Reversible 16x16 Pink Cotton Argyle Woven Pack of 2 Fashion Throw Pillow Covers Cases for Couch Sofa Home Decoration | 40x 40 cm",
+                Description = "Home & Kitchen • Home Furnishing",
+                Price = 664.00m,
+                OriginalPrice = 962.75m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BKTD22MG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719DxlS288L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GMJ3KY18",
+                Title = "Women's Plain & Glossy Finished Raindrop Glass Bangles Set for Women|Traditional Ethnic Chudi for Wedding, Party & Regular- Set of 12 Pcs of One Color",
+                Description = "Bangles & Bracelets • Image Unavailable Image not available forColour:",
+                Price = 258.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GMJ3KY18?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61WJ77bSiSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTVH1F19",
+                Title = "Urban Elite 304 Stainless Steel Chopping Board with Lip 42 x 32 cm | Anti-Slip Design | Free Rolling Pin Included | Multipurpose Cutting Board for Vegetables, Meat, Fish & Fruits",
+                Description = "Home & Kitchen • Kitchen & Dining",
+                Price = 939.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GTVH1F19?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71D-MWNz9NL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVTQ4RLM",
+                Title = "SIGNOTECH Metal Imported led Deer Wall lamp for Living Room,Bedroom,Dinning Room (Modern-W/H/W/S/Square), Black",
+                Description = "EMAIL DELIVERY ONLY: Download your extended warranty certificate by sharing your device details. The link is available under buyer/seller messages at www.amazon.in/msg and is also sent to your Amazon registered email ID • REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give ...",
+                Price = 474.00m,
+                OriginalPrice = 2145.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVTQ4RLM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/418hHdB2egL._AC_UF350,350_QL50_._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F14YFT6C",
+                Title = "Connect & Collect Auckland, New Zealand World Famous Cities Acrylic Fridge Magnet | 3x2 Inches, 3mm Thick | Quality Finish Decorative for Home, Office, Locker, PC Cabinets, Almirah",
+                Description = "Home & Kitchen • Home & Décor",
+                Price = 133.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F14YFT6C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81D9+U1hy2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GS27QVV4",
+                Title = "Frescorr - 100 PCS Mini Hair Clips for Girls & Kids | Candy Color Plastic HairClips, Hair Beads for Kids & Girls Multicolor (Pastel)",
+                Description = "Brand Frescorr • Colour Pastel",
+                Price = 193.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GS27QVV4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CIrkER6YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5T98BZ7",
+                Title = "Classic Premium 360° Spin Mop Stick Rod Adjustable & Extendable Mop Handle | Stainless Steel Rust-Proof Floor Cleaning Rod Compatible with Spin Mops Refill - 4 Refill",
+                Description = "Home Improvement • Cleaning Supplies",
+                Price = 474.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H5T98BZ7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61G2kDkkVPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTJ9FLNJ",
+                Title = "Painless & Quick Hair Removal Wax Powder For All Skin Type, Herbal Wax For Full Body with Premium Ingredients, No Harmful Chemicals - No Irritation, No Skin rashes-120 gm",
+                Description = "Health & Personal Care • Personal Care",
+                Price = 284.00m,
+                OriginalPrice = 500.88m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DTJ9FLNJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61pE-L3OTUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D14TW7F5",
+                Title = "SRZ Lawn Aerator Shoes Grass Aerator Sandals Soil Loosening Soil Aerator Gardening Sandals (6 Straps, 26 Detachable Spikes)",
+                Description = "Brand SAMRUKZONE • Colour Green",
+                Price = 645.00m,
+                OriginalPrice = 1101.62m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D14TW7F5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DTW9d+prL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C4MDLXLS",
+                Title = "WinWoodsAgri Plastic Bonsai Planter, Lucky Plant Pot, Succulent Plant Flower Pot for Home Garden Office Balcony - (Brown, Pack of 3)",
+                Description = "Material Plastic • Colour brown",
+                Price = 521.00m,
+                OriginalPrice = 783.35m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C4MDLXLS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rh73IhoYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQVMHK4T",
+                Title = "Motor Headz Triple Action Clay Bar 300g Premium Grade Car Detailing Clay No Scratches No Swirls Enhanced Cleaning and Superior Adsorption for Auto Detailing Car Wash Clean (Pack Of 3)",
+                Description = "Car & Motorbike • Car & Motorbike Care",
+                Price = 460.00m,
+                OriginalPrice = 735.13m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CQVMHK4T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71l2kmARj1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCJ4CCGL",
+                Title = "GOPIKRISHNA3 in 1 Rotary Multi-Functional Peeler, Suitable for Vegetable and Fruit, with Serrated Blade + Straight Julian Stainless Steel, Anti-Slip Handle Design, Slicer",
+                Description = "Home & Kitchen • Kitchen & Dining",
+                Price = 148.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HCJ4CCGL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cD59S2G3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDR4HQS1",
+                Title = "SBT 2500X Binocular Compound Microscope | 40X–2500X Laboratory & Medical Microscope with 18mm Wide Field Eyepiece | Ideal for Students, Doctors, Pathology & Biology Labs",
+                Description = "Electronics • Cameras & Photography",
+                Price = 9499.00m,
+                OriginalPrice = 14999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GDR4HQS1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614wZJONJjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09DS5YW8Z",
+                Title = "A&S VENTURES Brass Plate Thali with Shivling Stand and Jal Abhishek Kalash Lota for Pooja Home Decor (Gold) (PTSS_99)",
+                Description = "Home & Kitchen • Religious & Spiritual Items",
+                Price = 284.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09DS5YW8Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61znlfWV1QL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDFC9Z54",
+                Title = "Trendifly Elephant Design Wooden Oxidised Jewellery Storage Box With Lock for Women 4 x 4 inch | Wood Jewel Earrings Ring Multipurpose Jewelry Organiser Box | Wedding Housewarming Pooja Return Gifts",
+                Description = "Jewellery Accessories • Boxes & Organisers",
+                Price = 270.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GDFC9Z54?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819IcJXQcKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ1GTJMG",
+                Title = "JIKRAA® Indian Madhubani Folk Art Ceramic Decorative Designer Wall Plates | Traditional Wall Hanging for Home & Office Décor (Set of 4 Plates – 2 x 10 Inch, 2 x 8 Inch) Online at Low Prices in India - Amazon.in",
+                Description = "Material Ceramic • Brand JIKRAA",
+                Price = 2393.00m,
+                OriginalPrice = 3817.18m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ1GTJMG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Gp+gK7uUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B098XVJDWH",
+                Title = "Made for you Beautiful Beaded Table Runner Craftsmanship Measure 13 * 36 Inches| Thanksgiving - Occasional Decoration Beige - Blue Colour, Standard Online at Low Prices in India - Amazon.in",
+                Description = "This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25000 • Products Cover...",
+                Price = 1119.00m,
+                OriginalPrice = 2009.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B098XVJDWH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/813mkDoKaEL._AC_UF350,350_QL50_._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08FDV34S1",
+                Title = "VIROSA 12 Pieces Hawaiian Lei Flower Lei Luau Garland For Tropical Party Hen do Special Occasion Decorations Online at Low Prices in India - Amazon.in",
+                Description = "This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25000 • Products Cover...",
+                Price = 512.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08FDV34S1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61GqNKSZJVL._AC_UF350,350_QL50_._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07WFPRCJH",
+                Title = "Beadsnfashion Glass Pearls Kundan Work Beaded Necklace Adjustable Dori White for DIY Jewelry Making and Other Projects Pack of 1 Pc Online at Low Prices in India - Amazon.in",
+                Description = "Brand Beadsnfashion • Age Range (Description) Adult",
+                Price = 232.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07WFPRCJH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ytVD6rDiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DVPW2YP2",
+                Title = "Live All Spice Plant Kerala Sarva Sugandhi – Aromatic, Medicinal, Multi-Spice Fragrance, Home Garden Essential, Fast Growth, Easy Maintenance, Healthy Herb.(Pack of 1)",
+                Description = "Indoor/Outdoor Usage Indoor, Outdoor • Brand Generic",
+                Price = 158.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DVPW2YP2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/817g6sAQltL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWFH9GFV",
+                Title = "LATHAR Jewellery Antique Gold Plated Temple Necklace Set with Earrings for Women | Traditional Ethnic Bridal Jewellery | Matte Gold South Indian Design | Festive Wedding Jewellery Set (Polki Pink) at Amazon.in",
+                Description = "GenericAARAMYA KREATION Glass Tricolor Bangles Set in orange white & green color for Special Occassions for Women & Girls₹299₹299FREE delivery Fri, 25 Sept • NY LIFESTYLESWomen's Glass Bangles – Elegant Spiral Design | Stylish Hand Accessories for Women & Girls | Traditional & Casual Wear | Premi...",
+                Price = 407.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GWFH9GFV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81DOIC0yqLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08R1WFQ2M",
+                Title = "Keshrag Herbal Shampoo - 200ml (Pack of 2)",
+                Description = "Shampoo & Conditioner • Image Unavailable Image not available forColour:",
+                Price = 266.00m,
+                OriginalPrice = 365.27m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08R1WFQ2M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7120R98XQHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FVY94DJ7",
+                Title = "Antique Decorative Adivasi Couple Cycle Table Clock Showpiece for Home | Living Room Decorative Gift, Festive Occasions, Bedroom & Office Desk Showpiece, Wedding Anniversary & Corporate Gifts",
+                Description = "This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25000 • Products Cover...",
+                Price = 662.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FVY94DJ7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BtwONx-UL._AC_UF350,350_QL50_._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BT1WGBT2",
+                Title = "dhcrafts Fridge Magnet Multicolor Mukleshwar Uttarakhand Glossy Finish Design Pack of 1 (58mm) Online at Low Prices in India - Amazon.in",
+                Description = "Size Medium • Colour Uttarakhand Mukleshwar",
+                Price = 146.00m,
+                OriginalPrice = 308.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BT1WGBT2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61WRXnko3rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GT2665RM",
+                Title = "R home Premium Embroidered Cotton Table Napkins Set of 6 Reusable Cloth Dinner Napkins Soft Washable Dining Table Linen Elegant Kitchen Coffee Table Decor (R home Desert Palm, 40X40 CM) Online at Low Prices in India - Amazon.in",
+                Description = "Colour R home Desert Palm • Material Cotton",
+                Price = 854.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GT2665RM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91i-7++qDbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DPFYVH8J",
+                Title = "Pastallio Multi Millet Penne Pasta | High Fibre Low Gluten | 400g (200g x 2)",
+                Description = "Brand PASTALLIO • Variety Penne Rigate",
+                Price = 240.00m,
+                OriginalPrice = 411.94m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DPFYVH8J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Fg51ieK7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DYP4Z49T",
+                Title = "Glycerin Saffron Soap Base |100% Pure Organic & Natural | Paraben, SLS, Chemical Free | Melt & Pour Soap Base Bar For Soap Making 500gm",
+                Description = "Bath & Body • Solid Soap Bars",
+                Price = 160.00m,
+                OriginalPrice = 255.31m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DYP4Z49T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Md-Ht+cQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7216KTB",
+                Title = "Aesthetic Handmade Big Oval Trinket Tray Handmade | Jewelry Organizer | Vanity Tray for Women | Minimalist Home Decor, Candle Holder & Multipurpose - (20 x 11 cm)",
+                Description = "Jewellery Accessories • Boxes & Organisers",
+                Price = 189.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H7216KTB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EK-XKUwOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D4799FPY",
+                Title = "Harshdeep Flower Pots for Home Decoration - Verona - Indoor Outdoor Balcony Garden Decorative Eco Friendly Recyclable Planter, Made of Bamboo, Rice Husk 9 Inch Set of 2 (Brown)",
+                Description = "Material Plastic • Colour Brown",
+                Price = 1044.00m,
+                OriginalPrice = 1407.74m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D4799FPY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41VENQFQzcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B082C7WJP9",
+                Title = "ROUNDHILL Sheesham Wood Dining Chairs Set of 2 for Living Room Study Chairs for Students Wooden Seating Chair for Office Furniture for Home (Walnut Finish)",
+                Description = "Plan is valid for a period of 1 year and covers accidental damage and liquid spills • Plan is email delivered and auto activated if purchased along with the product on Amazon.",
+                Price = 6174.00m,
+                OriginalPrice = 8999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B082C7WJP9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41ftjqN0pmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7WWJQRV",
+                Title = "Solo Decor Resin Deer Head Mounted Antique Decorative Wall Scone Light Lamp for Living Room,Bedroom and Office Wall Decoration (White)",
+                Description = "EMAIL DELIVERY ONLY: Download your extended warranty certificate by sharing your device details. The link is available under buyer/seller messages at www.amazon.in/msg and is also sent to your Amazon registered email ID • REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give ...",
+                Price = 2855.00m,
+                OriginalPrice = 9999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D7WWJQRV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71aLaSPQH+L._AC_UF350,350_QL50_._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H341TBVK",
+                Title = "WAREKITTH Sink Drain Basket for Kitchen Sink, Food Waste Strainer with Handle, Kitchen Sink Garbage Collector, Drain Filter Basket for Food Scraps. (1)",
+                Description = "Material Plastic • Colour Multicolor",
+                Price = 284.00m,
+                OriginalPrice = 28400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H341TBVK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61G2G5syYQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
