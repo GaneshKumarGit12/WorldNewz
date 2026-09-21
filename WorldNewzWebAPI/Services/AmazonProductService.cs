@@ -34299,6 +34299,336 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0GMKSN8X5",
+                Title = "Diamond Pearl Hair Pins for Women & Girls | Bridal Juda Bun Pins for Wedding, Party & Festive Hair Styling | Fancy Juda Accessories for Long Hair (PK12)",
+                Description = "Beauty • Hair Care",
+                Price = 379.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GMKSN8X5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DHZfoUOaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMRTJJ5D",
+                Title = "exploralearn 145 Pcs Ultimate Resin Art Kit with 200g Epoxy Resin – DIY Alphabet, Jewelry, Keychains, Coasters & Bookmarks – Includes Dried Flowers, Stickers, Glitters & More",
+                Description = "Home & Kitchen • Craft Materials",
+                Price = 1219.00m,
+                OriginalPrice = 2899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FMRTJJ5D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91ZSvdUyOHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSHWZVZ5",
+                Title = "Biopanth Advanced Hair Growth & Scalp Serum – 3% Redensyl, 4% Anagain, 2% Baicapil, Caffeine & Keratin | Hair Fall Control Serum for Frizzy, Thinning Hair | Men & Women, 30ml (Pack of 1)",
+                Description = "•",
+                Price = 650.00m,
+                OriginalPrice = 2166.67m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DSHWZVZ5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718PyivhyrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNDLWSKG",
+                Title = "WELL KNOWN Folding Comfort Chair for Living Room Bedroom Hall Home Wooden Furniture for Balcony Garden Indoor Outdoor (Natural Finish) (Brown)",
+                Description = "Home & Kitchen • Furniture",
+                Price = 3548.00m,
+                OriginalPrice = 9999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FNDLWSKG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718G-ES0sPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GYRGV8FJ",
+                Title = "Metal Folding Chair with Soft Cushioned Leatherette Seat | Foldable Chair for Home, Office, Study, Balcony, Kitchen & Restaurant | Space Saving Portable Steel Chair | Black",
+                Description = "Home & Kitchen • Furniture",
+                Price = 1709.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GYRGV8FJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71FqjD5XlaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CF977L7J",
+                Title = "Tattva Adih Pure Dandelion Root - 100 gm Pouch, 60+ Cups | Caffeine Free | Liver Cleanse | Digestion Support - Gut Health | PowerHouse of Antioxidants I Single Ingredient | Powder Form",
+                Description = "Grocery & Gourmet Foods • Coffee, Tea & Beverages",
+                Price = 343.00m,
+                OriginalPrice = 568.22m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0CF977L7J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61GUkEWSMnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DKN5PX56",
+                Title = "DIVE Daily Lactase Enzyme | Chewable Tablet | Dairy Relief Supplement | 9000 ALU Strength | Prevents Gas, Bloating, Diarrhea | 100% Vegetarian | Sugar-Free | Orange Flavour, 30 Count",
+                Description = "Health & Personal Care • Diet & Nutrition",
+                Price = 379.00m,
+                OriginalPrice = 574.71m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DKN5PX56?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JXDzlUQ2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTKDV5Z8",
+                Title = "Omkar Associate's Alphonso Mango Pulp, 450gm",
+                Description = "Grocery & Gourmet Foods • Canned & Jarred Food",
+                Price = 234.00m,
+                OriginalPrice = 307.94m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DTKDV5Z8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61QaRNBeOzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H9TZB3Z3",
+                Title = "Sadhev Ayurvedic Anti Dandruff Shampoo – Neem, Rosemary, Bakuchiol, Aloe Vera & Wild Ginger | Ayurvedic Herbal Shampoo for Dandruff Control, Itchy Scalp & Hair Fall | Sulphate-Free, Paraben-Free, Vegan | 75ml",
+                Description = "Beauty • Hair Care",
+                Price = 449.00m,
+                OriginalPrice = 598.67m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0H9TZB3Z3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61us-ipujXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GG9TV8Q9",
+                Title = "8% Glycolic Acid Toner | AHA Exfoliating Toner for Face, Scalp & Body | Fades Dark Spots, Evens Skin Tone | Rose Hydrosol | All Skin Types | 200ml",
+                Description = "Beauty • Skin Care",
+                Price = 222.00m,
+                OriginalPrice = 309.58m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GG9TV8Q9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51JDVOULGPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08SJXC6ZV",
+                Title = "GIL Genuine Leather Belt for Men Perfect for Formal and Casual Wear with Adjustable Waistband Buckle, Snake-Print Classic Design Ideal for Jeans, Gifting, Office, Party or Daily Use",
+                Description = "Clothing & Accessories • Men",
+                Price = 1487.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08SJXC6ZV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71MV85wDIiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CR6C2F8Y",
+                Title = "Handloom Linen Cotton Blend Weaving Boota Bhagalpuri Dupatta for Women",
+                Description = "Clothing & Accessories • Women",
+                Price = 429.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CR6C2F8Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61n3m6vSFwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFYCS85K",
+                Title = "C22 Adhesive Remover Spray for Hair Patch Systems/Wig Tape & Lace — Fast-Acting, Skin-Friendly with No Side Effects, 118ml (118)",
+                Description = "Beauty • Hair Care",
+                Price = 629.00m,
+                OriginalPrice = 976.58m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FFYCS85K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51nPVXMo2sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GNN4LHX3",
+                Title = "Premium Neem Wood Chakla Belan Set (1.2 kg Heavy) with Non-Slip Pads | Handcrafted Wooden Rolling Board & Pin with Built-in Stand | Hygienic, Durable for Roti, Chapati & Paratha",
+                Description = "Home & Kitchen • Kitchen & Dining",
+                Price = 949.00m,
+                OriginalPrice = 1305.83m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GNN4LHX3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tk5pwoK3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FSWXCDB9",
+                Title = "Herys 15% Vitamin C Serum for Glowing Skin | for Oily, Dry & Combination Skin | Reduce Pigmentation & Dark Spot | Non-Irritating, Hydrating & Soothing | Face Serum for Men & Women | 30ml",
+                Description = "Beauty • Skin Care",
+                Price = 179.00m,
+                OriginalPrice = 239.31m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FSWXCDB9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ODTDpeQnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ775QCP",
+                Title = "dockstreet Straight Wide fit Long Length Open Bottom Jogger for Men/Trending Multi Pocket Style, Relaxed Casual Pants for Men",
+                Description = "Clothing & Accessories • Women",
+                Price = 360.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ775QCP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61L38sD2SuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07H6XTZZC",
+                Title = "Mozart Harmonica Mouth Organ, 24 Holes 48 Tones Key of C, Professional Tremolo Harmonica for Adults & Beginners, Musical Instrument for Blues, Folk, Rock, Jazz",
+                Description = "Musical Instruments • Wind Instruments",
+                Price = 612.00m,
+                OriginalPrice = 1175.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07H6XTZZC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xYuoLtdBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BXQ5H422",
+                Title = "Screen Guard For Ather 450 X / 450 Plus EV Scooter | Anti Scratch | HD Clear | Scratch Resistant | 7 INCH TFT Digital Meter Instrument Cluster Accessory [Not A Tempered Glass] (Pack of 1)",
+                Description = "Electronics • Mobiles & Accessories",
+                Price = 176.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BXQ5H422?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KUeJ2OoAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNXW1NJT",
+                Title = "Vastu Salt to Remove Negative Energy | Sea Salt for Vastu (Energised) | Used for Home, Bathroom, Nazar Dosh, Floor Cleaning | Brings Positive Energy 700g",
+                Description = "Grocery & Gourmet Foods • Cooking & Baking Supplies",
+                Price = 331.00m,
+                OriginalPrice = 497.26m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CNXW1NJT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RwjJFnlrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBK958YT",
+                Title = "Hand Made Organic Mandara Leaf Cup Disposable Siali Leaf Dona Thonnai 4.5 Inch (100 Pcs)",
+                Description = "Hand Made Organic Mandara Leaf Cup Disposable Siali Leaf Dona Thonnai 4.5 Inch (100 Pcs)...",
+                Price = 299.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FBK958YT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71totzlhesL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B084TLYV7S",
+                Title = "INDRICO 6A 16A Power Extension Board Box with 4 Meter Heavy Duty Cable & Surge Protector",
+                Description = "INDRICO 6A 16A Power Extension Board Box with 4 Meter Heavy Duty Cable & Surge Protector...",
+                Price = 749.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B084TLYV7S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51O-Im3PklL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G9X3B3F3",
+                Title = "ReFixLy Premium Heavy Metal Plant Stand Planter for Indoor Outdoor Garden & Balcony",
+                Description = "ReFixLy Premium Heavy Metal Plant Stand Planter for Indoor Outdoor Garden & Balcony...",
+                Price = 499.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G9X3B3F3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51imzLv3mcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
