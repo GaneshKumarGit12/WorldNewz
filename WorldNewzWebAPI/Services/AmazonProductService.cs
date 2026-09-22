@@ -34629,6 +34629,486 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0B4KCS213",
+                Title = "NIDY® Wet and Dry Body Brush Exfoliator Soft Bristle Brush Naturally Exfoliates Dead Skin, Smooths Cellulite, Slows Aging, Body Brush, Natural Bristle Exfoliating Body Skin Dry Brush for Lymphatic",
+                Description = "Beauty • Tools & Accessories",
+                Price = 263.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0B4KCS213?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dNxtEqZUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9X6BN3R",
+                Title = "ANTAJI FARMS Raw Jamun Honey Pure and Natural, Unprocessed & Unpasteurized Healthy Honey Sealed Packed Reusable Airtight Jar (1 kg)",
+                Description = "Grocery & Gourmet Foods • Cooking & Baking Supplies",
+                Price = 548.00m,
+                OriginalPrice = 835.36m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0C9X6BN3R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61FGdrqyZnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GS9WMP8H",
+                Title = "Arvella Wall Plates for Home Decoration | Wall Plates | Wall Decor Plates | Plates for Wall Decoration | Decorative Plates for Wall | Premium Luxury Wall Décor for Elegant Modern Interiors| Gift Items",
+                Description = "Home & Kitchen • Home & Décor",
+                Price = 1614.00m,
+                OriginalPrice = 2231.32m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GS9WMP8H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zLyQVSGCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B074HGZMGC",
+                Title = "ANS Mosquito Net Polycotton with Same Color Cotton Border, Highly Durable Hanging Net, Sky Blue, 6.5 x 10 ft Extra Large Bed, Free Airflow Design for Comfortable & Safe Sleep",
+                Description = "Home & Kitchen • Home Furnishing",
+                Price = 1849.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B074HGZMGC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+z6aPY9fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DWJJ7KR1",
+                Title = "Moroccan Argan Hair Mask, Deep Conditioning Spa Cream, 500g",
+                Description = "Beauty • Hair Care",
+                Price = 2056.00m,
+                OriginalPrice = 3182.90m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DWJJ7KR1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JE-EsKB5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DYQ9H926",
+                Title = "dockstreet Mens Open Bottom Closed Bottom Joggers22825W3-|BAGYFITjogger|-LightBlueMen38",
+                Description = "• See ###dimension options with no featured offers",
+                Price = 379.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DYQ9H926?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51oNZdALekL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B095C49PBG",
+                Title = "Kostech Aloe Vera Magnetic Gel Eye Mask for Dark Circles & Eye Pain | Cooling & Heating Eye Mask for Headache, Puffiness & Migraine | Reusable Eye Relaxation Mask for Men & Women (Pack Of 3)",
+                Description = "•",
+                Price = 149.00m,
+                OriginalPrice = 206.06m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B095C49PBG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710px8VGN0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJMCF65D",
+                Title = "Flower Tealight Candles Gift Set, Pack of 4, Vanilla Scented, (Multi Colour) Packed in net with Happy Diwali Tag (8 Set)",
+                Description = "Home & Kitchen • Home & Décor",
+                Price = 799.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CJMCF65D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81VnFUfUz2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGX5SRB5",
+                Title = "Buy UrbanMooch Sea Salt Hair Volumizing Mousse for Men, Texture & Flexible Hold, 150 ml Online at Low Prices in India - Amazon.in",
+                Description = "•",
+                Price = 327.00m,
+                OriginalPrice = 438.19m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0HGX5SRB5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617wLzjZCiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7Y2PN87",
+                Title = "NEXILA Herbal Foot Patches, Pack of 3(30) | Overnight Foot Care Pads, Ginger & Bamboo Vinegar, Adhesive Foot Pads for Daily Self-Care, Comfortable for Men & Women",
+                Description = "•",
+                Price = 331.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0H7Y2PN87?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tF9AYwjYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DKNGYWXW",
+                Title = "GlowbyNJK Faceall Salicylic Acid Face Wash for Women & Men, 100 ml | Oily & Acne Prone Skin, Deep Pore Cleansing & Oil Control Cleanser, With Aloe Vera & Glycerin",
+                Description = "•",
+                Price = 279.00m,
+                OriginalPrice = 427.98m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DKNGYWXW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SVuxuqZZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GK8P9N1F",
+                Title = "Khadi Kumkumadi Tailam Face Serum | Ayurvedic Face Glowing Oil with Saffron & Herbs | Brightening, Hydrating & Anti Aging Care | Fast Absorbing, Non-Greasy | For All Skin Types | 30 ml (Pack of 1)",
+                Description = "•",
+                Price = 278.00m,
+                OriginalPrice = 458.91m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GK8P9N1F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Ud4JjcTgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FG3XPPSC",
+                Title = "Quality Dates & Nuts Premium Almond Stuffed Dates 400g | Roasted California Almond Stuffed Khajur, No Added Sugar, Rich in Fiber & Protein, Natural Energy Booster",
+                Description = "•",
+                Price = 589.00m,
+                OriginalPrice = 787.69m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0FG3XPPSC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71GAhtXvrcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJFRK4QN",
+                Title = "Black-R USB C Hub, with Ethernet RJ45 8-in-1 USB Type C Hub with 4K HDMI Power Delivery SD/TF Card Reader Multi USB Port for Laptop and Other Type C Devices MacBook Pro M1 M2 M3 M4",
+                Description = "Computers & Accessories • Accessories & Peripherals",
+                Price = 1699.00m,
+                OriginalPrice = 2899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DJFRK4QN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51O8dzyfAFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7NP7WYZ",
+                Title = "Habba Blouse Piece with Cow Kumkum Set, Decorative Silver Plate & Laminated Carry Bag, Silk Blend Blouse Material Combo for Traditional Haldi Kumkum, Pooja Return Gifts, Navratri, Diwali - Pack of 5",
+                Description = "No featured offers •",
+                Price = 711.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H7NP7WYZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91NjtpXaPXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9WTBVNR",
+                Title = "Trendifly Silk Royal Traditional Jewellery Organiser Bag | Travel Makeup Cosmetic Jewelry Storage Organizer Box For Bridal Women Earrings Bracelet Necklace, Green",
+                Description = "• This protection plan secure general contents of household used in our Home, e.g., furniture and fixtures, electronic items and goods, antennae, solar panels, water storage equipment, home improvement tools, kitchen equipment, electrical equipment for products priced upto INR25",
+                Price = 1662.00m,
+                OriginalPrice = 2500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C9WTBVNR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1qXeiIs4nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BYXFRJ6G",
+                Title = "Buy Myy Brand Modern Plastic Round Hanging Lamp/Light Shade For Stylish Home Décor (Flower Red (4) Online at Low Prices in India - Amazon.in",
+                Description = "• Brand",
+                Price = 399.00m,
+                OriginalPrice = 577.94m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BYXFRJ6G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51upZ9pN3tL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ87CMG4",
+                Title = "GUDDIES Auto Focus Reading Glasses, Blue Light Blocking, Rimless Frame, Adjustable Focus for Men and Women Auto Adjusting Optic Magnifying Readers, Computer Screen (pack 1piece)",
+                Description = "EMAIL DELIVERY ONLY: Download your extended warranty certificate by sharing your device details. The link is available under buyer/seller messages at www.amazon.in/msg and is also sent to your Amazon registered email ID • REPAIR OR REPLACEMENT GUARANTEE: We will either repair you",
+                Price = 229.00m,
+                OriginalPrice = 378.42m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ87CMG4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41HucfkWpCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFRC3436",
+                Title = "1pc Premium Squishy Toy, Soft Taba Squeeze Stress Relief Fidget Toy for Kids & Adults, Kawaii Mochi Desk Anxiety Relief Toy, Birthday Gift & Party Favor",
+                Description = "Toys & Games • Novelty & Gag Toys",
+                Price = 284.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFRC3436?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xRUAfgwjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FS1Y7LK6",
+                Title = "Wooden Jharokha Wall Shelf & Tealight Holder – Decorative Floating Shelves for Pooja Room, Diya Stand, Hanging Wall Decor, Diwali Decoration For& Main Door Entrance (Set of 5)",
+                Description = "• Plan is valid for a period of 1 year and covers accidental damage and liquid spills",
+                Price = 283.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FS1Y7LK6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nvRKAu8RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVL591QK",
+                Title = "Buy Bluedeal 3-in-1 Gel Nail Polish Uv Light Lamp | Nail Dryer Machine | Nail Paint Dryer Machine - Professional Salon-quality Results At Home | Uv Lamp For Nails Art (Multicolor) Online at Low Prices in India - Amazon.in",
+                Description = "•",
+                Price = 459.00m,
+                OriginalPrice = 687.24m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CVL591QK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41dNJXuv3HL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6STHSBJ",
+                Title = "Buy 7D Printed King Size Bedsheet with 2 Pillowcases, Fairytale, 228x228cm | Premium 3D Digital Print, For Double Bed, Soft, Lightweight, Fade Resistant Online at Low Prices in India - Amazon.in",
+                Description = "No featured offers •",
+                Price = 573.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H6STHSBJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61mZuX9uenL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09MD7K7NP",
+                Title = "SADHEV Ayurvedic Rose Water Toner | Traditional Steam Distilled Centifolia Roses | Hydrates, Tones & Rejuvenates Tired Skin & Eyes | Natural Face Mist & Makeup Setting Spray | Vegan & Alcohol-Free | 75ml",
+                Description = "•",
+                Price = 499.00m,
+                OriginalPrice = 665.33m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09MD7K7NP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617NKop5RvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H1WTBLHP",
+                Title = "Hot Water Bag Brown 1000ml – Leakproof Heating Water Bottle for Warm Compress & Everyday Comfort | Long Heat Retention Hot & Cold Therapy Bag for Back, Neck & Relaxation",
+                Description = "Health & Personal Care • Health Care",
+                Price = 236.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0H1WTBLHP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81SsKJ8kpKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H55TYYCC",
+                Title = "Buy 100% Cotton Muslin AC Blanket | 4 Layer Textured Breathable Summer Throw | Lightweight Blanket for AC Rooms | All Season Comfort Dohar | 150x220 cm | Off White Online at Low Prices in India - Amazon.in",
+                Description = "No featured offers •",
+                Price = 742.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H55TYYCC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81iHFsx9CIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMLMK7CQ",
+                Title = "Milan Cozy Ultra Soft Flannel Blanket for Double Bed 220x240 cm| Luxury Throw for Couch, Sofa, Camping & Travel| 250 GSM Printed Warm AC Blanket for Winter & All Season -Blue & Grey",
+                Description = "Home & Kitchen • Home Furnishing",
+                Price = 949.00m,
+                OriginalPrice = 1449.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FMLMK7CQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/8139rAHkLUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DG8LQJZ6",
+                Title = "Buy Siyaram&#x27;s Shirt & Trouser Fabric in Box Packing (Shirt-2.35 m, Pant-1.25 m) at Amazon.in",
+                Description = "• See ###dimension options with no featured offers",
+                Price = 5999.00m,
+                OriginalPrice = 7896.62m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DG8LQJZ6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HJuPzkdIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9VR1H9Y",
+                Title = "FUN FRY Sensory Soft Stress Relief Toy and Desktop Accessory",
+                Description = "FUN FRY Sensory Soft Stress Relief Toy and Desktop Accessory...",
+                Price = 299.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F9VR1H9Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SMt-kn6WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01N6UI7JC",
+                Title = "Morpheme Remedies Pure Sweet Almond Cold Pressed Oil for Hair & Skin (100ml)",
+                Description = "Morpheme Remedies Pure Sweet Almond Cold Pressed Oil for Hair & Skin (100ml)...",
+                Price = 394.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01N6UI7JC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71mk1dj5kaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F4KPZBJ1",
+                Title = "Encasify Heavy Duty Waterproof Dust-Proof Adjustable Full-Size Fan Cover",
+                Description = "Encasify Heavy Duty Waterproof Dust-Proof Adjustable Full-Size Fan Cover...",
+                Price = 296.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F4KPZBJ1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IRmtYzXCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GGH41D6P",
+                Title = "Nairuti Vyutpadan Khajoor Roll Sugar-Free Dates & Dry Fruits Sweet (400g)",
+                Description = "Nairuti Vyutpadan Khajoor Roll Sugar-Free Dates & Dry Fruits Sweet (400g)...",
+                Price = 321.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GGH41D6P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719h6mAA+gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07YDSZBHT",
+                Title = "Stretchable Car Back Seat Headrest Mount Holder for Smartphones & Tablets",
+                Description = "Stretchable Car Back Seat Headrest Mount Holder for Smartphones & Tablets...",
+                Price = 899.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07YDSZBHT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bqYGkWJBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
