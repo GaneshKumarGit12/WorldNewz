@@ -20,6 +20,7 @@ Usage:
 import sys
 import os
 import re
+import html
 import json
 import time
 import random
@@ -88,7 +89,9 @@ def make_hd_image(img_url):
     """Upgrades Amazon CDN image URL to full 1500px Ultra HD representation."""
     if not img_url:
         return ""
-    clean = re.sub(r'\._[A-Za-z0-9_,]+_\.(jpg|jpeg|png)', '._SL1500_.\\1', img_url)
+    clean = re.sub(r'\._[A-Za-z0-9_,-]+(?=\.[a-zA-Z]+$)', '._SL1500_', img_url)
+    if '._SL1500_' not in clean and '.' in clean:
+        clean = re.sub(r'\.(jpg|jpeg|png|webp)$', '._SL1500_.\\1', clean, flags=re.I)
     return clean
 
 def extract_asin_from_url(url):
@@ -104,8 +107,15 @@ def extract_asin_from_url(url):
         return match3.group(1).upper()
     return None
 
+def clean_title_text(raw_title):
+    t = html.unescape(raw_title)
+    t = re.sub(r'\s+', ' ', t).strip()
+    t = re.sub(r'^(?:Buy|Order)\s+', '', t, flags=re.I)
+    t = re.sub(r'\s*(?:Online at Low Prices in India\s*-\s*Amazon\.in|at Amazon\.in|:\s*Amazon\.in(?::.*)?|- Amazon\.in)$', '', t, flags=re.I).strip()
+    return t
+
 def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, seen_titles):
-    """Resolves and scrapes a single short link, returning a dict or None."""
+    """Resolves and scrapes a single short link with authentic live data and zero synthetic pricing."""
     raw_url = raw_url.strip()
     if not raw_url or not raw_url.startswith("http"):
         return None
@@ -114,23 +124,45 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     cj = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
     
-    # 1. Resolve redirect hops
+    # 1. Resolve redirect hops (including client-side JS redirects e.g. amzlinks.in)
     final_url = raw_url
     html_content = ""
     for attempt in range(3):
         try:
             req = urllib.request.Request(
-                raw_url,
+                final_url,
                 headers={
                     'User-Agent': random.choice(MOBILE_USER_AGENTS),
-                    'Accept-Language': 'en-US,en;q=0.9',
+                    'Accept-Language': 'en-IN,en;q=0.9',
                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
                 }
             )
-            with opener.open(req, timeout=10) as resp:
+            with opener.open(req, timeout=12) as resp:
                 final_url = resp.geturl()
                 html_bytes = resp.read()
                 html_content = html_bytes.decode('utf-8', errors='ignore')
+
+            # Check for client-side JavaScript redirect (e.g. amzlinks.in window.location.replace)
+            js_redirect = re.search(r'window\.location\.(?:replace|href)\s*=\s*["\'](https?://[^"\']+)["\']', html_content)
+            if not js_redirect:
+                js_redirect = re.search(r'<meta\s+http-equiv=["\']refresh["\']\s+content=["\']\d+;\s*url=(https?://[^"\']+)["\']', html_content, re.I)
+            
+            if js_redirect:
+                target_url = js_redirect.group(1)
+                print(f"🔄 Following client-side JS redirect to: {target_url}")
+                final_url = target_url
+                req2 = urllib.request.Request(
+                    final_url,
+                    headers={
+                        'User-Agent': random.choice(MOBILE_USER_AGENTS),
+                        'Accept-Language': 'en-IN,en;q=0.9',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                    }
+                )
+                with opener.open(req2, timeout=12) as resp2:
+                    final_url = resp2.geturl()
+                    html_content = resp2.read().decode('utf-8', errors='ignore')
+
             break
         except Exception as e:
             if attempt == 2:
@@ -169,24 +201,21 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         log_failure(raw_url, f"Expired listing for ASIN {asin}")
         return None
 
-    # 5. Extract Title
+    # 5. Extract Authentic Clean Title
     title = ""
     title_match = re.search(r'<span[^>]*id=["\']productTitle["\'][^>]*>(.*?)</span>', html_content, re.S)
-    if title_match:
-        title = re.sub(r'\s+', ' ', title_match.group(1)).strip()
+    if title_match and title_match.group(1).strip():
+        title = clean_title_text(title_match.group(1))
     if not title:
         title_meta = re.search(r'<title>(.*?)</title>', html_content, re.S)
         if title_meta:
-            title = re.sub(r'\s+', ' ', title_meta.group(1)).strip()
-            title = re.sub(r'\s*:\s*Amazon.*$', '', title, flags=re.I).strip()
+            title = clean_title_text(title_meta.group(1))
 
     if not title or len(title) < 5:
         print(f"⚠️ Missing or invalid title for ASIN {asin}")
         log_failure(raw_url, f"Missing title for ASIN {asin}")
         return None
 
-    # Clean title
-    title = title.replace("&amp;", "&").replace("&quot;", '"').replace("&#39;", "'")
     norm_title = re.sub(r'[^a-zA-Z0-9]', '', title.lower())[:40]
     if norm_title in seen_titles:
         print(f"⏩ Skipping duplicate title: {title[:50]}...")
@@ -206,7 +235,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         if img_tag:
             img_url = img_tag.group(1)
     if not img_url:
-        img_m = re.search(r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9\-_%]+)\.[a-z]+', html_content)
+        img_m = re.search(r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9\-_%]+)\.(?:jpg|jpeg|png|webp)', html_content)
         if img_m:
             img_url = img_m.group(0)
 
@@ -233,40 +262,93 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         print(f"⏩ Skipping duplicate image asset ID: {media_id}")
         return None
 
-    # 7. Extract Price & Original Price
-    price = 0.0
-    orig_price = 0.0
-    price_match = re.search(r'<span[^>]*class=["\'][^"\']*a-price-whole[^"\']*["\'][^>]*>([0-9,]+)', html_content)
-    if price_match:
-        price_str = price_match.group(1).replace(",", "")
+    # 7. Strict Scoped Price Extraction (Zero Synthetic Pricing Protocol)
+    price = None
+
+    # Scoped source 1: twister-plus JSON
+    twister_m = re.search(r'twister-plus-buying-options-price-data">.*?\{"displayPrice":"[₹$]?([0-9,]+(?:\.[0-9]+)?)"', html_content)
+    if twister_m:
         try:
-            price = float(price_str)
+            price = float(twister_m.group(1).replace(',', ''))
         except ValueError:
-            price = 0.0
+            price = None
 
-    orig_match = re.search(r'<span[^>]*class=["\'][^"\']*a-text-price[^"\']*["\'][^>]*>.*?<span[^>]*>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', html_content, re.S)
-    if orig_match:
-        orig_clean = re.sub(r'[^0-9.]', '', orig_match.group(1))
-        try:
-            orig_price = float(orig_clean)
-        except ValueError:
-            orig_price = 0.0
+    # Scoped source 2: priceToPay class
+    if price is None:
+        ptp_m = re.search(r'class=["\'][^"\']*priceToPay[^"\']*["\'].*?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', html_content, re.S)
+        if ptp_m:
+            num_str = re.sub(r'[^\d.]', '', ptp_m.group(1))
+            if num_str:
+                price = float(num_str)
 
-    if orig_price <= price or orig_price == 0:
-        if price > 0:
-            orig_price = round(price * random.uniform(1.25, 1.65), 2)
-        else:
-            price = 499.0
-            orig_price = 999.0
+    if price is None:
+        ptp_m2 = re.search(r'class=["\'][^"\']*priceToPay[^"\']*["\'].*?<span class=["\']a-price-whole["\']>([0-9,]+)</span>(?:<span class=["\']a-price-fraction["\']>([0-9]+)</span>)?', html_content, re.S)
+        if ptp_m2:
+            whole = ptp_m2.group(1).replace(',', '')
+            frac = ptp_m2.group(2) or "00"
+            price = float(f"{whole}.{frac}")
 
-    # 8. Extract Category & Description
+    if price is None:
+        inp_m = re.search(r'id=["\']twister-plus-price-data-price["\']\s+value=["\']([0-9,]+(?:\.[0-9]+)?)["\']', html_content)
+        if inp_m:
+            price = float(inp_m.group(1).replace(',', ''))
+
+    if price is None:
+        apex_p = re.search(r'class=["\'][^"\']*apex-pricetopay-value[^"\']*["\'].*?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', html_content, re.S)
+        if apex_p:
+            num_str = re.sub(r'[^\d.]', '', apex_p.group(1))
+            if num_str:
+                price = float(num_str)
+
+    # Reject if price cannot be verified (Zero Dummy Prices)
+    if price is None or price <= 0:
+        print(f"❌ Could not extract authentic price for ASIN {asin}")
+        log_failure(raw_url, f"Unextractable price for ASIN {asin}")
+        return None
+
+    # Extract Authentic MRP / Original Price
+    orig_price = None
+    bp_m = re.search(r'class=["\'][^"\']*basisPrice[^"\']*["\'].*?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', html_content, re.S)
+    if bp_m:
+        num_str = re.sub(r'[^\d.]', '', bp_m.group(1))
+        if num_str:
+            orig_price = float(num_str)
+
+    if not orig_price:
+        block_m = re.search(r'id=["\'](?:corePriceDisplay_desktop_feature_div|apex_desktop|corePrice_desktop|desktop_unifiedPrice)["\'](.*?)</div>\s*</div>', html_content, re.S)
+        if block_m:
+            atp = re.search(r'class=["\'][^"\']*a-text-price[^"\']*["\'].*?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', block_m.group(1), re.S)
+            if atp:
+                num_str = re.sub(r'[^\d.]', '', atp.group(1))
+                if num_str:
+                    orig_price = float(num_str)
+
+    # Extract Authentic Discount %
+    discount_pct = None
+    disc_m = re.search(r'class=["\'][^"\']*savingPriceOverride[^"\']*["\']>(-?\d+)%</span>', html_content)
+    if disc_m:
+        discount_pct = abs(int(disc_m.group(1)))
+    else:
+        disc_m2 = re.search(r'with\s+(\d+)\s+percent\s+savings', html_content)
+        if disc_m2:
+            discount_pct = int(disc_m2.group(1))
+
+    # Consistency check: If discount percentage exists, verify or calculate authentic MRP
+    if (orig_price is None or orig_price <= price) and discount_pct and discount_pct > 0 and discount_pct < 100:
+        calculated_mrp = round(price / (1.0 - (discount_pct / 100.0)))
+        orig_price = float(calculated_mrp)
+    elif orig_price is None or orig_price < price:
+        orig_price = price  # No synthetic calculations, 0% discount if no MRP
+
+    # 8. Extract Category & Clean Description
     category = "Technology"
     cat_keywords = {
-        "Electronics": ["cable", "charger", "adapter", "usb", "audio", "headphone", "speaker", "phone", "tv", "camera", "watch", "smartwatch"],
-        "Fashion": ["shirt", "t-shirt", "dress", "shoes", "sneakers", "jacket", "jeans", "wallet", "bag", "handbag"],
-        "Home & Kitchen": ["cookware", "kitchen", "bottle", "knife", "towel", "pillow", "bed", "curtain", "lamp", "desk", "chair"],
-        "Beauty & Personal Care": ["cream", "lotion", "serum", "perfume", "fragrance", "shampoo", "trimmer", "shaver", "soap"],
-        "Health & Fitness": ["protein", "supplement", "vitamin", "dumbbells", "yoga", "fitness", "massager"]
+        "Fashion": ["shirt", "pant", "jogger", "trouser", "dress", "shoes", "sneakers", "jacket", "jeans", "wallet", "bag", "handbag", "jewellery", "jewelry", "fabric"],
+        "Beauty & Personal Care": ["cream", "lotion", "serum", "perfume", "fragrance", "shampoo", "trimmer", "shaver", "soap", "body brush", "rose water", "face wash", "nail polish"],
+        "Grocery & Gourmet Foods": ["honey", "dates", "dry fruit", "khajoor", "almond", "sugar-free", "cashew", "snack"],
+        "Home & Kitchen": ["cookware", "kitchen", "bottle", "knife", "towel", "pillow", "bed", "curtain", "lamp", "desk", "chair", "wall plate", "mosquito net", "candle", "tealight", "bedsheet", "blanket", "shelf", "fan cover"],
+        "Health & Fitness": ["protein", "supplement", "vitamin", "dumbbells", "yoga", "fitness", "massager", "hot water bag", "foot patch", "eye mask", "reading glasses"],
+        "Toys & Games": ["squishy toy", "fidget toy", "toy knife", "novelty", "taba squeeze", "puzzle", "action figure"]
     }
     lower_t = title.lower()
     for cat, kws in cat_keywords.items():
@@ -274,12 +356,38 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
             category = cat
             break
 
-    # Description from bullet points
+    # Clean description from feature bullets, filtering out warranty / protection garbage
     description = ""
-    bullet_matches = re.findall(r'<span[^>]*class=["\']a-list-item["\'][^>]*>(.*?)</span>', html_content, re.S)
-    bullets = [re.sub(r'<[^>]+>', '', b).strip() for b in bullet_matches if len(b.strip()) > 15]
-    if bullets:
-        description = " • ".join(bullets[:2])[:280]
+    valid_bullets = []
+    fb_m = re.search(r'id=["\']feature-bullets["\'].*?</ul>', html_content, re.S)
+    if fb_m:
+        bullets = re.findall(r'<span class=["\']a-list-item["\'][^>]*>(.*?)</span>', fb_m.group(0), re.S)
+        for b in bullets:
+            cb = html.unescape(re.sub(r'<[^>]+>', ' ', b)).strip()
+            cb = re.sub(r'\s+', ' ', cb)
+            if not cb or len(cb) < 10:
+                continue
+            lower_cb = cb.lower()
+            if any(junk in lower_cb for junk in [
+                'protection plan', 'warranty certificate', 'email delivery only',
+                'dimension options with no featured offers', 'no featured offers',
+                'replacement plan', 'claim within', 'valid for a period of', 'terms and conditions'
+            ]):
+                continue
+            valid_bullets.append(cb)
+
+    if valid_bullets:
+        description = " • ".join(valid_bullets[:3])
+        if len(description) > 280:
+            description = description[:277] + "..."
+    else:
+        pd_m = re.search(r'id=["\']productDescription["\'][^>]*>(.*?)</div>', html_content, re.S)
+        if pd_m:
+            desc_text = html.unescape(re.sub(r'<[^>]+>', ' ', pd_m.group(1))).strip()
+            desc_text = re.sub(r'\s+', ' ', desc_text)
+            if len(desc_text) > 20:
+                description = desc_text[:277] + "..." if len(desc_text) > 280 else desc_text
+
     if not description:
         description = title[:200] + "..."
 
@@ -290,7 +398,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     seen_titles.add(norm_title)
 
     product_url = f"https://www.amazon.in/dp/{asin}?tag={AFFILIATE_TAG}"
-    print(f"✅ Resolved ASIN {asin} | {title[:40]}... | ₹{price:.2f} ({category})")
+    print(f"✅ Resolved ASIN {asin} | {title[:40]}... | Price: ₹{price:.2f} (MRP: ₹{orig_price:.2f}) [{category}]")
 
     return {
         "asin": asin,

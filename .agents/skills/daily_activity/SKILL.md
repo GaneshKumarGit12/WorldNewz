@@ -9,37 +9,26 @@ Whenever you receive a daily batch of short/mobile Amazon affiliate links (e.g. 
 
 ---
 
-## Step 1: Scrape & Resolve Short Links
-Use a robust Python scraper script to bypass Captcha blocks and extract accurate, high-quality, actual product images, pricing, categories, and titles.
+## Step 1: Scrape & Resolve Short Links (Zero Synthetic Pricing Protocol)
+Use a robust Python scraper script to bypass Captcha blocks and extract accurate, authentic product data directly from Amazon India:
 
-1. **Short URL Resolution**: Resolve redirects to obtain the true landing page URL, extracting the true 10-character Amazon ASIN (e.g. `B0XXXX`).
-2. **Expired Product Detection**: Detect non-functioning / expired Amazon pages (e.g., *"not a functioning page on our site"*, *"We're sorry. The Web address you entered is not a functioning page"*, 404s, or *"Currently unavailable"*) and skip them from being seeded.
-3. **Image Preservation & Depixelation**: Extract the high-res listing image directly (`data-old-hires` or `"hiRes"` from HTML) and convert thumbnail modifiers to full 1500px Ultra HD (`_SL1500_.jpg`), verifying HTTP 200 accessibility.
-4. **Data Scrubbing**: Clean titles and format descriptions. Strip out browse nodes/sign-in pages that are not actual products.
-5. **C# Code Formatting**: Output the scraped products as valid C# `AmazonProduct` seed instances.
-
-Here is the reference script layout to save under `scratch/resolve_daily_links.py`:
-
-```python
-import urllib.request
-import urllib.parse
-import re
-import html as html_parser
-import random
-import time
-
-urls = [
-    # Paste new links here
-]
-
-# Randomize user agents to bypass CAPTCHA
-headers_list = [
-    {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'},
-    {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15'}
-]
-
-# ... resolve links, filter expired pages, extract ASIN, title, image, price, originalPrice, category ...
-```
+1. **Short URL & JavaScript Redirection Resolution**:
+   - Resolve HTTP redirects (`link.amazon/XXXX`, `amzn.to/XXXX`).
+   - Follow client-side JS redirects (`window.location.replace` in `amzlinks.in`).
+   - Extract the true 10-character Amazon ASIN (`B0[A-Z0-9]{8}`).
+2. **Expired Product Detection**: Detect non-functioning / expired Amazon pages (e.g., *"not a functioning page on our site"*, *"Looking for something? We're sorry"*, 404s, or *"Currently unavailable"*) and skip them from being seeded.
+3. **Strict Scoped Price Extraction (Zero Synthetic Pricing)**:
+   - **Never use unscoped `a-price-whole`** (prevents picking up ₹5,999 suits or carousel products instead of the authentic ₹384 item).
+   - Extract offer price strictly from `twister-plus-buying-options-price-data`, scoped `priceToPay`, or `apex-pricetopay-value`.
+   - Extract authentic MRP strictly from `basisPrice` or scoped `a-text-price`, and discount % from `savingPriceOverride`.
+   - **Zero Synthetic Calculation Rule**: `random.uniform(...)` or synthesized pricing formulas are strictly forbidden. If no MRP exists, `OriginalPrice = Price`. Never use dummy fallbacks (e.g. ₹499/₹999).
+4. **Data & Description Scrubbing**:
+   - Clean titles by stripping `Buy `, `Order `, and marketplace suffixes (`Online at Low Prices in India - Amazon.in`, `at Amazon.in`). Decode all HTML entities.
+   - Filter out warranty plans, protection cards, and placeholder text from descriptions.
+5. **Image Preservation & Depixelation**:
+   - Extract high-res image directly (`data-old-hires` or `"hiRes"` from HTML, restricted to `\.(?:jpg|jpeg|png|webp)`).
+   - Convert thumbnail modifiers to full 1500px Ultra HD (`_SL1500_.jpg`), verifying HTTP 200 accessibility.
+6. **C# Code Formatting**: Output the scraped products as valid C# `AmazonProduct` seed instances.
 
 ---
 
@@ -48,7 +37,7 @@ Before seeding or committing, verify that every candidate product satisfies all 
 1. **ASIN Uniqueness**: Discard any ASIN already present in `scratch/seen_asins.json` or `AmazonProductService.cs`.
 2. **Image Uniqueness**: Do not accept duplicate/identical images (`ImageUrl` or Amazon image asset ID `https://m.media-amazon.com/images/I/{IMAGE_ID}...`). Each product must feature its own distinct visual asset.
 3. **Title & Description Text Uniqueness**: Do not accept duplicate title text or identical descriptions across products. Ensure each product has distinct, scrubbed naming and clear descriptive copy.
-4. **Accurate Distinct Rates & Discounts**: Extract distinct live prices, calculated original prices, and actual discount rates for each listing. Never apply uniform placeholder rates or identical discounts across multiple distinct items.
+4. **Authentic Distinct Rates & Discounts**: Extract authentic live prices and true MRP discounts directly from Amazon. Never synthesize or fabricate uniform placeholder rates or random discounts.
 5. **Cross-Layer Enforcement**: Deduplication is enforced during Python scraping/resolution, backend C# EF Core queries, and frontend React UI state (`useMemo` unique filters in `AmazonProducts.tsx`, `ShoppingWidget.tsx`, `ContextualDealsWidget.tsx`).
 
 ---

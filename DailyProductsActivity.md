@@ -30,15 +30,45 @@ WorldNewzs backend runs an integrated **Amazon Creator API (v3.2)** service (`Am
 
 ---
 
-## Step 1: Scrape & Resolve Short Links
+## Step 1: Scrape & Resolve Short Links (Zero Synthetic Pricing Protocol)
 
-Use a robust Python scraper script to bypass CAPTCHA blocks and extract accurate, high-quality product images, pricing, categories, and titles.
+Use a robust Python scraper script to bypass CAPTCHA blocks and extract authentic product data directly from the live listing page without ever fabricating, synthesizing, or estimating prices or discounts.
 
-1. **Short URL Resolution**: Resolve redirects to obtain the true landing page URL, extracting the true 10-character Amazon ASIN (e.g. `B0XXXX`).
-2. **Image Preservation**: Extract the high-res listing image directly (preferring `data-old-hires` or `"hiRes"` from the HTML, or falling back to `https://images-na.ssl-images-amazon.com/images/P/{ASIN}.01.LZZZZZZZ.jpg`).
-3. **Data Scrubbing**: Clean titles and format descriptions. Strip out browse nodes/sign-in pages that are not actual products.
-4. **Description Extraction**: Pull the first 2–3 bullet points from the product feature list to use as a short-form description (fallback: truncate the title to ~140 characters).
-5. **C# Code Formatting**: Output the scraped products as valid C# `AmazonProduct` seed instances.
+1. **Short URL & JavaScript Redirection Resolution**:
+   - Resolve HTTP redirect hops (e.g. `https://link.amazon/XXXX`, `https://amzn.to/XXXX`).
+   - Parse client-side JavaScript redirects (e.g. `amzlinks.in` returning HTTP 200 with `window.location.replace("https://www.amazon.in/...")` or `<meta http-equiv="refresh"...>`).
+   - Extract the true 10-character Amazon ASIN (`B0[A-Z0-9]{8}`).
+2. **Expired & Unavailable Listing Detection**:
+   - Detect non-functioning / expired pages (e.g. *"not a functioning page on our site"*, *"Looking for something? We're sorry"*, 404s, or *"Currently unavailable"*).
+   - Log skipped expired listings to `scratch/failed_links.log` and reject from seeding.
+3. **Strict Scoped Price Extraction (Zero Synthetic Pricing)**:
+   - **Never search unscoped `a-price-whole`** across the full HTML document, as Amazon embeds carousels, bundle offers, and sponsored items that carry unrelated high/low prices (e.g., matching a ₹5,999 bundle instead of a ₹384 product).
+   - **Offer Price**: Extract strictly from:
+     - `twister-plus-buying-options-price-data` JSON (`displayPrice` / `priceAmount`).
+     - Scoped `priceToPay` (`<span class="priceToPay"><span class="a-offscreen">...</span></span>` or `a-price-whole`).
+     - `id="twister-plus-price-data-price"` input.
+     - `class="apex-pricetopay-value"` or within `id="corePriceDisplay_desktop_feature_div"`.
+   - **MRP / Original Price (Strikethrough)**:
+     - Extract strictly from `class="basisPrice"` (`<span class="a-offscreen">...</span>`) or `class="a-text-price"` inside the scoped price block.
+     - Extract live discount percentage from `class="savingPriceOverride"` (e.g., `-52%`) or `with X percent savings`.
+     - **Strict Prohibition of Synthetic Calculations**:
+       - `random.uniform(...)` or arbitrary price multiplier formulas are **STRICTLY FORBIDDEN**.
+       - If no live MRP or discount exists on Amazon, set `OriginalPrice = Price` (0% discount, honest authentic pricing).
+       - Never inject placeholder fallback prices (e.g., ₹499/₹999). If price cannot be verified, log the failure and reject the product.
+4. **Title Scrubbing & HTML Entity Decoding**:
+   - Strip leading `Buy ` or `Order ` prefixes.
+   - Strip trailing marketplace suffixes (`Online at Low Prices in India - Amazon.in`, `at Amazon.in`, `: Amazon.in:...`, `- Amazon.in`).
+   - Decode HTML entities (`&#x27;` -> `'`, `&amp;` -> `&`, `&quot;` -> `"`).
+5. **Description Quality & Protection Plan Filtering**:
+   - Pull authentic product feature bullets from `id="feature-bullets"`.
+   - **Filter out third-party add-ons and warranty text**: Exclude bullets containing *"protection plan"*, *"warranty certificate"*, *"email delivery only"*, *"claim within"*, or *"valid for a period of"*.
+   - **Filter out placeholder options**: Exclude bullets containing *"See ###dimension options"*, *"No featured offers"*, or empty bullets.
+   - Fallback to clean product description or title summary if bullets are missing or garbage.
+6. **Ultra HD Image Preservation & Pre-Flight Validation**:
+   - Extract high-res image directly (`"hiRes"`, `data-old-hires`, or `landingImage`).
+   - Strictly filter media regex to image file extensions `\.(?:jpg|jpeg|png|webp)` (avoid `.js` or `.css` bundles).
+   - Upgrade thumbnail modifiers to 1500px Ultra HD (`._SL1500_.jpg`).
+   - Validate image accessibility via pre-flight HTTP 200 check before accepting.
 
 Reference script layout, saved under `scratch/resolve_daily_links.py`:
 
@@ -47,7 +77,6 @@ import urllib.request
 import urllib.parse
 import re
 import html as html_parser
-import random
 import time
 import json
 import os
@@ -56,35 +85,14 @@ urls = [
     # Paste new links here
 ]
 
-# Randomize user agents to bypass CAPTCHA
-headers_list = [
-    {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'},
-    {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15'}
-]
-
-# ... resolve links, extract ASIN, title, image, price, originalPrice,
-#     category, description bullets ...
-
-# Before writing output, load the existing seen-ASIN registry to avoid duplicates
-SEEN_ASINS_PATH = "scratch/seen_asins.json"
-
-def load_seen_asins():
-    if os.path.exists(SEEN_ASINS_PATH):
-        with open(SEEN_ASINS_PATH, "r") as f:
-            return set(json.load(f))
-    return set()
-
-def save_seen_asins(seen):
-    with open(SEEN_ASINS_PATH, "w") as f:
-        json.dump(sorted(seen), f, indent=2)
-
-# ... skip any ASIN already in seen_asins, log skipped duplicates, then
-#     append newly resolved ASINs to seen_asins before saving ...
+# Randomize headers and handle both desktop/mobile user agents
+# Scoped DOM extraction for priceToPay, basisPrice, savingPriceOverride
+# Zero synthetic pricing: No random.uniform, no fake MRPs
 ```
 
 **Error handling requirements:**
 - Retry each URL up to 3 times with randomized delay (`time.sleep(random.uniform(1.5, 4))`) before marking it failed.
-- Log failed/blocked URLs to `scratch/failed_links.log` with timestamp and reason (CAPTCHA, 404, redirect loop, missing image).
+- Log failed/blocked URLs to `scratch/failed_links.log` with timestamp and reason (CAPTCHA, 404, redirect loop, missing image, unextractable price).
 - Never silently drop a link — every input URL must end up in either the success list or the failure log.
 
 ---
