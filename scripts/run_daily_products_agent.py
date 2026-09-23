@@ -19,6 +19,12 @@ Usage:
 
 import sys
 import os
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
 import re
 import html
 import json
@@ -65,7 +71,11 @@ def save_seen_asins(seen_set):
 
 def log_failure(url, reason):
     os.makedirs(os.path.dirname(FAILED_LOG_FILE), exist_ok=True)
-    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+    try:
+        from datetime import timezone
+        timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    except Exception:
+        timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
     with open(FAILED_LOG_FILE, "a", encoding="utf-8") as f:
         f.write(f"[{timestamp}] URL: {url} | Reason: {reason}\n")
 
@@ -114,6 +124,26 @@ def clean_title_text(raw_title):
     t = re.sub(r'\s*(?:Online at Low Prices in India\s*-\s*Amazon\.in|at Amazon\.in|:\s*Amazon\.in(?::.*)?|- Amazon\.in)$', '', t, flags=re.I).strip()
     return t
 
+class CustomRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def http_error_302(self, req, fp, code, msg, headers):
+        location = headers.get('Location', '')
+        if location.startswith('intent://'):
+            m = re.search(r'S\.browser_fallback_url=([^;]+)', location)
+            if m:
+                fallback = urllib.parse.unquote(m.group(1))
+                new_req = urllib.request.Request(fallback, headers=req.headers)
+                return self.parent.open(new_req)
+            m2 = re.search(r'intent://www\.amazon\.in/([^#]+)', location)
+            if m2:
+                dp_url = "https://www.amazon.in/" + m2.group(1)
+                new_req = urllib.request.Request(dp_url, headers=req.headers)
+                return self.parent.open(new_req)
+        return super().http_error_302(req, fp, code, msg, headers)
+
+    http_error_301 = http_error_302
+    http_error_303 = http_error_302
+    http_error_307 = http_error_302
+
 def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, seen_titles):
     """Resolves and scrapes a single short link with authentic live data and zero synthetic pricing."""
     raw_url = raw_url.strip()
@@ -122,7 +152,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
 
     print(f"\n🔍 Resolving: {raw_url}")
     cj = http.cookiejar.CookieJar()
-    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj), CustomRedirectHandler())
     
     # 1. Resolve redirect hops (including client-side JS redirects e.g. amzlinks.in)
     final_url = raw_url
@@ -174,14 +204,39 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     # 2. Extract ASIN
     asin = extract_asin_from_url(final_url) or extract_asin_from_url(raw_url)
     if not asin:
-        asin_match = re.search(r'data-asin="([A-Z0-9]{10})"', html_content)
+        can_m = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', html_content)
+        if can_m:
+            asin = extract_asin_from_url(can_m.group(1))
+    if not asin:
+        asin_match = re.search(r'data-asin=["\']([A-Z0-9]{10})["\']', html_content)
         if asin_match:
             asin = asin_match.group(1).upper()
+    if not asin:
+        asin_match2 = re.search(r'/(?:dp|gp/product|d)/([A-Z0-9]{10})', html_content)
+        if asin_match2:
+            asin = asin_match2.group(1).upper()
 
     if not asin:
         print(f"❌ Could not extract ASIN from {final_url}")
         log_failure(raw_url, f"ASIN extraction failed on URL: {final_url}")
         return None
+
+    # If resolved page was an intermediary or lacks core product title/price, fetch direct Amazon DP
+    if 'productTitle' not in html_content and 'priceToPay' not in html_content and 'twister-plus' not in html_content:
+        dp_url = f"https://www.amazon.in/dp/{asin}?th=1"
+        try:
+            req_dp = urllib.request.Request(
+                dp_url,
+                headers={
+                    'User-Agent': random.choice(MOBILE_USER_AGENTS),
+                    'Accept-Language': 'en-IN,en;q=0.9',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                }
+            )
+            with opener.open(req_dp, timeout=12) as resp_dp:
+                html_content = resp_dp.read().decode('utf-8', errors='ignore')
+        except Exception as e:
+            pass
 
     # 3. Check ASIN deduplication
     if asin in seen_asins or asin in existing_csharp_asins:
@@ -189,17 +244,26 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         return None
 
     # 4. Check expired / dead listing signatures
-    expired_signatures = [
+    broken_signatures = [
         "not a functioning page on our site",
-        "The Web address you entered is not a functioning page",
-        "Looking for something? We're sorry",
-        "Page Not Found",
-        "Currently unavailable"
+        "the web address you entered is not a functioning page",
+        "looking for something? we're sorry",
+        "<title>page not found</title>",
+        "<title>404 - "
     ]
-    if any(sig.lower() in html_content.lower() for sig in expired_signatures):
-        print(f"⚠️ Listing is expired or unavailable: ASIN {asin}")
-        log_failure(raw_url, f"Expired listing for ASIN {asin}")
+    if any(sig in html_content.lower() for sig in broken_signatures):
+        print(f"⚠️ Listing page is broken or 404: ASIN {asin}")
+        log_failure(raw_url, f"Broken page for ASIN {asin}")
         return None
+
+    # Check scoped out-of-stock availability
+    avail_m = re.search(r'id=["\']availability["\'][^>]*>(.*?)</div>', html_content, re.S)
+    if avail_m:
+        avail_text = re.sub(r'<[^>]+>', ' ', avail_m.group(1)).strip().lower()
+        if "currently unavailable" in avail_text or "we don't know when or if this item will be back in stock" in avail_text:
+            print(f"⚠️ Product currently out of stock: ASIN {asin}")
+            log_failure(raw_url, f"Out of stock for ASIN {asin}")
+            return None
 
     # 5. Extract Authentic Clean Title
     title = ""
@@ -501,7 +565,7 @@ def git_commit_and_push(count):
     """Commits and pushes changes to git repository."""
     print("\n🚀 Pushing changes to origin/main...")
     try:
-        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "add", "-u"], check=True)
         commit_msg = f"feat: Add {count} daily Amazon affiliate products and update rotation seeds"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push", "origin", "main"], check=True)
