@@ -35949,6 +35949,876 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0D1R1YSQB",
+                Title = "PRIYA VEDA Anti Dandruff Hair Oil",
+                Description = "PRIYA VEDA Anti Dandruff Hair Oil...",
+                Price = 289.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D1R1YSQB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41ddSBoAYyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BYNWB628",
+                Title = "Shoppersduniya Ram Darbar Golden Foil (Plated) for Car Dashboard Showpiece Décor",
+                Description = "Idols and figures",
+                Price = 599.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BYNWB628?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51iDaLMHzQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099KP4SHT",
+                Title = "Eknoor Gold Plated Shrinath Ji God Idol for Home and Car Dashboard | 24 Carat Gold Plated Foil with Gold Border God Idol on Acrylic Base Recta 1 for Puja Ghar, Office Desk | 8x3x10 CM",
+                Description = "Shrinath Ji gold-plated foil artwork printed on premium acrylic Recta 1 rectangular frame with a clear transparent base stand for stable placement on any flat surface • Rich multicolour deity illustration featuring elaborate ornaments, lotus flowers, and traditional Nathdwara-...",
+                Price = 859.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B099KP4SHT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ZuyTyIUhS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFTCBYWQ",
+                Title = "ESCAPER Glitter Tapes for Art and Craft, 12mm Shining Laser Adhesive Cello Tape (Pack Of 12) Rolls for Kids, DIY, Scrapbooking, Gift Wrapping, School Projects, and Decoration (Mix-Color, 12 Pcs)",
+                Description = "Perfect for Art & Craft Projects - Add sparkle to your creativity with these vibrant glitter tapes for art and craft, ideal for decorating scrapbooks, journals, planners, greeting cards, and more. • Shiny Holographic Finish - Each roll features a shining laser adhesive colourf...",
+                Price = 239.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0FFTCBYWQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wOpJSCxaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G2M4DVBH",
+                Title = "KRIPICS Plastic 4 Pack Fridge Food Storage Containers with Lids - Vegetable, Fruit, Berry & Salad Organizers for Kitchen Refrigerator (4.15L+3.15L+1.7L+0.8L)",
+                Description = "Four Convenient Sizes: This 4-pack includes containers sized 4.15L, 3.15L, 1.7L, and 0.8L, giving you the flexibility to store vegetables, fruits, salad, berries, leftovers, snacks, and more. • Clear Containers with Secure Lids: Each bin comes with a tight-fitting lid that hel...",
+                Price = 1399.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G2M4DVBH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41SkRaGdg3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHK5DGZT",
+                Title = "Melodio 4 Pack Woven Headbands for Women, Neutral Color Straw Knit Headbands, Wide Non-Slip Hair Bands, Boho Hair Hoops for Daily Wear, Work, Vacation, Khaki/Beige/Brown/Black",
+                Description = "Melodio 4 Pack Woven Headbands for Women, Neutral Color Straw Knit Headbands, Wide Non-Slip Hair Bands, Boho Hair Hoops for Daily Wear, Work, Vacation, Khaki/Beige/Brown/Black...",
+                Price = 659.00m,
+                OriginalPrice = 1398.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FHK5DGZT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/11aYX7fmT0L._SL1500_.png",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CB1RPD3D",
+                Title = "Ervio Three Layered Earchain Gold Bridal Wedding Jhumka Jhumki Kanoti Moti Pearl Traditional Earrings For Women",
+                Description = "Ervio Three Layered Earchain Gold Bridal Wedding Jhumka Jhumki Kanoti Moti Pearl Traditional Earrings For Women...",
+                Price = 250.88m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CB1RPD3D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EorYUMivL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BXJJB2XL",
+                Title = "TASHVIKA'S Women Plus Size Wrap Ruffle Maxi Dress Flowy Long Dresses (T10_Black_3XL)",
+                Description = "TASHVIKA'S Women Plus Size Wrap Ruffle Maxi Dress Flowy Long Dresses (T10_Black_3XL)...",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BXJJB2XL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41OPMekNeuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3XQT3KV",
+                Title = "Tissu Women's Plus Size Cotton Satin Pink Floral Printed Kurta with Palazzo (735_Pink_7XL)",
+                Description = "Tissu Women's Plus Size Cotton Satin Pink Floral Printed Kurta with Palazzo (735_Pink_7XL)...",
+                Price = 989.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F3XQT3KV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NTzKpvHoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXKDDZFW",
+                Title = "Makhveda Makhana Premium Hand Picked Jumbo Phool Makhana 250g | Healthy Fasting Snack, Fox Nuts, Lotus Puffs, Desi Superfood",
+                Description = "Premium Quality Fox Nuts: Makhveda Mithila Makhana features premium hand-picked jumbo fox nuts for a healthier, lighter, and smarter snacking choice • Nutrient-Rich Superfood: Made from the finest lotus seeds, these fox nuts retain their natural purity, crisp texture, and rich...",
+                Price = 339.00m,
+                OriginalPrice = 649.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0GXKDDZFW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51HCilfsj1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDQYB3RV",
+                Title = "Tissu Women's Pure Cotton Black Floral Printed Kurti 2311_Black_S",
+                Description = "Tissu Women's Pure Cotton Black Floral Printed Kurti 2311_Black_S...",
+                Price = 520.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FDQYB3RV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tE0o9ITYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6PMWXV8",
+                Title = "Solid Brass Hanging Pooja Bell with Engraved Design - 2.3\" Traditional Indian Mandir Ghanti for Home Temple Decor, Meditation Chimes, Christmas Crafts & Spiritual Gifting (Pack of 6)",
+                Description = "SOLID BRASS CONSTRUCTION: Crafted from high-quality solid brass, this pooja bell offers a rich, resonant tone and long-lasting durability. • TRADITIONAL ENGRAVED DESIGN: Features intricate engraved patterns inspired by Indian temple art, adding an authentic and decorative touc...",
+                Price = 699.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H6PMWXV8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/510oGsYfrzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GK9T6NY1",
+                Title = "Aurex 26cm Triply Stainless Steel Non-Stick Honeycomb Tawa for Roti, Paratha, Chapati |26cm,1Kg, 4mm| Scratch Resistant | Induction Friendly | 3-Layer Body, Easy to Clean, Less Oil Usage, Even Heating",
+                Description = "Healthy Cooking: Aurex Tri-ply Premium Stainless Steel Honeycomb Tawa is made for healthy cooking. It is 100% optimised for cooking and prioritises your health above all. • THREE-PLY CONSTRUCTION: The triple-layer construction, from base to rim, prevents food from burning or s...",
+                Price = 1398.00m,
+                OriginalPrice = 3199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GK9T6NY1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41YlBIyHObL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BR6356T3",
+                Title = "Kiyah Lights B22 Holder Cast Aluminium Black Matte Finished Standard Garden Light Wall Illumination for Patio, Porch & Balcony (Pack of 1)",
+                Description = "High-quality aluminium material and manufacturing for long life time performance and lighting of the Gate Lamps. Compatible with all watt for high and low lighting and power consumption according to your wish and need for clear visibilty in the dark and antique design will mak...",
+                Price = 1139.00m,
+                OriginalPrice = 2399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BR6356T3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XTYr-PJxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4M7NYF4",
+                Title = "SYA Threads Men's Cotton Off White Readymade Stitched Dhoti with Pocket | 1.5 Inch Gold Zari Border | 2 Meter Ready to Wear Dhoti for Men | Traditional Vesti for Wedding, Festival & Pooja",
+                Description = "SYA Threads Men's Cotton Off White Readymade Stitched Dhoti with Pocket | 1.5 Inch Gold Zari Border | 2 Meter Ready to Wear Dhoti for Men | Traditional Vesti for Wedding, Festival & Pooja...",
+                Price = 499.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H4M7NYF4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Jnm1+QtBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FP2X8QG5",
+                Title = "Turf Fresh Jumbo Roasted Salted Peanuts, 600g x 2 Jar | Bharuch Gujarat Special Mungfali Dana Namkeen, Grade A Premium, Without Skin, Healthy Snack & Chakna, Bindaas Family Pack",
+                Description = "Traditionally Roasted Salted Jumbo Peanuts: Gujarati Khari Sing style peanuts roasted using traditional methods for authentic taste and texture • Authentic Bharuch Gujarat Taste: Famous roasted and salted peanuts from Bharuch, known for their unmatched crunch and flavor • Prem...",
+                Price = 649.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0FP2X8QG5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ouzW1KOFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FS1VB862",
+                Title = "ShineXPro Microfiber Cleaning Cloth Roll, 20Pcs, 4000 Times Washable - 10X Cheaper Than Paper Kitchen Towel Roll - Ultra Absorbent Lint Free Microfiber Cleaning Cloth for Kitchen - Tearable",
+                Description = "ULTRA ABSORBENT & MULTIPURPOSE: ShineXPro Microfiber Cleaning Cloth Roll soak up spills, dust, and dirt instantly. Perfect for kitchen, furniture, glass, car, or electronics cleaning. Dries fast, leaving surfaces spotless. • WASHABLE & REUSABLE 4000 TIMES: ShineXPro Microfiber...",
+                Price = 299.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FS1VB862?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XuWaIQJ7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097GDKGHS",
+                Title = "Safari Pentagon Pro 8 Wheels 65cm Medium Size Trolley Bag, Hard Case Polypropylene, 360º Wheeling Small Check in Luggage, Suitcase for Travel, Trolley Bags for Travel, Rose Gold",
+                Description = "Safari Pentagon Pro 8 Wheels 65cm Medium Size Trolley Bag, Hard Case Polypropylene, 360º Wheeling Small Check in Luggage, Suitcase for Travel, Trolley Bags for Travel, Rose Gold...",
+                Price = 2099.00m,
+                OriginalPrice = 10999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B097GDKGHS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61mV5TPk04L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DPRCPVXH",
+                Title = "Sensodyne Toothpaste Fresh Mint|Daily Sensitivity Relief Tooth Paste Combo Pack - 250gm (125gm x 2) | Dentist Recommended | Everyday Use Paste, Fresh Breath, Fights Tooth Decay, Maintain Healthy Gums",
+                Description = "Sensodyne toothpaste for daily protection of teeth against sensitivity • This toothpaste has a mint flavor that keeps your mouth feeling fresh and clean • Provides daily care by soothing the sensation",
+                Price = 170.00m,
+                OriginalPrice = 425.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DPRCPVXH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41BchsXEXIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGKWZY6X",
+                Title = "GoSriKi Women's Rayon Blend Straight Embroidered Kurta with Pant & Dupatta (Lasivan Pink-GS_XXL_Pink_XX-Large)",
+                Description = "GoSriKi Women's Rayon Blend Straight Embroidered Kurta with Pant & Dupatta (Lasivan Pink-GS_XXL_Pink_XX-Large)...",
+                Price = 869.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DGKWZY6X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ObIE8RnwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D2T51RC7",
+                Title = "BEHOMA Metal Dancing Peacock Figurine Pair for Home Decor, Gold - Set of 2 | Birthday, Wedding, Anniversary Romantic Gift Women|Good Luck Vastu Showpiece for Home Decor Living Room Festival Set of 2)",
+                Description = "1. Elegant Aluminium metal peacock figurine cum candle holder included Scented Glass Votive Candle: Each piece is meticulously handcrafted from aluminium, showcasing the artisanal skill and attention to detail. Adorn your space with this stunning aluminium peacock candle holde...",
+                Price = 2747.99m,
+                OriginalPrice = 5998.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D2T51RC7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51HO2dujDaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B013U6HANA",
+                Title = "Nutraj California Inshell Walnuts",
+                Description = "100% CALIFORNIA WALNUT INSHELL: Handpicked, fresh & crunchy walnut sourced from California. • Nutraj brings to you a range of premium dry fruits. • DELIGHTFUL FLAVOUR: Walnuts have an earthy, fruity, and mildly tart flavor with a tender texture.",
+                Price = 719.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B013U6HANA?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41WxCUHTGzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRG7731C",
+                Title = "Bru Gold Edition 100% Pure Coffee 100g (with Exclusive Double Walled Glass Mug)",
+                Description = "Madefrom select coffee beans from South India Bru Gold has an intense coffee taste • Bru Gold has the right blend of Arabica & Robusta beans to give you a smooth cup • Cutting edge freeze-drying technology that delicately preserves the intense aroma and smooth taste of perfect...",
+                Price = 354.00m,
+                OriginalPrice = 534.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0FRG7731C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41ixm57SuAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGR7Q96P",
+                Title = "Gufrina Women Korean Style Printed Shirt with Vintage Floral Motifs | Mandarin Style Neck | Three-Quarter Bishop Sleeves | Casual Wear Shirt for Women (Rust-M)",
+                Description = "Gufrina Women Korean Style Printed Shirt with Vintage Floral Motifs | Mandarin Style Neck | Three-Quarter Bishop Sleeves | Casual Wear Shirt for Women (Rust-M)...",
+                Price = 445.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HGR7Q96P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/812dEMwdYeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJNVVJ5N",
+                Title = "Bolas Royal California Almonds 500g | Badam Giri | High in Fiber | Rich in Protein, Magnesium & Phosphorus | Crunchy Nuts & Dry Fruits",
+                Description = "Premium Quality: Carefully selected and packed for superior taste and texture. • Fresh & Crunchy: A satisfyingly crunchy texture and rich almond flavor. • Healthy Snack: A great source of protein, fiber, and healthy fats.",
+                Price = 541.00m,
+                OriginalPrice = 859.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0CJNVVJ5N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41fVv2dsigL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0821PKWBW",
+                Title = "Amazon Brand - Presto! Garbage Bags | Small | 180 Count | 30 Bags X 6 Rolls | 17 X 19 Inches | For Dry & Wet Waste | Black",
+                Description = "Convenient for clean-up and garbage disposal • Multifunctional use; ideal for office, hotels, household use, parties, baby diapers, and clearing pet's litter • Detachable tie-tape to tie up bag after use",
+                Price = 265.00m,
+                OriginalPrice = 420.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0821PKWBW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41MNUYv41lL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C28N7ZPR",
+                Title = "Caradel Allison 6 Seater L Shape Sofa with Cup Holder Brown-Black LHS | 6 Seater Sofas with Ottoman Storage | 6 Seater L Shape Sofa Set for Living Room Festival Gifts",
+                Description = "Primary Material: Solid Wood and High Density Foam | Upholstery Material: Fabric | Capacity: 6 Seater Comfortable • Sales Package: 6 Seater Sofa with Ottoman & Cup Holder | Product Dimensions ( W x D x H- Inches ): 101 x 75 x 32 Inches • The Ultimate Holiday Gift for the Home:...",
+                Price = 31999.00m,
+                OriginalPrice = 68999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C28N7ZPR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51HmkjX6FqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CWF4FGKK",
+                Title = "Leeway 100kg Combo | Home Gym Set for Men | Barbell Rod with Plates and Dumbbell Set | Rubber Weight Plate, 3 Ft Curl + 5 Ft Rod (28mm) | Weightlifting Gym Equipments for Home Workout Kit Zym, (2.5X4+5X4+7.5X4+10X4))",
+                Description = "COMPLETE HOME GYM SET FOR FULL-BODY WORKOUTS: Build strength at home with this gym set for men, Color 100 Kg gym combo (2.5 KG X 4 + 5 KG X 4 + 7.5 KG X 4 + 10 KG X 4 = 100 KG), barbell, curl rod, dumbbell set rods, everything you need to train without a gym membership, gym eq...",
+                Price = 21915.00m,
+                OriginalPrice = 58000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CWF4FGKK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/11Sa2OpQXzL._SL1500_.png",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D62MVWP9",
+                Title = "American Tourister Instavibe Large 79 CM Trolley Bag Suitcase",
+                Description = "American Tourister Instavibe Large 79 CM Trolley Bag Suitcase...",
+                Price = 3399.00m,
+                OriginalPrice = 10890.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D62MVWP9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/512ImzSQ7FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4R38VQG",
+                Title = "100W USB-A to Type-C Fast Charger & Cable Compatible with Oneplus/Oppo/Xiaomi/Realme/Samsung/Nothing/Poco/Motorola & Other Type C Devices",
+                Description = "Fast Charging: This USB Type-C charger with Cable delivers fast charging compatible With Oneplus/Oppo/Xiaomi/Realme/ Samsung/Nothing/Poco/Motorola & other type C Devices • Compact & Travel-Ready: Lightweight and ultra-portable design makes it easy to carry in your pocket, purs...",
+                Price = 701.00m,
+                OriginalPrice = 3599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H4R38VQG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31lpCx86GcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FK2NZCYQ",
+                Title = "JD FRESH 5-Tier Extra Large Metal Shelf Rack/72x36x12 Inch Adjustable Boltless Storage Rack/Heavy Duty Display Rack Organizer/Multipurpose Standing Shelving Unit for Garage/Kitchen/Warehouse (Black)",
+                Description = "DURABLE MATERIAL: This multipurpose rack for storage is made up from durable metal with sturdy and rust-resistant frame for long-term daily use. It comes with 7 mm thick MDF boards that are moisture-sealed to help prevent fungus. A reliable metal storage rack suitable for diff...",
+                Price = 4298.00m,
+                OriginalPrice = 14099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FK2NZCYQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51TzVOdYPJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFB4DSST",
+                Title = "Cuzor Mini UPS PRO 12V Router UPS up to 3A | Up to 8 Hours | 3×2900 mAh | WiFi UPS Power Backup | Backup for broadband Modem - Buy Cuzor Mini UPS PRO 12V Router UPS up to 3A | Up to 8 Hours | 3×2900 mAh | WiFi UPS Power Backup | Backup for broadband Modem Online at Low Price in India",
+                Description = "Uninterrupted internet during power cuts: Cuzor Mini UPS Pro delivers up to 8 hours of back up with 3×2900mAh heavy-duty EV-grade lithium-ion cells, keeping your WiFi router and internet connection running without interruption during power outages. It is like a power bank for ...",
+                Price = 2199.00m,
+                OriginalPrice = 3299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CFB4DSST?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/21OUHd9cmjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09GG4FT99",
+                Title = "ZEBRONICS Zeb-V19Hd 18.5 Inch (46.99 Cm) Led Monitor with Supporting Hdmi, Vga Input, Hd 1366 X 768 Pixels, 16.7M Colors, Glossy Panel, Slim Design & Wall Mountable, Black",
+                Description = "46.9cm Screen Size (18.5inch LED Display).Max. brightness 220cd/m² • 46.9cm Screen Size (18.5inch LED Display) HDMI & VGA Ports for Input, Response Time: 8 ms • HD 1366 x 768 Native resolution with 16:9 Aspect Ratio",
+                Price = 2499.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09GG4FT99?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51M3x-vunBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKTLK63R",
+                Title = "realme Buds T200 True Wireless Earbuds with Hi-Res Audio, 12.4mm Dynamic Bass Drivers, 32 dB ANC, Quad Mic, 45ms Latency, Upto 50 Hrs Playback, Fast Charge, IP55 Rated, BT 5.4 (Mystic Grey)",
+                Description = "32dB Active Noise Cancellation • 12.4mm Dynamic Bass Driver • 45ms Ultra-low Latency",
+                Price = 1699.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FKTLK63R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41zk3kASVEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B71WDWXZ",
+                Title = "TEDDYY Easy Baby XL Size Diaper Pant Style |108 Count (Extra Large) |12-17 kgs (Pack of 2) | Long Protection Hours | Anti-Bacterial | Airy Breathable Fit | Rapid Soaker Channels with Wetness Indicator",
+                Description = "10- HOURS OF ABSORPTION! • RAPID SOAKER CHANNELS: Soaks quickly to lock wetness away from skin. • AIRY, BREATHABLE FIT: Allows the passage of air.",
+                Price = 949.00m,
+                OriginalPrice = 1898.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B71WDWXZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41PD6uB4YzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9YWD4Z3",
+                Title = "GOBOULT Soniq Over Ear Bluetooth Headphones with 70H Playtime, 40mm Bass Drivers, Zen™ ENC Mic, Type-C Fast Charging, Dual Pairing, AUX, Wireless Headphones (White)",
+                Description = "✅ 70H Playtime - Enjoy up to 70 hours of uninterrupted playtime with Soniq wireless headphones, perfect for travel, office, and daily use.",
+                Price = 1799.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F9YWD4Z3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41MlyuH0sRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CLRQMKYR",
+                Title = "JioMotive OBD GPS Tracker & Wi-fi Router| 4G eSIM Plug n Play| Instant On/Off, Geo Fencing Alerts| 1 Year Free Subscription| Jio Locked | for Personal Cars & Small Fleets (Upto 5 Cars)",
+                Description = "Realtime GPS Tracking - Vehicle Tracking 24x7. With its premium Cat 4 4G and GPS chipset, your car details will always be at your fingertips • In Car Wi-Fi- Carry home like high speed Wi-Fi wherever you go. India's only Plug & Play GPS Tracker that enables wifi hotspot inside ...",
+                Price = 3097.00m,
+                OriginalPrice = 11999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CLRQMKYR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41MjEtVsYWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHPJ31DD",
+                Title = "AMATA Solid Wood Eagle 3 Seater Sofa Cum Bed",
+                Description = "SOFA + BED + LOUNGER : Eliminate your need to store heavy and bulky extra mattresses, with our multipurpose space saving sofa bed. Our sofa bed transform from sofa to lounger to bed in less than 15 seconds with a simple fold-unfold mechanism. • Space Saving And Modern Design S...",
+                Price = 17497.00m,
+                OriginalPrice = 44999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DHPJ31DD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51yZzx-mq0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HDDJ845X",
+                Title = "Bniture 4 Door Wardrobe for Bedroom with Overhead Loft Storage & Lockable Door | Wooden Wardrobe for Storage | Engineered Wood Almirah for Clothes with Hanging Space & Handles | Frosty White",
+                Description = "Perfect Dimensions: Measures 46 cm (D) × 140 cm (W) × 182 cm (H) with a 45 cm (H) high loft, offering spacious storage while fitting neatly into bedrooms, guest rooms, and apartments. • Premium Engineered Wood Construction : Manufactured using high-quality European-grade engin...",
+                Price = 29999.00m,
+                OriginalPrice = 85999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HDDJ845X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41j8GW9-uPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9TLD6SK",
+                Title = "Leader Vivid Creto 24T Multispeed 7 Speed Cycle for Men with Front Suspension & Dual Disc Brakes |Gear Bicycle for Boys & Girls | Ideal for 9-13 Years (Frame: 16 Inches) Mountain Bike",
+                Description = "Semi-Assembled condition (90% assembled). Customer needs to assemble it before use. • Tire Size: 24 inches | Frame Size: 16 inches • Ideal For: 9 to 13 Years | Min Rider Height: 4.10 FT | Max Rider Height: 5.5 FT",
+                Price = 6259.00m,
+                OriginalPrice = 15999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0F9TLD6SK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51-ONEsvpwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01LAPARWY",
+                Title = "Canon PIXMA E470 All in One WiFi Inkjet Colour Printer with Scanner for Home, Upto 400 Black and 180 Colour Prints",
+                Description = "ALL-IN-ONE PRINTER FOR HOME: Print, Scan & Copy ; Ideal for home, students & light office use with wireless convenience • AFFORDABLE PRINTING SOLUTION: Print up to 400 prints (black) & 180 prints (color) with high quality ink cartridges (as per ISO/IEC 24711 (for A4 size) usin...",
+                Price = 4939.00m,
+                OriginalPrice = 6355.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B01LAPARWY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51QceDX1M2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DS2XNXZB",
+                Title = "Noise Buds VS102 Plus Wireless Earbuds, Bluetooth Earbuds with 70H Playtime, Quad Mic ENC for Clear Calls, 11mm Drivers, Deep Bass, Instacharge, Bluetooth v5.3 (Deep Wine)",
+                Description = "Powerful Sound with Deep Bass - Experience rich and balanced sound with VS102 Plus wireless earbuds, delivering deep bass, clear vocals, and crisp highs for music, movies, and everyday audio. • Quad Mic ENC for Clear Call Quality - Enjoy crystal-clear calls with bluetooth earb...",
+                Price = 999.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DS2XNXZB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/317PA0Gdq3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01MZ9YXTV",
+                Title = "Cuticolor Permanent Hair Color Cream|#1 Dr Prescribed|For Sensitive Skin|Eco Mechanism For Preserving Scalp Health|Enriched With Portulaca & Boseivela Extracts Dark Brown, 60G (Pack Of 1)",
+                Description = "Cuticolor Permanent Hair Color Cream|#1 Dr Prescribed|For Sensitive Skin|Eco Mechanism For Preserving Scalp Health|Enriched With Portulaca & Boseivela Extracts Dark Brown, 60G (Pack Of 1)...",
+                Price = 1599.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01MZ9YXTV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41RokZDUg5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CP5S82ZV",
+                Title = "Kokila NO PPD Shampoo Hair Colour - Black 400ml for Women and Men | Natural Extracts | Colours Hair in 10 Minutes | Ammonia Free, Paraben Free - 10 Pair Free Gloves",
+                Description = "Kokila NO PPD Shampoo Hair Colour - Black 400ml for Women and Men | Natural Extracts | Colours Hair in 10 Minutes | Ammonia Free, Paraben Free - 10 Pair Free Gloves...",
+                Price = 779.85m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CP5S82ZV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51nJ0iCU9ML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFTKWLXS",
+                Title = "GODREJ INTERIO Sofa Paramount 3 Seater Fabric Sofa for Living Room",
+                Description = "Built to last for years: Made with a solid wood frame, this sofa is durable enough to handle daily use and still look great-perfect for active households or anyone who loves lasting quality. • A backrest that supports where it matters: The carefully designed mid-backrest provi...",
+                Price = 21490.00m,
+                OriginalPrice = 41157.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FFTKWLXS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41C3Nn70TZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G1BGKJWL",
+                Title = "ROSIER A2 Gir Cow Ghee 2LTR Steel Dolchi, Traditional Bilona Method, Pure, Natural and Healthy Lab Tested Ghee",
+                Description = "A2 Desi Ghee and its Indian roots always have a story to tell. Rosier Cow Desi Ghee is crafted from Milk using the traditional Bilona Curd Churning process • Rosier Cow Ghee has an Unique & Distinct TASTE and AROMA which you would have never tasted before. A spoonful of this G...",
+                Price = 3999.00m,
+                OriginalPrice = 4780.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0G1BGKJWL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41c4eIuF24L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BJ6P3LSK",
+                Title = "AQUA D PURE 4 in 1 Copper RO Water Purifier with 10 Stage Purification Filtration, UV, UF, TDS Adjuster and 12 Liter Large Storage Tank, Suitable for all type of water supply.",
+                Description = "Taste Adjuster (TDS) controller enables adjustment of taste depending upon the source of water • Other features: Longer filter life, High-speed purification, Membrane protector, Premium design and aesthetics. • Includes - RO Purifier, Pre Filter, Installation accessories, and ...",
+                Price = 5247.00m,
+                OriginalPrice = 24999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BJ6P3LSK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41jivoLl3fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D3DH8TSC",
+                Title = "boAt Airdopes 300, Cinematic Spatial Audio, 50HRS Battery, 4Mic AI ENx, Fast Charge, App Support, Low Latency, IPX4, v5.3 Bluetooth Earbuds, TWS Ear Buds Wireless Earphones with mic (Gunmetal Black)",
+                Description = "4 Mics with AI-ENx Technology: Enter the audio realm leaving noise behind with the boAt Airdopes 300 TWS Earbuds. Featuring a set of four mics, these earbuds retain your voice quality for hassle-free calls. Moreover, these mics are enabled with noise-cancellation powered by Ar...",
+                Price = 1299.00m,
+                OriginalPrice = 6490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D3DH8TSC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/412amSyeEcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BWF3DZJV",
+                Title = "Hafele Dome Plus 2200W, 240V Electric Stainless Steel Kettle with Spout Cover with Analogue Temperature Display, Detachable Micro-Mesh Filter for Lime Scale Filtering, Easy Cleaning (1.7 L) (Grey)",
+                Description = "UK Strix Control Thermostat: Experience the perfect blend of style and functionality with the UK Strix Thermostat in Hafele's Dome Plus Kettle - where precision meets elegance for the ultimate brewing experience! • LED Indicator Light with On/Off Switch: Embrace the elegance o...",
+                Price = 3999.00m,
+                OriginalPrice = 7890.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BWF3DZJV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61E21w4XQsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07M9XYH9K",
+                Title = "Dettol Liquid Handwash Refill - Skincare Hand Wash- 1350ml | pH Balanced | 10x Better Germ Protection",
+                Description = "Natural cleansers: Contains more than 85% naturally derived ingredients and plant derived cleansers, Contains no TCC or Triclosan • Antibacterial formula provides 10x better germ protection for hygienically clean hands • Refill Pack: Value refill pack | For best results, refil...",
+                Price = 175.00m,
+                OriginalPrice = 219.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07M9XYH9K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/419LhVBU7xL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DVSNG7NC",
+                Title = "Be Bodywise 6% AHA BHA Underarm Roll-on Deodorant for Even Tone Skin,Reduces Body Odor & Pigmentation | 1% Mandelic, 4% Lactic, 1% Salicylic & Kojic Acid, Alcohol & Aluminum Free |Flora Fragrance,50ml",
+                Description = "Be Bodywise 6% AHA BHA Underarm Roll-on Deodorant for Even Tone Skin,Reduces Body Odor & Pigmentation | 1% Mandelic, 4% Lactic, 1% Salicylic & Kojic Acid, Alcohol & Aluminum Free |Flora Fragrance,50ml...",
+                Price = 399.00m,
+                OriginalPrice = 420.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DVSNG7NC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41M44H5ZXML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GPQC7NXZ",
+                Title = "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set",
+                Description = "KLOSIA Women's Printed Straight Kurta and Pant with Dupatta Set...",
+                Price = 699.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GPQC7NXZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51r8JyNNiZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H3PZQQHH",
+                Title = "GoSriKi Women's Rayon Viscose Straight Printed Kurta with Pant & Dupatta (AHANKAR BROWN-GS-FBA_M_Brown_Medium)",
+                Description = "GoSriKi Women's Rayon Viscose Straight Printed Kurta with Pant & Dupatta (AHANKAR BROWN-GS-FBA_M_Brown_Medium)...",
+                Price = 699.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H3PZQQHH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51jxUIx-REL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZ2YY9NC",
+                Title = "Amazon Basics Unisex Faux Leather Watch Organizer Box with 6 Slots |Watch Organizer with Transparent Lid (Black)",
+                Description = "Durable & Sturdy Design: Made from high-quality material, this Organizer box is designed for durability and longevity, keeping your watches safe and protected always. • Faux Leather Finish: Covered in sleek black faux leather, the exterior adds a touch of sophistication to you...",
+                Price = 519.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DZ2YY9NC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/511bwgFbgxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4RNDJF6",
+                Title = "DALUCI Set of 2 Metal Bathroom Corner Shelf Rack | No Drilling Self Adhesive Wall Mounted Storage Organizer for Bathroom & Kitchen | Rustproof Bathroom Shelves (8 & 9 INCH, Black)",
+                Description = "No Drilling Bathroom Organizer Without Drill - Easy self adhesive installation with no tools or wall damage. Ideal metal bathroom corner shelf for rented homes and modern bathrooms. • Rustproof Heavy Duty Metal Bathroom Shelf - Premium coated metal construction designed for we...",
+                Price = 298.99m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G4RNDJF6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51OaNNKrCuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GPN9R146",
+                Title = "Happi Planet Magic Eraser | Pack of 4 | No Scratch Multi-Surface Cleaning Sponge | Removes 100+ Tough Stains | Just Add Water | Walls, Kitchen, Bathroom, Shoes & Switch Boards",
+                Description = "INSTANTLY REMOVES STUBBORN STAINS: Easily removes crayon marks, pencil scribbles, grease, soap scum, shoe marks, limescale and more - no harsh chemicals required. • REQUIRES ONLY WATER: Just soak, squeeze and wipe. No detergents or sprays needed. Safe and simple everyday clean...",
+                Price = 248.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GPN9R146?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41NYKXTBNYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09S6M7JQJ",
+                Title = "Ghar Soaps Sandalwood & Saffron Magic Bar For Bath (300 Gms Pack Of 3) | Paraben Free | Chandan & Kesar Bath Soap | Handmade Soaps For Glowing | Skin Brightening Soap For Men & Women",
+                Description = "Ghar Soaps Sandalwood & Saffron Magic Bar For Bath (300 Gms Pack Of 3) | Paraben Free | Chandan & Kesar Bath Soap | Handmade Soaps For Glowing | Skin Brightening Soap For Men & Women...",
+                Price = 299.00m,
+                OriginalPrice = 420.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09S6M7JQJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41bRGCwCowL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01CCGW4OE",
+                Title = "Cetaphil Gentle Skin Hydrating Face Wash 118ml, Paraben Free, Sulphate-Free Gentle Skin Hydrating Cleanser with Niacinamide, Vitamin B5 for Dry to Normal, Sensitive Skin",
+                Description = "Cetaphil Gentle Skin Hydrating Face Wash 118ml, Paraben Free, Sulphate-Free Gentle Skin Hydrating Cleanser with Niacinamide, Vitamin B5 for Dry to Normal, Sensitive Skin...",
+                Price = 353.00m,
+                OriginalPrice = 459.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01CCGW4OE?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31C1FgFM1sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;

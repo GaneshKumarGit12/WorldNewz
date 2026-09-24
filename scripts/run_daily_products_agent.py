@@ -407,16 +407,16 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     # 8. Extract Category & Clean Description
     category = "Technology"
     cat_keywords = {
-        "Fashion": ["shirt", "pant", "jogger", "trouser", "dress", "shoes", "sneakers", "jacket", "jeans", "wallet", "bag", "handbag", "jewellery", "jewelry", "fabric"],
-        "Beauty & Personal Care": ["cream", "lotion", "serum", "perfume", "fragrance", "shampoo", "trimmer", "shaver", "soap", "body brush", "rose water", "face wash", "nail polish"],
-        "Grocery & Gourmet Foods": ["honey", "dates", "dry fruit", "khajoor", "almond", "sugar-free", "cashew", "snack"],
-        "Home & Kitchen": ["cookware", "kitchen", "bottle", "knife", "towel", "pillow", "bed", "curtain", "lamp", "desk", "chair", "wall plate", "mosquito net", "candle", "tealight", "bedsheet", "blanket", "shelf", "fan cover"],
-        "Health & Fitness": ["protein", "supplement", "vitamin", "dumbbells", "yoga", "fitness", "massager", "hot water bag", "foot patch", "eye mask", "reading glasses"],
-        "Toys & Games": ["squishy toy", "fidget toy", "toy knife", "novelty", "taba squeeze", "puzzle", "action figure"]
+        "Fashion": ["shirt", "pant", "jogger", "trouser", "dress", "shoes", "sneakers", "jacket", "jeans", "wallet", "bag", "handbag", "jewellery", "jewelry", "fabric", "saree", "kurta", "kurti", "tshirt", "t-shirt", "bra", "lingerie", "socks", "rhinestone", "hair bow", "clips", "beads", "lungi", "bangles", "earring", "necklace", "ring", "sunglasses", "sandals", "slippers", "heels", "watch", "belt", "backpack", "duffle", "lehenga", "suit", "blazer", "tie", "cufflink", "clutch", "purse", "dhoti", "headband", "trolley bag", "suitcase"],
+        "Beauty & Personal Care": ["cream", "lotion", "serum", "perfume", "fragrance", "shampoo", "trimmer", "shaver", "soap", "body brush", "rose water", "face wash", "nail polish", "kajal", "eyeliner", "mascara", "lipstick", "lip balm", "comb", "roller", "sunscreen", "moisturizer", "scissor", "reetha", "hair oil", "wax", "scrub", "ghee cream", "cleanser", "toner", "conditioner", "face mask", "sun screen", "toothpaste", "handwash", "roll-on", "deodorant", "hair color"],
+        "Grocery & Gourmet Foods": ["honey", "dates", "dry fruit", "khajoor", "almond", "sugar-free", "cashew", "snack", "tea", "coffee", "biscuit", "cookie", "spice", "masala", "edible oil", "cooking oil", "ghee", "dry fruits", "raisin", "walnut", "makhana", "seeds", "peanuts", "badam"],
+        "Home & Kitchen": ["cookware", "kitchen", "bottle", "knife", "towel", "pillow", "bed", "curtain", "lamp", "desk", "chair", "wall plate", "mosquito net", "candle", "tealight", "bedsheet", "blanket", "shelf", "fan cover", "dibba", "container", "storage", "organizer", "tray", "twine", "photo frame", "plant stand", "flower pot", "mattress", "razai", "lock", "vinyl", "wallpaper", "mat", "rug", "lighter", "sign board", "wall decor", "broom", "dispenser", "water bottle", "cover", "fridge magnet", "clip", "mop", "cup", "mug", "plate", "spoon", "fork", "pan", "pot", "cooker", "bed sheet", "doormat", "curtain rod", "hanger", "cutlery", "utensil", "casserole", "chopper", "peeler", "grater", "blender", "mixer", "flask", "thermos", "drainer", "dustbin", "cushion", "sofa", "wardrobe", "tawa", "pooja", "showpiece", "god idol", "idol", "figurine", "garbage bag", "water purifier", "kettle", "cleaning cloth", "magic eraser"],
+        "Health & Fitness": ["protein", "supplement", "vitamin", "dumbbells", "yoga", "fitness", "massager", "hot water bag", "foot patch", "eye mask", "reading glasses", "hand wrap", "knee support", "weight", "shaker", "bandage", "brace", "gym", "exercise", "resistance band", "incline", "barbell", "glucometer", "thermometer", "nebulizer", "weighing scale", "orthopedic", "diaper", "cycle"],
+        "Toys & Games": ["squishy toy", "fidget toy", "toy knife", "novelty", "taba squeeze", "puzzle", "action figure", "pencil box", "lcd writing pad", "drawing board", "balloon", "decoration kit", "birthday", "toy", "game", "doll", "car toy", "board game", "cards", "lego", "building block", "glitter tape", "art and craft"]
     }
     lower_t = title.lower()
     for cat, kws in cat_keywords.items():
-        if any(kw in lower_t for kw in kws):
+        if any(re.search(r'\b' + re.escape(kw) + r'\b', lower_t, re.I) for kw in kws):
             category = cat
             break
 
@@ -456,6 +456,8 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         description = title[:200] + "..."
 
     description = description.replace("&amp;", "&").replace("&quot;", '"').replace("&#39;", "'")
+    title = re.sub(r'[\ufffd\x80-\x9f\u2013\u2014]', '-', title).strip()
+    description = re.sub(r'[\ufffd\x80-\x9f\u2013\u2014]', '-', description).strip()
 
     # Record unique identifiers
     seen_images.add(media_id)
