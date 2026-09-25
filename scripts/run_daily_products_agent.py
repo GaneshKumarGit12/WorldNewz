@@ -285,23 +285,25 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         print(f"⏩ Skipping duplicate title: {title[:50]}...")
         return None
 
-    # 6. Extract Images & Upgrade to 1500px HD
+    # 6. Extract Images & Upgrade to 1500px HD (Ignoring 01/11/21 UI icon assets)
     img_url = ""
-    hires_match = re.search(r'"hiRes"\s*:\s*"([^"]+)"', html_content)
-    if hires_match and hires_match.group(1).startswith("http"):
-        img_url = hires_match.group(1)
-    if not img_url:
-        old_hires = re.search(r'data-old-hires=["\'](https?://[^"\']+)["\']', html_content)
-        if old_hires:
-            img_url = old_hires.group(1)
-    if not img_url:
-        img_tag = re.search(r'<img[^>]*id=["\']landingImage["\'][^>]*src=["\'](https?://[^"\']+)["\']', html_content)
-        if img_tag:
-            img_url = img_tag.group(1)
-    if not img_url:
-        img_m = re.search(r'https://m\.media-amazon\.com/images/I/([A-Za-z0-9\-_%]+)\.(?:jpg|jpeg|png|webp)', html_content)
-        if img_m:
-            img_url = img_m.group(0)
+    img_patterns = [
+        r'"hiRes"\s*:\s*"(https://m\.media-amazon\.com/images/I/[^"]+)"',
+        r'id=["\']main-image["\'][^>]*data-a-hires=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
+        r'data-a-hires=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
+        r'id=["\']main-image["\'][^>]*data-midres-replacement=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
+        r'id=["\']main-image["\'][^>]*src=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
+        r'data-old-hires=["\'](https?://[^"\']+)["\']',
+        r'<img[^>]*id=["\']landingImage["\'][^>]*src=["\'](https?://[^"\']+)["\']',
+        r'https://m\.media-amazon\.com/images/I/[3-9A-Z][0-9A-Za-z\-_%]+\.(?:jpg|jpeg|png|webp)'
+    ]
+    for pat in img_patterns:
+        m = re.search(pat, html_content)
+        if m:
+            candidate = m.group(1) if m.lastindex else m.group(0)
+            if not re.search(r'/images/I/[012]1', candidate):
+                img_url = candidate
+                break
 
     if not img_url:
         img_url = f"https://images-na.ssl-images-amazon.com/images/P/{asin}.01.LZZZZZZZ.jpg"

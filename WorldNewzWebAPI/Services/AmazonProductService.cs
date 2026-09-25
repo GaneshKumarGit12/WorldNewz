@@ -13600,7 +13600,7 @@ Description = "Get the best deal on Harshdeep Plant Containers 8 Inch - Valencia
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0D5CZFD6C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/21auklbi6UL.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/31QAjtxmwNL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -14858,7 +14858,7 @@ Description = "Get the best deal on Pradeep Triply Stainless Steel Tope with Lid
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0GVN318W3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/A1gmjUwh7EL._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/51fArvFxsnL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -14960,7 +14960,7 @@ Description = "Get the best deal on Fun Fry Universal Atomborg Fan Remote Stand 
                 ReviewCount = 150,
                 Category = "Shopping",
                 ProductUrl = "https://www.amazon.in/dp/B0FK3MNJXQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/81ko1w7PhBL._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bHer1vLVL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -32094,7 +32094,7 @@ Description = "Grocery & Gourmet Foods • Cooking & Baking Supplies",
                 ReviewCount = 150,
                 Category = "Health & Fitness",
                 ProductUrl = "https://www.amazon.in/dp/B07GKG113Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/21IlsHhNx9L._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/41zZDMpJCmL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -34835,7 +34835,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0DJFRK4QN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/217BNILLRJL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/51O8dzyfAFL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -35210,7 +35210,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0G534HQHH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11Sa2OpQXzL._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/71miz5YdE-L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -35510,7 +35510,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Fashion",
                 ProductUrl = "https://www.amazon.in/dp/B0GSZSC4HZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11aYX7fmT0L._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/6188MgZ1yJL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -35540,7 +35540,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B08KPKBC7Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11Sa2OpQXzL._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/91eqLCoeWdL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -35780,7 +35780,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0FPD7N5VS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/21SbYEYJpZL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/41pijk105AL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -36035,7 +36035,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0FHK5DGZT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11aYX7fmT0L._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XSqFzGwDL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -36365,7 +36365,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0CWF4FGKK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11Sa2OpQXzL._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/81m9uFLyXuL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -36425,7 +36425,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0CFB4DSST?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/21OUHd9cmjL._SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/51t15yMjHJL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -36875,7 +36875,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0C9X9XTZH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11Sa2OpQXzL._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/91JaUKzDQjL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -37250,7 +37250,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ReviewCount = 150,
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0DQDF2BZ2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
-                ImageUrl = "https://m.media-amazon.com/images/I/11aYX7fmT0L._SL1500_.png",
+                ImageUrl = "https://m.media-amazon.com/images/I/61r9zagT7AL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
@@ -37521,6 +37521,96 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0FKT7F353?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
                 ImageUrl = "https://m.media-amazon.com/images/I/41mrtroDnEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07KMY7RB7",
+                Title = "HomeStrap Set Of 6 Non Woven Shirt Stacker/Cloth Storage Foldable Wardrobe/closet Organizer With Handle For T-shirts, Shirts & Clothes (Grey)(Featured on Shark Tank)",
+                Description = "NEAT & ORGANIZED CLOTHING STORAGE: Prevent clothes stacks from collapsing and keep shirts, t-shirts, tops, jeans, kurtis, and daily wear neatly organized. Maximizes shelf space while making every item easy to see and access. • IDEAL SIZE FOR CLOTHES STORAGE: Measuring 40 x 25 ...",
+                Price = 999.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07KMY7RB7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Homap4XEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDDTWC8R",
+                Title = "Leeford Ortho Elbow Wrap for Gym, Powerlifting & Pain Relief, Universal | Neoprene, Hypoallergenic Tennis Elbow Band for Women & Men, Adjustable Velcro Closure for Safe Post-Surgery Stabilization",
+                Description = "Ergonomic, Universal Size: This universal-size elbow guard fits naturally, lets your elbow bend safely, prevents overextension, and supports ligaments and tendons for quicker recovery • Neoprene Fabric: The elbow support for gym workout is soft, high-quality neoprene that prov...",
+                Price = 431.00m,
+                OriginalPrice = 475.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GDDTWC8R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/713qUsyKmpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F6VXGP96",
+                Title = "iFAST IF-165 Digital Display Bluetooth 5.4 Wireless Neckband Earphone |Active Noise Reduction, Cool Ambient Light [ White ]",
+                Description = "iFAST In-ear Wireless Bluetooth Neckband comes with an LED Digital Display for real-time power monitoring.. • It has also cool atmosphere lights. You can also switch off light when not required. • The Lightweight material and ergonomically designed magnetic earbuds provide a s...",
+                Price = 2199.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F6VXGP96?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71NAn2BfTFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07991F7KY",
+                Title = "Dabur Red 600g (150g x 4, Pack of 4) Toothpaste - India's No.1 Ayurvedic Paste, Provides Protection Plaque Removal, Toothache, Yellow Teeth, Bad Breath-",
+                Description = "Dabur Red is India’s No. 1 Ayurvedic Fluoride Free Paste which is a complete Ayurvedic Oral Care for your family. • It provides 35% betterment on oral care hygiene index in comparison to other regular toothpastes. • Dabur Red Paste provides protection from 7 dental problems: c...",
+                Price = 264.00m,
+                OriginalPrice = 369.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07991F7KY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81znKJP2-cL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9HYYDLZ",
+                Title = "Interio by Godrej Curv Premium Mesh Wide Back Ergonomic Chair | Work from Home/Study Chair | 1 Year Warranty | Height Adjustable Chair | Heavy Duty PP Base | DIY Installation, Black",
+                Description = "Breathable Mesh Wide Backrest: The wide frame of the backrest is made of sturdy glass filled polypropylene and features a high-quality mesh backrest that promotes excellent airflow, ensuring proper ventilation and temperature regulation, allowing for long hours of focused work...",
+                Price = 6590.00m,
+                OriginalPrice = 15000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C9HYYDLZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718tzcsSsXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D945GG27",
+                Title = "Plantex Ladder for Home 5 Steps/Foldable Ladder with Anti-Skid Wide Steps (30L x 20W cm)/Strong D-Shape Pipe with X-Support for More Stability/5 Year Warranty(Apex-Black)",
+                Description = "𝗛𝗲𝗮𝘃𝘆-𝗗𝘂𝘁𝘆 𝗕𝘂𝗶𝗹𝗱:- Plantex ladder is crafted from robust Alloy Steel, featuring a 7-layered processed powder coating for enhanced durability. Renowned for its longevity, if you seek a ladder capable of handling heavy-duty tasks with ease, this is the ideal choice for you. • 𝐀𝐬...",
+                Price = 2999.00m,
+                OriginalPrice = 8999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D945GG27?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81JUQKfC3gL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
