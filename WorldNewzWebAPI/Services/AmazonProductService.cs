@@ -38709,6 +38709,801 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0CH517PXV",
+                Title = "CHARVEE COLLECTIONS Pure Silver Belpatra Belpatri Bilva Pathram Leaves for Shiva Puja Anushtans Shravan Maas for Puja | Size: Small | Weight: 0.45 GMS, Purity: 99% (Small)",
+                Description = "CHARVEE COLLECTIONS Pure Silver Belpatra Belpatri Bilva Pathram Leaves for Shiva Puja Anushtans Shravan Maas for Puja | Size: Small | Weight: 0.45 GMS, Purity: 99% (Small)...",
+                Price = 404.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CH517PXV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tfvQ29NML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B4GCDM14",
+                Title = "Shyam Antique Creation Human Face Sculpture with Hand Showpiece or Statue Idol Figurine Decor for Home & Living Room Poly Resin Human Idol Use for Gifting, White",
+                Description = "Contents : Human Face Sculptures Showpieces Three Modern Art 3D Decotaive no evil designs Idols for home living Room Decoration • Dimension - 27.5 CM x 21.25 Cm x 0.55 Cm • Weight: 0.73 GR",
+                Price = 1749.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B4GCDM14?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81c90lXvdTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKXX7TPR",
+                Title = "Samisha Natural Burgundy Hair Colour for Women | Ammonia Free Organic Hair Colour with 6 Herbal Extracts | 100% Grey Coverage, Long Lasting Damage Free Hair Dye | Chemical Free Hair Color",
+                Description = "Samisha Natural Burgundy Hair Colour for Women | Ammonia Free Organic Hair Colour with 6 Herbal Extracts | 100% Grey Coverage, Long Lasting Damage Free Hair Dye | Chemical Free Hair Color...",
+                Price = 279.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CKXX7TPR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71mTa5ax76L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HDV17V4F",
+                Title = "VINI TOYS Farm Tractor Ride On Toy for Kids 2-5 Years, Foot-to-Floor Manual Ride On with Comfortable Backrest, Easy-Grip Steering Wheel, Wide Wheels, Indoor & Outdoor Ride On Toy for Boys & Girls",
+                Description = "Farm Tractor Design - Inspired by a farm tractor, this ride-on toy features an attractive design that children will love. This tractor ride on toy is suitable for everyday indoor and outdoor play. • Foot-to-Floor Ride On - Children can move the ride-on using their own feet, en...",
+                Price = 1499.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0HDV17V4F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81gdeLPe4EL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSJFFSGR",
+                Title = "MILLION CASES Back Cover Case for OnePlus 12R Shockproof Protective Adorable Laser Glow Protection Case for Men & Boys(Black)",
+                Description = "COMPATIBILITY: Specially designed for OnePlus 12R. Fully compatible with wireless charging, charge your Phone without taking off your case.Restore the real original feel. • ULTRA SLIM & LIGHT WEIGHT : It doesn't make the phone look bulky at all and provides 360 protection. The...",
+                Price = 799.00m,
+                OriginalPrice = 2249.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DSJFFSGR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/417V8yjuKCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G2SDTVK2",
+                Title = "MALTERZER Hands Free Flashlight, 1200 Lumens Rechargeable LED Torch with Magnetic Base & Rotatable Clip, IPX6 Waterproof for Camping Hiking Repairing Emergency (White)",
+                Description = "★★MULTIPURPOSE CLIP‑ON LIGHT★★ Versatile hands‑free portable lighting tool suitable for nurse night‑shift work, dog walking, running, camping, reading and emergency scenarios；ideal for healthcare staff, pet owners and outdoor enthusiasts for daily low‑light use. • ★★DJUSTABLE ...",
+                Price = 455.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G2SDTVK2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71B8u0WRPkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C7CP1TFL",
+                Title = "SEREBRUM 12pcs 3D Metallic Finish Home Decor Wall Stickers with Sticking Pads | Double Layered Butterfly Decorations for Party, Living Room & Bedroom",
+                Description = "Superior Detailed Design comes with Dot Glues for hassle free Mounting. Please clean the surface before pasting these butterflies • Double Sided Dot Glues Included in the package to help attach to the wall. • Carefully thought out design with perfect Shape and Size to Intensif...",
+                Price = 279.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C7CP1TFL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81NKzX5qAuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099PW4TTY",
+                Title = "MuscleXP Gym Shaker PRO XP Mixer 100% Leakproof Guarantee Shaker Blender 700 ml, For Protein, Pre Workout and BCAAs, BPA Free Material Sipper Bottle",
+                Description = "PRO XP Mixer Gym Shaker is a stylish & functional bottle built for individuals with an active lifestyle. It comes with a unique anti-leak technology having a leakproof cap & lid. • It contains a plastic blender ball to create a fresh & more smooth blend. The plastic whisk ball...",
+                Price = 199.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B099PW4TTY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AM9PyzveS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G5HNGXTC",
+                Title = "Shynova Microfiber Cloth - 3 pcs - 40x40 cms - 500 GSM Multicolor Multipurpose Cleaning Cloths - Super Soft, Lint-Free & Reusable - Ideal for Car, Kitchen, Glass & Home Cleaning",
+                Description = "Multi-Purpose cloths ultra-absorbent and can absorb fluids quickly and efficiently. Made of high-quality microfiber material, the fiber is strong durable but soft and won't scratch or leave lint on your Car/Bike interior & Exterior. • ✔Change Your Cleaning Experience - This is...",
+                Price = 264.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G5HNGXTC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61VbS3GqllL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H71TL8S1",
+                Title = "Softelle Water Beads | 50 Grams | Crystal Gel Balls | Plant Jelly Balls, Water Gel Beads for Indoor Plants, Lucky Bamboo,Home Decoration, Centerpieces, | Expands 7-8 mm | MultiColor",
+                Description = "50 Grams crystal water beads that expand into smooth, transparent gel balls measuring 7-8 mm, making them perfect for decorative and gardening applications. • Helps retain moisture around plant roots, making these water gel beads ideal for lucky bamboo, indoor plants, flower a...",
+                Price = 199.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H71TL8S1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71OfOHb934L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GD5FNZNC",
+                Title = "LXOMES Pyrite Crystal Tree, Natural Gemstone Tree with Golden Wire, 10 Inch | Pyrite gemstone tree with golden wire branches and wooden base for home, office and meditation décor.",
+                Description = "Pyrite crystal tree made with natural gemstone pieces, golden wire branches and a wooden base for a distinctive decorative display. • Natural pyrite stones have variations in colour, shape and texture, giving each tree an individual appearance. • Tree-of-life inspired design w...",
+                Price = 901.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GD5FNZNC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71+G1jQU3IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B077Y3T3NP",
+                Title = "HS HINDUSTANI SAUDAGAR Mustard Bloom Coffee Mug Set of 2(275 ML Each) Microwave Safe Coffee Mugs Ceramic Milk Mug Ceramic Tea Mug Set Handmade Cup Best for Gift.",
+                Description = "Package content -Sets includes 2 mugs| colour-Yellow| capacity-275 ml each, Made from good quality ceramic ,hand-painted ,handcrafted ,Hand-artisan, Microwave safe ,dishwasher safe, refrigerator safe • Dimension-10 cm (H) x 8 cm (Top Dia) x 10 cm (Bottom Dia). Thick ceramic bo...",
+                Price = 379.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B077Y3T3NP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81PelGh73TL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJ3K86TC",
+                Title = "Perfect Sleeper Premium 2Kg Polyester Fiber Filler: Cloud-Like Softness For Pillows, Soft Toys, And Crochet Projects - Ideal Synthetic Alternative To Cotton With Durable Resilienc, White",
+                Description = "Versatile Material: Polyester fiber is a versatile material suitable for various applications, including pillow filling, soft toys, and crochet fiber projects. • Cloud-Like Softness: Known for its cloud-like softness, polyester fiber provides a plush and comfortable feel in pi...",
+                Price = 839.00m,
+                OriginalPrice = 2200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CJ3K86TC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RTlNmaxLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJF9CVX3",
+                Title = "MILLION CASES Back Cover Case for iPhone 16 Pro Max Shockproof Protective Cutting Edge Hard PC Case for Men & Boys(Desert Titanium)",
+                Description = "COMPATIBILITY: Specially designed for iPhone 16 Pro Max. Fully compatible with wireless charging, charge your Phone without taking off your case.Restore the real original feel. • ULTRA SLIM & LIGHT WEIGHT : It doesn't make the phone look bulky at all and provides 360 protectio...",
+                Price = 1234.00m,
+                OriginalPrice = 3749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DJF9CVX3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/310TZlAEKTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DR7DYM15",
+                Title = "WANNA HAIR Invisible Cover-Up Patch with Single Clip for Women & Girls | Pack of 2 | Brown Color | Size 10 - Lightweight Hair Concealer for Thinning Hair and Scalp Coverage",
+                Description = "WANNA HAIR Invisible Cover-Up Patch with Single Clip for Women & Girls | Pack of 2 | Brown Color | Size 10 - Lightweight Hair Concealer for Thinning Hair and Scalp Coverage...",
+                Price = 2169.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DR7DYM15?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vMeGFH8FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9PKP5N8",
+                Title = "Sajawa Maa Durga Wall Hanging Terracotta Idol Murti | Sherawali Devi MATA Hand-Painted Spiritual Wall Hanging Art Decor for Home Temple, Mandir, Living & Office Decor | Spiritual Gifts (17x17 CM)",
+                Description = "HANDCRAFTED MAA DURGA: Beautiful Maa Durga wall hanging handcrafted in terracotta with hand-painted detailing, combining traditional Indian craftsmanship with devotional charm for your home and prayer space. • DURGA WALL DECOR: Ideal as Durga Mata idol, Maa Durga murti, Sheraw...",
+                Price = 449.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F9PKP5N8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91JnkVEiM6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C1YZ6TLS",
+                Title = "9Dzine Pyrite Stone Original Cluster (10-15 Grams) | Raw Rough Cluster Peru For Wealth & Business Luck | Reiki Crystal Pyrite Stone Increased Willpower & Manifestation | Use Working Table Décor",
+                Description = "Material: Crystal | Stone: Pyrite | Color: Gold • Package Weight: Pyrite Cluster 10-15 Gm • A very powerful stone you must keep for opportunities in business and converting these opportunities into success. This stone makes a wonderful sheild, blocking out negativity from vari...",
+                Price = 275.00m,
+                OriginalPrice = 1049.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C1YZ6TLS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+jQMzZMFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FCFTGTQR",
+                Title = "Nidy® Disposable Fitted Massage Table Sheets, Heavy Duty Elastic Disposable Bed Cover, Breathable Disposable Fitted Sheets for Spa White (50, 80x180CM)",
+                Description = "100% Disposable & Single Use - No washing needed, ideal for busy salons and spas to maintain high sanitary standards. • Universal Fit & Heavy-Duty Elastic - Fits most massage tables snugly with a secure elastic edge, ensuring a crease-free and professional surface. • Hygienic ...",
+                Price = 3134.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FCFTGTQR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41OnpbzWsiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B2C9PVQL",
+                Title = "MINX Smart Watch Strap Compatible for Apple Watch Band 38mm / 40mm / 41mm / 42mm / 44mm / 45mm / 49mm Series 8/7 / 6/5 / 4/3 / 2/1 SE Soft Silicone (Combo Packs) (6 Silicone -S2, 38mm/40mm/41mm)",
+                Description = "MINX Smart Watch Strap Compatible for Apple Watch Band 38mm / 40mm / 41mm / 42mm / 44mm / 45mm / 49mm Series 8/7 / 6/5 / 4/3 / 2/1 SE Soft Silicone (Combo Packs) (6 Silicone -S2, 38mm/40mm/41mm)...",
+                Price = 945.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B2C9PVQL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61QLJkrb2YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0979FR9JQ",
+                Title = "Golden Cart Artificial Wall Grass for Home Decoration (12 Pcs) I Grass Mat for Wall I Vertical Garden Artificial Plants (Light Green, 60cm X 40cm X 8cm, Plastic, Pack of 12)",
+                Description = "QUANTITY: 12 Pieces; SIZE: 60cm X 40cm x 8cm; AREA COVERAGE: 31 Sq. Ft.; COLOUR: Green; MATERIAL: High Density Polyethylene (HDPE) • 💚THICK HIGH-QUALITY ARTIFICIAL HEDGES: There are 308 artificial boxwood mounting holes on the 60cm x 40cm panel, and two 4-layer artificial leav...",
+                Price = 6714.00m,
+                OriginalPrice = 8481.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0979FR9JQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71E04bdzhEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTGQ9MSD",
+                Title = "Pinnacle Swachh Body Protective Cover Compatible with Urban Native M1 RO + UV + Copper + Alkaline Water Purifier | Dust Protection Cover for Water Purifier | Blue",
+                Description = "good quality cover FOR URBAN NATIVE WATER PURIFIER • Net Content : 1 Pcs of Body Protective Cover • A Quality Water Purifier RO Cover which Stitched by Our trained & professional experts",
+                Price = 204.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTGQ9MSD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/319UZqun8mL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HDJP7F23",
+                Title = "HealEvar Kojic Acid 1% Soap for Pigmentation, Dark Spots & Tan Removal | Skin Brightening Soap with Rice Water & Aloe Vera | For Glowing & Even Skin Tone | All Skin Types | Each 100g",
+                Description = "HealEvar Kojic Acid 1% Soap for Pigmentation, Dark Spots & Tan Removal | Skin Brightening Soap with Rice Water & Aloe Vera | For Glowing & Even Skin Tone | All Skin Types | Each 100g...",
+                Price = 248.00m,
+                OriginalPrice = 447.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0HDJP7F23?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71G00FNQjDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FF4PPNRB",
+                Title = "ONETON Beige Peel and Stick Wallpaper Self-Adhesive Removable Vinyl Wall Decoration for Rooms, Kitchen, Countertop, Cabinet (Beige Glossy, 24x60 Inch)",
+                Description = "SUPERIOR MATERIAL: Our beige contact paper is made of high quality Vinyl elegant and simple, bringing a beautiful and comfortable change to your room. • SELF ADHESIVE & REMOVABLE: Beige peel and stick wallpaper comes with strong adhesive. It is not easy to fall off. • EASY TO ...",
+                Price = 322.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FF4PPNRB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LCSqCyrtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLPZW319",
+                Title = "Floor Wiper with Long Handle Adjustable Bathroom Floor Squeegee for Tile Window & Kitchen Cleaning (180° Rotating Head, Telescopic Rod)",
+                Description = "Quick Water Removal Floor Wiper with Long Handle easily pushes water off bathroom floors and tiles for faster drying and cleaner surfaces. • Adjustable Telescopic Rod Length adjustable handle helps clean floors, windows and walls without bending or strain. • 180° Rotating Clea...",
+                Price = 264.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FLPZW319?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31RzXy9oc1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07VP54GXJ",
+                Title = "KC KULLICRAFT Handcrafted Soapstone Aroma Oil Burner & Diffuser | Flower Carving, Tea Light Candle Holder, For Home, Office, Temple, Gifting",
+                Description = "✔️ 100% Natural Soapstone - Handcrafted in India Crafted from solid natural soapstone and hand-carved by skilled Indian artisans. Each piece is unique, with slight variations in color, texture, and carving-true characteristics of genuine handcrafted stone. • ✔️ Compact & Pract...",
+                Price = 362.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07VP54GXJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71q+bkHRZXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H69W65Q4",
+                Title = "Showerzen Chlorine Water Purification Tablets, Pack of 30",
+                Description = "Powerful Water Disinfection: Eliminates bacteria, viruses, and harmful microorganisms from water for safer use in your home and daily activities • Scientifically Proven Formula: Lab test results included that show the before and after CFU count of commonly occurring bacteria i...",
+                Price = 229.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H69W65Q4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/814NfMFHhPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G8L47SS1",
+                Title = "GRASPING FINGERS Muslin Cotton Baby Swaddle | 110 x 100 cm | Ultra-Soft, Breathable & Lightweight | Multipurpose | Hypoallergenic | Unisex | Ideal Newborn Baby Gift (Circus/Polka)",
+                Description = "NEWBORN BABY ESSENTIALS: Give your little one the comfort they deserve with Grasping Fingers Premium Organic Muslin Baby Swaddles. These ultra-soft baby swaddle blankets provide a secure, cozy wrap that helps babies feel calm and comfortable, making them an essential part of e...",
+                Price = 474.05m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G8L47SS1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81x0qqge1tL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4H8JZ74",
+                Title = "MARSYLEC Long Bristle Polypropylene Dust Cleaning Brush|Ideal for Carpet Cleaning,Car Seat,Bed,Sofa,Curtains,Mats and Household Upholstery Cleaning|Multicolour|Pack of 1",
+                Description = "1.Long bristles carpet cleaning brushes reach deep inside carpets and remove dust and stains from carpets without damaging delicate fibres. It can be used to clean even delicate surfaces as it does not scratch or damage them. Car brush for cleaning dust interior. It is an idea...",
+                Price = 279.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H4H8JZ74?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51HUn4YoxkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7JT7FDP",
+                Title = "Clove Oil (Long Ka Tel)- 15ML (Pack of 1) | Pure & Natural | Cold Pressed Multipurpose Oil for Teeth & Gum Care, Hair, Skin & Body Massage | Premium Quality",
+                Description = "Clove Oil (Long Ka Tel)- 15ML (Pack of 1) | Pure & Natural | Cold Pressed Multipurpose Oil for Teeth & Gum Care, Hair, Skin & Body Massage | Premium Quality...",
+                Price = 121.00m,
+                OriginalPrice = 460.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0H7JT7FDP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61N16-RBUpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8YK5L1Z",
+                Title = "Hoolloomooloo 16x16 Inch (40x40 cm) Hotel Quality Premium Soft Polyester Fiber Cushion Filler - Set of 2 (Grey)",
+                Description = "Very soft cushion • Size: cushion: 16 inch x 16 inch or 40 cm x 40 cm • Package Contain: 2 Cushion Filler.",
+                Price = 479.00m,
+                OriginalPrice = 1200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D8YK5L1Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81evcHM2NfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNZF5CN3",
+                Title = "Mountain Breeze Sugar-Free Spearmint Breath Strips - Instant Freshness, 24 Strips Per Cassette (Pack of 3), Oral Hygiene Mouth Freshener, 50 Grams",
+                Description = "This vibrant design captures the essence of fresh breath with a spearmint-inspired aesthetic, blending crisp, refreshing hues of green and white. The minimalist layout reflects purity and clarity, symbolizing the invigorating sensation of oral freshness. • Inspired by the Moun...",
+                Price = 135.00m,
+                OriginalPrice = 150.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0DNZF5CN3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Y757kz5dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FVTNHFK4",
+                Title = "Hawan Samagri 950 Gram |100% Pure and Natural | Mixture of Various Dried Herbal Roots and Leaves for Vedic Yagya Pujan. Hawan Worship Pooja Samagri (950 Gram)",
+                Description = "Pure and Organic. Keetanu Nasak (Anti-Bacterial): Contributes to germicidal properties. • yurvedic Herbs of superior quality, Black Til, Dhoop powders, Kapoor, Rose Petals, Sandalwood Powder, Lobaan, Chandan, Nagkesar, Nagarmotha, Lotus Seeds, Jata Masi, Kapoor Kachri, Satavar...",
+                Price = 267.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FVTNHFK4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/515hZUAkK3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRNW5L7N",
+                Title = "HDC™ Digital Switch 4-Way ON/Off 220V-240V Light Digital Remote-Control Wireless Wall Switch with RF Remote Control Smart Switch Module with Remote for Home Automation",
+                Description = "Digital Switch Compatibility: Suitable for drop light, crystal lamp, modern low-pressure lamp, absorb dome light, day flower lamp, fluorescent lamp, energy-saving lamps, and exhaust fan • Versatile Applications: Can be used in household, stairs, corridor, washroom, toilet, wor...",
+                Price = 399.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BRNW5L7N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51zgZoA7o9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CB4CY6P5",
+                Title = "DK Trades® Handmade Toran for Main Door - 3ft Decorative Bandarwal for Home, Temple & Diwali Décor | Traditional Hanging Door Decoration (36 x 10 inch)",
+                Description = "Packaging Contents:- 1 pcs Bandhanwar • Door Toran with stone and handicrafts work . • Best Gift For Bride in Marriage season.",
+                Price = 451.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CB4CY6P5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81NuMrV617L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CM6WFTL5",
+                Title = "SAEMPIRE Plastic Screen Edge-To-Edge Protector Screen Guard For Casio Vintage Digital Grey Dial Unisex A-158WA-1Q (D011)",
+                Description = "[Special for Noise Mettalix Please identify your phone model.Only Compatible with Casio Vintage Digital Grey Dial Unisex A-158WA-1Q ( D011 )x , Case friendly designed. • [Material Test] Say goodbye to the white edge, 9h full coverage, closely fit to the edge, protect every inc...",
+                Price = 122.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CM6WFTL5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611xG7oqZ8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFMGNS7G",
+                Title = "2V BROTHERS 5-in-1 Mini Portable Screwdriver & Hammer Set - Multi-Functional Hidden Tool Kit, Small Metal Hammer & Screwdriver Combo for Home & Travel - Pack of 1",
+                Description = "【Surface Finishing】 : Portable Design Electroplate • 【Material Type】 : All metal • 【Color】 : Gold or Silver",
+                Price = 275.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FFMGNS7G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51TSCXSpevL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBQ9L78R",
+                Title = "EZDEZARIO Men's Casual Shoes Sneakers | Lace Up Walking Shoes Red | EZDEZARIO Men's Shoes | Casual Sneakers for Men | Lace Up Shoes | Comfortable Lightweight Daily Wear Walking Lifestyle Shoes",
+                Description = "EZDEZARIO Men's Casual Shoes Sneakers | Lace Up Walking Shoes Red | EZDEZARIO Men's Shoes | Casual Sneakers for Men | Lace Up Shoes | Comfortable Lightweight Daily Wear Walking Lifestyle Shoes...",
+                Price = 459.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HBQ9L78R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61mJWkU6wHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09D3S87Q8",
+                Title = "NewSun 200g Activated Charcoal Chunk Air Purifying Bag Natural Deodorizer and Dehumidifier for Car, Rooms, and Pets Decorative Odor Absorber for Home and Office (1-Pack)",
+                Description = "100% Pure Jute • HASSLE-FREE, NATURAL WAY TO PURIFY THE AIR IN YOUR HOME - Our 200-gram bags are designed to more effectively absorb odors and moisture found in your home or car. Helps you Breathe Fresher Air! • ABSORB BAD ODORS - Activated Charcoal has an adsorption character...",
+                Price = 303.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09D3S87Q8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RvFQmnjML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GV7RK6Q7",
+                Title = "Self Adhesive Bathroom Shelf for Wall, Wall Mounted Bathroom Organizer Rack, Shower Storage Shelf for Bathroom Accessories, Shampoo, Soap & Toiletries, Drill & No-Drill Installation, Pack of 2",
+                Description = "[PREMIUM RUST-PROOF METAL] : Crafted from high-quality powder-coated metal with a rust-resistant finish, this wall mounted bathroom shelf offers exceptional durability for humid environments. Built to last, it is ideal for bathrooms, kitchens, washrooms, and utility spaces. • ...",
+                Price = 627.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GV7RK6Q7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DbDhRMsuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BQGB34RQ",
+                Title = "FKH BAGS Fluffy Printed Waist Bag Elegant Style Travel Pouch Passport Holder with Adjustable Strap for Men Chest Fanny Pack Women Side Bag Hiking Trekking/Hand Purse/Mobile Bag/Official Gifts for Boys",
+                Description = "FKH BAGS Fluffy Printed Waist Bag Elegant Style Travel Pouch Passport Holder with Adjustable Strap for Men Chest Fanny Pack Women Side Bag Hiking Trekking/Hand Purse/Mobile Bag/Official Gifts for Boys...",
+                Price = 255.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BQGB34RQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Yfadgi3NL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8FPSL5Q",
+                Title = "ECO-KLEEN Kala Sabun Dishwash Bar | Lemon Enriched | Premium Kitchen Cleaning Soap Bars | Long Lasting | 10 x 100g Bars | Total 1kg",
+                Description = "1. EFFECTIVE EVERYDAY CLEANING Lemon enriched dishwash bar designed to help remove everyday grease, oil, and food residue from kitchen utensils for a clean finish. • 2. RICH FOAM FORMULA Produces rich lather that helps clean stainless steel, aluminium, brass, copper, ceramic, ...",
+                Price = 349.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H8FPSL5Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/815TJQqWkLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DT46NYN1",
+                Title = "SHANTI Brass Shivling for Home Puja, Shiva Lingam for Temple, Office Desk, Gift & Décor (SL3408)",
+                Description = "Premium brass shivling for home puja with antique finish and intricate handcrafted carving for elegant spiritual décor and temple decoration. • Handmade brass shiva lingam sculpture inspired by traditional ashtadhatu craftsmanship and religious temple artistry. • Decorative co...",
+                Price = 5626.00m,
+                OriginalPrice = 10513.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DT46NYN1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/811wJX6Q9qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "8195116779",
+                Title = "Sadhak : Journey of an Aghori- True Account of Tantra Sadhana : Shishir Kumar",
+                Description = "Sadhak : Journey of an Aghori- True Account of Tantra Sadhana : Shishir Kumar...",
+                Price = 449.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/8195116779?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AXSJDJX4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D4LHGXQM",
+                Title = "Scrub Caps_Snoopy Design Blue",
+                Description = "Scrub Caps_Snoopy Design Blue...",
+                Price = 400.00m,
+                OriginalPrice = 700.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D4LHGXQM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41bm98LFGEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G7HWVF25",
+                Title = "Professional Feel Korean Glass Luxuries Facial Kit, Crystal Clear Glow, Deeply Hydrates (Set of 7) 300 gm",
+                Description = "Professional Feel Korean Glass Luxuries Facial Kit, Crystal Clear Glow, Deeply Hydrates (Set of 7) 300 gm...",
+                Price = 645.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0G7HWVF25?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51rfBHuv2LL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQV62X7N",
+                Title = "verdc - Pure Red Sandalwood Face Pack Powder, Forest A Grade, Premium, 100% Natural | Lal Chandan | Raktha Chandanam | For Skin Brightening, Acne, Blemishes, Dark Spots - 40 gm",
+                Description = "verdc - Pure Red Sandalwood Face Pack Powder, Forest A Grade, Premium, 100% Natural | Lal Chandan | Raktha Chandanam | For Skin Brightening, Acne, Blemishes, Dark Spots - 40 gm...",
+                Price = 348.00m,
+                OriginalPrice = 448.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FQV62X7N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51su9WE-SAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FCH2QF9B",
+                Title = "iFAST IF-125 Digital Display Bluetooth 5.4 Wireless Neckband Earphone| HD Call Stereo Bass | Up to 50 Hours Music Playtime | ENC Noise Cancellation | Voice Assistance | Dual Pairing | Black",
+                Description = "In-ear Wireless Bluetooth Neckband with Built-in HD Mic delivers up to 50 Hours of continuous Music Playtime when fully charged. It has a Long Standby time of 280 Hours. Fast charging, it can be fully charged in 2-3 Hrs. • It comes with an LED Digital Display for real-time pow...",
+                Price = 2080.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FCH2QF9B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71E6dqw8ZzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTJFS556",
+                Title = "Kalinix 18x18x18 Inches Cube Pack of 12, 5PLY Large Cardboard Box for Packaging | Brown | Courier Packing Corrugated Large Carton 18\" X 18\" X 18\" Box Height 18 Inch",
+                Description = "Material: Paper Cardboard, Color: Brown. Sturdy & Durable: Designed to provide excellent strength and support for a wide range of goods. • Size in Inches 18x18x18 Inches, Size in CM 45.72 X 45.72 X 45.72 CM . Corrugated Box Packaging Material Crafted for durability and sustain...",
+                Price = 4217.00m,
+                OriginalPrice = 6659.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GTJFS556?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51o8A6J6UbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTHDTFZ7",
+                Title = "LOK Premium Battery Sprayer 20L Double Motor (ALPDM20) | 12V Li-Ion Agriculture Spray Pump with Telescopic Lance, Brass Trigger & Multi Nozzles for Pesticide, Farming & Garden",
+                Description = "HIGH-POWER DOUBLE MOTOR PERFORMANCE: 20L battery sprayer with advanced double motor delivers high pressure and fast spraying, ideal for large farms, orchards and commercial agriculture use with uniform coverage. • 12V LI-ION BATTERY WITH DIGITAL DISPLAY: Equipped with powerful...",
+                Price = 6174.00m,
+                OriginalPrice = 8867.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GTHDTFZ7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611HQEkQxqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFSY686X",
+                Title = "Eli & Chi Gesture Control RC Car, 4WD Stunt Drift, Watch + Remote | Double-sided 360° driving, RGB lights, water-mist effect, designed for kids aged 5-14 years",
+                Description = "Gesture watch and 2.4 GHz remote: Use hand movements with the gesture watch or drive with the included remote controller. • 4WD double-sided stunt movement: Supports 360° spins, drifting and multidirectional driving even after the car flips. • RGB lights and water mist: Built-...",
+                Price = 2599.00m,
+                OriginalPrice = 5500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0FFSY686X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eELQvJaqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GMHG8RTR",
+                Title = "BOLDSTUFF Thermosteel Water Jug Insulated Tumbler with Magnet Lid 2100ml, Water from Bottle for Travel, Home, Office, School, Gym, Hotel and Dhaba 12+ Hours Hot and 18+ Hours Cold (Black)",
+                Description = "MATERIAL & CONSTRUCTION:- Premium 304 Food-Grade Stainless Steel (Inner & Outer Walls). Double-Walled Vacuum Insulation Technology. BPA-Free, Non-Toxic Materials. Powder-Coated Scratch-Resistant Exterior Finish. Surgical Grade Steel Interior - Odor & Stain Resistant • INSULATI...",
+                Price = 1898.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GMHG8RTR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eGiu+Q+0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFG11JP4",
+                Title = "KT Microfiber Lens Cleaning Cloths | Pack of 10 | Size- 7 x 6 Inches | Specs Microfiber Cloth | Microfiber Lens Cleaning Cloth for Laptop Cleaner, Spectacles, Sunglasses, Mobile & More | Blue",
+                Description = "Ultra-Soft Microfiber: Our advanced specs cleaner or laptop screen cleaner microfiber technology ensures a gentle touch on all your delicate surfaces, preventing scratches and abrasions. • Multi-Surface Versatility: Our microfiber cloth for laptop and specs is perfect for clea...",
+                Price = 290.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CFG11JP4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+KsgAOx+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFTT4W4R",
+                Title = "AROPANA Vegan Leather Desk Mat 90x45cm | Large Reversible Mouse Pad & Computer Table Protector | Dual-Side Waterproof Extended Laptop Pad with Edge-Stitched Design (Light Green and Blue)",
+                Description = "Large Desk Mat Dimensions: Measuring 35.4 x 17.7 inches, (90x45CM) and Color: Light Green and Blue, with a 0.2cm thickness, this oversized mouse pad provides ample space for laptops, keyboards, and mice. Made from durable vegan leather, it protects your desk from scratches, st...",
+                Price = 799.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DFTT4W4R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+5iDO11JL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;

@@ -295,7 +295,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         r'id=["\']main-image["\'][^>]*src=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
         r'data-old-hires=["\'](https?://[^"\']+)["\']',
         r'<img[^>]*id=["\']landingImage["\'][^>]*src=["\'](https?://[^"\']+)["\']',
-        r'https://m\.media-amazon\.com/images/I/[3-9A-Z][0-9A-Za-z\-_%]+\.(?:jpg|jpeg|png|webp)'
+        r'https://m\.media-amazon\.com/images/I/[3-9A-Z][0-9A-Za-z\-_%+]+\.(?:jpg|jpeg|png|webp)'
     ]
     for pat in img_patterns:
         m = re.search(pat, html_content)
@@ -322,7 +322,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
                 return None
 
     # Extract media asset ID for image deduplication
-    img_id_match = re.search(r'/images/I/([A-Za-z0-9\-_%]+)', hd_image)
+    img_id_match = re.search(r'/images/I/([A-Za-z0-9\-_%+]+)', hd_image)
     media_id = img_id_match.group(1) if img_id_match else hd_image
     if media_id in seen_images:
         print(f"⏩ Skipping duplicate image asset ID: {media_id}")
