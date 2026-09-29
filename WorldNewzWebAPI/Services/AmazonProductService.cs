@@ -39504,6 +39504,561 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0CZ79NHPR",
+                Title = "P.C. Chandra Jewellery 22K Yellow Gold Five Petal Flower Stud Stud Earrings For Women",
+                Description = "P.C. Chandra Jewellery 22K Yellow Gold Five Petal Flower Stud Stud Earrings For Women...",
+                Price = 29958.00m,
+                OriginalPrice = 29958.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CZ79NHPR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51o6MDr8IJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNPDDP7N",
+                Title = "P.C. Chandra Jewellers Dangles in Pink 22K(916) Yellow Gold Western Drop Earrings for Women",
+                Description = "P.C. Chandra Jewellers Dangles in Pink 22K(916) Yellow Gold Western Drop Earrings for Women...",
+                Price = 31383.00m,
+                OriginalPrice = 31383.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CNPDDP7N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hekTFzL7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C7C1GMGB",
+                Title = "P.C. Chandra Jewellers 22K Yellow Gold Jhumka Style Earrings",
+                Description = "P.C. Chandra Jewellers 22K Yellow Gold Jhumka Style Earrings...",
+                Price = 132070.00m,
+                OriginalPrice = 132070.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C7C1GMGB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81So2JNPGGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BHVWQ9V5",
+                Title = "WHP JEWELLERS Flower Leaf 22K(916) Yellow Gold Minimal Stud Earrings for Women",
+                Description = "WHP JEWELLERS Flower Leaf 22K(916) Yellow Gold Minimal Stud Earrings for Women...",
+                Price = 24650.00m,
+                OriginalPrice = 28750.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BHVWQ9V5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71GmQaKy2CL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6WH6SHF",
+                Title = "Joyalukkas 22K (916) Purity Gilded Ganesha Gold Pendant For Kids",
+                Description = "Joyalukkas 22K (916) Purity Gilded Ganesha Gold Pendant For Kids...",
+                Price = 24047.00m,
+                OriginalPrice = 26719.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D6WH6SHF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91ZxdTu5u3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07LG9F3V3",
+                Title = "Joyalukkas 22KT Impress Collection Yellow Gold Earrings | Gift For Women & Girls |BIS & HUID Hallmarked",
+                Description = "Joyalukkas 22KT Impress Collection Yellow Gold Earrings | Gift For Women & Girls |BIS & HUID Hallmarked...",
+                Price = 22844.00m,
+                OriginalPrice = 25382.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07LG9F3V3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81WmWrCtBUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6WGMXBK",
+                Title = "Joyalukkas 22K (916) Purity Eternal Love Golden Stud For Women",
+                Description = "Joyalukkas 22K (916) Purity Eternal Love Golden Stud For Women...",
+                Price = 28965.00m,
+                OriginalPrice = 32183.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D6WGMXBK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81+eSlhPT2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKDYN726",
+                Title = "KISNA JEWELS 18K BIS Hallmark Pure Yellow Gold & SI Real Diamond Ring for Women Size 18",
+                Description = "KISNA JEWELS 18K BIS Hallmark Pure Yellow Gold & SI Real Diamond Ring for Women Size 18...",
+                Price = 28540.00m,
+                OriginalPrice = 30913.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CKDYN726?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71q8f1rYFwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVDFCRLN",
+                Title = "Joyalukkas 22 kt (916) Gold Nosepin for womens (Green And White)",
+                Description = "Joyalukkas 22 kt (916) Gold Nosepin for womens (Green And White)...",
+                Price = 9745.00m,
+                OriginalPrice = 10828.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVDFCRLN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61GC-EqptML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09T6TG6KQ",
+                Title = "Joyalukkas 22KT Gold Earrings For Women",
+                Description = "Joyalukkas 22KT Gold Earrings For Women...",
+                Price = 76664.00m,
+                OriginalPrice = 85182.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09T6TG6KQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91VbmETshzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B072C4XCRF",
+                Title = "Joyalukkas 22KT Yellow Gold Drop Earrings | Gift For Kids & Girls |BIS & HUID Hallmarked",
+                Description = "Joyalukkas 22KT Yellow Gold Drop Earrings | Gift For Kids & Girls |BIS & HUID Hallmarked...",
+                Price = 20450.00m,
+                OriginalPrice = 22722.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B072C4XCRF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/811yOOVrpnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSPD96GQ",
+                Title = "P.C. Chandra Jewellery 22K Yellow Gold Heart Floral Drop Drop Earrings For Women",
+                Description = "P.C. Chandra Jewellery 22K Yellow Gold Heart Floral Drop Drop Earrings For Women...",
+                Price = 18681.00m,
+                OriginalPrice = 18681.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DSPD96GQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51icdVtp3nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B095K21C81",
+                Title = "KISNA JEWELS 14K BIS Hallmark Pure Yellow Gold & SI Real Diamond Flower Ring for Women Size 14",
+                Description = "KISNA JEWELS 14K BIS Hallmark Pure Yellow Gold & SI Real Diamond Flower Ring for Women Size 14...",
+                Price = 14898.00m,
+                OriginalPrice = 17118.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B095K21C81?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/510oktOnkCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CV83HSK9",
+                Title = "Joyalukkas 22KT Cyclical Gold Earring | Gift For Women & Girls |BIS & HUID Hallmarked",
+                Description = "Joyalukkas 22KT Cyclical Gold Earring | Gift For Women & Girls |BIS & HUID Hallmarked...",
+                Price = 16984.00m,
+                OriginalPrice = 18871.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CV83HSK9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sdJLv3YyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNPDFL9W",
+                Title = "P.C. Chandra Jewellery 22K Yellow Gold Beautiful Pearl Tushi Stud Stud Earrings For Women",
+                Description = "P.C. Chandra Jewellery 22K Yellow Gold Beautiful Pearl Tushi Stud Stud Earrings For Women...",
+                Price = 11145.00m,
+                OriginalPrice = 11145.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CNPDFL9W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/615oITn3PQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CZ7925H4",
+                Title = "P.C. Chandra Jewellers Charming with American Diamond 14K(585) Yellow Gold Western Stud Earrings for Women",
+                Description = "P.C. Chandra Jewellers Charming with American Diamond 14K(585) Yellow Gold Western Stud Earrings for Women...",
+                Price = 8526.00m,
+                OriginalPrice = 8526.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CZ7925H4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/518luL2bQoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNPF7WRG",
+                Title = "P.C. Chandra Jewellers Women 14Kt (585) Yellow Gold Cute Ganesha Motif Stud Earrings - 0.65 Grams",
+                Description = "P.C. Chandra Jewellers Women 14Kt (585) Yellow Gold Cute Ganesha Motif Stud Earrings - 0.65 Grams...",
+                Price = 9054.00m,
+                OriginalPrice = 9054.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CNPF7WRG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51-zDfhUGML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSPPYPD7",
+                Title = "P.C. Chandra Jewellers Heart With Leaf 22K(916) Yellow Gold Western Drop Earrings for Women",
+                Description = "P.C. Chandra Jewellers Heart With Leaf 22K(916) Yellow Gold Western Drop Earrings for Women...",
+                Price = 18681.00m,
+                OriginalPrice = 18681.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DSPPYPD7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rRdgbkGML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09Q5BW345",
+                Title = "Joyalukkas 22KT Classic Golden Drop Earring | Gift For Women & Girls |BIS & HUID Hallmarked",
+                Description = "Joyalukkas 22KT Classic Golden Drop Earring | Gift For Women & Girls |BIS & HUID Hallmarked...",
+                Price = 41018.00m,
+                OriginalPrice = 45576.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09Q5BW345?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vpbEbvEIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6WGKY11",
+                Title = "Joyalukkas 22K (916) Purity Luxe Leaflet Gold Stud For Women",
+                Description = "Joyalukkas 22K (916) Purity Luxe Leaflet Gold Stud For Women...",
+                Price = 21496.00m,
+                OriginalPrice = 23884.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D6WGKY11?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91nQ-hSPXUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B071J2Z669",
+                Title = "P.C. Chandra Jewellers 14K Yellow Gold Triple Spark Swirl Ring for Women",
+                Description = "P.C. Chandra Jewellers 14K Yellow Gold Triple Spark Swirl Ring for Women...",
+                Price = 7167.00m,
+                OriginalPrice = 7167.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B071J2Z669?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/512QcbskLkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B1JD7G2S",
+                Title = "P.C. Chandra Jewellery 14K Yellow Gold Pooja Kalash Pendant (Without Chain) For Women",
+                Description = "P.C. Chandra Jewellery 14K Yellow Gold Pooja Kalash Pendant (Without Chain) For Women...",
+                Price = 5182.00m,
+                OriginalPrice = 5182.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B1JD7G2S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51T9i2lZ-FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVDN3MCM",
+                Title = "Joyalukkas 22 kt (916) Gold Nosepin for womens (White)",
+                Description = "Joyalukkas 22 kt (916) Gold Nosepin for womens (White)...",
+                Price = 11498.00m,
+                OriginalPrice = 12776.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVDN3MCM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LMt16B-XL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTTHM791",
+                Title = "P.C. Chandra Jewellers 22KT (916) Yellow Gold Intricate Pearl Tushi Necklace For Women with Red & Green Beads - 0.67 Grams",
+                Description = "P.C. Chandra Jewellers 22KT (916) Yellow Gold Intricate Pearl Tushi Necklace For Women with Red & Green Beads - 0.67 Grams...",
+                Price = 15201.00m,
+                OriginalPrice = 15201.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CTTHM791?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71M-xLS3enL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNPDF56G",
+                Title = "P.C. Chandra Jewellers Women 22Kt (916) Yellow Gold Elegant Tushi Stud Earrings - 0.82 Grams",
+                Description = "P.C. Chandra Jewellers Women 22Kt (916) Yellow Gold Elegant Tushi Stud Earrings - 0.82 Grams...",
+                Price = 17723.00m,
+                OriginalPrice = 17723.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CNPDF56G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/5147Oi4TC5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSFX52GL",
+                Title = "P.C. Chandra Jewellers 22K Yellow Gold Floral Cutwork Ring for Women",
+                Description = "P.C. Chandra Jewellers 22K Yellow Gold Floral Cutwork Ring for Women...",
+                Price = 19695.00m,
+                OriginalPrice = 19695.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DSFX52GL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Dde4v2fzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09W56B24P",
+                Title = "925 Sterling Silver Earrings for Women | Floral, Marquise Cluster & Drop Stud Design | Hypoallergenic Lightweight Jewelry for Daily Wear, Party, Anniversary, Wedding, Birthday Gift",
+                Description = "925 Sterling Silver Earrings for Women | Floral, Marquise Cluster & Drop Stud Design | Hypoallergenic Lightweight Jewelry for Daily Wear, Party, Anniversary, Wedding, Birthday Gift...",
+                Price = 2199.00m,
+                OriginalPrice = 2399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09W56B24P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yUA2Jqy6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVDX24N8",
+                Title = "Joyalukkas 22 kt (916) Botanic Gold Nosepin",
+                Description = "Joyalukkas 22 kt (916) Botanic Gold Nosepin...",
+                Price = 8993.00m,
+                OriginalPrice = 9992.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVDX24N8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61nISX3+QvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJC9FSNV",
+                Title = "DISHIS 14KT Pure Yellow Gold Diamond Screw Nose Pin for Women | IGLI Certified Diamond | BIS Hallmarked| Elegant Gift for Wife",
+                Description = "DISHIS 14KT Pure Yellow Gold Diamond Screw Nose Pin for Women | IGLI Certified Diamond | BIS Hallmarked| Elegant Gift for Wife...",
+                Price = 5564.00m,
+                OriginalPrice = 7819.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CJC9FSNV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51-doVO9MSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D72TNCDX",
+                Title = "Joyalukkas 22KT Gold Serenade Necklace | Gift For Women & Girls |BIS & HUID Hallmarked",
+                Description = "Joyalukkas 22KT Gold Serenade Necklace | Gift For Women & Girls |BIS & HUID Hallmarked...",
+                Price = 37790.00m,
+                OriginalPrice = 41989.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D72TNCDX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Dr+dM90gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CV14MG85",
+                Title = "P.C. Chandra Jewellers 14Kt (585) Yellow Gold Charming Gold Rose Bud Pendant (Without Chain)",
+                Description = "P.C. Chandra Jewellers 14Kt (585) Yellow Gold Charming Gold Rose Bud Pendant (Without Chain)...",
+                Price = 7010.00m,
+                OriginalPrice = 7010.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CV14MG85?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/411rIf6a7RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSFXPT2T",
+                Title = "P.C. Chandra Jewellers 22K Yellow Gold Synthetic Pola Ring for Women",
+                Description = "P.C. Chandra Jewellers 22K Yellow Gold Synthetic Pola Ring for Women...",
+                Price = 6418.00m,
+                OriginalPrice = 6418.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DSFXPT2T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JGNnKC0KL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07F5PLS2D",
+                Title = "PC Jeweller The Eagon 18KT Yellow Gold and Diamond Nose Pin for Women",
+                Description = "PC Jeweller The Eagon 18KT Yellow Gold and Diamond Nose Pin for Women...",
+                Price = 26461.00m,
+                OriginalPrice = 29401.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07F5PLS2D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hkdj6tKXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B084H9ZP8M",
+                Title = "P.C. Chandra Jewellers 18k (750) Yellow Gold and Diamond Stud Earrings for Women",
+                Description = "P.C. Chandra Jewellers 18k (750) Yellow Gold and Diamond Stud Earrings for Women...",
+                Price = 18833.00m,
+                OriginalPrice = 18833.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B084H9ZP8M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51NuJmr6Q4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07F5PNNVB",
+                Title = "PC Jeweller The Cormack 18KT Yellow Gold and Diamond Nose Pin for Women",
+                Description = "PC Jeweller The Cormack 18KT Yellow Gold and Diamond Nose Pin for Women...",
+                Price = 15464.00m,
+                OriginalPrice = 17182.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07F5PNNVB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HvXgO9ifL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07GSCRY61",
+                Title = "DISHIS 18KT Pure Yellow Gold Diamond Screw Nose Pin for Women | IGLI Certified Diamond | BIS Hallmarked| Elegant Gift for Wife",
+                Description = "DISHIS 18KT Pure Yellow Gold Diamond Screw Nose Pin for Women | IGLI Certified Diamond | BIS Hallmarked| Elegant Gift for Wife...",
+                Price = 9854.00m,
+                OriginalPrice = 11849.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07GSCRY61?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61TfmdZzYKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07XP9Y45Z",
+                Title = "DISHIS 14KT Pure Yellow Gold Diamond Wire Nose Pin for Women | BIS Hallmarked| Elegant Gift for Wife",
+                Description = "DISHIS 14KT Pure Yellow Gold Diamond Wire Nose Pin for Women | BIS Hallmarked| Elegant Gift for Wife...",
+                Price = 8219.00m,
+                OriginalPrice = 10316.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XP9Y45Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kTAnx9i7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;

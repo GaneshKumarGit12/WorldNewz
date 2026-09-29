@@ -173,7 +173,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
                 html_content = html_bytes.decode('utf-8', errors='ignore')
 
             # Check for client-side JavaScript redirect (e.g. amzlinks.in window.location.replace)
-            js_redirect = re.search(r'window\.location\.(?:replace|href)\s*=\s*["\'](https?://[^"\']+)["\']', html_content)
+            js_redirect = re.search(r'window\.location\.(?:replace\s*\(\s*|href\s*=\s*)["\'](https?://[^"\']+)["\']', html_content)
             if not js_redirect:
                 js_redirect = re.search(r'<meta\s+http-equiv=["\']refresh["\']\s+content=["\']\d+;\s*url=(https?://[^"\']+)["\']', html_content, re.I)
             
@@ -288,13 +288,14 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     # 6. Extract Images & Upgrade to 1500px HD (Ignoring 01/11/21 UI icon assets)
     img_url = ""
     img_patterns = [
-        r'"hiRes"\s*:\s*"(https://m\.media-amazon\.com/images/I/[^"]+)"',
         r'id=["\']main-image["\'][^>]*data-a-hires=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
-        r'data-a-hires=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
         r'id=["\']main-image["\'][^>]*data-midres-replacement=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
         r'id=["\']main-image["\'][^>]*src=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
-        r'data-old-hires=["\'](https?://[^"\']+)["\']',
+        r'<img[^>]*id=["\']landingImage["\'][^>]*data-old-hires=["\'](https?://[^"\']+)["\']',
         r'<img[^>]*id=["\']landingImage["\'][^>]*src=["\'](https?://[^"\']+)["\']',
+        r'"hiRes"\s*:\s*"(https://m\.media-amazon\.com/images/I/[^"]+)"',
+        r'data-a-hires=["\'](https://m\.media-amazon\.com/images/I/[^"\']+)["\']',
+        r'data-old-hires=["\'](https?://[^"\']+)["\']',
         r'https://m\.media-amazon\.com/images/I/[3-9A-Z][0-9A-Za-z\-_%+]+\.(?:jpg|jpeg|png|webp)'
     ]
     for pat in img_patterns:
@@ -372,9 +373,9 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         log_failure(raw_url, f"Unextractable price for ASIN {asin}")
         return None
 
-    # Extract Authentic MRP / Original Price
+    # Extract Authentic MRP / Original Price (strictly scoped to basisPrice, never basisPriceLegalMessage)
     orig_price = None
-    bp_m = re.search(r'class=["\'][^"\']*basisPrice[^"\']*["\'].*?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', html_content, re.S)
+    bp_m = re.search(r'class=["\'][^"\']*\bbasisPrice\b[^"\']*["\'][^>]*>(?:(?!</div).){1,600}?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', html_content, re.S)
     if bp_m:
         num_str = re.sub(r'[^\d.]', '', bp_m.group(1))
         if num_str:
@@ -383,7 +384,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     if not orig_price:
         block_m = re.search(r'id=["\'](?:corePriceDisplay_desktop_feature_div|apex_desktop|corePrice_desktop|desktop_unifiedPrice)["\'](.*?)</div>\s*</div>', html_content, re.S)
         if block_m:
-            atp = re.search(r'class=["\'][^"\']*a-text-price[^"\']*["\'].*?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', block_m.group(1), re.S)
+            atp = re.search(r'class=["\'][^"\']*a-text-price[^"\']*["\'][^>]*>(?:(?!</div).){1,400}?<span class=["\']a-offscreen["\']>([₹$]?\s*[0-9,]+(?:\.[0-9]+)?)</span>', block_m.group(1), re.S)
             if atp:
                 num_str = re.sub(r'[^\d.]', '', atp.group(1))
                 if num_str:
@@ -391,7 +392,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
 
     # Extract Authentic Discount %
     discount_pct = None
-    disc_m = re.search(r'class=["\'][^"\']*savingPriceOverride[^"\']*["\']>(-?\d+)%</span>', html_content)
+    disc_m = re.search(r'class=["\'][^"\']*savingPriceOverride[^"\']*["\'][^>]*>\s*(-?\d+)%\s*</span>', html_content)
     if disc_m:
         discount_pct = abs(int(disc_m.group(1)))
     else:
@@ -409,7 +410,7 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
     # 8. Extract Category & Clean Description
     category = "Technology"
     cat_keywords = {
-        "Fashion": ["shirt", "pant", "jogger", "trouser", "dress", "shoes", "sneakers", "jacket", "jeans", "wallet", "bag", "handbag", "jewellery", "jewelry", "fabric", "saree", "kurta", "kurti", "tshirt", "t-shirt", "bra", "lingerie", "socks", "rhinestone", "hair bow", "clips", "beads", "lungi", "bangles", "earring", "necklace", "ring", "sunglasses", "sandals", "slippers", "heels", "watch", "belt", "backpack", "duffle", "lehenga", "suit", "blazer", "tie", "cufflink", "clutch", "purse", "dhoti", "headband", "trolley bag", "suitcase", "dupatta"],
+        "Fashion": ["shirt", "pant", "jogger", "trouser", "dress", "shoes", "sneakers", "jacket", "jeans", "wallet", "bag", "handbag", "jewellery", "jewelry", "jewellers", "jeweller", "fabric", "saree", "kurta", "kurti", "tshirt", "t-shirt", "bra", "lingerie", "socks", "rhinestone", "hair bow", "clips", "beads", "lungi", "bangles", "bangle", "earring", "earrings", "necklace", "ring", "rings", "nosepin", "nose pin", "pendant", "jhumka", "stud", "studs", "bracelet", "anklet", "mangalsutra", "sunglasses", "sandals", "slippers", "heels", "watch", "belt", "backpack", "duffle", "lehenga", "suit", "blazer", "tie", "cufflink", "clutch", "purse", "dhoti", "headband", "trolley bag", "suitcase", "dupatta"],
         "Beauty & Personal Care": ["cream", "lotion", "serum", "perfume", "fragrance", "shampoo", "trimmer", "shaver", "soap", "body brush", "rose water", "face wash", "nail polish", "kajal", "eyeliner", "mascara", "lipstick", "lip balm", "comb", "roller", "sunscreen", "moisturizer", "scissor", "reetha", "hair oil", "wax", "scrub", "ghee cream", "cleanser", "toner", "conditioner", "face mask", "sun screen", "toothpaste", "handwash", "roll-on", "deodorant", "hair color", "heated round brush", "night gel", "diffuser oil"],
         "Grocery & Gourmet Foods": ["honey", "dates", "dry fruit", "khajoor", "almond", "sugar-free", "cashew", "snack", "tea", "coffee", "biscuit", "cookie", "spice", "masala", "edible oil", "cooking oil", "ghee", "dry fruits", "raisin", "walnut", "makhana", "seeds", "peanuts", "badam", "murabba"],
         "Home & Kitchen": ["cookware", "kitchen", "bottle", "knife", "towel", "pillow", "bed", "curtain", "lamp", "desk", "chair", "wall plate", "mosquito net", "candle", "tealight", "bedsheet", "blanket", "shelf", "fan cover", "dibba", "container", "storage", "organizer", "tray", "twine", "photo frame", "plant stand", "flower pot", "mattress", "razai", "lock", "vinyl", "wallpaper", "mat", "rug", "lighter", "sign board", "wall decor", "broom", "dispenser", "water bottle", "cover", "fridge magnet", "clip", "mop", "cup", "mug", "plate", "spoon", "fork", "pan", "pot", "cooker", "bed sheet", "doormat", "curtain rod", "hanger", "cutlery", "utensil", "casserole", "chopper", "peeler", "grater", "blender", "mixer", "flask", "thermos", "drainer", "dustbin", "cushion", "sofa", "wardrobe", "tawa", "pooja", "showpiece", "god idol", "idol", "figurine", "garbage bag", "water purifier", "kettle", "cleaning cloth", "magic eraser", "agarbatti", "incense", "drill bit", "waterproof glue", "wall sticker", "coconut scraper"],
