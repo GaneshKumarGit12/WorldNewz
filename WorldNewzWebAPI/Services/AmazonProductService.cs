@@ -40059,6 +40059,546 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0CVTJ9SZR",
+                Title = "Matrix Daisy Collection Stone Studded Analog Watch",
+                Description = "Matrix Daisy Collection Stone Studded Analog Watch...",
+                Price = 274.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVTJ9SZR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-AwogLPqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H1J5GW4W",
+                Title = "Arayna Women’s Cotton Printed Kurta Set with Pants & Dupatta | Elegant Ethnic Wear for Women | Floral Print | Comfortable Suit Set, Teal Blue, 4X-Large",
+                Description = "Arayna Women’s Cotton Printed Kurta Set with Pants & Dupatta | Elegant Ethnic Wear for Women | Floral Print | Comfortable Suit Set, Teal Blue, 4X-Large...",
+                Price = 998.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H1J5GW4W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1qkEtmuOSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX6T5LKF",
+                Title = "Hula Hoop Goodbye Tan Kit by Foxtale | De-Tan Body Wash + Exfoliating Body Wash | Reduces tan, smoothens skin & corrects pigmentation | For tan-free, smooth skin",
+                Description = "Hula Hoop Goodbye Tan Kit by Foxtale | De-Tan Body Wash + Exfoliating Body Wash | Reduces tan, smoothens skin & corrects pigmentation | For tan-free, smooth skin...",
+                Price = 699.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GX6T5LKF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XZSWRGGvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNLLWQ55",
+                Title = "MS MAGIC SECRET Moroccan Black Soap with Aker Fassi | Aker Fassi Sabounia - 100% Natural Moroccan Red Poppy & Pomegranate Soap | Brightening, Anti-Aging, Hydrating Face & Body Care (100grams)",
+                Description = "MS MAGIC SECRET Moroccan Black Soap with Aker Fassi | Aker Fassi Sabounia - 100% Natural Moroccan Red Poppy & Pomegranate Soap | Brightening, Anti-Aging, Hydrating Face & Body Care (100grams)...",
+                Price = 1345.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FNLLWQ55?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tv8dYWurL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GRWCWL2W",
+                Title = "Tuco Kids Soap for Kids, Green Tea & Kakadu Plum, Gentle, Pack of 2x75g | Dermatologically Tested, Gentle & Nourishing with Green Tea, Kakadu Plum, SLS & Paraben free, Ages 2-5, 5-10, 10-15",
+                Description = "Tuco Kids Soap for Kids, Green Tea & Kakadu Plum, Gentle, Pack of 2x75g | Dermatologically Tested, Gentle & Nourishing with Green Tea, Kakadu Plum, SLS & Paraben free, Ages 2-5, 5-10, 10-15...",
+                Price = 219.00m,
+                OriginalPrice = 315.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GRWCWL2W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61c3WrT208L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4H3JSTR",
+                Title = "Tuco Kids Kumkumadi Soap Pack of 2x75g Each | Ayurvedic Bathing Bar with Manjistha, Red Sandalwood & Haldi | Dermatologically Tested | Paraben, SLS & Phthalate Free | Kids Soap | 3-12 Years",
+                Description = "Tuco Kids Kumkumadi Soap Pack of 2x75g Each | Ayurvedic Bathing Bar with Manjistha, Red Sandalwood & Haldi | Dermatologically Tested | Paraben, SLS & Phthalate Free | Kids Soap | 3-12 Years...",
+                Price = 199.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0H4H3JSTR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xasnnL2bL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GV4H89YD",
+                Title = "Wembley RC Bumper Car Game for Kids | 2 Player Remote Control Toy with Ejecting Robot Riders | 360 Spin Lights Music Rechargeable | Interactive Battle Racing | Birthday Gift Boys Girls Age 6 7 8 9 10",
+                Description = "No Standalone Lithium Batteries Included: This product does not include any standalone lithium batteries. • Complete 2 Player RC Car Set: This exciting game set includes 2 remote control cars, 2 controllers, and 2 robot riders. The cars come with rechargeable batteries, while ...",
+                Price = 2698.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GV4H89YD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81NWm2m3EGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCZT6W7N",
+                Title = "Skybags Pace 30L Laptop Backpack (Upto 15.6\"), 3 Compartments, Blue | Front & Side Pockets, Padded Backpanel, Premium Polyester, Professional / Office/ Casual Bag, Unisex, 1-Year Global Warranty",
+                Description = "Skybags Pace 30L Laptop Backpack (Upto 15.6\"), 3 Compartments, Blue | Front & Side Pockets, Padded Backpanel, Premium Polyester, Professional / Office/ Casual Bag, Unisex, 1-Year Global Warranty...",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HCZT6W7N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bXoeOhfEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C45RVGTY",
+                Title = "Premier Smart 2 Litre Table Top Wet Grinder 200 Watts 230V | Stainless Steel Drum | Free Coconut Scraper & Dough Kneader | 2 Stone Grinding | Easy Maintenance | 2 Years Motor Warranty | PG512",
+                Description = "Powerful 200W Motor: Ensures efficient and consistent grinding, perfect for handling a variety of ingredients with ease. • Generous 2-Liter Capacity: Ideal for preparing large batches, whether you’re grinding spices, making batter, or creating pastes. • 230V Voltage Compatibil...",
+                Price = 4299.00m,
+                OriginalPrice = 6770.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C45RVGTY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/511qQg9QFjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BNJ4ZLJ2",
+                Title = "The Arts Box Gold Round Wall Mirror 24 Inch | Aesthetic Round Mirror for Living Room, Brass Frame Mirror for Bathroom, Mirror for Washbasin, Decorative Round Mirror for Bedroom & Décor",
+                Description = "⭐ Premium Gold Metal Frame - Round Mirror for Living Room High-quality rust-resistant metal frame with a rich gold finish that stays shiny even in bathroom humidity. Adds a luxurious, modern look to wash basins, bedrooms & living rooms while ensuring long-lasting durability. •...",
+                Price = 2057.70m,
+                OriginalPrice = 10999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BNJ4ZLJ2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711x4O4Dq1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFHFR9CX",
+                Title = "Kadence A06EQ-N Acoustica 40\" Electro Acoustic Guitar | Grand Auditorium Cutaway | Ash Wood | Built-in Pickup + 2 Band EQ | Comes with Bag | Includes Learning Course | Natural",
+                Description = "The new standard for intermediate - why settle for a strip down entry level model when you can have a gig ready Grand Auditorium guitar for the same price? • Grand Auditorium Semi-Acoustic, Big Sound in a Comfortable Size - A 40-inch semi-acoustic with a grand auditorium body ...",
+                Price = 8849.00m,
+                OriginalPrice = 11999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CFHFR9CX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/5133nEGq6dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRKXPBHG",
+                Title = "DOT & KEY Pomegranate + Multi-Peptide Anti Aging Cream With Spf 30 For Sun Protection|Reduces Fine Lines&Wrinkles|48Hr Intense Moisturization|Boosts Collagen|For Mature&Normal To Dry Skin|60Ml",
+                Description = "DOT & KEY Pomegranate + Multi-Peptide Anti Aging Cream With Spf 30 For Sun Protection|Reduces Fine Lines&Wrinkles|48Hr Intense Moisturization|Boosts Collagen|For Mature&Normal To Dry Skin|60Ml...",
+                Price = 426.00m,
+                OriginalPrice = 495.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BRKXPBHG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61nqCrcfN5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07YGR43WZ",
+                Title = "RC. ROYAL CLASS Men's Woolen Calf Length Solid Thick Terry Winter Wear Socks (Multicolor, Free Size) - Combo Pack of 5 Pairs",
+                Description = "RC. ROYAL CLASS Men's Woolen Calf Length Solid Thick Terry Winter Wear Socks (Multicolor, Free Size) - Combo Pack of 5 Pairs...",
+                Price = 399.00m,
+                OriginalPrice = 1200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07YGR43WZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1W38FgAtkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CG8Z17FR",
+                Title = "The Indus Valley Pre-Seasoned Cast Iron Paniyaram Pan With Spatula",
+                Description = "🌿 Toxin free cookware: Made from 100% Natural cast iron cookware, this cast iron paniyaram pan is a 100% Healthy cookware, food safe without chemicals, coatings or toxins • 💊Enriches food with iron: Adds iron content to your food that helps fight iron deficiency • 😋Makes food ...",
+                Price = 1219.00m,
+                OriginalPrice = 2129.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CG8Z17FR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Kc4QEmHtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08HMYX7LW",
+                Title = "Ajmal Ascend Eau De Parfum 100ml Unisex",
+                Description = "Ajmal Ascend Eau De Parfum 100ml Unisex...",
+                Price = 599.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08HMYX7LW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612yC+44cxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC79JTRQ",
+                Title = "TAUKIR CARPETS, Irregular Shag Area Rug, Super Soft Fluffy Living Room Rug. 5 × 7 Feet (152.40 × 213.36 cm) Green Multi",
+                Description = "Need a special size or design, No problem! We can make it as you need. Contact us: 6307979032 • ULTRA SOFT & FLUFFY SHAG RUG: Crafted with premium plush fibers for an extra soft, thick and fluffy feel. Enjoy luxurious comfort underfoot while adding warmth and elegance to your ...",
+                Price = 6236.00m,
+                OriginalPrice = 13198.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HC79JTRQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711TWy+j-8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FL7WLNKQ",
+                Title = "PROTOUCH Born To Shine 2-in-1 Styling Blow Brush | Hair Dryer & Volumizer Brush | Straightens, Smooths & Adds Shine | Ceramic Barrel | 1200W | For All Hair Types | No Heat Damage",
+                Description = "2-in-1 Hair Dryer & Volumizer Brush - Dries, straightens, and styles in one step, saving time and eliminating the need for multiple tools. • Smooth, Shiny, Frizz-Free Results - Reduces frizz, seals in moisture, and adds a healthy, glossy finish for salon-fresh hair at home. • ...",
+                Price = 1999.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FL7WLNKQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81F2MMNqZtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4MGY42Z",
+                Title = "Baton Slimming Green Tea 60g Tin | 18 Natural Herbs for Weight Management & Detox | Supports Metabolism, Fat Burning & Digestive Health | Zero Sugar | For Men & Women | Pack of 1",
+                Description = "18 HERBS & TEAS WELLNESS BLEND: A thoughtfully crafted herbal tea blend featuring Garcinia Cambogia, Ashwagandha, Oolong Tea, Green Tea, Moringa, Tulsi, Ginger, Turmeric and more for everyday wellness • SUPPORTS AN ACTIVE & HEALTHY LIFESTYLE: A refreshing wellness tea designed...",
+                Price = 542.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0G4MGY42Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61M4nX64bCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GFP3JDNF",
+                Title = "TwoHands Premium Wishtree Sambrani Dhoop Cups for Pooja (24 Cups) | Mattipal Earthy Fragrance Cup Dhoop | Charcoal-Free Havan Dhoop Cups for Home, Yoga & Meditation | Pack of 2x12 + Free Burner Plate",
+                Description = "Natural Mattipal earthy fragrance for a traditional spiritual atmosphere • Charcoal-free sambrani cups for cleaner and low-smoke burning • Ideal for pooja, havan, meditation, yoga and festivals",
+                Price = 219.00m,
+                OriginalPrice = 400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GFP3JDNF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51seE98t4dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09HGMMG71",
+                Title = "COAL Clean Beauty Anti-Hair Fall Oil with Vitamin E & RootBioTec | 2X Potential To Slow Hair Fall & Breakage Naturally | Unisex | All Hair Types | 100ml",
+                Description = "COAL Clean Beauty Anti-Hair Fall Oil with Vitamin E & RootBioTec | 2X Potential To Slow Hair Fall & Breakage Naturally | Unisex | All Hair Types | 100ml...",
+                Price = 331.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09HGMMG71?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51t3ixhHiJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCJT68Z5",
+                Title = "Coolet Malina Soft Plush Doll for Kids 57 cm | Cute Girl Stuffed Doll with Brown Hair & Red Dress | Ultra Soft Washable Fabric Toy | Birthday Gift for Girls & Boys",
+                Description = "Premium Plush Fabric - Made from ultra-soft plush fabric with high-quality polyester fiber filling for a soft and cuddly feel. • Child Safe Design - Embroidered eyes and stitched smile with no hard plastic parts, making it safer for children. • Perfect Size - 57 cm soft doll i...",
+                Price = 365.00m,
+                OriginalPrice = 900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0HCJT68Z5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61GUOxoAf4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B12VY5FV",
+                Title = "Red Lemon BANGE Anti-Theft Sling Bag for Men & Women, Water-Resistant Crossbody with USB Dual Charging, Code Lock, Hidden Pocket, Semi-Fixed Design, Lightweight, Fits 7inch iPad - Black",
+                Description = "Red Lemon BANGE Anti-Theft Sling Bag for Men & Women, Water-Resistant Crossbody with USB Dual Charging, Code Lock, Hidden Pocket, Semi-Fixed Design, Lightweight, Fits 7inch iPad - Black...",
+                Price = 1899.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B12VY5FV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-wb1bnxbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09XF55TFY",
+                Title = "Man Arden Oud Inaayat Luxury Body Wash Infused With Shea Butter & Vitamin E, 250ml",
+                Description = "Man Arden Oud Inaayat Luxury Body Wash Infused With Shea Butter & Vitamin E, 250ml...",
+                Price = 525.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09XF55TFY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hN6heSDnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7QVBTZZ",
+                Title = "Mahaur Beautiful Imported Crystal Chandelier Jhoomer Ceiling Hanging Lamp for Hall, Bedroom, Living Room, Highly Durable Aesthetic Luxury Home & Wall Decor (160mm",
+                Description = "SIZE: 160 mm Ideal for Home, Bedroom, & Living Room. • ELEGANT DESIGN: Add a touch of sophistication to any room with our beautifully crafted chandelier featuring a timeless and elegant design. • MINIMALISM MODERN LIGHT FIXTURE: Creatively designed chandelier ceiling lights fo...",
+                Price = 442.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D7QVBTZZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51+diiprAOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BDDY2B6F",
+                Title = "CULOTOL Couch Slipcover L Shape Sofa Cover Sectional Couch Chaise Lounge Cover Washable Non-Slip Stain Resistant Reversible Sofa Cover Furniture Protector Cover for Home Décor (Black, Small)",
+                Description = "Important:​ Sofa covers are not one-size-fits-all. Please refer to the size chart in the second main image, measure the length​ and width​ of your sofa at home, and then purchase a sofa cover in the correct size. This step is crucial. Thank you for your cooperation! • FURNITUR...",
+                Price = 2849.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BDDY2B6F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NY0hIm7DL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVYKDNP8",
+                Title = "URBAN ADVENTURE High Waist Cotton Cycling Shorts for Women - Stretchable Active Wear for Workout, Running & Yoga",
+                Description = "URBAN ADVENTURE High Waist Cotton Cycling Shorts for Women - Stretchable Active Wear for Workout, Running & Yoga...",
+                Price = 569.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GVYKDNP8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91kAW6m1jVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H9YJ6169",
+                Title = "Superhero Action Figure Set of 3 for Car Dashboard & Desk Decor | Set of 3 superhero-inspired display figures.",
+                Description = "1.🦸 Premium Collectible Design Highly detailed superhero-inspired figures with vibrant colors and dynamic poses, perfect for display in any collection. • 2.🚗 Perfect for Car & Desk Decor Ideal for car dashboards, office desks, study tables, bookshelves, gaming setups, and home...",
+                Price = 255.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0H9YJ6169?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51KDl8y5U9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FH73WBH7",
+                Title = "AYUOTOQi 6pcs Small Sand Timer Hourglass, Sandglass Sand Clock Timer 30sec, 1min, 2mins, 3mins, 5mins, 10mins Hour Glass Clock Home Decor Ideal Exercise, Tea Making, Study Table, Chess Timer, Cooking",
+                Description = "6 COLORS SAND TIMERS KIT: 6 kinds of hourglass sand timer in different colors, with good packaging. Black 30s, blue 1 minute, pink 2 minutes, yellow 3 minutes, green 5 minutes, red 10 minutes, meeting your various needs. Each piece is 8.8cm/3.4inch high, 2.4cm/0.9inch diameter...",
+                Price = 299.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FH73WBH7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NERPGdrKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D631RTWS",
+                Title = "Present Mart Premium Personal Organizer with Card & Pen Slots | Changeable Refill System | Office Diary For Men & Women | Executive Diaries | Diary for Personal Use | Journal Notebook (Brown)",
+                Description = "Premium Personal Organiser: Crafted from high-quality PU material for durability and elegance • Ample Storage: Contains 242 inner and 226 writing pages for organising notes and documents • Customisable Branding: Includes a metal plate for personalised branding or initials",
+                Price = 616.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D631RTWS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71r+j0OlB5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DWLLYZ83",
+                Title = "Inme Stainless Steel Sink Strainer Drain Filter Kitchen Basin Net (2 Pcs) | Rust Proof Stainless Steel with Heavy-Duty Mesh, Deep Basket Net Design with Anti-Clogging Technology, 4 inch Diameter",
+                Description = "Proudly Made in India • Premium Quality: Made from high-grade stainless steel, this Sink Strainer Steel delivers reliable performance as a Sink Drainer and Kitchen Sink Drain Filter. Ideal for everyday kitchen use with a clean, glossy finish. • Rust-Proof & Durable Mesh: The s...",
+                Price = 169.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DWLLYZ83?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Wz6zPbn-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQHTQL2G",
+                Title = "Zeetab Deer Key Holder, Wall Mount Cloth Hanger & Metal Key Stand with 3 Hook | Home Decor Gift (Rose Gold)",
+                Description = "Zeetab Deer Head Key Holder, Wall Mount Cloth Hanger • Wall Mount Hanging Hook",
+                Price = 648.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CQHTQL2G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Oy4tCZm-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6H2PMYW",
+                Title = "Warekraft Stainless Steel Quarter Plate | Nasta Serving Plate | Floral Rajbhog thali (Quarter Plate, 6)",
+                Description = "Premium Food Grade Stainless Steel - Made from high-quality food-grade stainless steel, ensuring safe, hygienic, and long-lasting use for serving snacks, breakfast, and meals. • Elegant Floral Design & Mirror Finish - Features a beautiful engraved floral pattern with a polishe...",
+                Price = 378.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H6H2PMYW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61N47f3+UaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCBGYY32",
+                Title = "MILLION CASES Crystal Snap Case for iPhone 17 Pro Max, iPhone 17 Pro Max Back Cover Case(2025) -PC | Clear",
+                Description = "Crystal-Clear Protection: Premium transparent PC construction showcases your phone’s original design while providing durable everyday protection. • Advanced Shock Resistance: Impact-absorbing design helps cushion accidental drops and minimizes damage from everyday bumps. • Str...",
+                Price = 1424.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0HCBGYY32?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/418BlP1zbHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GBTDHPX3",
+                Title = "ZeroB Suraksha Tap 2.0 | Non-Electric Tap Water Filter | Advance Exsil Nano Technology | 1800L Purification | Removes 99.99% Bacteria & Viruses | Portable & Fits Any Taps | Drinking, Kitchen & Outdoor",
+                Description = "Pure & Safe Water - Up to 1800 L Life: Advanced Exsil Nano Technology effectively removes 99.99% of bacteria and viruses, providing safer water directly from your tap. • 2-in-1 Tap Design - Choose between normal water or purified water with a simple turn. • No Electricity Need...",
+                Price = 1899.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GBTDHPX3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71X2+XDNhFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNTNDDLT",
+                Title = "MOKOSH Women’s Rose Pink Silk Embroidery Anakrali Kurta Pant with Dupatta | Anarkali Kurta Set | Round Neck Full Sleeve Ethnic Suit | Floral Kurta 7 Colour Option Available | 3 Piece Outfit",
+                Description = "MOKOSH Women’s Rose Pink Silk Embroidery Anakrali Kurta Pant with Dupatta | Anarkali Kurta Set | Round Neck Full Sleeve Ethnic Suit | Floral Kurta 7 Colour Option Available | 3 Piece Outfit...",
+                Price = 1168.00m,
+                OriginalPrice = 4299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DNTNDDLT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81rCIk27LTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRVPRV5M",
+                Title = "Solimo 11-Inch Wall Clock",
+                Description = "Clear and Readable Design: The Solimo Wall Clock features large numbers and a clear front for easy readability, making it a stylish addition to any wall in your bedroom, school, office, living room, kitchen, or commercial space. • Silent Movement Technology: Enjoy a peaceful e...",
+                Price = 439.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CRVPRV5M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cSoM+HH1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
