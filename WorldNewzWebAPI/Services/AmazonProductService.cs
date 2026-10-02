@@ -40599,6 +40599,501 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B09F3NSMQL",
+                Title = "Bryan & Candy Scented Candles | Gift Set for Women & Men,Cherry Blossom,Vintage Sandalwood,Neroli & Honeycomb,Lavender & Chamomile Aromatherapy Candles",
+                Description = "✅Popular Fragrance: Scented candles gift set of 4 popular fragrances: Cherry Blossom, Vintage Sandalwood, Neroli & Honeycomb, and Lavender & Chamonile. • ✅100% Natural Soy wax: The aromatherapy candle gift set made of 100% natural soy, pure cotton wick and lead-free. Healthy a...",
+                Price = 1050.00m,
+                OriginalPrice = 1400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09F3NSMQL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/814J5ZkuHlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08YRWBBDM",
+                Title = "Joy Vitamin C Brightening Face Wash For Bright and Glowing Skin 150ml | Fades Blemishes and Restores Skin Barrier | Gentle Cleanser for All Skin Types",
+                Description = "Joy Vitamin C Brightening Face Wash For Bright and Glowing Skin 150ml | Fades Blemishes and Restores Skin Barrier | Gentle Cleanser for All Skin Types...",
+                Price = 158.00m,
+                OriginalPrice = 285.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08YRWBBDM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61tOpbAbsOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CD83QCG2",
+                Title = "Joy Honey & Almonds Ultimate Nourishing Body Milk Winter Lotion 600ml | With Shea Butter & Vitamin E | Long Lasting Moisture | Prevents Dryness & Provides Intense Moisturization for Dry Skin",
+                Description = "Joy Honey & Almonds Ultimate Nourishing Body Milk Winter Lotion 600ml | With Shea Butter & Vitamin E | Long Lasting Moisture | Prevents Dryness & Provides Intense Moisturization for Dry Skin...",
+                Price = 318.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CD83QCG2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sKsmlTStL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B083ZRYMG2",
+                Title = "VLCC Gold Facial Kit with Rose Water Toner",
+                Description = "VLCC Gold Facial Kit with Rose Water Toner...",
+                Price = 770.00m,
+                OriginalPrice = 1375.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B083ZRYMG2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LVbkB9IFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ1QDK78",
+                Title = "ARINJAY Reusable MDF Rangoli Board | Ready-to-Use Wooden Stencil with Base | Easy Fill Design for Colors or Petals | Traditional Art with a Modern Twist",
+                Description = "Reusable MDF Rangoli Board - Made from high-quality MDF wood for long-lasting use during multiple festive seasons. • Ready-to-Use Wooden Stencil - Pre-cut design allows you to create perfect rangolis quickly and easily without artistic skills. • Easy Fill Design - Ideal for fi...",
+                Price = 298.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ1QDK78?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61aBThEsSdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G1JS8JLC",
+                Title = "Desert Rose Adenium Live Plant, Hybrid Multicolour Grafted Desert Rose for Home Garden Indoor Outdoor without pot (pack of 1) A1",
+                Description = "🌺 Hybrid Multicolour Desert Rose: Premium adenium live plant with vibrant mix-colour multi-petal flowers perfect for adding a pop of colour to your indoor or outdoor home garden. • 🌿 Live Grafted Flowering Plant: High-quality grafted hybrid saplings known for strong growth, th...",
+                Price = 178.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G1JS8JLC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61VVjRpZGoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F4QSM8G2",
+                Title = "BC-QZ1 Battery Charger for Sony NP-FZ100 Battery Compatible with Sony z-Series ZV-E1 FX3 FX30 A1 A6600 A6700 A7C A7C II A7CR A7S A7S III A7 III A7R III A7R IV A7 IV A9 A9 III Digital SLR Cameras",
+                Description = "BC-QZ1 Battery Charger Specification: AC100-240V/50-60Hz, output: 8.4V 1.6A. LED lights that shows the charging status.When the battery is full, charging will stop automatically. • NP-FZ100 Battery Charger Standard Compatibility: BC-QZ1 Battery Charge for The Battery Model of ...",
+                Price = 1899.00m,
+                OriginalPrice = 5299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F4QSM8G2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yi3ymUoLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C5WXSR5Q",
+                Title = "Vientiq Sterling Silver Adjustable 'Always with You' Engraving Hug Ring",
+                Description = "Vientiq Sterling Silver Adjustable 'Always with You' Engraving Hug Ring...",
+                Price = 189.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C5WXSR5Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51W8qquBJ5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8PL21JJ",
+                Title = "Brass Hanging Bell with Peacock Design and Long Chain - 62cm Traditional | Metal Hanging Bell for Main Entrance, Wall Corner Gifting",
+                Description = "PEACOCK DESIGN: Features an intricate traditional peacock motif crafted in brass, adding elegance to any mandir or entrance. • GENEROUS SIZE: Comes with a long 62cm chain, making it ideal for hanging at main entrances, wall corners, and prayer spaces. • METAL CONSTRUCTION: Mad...",
+                Price = 1425.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H8PL21JJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yZBBAfzLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDY7TPBT",
+                Title = "Round Flower Decorative Cushion Pillow, Beige and Green, Velvet, 14 Inches, Soft Throw Pillow for Sofa Chair Bedroom Living Room Floor (Yellow White)",
+                Description = "ELEGANT FLORAL DESIGN: Features a stunning flower-inspired round cushion with pleated petals in beige and green velvet, creating a romantic and eye-catching decorative accent for any living space • PREMIUM VELVET MATERIAL: Crafted from soft, luxurious velvet fabric that provid...",
+                Price = 346.21m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GDY7TPBT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41OpbGdO5JL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08CVJ3JND",
+                Title = "Shah Fragrances Kesar Chandan Premium Dhoop Sticks Box Packs (Pack of 3 * 100 Grams)",
+                Description = "→ PACKAGE CONTAINS : 100grams*3packs. Each pack contains 25 to 30 Sticks with burning time of 30 to 35 mins. • → FREE INCENSE STICKS HOLDER INSIDE • → SPECIALTY : Charcoal Free and Non Toxic Dhoop sticks. Made from exotic woods and classic fragrance.",
+                Price = 342.00m,
+                OriginalPrice = 375.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08CVJ3JND?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61T0okdkPCS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHQVZPPB",
+                Title = "SEREBRUM Pom Pom Balls 2cm - Pack of 100 | Soft Mini Craft Pompoms for Kids Art & Craft, DIY Projects, Decoration, School Activities, Scrapbooking & Handmade Creations (Multicolor)",
+                Description = "Soft & Fluffy Mini Pom Poms (2cm): Each pom pom ball is made from premium quality Cotton fiber, giving a smooth, fluffy texture that feels gentle and lightweight. Perfect for detailed craft work and decorative use.",
+                Price = 189.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0DHQVZPPB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Q+skVLB-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDVP4D14",
+                Title = "RAAVI Toys Thar Roxx 1:32 Scale DieCast Metal | Pull Back Action Openable Doors | 4x4 Thar Premium Car Toy with Lights and Music for Kids | Gift 3+yrs Girls & Boys (Thar 1:32 Red)",
+                Description = "● PREMIUM 1:32 DIE-CAST METAL BODY: Crafted with a durable die-cast metal body and high-quality ABS plastic parts for a realistic look and long-lasting play. Perfect for kids and collectors alike. • ● FUN PULL BACK ACTION: Simply pull the car backward and release to watch it r...",
+                Price = 284.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GDVP4D14?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eU2VIEawL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9QK3Z3X",
+                Title = "J J crunch N munch Honey Amla Candy Purely Honey Processed Sugar-free Dry Amla Candy Best For Eyes, Hairs Low-Calorie Dry Fruit Snack, Pack of 3 (250 Gram Each).",
+                Description = "Healthy And Tasty : Now have a snack(Awala Candy) that is healthy and tasty at the same time! The traditional recipe is proudly Made in India. • Rich in Nutrients and Vitamin C : It includes only premium Amlas. These fun candies are apt to consume for kids as well as adults. T...",
+                Price = 474.00m,
+                OriginalPrice = 960.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0C9QK3Z3X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71oPRcMhOAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G819NDV8",
+                Title = "TINIGREEN Car Ring Dumbbell Shaped Organic Neem Wood Teether for 6 to 12 Months Infant Baby (Car Ring Dumbbell Shape)",
+                Description = "Handcrafted from organic Neem wood, ensuring a safe and natural teething solution. • Calming effect on gum which helps to reduce pain and discomfort during teething. • It helps to Develop Fine Motor, Visual & Oral Skills in your baby.",
+                Price = 245.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0G819NDV8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81DYBaHOCrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GP1V8XSR",
+                Title = "KONAYA Chetak 3501, 3502, 3503 Body Guard Stainless Steel Chrome Accessorises Suitable for Chetak 3501, 3502, 3503 Electric Scooter (Set of 1)",
+                Description = "KONAYA Premium high-Quality Chrome Coting. • Perfect Fit For: Chetak 3501, 3502, 3503. • Tough: Lift the whole Chetak 3501, 3502, 3503 scooter in the air using the accessory. It is made of an 18 gauge/1.15mm thick Mild Steel Pipe for better Safety for Chetak scooter.",
+                Price = 2650.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GP1V8XSR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61FpDLzKt9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMDYGM8V",
+                Title = "HORNBULL Buttler Brown/Sand Leather Wallet for Men | Wallets Men with RFID Blocking | Mens Wallet",
+                Description = "HORNBULL Buttler Brown/Sand Leather Wallet for Men | Wallets Men with RFID Blocking | Mens Wallet...",
+                Price = 448.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FMDYGM8V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41R+7DSvpiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "9371185929",
+                Title = "Radha Naam Lekhan Pustika 111111 | Shree Radha Name Writing Book | Shri Radhe Radhe Written Jap Jaap Notebook",
+                Description = "Radha Naam Lekhan Pustika 111111 | Shree Radha Name Writing Book | Shri Radhe Radhe Written Jap Jaap Notebook...",
+                Price = 189.00m,
+                OriginalPrice = 250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/9371185929?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81m+3noEtAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H2Z5311W",
+                Title = "Fostelo Luxe Ocean Side Hand Bags For Women Stylish | Tan | Spacious Compartments",
+                Description = "Fostelo Luxe Ocean Side Hand Bags For Women Stylish | Tan | Spacious Compartments...",
+                Price = 999.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H2Z5311W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61onLrSpSaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H87ZSNQF",
+                Title = "TAGAS Women’s Printed Night Suit Set | Half Sleeve T-Shirt with Full Length Pajama | Relaxed Fit Lounge Wear & Sleepwear for Ladies White",
+                Description = "TAGAS Women’s Printed Night Suit Set | Half Sleeve T-Shirt with Full Length Pajama | Relaxed Fit Lounge Wear & Sleepwear for Ladies White...",
+                Price = 649.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H87ZSNQF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81JQzrAimTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0982CQFPT",
+                Title = "Dabur Vatika Enriched Coconut Hair Oil",
+                Description = "Dabur Vatika Enriched Coconut Hair Oil...",
+                Price = 139.75m,
+                OriginalPrice = 180.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0982CQFPT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ujAU4tsjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C78348NP",
+                Title = "Softovac Isabgol Fiber Plus+ Natural Actives 450g | Psyllium Husk | Complete Relief from Constipation | Gentle on Stomach, Boosts Gut Health - Natural Bowel Regulator for Adults",
+                Description = "Softovac Isabgol Fiber Plus+ Natural Actives 450g | Psyllium Husk | Complete Relief from Constipation | Gentle on Stomach, Boosts Gut Health - Natural Bowel Regulator for Adults...",
+                Price = 408.00m,
+                OriginalPrice = 653.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0C78348NP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rqKjQl5jL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2N5K357",
+                Title = "KOLORR Luxe Bathroom Set (Bucket 25L x 1) + (Mug 1.5L x 1) + (Luxe Patla x 1)|Sturdy and Durable |Lightweight| Easy to Clean and Attractive Design|Pack of 3|Sand Stone",
+                Description = "Multipurpose Utility - Ideal for bathing, laundry, storage, and more in any household. • Lightweight & Easy to Handle - Designed for effortless carrying, stacking, and storage. • Complete Bathroom Set - Includes one 25L bucket, one 1.5L mug, one Luxe Patla to cover all your da...",
+                Price = 1199.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F2N5K357?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AuLRvYE4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNVKJ4D9",
+                Title = "Supersox Winter Thermal Regular Socks for Men | Cotton Rich | Extra Cushioning | Warm, Soft & Cozy Feel | Cold Weather Daily Wear | Blue, Black, Grey | Pack of 3",
+                Description = "Supersox Winter Thermal Regular Socks for Men | Cotton Rich | Extra Cushioning | Warm, Soft & Cozy Feel | Cold Weather Daily Wear | Blue, Black, Grey | Pack of 3...",
+                Price = 395.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CNVKJ4D9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91GXcgSDmYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09JP9KMKC",
+                Title = "NYRWANA Coffee Mug, Birthday Presents for Man, Mugs for Present, Diwali Gift, Birthday Gifts for Brother Special, Astronaut Planet Coffee Mug with 3D Creative Space, Lid & Spoon (400ml-Dark Blue)",
+                Description = "🚀 PREMIUM ASTRONAUT DESIGN: Add fun to every coffee break with the NYRWANA Astronaut Ceramic Mug. Crafted from high-quality BPA-free ceramic, this cute space-themed mug is perfect for coffee, tea, milk, hot chocolate, juice, espresso, and other beverages. A stylish addition to...",
+                Price = 520.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09JP9KMKC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/615Cb02PM7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B4S35NCW",
+                Title = "ASIAN Women's FASHION-02 Sports Running,Walking,Gym,Training,Casual Slip-On Lightweight Shoes for Women's & Girl's Black,UK 7",
+                Description = "ASIAN Women's FASHION-02 Sports Running,Walking,Gym,Training,Casual Slip-On Lightweight Shoes for Women's & Girl's Black,UK 7...",
+                Price = 679.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B4S35NCW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61TMMI5pPdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08R3CSW4G",
+                Title = "Harpic Disinfectant Toilet Cleaner Liquid, Original - 600 ml (Pack of 3) | India's # 1 Toilet Cleaner",
+                Description = "Disinfectant Toilet Cleaner. Kills 99.9% of germs • Removes 10 x more yellowish and tough stains • Strategically bent bottleneck shape helps pour the liquid into deep corners under the toilet rim",
+                Price = 355.00m,
+                OriginalPrice = 375.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08R3CSW4G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HJiwafSxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY1Z6R5H",
+                Title = "Arayna Women's Pure Cotton Paisley Printed Tunic Top - Comfortable Everyday Wear - Vintage Maroon, XX-Large",
+                Description = "Arayna Women's Pure Cotton Paisley Printed Tunic Top - Comfortable Everyday Wear - Vintage Maroon, XX-Large...",
+                Price = 489.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DY1Z6R5H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1UiYMvvhVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08FGTLP5M",
+                Title = "STITCHNEST Set of 5 Polycotton Cushion Covers - 18x18 Inches - Beige & White Ikat Geometric Print - Elegant Cushion Covers for Sofa & Living Room | Perfect for Home Decor",
+                Description = "Premium 18x18 Inches Cushion Cover Set of 5 - This printed cushion cover set includes 5 designer pillow covers, perfect for sofa, bed, living room, bedroom, office, and home Decor styling. • High-Quality Polycotton Fabric for Everyday Use - Made from durable and soft polycotto...",
+                Price = 539.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08FGTLP5M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dq7E7N30L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HHFBTP9N",
+                Title = "DOCTOR HEALTH SUPER SOFT Women's Double Buckle Platform Sandals | Adjustable Strap Comfort Slippers | Lightweight Cushioned Slip-On Sandals | Thick Sole Anti-Skid Casual Footwear for Women",
+                Description = "DOCTOR HEALTH SUPER SOFT Women's Double Buckle Platform Sandals | Adjustable Strap Comfort Slippers | Lightweight Cushioned Slip-On Sandals | Thick Sole Anti-Skid Casual Footwear for Women...",
+                Price = 498.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HHFBTP9N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81mu5AA1AsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BX48Y9C1",
+                Title = "ASIAN Firefly-09 Max Cushion Technology Lightweight Eva Sole with Memory Foam Insole Casual & Sports Sneaker Shoes for Women & Girls, Multicolor,UK 5",
+                Description = "ASIAN Firefly-09 Max Cushion Technology Lightweight Eva Sole with Memory Foam Insole Casual & Sports Sneaker Shoes for Women & Girls, Multicolor,UK 5...",
+                Price = 759.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BX48Y9C1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716sGzPyhyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B095Z12RLX",
+                Title = "Mylo Baby Gentle Baby Wipes with Lid (72 Wipes, Pack of 3) | With Aloe Vera, Coconut Oil, Neem, & Vitamin E | 98% Pure Water | Dermatologically Tested | pH Balanced | Pack of 3",
+                Description = "Mylo Baby Gentle Baby Wipes with Lid (72 Wipes, Pack of 3) | With Aloe Vera, Coconut Oil, Neem, & Vitamin E | 98% Pure Water | Dermatologically Tested | pH Balanced | Pack of 3...",
+                Price = 199.00m,
+                OriginalPrice = 537.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B095Z12RLX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71f3SF+rW4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07CR1JQBY",
+                Title = "Titan Karishma Analog Women's Watch",
+                Description = "Champagne Dial Finish: Subtle sunray texture with a refined metallic tone. • Golden Stainless Steel Strap: Glossy patterned links add a luxurious touch. • Minimalist Elegance: Understated design ideal for workwear or occasional outings.",
+                Price = 1875.00m,
+                OriginalPrice = 1995.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07CR1JQBY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hC1byRyKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
