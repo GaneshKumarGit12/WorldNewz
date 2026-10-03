@@ -41094,6 +41094,516 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0CYGJKVQX",
+                Title = "American Tourister Zipper Brett 3.0 Polyester Men's Backpack (Free Size, Grey)",
+                Description = "American Tourister Zipper Brett 3.0 Polyester Men's Backpack (Free Size, Grey)...",
+                Price = 2100.00m,
+                OriginalPrice = 3500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CYGJKVQX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/417XDkzN74L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CHDYDZLM",
+                Title = "Eha Earth-Friendly Soup Bowls with Spoons | 250 ml | Made with Rice Husk Biocomposite | Microwave Safe Bowls for Kitchen | Serving Bowl Set of 4 | Coffee",
+                Description = "GREAT UTILITY - These basic and essential bowls are made to accompany your every meal. Serve curries, desserts, ice cerams, nuts and nibbles to friends and family in these earthy serving bowls. Crafted from Agri-waste in eclectic pastel hues these will surely add oomph to any ...",
+                Price = 489.00m,
+                OriginalPrice = 751.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CHDYDZLM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LOYhv4gNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTCK93GJ",
+                Title = "V-Guard VRC 1.8-Litre Electric Rice Cooker",
+                Description = "700-Watt Power for Fast Cooking - High-powered 700 W heating with a 6 A plug allows for quicker cooking, saving time without compromising on taste or texture. • Dual automatic cooking modes: keep warm and coMulti-Functional Cooking with Cook & Keep Warm Modes - Easily prepare ...",
+                Price = 2699.00m,
+                OriginalPrice = 4599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CTCK93GJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zR6nDH7IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09NCF1LPY",
+                Title = "JBL Go Essential with Rich Bass, Wireless Ultra Portable Bluetooth Speaker, Vibrant Colors, Waterproof, Type C (Without Mic, Blue)",
+                Description = "Small but powerful: The ultra-compact speaker features JBL Original Pro Sound which creates outstanding sound and is the ideal companion on the go thanks to its light weight • Experience rich bass at any time. EVERYWHERE: This small wireless speaker features a built-in recharg...",
+                Price = 1799.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09NCF1LPY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bi70Bzm8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BJXNT8V6",
+                Title = "CarryPro HOBO25 V3.0 Roll-Top Zipper Laptop and Camera Travel Backpack (25-30L), Removable Camera Box, Water-Resistant + Raincover, 2-Yr Warranty - For Work, College & Travel (Olive Green)",
+                Description = "CarryPro HOBO25 V3.0 Roll-Top Zipper Laptop and Camera Travel Backpack (25-30L), Removable Camera Box, Water-Resistant + Raincover, 2-Yr Warranty - For Work, College & Travel (Olive Green)...",
+                Price = 4270.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BJXNT8V6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61aYM2attvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097B2XS4L",
+                Title = "Safari Torque 37L Casual Printed Backpack, 3 compartments, bottle holder, Front pocket, school bag for boys and girls, college bag, office bag, travel bag for men and women, Color- Black",
+                Description = "Safari Torque 37L Casual Printed Backpack, 3 compartments, bottle holder, Front pocket, school bag for boys and girls, college bag, office bag, travel bag for men and women, Color- Black...",
+                Price = 853.00m,
+                OriginalPrice = 3099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B097B2XS4L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71S-uCQv4KL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7JK5D5Y",
+                Title = "FUR JADEN Anti Theft Number Lock Backpack Bag with 15.6 Inch Laptop Compartment,Organizer Pocket for Men Women Boys Girls (Tan & Green)",
+                Description = "FUR JADEN Anti Theft Number Lock Backpack Bag with 15.6 Inch Laptop Compartment,Organizer Pocket for Men Women Boys Girls (Tan & Green)...",
+                Price = 749.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H7JK5D5Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617RJiPHLSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GKXTF46K",
+                Title = "DOCTOR FEEL SOFT Men’s Comfort Flip Flops with Cushioned EVA Sole | Lightweight Anti-Slip Everyday Wear Slippers for Walking, Home, Outdoor & Casual Use",
+                Description = "DOCTOR FEEL SOFT Men’s Comfort Flip Flops with Cushioned EVA Sole | Lightweight Anti-Slip Everyday Wear Slippers for Walking, Home, Outdoor & Casual Use...",
+                Price = 598.00m,
+                OriginalPrice = 598.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GKXTF46K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LIKAV7Y3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN39VSLN",
+                Title = "Campus Men's GC-22171 OFF WHT/OLIVE Sandal - 7UK/India 1 Pair",
+                Description = "Campus Men's GC-22171 OFF WHT/OLIVE Sandal - 7UK/India 1 Pair...",
+                Price = 849.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GN39VSLN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61myz-94pjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C58JW5XR",
+                Title = "Arctic Hunter Expandable Sling Bag for Men Crossbody Slim 8L Sling Backpack Multi-pocket for Travel Chest Bag with 10.9\" iPad Pocket Water-resistant One Side Shoulder Passport Bag for Office,Black",
+                Description = "Arctic Hunter Expandable Sling Bag for Men Crossbody Slim 8L Sling Backpack Multi-pocket for Travel Chest Bag with 10.9\" iPad Pocket Water-resistant One Side Shoulder Passport Bag for Office,Black...",
+                Price = 1994.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C58JW5XR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711wqzU-PwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07BFG22GW",
+                Title = "TRIPOLE Walker 65 Litres Rucksack with 20 Litre Foldable Day Pack | Internal Frame with Metal Rod | Rain Cover | Bottom Opening | Laptop Section (Orange)",
+                Description = "TRIPOLE Walker 65 Litres Rucksack with 20 Litre Foldable Day Pack | Internal Frame with Metal Rod | Rain Cover | Bottom Opening | Laptop Section (Orange)...",
+                Price = 3359.00m,
+                OriginalPrice = 4749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07BFG22GW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91RcYt1wWrS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBMJ5KN7",
+                Title = "miah decor Ceramic Tea Cups Set of 6-180ml | Handmade Stoneware | Coffee Cups & Mugs for Home, Office & Gifting, Matte Floral Finish | Microwave & Dishwasher Safe, For Every Occasion",
+                Description = "A THOUGHTFUL DIWALI GIFT FOR ANY HOME: Make festive celebrations special with this handcrafted ceramic mugs set for gift-giving. A practical crockery set for gift occasions such as Diwali, housewarmings, weddings, anniversaries, and other celebrations. Carefully packed for saf...",
+                Price = 999.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FBMJ5KN7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wxWq-Br9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CWZ6YGGV",
+                Title = "BIGWING Protective Cover in Polyester Fabric with Camouflage Print | Small Size 20' inch 55 cm | Hard Luggage Trolley Bag Cover (Fits Only On Fiber - Plastic Trolley Bag)",
+                Description = "BIGWING Protective Cover in Polyester Fabric with Camouflage Print | Small Size 20' inch 55 cm | Hard Luggage Trolley Bag Cover (Fits Only On Fiber - Plastic Trolley Bag)...",
+                Price = 521.99m,
+                OriginalPrice = 1098.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CWZ6YGGV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Huf1KcUPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DKJSBP5T",
+                Title = "Alan Jones Clothing Boys Cotton Blend Loose Printed Oversize Hoodies (Blue_10-11 Years)",
+                Description = "Alan Jones Clothing Boys Cotton Blend Loose Printed Oversize Hoodies (Blue_10-11 Years)...",
+                Price = 609.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DKJSBP5T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81KdFm17X-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09YD93LCK",
+                Title = "Nestasia White Ceramic Bread-Shaped Serving Plates Set of 2",
+                Description = "Unique Bread Inspired Design - Shaped like a bread slice with an embossed “Good Day” detail, these plates add a playful yet elegant touch to your table. • Premium & Durable Ceramic - Crafted from high-quality, lead-free ceramic with a smooth finish that is stain-proof and long...",
+                Price = 759.00m,
+                OriginalPrice = 1130.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09YD93LCK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/717oBR-KpAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BY326VTT",
+                Title = "Nestasia Ceramic Ramen Bowls Set of 6 | Microwave & Dishwasher Safe Snack Bowl | Ideal for Serving Noodles, Ramen, Maggi, Soups or Curries (Set of 6, 350ml Each)",
+                Description = "Handpainted Ceramic Ramen Bowl Set of 6 - Each bowl in this set features unique, vibrant designs in white, blue, and yellow, perfect for serving ramen, momos, soups, or snacks. • Durable & Premium Quality - Made from high-quality ceramic, these bowls are food-safe, non-toxic, ...",
+                Price = 1350.00m,
+                OriginalPrice = 1550.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BY326VTT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81fHbjAVHdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0792YVZ64",
+                Title = "WildHorn Leather Sling Messenger Bag for Men I Multipurpose Crossbody Bag I Travel Bag with Adjustable Strap I IDIMENSION: L- 8 inch H- 10.5 inch W- 2.75 inch (TAN VINTAGE)",
+                Description = "WildHorn Leather Sling Messenger Bag for Men I Multipurpose Crossbody Bag I Travel Bag with Adjustable Strap I IDIMENSION: L- 8 inch H- 10.5 inch W- 2.75 inch (TAN VINTAGE)...",
+                Price = 1699.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0792YVZ64?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91g2ILMG-TL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09W29PFN4",
+                Title = "TRIPOLE Air Trekking and Travel Rucksack with Rain Cover and Laptop Sleeve | 3 Year Warranty (Green, 62L)",
+                Description = "TRIPOLE Air Trekking and Travel Rucksack with Rain Cover and Laptop Sleeve | 3 Year Warranty (Green, 62L)...",
+                Price = 2299.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09W29PFN4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/917ehdofM7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DDJJDS87",
+                Title = "DSH Pure Brass Hanging Bell with Chain for Temple Mandir Door Home Decorative Ringing Bell (Blue, 2)",
+                Description = "Puja items for home, puja mandir - Perfect for your home & office • Material: Brass, Finish: Glossy, Color : Gold • A ghanti is Indian bell used in Hindu rituals.",
+                Price = 854.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DDJJDS87?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JeaKJ0QBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQ43YQ47",
+                Title = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear, White(TCK614,4XL)",
+                Description = "Amayra Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta- Ethnic Wear, White(TCK614,4XL)...",
+                Price = 929.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GQ43YQ47?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1fJqjH9u+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CZDDLC5P",
+                Title = "MALU HEALTHCARE Waterproof Cast Cover for Shower & Bath | 100% Leak-Proof Bandage Protector for Adults | Reusable Cast & Bandage Protector for Fracture, Surgery, Injury & Recovery, LEG LARGE",
+                Description = "FULL WATERPROOF PROTECTION: Enjoy worry-free showers with MALU HEALTHCARE complete waterproof leg cast cover, designed to keep your leg dry and protected ensuring comprehensive protection for casts, bandages, wounds, injuries, surgeries, rashes, abrasions, burns and cuts again...",
+                Price = 699.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0CZDDLC5P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71k4m5v08RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8FFKWZM",
+                Title = "THE LITTLE LOOKERS Stainless Steel Sipper Bottle 260ml | 316 Grade SS | BPA Free | Suitable for Hot & Cold | Travelling Bottle for Kids & Toddler | Training Sippy Cup with Straw/Spout (Green)",
+                Description = "★【ERGONOMIC DESIGN】Designed for easy handling and drinking, aiding the transition from bottles to regular cups. • ★【BPA-FREE MATERIALS】Made from safe, non-toxic plastic or silicone, ensuring the health of your baby. • ★【SOFT SPOUT OR STRAW】 Gentle on sensitive gums and emergin...",
+                Price = 509.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D8FFKWZM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Tm4SI1DFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRG28DMP",
+                Title = "Techgifti Bal Krishna Makhan Matki Wall Poster for Kids Room, Bedroom, Pooja Room, Living Room, Office (Size - 30 Cm X 45 Cm)",
+                Description = "Wall Covering Area: 30 Cm X 45 Cm • Home - Room - Bedroom Anywhere Decoration Wall sticker. • Material: Matte Finish",
+                Price = 188.00m,
+                OriginalPrice = 589.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BRG28DMP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71P7qqz5RoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKPF9NNF",
+                Title = "SOLODECOR Peacock Wall Sconces Creative Wall Light Fixture with Crystal Globe Shade Peacock Wall Lamp Retro Wall Mount Light for Living Room Dining Room Hallway (Multicolor)",
+                Description = "The price is for 1 Piece only • [Materials]:Resin+Crystal • [Dimension]:Diameter:15.7\", Height:20.4\", Style:Modern",
+                Price = 2849.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FKPF9NNF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71VBMJq81-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07KCFW4YD",
+                Title = "THE URBAN STORE Wall Mirror Wooden Distressed Green Color 14\"x14\" Pack of One French Style Elegantly Hand Crafted Floral Carving Mirror for Home and Office Decor TUSMR33",
+                Description = "Wood Scoring & Rub Through (Technique used to give item a distressed look.) • Material : Wood || Color : Green || Weight : 1 KG || Dimensions : Frame Size : 35x 35 CM & Mirror Size : 20 x 20 CM • Create an air of sophistication in any room in your home with this charming mirro...",
+                Price = 817.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07KCFW4YD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SJ623C-lL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G42VVHKK",
+                Title = "Fabzone Premium Half Round Anti-Skid Door Mat for Home Entrance | Heavy-Duty Front Door Mat for Indoor & Outdoor Use | Dirt Trapper Floor Rug for Living Room, Balcony, Bathroom & Main Door",
+                Description = "Half-Round Premium Design: Stylish semicircle shape enhances the entrance look while providing maximum coverage. • Heavy-Duty Construction: Durable material built to withstand daily foot traffic at home or office. • Anti-Skid Backing: Strong grip base prevents slipping on smoo...",
+                Price = 192.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G42VVHKK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/518YhZIg4gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BFLYYB9Z",
+                Title = "CROWN ART SHOPPEE Square Coffee Table, Surface Top & Sturdy Golden Color Metal Frame Sofa Table for Living Room Modern Design Home Furniture Décor -Black-Gold",
+                Description = "This metal end table with a tray on top that is not a flat surface and is deep enough to hold things without them falling off. It can be used to collect cell, watch, and other plugged in things next to the desk. • The x and then put the tray on top, finally tighten the two scr...",
+                Price = 1977.00m,
+                OriginalPrice = 8999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BFLYYB9Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81e8jUahXOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GH7W81WM",
+                Title = "VAUNTO Women's Handbag, Premium PU Leather, Light Purple | 5 Compartments, Spacious Shoulder Bag, Office, Travel, Casual Daily Party Use, Adjustable Strap, Stylish Gift for Women",
+                Description = "VAUNTO Women's Handbag, Premium PU Leather, Light Purple | 5 Compartments, Spacious Shoulder Bag, Office, Travel, Casual Daily Party Use, Adjustable Strap, Stylish Gift for Women...",
+                Price = 849.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GH7W81WM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617iY0dyBcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08Z479X94",
+                Title = "RANDOM Premium Wall Clock, Rattan Weave Design, Silent Movement, Non-Ticking, Easy to Hang, Home Decor (Multicolour)",
+                Description = "SILENT MOVEMENT: This RANDOM wall clock features a non-ticking, silent quartz movement that ensures a quiet environment throughout the day and night, letting you sleep undisturbed. • PREMIUM 3D METALLIC FACE: Enjoy the luxurious look of metallic face paper, beautifully capture...",
+                Price = 759.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08Z479X94?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61K3oay1KML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HDTGT4F6",
+                Title = "OrgaHerbs Mehndi Cone for Hands, Fine Tip Henna Mehendi Cone, Smooth Flow for Intricate Designs, Clear, Pack of 6",
+                Description = "OrgaHerbs Mehndi Cone for Hands, Fine Tip Henna Mehendi Cone, Smooth Flow for Intricate Designs, Clear, Pack of 6...",
+                Price = 229.00m,
+                OriginalPrice = 379.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0HDTGT4F6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81NfYWHOVCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GH15JMHJ",
+                Title = "ECOLAND Men’s Shoe Insole | Soft Cushioned Foot Support Insoles for Formal, Casual, Sports Shoes & Sneakers | Comfortable, Lightweight, Durable & Easy to Fit | Daily Use Footwear Insole BLACK FOAM (1 PAIR) (7)",
+                Description = "SOFT & COMFORTABLE DESIGN: Soft cushioning provides a comfortable feel under the feet and is suitable for everyday walking and regular use • FOOT SUPPORT & CUSHIONING: Designed to provide cushioning and support inside shoes, helping make long hours of walking and standing more...",
+                Price = 141.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GH15JMHJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j8nRo6InL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFL3K2KC",
+                Title = "Cannon Chemical Soundless Stone Cracking Powder 5 kg Type 4 (40°C to 50°C) Expansive Mortar for Rock Breaking Concrete Cutting and Excavation Non Explosive Demolition Powder",
+                Description = "Powerful Stone Cracking Powder: Our stone cracking powder is specifically designed to break through tough rock formations with exceptional strength and efficiency. • Fast and Effective: Experience rapid results with our high-performance powder, allowing you to complete your pr...",
+                Price = 1398.00m,
+                OriginalPrice = 2992.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CFL3K2KC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61B3OCPUTtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B072HYW3MJ",
+                Title = "Chokkha Traditional Homemade Hing Mango Pickle | Hing aam ka achar | Good for Digestion | 100% Oil-Free Pickle | Handcut | Sun Dried | No Artificial Colors | No Vinegar or Tatri | 400 Gm",
+                Description = "MADE IN SMALL BATCHES: Every single lot of mango is carefully selected and manually checked for quality before being thoroughly washed, dried and hand-cut into slices. The fresh spices we pick are also carefully measured for taste and consistency. The pickle is naturally prese...",
+                Price = 549.00m,
+                OriginalPrice = 590.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B072HYW3MJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61a3jDuWTzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWNCQL5Z",
+                Title = "Return gift bag (Thank you Bags) 80 GSM | Birthday Party Return Bag | Wedding Return Gift Bag (Thamboolam bags) - Medium size (9x11 inch) (Green Radha Krishna, Pack of 1 (25 bags))",
+                Description = "Medium Size 80 GSM Multipurpose Gift Bag - Perfect for birthdays, anniversaries, weddings, return gifts, festivals, party favors, chocolates, candies, and greeting cards • Durable & Lightweight Material - Strong, tear-resistant fabric that holds gifts securely while remaining ...",
+                Price = 284.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GWNCQL5Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DOcSNIsQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
