@@ -42489,6 +42489,471 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "1784983845",
+                Title = "The Best Thing to Do (Little Me, Big God) - Illustrated Children's Story Book",
+                Description = "Biblical Retelling • Focus on Jesus' Visit • Busy Martha vs. Listening Mary",
+                Price = 299.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/1784983845?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cJQr6cIQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08X4982TF",
+                Title = "TRUEDREAMALL PURE CRANBERRY Concentrate Juice for uti, sugar free, Real natural juice, Unsweetened, Pure & Organic real for uti (750 ml Concentrated)",
+                Description = "100% Pure Cranberry Juice made from carefully selected Canadian cranberries. • 100% PURE JUICE: 100% Pure Cranberry Juice with no added-sugar or alternate sweetener | Made from first-pressing of high quality North American cranberries through a careful and gentle process, reta...",
+                Price = 2600.00m,
+                OriginalPrice = 3550.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B08X4982TF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61uZiR7PAfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQD8Q1GR",
+                Title = "Twin Palmyra 2.5 L Clay Terracotta Water Jug with Lid, Brown, Natural Clay, Naturally Cools Water, a Twin Palmyra Brand",
+                Description = "NATURAL COOLING: Made from 100% natural, high-quality clay that cools water through slow evaporation without electricity, keeping it refreshing and cool throughout the day. • ENHANCED TASTE: Porous clay structure naturally filters and improves water taste whilst keeping it fre...",
+                Price = 699.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GQD8Q1GR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81PBibjMzJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "8194826411",
+                Title = "Zayn & Zoey Transport Activity Book with Stickers for Kids Ages 3-6 | Fun Learning Activities & Puzzles",
+                Description = "Zayn & Zoey Transport Activity Book with Stickers for Kids Ages 3-6 | Explore cars, trains, aeroplanes, and more through fun activities. Book Online at Low Prices in India | Zayn & Zoey Transport Acti...",
+                Price = 269.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/8194826411?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ZQfuL6SFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN93KPB4",
+                Title = "GHAT GOLD Kerala Organic Cocopeat Block 1kg - Low EC, pH Balanced | Expanded Volume 15L | Ideal Potting Mix for Home Gardening, Seed Starting & Hydroponics",
+                Description = "MAXIMUM EXPANSION & VALUE: Turn a single 1kg compact block into 15 Liters of premium, fluffy growing medium. Sourced from the pristine Western Ghats, this compressed block saves storage space while providing high-volume coverage for all your pots and garden beds. • OPTIMIZED F...",
+                Price = 199.00m,
+                OriginalPrice = 280.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GN93KPB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cK3HwG0gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5986DXX",
+                Title = "DLEST Premium Ceramic Bowl 2800 ML | Decorative Floral Printed Snack & Soup Bowl | Microwave & Dishwasher Safe | Ideal for Rice, Dal, Salad, Noodles, Dessert & Breakfast Cereal (Pack of 4)",
+                Description = "✅ PREMIUM CERAMIC BOWL SET OF 2 - Crafted from high-quality glazed ceramic, these durable 280ML bowls are perfect for everyday dining. Strong, reusable, and designed to maintain their elegant finish for years. • ✅ ELEGANT KARAKUSA FLORAL DESIGN - Features a beautiful blue and ...",
+                Price = 499.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H5986DXX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nGVK7yGGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBCW42TK",
+                Title = "iFAST IF-305 Bluetooth 6.0 Wireless Neckband Earphone with Mic | Up to 100 Hours Music Playtime | 14.2 mm Driver | TF Card Slot | Dual Device Connection | White",
+                Description = "100 Hours Long Music Playtime: Enjoy up to 100 hours of music/working time with the built-in 800 mAh battery, designed for extended listening. • Bluetooth 6.0 Connectivity: Experience convenient wireless connectivity with a range of approximately 10-20 meters for compatible de...",
+                Price = 2199.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FBCW42TK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71F1yBZvVoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9124WG6",
+                Title = "iFAST Digital Display Bluetooth 5.3 Wireless Neckband Earphone with Mic | Up to 36 Hours Music Playtime |with Plug-in Cards Mode [ Black ]",
+                Description = "In-ear Wireless Bluetooth Neckband with Built-in HD Mic delivers up to 36 Hours of continuous Music Playtime when fully charged. It has a Long Standby time of 280 Hours. Fast charging, it can be fully charged in 2-3 Hrs. • It comes with an LED Digital Display for real-time pow...",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D9124WG6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51jIJKnkrXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBVXHWXJ",
+                Title = "Husky & Purr CityGlide Cat Bag Carrier Trolley | Airline Approved Pet Carrier with Wheel Base for Cats & Small Dogs | Soft-Sided Dog Bag with Storage Pockets, Mesh Ventilation, Up to 9kgs (Grey)",
+                Description = "SOFT SIDED PET CARRIER : This collapsible pet travel bag carrier is designed with practicality and durability in mind, perfect for small pets like cats, dogs, puppies, and kittens weighing between 7.5 kg to 8 kg. Made from high-quality, anti-scratch Oxford fabric, this cat bag...",
+                Price = 8599.00m,
+                OriginalPrice = 14999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DBVXHWXJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Vz0DNfk8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFD8VPVC",
+                Title = "SHOPARIO Pineapple Shape Hand Towel",
+                Description = "🍇 Cute Fruit-Shaped Design - Grape, watermelon, pineapple, strawberry and leaf-inspired shapes add a fun and colorful look to your kitchen while making everyday cleaning more enjoyable. • 💧 Soft & Absorbent - Designed for everyday wiping, these cloths help pick up water, moist...",
+                Price = 269.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFD8VPVC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CwXAxttTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01LXN947J",
+                Title = "Eknoor Kartikeya Ji Acrylic Arch for Home & Car Dashboard Multicolour | 24ct gold-plated Kartikeya Ji foil on arch acrylic frame with peacock detail - for car, desk and puja ghar",
+                Description = "24 Carat gold-plated foil artwork of Lord Kartikeya mounted on a premium arch-shaped acrylic frame with an intricately engraved border and crystal-clear transparent base stand, radiating a sacred temple-like presence for daily darshan at home, office or car • Richly detailed m...",
+                Price = 659.00m,
+                OriginalPrice = 900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01LXN947J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91eVbyOVctL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B8BGR1G7",
+                Title = "Catract Jute Cotton Basket, Handcrafted Woven Storage Planter Basket For Home Decor, Multi-Purpose Bag With Handle For Living Room Bathroom Laundry & Toys (15 X 13 Inches, Honey Off White)",
+                Description = "Basket Made From 100% Natural Jute & Cotton Rope Combines Versatility, Durability And Style • Modern Design And Style To Suit Your Home. Make Your Plant Look More Beautiful And Organize Your Laundry And Clutter By Putting In This Beautiful Handmade Jute Basket • This Rope Stor...",
+                Price = 599.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B8BGR1G7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gEQYI6dsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09BG8GG9N",
+                Title = "YESSBENZA Women's and Girls Synthetic Faux-Leather Mobile Hand Purses Wallet Clutch Handbag 6 Multiples Cards Slots YFC-01801 Maroon",
+                Description = "YESSBENZA Women's and Girls Synthetic Faux-Leather Mobile Hand Purses Wallet Clutch Handbag 6 Multiples Cards Slots YFC-01801 Maroon...",
+                Price = 419.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09BG8GG9N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7185Swg+B6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B077K1GSX6",
+                Title = "DIVINE OVERSEAS - Luxury Bathrobes ◈ Pack of 1 ◈ Unisex Size for Men & Women ◈ Perfect for Gifting purpose ◈ Specially for Hotel, Spa, Honeymoon & Salons - L/XL Size, White",
+                Description = "Luxurious Comfort: This bathrobe is crafted from plush 100% Cotton, absorbent terry cotton to envelop you in cosy warmth and softness after a relaxing bath or shower • Versatile Use: Perfect for use at home, in the spa, or in hotels, making it a versatile addition to your bath...",
+                Price = 1799.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B077K1GSX6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Z8bSClgCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07F5VNQ29",
+                Title = "LL LEATHER LAND DESIGNER BAGS Leather Land Women Casual Leatherette Sling Bag (Brown)",
+                Description = "LL LEATHER LAND DESIGNER BAGS Leather Land Women Casual Leatherette Sling Bag (Brown)...",
+                Price = 400.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07F5VNQ29?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81KzMTqZgmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GT5QT422",
+                Title = "VASTRANU Gurkha Pants for Men | Trouser for Men | Formal Pant Brown | Classic Buckle | Boot Cut | Bell Bottom Trouser High Waist Pleated Casual Trousers | Flared Bottom Leg Office Smart Casual",
+                Description = "VASTRANU Gurkha Pants for Men | Trouser for Men | Formal Pant Brown | Classic Buckle | Boot Cut | Bell Bottom Trouser High Waist Pleated Casual Trousers | Flared Bottom Leg Office Smart Casual...",
+                Price = 999.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GT5QT422?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91p-oVcJcxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN9DNVNL",
+                Title = "POTLID Bra Underwear Organizer for Travel, Lingerie Storage Pouch with Multi Compartments, Waterproof Portable Innerwear Toiletry Storage Bag with Hand Strap for Luggage Packing (Multicolor)",
+                Description = "Compact & Space-Saving Design: Its streamlined shape fits perfectly into luggage or suitcases, maximizing your packing efficiency without adding unnecessary bulk. • Convenient Easy-Carry Strap: Equipped with a sturdy hand strap for effortless portability-ideal for carrying you...",
+                Price = 279.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GN9DNVNL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ebmY+jCYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9XG354B",
+                Title = "Wowtag Natural pebbles Polished Small, Mix Color - 975 Grams, Smooth and Round Stones, aquarium, decorative stones, Pebbles for plants pot, Garden",
+                Description = "Small natural pebbles suitable for Aquarium, Garden, Vase filler, Mirror Decoration, Home decor, Table Decor, Pebble for plant pot and craft projects • Perfect for home decor projects, add more beauty to your garden, lawn, or even your potted plant or aquarium with wowtag smal...",
+                Price = 245.00m,
+                OriginalPrice = 340.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F9XG354B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ab4Wue8yL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GH1G19PL",
+                Title = "ECOLAND Men’s Shoe Insole | Soft Cushioned Foot Support Insoles for Formal, Casual, Sports Shoes & Sneakers | Comfortable, Lightweight, Durable & Easy to Fit | Daily Use Footwear Insole GREY",
+                Description = "Sweat & Moisture Absorbing Material: Constructed with materials that help absorb sweat and moisture to keep feet dry during daily wear • Soft Cushioned Support: Features soft, lightweight foam construction that provides comfortable cushioning and support for the heel and arch ...",
+                Price = 149.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GH1G19PL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EfTNlv8YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07WG97LX9",
+                Title = "Zayn & Zoey Natural to Processed Set of 4 (Dairy, Sugar, Chocolate, Paper) - How Things are Made Picture Books for Kids Ages 3-8 Educational : Zayn and Zoey",
+                Description = "<br>Learn 4 different processes of conversion from natural to processed products / farm to table</br> • <br>Do activities that help in reinforcing concepts</br> • <br>Language Published: English</br>",
+                Price = 885.00m,
+                OriginalPrice = 985.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B07WG97LX9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71pB71v+TLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G4LPTN7L",
+                Title = "DRESSAR Women Printed Anarkali Kurta | Floral Anarkali Gown | Long Gown for Women | Dress for Women | Western Dress Cream",
+                Description = "DRESSAR Women Printed Anarkali Kurta | Floral Anarkali Gown | Long Gown for Women | Dress for Women | Western Dress Cream...",
+                Price = 425.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G4LPTN7L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1aJiuahglL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FL748KGL",
+                Title = "Sage Fable GlowBrush: Dry Body Brush for Lymphatic Drainage & Glowing Skin with Detachable Long Handle - Manage Cellulite & Exfoliation.",
+                Description = "✨ Reveal Radiant, Glowing Skin: Experience visibly brighter and smoother skin with every use. The Sage Fable GlowBrush exfoliates dead cells, unclogs pores, and promotes cell turnover-perfect for dry or wet brushing. • 🪶 Light Brown Bristles & Eco-Conscious Design: Made with h...",
+                Price = 449.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FL748KGL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bl13TTAIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H71MP65R",
+                Title = "Mermaid Kids Stainless Steel Lunch Box | 3 Compartment Leakproof BPA-Free Tiffin Box for School, Picnic & Travel | Durable Lunch Box for Girls with Cute Mermaid Design Pink",
+                Description = "3 Separate Compartments: Keeps meals organized and prevents food mixing for a variety of dishes • Leakproof Clip Lock Lid: Helps avoid spills in school bags with secure locking mechanism • BPA-Free and Food Grade Steel: Safe and hygienic construction suitable for kids daily use",
+                Price = 749.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H71MP65R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41d32CoYG+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CT64SVYG",
+                Title = "BID Eyelash Extension Glue Professional | Best Choice for Lash Artists | 1 Sec Dry Time | 5-6 Week Retention | Strong Hold Low Fume Semi Permanent Eyelash Adhesive 5ml",
+                Description = "✔ FAST 1 SECOND DRYING Speeds up lash application perfect for classic volume and hybrid sets . • ✔ LOW FUME FORMULA Comfortable for clients reduces irritation during application . • ✔ 5-6 WEEKS RETENTION Ensures long lasting results improving client satisfaction and repeat boo...",
+                Price = 1740.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CT64SVYG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41+7pQfI7nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BZS2XFMJ",
+                Title = "WOODTULA Silicone Trivet Mat Set of 6 - Trivets for Pots & Hot Dish - Trivet Mat for Hot Pots Cup Mats Coasters - Kitchen Decor Mats (Set of 6, Big, Multi)",
+                Description = "Beautiful art: Unique sunflower shape coasters,stylish and beautiful, it is ideal for office, bar, restaurant, home and other occasions, a perfect home decoration. • Durable and practical:The drink coasters are made of silicone,Flexible,light,anti-slip,heat and cold resistant....",
+                Price = 549.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BZS2XFMJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71jhd322drL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BDYN6FZP",
+                Title = "Spatlus Magnifying Vintage Foldable Metal Princess Style Purse Mirror Compact Small Mirror Magnifying Vintage Pocket Mirror (Random Pattern, Set of 1) Rectangular, Wall Mount, Framed, Brown",
+                Description = "Vintage with superb craftsmanship. Hollow out design. Great choice for compact makeup mirror which fully displays uniqueness and taste. • Super-compact, two-sided travel mirror, easy be carried inside your bag wherever you go! Featuring a magnifying glass on one of the sides, ...",
+                Price = 379.00m,
+                OriginalPrice = 798.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BDYN6FZP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71pNLB-RQ0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7RPZ237",
+                Title = "GiftCraftsWorld Multipurpose Metal Basket For Gift Hamper, Pooja Temple Storage With Sturdy Handle, Decorative Flower Organizer & Versatile Puja Utility Accessories Home Decoration (Square 20.5cm)",
+                Description = "MULTIPURPOSE METAL BASKET Perfect for gift hampers pooja essentials flower arrangements festive decorations and daily storage needs for home temple and kitchen use • STURDY HANDLE DESIGN Strong metal handle offers comfortable carrying and reliable support making it ideal for p...",
+                Price = 299.00m,
+                OriginalPrice = 749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H7RPZ237?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81jL4sGkl1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D3Q5NYT9",
+                Title = "MuscleFix Kinesiology Tape for Pain Relief & Muscle Support - Waterproof, Breathable Physio Tape Strips for Sports, Gym, Yoga, Athletic Training & Injury Recovery | Latex-Free Tape (Black)",
+                Description = "Hypoallergenic & Latex Free - Made in a medical grade facility, this adhesive tape is safe to use on sensitive skin for therapeutic and medical applications, Widely Usage kinesiotape Provide support to injured muscles, joints, tendons,Great for all kinds of indoor and outdoor ...",
+                Price = 385.00m,
+                OriginalPrice = 1000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0D3Q5NYT9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61W+0fI3xAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ2R8FQW",
+                Title = "Coolet Soft Hat Doll for Kids 42 cm | Cute Plush Rag Doll with Cap & Braided Hair | Washable Stuffed Soft Toy for Girls & Boys | Birthday Gift | Multicolor",
+                Description = "Perfect Size - 42 cm Doll Ye soft plush doll approx 42 cm (16.5 inch) height ki hai, jo kids ke liye hug, play aur carry karne ke liye perfect size hai. • Ultra Soft & Skin-Friendly Fabric High quality super soft plush fabric se bani hui, jo kids ki skin ke liye bilkul safe au...",
+                Price = 280.00m,
+                OriginalPrice = 650.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ2R8FQW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61QqEu1qD4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GPQM3J7Y",
+                Title = "Theona 18 in 1 Vegetable Chopper for Kitchen with Container | Stainless Steel Blades | Onion Chopper | Vegetable Cutter, Slicer, Dicer & Grater | Food Manual Chopper for Home (White and Black, 18in1)",
+                Description = "18-IN-1 MULTI-FUNCTION VEGETABLE CHOPPER: One kitchen tool for all needs - chopping, slicing, dicing, shredding, grating, julienne, mashing & egg separating. Suitable for onions, tomatoes, potatoes, carrots, cucumber, cheese & more • SHARP STAINLESS STEEL BLADES: Ultra-sharp, ...",
+                Price = 1999.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GPQM3J7Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Ho9N2W4XL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CK4T1BF6",
+                Title = "DIONA Night lamp Krishna LED 3D Illusion Multi Color Changing Light for Bedroom, Kids Room, Temple, Festival Gifts, Corporate Gift Plastic",
+                Description = "Divine Krishna Design: The DIONA night lamp features a divine portrayal of Lord Krishna, adding a sacred and spiritual touch to your living space. This religious motif makes it suitable for bedrooms, kids' rooms, temples, and as a thoughtful gift for various occasions • 3D Ill...",
+                Price = 166.00m,
+                OriginalPrice = 249.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CK4T1BF6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51dychvG3GL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
