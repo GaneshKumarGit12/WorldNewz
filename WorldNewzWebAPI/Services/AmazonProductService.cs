@@ -42954,6 +42954,936 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0DY1S3RKD",
+                Title = "OZiva ACV Moringa Effervescent Tablets",
+                Description = "3-IN-1 FAT OXIDATION FORMULA: The combined impact of Apple Cider Vinegar (750 mg) with 6% Acetic Acid, Moringa leaf extracts and Cinnamon bark extracts, makes this 3-in-1 formulation ideal for efficient fat oxidation or the break-down of fats in the body, which later converts ...",
+                Price = 671.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DY1S3RKD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UkQSpXKGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BNHFJP1F",
+                Title = "Dabur Red Bae Fresh Gel - 600gm (300gm*2) | Fights Bad Breath, Cavity Germs and Plaque | 12hr Freshness | Activ Germ-Kill formula",
+                Description = "Effective against bad breath causing germs-up to 12 hrs • Whole mouth germ protection - Teeth, Gum, Tongue & Cheek • 99.9% Germ kill",
+                Price = 170.00m,
+                OriginalPrice = 360.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BNHFJP1F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81euWdb9UqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07CF49TMD",
+                Title = "SAMYANG Hot Chicken Flavor Ramen Buldak Carbonara Noodles 650 g Pack of 5 130 g each",
+                Description = "Spicy Ramen Carbonara",
+                Price = 521.00m,
+                OriginalPrice = 625.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B07CF49TMD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81pyYQleBOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPCSR827",
+                Title = "Deconstruct Brightening Face Wash with 0.5% Vitamin C + 2% Niacinamide|For Glowing & Bright Skin|Non-Drying & Non-Irritating Formula|Fades Dark Spots|All Skin Types|Facewash for Men & Women|100g",
+                Description = "Deconstruct Brightening Face Wash with 0.5% Vitamin C + 2% Niacinamide|For Glowing & Bright Skin|Non-Drying & Non-Irritating Formula|Fades Dark Spots|All Skin Types|Facewash for Men & Women|100g...",
+                Price = 239.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FPCSR827?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/412EJ5PIN9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CN3BSZPS",
+                Title = "BlissClub Ultimate Flare Pants Lite Regular for Women Upto 5'4 ft L",
+                Description = "BlissClub Ultimate Flare Pants Lite Regular for Women Upto 5'4 ft L...",
+                Price = 899.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CN3BSZPS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81eClPDCgyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GHYYRHKX",
+                Title = "STITCHNEST Set of 2 Polycotton Cushion Covers - 16x16 Inches - Multicolor Elephant & Jungle Print - Playful Cushion Covers for Kids Room, Sofa & Living Room Decor",
+                Description = "Premium Polycotton Fabric - Soft, smooth, and breathable blend of polyester and cotton that’s durable, lightweight, and wrinkle-resistant. • Available in Multiple Sizes - Choose from 16x16, 12x12, 12x18, 18x18, and 24x24 inches to suit your sofa, bed, chairs. • Invisible Zippe...",
+                Price = 123.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GHYYRHKX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81776SK33yL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09GPDPJXS",
+                Title = "Medimix Herbal Liquid Handwash Bottle | Buy 1 Get 1 Free, 500ml (250ml + 250ml Free)",
+                Description = "Medimix Herbal Liquid Handwash Bottle | Buy 1 Get 1 Free, 500ml (250ml + 250ml Free)...",
+                Price = 99.00m,
+                OriginalPrice = 125.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09GPDPJXS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81EvwnQJXmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B074KKM2MP",
+                Title = "Philips India's No.1 Hair Styling Brand -Hair Dryer 1000W |Blow Dry for Men & Women | 2 Heat Settings| ThermoProtect tech |Travel-Friendly, Quick Dry, Frizz Control | For Indian Hair | HP8100/60 Blue",
+                Description = "Blow Dry and Style your Wet Hair with Lift & Volume with the Philips Compact Care Hair Dryer! • Compact Design: Compact and ergonomic, this hairdryer benefits from a clever modern design. This results in a dryer that is light and easy to handle, yet small enough to store virtu...",
+                Price = 642.00m,
+                OriginalPrice = 1095.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B074KKM2MP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YN+4I2zSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0792MKTDD",
+                Title = "Enamor E025 Essential Stay New Tank Top for Women",
+                Description = "Enamor E025 Essential Stay New Tank Top for Women...",
+                Price = 279.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0792MKTDD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91N1pU8SNGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3JPTZRP",
+                Title = "Eveready DL 101 Minimight Rechargeable LED Emergency Torch",
+                Description = "DUAL LIGHT MODES: Navigate effortlessly with a powerful 1W front torch that cuts through darkness in various conditions, and a 2W sidelight that provides wide-area illumination for close-up tasks and safety in outdoor environments • COMPACT & POCKET-FRIENDLY: Lightweight and e...",
+                Price = 139.00m,
+                OriginalPrice = 160.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F3JPTZRP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71+pBhQRdwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FYQHL1ZX",
+                Title = "Be Bodywise 6% AHA BHA Underarm Roll-on Deodorant, Flora Fragrance,1% Mandelic,4% Lactic,1% Salicylic & Kojic Acid, Reduces Body Odor & Pigmentation for Even tone Skin, Alcohol & Aluminum Free, 100ml",
+                Description = "Be Bodywise 6% AHA BHA Underarm Roll-on Deodorant, Flora Fragrance,1% Mandelic,4% Lactic,1% Salicylic & Kojic Acid, Reduces Body Odor & Pigmentation for Even tone Skin, Alcohol & Aluminum Free, 100ml...",
+                Price = 639.00m,
+                OriginalPrice = 798.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FYQHL1ZX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XCuiV8IIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09V8K5LYJ",
+                Title = "Kokila Unisex Hair Color Shampoo Enriched With Almond Oil in Just 5 Minute, Long-Lasting Instant Hair Color Black Pack of 15 (18ML Each)",
+                Description = "Kokila Unisex Hair Color Shampoo Enriched With Almond Oil in Just 5 Minute, Long-Lasting Instant Hair Color Black Pack of 15 (18ML Each)...",
+                Price = 262.00m,
+                OriginalPrice = 375.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09V8K5LYJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81WwB8mGANL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0932RLD3D",
+                Title = "Lux Soft Rose Bodywash with French & Almond Oil, 245 ml",
+                Description = "Lux Soft Rose Bodywash with French & Almond Oil, 245 ml...",
+                Price = 79.00m,
+                OriginalPrice = 99.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0932RLD3D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/511DbiDf7rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GGHP8SR5",
+                Title = "Klosia Women Pure Cotton Kurta Palazzo Set | Sleeveless Printed Kurta with Palazzo Pants | Summer Friendly, Office Wear Co-Ord Set White",
+                Description = "Klosia Women Pure Cotton Kurta Palazzo Set | Sleeveless Printed Kurta with Palazzo Pants | Summer Friendly, Office Wear Co-Ord Set White...",
+                Price = 469.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GGHP8SR5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71To2UBphwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07KW7H2G9",
+                Title = "Pentonic 0.7mm Ball Point Pen Tumbler Pack | Black Body | Blue, Black & Red Ink | Pack of 50 Pens",
+                Description = "PACKAGE INCLUDES : Pentonic Ball Pen Tumbler Pack. Ink Color: 32 Blue Ink, 15 Black Ink & 3 Red Ink, Body Color : Black, Tip Size: 0.7 mm, Click-Off Mechanism, 50 Pieces Pens. • SMOOTH WRITING FEELING : We Use Low Viscosity Ink For An Effortless Writing Experience. These Pens ...",
+                Price = 343.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07KW7H2G9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/615nYaXZ6eS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097GNF52Q",
+                Title = "Safari Gravite 45L Large size Travel Laptop Backpack Bag for Man and Women with suitcase compartment, Ideal for Office Use/Work Trips, Large School/College Bags for boys & girls, Color-Black",
+                Description = "Safari Gravite 45L Large size Travel Laptop Backpack Bag for Man and Women with suitcase compartment, Ideal for Office Use/Work Trips, Large School/College Bags for boys & girls, Color-Black...",
+                Price = 999.00m,
+                OriginalPrice = 3699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B097GNF52Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JHyqChjeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BWF4VXNL",
+                Title = "Fígaro Pure Olive Oil",
+                Description = "The Multi-Purpose Olive Oil. For over 100 years, Figaro has been India’s trusted name in pure olive oil. • Purity in every drop. It has zero trans fat, zero cholesterol, rich source of Vitamin E and high in Monounsaturated Fatty Acids(MUFA) - type of dietary fibre with numerou...",
+                Price = 972.00m,
+                OriginalPrice = 1769.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0BWF4VXNL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qPdi-Tj3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B006LXCLI4",
+                Title = "POND'S Bright Beauty Spot-less Fairness & Germ Removal Facewash 100 g",
+                Description = "POND'S Bright Beauty Spot-less Fairness & Germ Removal Facewash 100 g...",
+                Price = 144.00m,
+                OriginalPrice = 230.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B006LXCLI4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41poNH4inQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFCCGL8M",
+                Title = "Dove Exfoliate Away Serum Body Wash with 4% Refining Serum + AHA | Gentle Exfoliation for Smooth, Refined Skin | Parabens-Free & Sulphate-Free Cleansers | 300 ML",
+                Description = "Dove Exfoliate Away Serum Body Wash with 4% Refining Serum + AHA | Gentle Exfoliation for Smooth, Refined Skin | Parabens-Free & Sulphate-Free Cleansers | 300 ML...",
+                Price = 174.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DFCCGL8M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41q8KX8CBGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00FRDAGB8",
+                Title = "NIVEA Natural Glow Smooth Skin Deodorant Underarm Roll On For Women|Vitamin C,Vitamin E,Avocado Oil And Licorice Extract|72 H Even Toned,Smooth & Bright Underarms|0% Alcohol And Dermat Approved|50 Ml",
+                Description = "NIVEA Natural Glow Smooth Skin Deodorant Underarm Roll On For Women|Vitamin C,Vitamin E,Avocado Oil And Licorice Extract|72 H Even Toned,Smooth & Bright Underarms|0% Alcohol And Dermat Approved|50 Ml...",
+                Price = 121.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B00FRDAGB8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41-eIo1e-SL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07GQW1HHN",
+                Title = "Amazon Brand - Vedaka Whole Cashews",
+                Description = "Quality assured - our products are rigorously tested against the industry's best quality standards • Vedaka popular whole cashews have a nutty flavour and a firm texture for a rich taste • Store in a cool, dry place in an airtight container and preferably refrigerate after ope...",
+                Price = 559.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B07GQW1HHN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZjEl7y78L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CX1W81RM",
+                Title = "Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+ PA++++",
+                Description = "Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+ PA++++...",
+                Price = 411.00m,
+                OriginalPrice = 549.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CX1W81RM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61J4gIiXEaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09L7YNK87",
+                Title = "Excel 3 in 1 Smart Shots Unit Dose Liquid Detergent Pack of 28 Count for Both Front Load and Top Load Washing Machines| (28 U x 19.9 g)",
+                Description = "Surf Excel 3 in 1 Smart Shots for the ultimate clean in washing machine. A single use laundry detergent with unique three chambers smart technology to provide Advance Stain Removal|| Long-Lasting Frag • Smart shots are easy to use|| just drop a smart shot into your empty washi...",
+                Price = 325.00m,
+                OriginalPrice = 570.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09L7YNK87?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61vnwNS+HYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08Z33GN88",
+                Title = "Nycil Germ Expert Cool Herbal Prickly Heat Powder, Clinically Proven Anti-Bacterial Formula with Neem Oil to Absorb Sweat, Calm Rashes and Soothe Itch for Summer Skin Relief, 150g + 60g Free",
+                Description = "CLINICALLY PROVEN SUMMER RELIEF - India's trusted Germ Expert delivers instant germ kill and visible results in 3 days by absorbing sweat, calming severe heat rashes, and soothing persistent itch. • POTENT NEEM OIL COOLING FORMULA - Powered by the natural goodness of Neem Oil ...",
+                Price = 99.00m,
+                OriginalPrice = 155.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08Z33GN88?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71buQExHivL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07YWZMJFP",
+                Title = "LifeKrafts Polyester Magnetic Mosquito Net for All Door Types & Sizes, Auto-Closing Insect Screen/Curtain to Keep Mosquito & Flies Out, (200x100 cm) Brown",
+                Description = "SIGNIFICANCE: Blocks mosquitoes while allowing fresh air and a cool breeze through the doors. Get your door screens soon to reduce the risk of mosquito-borne diseases like dengue and malaria. Keep your child undisturbed! • MADE WITH: High-quality polyester (80 GSM). Velcro is ...",
+                Price = 799.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07YWZMJFP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cRik9djML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09FPS9D5T",
+                Title = "Minimalist Cream Sunscreen SPF 50 Broad Spectrum PA++++",
+                Description = "Minimalist Cream Sunscreen SPF 50 Broad Spectrum PA++++...",
+                Price = 339.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09FPS9D5T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51liYV8g2DL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07RQLK51S",
+                Title = "Medimix Ayurvedic Classic 18 Herbs Soap, 125 g (Pack of 8)",
+                Description = "Medimix Ayurvedic Classic 18 Herbs Soap, 125 g (Pack of 8)...",
+                Price = 249.00m,
+                OriginalPrice = 480.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07RQLK51S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Yg7xsM3rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "933446755X",
+                Title = "108 BG Sutras: BG - Business Growth & Bhagya Guide; Business Ramu Kaka to Automode Crorepati : Basesh U Gala",
+                Description = "108 BG Sutras: BG - Business Growth & Bhagya Guide; Business Ramu Kaka to Automode Crorepati : Basesh U Gala...",
+                Price = 269.10m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/933446755X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71s-mGaFuyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B06WWR7W3V",
+                Title = "Pears Original Glycerin Soap Bar - Soft & Fresh Glow | With 98% Pure Glycerin & Mint Extract | For a Fresh Glow | With Plant Based Cleanser for Skin & Body | Paraben-free | 125gms x 4",
+                Description = "Pears Original Glycerin Soap Bar - Soft & Fresh Glow | With 98% Pure Glycerin & Mint Extract | For a Fresh Glow | With Plant Based Cleanser for Skin & Body | Paraben-free | 125gms x 4...",
+                Price = 208.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B06WWR7W3V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Acydn70yL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BDVG99J5",
+                Title = "Dot & Key Barrier Repair Moisturizer For Normal, Dry, Combination & Sensitive Skin | 120 Hrs Moisturization, With 5 Ceramides & Hyaluronic | Repairs Damaged Skin Barrier, Non-Comedogenic | 100g",
+                Description = "Dot & Key Barrier Repair Moisturizer For Normal, Dry, Combination & Sensitive Skin | 120 Hrs Moisturization, With 5 Ceramides & Hyaluronic | Repairs Damaged Skin Barrier, Non-Comedogenic | 100g...",
+                Price = 296.00m,
+                OriginalPrice = 395.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BDVG99J5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51nL4p1PNlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9DX5RFY",
+                Title = "Lifelong LLGM109 Percussion Massage Gun",
+                Description = "PROFESSIONAL-GRADE RELIEF: High-torque motor delivers 6 intensity levels from 1,800-3,200 percussions/min; targets deep muscle knots and tension; designed for effective pain relief across body, neck, shoulders, back, arms and feet • COMPLETE MASSAGE KIT: 8 specialized attachme...",
+                Price = 799.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0C9DX5RFY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71u5lh9rj3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07W55MGGD",
+                Title = "Larah by Borosil 19 Pieces Green Leaves Opalware Dinner Set for Family of 6 | Microwave & Dishwasher Safe Silk Series Crockery for Dining & Gifting, Bone Ash Free Plates & Bowls",
+                Description = "BONE-ASH FREE | 100% VEGETARIAN OPALWARE DINNER SET : Larah by Borosil opalware Dinner Set is completely free from bone-ash and animal-derived components - making it the perfect crockery set for home for strict vegetarians. Unlike traditional bone china Dinner Sets, our opal g...",
+                Price = 949.00m,
+                OriginalPrice = 2145.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07W55MGGD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UqeCbFuvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09ZQ37Z9G",
+                Title = "Amazon Brand - Solimo Liquid Handwash, Refill Can | Lavender | 5 Litre | Fights Germs | Ph-Balanced Formula | No Added Triclosan & Parabens",
+                Description = "Enriched with Lavender; this handwash offers natural germ protection with every wash • pH balanced formula with no added Triclosan and Paraben; Safe and gentle on hands • Infused with a refreshing lavender fragrance, this hand wash revitalizes your senses while keeping your ha...",
+                Price = 399.00m,
+                OriginalPrice = 840.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09ZQ37Z9G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51MgqQXy4PL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07W7D9NSB",
+                Title = "Vaseline Sun Protect SPF 30 Body Lotion, Reduces Tan Lines in 7 Days, UVA + UVB PA+++ Sun Protection, 400ml",
+                Description = "Vaseline Sun Protect SPF 30 Body Lotion, Reduces Tan Lines in 7 Days, UVA + UVB PA+++ Sun Protection, 400ml...",
+                Price = 255.00m,
+                OriginalPrice = 675.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07W7D9NSB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51VUOVQHL5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BXSDJQNR",
+                Title = "Vaseline Gluta-Hya Dewy Radiance Lotion for Face & Body | Gives Brighter Skin | Glutathione & Niacinamide Infused Moisturizer, 200ml",
+                Description = "Vaseline Gluta-Hya Dewy Radiance Lotion for Face & Body | Gives Brighter Skin | Glutathione & Niacinamide Infused Moisturizer, 200ml...",
+                Price = 206.00m,
+                OriginalPrice = 415.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BXSDJQNR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51foLQC5-7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXVZF9DL",
+                Title = "Himalaya Gentle Baby Soap for Newborns | No Post Bath Dryness | B3G1 FREE - 125g | Gentle Cleansing With Phyto-Oil Complex of 100% Natural Oils of Almond & Olive| No. 1 Doctor Recommended Brand",
+                Description = "Himalaya Gentle Baby Soap for Newborns | No Post Bath Dryness | B3G1 FREE - 125g | Gentle Cleansing With Phyto-Oil Complex of 100% Natural Oils of Almond & Olive| No. 1 Doctor Recommended Brand...",
+                Price = 158.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GXVZF9DL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71NbosL-48L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BVR6NHWM",
+                Title = "Bajaj 100% Pure Coconut Oil",
+                Description = "100% Pure Coconut Oil • Made with Premium Grade 1 Quality Coconuts • Fresh Aroma which is a Marker of it’s Purity",
+                Price = 299.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BVR6NHWM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51eQKNP6s6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097JJ2CK6",
+                Title = "Safari Omega spacious/large laptop backpack with Raincover, college bag, travel bag for men and women, Black, 30 Litre",
+                Description = "Safari Omega spacious/large laptop backpack with Raincover, college bag, travel bag for men and women, Black, 30 Litre...",
+                Price = 579.00m,
+                OriginalPrice = 3396.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B097JJ2CK6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71maWXZscfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08HDT835B",
+                Title = "Wild Stone Ultra Sensual, Forest Spice and Musk Soaps for Bath, (Pack of 6, 100gm each) | Grade 1 soaps | Refreshing Bath Soap for Men | Skin-Friendly and Energizing",
+                Description = "Wild Stone Ultra Sensual, Forest Spice and Musk Soaps for Bath, (Pack of 6, 100gm each) | Grade 1 soaps | Refreshing Bath Soap for Men | Skin-Friendly and Energizing...",
+                Price = 174.00m,
+                OriginalPrice = 396.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08HDT835B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/617pZ8WsdXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01MT6LNNQ",
+                Title = "Ethiglo Deep Cleansing Facial Foam Face Wash for Healthy, Soft and Smooth Skin | Removes Dirt, Impurities and Excess Oil | Suitable for All Skin Types | Pack of 1 (200ml)",
+                Description = "Ethiglo Deep Cleansing Facial Foam Face Wash for Healthy, Soft and Smooth Skin | Removes Dirt, Impurities and Excess Oil | Suitable for All Skin Types | Pack of 1 (200ml)...",
+                Price = 399.00m,
+                OriginalPrice = 520.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01MT6LNNQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51eQRWYaxmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D3QYP2V1",
+                Title = "Whisper Choice Nights, 40 XXL Pads, Gives Up to 100% worry-free protection all night** with 4x back coverage",
+                Description = "Worry-free Period Nights with 4x back coverage • Upto 100% worry free protection all night (Helps protect against leaks based on P&G's technical data for normal pad usage of 8 hours) • Hygiene sorted - comes with disposal bags",
+                Price = 190.00m,
+                OriginalPrice = 326.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D3QYP2V1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ftA74F2fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B006LXD33G",
+                Title = "POND'S Dreamflower Floral Perfume Powder with Glow-boosting Vitamin B3 | Crafted with Superfine Minerals for Smooth Texture | Refreshing Long-Lasting Fragrance of Lily, 80g",
+                Description = "POND'S Dreamflower Floral Perfume Powder with Glow-boosting Vitamin B3 | Crafted with Superfine Minerals for Smooth Texture | Refreshing Long-Lasting Fragrance of Lily, 80g...",
+                Price = 84.00m,
+                OriginalPrice = 102.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B006LXD33G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/514IUH1crjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B257ZYVB",
+                Title = "AGARO Grand Egg Boiler And Poacher, 2-in1 Boils 8 Eggs, Poach 4 Eggs, Steamed Vegetables, 3 Boiling Types, Stainless Steel Body, Transparent Lid, 500W, Silver",
+                Description = "Boils 8 eggs at a time or poaches up to 4 eggs at a time. Also use it to steam vegetables. • 3 boiling types- soft, medium and hard boiled. • Crafted with a stainless steel body and heating plate. Comes with a food-grade egg boiling rack, poaching tray, and transparent lid.",
+                Price = 899.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B257ZYVB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81670ZfgQ-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BTD4S4XF",
+                Title = "American Tourister Valex | 28L Backpack | 17\" Laptop Bag | 2 Compartments | College & Office Backpack for Men and Women | Black | 1 Year Global Warranty",
+                Description = "American Tourister Valex | 28L Backpack | 17\" Laptop Bag | 2 Compartments | College & Office Backpack for Men and Women | Black | 1 Year Global Warranty...",
+                Price = 839.00m,
+                OriginalPrice = 2500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BTD4S4XF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51yfw2JIxwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08TGSRW1S",
+                Title = "Wild Stone Edge Eau De Parfum Premium Perfume For Men",
+                Description = "Wild Stone Edge Eau De Parfum Premium Perfume For Men...",
+                Price = 299.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08TGSRW1S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BXRNekoEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00MN9ALDW",
+                Title = "Enafix Anticavity Enamel Protection Toothpaste",
+                Description = "ADVANCED ANTI-CAVITY PROTECTION - Formulated with calcium and phosphate to actively fight tooth decay and support enamel remineralisation for stronger, healthier teeth. • FLUORIDE-FREE, GENTLE DAILY FORMULA - A fluoride-free toothpaste designed for safe, everyday use for the w...",
+                Price = 197.00m,
+                OriginalPrice = 263.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B00MN9ALDW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41SVAENP2zL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07L6GZYDV",
+                Title = "Wakefit Hollow Fiber Sleeping Pillow",
+                Description = "STANDARD SIZE SET OF 2 BED PILLOW: Includes two 27 x 16 inch bed pillows that fit standard pillow covers making them suitable for bedrooms guest rooms and everyday use • SOFT HOLLOW FIBRE FILLING: Premium siliconized hollow fibre delivers fluffy comfort while maintaining shape...",
+                Price = 717.00m,
+                OriginalPrice = 1141.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07L6GZYDV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51vGM0VK10L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B3XPJTFG",
+                Title = "Odonil Air Freshener Room Spray 440ml Combo Pack of 2",
+                Description = "LONG-LASTING FRAGRANCE: Odonil Room Spray is formulated with a special fragrance that provides long-lasting freshness and a pleasant rose scent to your home or office space. • INSTANT FRESHNESS: This room spray works instantly to neutralize unpleasant odors and freshen up your...",
+                Price = 156.00m,
+                OriginalPrice = 338.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B3XPJTFG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Qy4Ad-r5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08NDMTN2W",
+                Title = "VGR V-071 Professional Beard Trimmer for Men, 2X Fast Charging, USB Type C, 120 Min Runtime, Hair Trimmer, Cordless, 3 Length Settings, 2 Year Warranty (Silver)",
+                Description = "𝐏𝐑𝐄𝐂𝐈𝐒𝐈𝐎𝐍 𝐓-𝐁𝐋𝐀𝐃𝐄 - High-performance precision T-blade designed for clean, sharp lines and smooth trimming. Ideal for detailing beard edges, neckline, and even hairline grooming with salon-level accuracy. • 𝐅𝐀𝐒𝐓 𝐔𝐒𝐁 𝐂𝐇𝐀𝐑𝐆𝐈𝐍𝐆 - Features a Type-C USB charging port for faster and...",
+                Price = 599.00m,
+                OriginalPrice = 1145.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B08NDMTN2W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81JKVHeerGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08Q4P5Q29",
+                Title = "Karein Classic Adult Diaper Pant M Size, Medium, Waist (75-100 cm 30'-40'), 10 Unit, Long Protection Hour, Unisex, Quick & Even Absorption, Anti-Bacterial, Leakproof, Odour Control, Wetness Indicator",
+                Description = "Up to 10 hours of protection. • Cloth like stretch panels for a comfortable fit like a real underwear. • Tear away sides allows for easy removal and quick disposal of diapers.",
+                Price = 209.00m,
+                OriginalPrice = 470.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B08Q4P5Q29?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710R+8iEE3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B086H6LMBM",
+                Title = "Savlon Moisturizing Glycerin Bathing Soap Bar 600g (120g Pack of 5) | 99.9% Germ Protection | Natural-Origin Glycerin | Value Family Pack | Soft Moisturized Skin | Women & Men",
+                Description = "Germ Protection with Soft Skin: Savlon Glycerin soap bar provides trusted protection from 99.9% germs* while keeping skin soft & moisturized. • Protection against Illness-Causing Germs: Savlon Glycerin soap protects against infection causing organisms like Escherichia coli, St...",
+                Price = 145.00m,
+                OriginalPrice = 250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B086H6LMBM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71VBuPUbXcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07HKXSC6K",
+                Title = "Dabur Red Paste - India's No.1 Ayurvedic Paste, Provides Protection Plaque Removal, Toothache, Yellow Teeth, Bad Breath- 800g (200gm*4)",
+                Description = "Also a suitable toothpaste for kids • Makes teeth strong and healthy • Prevents tooth decay that can cause tooth cavities",
+                Price = 319.00m,
+                OriginalPrice = 580.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07HKXSC6K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81APBzS5IYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G48HZ2GL",
+                Title = "Good Knight Flash Liquid Vaporiser | Pack of 6 (45ml Each) | Lavender Fragrance | 2x Faster Than Before | Mosquito Repellent Refill | India s Most Powerful Liquid Vaporizer",
+                Description = "SUPER SAVER PACK: Contains 6 units of Goodknight Flash Liquid Vapourizer Refill - Lavender Fragrance (45ml each) • INDIA’S MOST POWERFUL LIQUID VAPOURISER. Disclaimer: As per a comparative study conducted by an independent NABL accredited Lab (March, 2025) • 2-HOUR CONTINUOUS ...",
+                Price = 360.00m,
+                OriginalPrice = 540.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G48HZ2GL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fv34uSEVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D12F6VPN",
+                Title = "Colgate Total 300gm (2 x 150gm) Advanced Health Anti-Germ Toothpaste with Toothbrush, Tooth Paste with 12-Hour Anti-Germ & Enamel Protection, Whole Mouth Health (Combo Pack Offer)",
+                Description = "WHOLE MOUTH HEALTH: Only 20% of the germs in your mouth are on your teeth, the rest 80% are on gums, tongue & cheeks. Total Advanced Health is an antibacterial toothpaste that fights germs on teeth, tongue, cheeks & gums while providing advanced enamel protection for Whole Mou...",
+                Price = 190.00m,
+                OriginalPrice = 400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D12F6VPN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/616Kir3viVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01LNA2MQK",
+                Title = "Dettol Liquid Handwash Refill - Original Hand Wash- 1350ml | Germ Defence Formula | 10x Better Germ Protection",
+                Description = "Dettol Liquid Handwash Refill - Original Hand Wash- 1350ml | Germ Defence Formula | 10x Better Germ Protection...",
+                Price = 149.00m,
+                OriginalPrice = 219.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01LNA2MQK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BacHKoINL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPLDFK2W",
+                Title = "Yogabar 26g High Protein Oats 1kg , Dark Chocolate - Breakfast Cereal with Wholegrains, 26% Protein & No added sugar - Oats High Protein for Gym - Premium Protein Blend with Whey Protein Powder - with Goodness of Chia, Sunflower & Pumpkin Seeds & Probiotics for Absorption",
+                Description = "High Protein & Gut-Friendly: Delivers the highest possible protein quality (PDCAAS score of 1.0) with 26g protein per 100g. Made from quality oats with no added sugar, plus natural fiber and probiotics to support digestion and fullness. • Wholesome Ingredients: Made with premi...",
+                Price = 298.00m,
+                OriginalPrice = 490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0FPLDFK2W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bviMefwdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BQC6B15R",
+                Title = "DABUR Herb'L Activated Charcoal Toothpaste 240G (120G x2, Pack of 2)|Whitening Black Gel Toothpaste|Fluoride Free|Fights Plaque & Extrinsic Stains|With Power of Mint|Cool & Refreshing Mouth Experience",
+                Description = "Naturally White Teeth • Help fight extrinsic stains • Pleasant Mouthfeel",
+                Price = 89.00m,
+                OriginalPrice = 365.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BQC6B15R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/713DgnhJC1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B086T4WGRY",
+                Title = "Dettol Original Germ Protection Bathing Soap Bar (625gm) | Kills 99.99% germs, 125gm , Pack of 5",
+                Description = "Dettol Original Germ Protection Bathing Soap Bar (625gm) | Kills 99.99% germs, 125gm , Pack of 5...",
+                Price = 178.00m,
+                OriginalPrice = 312.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B086T4WGRY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61KBZnySmlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09CFD8L6D",
+                Title = "Denver Hamilton Deodorant 150 ML | Long Lasting Deodorant Body Spray For Men",
+                Description = "Denver Hamilton Deodorant 150 ML | Long Lasting Deodorant Body Spray For Men...",
+                Price = 129.00m,
+                OriginalPrice = 250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09CFD8L6D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51mBFYXDTEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07Y8SJPHL",
+                Title = "Sofy Bodyfit Pro Sanitary Pads (XL Size - 290 mm) 54 pads - Deep Absorption & fragrance, Centre Thick Fit, Soft on skin with comfy dry top sheet, with disposable wrap, (3 * 18 Pads),Pack Of 3",
+                Description = "Deep Absorption : It has deep absorption that is long lasting while keeping the top sheet visibly clean • Centre Thick Fit : Unique fit at the centre for better absorption and leakage prevention • Comfy Dry Cover : The top sheet is soft & gentle to the skin",
+                Price = 209.00m,
+                OriginalPrice = 370.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07Y8SJPHL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61vw5hqKagL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GY992RFX",
+                Title = "Patanjali Haldi Chandan Kanti Body Cleanser Soap for Men and Women(150g, Pack of 8), Nourishing & Moisturizing, Natural Aloe Vera Soap for Soft Skin",
+                Description = "Patanjali Haldi Chandan Kanti Body Cleanser Soap for Men and Women(150g, Pack of 8), Nourishing & Moisturizing, Natural Aloe Vera Soap for Soft Skin...",
+                Price = 199.00m,
+                OriginalPrice = 306.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GY992RFX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81J7W9kKUAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B078T4KPBQ",
+                Title = "Rexona Coconut and Olive Oil Soap for Silky Smooth Skin(4 * 100g),Pack of 4",
+                Description = "Rexona Coconut and Olive Oil Soap for Silky Smooth Skin(4 * 100g),Pack of 4...",
+                Price = 90.00m,
+                OriginalPrice = 185.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B078T4KPBQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+-miwwAqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
