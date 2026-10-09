@@ -43884,6 +43884,831 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B001F7E9VI",
+                Title = "Loctite Vinyl Fabric & Plastic Repair Flexible Adhesive, clear liquid adhesive ideal for repairing vinyl seats, cushions, tarps, and outdoor gear, highly flexible to withstand bending and torsion",
+                Description = "Mends Rips and Tears: Liquid adhesive formulated for repairing and mending flexible plastics like vinyl seats, cushions, tarps, and outdoor gear",
+                Price = 205.00m,
+                OriginalPrice = 329.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B001F7E9VI?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51qwopa6xKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CG6DMQL9",
+                Title = "Denver Black Code Nano,Caliber Nano, Honour Nano & Imperial Nano Deo - 50ML Each (Combo Pack of 4) | Long Lasting Deodorant Body Spray for Men",
+                Description = "Denver Black Code Nano,Caliber Nano, Honour Nano & Imperial Nano Deo - 50ML Each (Combo Pack of 4) | Long Lasting Deodorant Body Spray for Men...",
+                Price = 242.00m,
+                OriginalPrice = 360.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CG6DMQL9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61RoYCSRnWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H25X3W7F",
+                Title = "ASUS TUF A15 (2026),Smartchoice,AMD Ryzen 7 8845HS,RTX 3050,16GB RAM (Upgradeable Upto 64GB),512GB SSD,FHD,15.6\"(39.6 cm),Win 11,M365 Basic(1Y),Office 24,Black,2.3 Kg,FA506NCG-HN192WS,Gaming Laptop",
+                Description = "Processor, Memory & Storage : AMD Ryzen 7 8845HS Processor 3.8GHz (24MB Cache, up to 5.1 GHz, 8 cores, 16 Threads); AMD XDNA NPU up to 16TOPS | Memory : DDR5 16GB RAM | Storage : 512GB PCIe 4.0 NVMe M.2 SSD + 100GB Cloud Storage with Microsoft 365 Basic for 1 Year. • Operating...",
+                Price = 104990.00m,
+                OriginalPrice = 155990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H25X3W7F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81fyeRNwpKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BGDXGBCC",
+                Title = "iBELL Gekb17M Black Glass Electric Kettle, Glass Kettle, 1500 Watts, 1.7 Litres, With Led Light, Tempered Glass, Auto Cut Off Function, 360 Degree Rotating Base, Black",
+                Description = "Concealed heating element with stainless steel inner base designed to support routine cleaning and maintenance. • Temperature sensing controller with automatic power-off function when water reaches boiling temperature. • Dry-boil protection with automatic safety cut-off and hi...",
+                Price = 1180.00m,
+                OriginalPrice = 2350.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BGDXGBCC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712xq+ov3kL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G6CRGH27",
+                Title = "Philips India's No.1 Men's Trimmer* | Long-lasting Performance | All-in-One Grooming Kit- Face, Hair, Body, Private Parts | Ear/Nose, Detail trimmer attachment | 90min runtime | 2yr warranty* | MG3941",
+                Description = "10in1 trimmer (F/H/B) : Our trimmer comes with 10 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • Body combs : The trimmer’s click-on body comb is designed for a gentle and effective trim, ...",
+                Price = 2184.00m,
+                OriginalPrice = 3295.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0G6CRGH27?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7191HL4HJ9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSRGMG8D",
+                Title = "Lenovo IdeaPad Slim 3, AMD Ryzen 5 40, 16GB RAM, 512GB SSD, FHD Thin and Light Laptop, 15.6\" (39.6cm), Windows 11, Microsoft 365 Basic + Office 2024, Grey, 1.6Kg, 82XQ01HQIN, Backlit Keyboard, Laptop",
+                Description = "Processor: AMD Ryzen 5 40 (4C / 8T, 2.8 / 4.3GHz, 2MB L2 / 4MB L3) • Display: 15\" FHD (1920x1080) | 250Nits Brightness | Anti Glare |TUV Low Blue Light Certified • Memory and Storage: 16GB Soldered LPDDR5-5500, Max Memory 16GB soldered memory, not upgradable | 512 GB SSD, Max ...",
+                Price = 69990.00m,
+                OriginalPrice = 72290.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GSRGMG8D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ufvci7cRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSVTDN5G",
+                Title = "Lenovo LOQ Essential, AMD Ryzen 7 7735HS, NVIDIA RTX 4050 6GB, 16GB RAM, 512GB SSD, FHD IPS, 15.6\" (39.6cm), 144Hz Refresh Rate, Windows 11, Office Home 2024, Grey, 1.8Kg, 83S0009TIN, Gaming Laptop",
+                Description = "Processor: AMD Ryzen 7 7735HS (8C / 16T, 3.2 / 4.75GHz, 4MB L2 / 16MB L3) • Display: 15.6\" FHD (1920x1080) IPS Technology | 144 Hz Refresh Rate | 100pct. sRGB |Brightness: 300Nits Anti-glare || Connectivity : Wi-Fi 6, 802.11ax 2x2 | BT5.2 • Memory: 1x16GB SO-DIMM DDR5-4800, Ma...",
+                Price = 114990.00m,
+                OriginalPrice = 119390.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GSVTDN5G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81XLQsK9gvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHJNF4MT",
+                Title = "ANNI DESIGNER Women's Rayon Viscose A-Line Printed Kurta with Palazzo (SURAI White_L_White_Large)",
+                Description = "ANNI DESIGNER Women's Rayon Viscose A-Line Printed Kurta with Palazzo (SURAI White_L_White_Large)...",
+                Price = 399.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FHJNF4MT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wmD1A-f3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DMT24QPV",
+                Title = "GoSriKi Women's Rayon Blend Straight Printed Kurta with Palazzo (DEEKSHA RED-GS_XXL_Red_XX-Large)",
+                Description = "GoSriKi Women's Rayon Blend Straight Printed Kurta with Palazzo (DEEKSHA RED-GS_XXL_Red_XX-Large)...",
+                Price = 459.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DMT24QPV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/813A+BssUDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09RWYSXV2",
+                Title = "IIK COLLECTION Fashion Analog Women's Stainless Steel Watch (White Dial Multi Colored Strap)",
+                Description = "IIK COLLECTION Fashion Analog Women's Stainless Steel Watch (White Dial Multi Colored Strap)...",
+                Price = 485.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09RWYSXV2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LXSW9Z11L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D7SKDLZH",
+                Title = "IIK COLLECTION Watches for Woman Round Dial |Analogue Quartz Movemnet Ladies Watch|Long Battery Life|Metal Bracelet Chain Strap|Double Lock Clasp Safety Watches for Girls",
+                Description = "IIK COLLECTION Watches for Woman Round Dial |Analogue Quartz Movemnet Ladies Watch|Long Battery Life|Metal Bracelet Chain Strap|Double Lock Clasp Safety Watches for Girls...",
+                Price = 394.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D7SKDLZH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81QaonT0GIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BR5JS8Z9",
+                Title = "Kokila Hair Color Shampoo for Men & Women | No Ammonia - No Paraben | 10 Pair Free Gloves, Natural Black 400Ml",
+                Description = "Kokila Hair Color Shampoo for Men & Women | No Ammonia - No Paraben | 10 Pair Free Gloves, Natural Black 400Ml...",
+                Price = 594.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BR5JS8Z9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81jbUoHbgbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01LPY9PHI",
+                Title = "Amazon Brand - Vedaka Premium Whole Cashews | 250 g | Grade W240 Kaju Nuts | Gluten Free & Plant Based Protein | Healthy Snack | Hygienically packed",
+                Description = "Packed in an integrated nuts & dried fruits unit and may contain occasional traces of other nuts & dried fruits • Premium quality Cashews • item form: Whole, allergen information: cashews",
+                Price = 339.00m,
+                OriginalPrice = 435.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B01LPY9PHI?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71akahVJiqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G6DVB6DG",
+                Title = "Philips India's No.1 Men's Trimmer* | One stroke beard trimming | All-in-One Grooming Kit- Face, Hair, Body | Ear/Nose attachment | Safe for Sensitive Skin | 60 mins runtime | 2yrs warranty* | MG3927",
+                Description = "9 tools for all your grooming need: Our trimmer comes with 9 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • Body combs : The trimmer’s click-on body comb is designed for a gentle and effec...",
+                Price = 1099.00m,
+                OriginalPrice = 2045.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0G6DVB6DG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71E5n3p99JL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9QL4DKX",
+                Title = "Ant Esports 205 Mini 6F Mini-Tower Computer Case/Gaming Cabinet - Black | Support Micro-ATX, Mini-ITX | Pre-Installed 6 ARGB Fans",
+                Description = "Black, Mini-Tower, 280 x 205 x 425 mm, Stylish Tempered Glass Side Panel • 4 Expansion Slots, 1 HDD + 4 SSD x 3.5” • I/O Panel : 1 x USB 3.0, 2 x USB 2.0, Audio In, Mic, LED Control Button, Power Button",
+                Price = 2949.00m,
+                OriginalPrice = 4800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D9QL4DKX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j4M84PGrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09P4X82Y8",
+                Title = "DABUR Herb'L Activated Charcoal Toothpaste 360G (120G x3, Pack of 3) | Whitening Black Gel Toothpaste | Fluoride Free | Fights Plaque & Extrinsic Stains | With Power of Mint | Cool & Refreshing Mouth Experience",
+                Description = "Dabur brings to you a unique formulation of charcoal & mint that will help ensure your teeth remain naturally white with a pleasant mouthfeel. • Activated charcoal fights plaque & extrinsic stains and helps in getting naturally white teeth. • It is made from handpicked powerfu...",
+                Price = 219.00m,
+                OriginalPrice = 390.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09P4X82Y8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81xOQoaHdOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTMHBFY6",
+                Title = "Kidology Football Table Interactive Game for Kids | Indoor Mini Football Board Game 2 Players | Portable Table Football Soccer Game Set with Balls, Goals & Controllers | Fun Sports Toy & Gift for Kids",
+                Description = "𝐄𝐗𝐂𝐈𝐓𝐈𝐍𝐆 𝐈𝐍𝐃𝐎𝐎𝐑 𝐅𝐎𝐎𝐓𝐁𝐀𝐋𝐋 𝐆𝐀𝐌𝐄 𝐅𝐎𝐑 𝐊𝐈𝐃𝐒 & 𝐀𝐃𝐔𝐋𝐓𝐒 - Turn any space into a mini stadium with this tabletop football game. Designed for 2 players, this indoor football game delivers fast-paced action and competitive fun, making it perfect for kids, teens, and adults who love footb...",
+                Price = 464.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GTMHBFY6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SiqcIrvCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G495PMV8",
+                Title = "Lenovo IdeaPad Slim 3 Smartchoice 13th Gen Intel Core i7-13620H 15.3\" (38.8cm) WUXGA IPS Laptop (16GB RAM/512GB SSD/Win 11/Office 2024/Backlit/1Yr ADP Free/Top Metal Cover/Grey/1.6Kg), 83K1011BIN",
+                Description = "Processor: Intel Core i7-13620H | Speed: 2.4 GHz (Base) - 4.9 GHz (Max), E-core 1.8 / 3.6GHz | 10 Cores | 16 Threads | 24MB Cache • Display: 15.3\" FHD (1920x1200) | 300Nits Brightness | Anti Glare |TUV Low Blue Light Certified • Memory and Storage: 8GB Soldered DDR5-4800 + 8GB...",
+                Price = 77990.00m,
+                OriginalPrice = 103790.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G495PMV8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710AaeonMdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F29HNJL1",
+                Title = "Lenovo V15 G4 AMD Ryzen 5 7520U 15.6 inch FHD Laptop | 15.6\" FHD Laptop 16GB DDR5 5500MHz RAM | 512GB NVMe SSD | Windows 11",
+                Description = "🚀 POWERFUL PERFORMANCE Powered by AMD Ryzen 5 7520U Processor (4 Cores, 8 Threads, up to 4.3GHz) with integrated AMD Radeon Graphics. Perfect for multitasking, office work, online classes, and light editing. • Fast Memory & Storage 16GB DDR5 RAM & 512GB PCIe NVMe SSD: Equipped...",
+                Price = 57490.00m,
+                OriginalPrice = 78990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F29HNJL1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qL-lDAZEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPLNZ492",
+                Title = "Logitech MX Master 4 Ergonomic Wireless Mouse with Haptic Feedback, Ultra-Fast Scrolling, USB-C Charging, Bluetooth - Pale Grey",
+                Description = "Precision you can feel with the Haptic Sense Panel; customizable (1) haptic feedback on specific actions, shortcuts, notifications enhancing productivity on this wireless Bluetooth mouse • Effortlessly access favorite tools with Actions Ring (2) on this MX Series mouse-a dynam...",
+                Price = 10495.00m,
+                OriginalPrice = 15995.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FPLNZ492?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61D7dUYR3DL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GX5N7939",
+                Title = "rabitat Milo Stainless Steel Water Bottle 350ml | 2 Year Brand Warranty | BPA Free | Leakproof Steel Sipper Bottle for Kids | Flip Lock Lid with Straw | Easy Carry Handle | Sky Hoot",
+                Description = "✅ SAFE & DURABLE 18/8 STEEL BUILD - Made from premium food-grade 18/8 stainless steel, this kids water bottle is rust-resistant, BPA-free, and keeps water fresh, making it ideal as a steel water bottle for school kids. • ✅ 1+1 YEAR BRAND WARRANTY - Designed for everyday school...",
+                Price = 598.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GX5N7939?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JPT8tbYcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C53R68PD",
+                Title = "Larah By Borosil Green Leaves Silk Series Opalware Dinner Set 35 Pcs",
+                Description = "BONE-ASH FREE | 100% VEGETARIAN OPALWARE DINNER SET : Larah by Borosil opalware Dinner Set is completely free from bone-ash and animal-derived components - making it the perfect crockery set for home for strict vegetarians. Unlike traditional bone china Dinner Sets, our opal g...",
+                Price = 1799.00m,
+                OriginalPrice = 3845.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C53R68PD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61QId5jCqKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GHFDB1FP",
+                Title = "Classique By La Opala Opalware Dinner Set 53Pcs, Family of 8, Blue Daisy | Microwave & Dishwasher Safe Crockery Set for Home, Bone-Ash Free Bowls & Plates Set, Break-Resistant & Lightweight",
+                Description = "BONE-ASH FREE OPALWARE: Crafted from food-grade opal glass, this bone-ash-free opalware dinner set is designed for everyday family dining. The lightweight and stackable La Opala dinner set is easy to handle and store, making it a practical crockery set for home. • BUILT FOR EV...",
+                Price = 1999.00m,
+                OriginalPrice = 6595.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GHFDB1FP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61S0lkjTbeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C1K4F8NN",
+                Title = "Aristocrat Large Commander 79Cms Soft Sided Spinner Suitcase",
+                Description = "Aristocrat Large Commander 79Cms Soft Sided Spinner Suitcase...",
+                Price = 2489.00m,
+                OriginalPrice = 11240.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C1K4F8NN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BsQFWXZ+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DVLQQ2QK",
+                Title = "IIK COLLECTION Watches for Women Round Dial |Analogue Quartz Movemnet Ladies Watch|Long Battery Life|Leather Bracelet Strap|Buckle Lock Clasp Safety Watches for Girls",
+                Description = "IIK COLLECTION Watches for Women Round Dial |Analogue Quartz Movemnet Ladies Watch|Long Battery Life|Leather Bracelet Strap|Buckle Lock Clasp Safety Watches for Girls...",
+                Price = 480.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DVLQQ2QK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81dn6eoYZjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09RWX4D2C",
+                Title = "IIK COLLECTION Watches for Women Round Studded Dial |Analogue Quartz Movemnet Ladies Watch|Long Battery Life|Stainless Steel Adjustable Bracelet Chain Strap|Double Lock Clasp Safety Watches for Girls",
+                Description = "IIK COLLECTION Watches for Women Round Studded Dial |Analogue Quartz Movemnet Ladies Watch|Long Battery Life|Stainless Steel Adjustable Bracelet Chain Strap|Double Lock Clasp Safety Watches for Girls...",
+                Price = 459.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09RWX4D2C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81hKlD6IPDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNXS43LK",
+                Title = "TAMAIRA FASHION Mulmul Pure Cotton Saree For Woman Warli Batik Printed |Office Wear Daily Wear Sarees For Women Without Blouse Piece(Available in 11 Colours), Magenta",
+                Description = "TAMAIRA FASHION Mulmul Pure Cotton Saree For Woman Warli Batik Printed |Office Wear Daily Wear Sarees For Women Without Blouse Piece(Available in 11 Colours), Magenta...",
+                Price = 482.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FNXS43LK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1ASBYlbuyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08TCJBGMD",
+                Title = "TAMAIRA FASHION White Mulmul Pure Cotton Saree For Woman Floral Printed |Office Wear Daily Wear Sarees For Women Without Blouse Piece (Available in 16 Colours), Purple",
+                Description = "TAMAIRA FASHION White Mulmul Pure Cotton Saree For Woman Floral Printed |Office Wear Daily Wear Sarees For Women Without Blouse Piece (Available in 16 Colours), Purple...",
+                Price = 549.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08TCJBGMD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/B1MAsfee8UL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G8JCQVRH",
+                Title = "Samsung 256 L, 3 Star, Convertible, Digital Inverter Frost Free Double Door Refrigerator (RT40H30U3FHL, Black DOI, 2026 Model)",
+                Description = "Frost Free Refrigerator: Auto Defrost with powerful cooling and long lasting freshness . Manage your flexible storage needs with different convertible modes • Capacity 256 liters: Suitable for families with 2 to 3 members • Energy Rating : 3 Star Energy Efficiency | Annual Ene...",
+                Price = 31990.00m,
+                OriginalPrice = 39999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G8JCQVRH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61PRQOZwK8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G33HRQQM",
+                Title = "BLUEWUD Mavis Multipurpose Wooden Shoe Rack with Cushioned Seating & Tall Storage Cabinet Organiser, Slipper Footwear Stand for Living Room Home, 20 Pairs DIY (Brown Maple) (Mavis Combo)",
+                Description = "Product Dimensions :: Total Length (135.7 Cm or 53.4 Inches) Breadth (34 Cm or 13.4 Inches) Total Height (121.5 Cm or 47.8 Inches) • Made of Particle Board (High grade prelam engineering wood with natural wood grain finish) • Color: Brown Maple, Type: Floor Standing, Multipurp...",
+                Price = 9679.00m,
+                OriginalPrice = 9679.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G33HRQQM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710aw6GDoqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN85Z4LC",
+                Title = "Kidology Mini RC Drift Car for Kids | 2.4G Remote Control Racing | 360° Drift & Stunt, LED Lights, Sound Effects, Follow Me Mode, Escape Mode, Sensor Control, Auto Demo | Gift for Boys & Girls",
+                Description = "𝟯 𝗦𝗠𝗔𝗥𝗧 𝗣𝗟𝗔𝗬 𝗠𝗢𝗗𝗘𝗦 - 𝗥𝗘𝗠𝗢𝗧𝗘, 𝗙𝗢𝗟𝗟𝗢𝗪 & 𝗘𝗦𝗖𝗔𝗣𝗘 - Control with the 2.4G remote, activate follow me car mode to track your hand gestures, or trigger escape mode for hands-free fun. Sensor technology responds instantly - no lag, no drop, even when multiple cars race together. • 𝟯𝟲𝟬...",
+                Price = 940.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GN85Z4LC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RHRrIQM4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQ4MMP63",
+                Title = "GOBOULT Astra Truly Wireless in Ear Earbuds with 48H Playtime, Built-in App Support, 45ms Low Latency Gaming, 4 Mics ENC, Breathing LEDs,13mm Bass Drivers, TWS Ear Buds",
+                Description = "GOBOULT Astra Truly Wireless in Ear Earbuds with 48H Playtime, Built-in App Support, 45ms Low Latency Gaming, 4 Mics ENC, Breathing LEDs,13mm Bass Drivers, TWS Ear Buds...",
+                Price = 1099.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CQ4MMP63?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61jZ1NNIlaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CTML87L8",
+                Title = "KZ ZS10 Pro X in Ear Monitor Wire Earphone with Mic | Dynamic Driver | Noise Isolation | Tangle Free 2Pin Detachable Cable (with Mic)",
+                Description = "FIVE-DRIVER HYBRID CONFIGURATION: KZ ZS10 Pro X is based on the famous ZS10 Pro with a five-driver hybrid configuration. In pursuit of high-resolution sound performance, the ZS10 Pro X houses a custom dynamic driver and four units of upgraded black & gold balanced armature dri...",
+                Price = 4376.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CTML87L8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51YlE6NsUYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09NNMWZ71",
+                Title = "Aahwan Cotton Black Solid Ribbed Square Neck Slim Fit Tank Top For Women's & Girls' (168-Black-Medium)",
+                Description = "Aahwan Cotton Black Solid Ribbed Square Neck Slim Fit Tank Top For Women's & Girls' (168-Black-Medium)...",
+                Price = 264.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09NNMWZ71?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81l2D5xMloL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07319GY2K",
+                Title = "Denver Hamilton Deodorant 150 ML Each, Pack of 3 | Long Lasting Freshness, Body Spray & Underarm Deodorant for man | Gift for Men",
+                Description = "Denver Hamilton Deodorant 150 ML Each, Pack of 3 | Long Lasting Freshness, Body Spray & Underarm Deodorant for man | Gift for Men...",
+                Price = 415.00m,
+                OriginalPrice = 460.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07319GY2K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61J5NMYCJxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DMPHK6C3",
+                Title = "The Better Home Fumato Glass Electric Kettle 1.8L | Borosilicate Glass 1500 Watts | Auto Cut-Off 360 Degree Rotating Base | Stainless Steel Bottom For Hot Water Milk Boiler | Blue Led Light",
+                Description = "Enjoy quick heating and fast boiling with this 1500W kettle, featuring a blue LED indicator that illuminates during operation. • This electric kettle offers added safety with automatic shut-off and overheat protection for peace of mind in the kitchen. • Perfect for families, t...",
+                Price = 1140.00m,
+                OriginalPrice = 2849.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DMPHK6C3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71i+CdykFXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BM9VP9J5",
+                Title = "Wonderchef Crescent Electric Kettle 1.5 Litres, 2 years Warranty",
+                Description = "Made of stainless steel for efficient heating • The kettle has pilot light indicator to know when it is in operation mode • It has automatic and manual switch off so you can use as per your requirement",
+                Price = 472.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BM9VP9J5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51CAwzrRHsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DCVYXK67",
+                Title = "Ace Blend Outshine Omega 3 Fish Oil 4X Strength | 1650mg with 743 EPA & 528 DHA | 2 Softgels Daily for Men & Women | No Fishy Burps | Supports Heart, Brain, Joints & Eye Health | 180 Softgels",
+                Description = "Quadruple Strength Formula: Our Omega 3 capsules made with Peruvian anchovies deliver a potent dose of essential fatty acids with 4X strength, containing 743mg EPA and 528mg DHA. This ensures maximum benefits for heart, brain, joints, and eyes. Additionally, our product is mer...",
+                Price = 2199.00m,
+                OriginalPrice = 4197.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DCVYXK67?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71mp-aG4cVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DWMZ8GQT",
+                Title = "atomberg Renesa Halo Smart Alexa Enabled 1200mm BLDC Ceiling Fan with Remote | BEE 5 star | High Air Delivery | Low noise | LED Speed Indicator | Sleek Design | 3 Year Warranty |Seasand Ivory",
+                Description = "UNIQUE SLEEK DESIGN: Atomberg Renesa Halo has a sleek and modern design with a unique contrast-coloured highlight ring, designer blades, and LED speed indicator that will elevate the decor of your room. The design is ideal for anyone seeking something modern, classy, and disti...",
+                Price = 3989.00m,
+                OriginalPrice = 6500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DWMZ8GQT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51OTs2kO2tL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GY33FD6F",
+                Title = "atomberg Studio Exhaust Fan 150mm (6 Inches) | BLDC Motor | 6.8W| Low Noise | 2000 RPM| Ideal for Bathroom,Kitchen | Easy to Clean | Installation-Round Cut (153mm) | 2 Years Warranty | (Matte Black)",
+                Description = "SLEEK DESIGN: Atomberg Studio Exhaust has a sleek, stylish, and sturdy design with ABS construction. Easy to clean front fascia. A perfect choice for your bathroom and kitchen • PERFORMANCE: Silent operation coupled with high air suction of 250 CMH with 2000 RPM • VIBRATION FR...",
+                Price = 1798.00m,
+                OriginalPrice = 3400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GY33FD6F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51akmF8jXVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPLHX4LB",
+                Title = "Yogabar 26g High Protein Oats 1kg , Kesar Pista Kulfi - Breakfast Cereal with Wholegrains, 26% Protein & No added sugar - Oats High Protein for Gym- Premium Protein Blend with Whey Protein Powder - with Goodness of Chia, Sunflower & Pumpkin Seeds & Probiotics for Absorption",
+                Description = "\"High Protein & Gut-Friendly: Delivers the highest possible protein quality (PDCAAS score of 1.0) with 26g protein per 100g. Made from quality oats with no added sugar, plus fiber and probiotics to support digestion and fullness.\" • \"Wholesome Ingredients: Made with premium ch...",
+                Price = 279.00m,
+                OriginalPrice = 490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0FPLHX4LB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KsZZNaEML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9NQVYSP",
+                Title = "Yogabar Muesli Nuts + Seeds Crunch 700g with Flax and Chia Seeds, Muesli Nuts Delight Whole Grain, High Protein, High Fibre, No Refined Sugar, Contains Antioxidants, 700g Pack of 2",
+                Description = "\"GLUTEN FREE MUESLI: That's right. Yogabar Muesli Snack is gluten free, loaded with Nuts & Seeds, Wholegrains with High Fibre.\" • \"IDEAL WORKOUT BUDDY: Perfect protein breakfast for athletes, gym-goers, weight management plans, teenagers with high protein requirement to suppor...",
+                Price = 399.00m,
+                OriginalPrice = 890.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0D9NQVYSP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81eskI2cL8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09J4YQYX3",
+                Title = "Borosil Electric Plus Egg Boiler with Poaching Tray, Boil Upto 8 Eggs At A Time, For Hard, Soft, Medium Boiled Eggs, Steamed Vegetables, Transparent Lid, Stainless Steel Exterior",
+                Description = "BOIL & STEAM - For 'Egg'cellent results everytime use our Borosil Electric Egg Cooker, a multipurpose appliance that helps you to get breakfast ready in a matter of minutes. You can have your eggs exactly how you like them, every morning - boiled (soft, medium hard) You can al...",
+                Price = 1567.00m,
+                OriginalPrice = 2490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09J4YQYX3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61fa+VsOKZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DD4DJ852",
+                Title = "Wipro Elato BE201 Multi Cooker Egg Boiler",
+                Description = "Four in one multicooker : Multifunction appliances ideally suited to steam vegetables & rice , boil upto 16 eggs in three modes , Cook up to two poached egg at a time and reheat steamed food • Concurrent cooking functionality : Cook two dishes simultaneously in dual level to d...",
+                Price = 1589.00m,
+                OriginalPrice = 2600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DD4DJ852?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71txrW9P3eL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GMW8841C",
+                Title = "Tramontina Softta Silicone Kitchen Tools Set of 3 (Grey) - Turner, Spatula & Spoon - Heat Resistant up to 210°C - Safe for Nonstick & Ceramic Cookware",
+                Description = "Complete 3-Piece Tool Set: Includes turner, spatula, and spoon for versatile cooking tasks • Heat Resistant up to 210 °C: Designed for safe frying, flipping, and stirring • Cookware Safe Silicone: Gentle on nonstick and ceramic surfaces",
+                Price = 649.00m,
+                OriginalPrice = 845.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GMW8841C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HLZo4PG6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTK4VWVR",
+                Title = "Livpure Eterna 60 cm | Curved Glass | 1400 m³/hr Suction | BLDC Motor | Filterless | Touch & Gesture Control | Low Noise | 10 Years Motor + 1 Year Comprehensive Warranty | Black",
+                Description = "𝗛𝗶𝗴𝗵 𝗦𝘂𝗰𝘁𝗶𝗼𝗻 𝗕𝗟𝗗𝗖 𝗠𝗼𝘁𝗼𝗿 (𝟭𝟰𝟬𝟬 𝗺³/𝗵𝗿) : Powerful airflow to eliminate smoke, grease, and odours quickly, even with heavy frying or frequent Indian cooking. • 𝗙𝗶𝗹𝘁𝗲𝗿𝗹𝗲𝘀𝘀 𝗔𝘂𝘁𝗼-𝗖𝗹𝗲𝗮𝗻 𝗙𝘂𝗻𝗰𝘁𝗶𝗼𝗻: Built to reduce manual maintenance; automatically dislodges oil/grease residue so you sp...",
+                Price = 10490.00m,
+                OriginalPrice = 39490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTK4VWVR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71h-TPQwV3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDR3SP81",
+                Title = "Faber Hood Trendy 60cm 1500 m³/hr BLDC Autoclean Slant Shape Chimney | Built In Oil Collector | Touch & Gesture Control | 12Yr Motor,2Yr Comprehensive Warranty by Faber | TRENDY IN BLDC HCSCFL BK 60",
+                Description = "Type: Vertical/Slant Shape | Wall Mounted • Size: 60 cm (Suitable for 2-4 burner stove) • Filter Type: Filterless | Suction Power: 1500 m³/hr | Enhance airflow instantly - simply lift the flap to maximize suction efficiency.",
+                Price = 14990.00m,
+                OriginalPrice = 29990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FDR3SP81?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41XtUxOcyDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09VTDMRY7",
+                Title = "FUR JADEN Anti Theft Number Lock Backpack Bag with 15.6 Inch Laptop Compartment, USB Charging Port & Organizer Pocket for Men Women Boys Girls (Black)",
+                Description = "FUR JADEN Anti Theft Number Lock Backpack Bag with 15.6 Inch Laptop Compartment, USB Charging Port & Organizer Pocket for Men Women Boys Girls (Black)...",
+                Price = 469.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09VTDMRY7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61egMfcDWlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B098P8NRRW",
+                Title = "Bombay Shaving Company Beard Trimmer For Men | Beard Trimmer for Man | Hair Trimmer for Man | Type C, 120 Min Runtime, 38 Settings, Cordless | Trimmer Men Beard | Trimmers for Man",
+                Description = "120 MIN RUNTIME WITH 2X FAST CHARGING: This beard trimmer for man delivers an industry-leading 120 minutes of cordless runtime on a single 90-minute charge via Type C. Weeks of grooming from one charge - this is the trimmer for men that never quits. • 38 LENGTH SETTINGS FOR UN...",
+                Price = 648.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B098P8NRRW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cAYYJDZzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FWY929XM",
+                Title = "Ninja Blast Portable Cordless Blender (BC151INBK) - 530ml | USB-C Rechargeable | Crushes Ice & Frozen Fruit | BPA Free, Leak-Proof Travel Lid",
+                Description = "POWERFUL HIGH PERFORMANCE BLENDING - SMOOTH RESULTS EVERY TIME: Crush ice, frozen fruit & nuts effortlessly with Ninja’s high-performance stainless steel BlastBlade. Perfect for smoothies, protein shakes, cold coffee, lassi in 30 seconds • PORTABLE & CORDLESS - BLEND ANYWHERE,...",
+                Price = 3499.00m,
+                OriginalPrice = 6530.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FWY929XM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ky8ed3OYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B077QF9FDF",
+                Title = "Pidilite FEVITITE SUPER STRONG EPX ADH[ 90 G ]| Two Component (Resin and Hardener) Epoxy Adhesive. | Sets in 4 hours.",
+                Description = "2 Component (Resin and Hardener) Epoxy Adhesive • Bond withstands temp from -50OC to + 120OC • Special formulation, Sets in 4 hours | No shrinkage after curing",
+                Price = 161.00m,
+                OriginalPrice = 200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B077QF9FDF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51RC0uc+I+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F5WNYJF8",
+                Title = "OnePlus 13s Snapdragon 8 Elite Smartphone",
+                Description = "Elite Performance - At the core of OnePlus 13s, lies the Snapdragon 8 Elite - the fastest Snapdragon mobile processor, powering OnePlus AI, stunning graphics and next-gen performance. With state-of-the-art Cryo-Velocity cooling system, OnePlus 13s runs cool, no matter where yo...",
+                Price = 57999.00m,
+                OriginalPrice = 62999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F5WNYJF8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61EUYqQSoTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GW5QZGKN",
+                Title = "Tecno POP X 5G (Midnight Blue, 6GB+128GB) | 6500mAh+45W Fast Charger | IP64 Pro | MIL-STD 810H Protection | Upto 18GB* RAM | Fastest 8X Network Speed* with URSP | 120Hz Smooth Display | 50MP Camera",
+                Description = "All Day 6500mAh Battery + 45W Fast Charge : Stay powered throughout the day with the massive 6500mAh battery designed for heavy usage including calls, streaming, gaming, and social media. When it’s time to recharge, the 45W fast charging quickly powers up the device so you can...",
+                Price = 16999.00m,
+                OriginalPrice = 31999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GW5QZGKN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DJNPWP1gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07F5M6GKY",
+                Title = "AO Smith Z2+ Water Purifier for Home with MIN-TECH | 5L Storage | 6-Stage Purification |100% RO | Under The Counter",
+                Description = "Styling Sophistication: Modernly designed to be fitted well under the counter, keeping your kitchen space clutter-free to function optimally. The A.O.Smith Z2+ comes with a free goose neck faucet to cater to your convenience • 100% RO+SCM-TECH Purification: AO Smith Z2+ Normal...",
+                Price = 19999.00m,
+                OriginalPrice = 25900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07F5M6GKY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61g+WK3wtrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H2F6HDKG",
+                Title = "Aquaguard ENRICH Select Designo RO+UV Under-the-Counter Water Purifier | 4-in-1 Active Copper Infusion | Alkaline Boost Technology | Double Goodness of Copper + Alkaline | 10-Stage Purification",
+                Description = "Advanced Purification with Nanopore Long-Life Filter Technology: Ensures complete protection from harmful contaminants such as lead, mercury, arsenic, cadmium, uranium, microplastics, pesticides, and other impurities. Delivers pure and safe drinking water every time. • 4-in-1 ...",
+                Price = 13999.00m,
+                OriginalPrice = 25000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H2F6HDKG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51cTc-Lcy5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
