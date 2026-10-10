@@ -44709,6 +44709,1251 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0GJ6N8ZW3",
+                Title = "EvoFox Play 2 PS4 Controller & PS5 (PS4 Games only), Playstation 4 Controller Bluetooth & Wired with HallSense™ Magnetic Joysticks & Triggers, 1000Hz Polling, Touchpad, Built-in Speaker & 3.5mm Jack",
+                Description = "𝗛𝗮𝗹𝗹𝗦𝗲𝗻𝘀𝗲 𝗠𝗮𝗴𝗻𝗲𝘁𝗶𝗰 𝟯𝗗 𝗝𝗼𝘆𝘀𝘁𝗶𝗰𝗸𝘀 𝗳𝗼𝗿 𝗗𝗿𝗶𝗳𝘁-𝗙𝗿𝗲𝗲 𝗣𝗿𝗲𝗰𝗶𝘀𝗶𝗼𝗻 : This gaming controller features HallSense magnetic 3D joysticks that deliver consistent, drift-free precision for long-term high-performance gaming, giving you reliable control in every session. • 𝗣𝗹𝗮𝘆𝗦𝘁𝗮𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗠𝘂𝗹𝘁𝗶...",
+                Price = 1879.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GJ6N8ZW3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cRw5nSFmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DN5XYSZV",
+                Title = "MOKOBARA Aisle Trunk Set of 3 Trolley Bag (55.5cm 65cm 76.5cm) Brown | Cabin 40L Check-in 70L Check-in Large 105L Polycarbonate Hardshell Frosted Hardware TSA Lock 8 Silent Wheels 30+ Days Travel",
+                Description = "MOKOBARA Aisle Trunk Set of 3 Trolley Bag (55.5cm 65cm 76.5cm) Brown | Cabin 40L Check-in 70L Check-in Large 105L Polycarbonate Hardshell Frosted Hardware TSA Lock 8 Silent Wheels 30+ Days Travel...",
+                Price = 13999.00m,
+                OriginalPrice = 34999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DN5XYSZV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61G2nWdEHxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GT8JYWL7",
+                Title = "Maxpro Optira Plus 6Hp Peak BLDC Motor|18km/h Speed |16 Level Motorized Incline |Bluetooth Speaker|FitShow App |130Kg User Weight |Auto Incline Hydraulic Foldable Multifunction Treadmill for Home use",
+                Description = "【Motor】 6 HP Peak Brushless BLDC quite High Performance Motor deliver power for interval, speed, or endurance training. This treadmill offers high efficiency, reduced noise, and a longer lifespan 【Incline】16 Level Auto incline for effective calorie burn, muscle toning, and end...",
+                Price = 32999.00m,
+                OriginalPrice = 78000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GT8JYWL7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XPObGxpnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BS5VJQF3",
+                Title = "TRIPOLE Walker Pro Metal Frame Rucksack with Rain Cover for Trekking & Travel | Front Opening | Laptop Sleeve | Men & Women | 5 Year Warranty",
+                Description = "TRIPOLE Walker Pro Metal Frame Rucksack with Rain Cover for Trekking & Travel | Front Opening | Laptop Sleeve | Men & Women | 5 Year Warranty...",
+                Price = 3123.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BS5VJQF3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Y33p6nRUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8HY8CT8",
+                Title = "Cosmic Byte Blitz Wireless + Wired Controller for PC",
+                Description = "🎮 TRI-MODE CONNECTIVITY FOR MAXIMUM FLEXIBILITY Supports USB Wired, 2.4GHz Wireless (Dongle), and Bluetooth connectivity for seamless gaming across PC and supported devices. Easily switch modes for low latency or wireless freedom. • ⚡ NEXT-GEN TMR JOYSTICKS & HALL EFFECT TRIGG...",
+                Price = 1699.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D8HY8CT8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51PZ1KkcupL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZ6T16SD",
+                Title = "EvoFox One S 3-Mode Wireless Gaming Controller",
+                Description = "𝗛𝘆𝗽𝗲𝗿-𝗖𝗼𝗻𝗻𝗲𝗰𝘁 𝗗𝗼𝗻𝗴𝗹𝗲 𝗳𝗼𝗿 𝗨𝗹𝘁𝗿𝗮-𝗦𝘁𝗮𝗯𝗹𝗲 𝗚𝗮𝗺𝗲𝗽𝗹𝗮𝘆 : Engineered for low-latency, interference-free connectivity, the Hyper-Connect Dongle ensures a faster and more reliable link between this gaming controller and your device, minimizing lag, dropouts, and input delay for consisten...",
+                Price = 1519.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DZ6T16SD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JXE-Hrh7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HB9RPNCV",
+                Title = "Beardo Ape-X Advanced 9-in-1 Full Body Trimmer for Men | Beard, Hair, Body, Precision, Ear & Nose Grooming Kit | Self-Sharpening Stainless Steel Blades | Type-C Fast Charging | Cordless Grooming",
+                Description = "9-IN-1 COMPLETE GROOMING KIT: One versatile trimmer for beard, hair, body, precision detailing, ear & nose trimming, eyebrow grooming, and more. • HEAD-TO-TOE GROOMING: Designed to tackle beard, moustache, sideburns, body hair, underarms, and sensitive areas with ease. • SELF-...",
+                Price = 1299.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0HB9RPNCV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71IkYPzh7JL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01LHNXZB4",
+                Title = "Dolphy Professional Wall mounted Hair Dryer | 1200 Watts | BIS & ISI Certified | Hotel, Bathroom, Household, Wall Hanging Dryer",
+                Description = "HIGH-QUALITY MATERIAL : Made of high-quality ABS material, durable and not easy to be damaged • SPEED & HEAT SETTINGS : Powered by 1200 watts for quick and easy styling of all hair types, This dryer has 2 speeds and 2 heat settings, allowing you to control the temperature and ...",
+                Price = 1672.00m,
+                OriginalPrice = 2699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01LHNXZB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cdBDVap4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CC5FN16J",
+                Title = "Beco Bamboo 3-Ply Toilet Paper Roll 160 Pulls Each Pack of 6, 100% Natural, Unbleached and Eco-Friendly Tissue Papers",
+                Description = "STRONG, SOFT AND ABSORBENT- Beco Organic Toilet Tissue Rolls are made of 3 Ply Sheets that are Highly Absorbent and Ultra Soft. Its Ultra-Soft Nature allows an Easy Disposal in any of the Drainage Systems.",
+                Price = 151.00m,
+                OriginalPrice = 245.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CC5FN16J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ikzxrNkAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FXVDCP8H",
+                Title = "Pilgrim Patua & Keratin Hair Smoothening Shampoo for Frizzy Hair - 400ml | 72H Frizz Control with Keratin, Adds Shine, Smoothens Frizz with Amazonian Patua, Softens Dry Hair, Improves Manageability",
+                Description = "Pilgrim Patua & Keratin Hair Smoothening Shampoo for Frizzy Hair - 400ml | 72H Frizz Control with Keratin, Adds Shine, Smoothens Frizz with Amazonian Patua, Softens Dry Hair, Improves Manageability...",
+                Price = 295.00m,
+                OriginalPrice = 545.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FXVDCP8H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61U4Hh6q0wL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHKJ3NGX",
+                Title = "Havells Styling Hair Dryer | Hypersonic Motor | 3 Detachable Attachment| Diffuser, Quill-Style Comb, Aerofocus Nozzle|3 Temperature/2 Speed Settings| Cool Shot| 1200 W |2 years guarantee|HD4161",
+                Description = "21000 RPM Hypersonic Motor - Equipped with a high-performance 1200W motor, this hair dryer delivers a perfect balance of powerful airflow and gentle heat, ensuring fast drying without causing damage to your hair. It’s designed for everyday use and helps you achieve salon-like ...",
+                Price = 1449.00m,
+                OriginalPrice = 2595.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FHKJ3NGX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81bGDgIoinL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNV6GP6K",
+                Title = "Logitech MX Master 3S Bluetooth Edition Wireless Mouse, No USB Receiver - Ultra-Fast Scrolling, Ergo, 8K DPI, Track on Glass, Quiet Clicks, Works with Apple Mac, Windows PC, Linux, Chrome - Graphite",
+                Description = "Logitech MX Master 3S Bluetooth Edition is a Bluetooth only mouse, and does not come with any USB receiver / adapter or charging cable • 8K DPI Any-surface tracking: Use MX Master 3S cordless computer mouse to work on any surface - even glass (1) - with an 8000 DPI sensor with...",
+                Price = 5795.00m,
+                OriginalPrice = 12937.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FNV6GP6K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CSiQeX+pL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07LDKFM2Y",
+                Title = "Scotch-Brite Twin Bucket Spin Mop with Easy Wring & Rinse System, 360° Adjustable Handle, High Absorbency Microfiber for Deep Cleaning on All Floor Types, 1 Extra Refill (Green)",
+                Description = "Twin Bucket Spin Mop for easy wringing and rinsing • Microfibre technology helps lift and trap dirt with unique easy clean surface for superior clean • Dual refill ensures usage depending on cleaning occasion and frequency and ensures that it lasts longer",
+                Price = 1089.00m,
+                OriginalPrice = 2200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07LDKFM2Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61kUT-3GdeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B06XKC8S71",
+                Title = "LG 28 L Convection Microwave Oven MC2846BV",
+                Description = "Convection Microwave Oven: For baking along with grilling, reheating, defrosting and cooking (Maximum temperature) • Capacity: 28 Litres - Suitable for 4-6 members • Manufacturer Warranty: 1 Year on product from the date of purchase (T&C Apply) Warranty to be claimed with Amaz...",
+                Price = 13990.00m,
+                OriginalPrice = 16999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B06XKC8S71?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71X4oAhYufL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B8NHX62W",
+                Title = "Samsung 7 kg Fully-Automatic Top Load Washing Machine",
+                Description = "Fully-automatic top load washing machine with Ecobubble technology: Affordable with great wash quality, Easy to use • Capacity 7 kg: Suitable for 3 - 4 members | Water Pressure: (0.01-0.78 Mpa(01-8.0kg.f/cm²) | Water Consumption : Refer to BEE label • Energy Star rating : 5 St...",
+                Price = 17490.00m,
+                OriginalPrice = 22500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B8NHX62W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61haCVLgT2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01H25A1AE",
+                Title = "Canon PIXMA MegaTank G3000 All in One WiFi Ink Tank Colour Printer with Scanner for Home, Upto 6000 Black and 7000 Colour Prints with 2 Additional Black Ink Bottles",
+                Description = "ALL-IN-ONE PRINTER FOR HOME: Print, Scan & Copy ; Ideal for home, students & small office with convenient wireless functionality • ULTRA LOW COST PER PAGE: Extremely Low Printing Cost - Print up to 6000 prints (black) & 7000 prints (color) with high-yield ink bottles (as per I...",
+                Price = 11999.00m,
+                OriginalPrice = 18295.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B01H25A1AE?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/510un0jZqPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C8ZY4579",
+                Title = "Skybags Cabin Stroke ABS Hardshell Luggage",
+                Description = "Skybags Cabin Stroke ABS Hardshell Luggage...",
+                Price = 1299.00m,
+                OriginalPrice = 4450.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C8ZY4579?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71588qy9RLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVNB2MBW",
+                Title = "Portronics Car Power 30 Dual Output Fast Car Charger with 30W Type-C PD & 30W USB, LED Indicator, Charging Adapter Compatible with Cars for iPhone & Android Smartphone, Smartwatch(Black)",
+                Description = "Fast Car Charger: Portronics’s Car Power 30, a car charger, delivers fast charging speed through dual ports with a max output of 30 watts, ensuring compatibility with most car models. • Dual Device Charging: The car charger is equipped with powerful dual ports- PD Type-C and U...",
+                Price = 199.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CVNB2MBW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51tZbI-UlsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CCY38RGC",
+                Title = "Godrej aer O Hanging Car Air Freshener Gel",
+                Description = "CONTAINS: 1 unit of Godrej aer O - Hanging Car Air Freshener perfume - Musk After Smoke (7.5g) • LONG-LASTING: Unique membrane technology that removes bad odour by releasing a pleasant fragrance continuously and keeps the car fragrant for up to 30 days • DESIGNER LOOKS: This h...",
+                Price = 75.00m,
+                OriginalPrice = 99.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CCY38RGC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71FXQKRdu7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G8JT23LZ",
+                Title = "Samsung 256 L, 3 Star, Convertible, Digital Inverter Frost Free Double Door Refrigerator (RT40H30U3THL, Silver, Refined Inox, 2026 Model)",
+                Description = "Frost Free Refrigerator: Auto Defrost with powerful cooling and long lasting freshness . Manage your flexible storage needs with different convertible modes • Capacity 256 liters: Suitable for families with 2 to 3 members • Energy Rating : 3 Star Energy Efficiency | Annual Ene...",
+                Price = 31990.00m,
+                OriginalPrice = 39999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G8JT23LZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XDWoqkGcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVH2K929",
+                Title = "70mai A510 HDR 3K Dual Channel Dash Cam, BITA 2026 Best Dashcam Award Winner, STARVIS 2 IMX675 Sensor, ADAS, GPS Logger, MaiColor Vivid+ Night Owl Vision, App Playback, Parking Monitoring",
+                Description = "BITA 2026 Best Dashcam Award Winner - Recognized for unmatched clarity, reliability, and innovation in dual‑channel HDR 3K recording • 【 1944P 3K HDR Front & 1080P FHD Rear 】Featuring 6 Lens, F1.8, 1944P HD with WDR 140° wide angle that adjusts exposure & captures more detail ...",
+                Price = 11724.00m,
+                OriginalPrice = 21999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CVH2K929?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/715Ejc4ezVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B076DC73XF",
+                Title = "AllExtreme ‎CYL-06-T Multi-Purpose Bike Chain Cleaner Brush with Soft & Long Bristles Ideal for Quick Cleaning of Cycles, Motorcycles (Blue)",
+                Description = "EASY TO USE: The cleaning brush clips directly to the chain without the need to remove the chain from the bicycle or motorcycle. Its ergonomic and easy to grasp design makes chain cleaning a quick task. • FULL COVERAGE: This chain cleaner tool comes with 3-sided bristles that ...",
+                Price = 116.00m,
+                OriginalPrice = 155.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B076DC73XF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/610XWnl+nXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKNNQ6KY",
+                Title = "Lifelong Fit Pro Spin Fitness Bike for Home Cardio Workout with 7 KG Flywheel, Adjustable Resistance, LED Display, Cushioned Seat, Non-Slip Pedals, Max User Weight 120 KG, Black & Red",
+                Description = "Smooth & Stable Ride: Enjoy a steady, road-like cycling motion with the 7 KG heavy flywheel that keeps your ride smooth and balanced. You’ll feel the difference in every pedal stroke. • Adjustable Resistance: Take full control of your workout with the easy-turn resistance knob...",
+                Price = 6999.00m,
+                OriginalPrice = 29999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0FKNNQ6KY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YiHKURVLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY1BW5Q3",
+                Title = "XIAOMI Sound Outdoor Speaker (Black) | 30W Hi-Quality Speaker with Mic | Upto 12hrs Playback Time | IP67 Waterproof & Type C",
+                Description = "30W super-high power Dynamic sound • Exclusive woofer boost mode • 12-hour ultra-long battery life Uninterrupted listening Exquisite design - Sleek and portable, easy to hold in one hand",
+                Price = 3499.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DY1BW5Q3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wYKP3G7AL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0824BZGH9",
+                Title = "Anchor by Panasonic Wireless Doorbell | 45 Melodies Calling Bell for Home, Office with 120 Meter Operating Range | Door Bell for home (22730)",
+                Description = "Wireless Convenience: Say goodbye to tangled wires and enjoy hassle-free installation with the Anchor wireless doorbell, offering flexibility in placement for both home and office environments. • 45 Melodies: With a selection of 45 melodies, this calling bell allows customizat...",
+                Price = 659.00m,
+                OriginalPrice = 879.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0824BZGH9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XGcwwG8qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FW4Y7R21",
+                Title = "Pilgrim Korean Rice Water Hydra Glow Face Wash with 2% Niacinamide - 100ml | with Niacinamide & Hyaluronic Acid, Hydrating Cleanser, Boosts Glow, Gently Cleanses, Leaves Skin Soft & Fresh, All Skin Type",
+                Description = "Pilgrim Korean Rice Water Hydra Glow Face Wash with 2% Niacinamide - 100ml | with Niacinamide & Hyaluronic Acid, Hydrating Cleanser, Boosts Glow, Gently Cleanses, Leaves Skin Soft & Fresh, All Skin Ty...",
+                Price = 143.00m,
+                OriginalPrice = 245.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FW4Y7R21?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rjULrVMjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07GVR9TG7",
+                Title = "TP-Link Archer AC1200 Archer C6 Wi-Fi Router",
+                Description = "AC1200 Dual-Band Wi-Fi -- 867 Mbps at 5 GHz and 400 Mbps at 2.4 GHz band;MU-MIMO Technology -- Simultaneously transfers data to multiple devices for 2× faster performance • Boosted Coverage -- Four external antennas equipped with Beamforming technology extend and concentrate t...",
+                Price = 2599.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07GVR9TG7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Hu0MLbxqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B1DDZZ7K",
+                Title = "V-Guard Divino DG 15 Litre Water Heater with Digital Display | Suitable for Hard Water | High Energy Efficiency | Advanced 4 layered Safety | 5 Year Inner Tank Warranty",
+                Description = "Storage Water Heater: Highly Energy Efficient with Extra Thick & High Density CFC Free PUF Insulation for Maximum Heat Retention;【COUNTRY OF ORIGIN】: India • ANTI-CORROSIVE & SUITABLE FOR HARD WATER USAGE- Advanced Vitreous Enamel Coating protects the Inner Tank, Superior Inco...",
+                Price = 7199.00m,
+                OriginalPrice = 12500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B1DDZZ7K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51-yWEeZGCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07CVR2L5K",
+                Title = "INALSA Electric Chopper Bullet-400 Watts with 100% Pure Copper Motor|Fast Chopping| Twin Blade Technology|0.5 l Capacity| One Touch Operation, 1.30mtr Long Power Cord,Black/Silver (Bullet)",
+                Description = "Reduce Prep Time: Inalsa Bullet is one powerful & noiseless chopper of 400Watts efficient motor with 100% pure copper winding that can work continuously for 3 minutes to chop, mince and puree and giving excellent professional results ; Power Consumption (Watt): 400 ; Input Sup...",
+                Price = 1599.00m,
+                OriginalPrice = 3095.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07CVR2L5K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IlKZwp14L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BPC8KG73",
+                Title = "Laneige Lip Sleeping Mask Moisturizing Treatment",
+                Description = "LANEIGE's cult favourite Lip Sleeping Mask EX returns with an upgraded formulation that helps dissolve dead skin cells and moisturize your lips while you sleep. -Berry Fruit complex containing grape, raspberry & pomegranate contains a rich source of vitamin C & antioxidants to...",
+                Price = 480.00m,
+                OriginalPrice = 600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BPC8KG73?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41R7LCjddAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09XXR4TXK",
+                Title = "Skechers Mens Summits - Brisbane Black Sneaker - 9 UK (10 US) (232057ID-BBK)",
+                Description = "Skechers Mens Summits - Brisbane Black Sneaker - 9 UK (10 US) (232057ID-BBK)...",
+                Price = 1934.00m,
+                OriginalPrice = 4299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09XXR4TXK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81zlutgZlzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CB8KG44H",
+                Title = "KENT Supreme Plus Alkaline+Copper RO Water Purifier | Smart Choice | RO+UV+UF+Alk +Cu+TDS Control + UV LED Tank | Advanced RO Technology | 8L | 20L/h| Ideal for Borewell/Tanker/Municipal Water | Black",
+                Description = "Free Service Plan - Includes the KENT genuine service plan with free installation, routine health check calls, and unlimited repair visits for one year from the purchase date. Enjoy easy access to India's largest service network, available across 19,000+ pin codes through What...",
+                Price = 14499.00m,
+                OriginalPrice = 23500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CB8KG44H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61nCxcMxkNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00NHQFA1I",
+                Title = "LEGO Classic Medium Creative Brick Box 10696",
+                Description = "Includes a wide range of LEGO bricks in 35 different colors; Features 18 tires and 18 wheel rims • Special pieces also include a green 8cm x 16cm baseplate, window with frame and 3 sets of eyes • LEGO Classic is designed to inspire open-ended creativity with the LEGO brick",
+                Price = 1598.00m,
+                OriginalPrice = 3199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B00NHQFA1I?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/8160QjpuoOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G59GBCS5",
+                Title = "Godrej aer O - Hanging Car Air Freshener - Cool Aqua Pack of 3 (22.5g) | Gel Lasts up to 30 days | Car Accessories",
+                Description = "CONTAINS: 3 units of Godrej aer O - Hanging Car Air Freshener perfume - Cool Aqua (22.5g) • LONG-LASTING: Unique membrane technology that removes bad odour by releasing a pleasant fragrance continuously and keeps the car fragrant for up to 30 days • DESIGNER LOOKS: This hangin...",
+                Price = 232.00m,
+                OriginalPrice = 270.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G59GBCS5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/610fH-sX+nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CW9J2RCL",
+                Title = "BEARDO Studio Professional Tornado Hair Dryer With 2000 Watts Power|Ac Motor, Concentrator, Diffuser, 2 Speeds, 3 Temperature Settings & Cool Shot Feature|For Professional Drying Experience|Black",
+                Description = "Powerful 2000W AC Motor - Delivers strong airflow for ultra-fast drying and long-lasting professional performance • 3 Heat & 2 Speed Settings - Customizable airflow and temperature control for all hair types and styling needs • Cool Shot Button - Locks in hairstyles with a bur...",
+                Price = 1289.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CW9J2RCL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71NX37k4P6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CM9HND4R",
+                Title = "LG 655L Frost Free Smart Inverter Double Door Side by Side Refrigerator",
+                Description = "LG Side by Side Frost Free Double Door Refrigerators: Featuring spacious storage, advanced cooling, and smart features for your convenience, it ensures freshness, convenience, and a premium design to enhance your kitchen experience • Net capacity 655 L: Suitable for families w...",
+                Price = 72990.00m,
+                OriginalPrice = 122899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CM9HND4R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/613HwKHn+qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09JVNZVH3",
+                Title = "Beauty of Joseon Relief Sun Rice + Probiotics Sunscreen SPF 50+",
+                Description = "[organic suncreen] Relief Sun is an organic sunscreen that applies gently on the skin and by also including skin calming ingredients, it allows sensitive skin types to use it sith ease as well. • [UV Protection] SPF50+ PA++++ broad spectrum approved by separate labs in South K...",
+                Price = 1050.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09JVNZVH3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DA-VH24GL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FWY8R9W8",
+                Title = "Ninja Air Fryer MAX PRO, 6.2L Air Fryer Oven 2-Year Warranty, Oil-Free Cooking, Max Crisp Technology, Variable Air Flow, Chemical Free Cooking Surface, 6-in-1 Air Fry, Roast, Bake & Reheat, Black",
+                Description = "MAX CRISP TECHNOLOGY: 240°C superheated air delivers powerful 360° circulation for hotter, crispier results with little to no oil. • 2000W RAPID HEAT PERFORMANCE: Delivers fast preheat and stable cooking temperatures for efficient, even results every time • SMART VARIABLE AIRF...",
+                Price = 9998.00m,
+                OriginalPrice = 14990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FWY8R9W8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NEz27pw3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B078JHBRVB",
+                Title = "ORACURA® Smart PLUS Water Flosser® OC200 LITE White with 2 Nozzle tips | Portable & Rechargeable | Custom 8 Water Pressure Settings | 200ml Water Tank Capacity | IPX7 Waterproof | 365 Days Warranty",
+                Description = "Powerful Plaque Removal & Gum Care: Advanced water flosser for teeth that removes up to 99.9% plaque and food debris from hard-to-reach areas, improving gum health and overall oral hygiene-ideal for braces, implants, and sensitive gums. • OC200 LITE with 200ml Tank - Compact Y...",
+                Price = 1999.00m,
+                OriginalPrice = 2950.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B078JHBRVB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61pCNuNeoEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CPYJPBM3",
+                Title = "IFTEX® Clean System G Petrol Additive for All Petrol Cars (400 ml) Treats 400 L Petrol/e 20 Petrol Fuel Treatment and Injector Cleaner for Cleaning deposits & Mileage Improvement (200 ml Pack of 2)",
+                Description = "IFTEX introduced first time indigenously developed Fuel Additives in India in 1996. • System G is designed for Petrol applications, tested and approved in past by major Auto Manufacturers like Ford, General Motors, Tata Motors and Marketed by BPCL and IBP across India through ...",
+                Price = 581.00m,
+                OriginalPrice = 720.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CPYJPBM3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HcoKmrasL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDWWNT31",
+                Title = "Portronics Eco Glow 2 Tactical Rechargeable Flashlight Torch",
+                Description = "No Standalone lithium batteries are sold with the product. Tactical Rechargeable LED Torch: Portronics Eco Glow 2 is a compact and powerful flashlight designed for everyday use, outdoor activities, and emergency situations. Built for reliability in all lighting needs. • Adjust...",
+                Price = 399.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FDWWNT31?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51IiHisjRYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GR6J183B",
+                Title = "Apple 2026 MacBook Neo 13″ Laptop with A18 Pro chip: Built for AI and Apple Intelligence, Liquid Retina Display, 8GB Unified Memory, 256GB SSD Storage, 1080p FaceTime HD Camera; Silver",
+                Description = "HELLO, MACBOOK NEO - Ready for whatever your day brings, MacBook Neo flies through everyday tasks and apps. Choose from four stunning colours in a durable aluminium design. With a brilliant 33.02 cm (13″) Liquid Retina display, the A18 Pro chip built for AI and Apple Intellige...",
+                Price = 67990.00m,
+                OriginalPrice = 79900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GR6J183B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61amETli1DL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFQCKJZB",
+                Title = "Sleepyhead Flip Dual Sided High Density Foam King Bed Mattress",
+                Description = "PRIMARY DIMENSIONS: Length (198.12 cm) , Width (182.88 cm) , Height (10.16 cm) | DUAL-SIDED COMFORT: Experience the versatility of Sleepyhead Flip with two distinct sides for different sleep preferences. • PLUSH LUXURY: One side offers a soft and plush feel, cradling your body...",
+                Price = 6539.00m,
+                OriginalPrice = 10499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DFQCKJZB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+q48jxwYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DYP9PYKM",
+                Title = "Teakwood Large 8 Wheels Trolley Bag, Hard Cabin with Zipper Closure, Adjustable Push Button & Cross Side Strap, Number Lock System 360 Degree (Medium, Black)",
+                Description = "Teakwood Large 8 Wheels Trolley Bag, Hard Cabin with Zipper Closure, Adjustable Push Button & Cross Side Strap, Number Lock System 360 Degree (Medium, Black)...",
+                Price = 1189.00m,
+                OriginalPrice = 9999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DYP9PYKM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41cwY9yG56L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G81P4MPG",
+                Title = "Samsung Galaxy M17 5G Mobile (Sapphire Black, 6GB RAM, 128GB Storage) | 50MP OIS Triple Camera | Super AMOLED Display | Gorilla Glass Victus | 6 Gen OS Upgrades | Knox Security | AI",
+                Description = "𝐌𝐎𝐍𝐒𝐓𝐄𝐑 𝐂𝐀𝐌𝐄𝐑𝐀 - Turn moments into monster stories with 50MP OIS (F1.8) Main Wide Angle Camera + 5MP (F2.2) Ultra Wide Angle Camera + 2MP Macro Angle Camera, 13MP (F2.0) Selfie Camera and Video Maximum Resolution of FHD (1920 x 1080) at 30fps. • 𝐌𝐎𝐍𝐒𝐓𝐄𝐑 𝐃𝐔𝐑𝐀𝐁𝐈𝐋𝐈𝐓𝐘 𝐀𝐍𝐃 𝐃𝐄𝐒𝐈𝐆𝐍 -...",
+                Price = 21999.00m,
+                OriginalPrice = 23999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G81P4MPG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71MxWZJHrWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CXM5DT52",
+                Title = "SOFTSPUN Microfiber Cleaning Cloths, 10pcs 40x40cms 220 GSM Multi-Colour! Highly Absorbent Lint and Streak Free Multi -Purpose Wash Cloth for Kitchen Window Stainless Steel Silverware.",
+                Description = "PREMIUM QUALITY - Change Your Cleaning Experience With SOFTSPUN Microfiber Cleaning Cloths 70% Polyester & 30% Polyamide, HIGH ABSORBENT, LINT-FREE, STREAK-FREE, Kitchen Cloth/Towel, Drying Cloth, Microfiber Towel, For Kitchen, For Windows, Cleans Without Chemicals, All-Purpos...",
+                Price = 222.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CXM5DT52?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719yJ3eawEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGQNLJX7",
+                Title = "ZOUK Women's Multicolor Mandala Print Office Essential Bag | Jute | Vegan Leather Handcrafted Tote Bag With Double Handle Shoulder Strap| Multicolor",
+                Description = "ZOUK Women's Multicolor Mandala Print Office Essential Bag | Jute | Vegan Leather Handcrafted Tote Bag With Double Handle Shoulder Strap| Multicolor...",
+                Price = 1529.00m,
+                OriginalPrice = 5465.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DGQNLJX7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81H43eW1TSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FG2QDFD7",
+                Title = "boAt Rockerz 512 ANC,(~40dB) Hybrid ANC, 80H Battery, 40mm Drivers, 40ms Low Latency, ENx Tech, App Support, Bluetooth Headphones, Wireless Headphone with Mic (Bold Blue)",
+                Description = "40dB Hybrid ANC: Dive into sound with the boAt Rockerz 512 ANC Bluetooth Headphones. Advanced hybrid Active Noise Cancellation technology effectively reduces ambient sound by up to 40dB, letting you relax in a world of undisturbed audio. • 80 Hours of Playback: Keep the music ...",
+                Price = 2499.00m,
+                OriginalPrice = 7990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FG2QDFD7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IMxsJfrfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXV5313B",
+                Title = "Samsung 55 inch (138cm) Mini LED 4K Vision AI 2026 Smart TV | 30W Speakers | 4K Upscaling | Mini-LED HDR | 150+ Channels | 7 Years OS Upgrade | UA55M2EHAULXL",
+                Description = "Resolution: 4K Ultra HD (3840 x 2160) | Refresh Rate: 50 Hertz • Connectivity: Enjoy seamless integration with 3 HDMI Ports for connecting your Set-Top Box/DTH, Soundbar, Home Theater, Gaming Console, and more. Plus, stay flexible with 1 USB-A Port for easy access to Hard Driv...",
+                Price = 46990.00m,
+                OriginalPrice = 59990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GXV5313B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Akj2iQo+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DG8RPQNS",
+                Title = "LG 7 Kg, 5 Star, DD Technology, Steam Wash, 6 Motion DD, Fully-Automatic Front Load Washing Machine (FHB1207Z2M, Allergy Care, In-Built Heater, Touch Panel, Middle Black)",
+                Description = "Fully-automatic front load washing machine with Hygiene Steam/direct-drive technology: Best Wash Quality, Energy and Water efficient • Capacity 7 kg: Suitable for 3 - 4 members | Inlet water pressure must be between 50 kPa and 800 kPa • Energy Star rating: 5 Star best in class...",
+                Price = 29990.00m,
+                OriginalPrice = 44490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DG8RPQNS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XcZiTlQuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01FX43MS4",
+                Title = "The Body Shop British Rose Shower Gel | Softens & Cleanses | Floral Scent With Rose & Aloe Vera | For All Skin Types | Soap-Free Formula | 250ml",
+                Description = "Shower gel Perfect for all skin types Leave skin feeling soft, cleansed and refreshed Floral and refreshing 92% ingredients of natural origin Certified by The Vegan Society Dermatologically tested",
+                Price = 316.00m,
+                OriginalPrice = 395.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01FX43MS4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71QXPxqG+bL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D45ZCN3Y",
+                Title = "JBL Newly Launched Cinema SB560, Dolby Audio Soundbar with Wireless Subwoofer for Extra Deep Bass, 3.1 Channel, Center Channel, HDMI eARC, Bluetooth",
+                Description = "Powerful 3.1 Channel Cinematic Sound :3 racetrack drivers and 2 tweeters work together to produce expansive, room-filling sound, delivering maximum immersion for your home entertainment. • Dedicated Centre Channel for Clear Dialogue : The dedicated centre channel driver enhanc...",
+                Price = 10999.00m,
+                OriginalPrice = 25999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D45ZCN3Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611ej28dP7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09B8XJDW5",
+                Title = "Amazon Echo Dot (5th Gen): Alexa smart speaker with Bluetooth at best price",
+                Description = "Includes Alexa+ Early Access : Get access to our smartest, most intuitive and connected AI assistant yet. Alexa+ is available in both English and Hindi. Chat casually without the perfect phrase, find the name of that song you love, and speak your smart home routines to life. ....",
+                Price = 4499.00m,
+                OriginalPrice = 5499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09B8XJDW5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71g4BDBcz1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CR7N9MD9",
+                Title = "Portronics Konnect X USB to Type C Cable",
+                Description = "3.0A USB to Type C Cable: Portronics Konnect X is a USB to Type-C Cable designed to fast charge your Android smartphone, tablets & other Type-C enabled devices. • Unbreakable & Durable: Built to last, this USB to Type-C cable has a high-quality nylon woven design with aluminum...",
+                Price = 129.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CR7N9MD9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qsIhub23L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DVC6MP1D",
+                Title = "realme Buds Wireless 3 Neo in Ear Bluetooth Neckband with 13.4 Mm Dynamic Bass Boost Driver,Upto 32 Hours Playback,Fast Charge,Ai Enc,45Ms Low Latency,Ip55 Dust&Water Resistannt&Bluetooth V 5.4 Black",
+                Description = "13.4mm Dynamic Bass Boost Driver | AI Environmental Noise Cancellation (AI ENC) for calls • Upto 32 Hours total playback | Fast Charging support of 10 mins Charge for 6 hrs Playback • 45ms Low Latency | Supports Bluetooth 5.4",
+                Price = 1199.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DVC6MP1D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+esOKPDVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGPZTGB4",
+                Title = "ZEBRONICS Juke Bar 9510WS PRO Dolby 5.1 CH Wired Speaker, 600W Dolby Audio | Dual Rear Satellites, 5.1 CH Surround Sound, Soundbar with 3 Drivers, BT v5.1",
+                Description = "POWERFUL PERFORMANCE: 600W RMS output delivers rich, room-filling sound that brings greater impact to movies, music, shows, and more. • CINEMATIC AUDIO: Dolby Audio creates detailed, balanced sound with greater clarity for an engaging home entertainment experience. • IMMERSIVE...",
+                Price = 8499.00m,
+                OriginalPrice = 54999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DGPZTGB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71X-wbkrhWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07N8RQ6W7",
+                Title = "Portronics MODESK Universal Mobile Holder Stand",
+                Description = "MoDesk - a Premium Quality Mobile Holders for your Ofﬁce Desks. It can hold, on your work desk, any type of smartphone & tablets with size up to 7 inches easily • MoDesk is a Aluminum + ABS metallic body desk mobile holders which is rust and corrosion proof • It has angular de...",
+                Price = 99.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07N8RQ6W7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51u2MqPaQwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7X5FC43",
+                Title = "Sony 139 cm (55 inches) Smartchoice BRAVIA 2M2 Series 4K Ultra HD Smart LED Google TV K-55S25BM2",
+                Description = "Resolution: 4K Ultra HD (3840 x 2160) | Refresh Rate: 60 Hertz • Connectivity: 4 HDMI ports to connect set top box, Blu Ray players, gaming console | 2 USB ports to connect hard drives and other USB devices • Sound : 20 Watts Output | 2ch | Open Baffle Speaker| DTS Digital Sur...",
+                Price = 62990.00m,
+                OriginalPrice = 99900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F7X5FC43?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81udrKi0c3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGJHBX5Y",
+                Title = "iPhone 16 128GB 5G Mobile Phone",
+                Description = "BUILT FOR APPLE INTELLIGENCE - Apple Intelligence is the personal intelligence system that helps you write, express yourself and get things done effortlessly. With groundbreaking privacy protections, it gives you peace of mind that no one else can access your data - not even A...",
+                Price = 76999.00m,
+                OriginalPrice = 89900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DGJHBX5Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61135j8fPJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09ZPL5VYM",
+                Title = "Ambrane Multipurpose Tabletop Mobile Stand",
+                Description = "Multipurpose Stand: It is a dynamic Mobile Stand for your ofﬁce desks and more. It can hold any type of smartphone easily. • Supreme Quality: Twistand is made up of premium metal with a water-repellant ceramic finish. It gives you a hassle-free and hands-free experience. • Tel...",
+                Price = 149.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09ZPL5VYM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7192Muh-sAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C3LHV43S",
+                Title = "LG Smart Choice, 9 Kg, 5 Star, AI Direct Drive Technology, Steam, 6 Motion DD & Wi-Fi Fully-Automatic Front Load Washing Machine (FHP1209Z5M, Intelligent & Convenient Fabric Care, Middle Black)",
+                Description = "Fully-automatic front load washing machine with Hygiene Steam / 6 Motion direct-drive technology: Best Wash Quality, Energy and Water efficient • Capacity 9 kg: Suitable for large families | Pressure Suitability: 50 kPa ~ 800 kPa (0.5 ~ 8.0 kgf/cm²) [For more details please ch...",
+                Price = 40989.00m,
+                OriginalPrice = 53990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C3LHV43S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718jCzgig7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRVNPS3Y",
+                Title = "CELLBELL C190 Berlin Office Chair, High Back Mesh Ergonomic Home Office Desk Chair (Grey - White)",
+                Description = "Warranty: 3 Years Brand Warranty • Ergonomic Design: Mid-back mesh chair with pneumatic hydraulic adjustment for customized comfort. • Adjustable Armrests: Armrests can be adjusted for optimal arm support.",
+                Price = 4091.00m,
+                OriginalPrice = 12999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CRVNPS3Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61R1LRBzEaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CHMB39H5",
+                Title = "V-Guard Zio Geyser 5 Litre Instant Water Heater | Advanced Multi-Layered Safety | 3000 W Powerful Heating | Suitable For Kitchen & Bathroom | 5 Year Inner Tank Warranty by V-Guard | White-Blue",
+                Description = "𝐏𝐎𝐖𝐄𝐑𝐅𝐔𝐋 𝐈𝐍𝐒𝐓𝐀𝐍𝐓 𝐇𝐄𝐀𝐓𝐈𝐍𝐆: V-Guard Zio 5 Litre is powered by a superior 3 kW heating element with a copper sheath and high-grade magnesium oxide insulation for quick movement of heat. • 𝐀𝐃𝐕𝐀𝐍𝐂𝐄𝐃 𝟒 𝐋𝐀𝐘𝐄𝐑 𝐒𝐀𝐅𝐄𝐓𝐘: Pressure release valve for safer operations at higher pressures, IS...",
+                Price = 3599.00m,
+                OriginalPrice = 6300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CHMB39H5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61lBjdCE+aL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G2S8C4VQ",
+                Title = "Philips India's No.1 Men's Trimmer* | Ultimate Precision | BeardSense Technology- Scans 125x/sec, adapts to density | All-in-One Full body Grooming Kit | 120min runtime | IPX7 | 5yrs warranty* | MG7922",
+                Description = "13in1 trimmer : Our trimmer comes with 13 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • BeardSense technology : With BeardSense Technology, our trimmer scans your beard density 125x per s...",
+                Price = 3249.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0G2S8C4VQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81-6ITCh6WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07QW1LNHK",
+                Title = "Story@Home 100% True Blackout Long Door Curtains",
+                Description = "Package Contents : Pack of 2 Blackout Long Door Curtains | Dimension (Size) : 116 x 275 cm or 45 x 108 inches, 300 GSM, Pattern : Plain, Material : Faux Silk, Color : Beige | story at home blackout curtains 9 feet long door ensure 100% opacity, curtain 9 feet making ideal dark...",
+                Price = 1209.00m,
+                OriginalPrice = 3598.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07QW1LNHK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fbk-b5ObL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC3BTZDS",
+                Title = "Samsung 43 inch (108cm) FHD Smart LED 2026 TV | HDR10+ | 150+ Channels | Voice Assistance Remote | PurColor | Contrast Enhancer | Knox Security | UA43F5650FUXXL",
+                Description = "Resolution: FHD (1920 x 1080) | Refresh Rate: 50 Hertz • Seamlessly connect your devices with multiple connectivity options: Wi-Fi 5 for smooth streaming, Bluetooth 5.3 for wireless audio devices, 2 HDMI ports (including HDMI eARC) for Set-Top Box/DTH and high-quality soundbar...",
+                Price = 22990.00m,
+                OriginalPrice = 30900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0HC3BTZDS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81SFXICN0SL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGTSRX3R",
+                Title = "boAt Rockerz 480, RGB LEDs,6 Light Modes, 40mm Drivers,Beast Mode, 60H Battery, ENx Tech, App Support, Bluetooth Headphones, Wireless Over Ear Headphone with Mic (Black Sabre)",
+                Description = "Blazing RGB LEDs with 6 Modes: Amp your audio corner with the striking design of the boAt Rockerz 480 Bluetooth Headphones. The blazing RGB LEDs on these headphones are integrated with 6 modes that can be modified as per your preference. • BEAST Mode: Play solo or multiplayer ...",
+                Price = 1399.00m,
+                OriginalPrice = 3790.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DGTSRX3R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711l4y8aNlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H1MZV6FH",
+                Title = "Aristocrat Altitude Set of 3 (Cabin+Medium+Large) Trolley Bags, Surf Spray | 8-Wheels, Polypropylene Case, Spacious, Combination Lock, Sturdy Zipper, Lightweight Travel Luggage, 3-Year Global Warranty",
+                Description = "Aristocrat Altitude Set of 3 (Cabin+Medium+Large) Trolley Bags, Surf Spray | 8-Wheels, Polypropylene Case, Spacious, Combination Lock, Sturdy Zipper, Lightweight Travel Luggage, 3-Year Global Warranty...",
+                Price = 3799.00m,
+                OriginalPrice = 14170.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H1MZV6FH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UOlf7xRFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D946M5L4",
+                Title = "Plantex Ladder for Home 5 Steps/Foldable Ladder with Anti-Skid Wide Steps (30L x 20W cm)/Strong D-Shape Pipe with X-Support for More Stability/5 Year Warranty(Apex-White)",
+                Description = "𝗛𝗲𝗮𝘃𝘆-𝗗𝘂𝘁𝘆 𝗕𝘂𝗶𝗹𝗱: - Plantex ladder is crafted from robust Alloy Steel, featuring a 7-layered processed powder coating for enhanced durability. Renowned for its longevity, if you seek a ladder capable of handling heavy-duty tasks with ease, this is the ideal choice for you. • 𝐒...",
+                Price = 2699.00m,
+                OriginalPrice = 8999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D946M5L4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ESZJZYmhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BXXPG6FP",
+                Title = "Sony WH-CH720N Active Noise Cancellation Wireless Bluetooth Over Ear Headphones with Mic, Adaptive Sound Control, Quick Charge, Up to 35Hrs Battery, Customized EQ- Blue",
+                Description = "Sony’s lightest Wireless Noise-cancelling headband ever • Up to 50-hour battery life with quick charging (3 min charge for up to 1 hour of playback) • Multi-Point Connection helps to pair with two Bluetooth devices at the same time",
+                Price = 6989.00m,
+                OriginalPrice = 14990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BXXPG6FP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zWFqX+krL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FD43KWLW",
+                Title = "PUMA , Unisex-Adult, Court Curves, White-Archive Green-Gum, Sneaker, 9UK, (40608801)",
+                Description = "PUMA , Unisex-Adult, Court Curves, White-Archive Green-Gum, Sneaker, 9UK, (40608801)...",
+                Price = 1799.00m,
+                OriginalPrice = 5499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FD43KWLW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41H8D+F13NL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CSPCFSB4",
+                Title = "Beco Matic Natural Laundry Liquid | Top Load, 5L Super Value Refill | Natural Formula for Tough Stain Removal & Fabric Care",
+                Description = "CLEANS WITH NATURAL INGREDIENTS- Our Top Load laundry liquid i natural with coconut-based surfactants and five natural bio-enzymes to effectively remove all kinds of tough stains, dirt, smudges, and stench from your clothes. • FRAGRANCE- Our Top Load laundry liquid contains th...",
+                Price = 575.00m,
+                OriginalPrice = 1000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CSPCFSB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KxPeNsfiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXB76VRW",
+                Title = "Samsung 43 inch (108cm) Crystal UHD 4K Vision AI 2026 Smart TV | 30W Speakers | 4K Upscaling | HDR10+ | 150+ Channels | 7 Years OS Upgrade | UA43UE86AHULXL",
+                Description = "Resolution: 4K Ultra HD (3840 x 2160) | Refresh Rate: 50 Hertz • Connectivity: Enjoy seamless integration with 3 HDMI Ports for connecting your Set-Top Box/DTH, Soundbar, Home Theater, Gaming Console, and more. Plus, stay flexible with 1 USB-A Port for easy access to Hard Driv...",
+                Price = 29490.00m,
+                OriginalPrice = 39900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GXB76VRW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81pgMfiak0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FZSWZZW2",
+                Title = "OnePlus 15R | 12GB+256GB | Charcoal Black | World's First Snapdragon® 8 Gen 5 | 7400mAh Battery | Personalised AI | Game-Changing 165Hz Display | IP68 IP69 IP66 & IP69K | 4K 120fps Video",
+                Description = "World's first Snapdragon 8 Gen 5 - The OnePlus 15R unchains the soul of a dragon. Paired with LPDDR5X Ultra and UFS 4.1, the Snapdragon 8 Gen 5 is a lightning storm of benchmark-breaking power - every swipe instant, your app explodes open, and 120 FPS gaming is truly silky-smo...",
+                Price = 56999.00m,
+                OriginalPrice = 61000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FZSWZZW2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AsNTuJ6mL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVYXPZBS",
+                Title = "OnePlus Nord CE6 Lite | 8GB+128GB | Hyper Black | Segment's Fastest Dimensity 7400 Apex Processor | 7000mAh Battery | Segment's Highest 144Hz Refresh Rate | 50MP Main Camera, 4K Video Recording",
+                Description = "Segment's fastest phone with 1.03Mn+ AnTuTu score: MediaTek Dimensity 7400 Apex Processor with enhanced performance, an advanced power-efficient chip, delivering smoother multitasking, faster app launches, and a lag-free everyday experience. • Massive 7000mAh Battery: More Pow...",
+                Price = 28499.00m,
+                OriginalPrice = 33999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GVYXPZBS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61T18EfkX0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJBZJM15",
+                Title = "Portronics 80W Dual Output Fast Car Charger with Type-C PD & USB, LED Indicator, Charging Adapter Compatible with Cars for iPhone & Android Smartphone, Smartwatch, Earbud, Power Bank (Black)",
+                Description = "Fast Car Charger: The Portronics Car Power 80 car charger, delivers fast charging speed through dual ports with a max total output of 80 watts, ensuring compatibility with most car models. • Dual Device Charging: The car charger is equipped with powerful dual ports- PD Type-C ...",
+                Price = 299.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DJBZJM15?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51OyrUyY3bL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBGP48NW",
+                Title = "realme Buds T310 True Wireless in-Ear Earbuds with 46dB Hybrid ANC, 360° Spatial Audio, 12.4mm Dynamic Bass Driver, Upto 40Hrs Battery and Fast Charging (Vibrant Black)",
+                Description = "360° Spatial Audio Effect | 12.4mm Dynamic Bass Driver • 46dB Hybrid Noise Cancellation | 45ms Ultra Low Latency 12.4mm Dynamic Bass Driver 40 Hours Total Playback| Fast Charge :10 Min of Charge =5Hrs Play Back IP55 Water & Dust Resistant Bluetooth V5.4 Dual Device Connectivit...",
+                Price = 1899.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DBGP48NW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dj32WdrxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GRB3FBBB",
+                Title = "OnePlus Nord 6 | 8GB+256GB | Pitch Black | Snapdragon 8s Gen 4 | Segment's First Stable 165FPS Gaming | Segment's Largest 9000mAh Battery | Most Complete IP Rating | Personalized AI",
+                Description = "Flagship Performance with Snapdragon 8s Gen 4 (AnTuTu score at 2.5 million): Couple this with the latest LPDDR5X RAM and UFS 4.1 ROM storage, Nord 6 is engineered to outperform nearly every flagship, allowing unprecedented 'Gaming PC-level' 165 FPS BGMI, CODM and Free Fire MAX...",
+                Price = 44999.00m,
+                OriginalPrice = 52999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GRB3FBBB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614tE-mOJeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H751H8RS",
+                Title = "Xiaomi Power Bank 5i 20000mAh 67W Turbo Charging PD 3.0 & PPS|in-Built Cable|12 Layer Protection|Digital Display|Triple Output Ports|Supports Laptop, Tablet, Phone, Earbud (Ice Blue)- 2026 New Launch",
+                Description = "[67W Turbo Charging, 20000mAh & Airline-Safe]: Charge your devices fast with up to 67W turbo power, backed by a massive 20000mAh battery. Compact and travel-friendly, it's airline-safe and ready to fly with you • [65W Fast Self-Charging]: This power bank doesn't just charge yo...",
+                Price = 3099.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H751H8RS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51uahYFHZ5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZKWPML8",
+                Title = "Aristocrat Comet Cabin Polycarbonate Hard Case 8-Wheel Trolley Bag, Brown | Durable Case, Lightweight, Combination Lock, Sturdy Zipper, Compact Travel Luggage, Spacious Interior, 3-Year Global Warranty",
+                Description = "Aristocrat Comet Cabin Polycarbonate Hard Case 8-Wheel Trolley Bag, Brown | Durable Case, Lightweight, Combination Lock, Sturdy Zipper, Compact Travel Luggage, Spacious Interior, 3-Year Global Warrant...",
+                Price = 1079.00m,
+                OriginalPrice = 7990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GZKWPML8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/514jcREFbcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWLHVJRH",
+                Title = "OnePlus Nord CE6 | 8GB+128GB | Pitch Black | Snapdragon 7s Gen 4 | Segment's Fastest Touch Response | 8000mAh Battery | 144Hz 1.5K AMOLED Display | 50MP Main + 32MP Selfie 4K Cameras | IP66,68,69,69K",
+                Description = "Supercharged by Snapdragon 7s Gen 4 (Antutu 1.17 million+): Engineered for snappy-smooth performance, OnePlus Nord CE6 unleashes up to 144 FPS gameplay in optimised titles. Experience up to 6 hours of steady BGMI sessions with consistent, high-speed performance that never comp...",
+                Price = 34999.00m,
+                OriginalPrice = 40999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GWLHVJRH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Di24QT6GL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSKNKCYX",
+                Title = "Samsung Galaxy S25 Ultra 5G Mobile with Galaxy AI",
+                Description = "𝐆𝐀𝐋𝐀𝐗𝐘 𝐀𝐈 𝐀𝐍𝐃 𝐍𝐎𝐖 𝐁𝐑𝐈𝐄𝐅 - Enter the new era of 5G smartphone AI with a companion that stays one-step ahead of your needs. Let natural conversation guide you through everyday tasks without switching between multiple apps, while Now Brief keeps you updated with your schedule, re...",
+                Price = 94999.00m,
+                OriginalPrice = 129999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DSKNKCYX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AlmDfE-WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXKS5HN6",
+                Title = "Samsung 65 inches OLED 4K Samsung Vision AI Smart TV QA65S85HAELXL",
+                Description = "Resolution: OLED 4K Ultra HD (3840 x 2160) | Refresh Rate: 120Hz • Connectivity: Enjoy seamless integration with 4 HDMI Ports for connecting your Set-Top Box/DTH, Soundbar, Home Theater, Gaming Console, and more. Plus, stay flexible with 2 USB-A Port for easy access to Hard Dr...",
+                Price = 139990.00m,
+                OriginalPrice = 189900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GXKS5HN6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81h13TgaIdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
