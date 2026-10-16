@@ -47574,6 +47574,576 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FN81GHJD",
+                Title = "Kleenex Natural Fresh Box Tissues 64's 2-Ply Cottony Soft with Natural Cotton Extract",
+                Description = "2-Ply Construction: Delivers balanced softness and strength for durability during everyday use • Cottony Soft Materials: Made with cottony soft materials for a gentle and comforting skin feel • Convenient Box Size: Contains 64 tissues per box, sized for moderate daily use at h...",
+                Price = 185.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FN81GHJD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612D+3QdMIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GYS4CL1P",
+                Title = "BLABLIBLU Lights Off Two Scents Unisex Perfume Set (75ml + 8ml) | Perfume & Eau De Oil | Long Lasting Citrus, Musky & Fruity Fragrance | Passionfruit, Caramel & Amber",
+                Description = "BLABLIBLU Lights Off Two Scents Unisex Perfume Set (75ml + 8ml) | Perfume & Eau De Oil | Long Lasting Citrus, Musky & Fruity Fragrance | Passionfruit, Caramel & Amber...",
+                Price = 649.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GYS4CL1P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61RbMkSx7WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07K2LRC1X",
+                Title = "Yardley London Country Breeze Compact Perfume for Women",
+                Description = "Yardley London Country Breeze Compact Perfume for Women...",
+                Price = 59.00m,
+                OriginalPrice = 70.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07K2LRC1X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61H2zAiu32L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DW4YLD4D",
+                Title = "Fastrack Casual Nylon Laptop Backpack | Nylon Women's Handbags | 11.76 Litre 14\" Laptop Tote for Workwear and College,Off-White",
+                Description = "Fastrack Casual Nylon Laptop Backpack | Nylon Women's Handbags | 11.76 Litre 14\" Laptop Tote for Workwear and College,Off-White...",
+                Price = 2366.00m,
+                OriginalPrice = 2995.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DW4YLD4D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LKTvPGiSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHPCMSBV",
+                Title = "Amazon Brand - Solimo Velvet Toddler Backpack For Girls And Boys 2-6, Preschool Kindergarten Backpack, Cute Kids Backpacks, Clean Bus Backpacks For Kids (10L_Multi Colour)",
+                Description = "Amazon Brand - Solimo Velvet Toddler Backpack For Girls And Boys 2-6, Preschool Kindergarten Backpack, Cute Kids Backpacks, Clean Bus Backpacks For Kids (10L_Multi Colour)...",
+                Price = 386.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DHPCMSBV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61P4N9h8wOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBWSSYV6",
+                Title = "Afnan Supremacy Femme Series Discovery Kit, 4-Piece Miniature Perfume Set - 2ml x 4 Vials",
+                Description = "Afnan Supremacy Femme Series Discovery Kit, 4-Piece Miniature Perfume Set - 2ml x 4 Vials...",
+                Price = 1300.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FBWSSYV6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6153sOyIg6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B079NG34BJ",
+                Title = "TRAWOC Omega 60L Travel Backpack Bag for Men & Women | Trekking & Hiking Rucksack with Rain Cover, Laptop Sleeve & Hip Belt Pocket | Water Resistant, YKK Zippers | 3 Year Warranty (Navy Blue)",
+                Description = "TRAWOC Omega 60L Travel Backpack Bag for Men & Women | Trekking & Hiking Rucksack with Rain Cover, Laptop Sleeve & Hip Belt Pocket | Water Resistant, YKK Zippers | 3 Year Warranty (Navy Blue)...",
+                Price = 1815.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B079NG34BJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51trDOCoK+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C69J86MG",
+                Title = "JanSport 5 Compartments Cool Student Backpack, Luau Life, One Size, Cool 15-Inch Laptop Backpack, Black, 34 Litres",
+                Description = "JanSport 5 Compartments Cool Student Backpack, Luau Life, One Size, Cool 15-Inch Laptop Backpack, Black, 34 Litres...",
+                Price = 3099.00m,
+                OriginalPrice = 6199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C69J86MG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AQ645e7eL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNX4SRHX",
+                Title = "Glamveda Glam Nights Vault 4x20ml | Luxury Long Lasting Unisex Pure Perfume Gift Set | Perfume for Man | Gifts for Woman | Floral & Fruity Premium Fragrance Scent | Valentine Gift Set",
+                Description = "Glamveda Glam Nights Vault 4x20ml | Luxury Long Lasting Unisex Pure Perfume Gift Set | Perfume for Man | Gifts for Woman | Floral & Fruity Premium Fragrance Scent | Valentine Gift Set...",
+                Price = 405.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FNX4SRHX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6177vuIfUdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HG218K3D",
+                Title = "RARE RABBIT AINSA Roll-Top Overnighter Backpack, Water Repellent, Laptop Compartment, 20L (Black)",
+                Description = "RARE RABBIT AINSA Roll-Top Overnighter Backpack, Water Repellent, Laptop Compartment, 20L (Black)...",
+                Price = 2999.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HG218K3D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yIuN+asCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B093DH5J38",
+                Title = "Arctic Fox 15 Liters Draw String Bag Grape Backpack",
+                Description = "Arctic Fox 15 Liters Draw String Bag Grape Backpack...",
+                Price = 208.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B093DH5J38?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HLCxy06AL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08YLC195S",
+                Title = "SofTouch 2 Ply Face Tissue Paper",
+                Description = "2 Ply 100 pulls 200 sheets per pack, Size 20 cm x 20 cm • This is a Tissue Box, not a poly pack Comes in hard box packaging for easy use • the perfect tissue size makes it great for fixing make up smudges, wiping tears or stopping the sniffles",
+                Price = 137.00m,
+                OriginalPrice = 270.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08YLC195S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71igBMl9geL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFKDTN89",
+                Title = "FUR JADEN Laptop Backpack | Premium & Vegan Leather Backpack | For College School Computer Bag for Men & Women (TanBlack)",
+                Description = "FUR JADEN Laptop Backpack | Premium & Vegan Leather Backpack | For College School Computer Bag for Men & Women (TanBlack)...",
+                Price = 799.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HFKDTN89?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712g3w3c29L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01M725MKP",
+                Title = "Kleenex 2 Ply Facial Tissue Cube Box",
+                Description = "Contains 4 boxes of 2 Ply kleenex facial cube tissues with 80 soft facial tissue per box • Compact cube facial tissue box for living rooms, bathrooms, kitchens, car,offices and more • Kleenex facial tissue paper are dispensed from a designed cube for a high-quality image",
+                Price = 285.00m,
+                OriginalPrice = 504.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01M725MKP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WPwHgtj7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08KR3RNFQ",
+                Title = "Kleenex Facial Tissue Box 60041B - Cube Box Facial Tissue - 4 Tissue Boxes x 80 White 2 Ply Facial Tissues - Sheet Size 20 x 20 cm(320 Tissues Total)",
+                Description = "One pack of Kleenex facial tissues contains 4 facial tissue cubes; each tissue box contains 80 white 2 ply facial tissues • One Kleenex facial tissue cube contains 80 white 2 ply facial tissues • Choose Kleenex 2-ply facial tissue for improved comfort, superior softness and ab...",
+                Price = 257.00m,
+                OriginalPrice = 408.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08KR3RNFQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71omHgjTpwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQJ8RY7Y",
+                Title = "Nike Unisex Heritage Backpack (23L)",
+                Description = "Nike Unisex Heritage Backpack (23L)...",
+                Price = 1871.00m,
+                OriginalPrice = 2495.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FQJ8RY7Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71F+1xZMxcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CW3C696D",
+                Title = "Beardo Darkside & Godfather Perfume for Men",
+                Description = "Beardo Darkside & Godfather Perfume for Men...",
+                Price = 179.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CW3C696D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81GT0-PKV7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQSZT4HY",
+                Title = "ZOUK Jet Black Solid Jute Vegan Leather Black Men Checkpoint Friendly Laptop Office Backpack 15.6 inch",
+                Description = "ZOUK Jet Black Solid Jute Vegan Leather Black Men Checkpoint Friendly Laptop Office Backpack 15.6 inch...",
+                Price = 1439.10m,
+                OriginalPrice = 6998.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CQSZT4HY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71+0l26B6FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HHJN8WPR",
+                Title = "American Tourister Zevo Daypack | 25L High School & Everyday Backpack | 2.5 Compartments | Lightweight & Stylish Bag for Men & Women | Blue | 1 Year Global Warranty",
+                Description = "American Tourister Zevo Daypack | 25L High School & Everyday Backpack | 2.5 Compartments | Lightweight & Stylish Bag for Men & Women | Blue | 1 Year Global Warranty...",
+                Price = 509.00m,
+                OriginalPrice = 1800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HHJN8WPR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71x1iZnWBnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097B3S4C7",
+                Title = "Safari Solace 30L Laptop Backpack, 2 compartments, Raincover, Organizer, Antitheft pocket, Trolley Sleeve, Bottle holder, Front pocket, College bag, school bag Dark Grey",
+                Description = "Safari Solace 30L Laptop Backpack, 2 compartments, Raincover, Organizer, Antitheft pocket, Trolley Sleeve, Bottle holder, Front pocket, College bag, school bag Dark Grey...",
+                Price = 1101.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B097B3S4C7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ZERX1dg1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B075Y8294N",
+                Title = "Lenovo Casual Laptop Briefcase T210 Toploader",
+                Description = "“COMPATIBLE WITH 15.6 INCH LAPTOP”: This organizer briefcase dimension fits up to 15.6 inch laptop. Dimensions: 40cm x 5.5cm x 30cm; Weight: 435g. • “HIGH QUALITY, DURABLE AND WATER REPELLANT FABRIC”: This toploader features in durable snow yarn polyester fabric and streamline...",
+                Price = 699.00m,
+                OriginalPrice = 1790.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B075Y8294N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81dhV4bNrIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B019FBEJCO",
+                Title = "Gear Campus8 25L Medium Water Resistant School Bag/Casual 4 Compartment Backpack/Daypack/College Bag/For Men/Women - Green Grey",
+                Description = "Gear Campus8 25L Medium Water Resistant School Bag/Casual 4 Compartment Backpack/Daypack/College Bag/For Men/Women - Green Grey...",
+                Price = 639.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B019FBEJCO?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/918Dm-JOt0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC488KM7",
+                Title = "MOKOBARA Transit Z 30L Laptop Backpack 15.6 Inch Office Travel Bag Navy | Waterproof Polyester Solid Rucksack Tech Slot Large Bucket Scratch Proof Comfortable Padded Straps Luggage Strap Men Women",
+                Description = "MOKOBARA Transit Z 30L Laptop Backpack 15.6 Inch Office Travel Bag Navy | Waterproof Polyester Solid Rucksack Tech Slot Large Bucket Scratch Proof Comfortable Padded Straps Luggage Strap Men Women...",
+                Price = 6299.00m,
+                OriginalPrice = 9999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HC488KM7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tPgHDA3WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY4GBZ2Z",
+                Title = "Gear Classic 4 19\"/31L Medium Faux Leather Water Resistant Anti Theft Laptop Backpack | Casual Backpack | Daypack | Travel Backpack | College Bag For Men/Women (Brown - Black)",
+                Description = "Gear Classic 4 19\"/31L Medium Faux Leather Water Resistant Anti Theft Laptop Backpack | Casual Backpack | Daypack | Travel Backpack | College Bag For Men/Women (Brown - Black)...",
+                Price = 899.00m,
+                OriginalPrice = 4399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DY4GBZ2Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71b3zZ9bP6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D66VSDHS",
+                Title = "American Tourister New Bounce Style 01 | 20L Backpack | Casual Bag | 2.5 Compartments | College & Casual Bag for Girls and Boys | Black | 1 Year Global Warranty",
+                Description = "American Tourister New Bounce Style 01 | 20L Backpack | Casual Bag | 2.5 Compartments | College & Casual Bag for Girls and Boys | Black | 1 Year Global Warranty...",
+                Price = 799.00m,
+                OriginalPrice = 2470.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D66VSDHS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51hl0sEjQhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B8WL5NPN",
+                Title = "EM5 Combo Pack Alcohol Free Solid Perfumes",
+                Description = "EM5 Combo Pack Alcohol Free Solid Perfumes...",
+                Price = 269.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0B8WL5NPN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bYUa1tbBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B015C716BW",
+                Title = "Gear Classic 25 ltrs Charcoal Grey and Grey Casual Backpack (BKPCAMPS83804)",
+                Description = "Gear Classic 25 ltrs Charcoal Grey and Grey Casual Backpack (BKPCAMPS83804)...",
+                Price = 578.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B015C716BW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91TawyI3UHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CV779833",
+                Title = "uppercase 35L Campus 02 | School Bag | Double Compartment with Top & Side Quick Access Pocket | Well- Padded Backpack | Side Water-Bottle Pocket | Unisex | 750 Days Warranty (Blue)",
+                Description = "uppercase 35L Campus 02 | School Bag | Double Compartment with Top & Side Quick Access Pocket | Well- Padded Backpack | Side Water-Bottle Pocket | Unisex | 750 Days Warranty (Blue)...",
+                Price = 939.00m,
+                OriginalPrice = 2525.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CV779833?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Oehi1GdBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07RFS6HFW",
+                Title = "Amazon Brand - Solimo Facial Tissue Box, 2 Ply | 400 Tissue Papers | 100 Pulls x 4 Boxes | Soft & Highly Absorbent Tissues | 100% Natural Virgin Cellulose Fiber",
+                Description = "Crafted from eco-friendly 100% natural virgin paper; these tissues offer unmatched quality • Gentle on your skin; these facial tissues offer superior softness and are free from skin irritants like OBAs • Each box contains 400 premium 2 ply sheets; ensuring durability and comfo...",
+                Price = 189.00m,
+                OriginalPrice = 400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07RFS6HFW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/817QLKrwbSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BN5Q96R7",
+                Title = "VISMIINTREND College Bag for Girls, Vegan Leather Backpack, Peach Pink | Backpack Bags Gift for Diwali for Women, 10L Lightweight Convertible Backpack, Handbag & Shoulder Bag with Multiple Pockets",
+                Description = "VISMIINTREND College Bag for Girls, Vegan Leather Backpack, Peach Pink | Backpack Bags Gift for Diwali for Women, 10L Lightweight Convertible Backpack, Handbag & Shoulder Bag with Multiple Pockets...",
+                Price = 1069.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BN5Q96R7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DbUjRqS9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C65ZF9SP",
+                Title = "American Tourister RON Large 4 Compartment Laptop Backpack Travel Bag, 28 Ltrs Durable Bags For Mens, College School Computer Backpack Gift For Unisex Boys Girls Kids, Black, With Rain Cover",
+                Description = "American Tourister RON Large 4 Compartment Laptop Backpack Travel Bag, 28 Ltrs Durable Bags For Mens, College School Computer Backpack Gift For Unisex Boys Girls Kids, Black, With Rain Cover...",
+                Price = 1299.00m,
+                OriginalPrice = 4200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C65ZF9SP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71mM5CQjEhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00SHFP99W",
+                Title = "Brother HL-L2321D Automatic Duplex Laser Printer with 30 Pages Per Minute Print Speed (Best in The Category), 8 MB Memory, Large 250 Sheet Paper Tray, USB Connectivity",
+                Description = "Printer Type : Laser Printer ; Functionality : Print Only ; Print Output : Monochrome ; Connectivity - USB ; Scanner Type - NA • OS Compatibility -Windows, Mac & Linux ; Compatibility - None ; Hardware Interface:USB ; Enlarge/reduce option: No ; Auto double print: Yes • Maximu...",
+                Price = 10999.00m,
+                OriginalPrice = 13090.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B00SHFP99W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UkCKUeGaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRDRHHKR",
+                Title = "ASUS AP1601 Laptop Backpack for Up to 16-Inch Laptops, 18L Capacity, Water-Repellent Polyester, Dedicated Laptop Compartment, Multiple Organizer Pockets, Luggage Strap (Grey)",
+                Description = "Spacious 18L Storage Capacity : Designed for daily commuters, students, and professionals, the ASUS AP1601 Backpack offers an 18-liter capacity with a dedicated laptop compartment that securely accommodates laptops up to 16 inches, along with documents, accessories, and daily ...",
+                Price = 599.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CRDRHHKR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91X4hbUrxiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H875KBDT",
+                Title = "HP Campus Core 16 Laptop Backpack (Black)",
+                Description = "HP Campus Core 16 laptop Backpack - Black - Buy HP Campus Core 16 laptop Backpack - Black Online at Low Price in India...",
+                Price = 449.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H875KBDT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51FI1JjNGYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CW32WMP9",
+                Title = "Beco Bamboo Facial Tissue Paper Box 100 Pulls x 12 Packs",
+                Description = "🌿 SUPER ABSORBENT AND DURABLE - Beco's 2-ply bamboo tissues soak up spills fast and stay strong. Tough on messes, gentle in hand • 🌿 SOFT ON SKIN, RASH FREE - Feather-soft and hypoallergenic. No rashes, no worries-just smooth, safe wiping for all skin types. ADD TO CART NOW!! ...",
+                Price = 350.00m,
+                OriginalPrice = 540.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CW32WMP9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kGBnPlEoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07B4KDTHP",
+                Title = "Canon PIXMA MegaTank G3010 All in One (Print Scan Copy) WiFi Inktank Colour Printer- Upto 6000 Black Prints & 7000 Color Prints with Free Installation",
+                Description = "ALL-IN-ONE PRINTER FOR HOME: Print, Scan & Copy ; Ideal for home use, students & small office with smart connectivity • ULTRA LOW COST PER PAGE: Extremely Low Printing Cost - Print up to 6000 prints (black) & 7000 prints (color) with high-yield ink bottles (as per ISO/IEC 2471...",
+                Price = 11499.00m,
+                OriginalPrice = 17595.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07B4KDTHP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611dfUN+bDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0854RNKDK",
+                Title = "Amazon Brand - Presto! 2 Ply Facial Tissue Box | 1200 Pulls | 200 Pulls X 6 Cartons | Soft And Highly Absorbent | 100% Natural Virgin Cellulose Fiber",
+                Description = "Soft-touch facial tissues that are gentle on the skin • Facial Tissues made from 100% natural virgin paper • Highly absorbent tissues that can be used in cars, bathrooms, living rooms, bedrooms, and offices",
+                Price = 359.00m,
+                OriginalPrice = 1010.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0854RNKDK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81LIDbU5n-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D86RH9K2",
+                Title = "Brother HL-L2440DW (New Launch) Auto Duplex Laser Printer, 30 PPM Print Speed, LCD Display, 64 MB Memory, (WiFi Wireless LAN USB), 250 Sheet Paper Tray, 3000 Pages Inbox Toner, Free Installation",
+                Description = "Printer Type : Laser Printer ; Functionality : Print Only ; Print Output : Monochrome ; Connectivity - Hi-Speed USB2.0, IEEE 802.11a/b/g/n (Infrastructure Mode), IEEE 802.11a/g/n (Wi-Fi Direct), Dual Band Wireless LAN (2.4 GHz/5.0 GHz) ; Scanner Type - NA • OS Compatibility -W...",
+                Price = 13279.00m,
+                OriginalPrice = 17990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D86RH9K2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61mPM-vj3eL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
