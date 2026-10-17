@@ -45313,7 +45313,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0FDWWNT31",
                 Title = "Portronics Eco Glow 2 Tactical Rechargeable Flashlight Torch",
-                Description = "No Standalone lithium batteries are sold with the product. Tactical Rechargeable LED Torch: Portronics Eco Glow 2 is a compact and powerful flashlight designed for everyday use, outdoor activities, and emergency situations. Built for reliability in all lighting needs. • Adjust...",
+                Description = "Tactical Rechargeable LED Torch: Portronics Eco Glow 2 is a compact and powerful flashlight designed for everyday use, outdoor activities, and emergency situations. Built for reliability in all lighting needs. - Adjustable Focus Beam: Switch between a wide floodlight and a focused spotlight with the adjustable focus ring. - 1200mAh Rechargeable Battery with convenient Type-C charging.",
                 Price = 399.00m,
                 OriginalPrice = 1299.00m,
                 Rating = 4.5,
@@ -48141,6 +48141,426 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 Category = "Technology",
                 ProductUrl = "https://www.amazon.in/dp/B0D86RH9K2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
                 ImageUrl = "https://m.media-amazon.com/images/I/61mPM-vj3eL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJ83LDCJ",
+                Title = "Elica 60cm 1500 m3/hr Filterless Autoclean Kitchen Chimney T-Shape | 10 Years Motor & 5 Years Comprehensive Warranty | VENTRA FL 600 HAC MS NERO | Black | Touch + Motion Sensor Control",
+                Description = "Chimney Type: T-Shape Chimney, Wall Mounted - Size: 60cm (Suitable for 2-4 Burner Stove) | Annual Energy Consumption: 140 Watts | Power Requirement: 220 Volts - Filter Type: Filterless | Heat Auto Cleaning with Oil collection tray for easy clean | Suction Power: 1500 m3/hr",
+                Price = 10990.00m,
+                OriginalPrice = 26990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ83LDCJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Gt1LbNr5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09P52F44F",
+                Title = "Westinghouse 1.7L 2200W Retro Series Electric Kettle | Fast Boil, Water Boiler For Hot Drinks, Quiet Boil & Detachable Filter | Temperature & Water Level Indicator | 2 Years Warranty (Red)",
+                Description = "Retro look: this elegant kettle in retro style not only fulfils its function, but is also a real eye-catcher in the kitchen. It matches other Westinghouse retro devices. - Modern features: the kettle is in a vintage design, but is full of modern technology. The temperature and...",
+                Price = 6792.00m,
+                OriginalPrice = 10490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09P52F44F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71c2G4QKKBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08CMSYBNK",
+                Title = "Saral Home Soft Microfiber Anti-Skid Rectangulat Striped Bathmat | Washable, Non-Slip & Quick-Drying Mats for Home/Kitchen | Soft & Super Absorbent Mats for Shower, Set of 2 (Brown, 38X50 CM)",
+                Description = "MATERIAL & FEATURES: Made From 100% High Quality microfiber Polyester yarn to adds Super-Soft feel & comfort. The Mat's fine denier thread have excellent water absorption capacity & dries faster. The mat protect your feet from cold floor after shower, be it in bathroom or insi...",
+                Price = 379.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08CMSYBNK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oQ1+16pmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0845CWWCD",
+                Title = "Fiama Gel Bar Celebration Pack 625g (125g Pack of 5) | 5 Unique Variants | Moisturised Skin with 30% Smoothing Body Serum | Gift Set for Women & Men | All Skin Types",
+                Description = "Fiama Family Celebration Pack with 5 exotic Gel Bars - From Japanese Hokkaido Milk to Blackcurrant & Bearberry, Peach & Avocado. - With 30% Body Smoothing Serum: Gently cleanses while keeping skin moisturised and soft. - Dermatologist tested and suitable for all skin types.",
+                Price = 209.00m,
+                OriginalPrice = 449.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0845CWWCD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81qxA9wz9YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01BD5EO2U",
+                Title = "Smart And Handsome Men Bright Charge Face Cream | Visibly Brightens Skin | Reduces Dark Spots |Protects From Sun Damage | Power Of Niacinamide | Dermatologically Tested | For Men's Tough Skin | 60G",
+                Description = "Clinically Proven for Brighter Skin: Specially formulated for tough male skin, delivering visible brightness and skin tone enhancement. - Power of Niacinamide: Helps reduce dark spots and blemishes while defending against sun and pollution damage.",
+                Price = 120.00m,
+                OriginalPrice = 180.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01BD5EO2U?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71sdkcXQoHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FTNLGGSX",
+                Title = "InstaCuppa Electric Gooseneck Kettle 1L | 40-100 deg C Temp Control | Built-in Timer | Stay Warm | Auto Shut-Off | 1200W Fast Heating | Stainless Steel Infuser | Matte Black - Perfect for Busy Moms",
+                Description = "MORE FAMILY TIME, LESS WAITING: 1200W rapid heating gets your perfect temperature water ready in minutes. Built-in stopwatch timer tracks brewing time on the LED display, ensuring perfect steeping even after interruptions. Precision gooseneck spout ensures spillfree pouring ...",
+                Price = 6249.00m,
+                OriginalPrice = 6499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FTNLGGSX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51AC+Znm1qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D2HFN2N1",
+                Title = "Bombay Shaving Company Power Play NXT Trimmer for Men | Beard Trimmer for Man | Hair Trimmer for Man | Type C, 90 Min, 6 Combs, Self-Sharpening | Trimmer Men Beard | Trimmers for Man",
+                Description = "90 MIN NON-STOP RUNTIME: With a single 90-minute charge, this trimmer for men delivers 90 minutes of powerful, uninterrupted grooming - that's approximately 9 weeks of trimming on one charge. A beard trimmer for man built for endurance. - TYPE C FAST CHARGING: This hair trimme...",
+                Price = 549.00m,
+                OriginalPrice = 1000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D2HFN2N1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71H6j2KDSVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXVCBHRD",
+                Title = "Nestasia 2 in 1 Stainless Steel Julienne Vegetable Peeler for Salad - Multifunctional Dual Blade Kitchen Shredder & Peeler for Fruits, Potatoes, Cucumbers & Carrots | Dishwasher Safe & Rust Resistant",
+                Description = "Versatile 2-in-1 Design: Equipped with dual blades for seamless peeling and julienning, making it ideal for salads, garnishes, and stir-fry prep - Premium 202 Grade Construction: Made from food-safe, rust-resistant stainless steel for durability, strength, and long-lasting per...",
+                Price = 228.00m,
+                OriginalPrice = 450.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GXVCBHRD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/816Se6RkxdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FWY6WH7Z",
+                Title = "Ninja Blast Portable Cordless Blender (BC151INCR) - 530ml | USB-C Rechargeable | Crushes Ice & Frozen Fruit | BPA Free, Leak-Proof Travel Lid Cranberry Red",
+                Description = "POWERFUL HIGH PERFORMANCE BLENDING - SMOOTH RESULTS EVERY TIME: Crush ice, frozen fruit & nuts effortlessly with Ninja's high-performance stainless steel BlastBlade. Perfect for smoothies, protein shakes, cold coffee, lassi in 30 seconds - PORTABLE & CORDLESS - BLEND ANYWHERE,...",
+                Price = 3499.00m,
+                OriginalPrice = 6541.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FWY6WH7Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61O0lduSTvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09J2T124D",
+                Title = "NutriPro Juicer Mixer Grinder Stainless Steel - Smoothie Maker - 500 Watts (2 Jars & 1 Blade, Silver) - 2 Year Warranty",
+                Description = "Make Smoothies and Juices within seconds. - Also suitable for dry grinding, chutneys and dips - Powerful 500 W motor can grind almost any food.",
+                Price = 1399.00m,
+                OriginalPrice = 5000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09J2T124D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rH4vEE4nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN3V1CKP",
+                Title = "Microtek I-Lithium 1500 SW WiFi Pearl Edition Inverter (1100VA/925W) with 1280Wh 12.8V Li-Ion Battery | 12+ Year Life | 5-Year Onsite Warranty | Ideal for Home, Office & Shop | White",
+                Description = "Power Output: 1100VA/925W pure sine wave backup for lights, fans, mixer grinder, IT loads, WiFi router, LED TV & office setup; stable performance for sensitive electronics. - Inbuilt Lithium Battery: 12.8V 100Ah (1280Wh) LiFePO4 battery integrated-compact, safe, long life and ...",
+                Price = 28149.00m,
+                OriginalPrice = 45000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GN3V1CKP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZuI02WGAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08BNG3Z4P",
+                Title = "HOKIPO Eco-Friendly Bamboo Wooden Rectangular Storage Organizer Chest Box with 6 Compartments (AR2933, Brown, 30 X 20 X 10 cm)",
+                Description = "KEEPS TEAS FRESH & FRAGRANT: HOKIPO Bamboo Wood Tea Organizer is perfect for all tea lovers. Now you can store your tea bags and loose leaf teas in this tea box that will keep the leaves fresh.VERSATILE TEA HOLDER BOX: 6 equally divided tea chest compartments sizes that meet m...",
+                Price = 883.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08BNG3Z4P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UkGV+cBfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMFL5MSD",
+                Title = "AGARO Elite Double Wall Glass Espresso Cups 80ml, Pack of 2 | Premium Borosilicate, Heat Resistant, Ideal for Coffee, Tea, Latte, Microwave & Dishwasher Safe",
+                Description = "Set of 2 glass Cups - 80 ml capacity - Premium Borosilicate Glass: Made from 100% borosilicate glass, resistant to thermal shock, and designed for long-lasting clarity.",
+                Price = 459.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FMFL5MSD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ob+PXCzeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9LB1TTL",
+                Title = "HealthSense Coffee Scale with Timer 0.1g Precision Digital Espresso & Pour Over Coffee Weight Scale | USB Rechargeable, Platform, Tare & Dual Timer, LED Touch Display | Baristas & Manual Brewing",
+                Description = "0.1g High-Precision Sensor - Accurate to the Last Gram: Get barista-level accuracy with fast-response sensors measuring from 0.5g to 3000g-perfect for espresso shots, pour-over brewing, and more. - Built-in Timer & Tare - Auto or Manual Modes: Enjoy full brewing control with s...",
+                Price = 1799.00m,
+                OriginalPrice = 3000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F9LB1TTL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NiBX68QQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08VNYPFW2",
+                Title = "Acnos Premium Luxury Analogue Girl's Stainless Steel Watch",
+                Description = "Watch Movement Type: Quartz; Watch Display Type: Analog; Band Material: Stainless Steel - Brand: Acnos, Quality: Premium - Wear-ability: Casual, Fashion, Luxury, Party-Wear, Wrist | Gender: Girl's & Women's - Elegant dial design with durable stainless steel mesh strap.",
+                Price = 385.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08VNYPFW2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71US4drMvyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07XT53R59",
+                Title = "Beardo Dark Side Perfume for Men, 100ml",
+                Description = "Unleash Your Dark Side: Highly concentrated Eau De Parfum designed to go deep into the night. - Fragrance Family: Fresh & Woody with strong masculine undertones. - Long Lasting EDP: Premium formulation crafted for endurance throughout the day and evening.",
+                Price = 374.00m,
+                OriginalPrice = 1700.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07XT53R59?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61apet2lLbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GMWZXL8M",
+                Title = "Faber 6L 1500W Digital Air Fryer | Fry, Bake, Roast | 85% Less Oil, 200 deg C Swirl Heating Technology |8-Preset Menu|View Window|Touch Control Interface| Auto Shut-Off |2 Yrs Comprehensive warranty|Black",
+                Description = "Food cooked in the Faber 1500W Digital Air Fryer contains up to 85% less oil than traditionally fried foods while retaining the same delicious taste and crispy texture. Fry, Bake, Roast, Toast, Defrost, Grill & Reheat all in one device with 85% less oil. - The advanced Swirl H...",
+                Price = 4999.00m,
+                OriginalPrice = 11555.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GMWZXL8M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-77cNXTZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DGXFZXFG",
+                Title = "Cookwell Air Fryer - 5L With See Through Window - 1400W (Grey & Black)",
+                Description = "Versatile Cooking: Air fryer utilises hot air circulation to cook food with little to no oil, resulting in healthier meals. - Compact Design: Sleek and space-saving, perfect for small kitchens or countertops. - Easy Operation: Simple controls and presets make it effortless to ...",
+                Price = 3199.00m,
+                OriginalPrice = 9000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DGXFZXFG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716Z-TgDrtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F13BVVV5",
+                Title = "Elica 70cm 4 Burner Auto Ignition Hob | SABAF Brass Burners | Toughened Black Glass | Built-in & Freestanding | 10-Year Burner & 5-Year Glass Warranty | RG FLEXI 470 LOTUS IND HD BRASS",
+                Description = "Powerful SABAF Brass Burners - 2 x 2.5 kW triple-ring + 2 x 1.7 kW burners deliver fast, even heat for daily Indian cooking. - Spacious 70 cm Design for Multiple Vessels - Well-spaced burners let you use large utensils together without crowding. - Auto Ignition with Premium Me...",
+                Price = 16290.00m,
+                OriginalPrice = 24990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F13BVVV5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61F1RIXXuQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSC9PN7Y",
+                Title = "Amazon Brand - Solimo School Bag for Kids Boys and Girls, 14 Inch Small Backpack for Kid, 2-6 Year Old, Toddler, Unisex, Picnic, Casual, Travel, Birthday,Gift For Kids (Fire)",
+                Description = "Spacious 10L Capacity: Perfectly designed to hold snacks, toys, and school essentials for preschool and kindergarten. - Adorable Design: Features vibrant colors and playful graphics that appeal to young children. - Comfortable Fit: Lightweight with padded, adjustable straps.",
+                Price = 368.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DSC9PN7Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51CeXlY4-2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09XQRMBCK",
+                Title = "Ant Esports VS400L NonModular High Efficiency Gaming Power Supply/PSU with Continuous Power and 120mm Silent Fan",
+                Description = "Delivers lower noise, less power consumption and cooler temperatures - 100,000 Hours MTBF, Supports ATX12V 2.3 and EPS12V 2.92 standards, Input Voltage 200-240V - ATX 24-Pin Connectors- 1, EPS 4+4 Pin Connectors-1, PCIe (6+2) Connectors-0, SATA Connectors- 2, Peripheral 4-Pin ...",
+                Price = 999.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09XQRMBCK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oRnnKIzTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CXSMZ822",
+                Title = "Nilkamal Aqua Elegance Laundry Basket 50 Litre with Lid | 3-Year Warranty | Robust with In-Built Handles | For Cloth, Blankets, & Laundry Storage | Ideal for Home, Livingroom Bedroom & Bathroom.",
+                Description = "Product Dimensions: Height (cm): 57, Width (cm): 44, Depth (cm):32.7 - Spacious and Durable: This clothes hamper offers ample storage space. Made of high-quality, durable plastic, it is built to withstand frequent use. - Convenient Portability: The cut-out handles provide a co...",
+                Price = 1299.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CXSMZ822?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eqFTmVuQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D83YD2RJ",
+                Title = "Plantex Pure Brass Waste Coupling for Wash Basin /5 inch Coupling Out let System Full Thread Sink Waste Coupling (Rose Gold - Pack of 1)",
+                Description = "Durable Construction: Our Plantex Pop-Up waste coupling kitchen sink is a reliable option for your plumbing needs as it is made of pure brass material with a touch of PVD rose gold finish, ensuring excellent durability and long-lasting performance. - Versatility: Pop-Up Waste ...",
+                Price = 699.00m,
+                OriginalPrice = 2800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D83YD2RJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71DGGKMqTcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01M5B0TPW",
+                Title = "Borosil Chef Delite 300W Electric Chopper for Kitchen, 600 ml, Black | Twin blade technology, Chop-n-store bowl with lid, Vegetable cutter, Mince, Dice, Whisk, Blend, Twin stainless steel blades",
+                Description = "Twin Stainless Steel Blades: Two sets of sharp blades make chopping quick and precise. Do not process frozen food, ice, rice, spices, coffee, beans or thin liquids. - Quiet & Safe: Low-noise motor, inbuilt thermal auto cut-off and a motor-mount switch for extra safety. Make da...",
+                Price = 1985.00m,
+                OriginalPrice = 2490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01M5B0TPW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51HKajX7fJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07W4WPFXL",
+                Title = "Natureland Organics Masoor Whole/Sabut Pouch, 1 kg",
+                Description = "Direct from farm | Sourced from certified Organic farmers | 100% Organic Masoor dal processed in certified world class facility. - 100% Vegan | Gluten Free | No Additives | Unpolished dal | Rich in protein - Pure and Organic: NatureLand Organics Masoor Dal is grown using natur...",
+                Price = 194.00m,
+                OriginalPrice = 205.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B07W4WPFXL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yh0KjQY8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07W643YVR",
+                Title = "Natureland Organics Cowpea Black Eye / Lobia 500 Gm - Organic Healthy Pulses",
+                Description = "Organic Cowpea Black eye. Eat Natural Live Healthy. - Daily Need Products For A Healthy And Energetic Life. - Cowpea is loaded with various types of nutrients. It is rich in fiber, protein, iron, potassium, low in fat and calories.",
+                Price = 104.00m,
+                OriginalPrice = 120.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B07W643YVR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71NvfZ0TL1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRF6NJC3",
+                Title = "Philips OneBlade Turbo2X Hybrid Trim, Edge, Shave | Perfected for Skin Comfort | Trimmer Men Beard | Suits all skin types & beard thickness, Wet & Dry Use | Electric Trimmer for Men | QP2724/10",
+                Description = "The Perfect Hustler & GenZ Approved: Whether you're just trimming your beard, cleaning up the edges, or going for a total reset - the OneBlade handles it all. It's built with a fast-moving cutter that glides through hair without tugging or pulling. Perfectly safe for acne-pron...",
+                Price = 1549.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CRF6NJC3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71c-Vt04TtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CC5666P7",
+                Title = "Beardo Blade Trimmer for Men Electric Shaver",
+                Description = "POWERFUL Li+BATTERY- High-capacity lithium battery, this trimmer provides an impressive running time of up to 90 minutes. This trimmer features a USB Type-C charging port - MULTIPLE PRECISION COMBS- This Trimmer Men Includes 4 combs (2mm, 3mm, 5mm, and 6mm) - Rechargeable OneB...",
+                Price = 779.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CC5666P7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vZAopj1xL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
