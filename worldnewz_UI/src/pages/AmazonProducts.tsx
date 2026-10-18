@@ -93,6 +93,112 @@ const getCategoryBadgeStyle = (category: string = "", isDark: boolean = false) =
   return { bg: isDark ? "rgba(245, 158, 11, 0.15)" : "rgba(245, 158, 11, 0.12)", color: isDark ? "#FBBF24" : "#D97706", border };
 };
 
+// Helper to construct / verify valid Amazon affiliate link with ganeshd12-21
+const getAffiliateUrl = (product?: AmazonProduct | null): string => {
+  if (!product) return "https://worldnewzs.in/amazon-products";
+  const tag = "ganeshd12-21";
+  const asin = (product.asin || "").trim().toUpperCase();
+  const rawUrl = (product.productUrl || "").trim();
+  
+  if (rawUrl && rawUrl.includes(`tag=${tag}`) && !rawUrl.includes("amzn.to")) {
+    return rawUrl;
+  }
+  if (asin && /^B0[A-Z0-9]{8}$/i.test(asin)) {
+    return `https://www.amazon.in/dp/${asin}?tag=${tag}&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl`;
+  }
+  return rawUrl || (asin ? `https://www.amazon.in/dp/${asin}?tag=${tag}&linkCode=ll2` : "https://worldnewzs.in/amazon-products");
+};
+
+// Category matching helper ensuring 100% of all catalog products are covered across the 6 tabs
+const matchesCategory = (productCat: string = "", selectedTab: string = "All"): boolean => {
+  if (!selectedTab || selectedTab === "All") return true;
+  const pcat = (productCat || "").toLowerCase().trim();
+  const stab = selectedTab.toLowerCase().trim();
+
+  // 1. Direct exact match
+  if (pcat === stab) return true;
+
+  // 2. Electronics & Audio (covers Technology, Electronics, Gadgets, audio, computer, phone)
+  if (stab === "electronics") {
+    return (
+      pcat === "electronics" ||
+      pcat === "technology" ||
+      pcat === "tech" ||
+      pcat.includes("electronic") ||
+      pcat.includes("technology") ||
+      pcat.includes("audio") ||
+      pcat.includes("computer") ||
+      pcat.includes("phone")
+    );
+  }
+
+  // 3. Kitchen & Home Appliances (covers Kitchen & Home, Home & Kitchen, Home, Appliances, Decor)
+  if (stab === "kitchen & home" || stab === "home & kitchen") {
+    return (
+      pcat === "kitchen & home" ||
+      pcat === "home & kitchen" ||
+      pcat === "home" ||
+      pcat.includes("kitchen") ||
+      pcat.includes("home") ||
+      pcat.includes("appliance") ||
+      pcat.includes("decor")
+    );
+  }
+
+  // 4. Smart Gadgets & Wearables
+  if (stab === "gadgets") {
+    return (
+      pcat === "gadgets" ||
+      pcat.includes("gadget") ||
+      pcat.includes("wearable") ||
+      pcat.includes("smart")
+    );
+  }
+
+  // 5. Lifestyle & Fashion (covers Lifestyle, Fashion, Beauty & Personal Care, Health & Fitness)
+  if (stab === "lifestyle") {
+    return (
+      pcat === "lifestyle" ||
+      pcat === "fashion" ||
+      pcat === "beauty & personal care" ||
+      pcat === "health & fitness" ||
+      pcat.includes("lifestyle") ||
+      pcat.includes("fashion") ||
+      pcat.includes("beauty") ||
+      pcat.includes("health") ||
+      pcat.includes("fitness") ||
+      pcat.includes("care")
+    );
+  }
+
+  // 6. Daily Essentials & Shopping (covers Shopping, Grocery & Gourmet Foods, Toys & Games, Sports, Books, etc.)
+  if (stab === "shopping") {
+    return (
+      pcat === "shopping" ||
+      pcat === "grocery & gourmet foods" ||
+      pcat === "toys & games" ||
+      pcat === "sports" ||
+      pcat === "education" ||
+      pcat === "services" ||
+      pcat === "gift cards" ||
+      pcat === "books" ||
+      pcat.includes("shopping") ||
+      pcat.includes("grocery") ||
+      pcat.includes("gourmet") ||
+      pcat.includes("food") ||
+      pcat.includes("toy") ||
+      pcat.includes("game") ||
+      pcat.includes("sport") ||
+      pcat.includes("book") ||
+      pcat.includes("gift") ||
+      pcat.includes("education") ||
+      pcat.includes("deal")
+    );
+  }
+
+  return pcat.includes(stab);
+};
+
 // Compact Card Share Menu Component
 interface CardShareButtonProps {
   product: AmazonProduct;
@@ -121,8 +227,7 @@ const CardShareButton: React.FC<CardShareButtonProps> = React.memo(({ product, g
   };
 
   const title = product.title || "Amazon Deal";
-  const tag = "ganeshd12-21";
-  const url = product.productUrl || (product.asin ? `https://www.amazon.in/dp/${product.asin}?tag=${tag}&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl` : "https://worldnewzs.in/amazon-products");
+  const url = getAffiliateUrl(product);
   const rawImageUrl = product.imageUrl ? getAbsoluteImageUrl(product.imageUrl, product.asin) : "";
   const imageUrl = rawImageUrl.startsWith("http")
     ? rawImageUrl
@@ -590,7 +695,7 @@ export const AmazonProducts: React.FC = () => {
   // Filter products based on selected category tab and search query
   const filteredProducts = useMemo(() => {
     return uniqueProducts.filter((p) => {
-      const matchCat = selectedTab === "All" || p.category.toLowerCase().trim() === selectedTab.toLowerCase().trim();
+      const matchCat = matchesCategory(p.category, selectedTab);
       const matchSearch = !searchQuery.trim() || 
         (p.title || "").toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
         (p.category || "").toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
@@ -791,7 +896,7 @@ export const AmazonProducts: React.FC = () => {
                         <Box sx={{ display: "flex", gap: 1, width: { xs: "100%", sm: "auto" } }}>
                           <Button
                             variant="contained"
-                            href={heroDeal.productUrl}
+                            href={getAffiliateUrl(heroDeal)}
                             target="_blank"
                             rel="sponsored noopener noreferrer"
                             startIcon={<ShoppingBagIcon />}
@@ -921,7 +1026,7 @@ export const AmazonProducts: React.FC = () => {
                               <Button
                                 size="small"
                                 variant="outlined"
-                                href={deal.productUrl}
+                                href={getAffiliateUrl(deal)}
                                 target="_blank"
                                 rel="sponsored noopener noreferrer"
                                 sx={{
@@ -1329,7 +1434,7 @@ export const AmazonProducts: React.FC = () => {
                               <Button
                                 id={`card-buy-btn-${product.asin}`}
                                 variant="contained"
-                                href={product.productUrl}
+                                href={getAffiliateUrl(product)}
                                 target="_blank"
                                 rel="sponsored noopener noreferrer"
                                 startIcon={<ShoppingBagIcon sx={{ fontSize: "1.1rem" }} />}
@@ -1531,7 +1636,7 @@ export const AmazonProducts: React.FC = () => {
                       fullWidth
                       size="small"
                       variant="contained"
-                      href={parsedProduct.productUrl}
+                      href={getAffiliateUrl(parsedProduct)}
                       target="_blank"
                       rel="sponsored noopener noreferrer"
                       sx={{ bgcolor: "var(--red, #B7222B)", color: "#fff", fontSize: "0.75rem", py: 0.5, whiteSpace: "nowrap", fontWeight: 800, "&:hover": { bgcolor: "var(--red-deep, #8E1B22)" } }}
@@ -1564,7 +1669,7 @@ export const AmazonProducts: React.FC = () => {
                     <Box
                       key={item.asin || idx}
                       component="a"
-                      href={item.productUrl}
+                      href={getAffiliateUrl(item)}
                       target="_blank"
                       rel="sponsored noopener noreferrer"
                       sx={{
@@ -1704,7 +1809,7 @@ export const AmazonProducts: React.FC = () => {
                     <Button
                       fullWidth
                       variant="contained"
-                      href={scratchDealProduct.productUrl}
+                      href={getAffiliateUrl(scratchDealProduct)}
                       target="_blank"
                       rel="sponsored noopener noreferrer"
                       sx={{ borderRadius: "6px", fontWeight: 800, fontSize: "0.78rem", py: 0.6, whiteSpace: "nowrap", bgcolor: "var(--red, #B7222B)", color: "#fff", "&:hover": { bgcolor: "var(--red-deep, #8E1B22)" } }}

@@ -145,11 +145,18 @@ export const AffiliateDeals: React.FC<AffiliateDealsProps> = ({ category }) => {
   // Map backend or path keys to our deal categories
   const key = category.toLowerCase().trim();
   let selectedDeals = GENERIC_DEALS;
-  if (key === "technology" || key === "tech") {
+  if (key === "technology" || key === "tech" || key === "electronics" || key === "gadgets") {
     selectedDeals = DEALS_DATA.technology;
   } else if (key === "money" || key === "business") {
     selectedDeals = DEALS_DATA.money;
-  } else if (key === "shopping") {
+  } else if (
+    key === "shopping" ||
+    key === "lifestyle" ||
+    key === "fashion" ||
+    key === "kitchen & home" ||
+    key === "home & kitchen" ||
+    key === "home"
+  ) {
     selectedDeals = DEALS_DATA.shopping;
   }
 
