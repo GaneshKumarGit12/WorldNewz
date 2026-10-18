@@ -48564,6 +48564,1041 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FY2JNGGH",
+                Title = "NESTER Full Stack Steamlock SS430 Stainless Steel Air Fryer Oven 16L | 2000 W Steam + Air Fry | Multi-Function-Air Fryer, Reheat, Bake, Toast | Adjustable Temperature & Timer - Dalgona Brown",
+                Description = "POWERFUL 2000 W PERFORMANCE - Rapid heating technology ensures faster cooking with even heat distribution for perfect results every time. - STEAM + AIR FRY TECHNOLOGY - Combines steam cooking with air frying to lock in moisture while creating a crispy golden finish. - LARGE 16...",
+                Price = 15998.00m,
+                OriginalPrice = 24000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FY2JNGGH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51hAxmyuGHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H7NBCP6H",
+                Title = "Babique Eat Something Before Sleep Collection Mystery Box Vinyl Plush Toy | Surprise Random Figure | Cute Collectible Model for Home Decor, Birthday Gifts & Kids (1 Random Design)",
+                Description = "MYSTERY SURPRISE INSIDE Experience the excitement of unboxing! Every Mystery Box contains 1 randomly selected vinyl plush figure from the Eat Something Before Sleep Collection, making each opening a fun and unique surprise. - PREMIUM QUALITY & CUTE DESIGN Crafted from high-qua...",
+                Price = 331.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0H7NBCP6H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51knghIR4rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6FY4L7S",
+                Title = "Toy Imagine R36S Retro Handheld Game Console, 22,000+ Games, Assorted | Built-in 22,000+ Games, 3.5 Inch IPS HD Screen, Up to 6 Hours Play Time, Rechargeable Portable Gaming Device",
+                Description = "Clear & Bright IPS Screen: 3.5-inch HD IPS display delivers vivid colors and sharp visuals for an immersive retro gaming experience - Portable, On-the-Go Design: Ultra-compact form factor with a classic retro aesthetic for travel, business trips, camping, or everyday gaming - ...",
+                Price = 3298.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0H6FY4L7S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JhnS0l8RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09VDMGGCM",
+                Title = "Murphy LED Outdoor Up/Down Wall Light - 6W, Warm White, (4 Multi-Directional Beams), IP65 Waterproof Aluminum Body, Pack of 8 (2-Year Warranty)",
+                Description = "(Waterproof), CRI : >80%, Premium quality, LED : 100-120lm/w, CCT - 3000K (Warm White) - Outdoor and indoor used Perfect for Garden Patio Gate Yard Balcony Door Garage lightingor Garden Patio Gate Yard Balcony Door Garage lighting Outdoor used Perfect for Garden Patio Gate Yar...",
+                Price = 1296.00m,
+                OriginalPrice = 8160.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09VDMGGCM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91bIR0AYohL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099KTZFPG",
+                Title = "Lacoste Mens Cotton Classic Fit Short Sleeve L.12.12 Marl Polo Shirt",
+                Description = "Iconic short sleeve polo crafted from premium marl cotton petit pique. Features classic two-button placket, ribbed collar and armbands with signature embroidered green crocodile on chest.",
+                Price = 4250.00m,
+                OriginalPrice = 8500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B099KTZFPG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91fhCPYEOpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07YG1YCX2",
+                Title = "Skechers-D'LUX Walker - Pensive-Men's Casual Shoes-232045-GYBK-GRAY/BLACK UK9",
+                Description = "Relaxed Fit walking shoes engineered with smooth action leather and soft mesh upper. Air-Cooled Memory Foam cushioned comfort insole with Skech-Foam supportive walking midsole.",
+                Price = 2624.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07YG1YCX2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710Pcdc+KtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D8QBZ1PM",
+                Title = "BOSS Mens Troper Automatic Mech-Automatic Blue Round Dial Analog Watch|Two Tone Stainless Steel Material|Silver Color Band - 1514201",
+                Description = "Elevate your style with the sophisticated Boss Troper Automatic Watch. Features a striking blue skeleton dial, two-tone stainless steel case, and self-winding mechanical movement.",
+                Price = 17955.00m,
+                OriginalPrice = 29925.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D8QBZ1PM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ZCqPnVxdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFTW76W5",
+                Title = "THE BEAR HOUSE Beige Self Design Regular Fit Polo T-Shirt",
+                Description = "Premium self-design polo t-shirt tailored in a modern regular fit. Crafted from breathable cotton fabric with textured knit pattern, ribbed polo collar and two-button closure.",
+                Price = 775.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DFTW76W5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81GwuhXJUaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BYP5WCGK",
+                Title = "THE BEAR HOUSE Ardor by Men's Slim Checked Casual Shirt | Orange | TBH-DYEZZ-OR",
+                Description = "Smart casual slim-fit shirt tailored in vibrant orange checked pattern. 100% breathable cotton fabric with button-down collar, chest pocket and curved hemline.",
+                Price = 749.00m,
+                OriginalPrice = 2390.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BYP5WCGK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81i9TVg2wsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DVZHYBM9",
+                Title = "THE BEAR HOUSE Men's Slim Fit Multicolor Cotton Flannel Shirt",
+                Description = "Cozy slim-fit multicolor flannel shirt crafted from ultra-soft brushed cotton. Ideal for layering or casual outings with buttoned cuffs and patch pocket.",
+                Price = 873.00m,
+                OriginalPrice = 2495.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DVZHYBM9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yG2C-+ocL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3JRYY54",
+                Title = "The Bear House Men's Cotton Checkered Slim Fit Shirt",
+                Description = "Classic checkered slim-fit shirt made from pure cotton. Designed with a structured spread collar, button-through front placket and all-day breathable comfort.",
+                Price = 853.00m,
+                OriginalPrice = 2495.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F3JRYY54?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Zx8kz8xVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFCSN72K",
+                Title = "THE BEAR HOUSE Men Slim Button-Down Flannel Shirt Grey",
+                Description = "Warm grey flannel button-down casual shirt with soft-touch finish. Features a tailored slim silhouette, curved hemline and versatile styling for all seasons.",
+                Price = 649.00m,
+                OriginalPrice = 2495.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DFCSN72K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91VSytow0ML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQCH9K1S",
+                Title = "Yash Gallery Women's Pure Cotton Printed Kurta and Pant Set with Mandarin Collar, 3/4 Roll-Up Sleeves, Side Pockets & Flared A-Line Silhouette - Comfortable Ethnic Co-ord Set",
+                Description = "Yash Gallery Women's Pure Cotton Printed Kurta and Pant Set with Mandarin Collar, 3/4 Roll-Up Sleeves, Side Pockets & Flared A-Line Silhouette - Comfortable Ethnic Co-ord Set...",
+                Price = 899.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FQCH9K1S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1jOKy5jT0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLDS8HYW",
+                Title = "Biba Women's Blue Viscose Rayon Straight Printed Suit Set",
+                Description = "Elegant straight printed suit set crafted from fluid viscose rayon fabric. Features traditional ethnic prints, notched neckline, paired trousers and coordinating dupatta.",
+                Price = 1609.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FLDS8HYW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819q7LR0AgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTHY4GS6",
+                Title = "BIBA Women's Beige Pure Cotton Printed Straight Kurta Sets_36",
+                Description = "Sophisticated beige pure cotton printed straight kurta set with delicate ethnic motifs. Designed with comfortable regular fit pants, breathable fabric and timeless design.",
+                Price = 1619.00m,
+                OriginalPrice = 3799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DTHY4GS6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81FfcE-uIeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GZ7ZXCSP",
+                Title = "Women's Floral Printed Kurta Palazzo Set with Dupatta | Ethnic Straight Kurta Suit for Women | Festive Regular Wear | Designer Pakistani Style Salwar Suit for Daily Wear (XL, Regular)",
+                Description = "Chic floral printed straight ethnic kurta paired with matching palazzo pants and sheer dupatta. Perfect for festive gatherings, workwear, and casual celebrations.",
+                Price = 949.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GZ7ZXCSP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61a7MDYVGuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GYYRGRRR",
+                Title = "BHARVITA Women's Cotton Embroidered Anarkali Kurta and Palazzo with Dupatta Set (IN, Alpha, 2XL, Regular, GREEN)",
+                Description = "Festive green cotton embroidered Anarkali kurta and palazzo set with ornate dupatta. Highlights flared silhouette, intricate embroidery, and breathable cotton fabric.",
+                Price = 868.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GYYRGRRR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91IHAQrPS1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FF4PM1KK",
+                Title = "Pink Paprika by SASSAFRAS Women's Blue Poplin Floral Ruffle Neck Smocked Skater Dress-L",
+                Description = "Feminine blue floral poplin skater dress featuring romantic ruffle neckline and smocked waistline. Lightweight, breezy fabric designed for effortless daywear.",
+                Price = 899.00m,
+                OriginalPrice = 2498.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FF4PM1KK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1Ffefsw8ZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDBCS9GH",
+                Title = "sassafras Women's Orange Floral Front Tie Knot Playsuit-L",
+                Description = "Vibrant orange floral front tie-knot playsuit crafted with comfortable silhouette. Features short sleeves, flattering cinched waist and playful tropical pattern.",
+                Price = 484.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FDBCS9GH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/912r8kWR7iL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9YY9BS4",
+                Title = "SASSAFRAS Off-White Paisley Floral Kimono Mini Dress",
+                Description = "Boho-inspired off-white paisley floral kimono mini dress. Designed with relaxed wide sleeves, wrap-style front, and self-tie belt for an effortless chic look.",
+                Price = 626.00m,
+                OriginalPrice = 2399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F9YY9BS4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91cpDizzvPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F1NF958X",
+                Title = "ONLY Women's Regular Fit White T-Shirt",
+                Description = "Versatile pure cotton white t-shirt in a relaxed regular fit. Features classic round crew neck, short sleeves and ultra-soft breathable feel for everyday essentials.",
+                Price = 390.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F1NF958X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81zDCXF5s9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DN14C5K1",
+                Title = "ONLY Women's Regular Fit Green Top",
+                Description = "Trendy green casual top crafted from lightweight woven fabric. Tailored with a flattering regular fit silhouette, round neckline and modern styling.",
+                Price = 954.60m,
+                OriginalPrice = 2799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DN14C5K1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Gwsak62LL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BZ4RXZ3F",
+                Title = "ONLY Relaxed Fit Shirt (15310603_Purple Heather_38)",
+                Description = "Contemporary relaxed-fit shirt in subtle purple heather. Tailored with spread collar, dropped shoulders, buttoned front placket and soft drape.",
+                Price = 366.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BZ4RXZ3F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81t1T6rc5IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D1CG4D3T",
+                Title = "ONLY Women Printed Rayon Oversized Multicolor Shirt",
+                Description = "Expressive oversized multicolor printed shirt made from silky smooth rayon. Features bold artistic patterns, camp collar, and laid-back relaxed silhouette.",
+                Price = 600.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D1CG4D3T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81EHdaeJxdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D1CJQXJY",
+                Title = "ONLY Women Printed Viscose Purple Shirt",
+                Description = "Vibrant printed purple casual shirt crafted from breathable viscose fabric. Styled with button-down front, relaxed fit, and modern all-over print.",
+                Price = 445.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D1CJQXJY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81HOPgBUqbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMYQLKR2",
+                Title = "ONLY Women's Self Design Oversized Fit White Shirt",
+                Description = "Minimalist oversized white shirt featuring subtle self-design texture. Crisp collar, full button placket, and exaggerated cuffs for a refined aesthetic.",
+                Price = 980.00m,
+                OriginalPrice = 2799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FMYQLKR2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81yAdOFxeCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJQR5Q6W",
+                Title = "ONLY Women's Regular Fit Pink T-Shirt",
+                Description = "Comfortable everyday pink tee crafted from 100% soft cotton jersey. Designed with classic crew neck, short sleeves, and easy-going regular fit.",
+                Price = 539.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DJQR5Q6W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LvyMd-JzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FVXHS2XM",
+                Title = "ONLY Women's Floral Print Slim Fit Mid-Rise Blue Jeans",
+                Description = "Statement mid-rise blue denim jeans featuring subtle floral print detailing. Tailored in a flattering slim-fit cut with 5-pocket styling and stretch comfort.",
+                Price = 1799.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FVXHS2XM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ez8mQOpcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FL76QVDX",
+                Title = "ONLY Women's Floral Print Loose Fit Multicolor Top",
+                Description = "Airy loose-fit multicolor floral top tailored from lightweight breathable fabric. Features playful prints, round neckline and relaxed drapey silhouette.",
+                Price = 690.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FL76QVDX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81iwNw-Y0-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GC7F9165",
+                Title = "Levi's Women's Solid Regular Fit T-Shirt",
+                Description = "Authentic Levi's casual crewneck t-shirt in comfortable regular fit. Crafted from super-soft 100% cotton jersey with iconic subtle logo tab.",
+                Price = 350.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GC7F9165?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-0p5tngWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GC78BL2Z",
+                Title = "Levi's Women's Solid Relaxed Fit T-Shirt",
+                Description = "Effortless relaxed-fit tee from Levi's offering modern drape and all-day comfort. Made from breathable pure cotton with durable ribbed crew neck.",
+                Price = 560.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GC78BL2Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81RLJOlfrUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DSJBZQZS",
+                Title = "Levi's Women's Typographic Print Boxy T-Shirt",
+                Description = "Trendy boxy-fit graphic tee featuring bold Levi's typographic print. Cut with dropped shoulders, cropped hemline, and vintage-washed cotton.",
+                Price = 660.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DSJBZQZS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81nlKt-pD8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G448X2DK",
+                Title = "RAREISM A-LINE Geometric Print MIDI Dress",
+                Description = "Sophisticated A-line midi dress featuring sharp geometric prints. Tailored with defined waist, flowy skirt, and premium fabric suitable for office and dinner.",
+                Price = 1124.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G448X2DK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61R46s7ogCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3P5LT6Z",
+                Title = "GAP Womens Short Sleeve Graphic Slim Fit Tshirt, Pink, L",
+                Description = "Iconic GAP graphic logo t-shirt in soft pastel pink. Tailored in a flattering slim fit from breathable cotton jersey with short sleeves.",
+                Price = 674.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F3P5LT6Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yC2SGIE3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3CWJ149",
+                Title = "GAP Women Solid Slim fit Crew Neck t-Shirt with Short Sleeves,Beige,S",
+                Description = "Essential beige crewneck t-shirt by GAP in a clean slim fit. Ultra-soft touch cotton fabric designed for smooth everyday layering.",
+                Price = 562.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F3CWJ149?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81AwYd3SORL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H268RRYW",
+                Title = "RIEKA Womens Floral Applique Embroidered Fancy Top with Mandarin Collar Button Down Front Half Sleeves Relaxed Fit Casual Tunic Top for Women (D.Pink-L)",
+                Description = "RIEKA Womens Floral Applique Embroidered Fancy Top with Mandarin Collar Button Down Front Half Sleeves Relaxed Fit Casual Tunic Top for Women (D.Pink-L)...",
+                Price = 548.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H268RRYW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cb+zb2w+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F32SK67R",
+                Title = "Free Authority Official F.R.I.E.N.D.S Logo Graphic Printed Women's Regular Fit T-Shirt | Black Pure Cotton Crew Neck Casual Half Sleeve Tee",
+                Description = "Free Authority Official F.R.I.E.N.D.S Logo Graphic Printed Women's Regular Fit T-Shirt | Black Pure Cotton Crew Neck Casual Half Sleeve Tee...",
+                Price = 449.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F32SK67R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71i9PM+uK4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H65MJQJ4",
+                Title = "Bow Clips for Baby Girls, Kids - 3 Pcs Satin Bow Clips for Hair, Floral Sheer Tail Bows with Pearl Accents - Hair Bow Clip for Kids | Mixed Colours & Designs | GogoPogo",
+                Description = "Adorable 3-piece satin bow hair clips featuring floral sheer tails and pearl accents. Gentle alligator grip ensures secure and comfortable hold on delicate hair.",
+                Price = 242.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H65MJQJ4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uHYFAoZnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C4B2SR7S",
+                Title = "Brooch Pin, Neckline Safety Pin, Small Brooches for Women, Brooch Safety Pins for Women Girls, 6 PCS Brooches and Pins for Women Girls Clothing Dresses Decoration Accessories",
+                Description = "Set of 6 decorative neckline safety brooch pins for women's dresses and ethnic wear. Embellished with pearls and crystals for anti-slip neckline styling.",
+                Price = 228.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C4B2SR7S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CMTityUGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNBLNXXR",
+                Title = "SUSVIJ EVIL EYE BLACK THREAD evileye PACK OF 2",
+                Description = "Pack of 2 traditional Nazariya black thread bracelets featuring protective evil eye charms. Durable adjustable thread for daily wrist or ankle wear.",
+                Price = 170.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DNBLNXXR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41ExIxEughL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCBNQ9SK",
+                Title = "Robustt Self Locking Cable Ties | 100 X 2.5 mm | 200 Pieces, White | Heat Resistant Cable Zip Ties | Self-Locking Cable Organizer | Anti - Slip Wire Organizer | For Indoor & Outdoor Use",
+                Description = "Strong Grip: Robustt cable ties are crafted from high-quality, non-breaking nylon material, ensuring exceptional tensile strength and flexibility. Rest assured that our wire organzier is built to last and provide a reliable solution for your bundling and organizing needs. - Se...",
+                Price = 239.00m,
+                OriginalPrice = 398.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HCBNQ9SK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-KxSzdzuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFX12WRY",
+                Title = "Elleys 6A 2M Push Bell | Touch Bell Switch | doorbell button Suited for Office, Hotel, Residence (Grey)",
+                Description = "Premium Finish: Elegant and stylish design that complements modern home and office interiors. - UV Resistant: Designed to retain its color and appearance even with prolonged exposure to sunlight. - Durable Polycarbonate: Made from high-quality polycarbonate material for ...",
+                Price = 590.00m,
+                OriginalPrice = 1080.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFX12WRY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41qL7hxOfEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGGHDD4W",
+                Title = "NeuroBuddy 60-Minute Visual Timer for Kids and Daily Routines | Twist-to-Set, Audible Alert, Visual Time Support for Study, Transitions, Screen Time, Home and Classroom",
+                Description = "VISUAL TIME MANAGEMENT: The coloured rainbow section gradually shrinks as time passes, making it easy for children to see exactly how much time remains at a glance. - SIMPLE TWIST-TO-SET DESIGN: Just twist the dial to set up to 60 minutes and an audible alert signals when time...",
+                Price = 1199.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGGHDD4W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SCjkwaQTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLSHB35S",
+                Title = "Lite 2.5 Sqmm Electrical Wire|45M|Single Core|Copper|FR PVC Insulation Domestic",
+                Description = "Wire Size: 2.5 Sqmm - suitable for various low-power electrical applications. - Length: Available in convenient roll lengths for easy insta - PVC Insulation: Durable PVC outer insulation helps provide protection and flexibility.",
+                Price = 540.00m,
+                OriginalPrice = 2690.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HLSHB35S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j2cZahYWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC77RF55",
+                Title = "KARRY 1 SWEDEN 7 Inch Air Ducting HVAC Exhaust Hose | Flexible Ventilation Duct Pipe for Kitchen Chimney, Exhaust Fan, Dryer, AC & Ventilation System | (7 Inch - 2 Meters)",
+                Description = "PREMIUM QUALITY MATERIAL: Made from durable, lightweight, and tear-resistant material for long-lasting performance. Designed to withstand daily use while maintaining excellent airflow efficiency in residential and commercial ventilation systems. - FLEXIBLE & EASY TO INSTALL: H...",
+                Price = 750.00m,
+                OriginalPrice = 950.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HC77RF55?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71A2j-tIEgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLL67TTQ",
+                Title = "Murphy Ador 12W LED Surface COB Spot Light Black Reflector | Natural White 4000K | 360 deg Rotatable & 90 deg Adjustable | Aluminium Body | BIS Approved | 2 Year Warranty | Pack of 1",
+                Description = "Premium Natural White Lighting Emits balanced 4000K Natural White light for clear, comfortable illumination - ideal for homes, offices, retail spaces & work areas. - Adjustable Focus Lighting Equipped with 360 deg rotation and 90 deg tilt to direct light precisely where requir...",
+                Price = 750.00m,
+                OriginalPrice = 1935.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HLL67TTQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/714J1YQVjgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBB4X4S1",
+                Title = "HOME RITUALS 24PCS Peg Board For Wall With Accessories Organizer- Metal Peg Board Wall Organizer, Study Table Storage Kitchen Pegboard Wall Panel Office Desk Wall Hanging Board Pegboard Kids Adult",
+                Description = "VERSATILE 4-PANEL PEG BOARD FOR WALL WITH ACCESSORIES STORAGE: HOME RITUALS Pegboard Kit includes 4 panels, each measuring 11\" x 11\" with 24Pcs Accessories. These peg board for wall is made of HIGH QUALITY perforated board material, creating a practical peg board wall for home...",
+                Price = 2597.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HBB4X4S1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71lqwRBIXBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HHF6QWWV",
+                Title = "atomberg Renesa Prime Crest 900mm Regulator Operated BLDC Ceiling Fan- No Remote | BEE 5 Star | High Air Delivery | Low Noise | 3 Year Warranty | Gloss White",
+                Description = "SLEEK DESIGN: Atomberg Renesa Prime Crest Regulator has a compact body with sleek designer blades that elevate the decor of your room - ADVANCE AIR+ TECHNOLOGY: It is powered by Advance Air+ Technology, featuring a unique motor and blade combination engineered to deliver best-...",
+                Price = 3399.00m,
+                OriginalPrice = 6300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HHF6QWWV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XojDi0gDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCBYHYYF",
+                Title = "Oxalic Acid Powder 980g (99% Pure) - Hard Water Stain Remover for Bathroom Tiles, Granite, Marble, Rust Cleaner for Steel Taps & Sinks, Teak Wood Brightener & Brass Copper Polish",
+                Description = "PURE CRYSTALLINE GRADE: High-purity technical grade Oxalic Acid Powder for deep iron chelation and tough stain removal. Contains zero fillers, dyes, or artificial diluent - 1 KG POWDER = UP TO 20 LITRES CLEANER: Extremely economical compared to weak, pre-diluted liquid sprays ...",
+                Price = 299.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HCBYHYYF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+w3UVvWPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCHWDPNH",
+                Title = "I K IMPEX Magic Eraser Cleaning Sponge Pack of 6 | Removes 100+ Tough Stains | No Scratch Multi-Purpose Cleaner for Walls, Kitchen, Bathroom, Tiles, Sink, Shoes & Car Interior | Just Add Water",
+                Description = "PREMIUM MELAMINE FOAM: Made from high-quality melamine foam that helps remove everyday dirt, scuff marks, grease, soap residue and stains from suitable hard surfaces using water. - MULTI-SURFACE CLEANING: Suitable for cleaning walls, kitchen countertops, bathroom tiles, si...",
+                Price = 255.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HCHWDPNH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7119z32JWrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H9RKPZH2",
+                Title = "3 in 1 Floor Cleaning Brush with Wiper, Bathroom Cleaning Brush with Long Handle, Tile Scrubber, Floor Scrub Brush, Bathroom Floor Cleaner and Wiper for Kitchen Tiles, Walls and Toilet",
+                Description = "[ 3-IN-1 FLOOR CLEANING BRUSH WITH WIPER ] : This floor cleaning scrubber is the ultimate cleaning brush for every home! Our floor scrub brush combines three essential tools: stiff bristles for scrubbing, a rubber squeegee for pushing water, and handy tweezers for picking up d...",
+                Price = 999.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H9RKPZH2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61PLi0ZZHNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HG1T2H5F",
+                Title = "Amazon Basics Health Faucet Set - Premium ABS Plastic Jet Spray Gun with SS Pipe for Toilet | Bathroom Bidet Sprayer Kit, Pack of 1",
+                Description = "Premium Jet Spray Performance - Health Faucet Gun Enjoy a high-pressure water spray for better cleaning & hygiene. Designed for toilet use with smooth trigger control - Durable Build - Long-Lasting Faucet Gun Made from corrosion-resistant material for long life. Perfect fo...",
+                Price = 299.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HG1T2H5F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81cuo5yvA-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HMLZV3JB",
+                Title = "Galaa Mopping Stick mop Stick Rod only Household Supplies Mob for Floor Cleaning for Home Floor Spin mop Stick Rod House Products mop Handle Spin Microfiber System, Stainless SteeEasy Grip Handle,",
+                Description = "STAINLESS STEEL HANDLE: Crafted from durable stainless steel for long-lasting strength and resistance to rust. - EASY GRIP DESIGN: The ergonomic handle provides a comfortable, firm grip for effortless mopping across all floor types. - SPIN MOP COMPATIBLE: Designed to work seam...",
+                Price = 270.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HMLZV3JB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31a-tKI9gjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKHWHZ75",
+                Title = "Mop Heavy Quality Floor Mop with Bucket, Flexible Kitchen tap Flat Squeeze Cleaning Supplies 360 Flexible Head/2 Reusable Pads Clean Home Floor Cleaners",
+                Description = "TELESCOPIC HANDLE for COMFORTABILITY and EASY USE: Its friendly grip makes holding the mop more comfortable and easy to use - Good Quality: The mop pad used in the mop is washable microfiber, which absorbs water super fast, and it is easy to remove dust and oil stains. The han...",
+                Price = 899.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HKHWHZ75?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71IEU1I9nUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HF8498C5",
+                Title = "Amazon Basics Flexible Tap Extension for Kitchen Sink with Universal Connector | 2 Flow Modes | Faucet Extender with Water Tap Aerator | Up to 50% Water Saving | Flexible Flexi Neck",
+                Description = "360 deg Rotating Design: Flexible tap extension for kitchen sink allows easy water direction and better sink coverage for convenient washing and cleaning. - Flexible Kitchen Tap Extender: Designed to improve reach around the sink, making it easier to wash utensils, vegetables, fr...",
+                Price = 399.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HF8498C5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Eg0m0kjqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJ7W9F8M",
+                Title = "Scotch-Brite Sponge Wipes Reusable Kitchen & House Cleaning Wipes, Easy to Use, Cleans Mess in a Swipe, Multicolor, Biodegradable, Pack of 4",
+                Description = "EASY CLEANING: Scotch-Brite Sponge Wipes help clean everyday spills, stains and messes quickly and conveniently. - MULTIPURPOSE USE: Ideal for cleaning kitchen counters, dining tables, sinks and other household surfaces. - REUSABLE WIPE: Designed for repeated use, making it a ...",
+                Price = 199.00m,
+                OriginalPrice = 320.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ7W9F8M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bt-vLU5wL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJM2Q7QT",
+                Title = "Kaccha Nimbu Magic Eraser Cleaning Sponge, Multi-Surface Cleaner for Wall, Kitchen, Bathroom, Shoes, Switch Boards & Floor Tiles, Melamine Foam Sponge, No-Scratch, Just Add Water (Pack of 4)",
+                Description = "TRUSTED MAGIC ERASER SPONGE FOR WALL CLEANING This melamine foam magic eraser sponge is built specifically for wall cleaning, erasing crayon marks, shoe scuffs, pencil marks, handprints, and years of grime from painted walls using only water - no chemicals, no scrubbing, no re...",
+                Price = 245.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HJM2Q7QT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Ka0lVlGWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGLBQ99T",
+                Title = "YETI 3-in-1 Bathroom Cleaning Brush with Wiper - Bathroom Cleaning Brush Long Handle 180 deg Rotate Toilet Brush Bathroom Tiles Cleaning, Wiper Floor Scrub for Kitchen Bathroom Cleaning",
+                Description = "3-in-1 Multifunctional Toilet Cleaning Brush - upgraded toilet brush features a unique design with a toilet brush, wiper, and scrubbing head in one versatile tool, perfect for efficient bathroom cleaning. Ideal for removing stains, soap scum, and grime from toilets, bathtubs, ...",
+                Price = 279.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGLBQ99T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41rYsbxjQnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08C5JQTY5",
+                Title = "Prestige Svachh Aluminium Outer Lid Pressure Cooker Combo 2L+3L+5L",
+                Description = "PURE VIRGIN ALUMINIUM: High-quality virgin aluminium ensures faster, even heating and long-lasting, contamination-free cooking. - ANTI-BULGE BASE: Prestige's first-of-its-kind, stay-flat base engineered to resist bulging over time for uniform heat and lasting durability on gas...",
+                Price = 3259.00m,
+                OriginalPrice = 5300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08C5JQTY5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51V6LqZ8-6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08W4DMDKR",
+                Title = "Ramdoot Furniture Solid Sheesham Wood Dining Table Set 6 Seater | Six Seater Dining Table 6 Seater with 6 Chairs for Living Room | 6 Seater Dining Set for Hotel and Restaurant | Dinning Sets | Walnut",
+                Description = "Product Dimensions(In Inch): Table: Length 55 X Width 35 X Height 30 | Chair: Length 16 X Width 17 X Height 34 - Premium Sheesham Wood Build: The sheesham wood dining table 6 seater is crafted from high-quality Sheesham wood, ensuring durability and natural aesthetics. The din...",
+                Price = 19999.00m,
+                OriginalPrice = 45118.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08W4DMDKR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711eHL7akmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6B7CQZT",
+                Title = "Green Soul Comfy | 1 Seater Recliner Sofa with Soft Suede Fabric & Luxuriously Padded Body | Recliner for Relaxing at Home | 3 Years Warranty Color (Blue) | Installation Provided",
+                Description = "ULTIMATE COMFORT - The Green Soul Comfy Recliner Sofa features a meticulously engineered six-layered seating system, offering the perfect balance of bounciness and firmness for extended relaxation. Each layer uses specific materials to enhance comfort and support. The top laye...",
+                Price = 15989.00m,
+                OriginalPrice = 27990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D6B7CQZT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zLiAM5ajL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FH4LYN52",
+                Title = "Durafit91 Velox Pro 6 HP Peak BLDC Motor |Max User Weight 150 Kg|Hydraulic Foldable Treadmill|Running Surface:L -1350mm&W -500mm|25 Level Auto Incline|18 Km/Hr Max Speed|Bluetooth Speaker|Wynd app",
+                Description = "[ Powerful & Efficient BLDC Motor ]- Equipped with a 6 HP Peak Brushless BLDC motor, this treadmill offers high efficiency, reduced noise, and a longer lifespan. The brushless motor ensures smooth operation for interval, speed, and endurance training, with a speed range of 1 t...",
+                Price = 28672.00m,
+                OriginalPrice = 79999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0FH4LYN52?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61MWQOZDiiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D4ZBMTMK",
+                Title = "SPARNOD FITNESS SSB-08 Spin Bike Exercise Cycle for Home Gym with 8kg Flywheel, LED Display, Adjustable Resistance, Silent Belt Drive, 4-way Adjustable Cushioned Seat and 2-way Handlebar, Max User Weight 120 Kg",
+                Description = "Dynamic Core Power: Equipped with a solid chrome 8 kg flywheel and a silent belt drive system; supports a maximum user weight of 120 kg. - Resistance Mastery: Wool felt resistance with a knob for precise control; varied intensity levels for warm-up (0-30%), fat burning (30-50%...",
+                Price = 6899.00m,
+                OriginalPrice = 24990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0D4ZBMTMK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nlVNpsKzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DLVGWRVJ",
+                Title = "BOXJOY 5 Shelf Shoe Racks with 5 Doors, 5 Hook Steel Holder & Wooden Hammer | Shoes Footwear Stand for Home Storage Plastic Shoerack Organizer Rack with Metal Door Frame to Cover Chappal Slippers (Black)",
+                Description = "SPACIOUS & ORGANIZED SHOE RACK FOR HOME: This BOXJOY DIY Plastic Shoe Stand is a 5-tier storage solution that can hold up to 10 pairs of shoes, chappals, slippers, and sneakers. It's perfect for entryways, closets, or store rooms, helping to keep your footwear organized and yo...",
+                Price = 1499.00m,
+                OriginalPrice = 2001.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DLVGWRVJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HZUN8GEhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FXXYYL71",
+                Title = "Amazon Basics Multi-Purpose Large Organizer | Modular Storage Box for Clothes, Kitchen, Bedroom & Living Room | Stackable Rack, Space-Saving Wardrobe Cabinet (Off White), 6 Piece, 37.5LX44.7WX27H cm",
+                Description = "BUILT WITH ULTRA-STURDY PLASTIC: Crafted from high-strength PPCP plastic to withstand daily wear, ensuring long-lasting use. SAFE PACKAGING: Packaged with care to prevent damage during transit, so your Chester arrives in pristine condition. - LAB TESTED DURABILITY: Tested by a...",
+                Price = 3699.00m,
+                OriginalPrice = 7999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FXXYYL71?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81BqCk7-wYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3XMWPMK",
+                Title = "Callas ST-40 Wooden Study Table with Hutch & Bottom Storage",
+                Description = "Study Table For Adults: Callas Space-saving modern study table for home with hutch, 1 surface top, 3 shelves, and 1 bottom storage provide ample storage and organization options is perfect for small home offices or study areas. It is designed for studying, reading, writing, dr...",
+                Price = 1999.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F3XMWPMK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710aseth18L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C6TRK8V9",
+                Title = "Benelave by Hindware Volga Pillar Tap for Bathroom | Cold Only Basin Faucet | Made of Brass | Mirror-Like Chrome Finish | Compact Design - Spout Length 8.5cm, Height 11cm | 7-Year Brand Warranty",
+                Description = "Premium Virgin Brass Alloy: Crafted from high-quality virgin brass alloy, our Pillar Tap ensures durability and reliability, promising a long-lasting addition to your bathroom. - Robotic Chrome Electroplating: Experience everlasting shine and corrosion resistance with our Pill...",
+                Price = 989.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C6TRK8V9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/416u+5HEYiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C285QL5B",
+                Title = "BonKaso Climb Easy 4 Step Heavy Duty Foldable Steel Kitchen Ladder for Home & Office - with Safety Lock, Anti-Slip Wide Durable Plastic Steps, Support Handle & Tool Tray (Orange & Black)",
+                Description = "Premium Heavy Duty Steel Build Made with high-grade powder-coated alloy steel for long-lasting durability and all-weather corrosion resistance, ideal for daily home and professional use - Advanced Safety with Clutch Lock : Equipped with a strong safety clutch lock, anti-skid r...",
+                Price = 2089.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C285QL5B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71IrwlpP21L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FSNMDJRF",
+                Title = "SEZNIK Mighty Wet and Dry Vacuum Cleaner for Home | Spot Cleaning & Blowing | 1300Watt, 20KPA Suction | 9 Attachments | 6m BIS Cord | Includes 1 Year Maintenance Kit Worth Rs. 2699",
+                Description = "INDIA'S NEXT-GEN VACUUM WITH BUILT-IN SPOT CLEANING: Smart Vacuum Cleaner in India that combines dry vacuuming, wet vacuuming, blower mode + stain/spot cleaning in a single device. This wet and dry vacuum cleaner for home comes with Seznik Spot Cleaner Liquid + Spot Brush Atta...",
+                Price = 8499.00m,
+                OriginalPrice = 14999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FSNMDJRF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81nQKRbLJPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
