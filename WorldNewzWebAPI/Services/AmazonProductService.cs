@@ -1388,7 +1388,7 @@ Description = "Check out this top-rated lifestyle product verified by our team. 
                 new AmazonProduct
                 {
                     Asin = "B0G4DJ4PVQ",
-Title = "Arayna Women’s Cotton Printed Kurta Set with Palazzo Pants and Dupatta | Ethnic Straight Kurta",
+Title = "Arayna Women's Cotton Printed Kurta Set with Palazzo Pants and Dupatta | Ethnic Straight Kurta",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -1778,7 +1778,7 @@ Description = "Check out this top-rated electronics product verified by our team
                 new AmazonProduct
                 {
                     Asin = "B0FDKRVFYL",
-Title = "Nobero Women’s Graphic Printed T-Shirt | Regular Fit 180 GSM Cotton Tee for Women | Comfortable Round Neck Casual Wear",
+Title = "Nobero Women's Graphic Printed T-Shirt | Regular Fit 180 GSM Cotton Tee for Women | Comfortable Round Neck Casual Wear",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -1868,7 +1868,7 @@ Description = "Check out this top-rated shopping product verified by our team. H
                 new AmazonProduct
                 {
                     Asin = "B0FN7KN3LH",
-Title = "Gufrina Women’s Abstract Printed Button Down Shirt with Mandarin Collar and Above Elbow Sleeve Relaxed Fit Top",
+Title = "Gufrina Women's Abstract Printed Button Down Shirt with Mandarin Collar and Above Elbow Sleeve Relaxed Fit Top",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -1973,7 +1973,7 @@ Description = "Check out this top-rated kitchen & home product verified by our t
                 new AmazonProduct
                 {
                     Asin = "B0FWRCG2Y5",
-Title = "Tem Dao & Dun Icon Men’s Perfume Set | SRK Edition | Woody, Spicy & Oud Eau de Parfum | 2 x 50ml Long-Lasting EDP | Premium Fragrance Combo by Fiori Perfumes",
+Title = "Tem Dao & Dun Icon Men's Perfume Set | SRK Edition | Woody, Spicy & Oud Eau de Parfum | 2 x 50ml Long-Lasting EDP | Premium Fragrance Combo by Fiori Perfumes",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -2663,7 +2663,7 @@ Description = "Check out this top-rated lifestyle product verified by our team. 
                 new AmazonProduct
                 {
                     Asin = "B0GTMD6W3V",
-Title = "MOKOSH Women’s Silk Embroidery Peplum Kurta Sharara with Dupatta | Anarkali Kurta Set | Sweetheart Neck Full Sleeve Ethnic Suit | 3 Piece Outfit | Indian Kurta Outfit With Sharara",
+Title = "MOKOSH Women's Silk Embroidery Peplum Kurta Sharara with Dupatta | Anarkali Kurta Set | Sweetheart Neck Full Sleeve Ethnic Suit | 3 Piece Outfit | Indian Kurta Outfit With Sharara",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -2753,7 +2753,7 @@ Description = "Check out this top-rated lifestyle product verified by our team. 
                 new AmazonProduct
                 {
                     Asin = "B0FZ45F1G2",
-Title = "Arayna Women’s Cotton Printed Kurta Set with Pants & Dupatta – 3/4 Sleeve | Elegant Ethnic Wear",
+Title = "Arayna Women's Cotton Printed Kurta Set with Pants & Dupatta – 3/4 Sleeve | Elegant Ethnic Wear",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -2798,7 +2798,7 @@ Description = "Check out this top-rated lifestyle product verified by our team. 
                 new AmazonProduct
                 {
                     Asin = "B0FRN7JNB9",
-Title = "Arayna Women’s Pure Cotton Floral Kurta Set with Pants & Dupatta | Embroidered V-Neck Ethnic Suit",
+Title = "Arayna Women's Pure Cotton Floral Kurta Set with Pants & Dupatta | Embroidered V-Neck Ethnic Suit",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -3023,7 +3023,7 @@ Description = "Check out this top-rated electronics product verified by our team
                 new AmazonProduct
                 {
                     Asin = "B07SD1XPJB",
-Title = "UV Doux Silicone Sunscreen Gel SPF 50 PA+++|India’s No.1 Dermatologist Recommended Brand|Invitro,In-Vivo Tested|UVA/UVB Protection, Benzene Free|No White Cast |Oily & Acne-Prone Skin |100 g",
+Title = "UV Doux Silicone Sunscreen Gel SPF 50 PA+++|India's No.1 Dermatologist Recommended Brand|Invitro,In-Vivo Tested|UVA/UVB Protection, Benzene Free|No White Cast |Oily & Acne-Prone Skin |100 g",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -3263,7 +3263,7 @@ Description = "Check out this top-rated lifestyle product verified by our team. 
                 new AmazonProduct
                 {
                     Asin = "B0GDQQV42Z",
-Title = "LEOTUDE Men’s Oversize Graphic Printed Combo Pack of 3 T-Shirt | Round Neck Half Sleeve T-Shirt for Men's (Combo : Pack of 3)",
+Title = "LEOTUDE Men's Oversize Graphic Printed Combo Pack of 3 T-Shirt | Round Neck Half Sleeve T-Shirt for Men's (Combo : Pack of 3)",
 
 Description = "Check out this top-rated lifestyle product verified by our team. High-quality details, actual product images, and best-value discount pricing.",
 
@@ -11057,7 +11057,7 @@ Description = "Get the best deal on Mee Mee Wet Wipes for Baby Skin with Aloe Ve
             new AmazonProduct
             {
                 Asin = "B0789J9K2B",
-Title = "Mee Mee Baby Liquid Detergent 1 L | pH Balanced, Free from Harsh Chemicals, Safe for Mother’s Hands & Baby’s Skin | Anti-Bacterial, Removes Stains & Odor with One Drop, Hypoallergenic | Mild Scent",
+Title = "Mee Mee Baby Liquid Detergent 1 L | pH Balanced, Free from Harsh Chemicals, Safe for Mother's Hands & Baby's Skin | Anti-Bacterial, Removes Stains & Odor with One Drop, Hypoallergenic | Mild Scent",
 
 Description = "Get the best deal on Mee Mee Baby Liquid Detergent 1 L | pH Balanced, Free from Harsh Chemicals, Safe. High quality, durable, and highly rated on Amazon.",
 
@@ -14525,9 +14525,9 @@ Description = "Get the best deal on Alaukik Decorative Peacock Tealight Candle H
             new AmazonProduct
             {
                 Asin = "B0GWDPLNHB",
-Title = "HiloRill Women’s White Cotton Embroidered Shirt | Formal Office Wear Button Down Shirt for Women | Premium Silk Thread E",
+Title = "HiloRill Women's White Cotton Embroidered Shirt | Formal Office Wear Button Down Shirt for Women | Premium Silk Thread E",
 
-Description = "Get the best deal on HiloRill Women’s White Cotton Embroidered Shirt | Formal Office Wear Button Down. High quality, durable, and highly rated on Amazon.",
+Description = "Get the best deal on HiloRill Women's White Cotton Embroidered Shirt | Formal Office Wear Button Down. High quality, durable, and highly rated on Amazon.",
 
                 Price = 499.00m,
                 OriginalPrice = 673.65m,
@@ -15137,9 +15137,9 @@ Description = "Get the best deal on Luxury Trends Cotton Pillow Covers Set of 4 
             new AmazonProduct
             {
                 Asin = "B0H6XFZBQC",
-Title = "AMERICANVIBER® | Affordable Men’s Wrist Watch Under 500 | Unisex Watch | Classic Dial | Quartz Movement | Stainless Stee",
+Title = "AMERICANVIBER® | Affordable Men's Wrist Watch Under 500 | Unisex Watch | Classic Dial | Quartz Movement | Stainless Stee",
 
-Description = "Get the best deal on AMERICANVIBER® | Affordable Men’s Wrist Watch Under 500 | Unisex Watch | Classic. High quality, durable, and highly rated on Amazon.",
+Description = "Get the best deal on AMERICANVIBER® | Affordable Men's Wrist Watch Under 500 | Unisex Watch | Classic. High quality, durable, and highly rated on Amazon.",
 
                 Price = 445.00m,
                 OriginalPrice = 600.75m,
@@ -16395,7 +16395,7 @@ Description = "Get the best deal on rytras Women Printed A-Line Kurta Set with P
             new AmazonProduct
             {
                 Asin = "B076FQMZZ1",
-Title = "HORNBULL Wallet for Men | Brown Wallet and Belt Gift Hamper for Men | Leather Wallets for Men | Men’s Combo Gift Set",
+Title = "HORNBULL Wallet for Men | Brown Wallet and Belt Gift Hamper for Men | Leather Wallets for Men | Men's Combo Gift Set",
 
 Description = "Get the best deal on HORNBULL Wallet for Men | Brown Wallet and Belt Gift Hamper for Men | Leather Wa. High quality, durable, and highly rated on Amazon.",
 
@@ -20118,9 +20118,9 @@ Description = "Get the best deal on CSN - CUTE SHOPPING NETWORK Fashion Jewelry 
             new AmazonProduct
             {
                 Asin = "B0GTFDKB2C",
-Title = "8-Piece Women’s Fashion Jewelry hamper & Hair Accessories Gift Set | Pendant Chain, Charm Bracelet, Oxidised Jhumki Earr",
+Title = "8-Piece Women's Fashion Jewelry hamper & Hair Accessories Gift Set | Pendant Chain, Charm Bracelet, Oxidised Jhumki Earr",
 
-Description = "Get the best deal on 8-Piece Women’s Fashion Jewelry hamper & Hair Accessories Gift Set | Pendant Cha. High quality, durable, and highly rated on Amazon.",
+Description = "Get the best deal on 8-Piece Women's Fashion Jewelry hamper & Hair Accessories Gift Set | Pendant Cha. High quality, durable, and highly rated on Amazon.",
 
                 Price = 265.00m,
                 OriginalPrice = 357.75m,
@@ -20696,9 +20696,9 @@ Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women's Orthopedic 
             new AmazonProduct
             {
                 Asin = "B0H74D986X",
-Title = "DOCTOR HEALTH SUPER SOFT Women’s Orthopedic Soft Platform Slippers | Ultra-Cushioned Shock Absorbing Footbed | Lightweig",
+Title = "DOCTOR HEALTH SUPER SOFT Women's Orthopedic Soft Platform Slippers | Ultra-Cushioned Shock Absorbing Footbed | Lightweig",
 
-Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women’s Orthopedic Soft Platform Slippers | Ultra-Cushi. High quality, durable, and highly rated on Amazon.",
+Description = "Get the best deal on DOCTOR HEALTH SUPER SOFT Women's Orthopedic Soft Platform Slippers | Ultra-Cushi. High quality, durable, and highly rated on Amazon.",
 
                 Price = 598.00m,
                 OriginalPrice = 807.30m,
@@ -23620,9 +23620,9 @@ Description = "Get the best deal on Stainless Steel Lunch Box 700ML, 2 Compartme
             new AmazonProduct
             {
                 Asin = "B0GZGM67ZX",
-Title = "NICSY Women’s Cotton Boyshorts Underwear | Stretch Mid-Rise Panty Shorts | Soft Breathable Ladies Boxer Briefs | Comfort",
+Title = "NICSY Women's Cotton Boyshorts Underwear | Stretch Mid-Rise Panty Shorts | Soft Breathable Ladies Boxer Briefs | Comfort",
 
-Description = "Get the best deal on NICSY Women’s Cotton Boyshorts Underwear | Stretch Mid-Rise Panty Shorts | Soft . High quality, durable, and highly rated on Amazon.",
+Description = "Get the best deal on NICSY Women's Cotton Boyshorts Underwear | Stretch Mid-Rise Panty Shorts | Soft . High quality, durable, and highly rated on Amazon.",
 
                 Price = 649.00m,
                 OriginalPrice = 876.15m,
@@ -24470,9 +24470,9 @@ Description = "Get the best deal on BOSCH GDS 18V-350 Cordless Impact Wrench for
             new AmazonProduct
             {
                 Asin = "B0GRN34T32",
-Title = "Arayna Women’s Pure Cotton Floral Printed Kurta Pant Dupatta Set | Elegant Ethnic Suit Set with Soft Floral Motifs | Str",
+Title = "Arayna Women's Pure Cotton Floral Printed Kurta Pant Dupatta Set | Elegant Ethnic Suit Set with Soft Floral Motifs | Str",
 
-Description = "Get the best deal on Arayna Women’s Pure Cotton Floral Printed Kurta Pant Dupatta Set | Elegant Ethni. High quality, durable, and highly rated on Amazon.",
+Description = "Get the best deal on Arayna Women's Pure Cotton Floral Printed Kurta Pant Dupatta Set | Elegant Ethni. High quality, durable, and highly rated on Amazon.",
 
                 Price = 998.00m,
                 OriginalPrice = 1347.30m,
@@ -27624,8 +27624,8 @@ Description = "Get the best deal on Breast Lift Cups, Sticky Push Up Bra Pads fo
             new AmazonProduct
             {
                 Asin = "B0GF8ZL3X3",
-                Title = @"LAZZLY Women’s Georgette Maxi Gown | V-Neck, Long Sleeve, Fit & Flare Long Dress | Solid Color Elegant Party Gown (in, A",
-                Description = @"Get the best deal on LAZZLY Women’s Georgette Maxi Gown | V-Neck, Long Sleeve, Fit & Flare Long Dress. High quality, durable, and highly rated on Amazon.",
+                Title = @"LAZZLY Women's Georgette Maxi Gown | V-Neck, Long Sleeve, Fit & Flare Long Dress | Solid Color Elegant Party Gown (in, A",
+                Description = @"Get the best deal on LAZZLY Women's Georgette Maxi Gown | V-Neck, Long Sleeve, Fit & Flare Long Dress. High quality, durable, and highly rated on Amazon.",
                 Price = 999.00m,
                 OriginalPrice = 3099.00m,
                 Rating = 4.5,
@@ -30101,8 +30101,8 @@ Description = "Get the best deal on Breast Lift Cups, Sticky Push Up Bra Pads fo
             new AmazonProduct
             {
                 Asin = "B0GY48N3MW",
-                Title = @"Signature 100% Pure Leather Women’s Clutch Bag -Croco Texture Wallet with Mobile Slot, Multi-Card Holder and Money Organ",
-                Description = @"Get the best deal on Signature 100% Pure Leather Women’s Clutch Bag -Croco Texture Wallet with Mobile. High quality, durable, and highly rated on Amazon.",
+                Title = @"Signature 100% Pure Leather Women's Clutch Bag -Croco Texture Wallet with Mobile Slot, Multi-Card Holder and Money Organ",
+                Description = @"Get the best deal on Signature 100% Pure Leather Women's Clutch Bag -Croco Texture Wallet with Mobile. High quality, durable, and highly rated on Amazon.",
                 Price = 1186.00m,
                 OriginalPrice = 1999.00m,
                 Rating = 4.5,
@@ -34032,7 +34032,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0GQWF5HYM",
-                Title = "Women’s Convertible Track Pants to Shorts – Zip-Off Quick Dry Hiking Pants with Pockets, Lightweight Outdoor Travel Trousers",
+                Title = "Women's Convertible Track Pants to Shorts – Zip-Off Quick Dry Hiking Pants with Pockets, Lightweight Outdoor Travel Trousers",
                 Description = "Clothing & Accessories • Women",
                 Price = 939.00m,
                 OriginalPrice = 2399.00m,
@@ -34888,7 +34888,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0FJ87CMG4",
                 Title = "GUDDIES Auto Focus Reading Glasses, Blue Light Blocking, Rimless Frame, Adjustable Focus for Men and Women Auto Adjusting Optic Magnifying Readers, Computer Screen (pack 1piece)",
-                Description = "REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give a replacement. The replacement device will be provided at the discretion of Onsitego on the basis of the depreciated value of your device • HASSLE-FREE SERVICE: ‘No Questions Asked’ Repair Policy | Zero...",
+                Description = "REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give a replacement. The replacement device will be provided at the discretion of Onsitego on the basis of the depreciated value of your device • HASSLE-FREE SERVICE: 'No Questions Asked' Repair Policy | Zero...",
                 Price = 229.00m,
                 OriginalPrice = 499.00m,
                 Rating = 4.5,
@@ -35698,7 +35698,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0HCCXCMMK",
                 Title = "VIMOSW ART 12 PCS Pastel Highlighter Pens | Dual Tip Soft Color Markers for Journaling, Note Taking, Office & School Supplies | Aesthetic Stationery Cute Highlighters for Study, Planner & Art",
-                Description = "📖 Dry Quickly & Ink-Proof – These pastel highlighter pens are made with high quality quick-dry ink that won’t smudge or bleed through Bible pages, textbooks, planners, or notebooks. Even with heavy use, the colors stay clean and neat. • 🖊️ Smooth & Long Lasting Writing – Desig...",
+                Description = "📖 Dry Quickly & Ink-Proof – These pastel highlighter pens are made with high quality quick-dry ink that won't smudge or bleed through Bible pages, textbooks, planners, or notebooks. Even with heavy use, the colors stay clean and neat. • 🖊️ Smooth & Long Lasting Writing – Desig...",
                 Price = 185.00m,
                 OriginalPrice = 999.00m,
                 Rating = 4.5,
@@ -37138,7 +37138,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0GJF5GBZZ",
                 Title = "The Indus Valley Stainless Steel Impact Bonded Bottom Cookware Set of 5 | Kadai 22cm with Glass Lid + Fry Pan 22cm + Saucepan 16cm with Glass Lid | Green Handles | Induction Compatible",
-                Description = "👌100% TOXIN-FREE: The Indus Valley’s Tri-steel Premium Stainless Steel Cookware Combo - Kadai + Fry Pan + Saucepan - with Capsule Bottom is 100% food-safe; with no chemical coating.",
+                Description = "👌100% TOXIN-FREE: The Indus Valley's Tri-steel Premium Stainless Steel Cookware Combo - Kadai + Fry Pan + Saucepan - with Capsule Bottom is 100% food-safe; with no chemical coating.",
                 Price = 2650.00m,
                 OriginalPrice = 3999.00m,
                 Rating = 4.5,
@@ -37362,8 +37362,8 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0FQXCWK3F",
-                Title = "ETHIC GLANCE Women’s Pure Cotton White Short Kurti with Kashmiri Embroidery | Ethnic & Casual Wear Kurta (in, Alpha, XS, White)",
-                Description = "ETHIC GLANCE Women’s Pure Cotton White Short Kurti with Kashmiri Embroidery | Ethnic & Casual Wear Kurta (in, Alpha, XS, White)...",
+                Title = "ETHIC GLANCE Women's Pure Cotton White Short Kurti with Kashmiri Embroidery | Ethnic & Casual Wear Kurta (in, Alpha, XS, White)",
+                Description = "ETHIC GLANCE Women's Pure Cotton White Short Kurti with Kashmiri Embroidery | Ethnic & Casual Wear Kurta (in, Alpha, XS, White)...",
                 Price = 711.00m,
                 OriginalPrice = 2499.00m,
                 Rating = 4.5,
@@ -37423,7 +37423,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0F9TL7TDY",
                 Title = "FuzzyTales Baby Capybara Soft Toy 25cm | Soft Stuffed Plush Animal for Kids & Adults | Kawaii Cute Animal Toy for Cuddles, Gifts & Room Decor | for Birthdays, Thanksgivings and Every Event (25cm)",
-                Description = "🐾 Cuteness Overload: Capybara plush paired with a tiny turtle backpack for double the adorableness! • 📸 Take It Anywhere: Compact and lightweight-this cuddly duo loves to go on adventures with you. • 💖 Safe & Soft Material: Made from premium plush fabric that’s skin-friendly a...",
+                Description = "🐾 Cuteness Overload: Capybara plush paired with a tiny turtle backpack for double the adorableness! • 📸 Take It Anywhere: Compact and lightweight-this cuddly duo loves to go on adventures with you. • 💖 Safe & Soft Material: Made from premium plush fabric that's skin-friendly a...",
                 Price = 284.00m,
                 OriginalPrice = 1000.00m,
                 Rating = 4.5,
@@ -37573,7 +37573,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B07991F7KY",
                 Title = "Dabur Red 600g (150g x 4, Pack of 4) Toothpaste - India's No.1 Ayurvedic Paste, Provides Protection Plaque Removal, Toothache, Yellow Teeth, Bad Breath-",
-                Description = "Dabur Red is India’s No. 1 Ayurvedic Fluoride Free Paste which is a complete Ayurvedic Oral Care for your family. • It provides 35% betterment on oral care hygiene index in comparison to other regular toothpastes. • Dabur Red Paste provides protection from 7 dental problems: c...",
+                Description = "Dabur Red is India's No. 1 Ayurvedic Fluoride Free Paste which is a complete Ayurvedic Oral Care for your family. • It provides 35% betterment on oral care hygiene index in comparison to other regular toothpastes. • Dabur Red Paste provides protection from 7 dental problems: c...",
                 Price = 264.00m,
                 OriginalPrice = 369.00m,
                 Rating = 4.5,
@@ -37723,7 +37723,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0GDFQYW1G",
                 Title = "GOAT Life High Protein Overnight Oats Pack of 4 Assorted Flavours 3X20g & 1X10g Protein - 285g |Fiber Rich No Added Sugar |Instant Breakfast",
-                Description = "1 - Almond Kulfi(27g), 1 - Mango Madness(24g), 1 - Choco Hazelnut(17g), 1 - Strawberry Swirl(17g) • A Flavor for Literally Everyone: At GOAT Life, we don’t believe that healthy food has to be tasteless, which is why our assorted high protein oats are everything lip-smacking. R...",
+                Description = "1 - Almond Kulfi(27g), 1 - Mango Madness(24g), 1 - Choco Hazelnut(17g), 1 - Strawberry Swirl(17g) • A Flavor for Literally Everyone: At GOAT Life, we don't believe that healthy food has to be tasteless, which is why our assorted high protein oats are everything lip-smacking. R...",
                 Price = 379.00m,
                 OriginalPrice = 486.00m,
                 Rating = 4.5,
@@ -40077,8 +40077,8 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0H1J5GW4W",
-                Title = "Arayna Women’s Cotton Printed Kurta Set with Pants & Dupatta | Elegant Ethnic Wear for Women | Floral Print | Comfortable Suit Set, Teal Blue, 4X-Large",
-                Description = "Arayna Women’s Cotton Printed Kurta Set with Pants & Dupatta | Elegant Ethnic Wear for Women | Floral Print | Comfortable Suit Set, Teal Blue, 4X-Large...",
+                Title = "Arayna Women's Cotton Printed Kurta Set with Pants & Dupatta | Elegant Ethnic Wear for Women | Floral Print | Comfortable Suit Set, Teal Blue, 4X-Large",
+                Description = "Arayna Women's Cotton Printed Kurta Set with Pants & Dupatta | Elegant Ethnic Wear for Women | Floral Print | Comfortable Suit Set, Teal Blue, 4X-Large...",
                 Price = 998.00m,
                 OriginalPrice = 2999.00m,
                 Rating = 4.5,
@@ -40183,7 +40183,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0C45RVGTY",
                 Title = "Premier Smart 2 Litre Table Top Wet Grinder 200 Watts 230V | Stainless Steel Drum | Free Coconut Scraper & Dough Kneader | 2 Stone Grinding | Easy Maintenance | 2 Years Motor Warranty | PG512",
-                Description = "Powerful 200W Motor: Ensures efficient and consistent grinding, perfect for handling a variety of ingredients with ease. • Generous 2-Liter Capacity: Ideal for preparing large batches, whether you’re grinding spices, making batter, or creating pastes. • 230V Voltage Compatibil...",
+                Description = "Powerful 200W Motor: Ensures efficient and consistent grinding, perfect for handling a variety of ingredients with ease. • Generous 2-Liter Capacity: Ideal for preparing large batches, whether you're grinding spices, making batter, or creating pastes. • 230V Voltage Compatibil...",
                 Price = 4299.00m,
                 OriginalPrice = 6770.00m,
                 Rating = 4.5,
@@ -40543,7 +40543,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0HCBGYY32",
                 Title = "MILLION CASES Crystal Snap Case for iPhone 17 Pro Max, iPhone 17 Pro Max Back Cover Case(2025) -PC | Clear",
-                Description = "Crystal-Clear Protection: Premium transparent PC construction showcases your phone’s original design while providing durable everyday protection. • Advanced Shock Resistance: Impact-absorbing design helps cushion accidental drops and minimizes damage from everyday bumps. • Str...",
+                Description = "Crystal-Clear Protection: Premium transparent PC construction showcases your phone's original design while providing durable everyday protection. • Advanced Shock Resistance: Impact-absorbing design helps cushion accidental drops and minimizes damage from everyday bumps. • Str...",
                 Price = 1424.00m,
                 OriginalPrice = 2999.00m,
                 Rating = 4.5,
@@ -40572,8 +40572,8 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0DNTNDDLT",
-                Title = "MOKOSH Women’s Rose Pink Silk Embroidery Anakrali Kurta Pant with Dupatta | Anarkali Kurta Set | Round Neck Full Sleeve Ethnic Suit | Floral Kurta 7 Colour Option Available | 3 Piece Outfit",
-                Description = "MOKOSH Women’s Rose Pink Silk Embroidery Anakrali Kurta Pant with Dupatta | Anarkali Kurta Set | Round Neck Full Sleeve Ethnic Suit | Floral Kurta 7 Colour Option Available | 3 Piece Outfit...",
+                Title = "MOKOSH Women's Rose Pink Silk Embroidery Anakrali Kurta Pant with Dupatta | Anarkali Kurta Set | Round Neck Full Sleeve Ethnic Suit | Floral Kurta 7 Colour Option Available | 3 Piece Outfit",
+                Description = "MOKOSH Women's Rose Pink Silk Embroidery Anakrali Kurta Pant with Dupatta | Anarkali Kurta Set | Round Neck Full Sleeve Ethnic Suit | Floral Kurta 7 Colour Option Available | 3 Piece Outfit...",
                 Price = 1168.00m,
                 OriginalPrice = 4299.00m,
                 Rating = 4.5,
@@ -40887,8 +40887,8 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0H87ZSNQF",
-                Title = "TAGAS Women’s Printed Night Suit Set | Half Sleeve T-Shirt with Full Length Pajama | Relaxed Fit Lounge Wear & Sleepwear for Ladies White",
-                Description = "TAGAS Women’s Printed Night Suit Set | Half Sleeve T-Shirt with Full Length Pajama | Relaxed Fit Lounge Wear & Sleepwear for Ladies White...",
+                Title = "TAGAS Women's Printed Night Suit Set | Half Sleeve T-Shirt with Full Length Pajama | Relaxed Fit Lounge Wear & Sleepwear for Ladies White",
+                Description = "TAGAS Women's Printed Night Suit Set | Half Sleeve T-Shirt with Full Length Pajama | Relaxed Fit Lounge Wear & Sleepwear for Ladies White...",
                 Price = 649.00m,
                 OriginalPrice = 1499.00m,
                 Rating = 4.5,
@@ -41202,8 +41202,8 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0GKXTF46K",
-                Title = "DOCTOR FEEL SOFT Men’s Comfort Flip Flops with Cushioned EVA Sole | Lightweight Anti-Slip Everyday Wear Slippers for Walking, Home, Outdoor & Casual Use",
-                Description = "DOCTOR FEEL SOFT Men’s Comfort Flip Flops with Cushioned EVA Sole | Lightweight Anti-Slip Everyday Wear Slippers for Walking, Home, Outdoor & Casual Use...",
+                Title = "DOCTOR FEEL SOFT Men's Comfort Flip Flops with Cushioned EVA Sole | Lightweight Anti-Slip Everyday Wear Slippers for Walking, Home, Outdoor & Casual Use",
+                Description = "DOCTOR FEEL SOFT Men's Comfort Flip Flops with Cushioned EVA Sole | Lightweight Anti-Slip Everyday Wear Slippers for Walking, Home, Outdoor & Casual Use...",
                 Price = 598.00m,
                 OriginalPrice = 598.00m,
                 Rating = 4.5,
@@ -41547,7 +41547,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0GH15JMHJ",
-                Title = "ECOLAND Men’s Shoe Insole | Soft Cushioned Foot Support Insoles for Formal, Casual, Sports Shoes & Sneakers | Comfortable, Lightweight, Durable & Easy to Fit | Daily Use Footwear Insole BLACK FOAM (1 PAIR) (7)",
+                Title = "ECOLAND Men's Shoe Insole | Soft Cushioned Foot Support Insoles for Formal, Casual, Sports Shoes & Sneakers | Comfortable, Lightweight, Durable & Easy to Fit | Daily Use Footwear Insole BLACK FOAM (1 PAIR) (7)",
                 Description = "SOFT & COMFORTABLE DESIGN: Soft cushioning provides a comfortable feel under the feet and is suitable for everyday walking and regular use • FOOT SUPPORT & CUSHIONING: Designed to provide cushioning and support inside shoes, helping make long hours of walking and standing more...",
                 Price = 141.00m,
                 OriginalPrice = 299.00m,
@@ -41682,8 +41682,8 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0FX99KT51",
-                Title = "Adhishree trends Women’s Red Premium Rayon Anarkali Kurti, Floral Printed Western Frock Calf Length Midi Dress for Women and Girls (S-3XL) for Ganesh Chathurti, Durga Puja, Diwali",
-                Description = "Adhishree trends Women’s Red Premium Rayon Anarkali Kurti, Floral Printed Western Frock Calf Length Midi Dress for Women and Girls (S-3XL) for Ganesh Chathurti, Durga Puja, Diwali...",
+                Title = "Adhishree trends Women's Red Premium Rayon Anarkali Kurti, Floral Printed Western Frock Calf Length Midi Dress for Women and Girls (S-3XL) for Ganesh Chathurti, Durga Puja, Diwali",
+                Description = "Adhishree trends Women's Red Premium Rayon Anarkali Kurti, Floral Printed Western Frock Calf Length Midi Dress for Women and Girls (S-3XL) for Ganesh Chathurti, Durga Puja, Diwali...",
                 Price = 474.00m,
                 OriginalPrice = 1299.00m,
                 Rating = 4.5,
@@ -41713,7 +41713,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0CYT7JFZ2",
                 Title = "CrowdHall Premanand Ji Maharaj Photo Frame | Shri Premanand Govind Sharan Ji Maharaj Painting With Frame Wall Art for Living Room, Home Decor, Bedroom, Office. (Size 10 X 13.5 inches) (Premanand)",
-                Description = "【 IDEAL SIZE AND QUALITY 】- Premanand Ji Maharaj Photo Frame 10 inch x 13.5 inch Print Quality: The artwork is printed on 300 GSM thick paper with high quality printer and vibrant colors, to give it rich look. • 【 IT’S FOR EVERYONE 】- Premanand Ji Maharaj Photo Frame are also ...",
+                Description = "【 IDEAL SIZE AND QUALITY 】- Premanand Ji Maharaj Photo Frame 10 inch x 13.5 inch Print Quality: The artwork is printed on 300 GSM thick paper with high quality printer and vibrant colors, to give it rich look. • 【 IT'S FOR EVERYONE 】- Premanand Ji Maharaj Photo Frame are also ...",
                 Price = 199.00m,
                 OriginalPrice = 699.00m,
                 Rating = 4.5,
@@ -42088,7 +42088,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0FPG1X972",
                 Title = "Zero B H2Ohh Portable Water Filter Bottle - 600ml | Removes 99.9% Bacteria & Viruses | Durable TRITAN Material | Instant Purification | Eco-Friendly Travel & Fitness Bottle (WHITE)",
-                Description = "Trusted by ZeroB - India’s Leading Water Purification Brand - Backed by decades of expertise in clean water technology. • Pure Water Anywhere, Anytime - Advanced ZeroB filter removes 99.9% bacteria & viruses for safe, great-tasting water. • Premium TRITAN Build - Durable, BPA-...",
+                Description = "Trusted by ZeroB - India's Leading Water Purification Brand - Backed by decades of expertise in clean water technology. • Pure Water Anywhere, Anytime - Advanced ZeroB filter removes 99.9% bacteria & viruses for safe, great-tasting water. • Premium TRITAN Build - Durable, BPA-...",
                 Price = 1352.00m,
                 OriginalPrice = 1499.00m,
                 Rating = 4.5,
@@ -42762,7 +42762,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             new AmazonProduct
             {
                 Asin = "B0GH1G19PL",
-                Title = "ECOLAND Men’s Shoe Insole | Soft Cushioned Foot Support Insoles for Formal, Casual, Sports Shoes & Sneakers | Comfortable, Lightweight, Durable & Easy to Fit | Daily Use Footwear Insole GREY",
+                Title = "ECOLAND Men's Shoe Insole | Soft Cushioned Foot Support Insoles for Formal, Casual, Sports Shoes & Sneakers | Comfortable, Lightweight, Durable & Easy to Fit | Daily Use Footwear Insole GREY",
                 Description = "Sweat & Moisture Absorbing Material: Constructed with materials that help absorb sweat and moisture to keep feet dry during daily wear • Soft Cushioned Support: Features soft, lightweight foam construction that provides comfortable cushioning and support for the heel and arch ...",
                 Price = 149.00m,
                 OriginalPrice = 299.00m,
@@ -43033,7 +43033,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0GHYYRHKX",
                 Title = "STITCHNEST Set of 2 Polycotton Cushion Covers - 16x16 Inches - Multicolor Elephant & Jungle Print - Playful Cushion Covers for Kids Room, Sofa & Living Room Decor",
-                Description = "Premium Polycotton Fabric - Soft, smooth, and breathable blend of polyester and cotton that’s durable, lightweight, and wrinkle-resistant. • Available in Multiple Sizes - Choose from 16x16, 12x12, 12x18, 18x18, and 24x24 inches to suit your sofa, bed, chairs. • Invisible Zippe...",
+                Description = "Premium Polycotton Fabric - Soft, smooth, and breathable blend of polyester and cotton that's durable, lightweight, and wrinkle-resistant. • Available in Multiple Sizes - Choose from 16x16, 12x12, 12x18, 18x18, and 24x24 inches to suit your sofa, bed, chairs. • Invisible Zippe...",
                 Price = 123.00m,
                 OriginalPrice = 999.00m,
                 Rating = 4.5,
@@ -43198,7 +43198,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0BWF4VXNL",
                 Title = "Fígaro Pure Olive Oil",
-                Description = "The Multi-Purpose Olive Oil. For over 100 years, Figaro has been India’s trusted name in pure olive oil. • Purity in every drop. It has zero trans fat, zero cholesterol, rich source of Vitamin E and high in Monounsaturated Fatty Acids(MUFA) - type of dietary fibre with numerou...",
+                Description = "The Multi-Purpose Olive Oil. For over 100 years, Figaro has been India's trusted name in pure olive oil. • Purity in every drop. It has zero trans fat, zero cholesterol, rich source of Vitamin E and high in Monounsaturated Fatty Acids(MUFA) - type of dietary fibre with numerou...",
                 Price = 972.00m,
                 OriginalPrice = 1769.00m,
                 Rating = 4.5,
@@ -43498,7 +43498,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0BVR6NHWM",
                 Title = "Bajaj 100% Pure Coconut Oil",
-                Description = "100% Pure Coconut Oil • Made with Premium Grade 1 Quality Coconuts • Fresh Aroma which is a Marker of it’s Purity",
+                Description = "100% Pure Coconut Oil • Made with Premium Grade 1 Quality Coconuts • Fresh Aroma which is a Marker of it's Purity",
                 Price = 299.00m,
                 OriginalPrice = 500.00m,
                 Rating = 4.5,
@@ -43738,7 +43738,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0G48HZ2GL",
                 Title = "Good Knight Flash Liquid Vaporiser | Pack of 6 (45ml Each) | Lavender Fragrance | 2x Faster Than Before | Mosquito Repellent Refill | India s Most Powerful Liquid Vaporizer",
-                Description = "SUPER SAVER PACK: Contains 6 units of Goodknight Flash Liquid Vapourizer Refill - Lavender Fragrance (45ml each) • INDIA’S MOST POWERFUL LIQUID VAPOURISER. Disclaimer: As per a comparative study conducted by an independent NABL accredited Lab (March, 2025) • 2-HOUR CONTINUOUS ...",
+                Description = "SUPER SAVER PACK: Contains 6 units of Goodknight Flash Liquid Vapourizer Refill - Lavender Fragrance (45ml each) • INDIA'S MOST POWERFUL LIQUID VAPOURISER. Disclaimer: As per a comparative study conducted by an independent NABL accredited Lab (March, 2025) • 2-HOUR CONTINUOUS ...",
                 Price = 360.00m,
                 OriginalPrice = 540.00m,
                 Rating = 4.5,
@@ -43948,7 +43948,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0G6CRGH27",
                 Title = "Philips India's No.1 Men's Trimmer* | Long-lasting Performance | All-in-One Grooming Kit- Face, Hair, Body, Private Parts | Ear/Nose, Detail trimmer attachment | 90min runtime | 2yr warranty* | MG3941",
-                Description = "10in1 trimmer (F/H/B) : Our trimmer comes with 10 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • Body combs : The trimmer’s click-on body comb is designed for a gentle and effective trim, ...",
+                Description = "10in1 trimmer (F/H/B) : Our trimmer comes with 10 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • Body combs : The trimmer's click-on body comb is designed for a gentle and effective trim, ...",
                 Price = 2184.00m,
                 OriginalPrice = 3295.00m,
                 Rating = 4.5,
@@ -44083,7 +44083,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0G6DVB6DG",
                 Title = "Philips India's No.1 Men's Trimmer* | One stroke beard trimming | All-in-One Grooming Kit- Face, Hair, Body | Ear/Nose attachment | Safe for Sensitive Skin | 60 mins runtime | 2yrs warranty* | MG3927",
-                Description = "9 tools for all your grooming need: Our trimmer comes with 9 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • Body combs : The trimmer’s click-on body comb is designed for a gentle and effec...",
+                Description = "9 tools for all your grooming need: Our trimmer comes with 9 tools so you can trim and style your facial hair, clip your hair, and groom your body, conveniently covering all your grooming needs. • Body combs : The trimmer's click-on body comb is designed for a gentle and effec...",
                 Price = 1099.00m,
                 OriginalPrice = 2045.00m,
                 Rating = 4.5,
@@ -44623,7 +44623,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0FWY929XM",
                 Title = "Ninja Blast Portable Cordless Blender (BC151INBK) - 530ml | USB-C Rechargeable | Crushes Ice & Frozen Fruit | BPA Free, Leak-Proof Travel Lid",
-                Description = "POWERFUL HIGH PERFORMANCE BLENDING - SMOOTH RESULTS EVERY TIME: Crush ice, frozen fruit & nuts effortlessly with Ninja’s high-performance stainless steel BlastBlade. Perfect for smoothies, protein shakes, cold coffee, lassi in 30 seconds • PORTABLE & CORDLESS - BLEND ANYWHERE,...",
+                Description = "POWERFUL HIGH PERFORMANCE BLENDING - SMOOTH RESULTS EVERY TIME: Crush ice, frozen fruit & nuts effortlessly with Ninja's high-performance stainless steel BlastBlade. Perfect for smoothies, protein shakes, cold coffee, lassi in 30 seconds • PORTABLE & CORDLESS - BLEND ANYWHERE,...",
                 Price = 3499.00m,
                 OriginalPrice = 6530.00m,
                 Rating = 4.5,
@@ -44668,7 +44668,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0GW5QZGKN",
                 Title = "Tecno POP X 5G (Midnight Blue, 6GB+128GB) | 6500mAh+45W Fast Charger | IP64 Pro | MIL-STD 810H Protection | Upto 18GB* RAM | Fastest 8X Network Speed* with URSP | 120Hz Smooth Display | 50MP Camera",
-                Description = "All Day 6500mAh Battery + 45W Fast Charge : Stay powered throughout the day with the massive 6500mAh battery designed for heavy usage including calls, streaming, gaming, and social media. When it’s time to recharge, the 45W fast charging quickly powers up the device so you can...",
+                Description = "All Day 6500mAh Battery + 45W Fast Charge : Stay powered throughout the day with the massive 6500mAh battery designed for heavy usage including calls, streaming, gaming, and social media. When it's time to recharge, the 45W fast charging quickly powers up the device so you can...",
                 Price = 16999.00m,
                 OriginalPrice = 31999.00m,
                 Rating = 4.5,
@@ -44863,7 +44863,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0FHKJ3NGX",
                 Title = "Havells Styling Hair Dryer | Hypersonic Motor | 3 Detachable Attachment| Diffuser, Quill-Style Comb, Aerofocus Nozzle|3 Temperature/2 Speed Settings| Cool Shot| 1200 W |2 years guarantee|HD4161",
-                Description = "21000 RPM Hypersonic Motor - Equipped with a high-performance 1200W motor, this hair dryer delivers a perfect balance of powerful airflow and gentle heat, ensuring fast drying without causing damage to your hair. It’s designed for everyday use and helps you achieve salon-like ...",
+                Description = "21000 RPM Hypersonic Motor - Equipped with a high-performance 1200W motor, this hair dryer delivers a perfect balance of powerful airflow and gentle heat, ensuring fast drying without causing damage to your hair. It's designed for everyday use and helps you achieve salon-like ...",
                 Price = 1449.00m,
                 OriginalPrice = 2595.00m,
                 Rating = 4.5,
@@ -44968,7 +44968,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0CVNB2MBW",
                 Title = "Portronics Car Power 30 Dual Output Fast Car Charger with 30W Type-C PD & 30W USB, LED Indicator, Charging Adapter Compatible with Cars for iPhone & Android Smartphone, Smartwatch(Black)",
-                Description = "Fast Car Charger: Portronics’s Car Power 30, a car charger, delivers fast charging speed through dual ports with a max output of 30 watts, ensuring compatibility with most car models. • Dual Device Charging: The car charger is equipped with powerful dual ports- PD Type-C and U...",
+                Description = "Fast Car Charger: Portronics's Car Power 30, a car charger, delivers fast charging speed through dual ports with a max output of 30 watts, ensuring compatibility with most car models. • Dual Device Charging: The car charger is equipped with powerful dual ports- PD Type-C and U...",
                 Price = 199.00m,
                 OriginalPrice = 799.00m,
                 Rating = 4.5,
@@ -45043,7 +45043,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0FKNNQ6KY",
                 Title = "Lifelong Fit Pro Spin Fitness Bike for Home Cardio Workout with 7 KG Flywheel, Adjustable Resistance, LED Display, Cushioned Seat, Non-Slip Pedals, Max User Weight 120 KG, Black & Red",
-                Description = "Smooth & Stable Ride: Enjoy a steady, road-like cycling motion with the 7 KG heavy flywheel that keeps your ride smooth and balanced. You’ll feel the difference in every pedal stroke. • Adjustable Resistance: Take full control of your workout with the easy-turn resistance knob...",
+                Description = "Smooth & Stable Ride: Enjoy a steady, road-like cycling motion with the 7 KG heavy flywheel that keeps your ride smooth and balanced. You'll feel the difference in every pedal stroke. • Adjustable Resistance: Take full control of your workout with the easy-turn resistance knob...",
                 Price = 6999.00m,
                 OriginalPrice = 29999.00m,
                 Rating = 4.5,
@@ -45748,7 +45748,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0BXXPG6FP",
                 Title = "Sony WH-CH720N Active Noise Cancellation Wireless Bluetooth Over Ear Headphones with Mic, Adaptive Sound Control, Quick Charge, Up to 35Hrs Battery, Customized EQ- Blue",
-                Description = "Sony’s lightest Wireless Noise-cancelling headband ever • Up to 50-hour battery life with quick charging (3 min charge for up to 1 hour of playback) • Multi-Point Connection helps to pair with two Bluetooth devices at the same time",
+                Description = "Sony's lightest Wireless Noise-cancelling headband ever • Up to 50-hour battery life with quick charging (3 min charge for up to 1 hour of playback) • Multi-Point Connection helps to pair with two Bluetooth devices at the same time",
                 Price = 6989.00m,
                 OriginalPrice = 14990.00m,
                 Rating = 4.5,
@@ -46528,7 +46528,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0D6MS9DG9",
                 Title = "Ariel Power Gel Liquid Detergent for Front Load - 6kg | Removes 100 Dried Stains in 1 Wash | Faster Dissolving | Long-Lasting Fragrance | Color Protection | At the price of Powders",
-                Description = "Removes Tough Stains Fast: From food spills to daily dirt, Ariel’s formula removes 100 dried stains in one wash. • Quick Dissolve, Zero Residue: Liquid format dissolves instantly to avoid sticky detergent marks or buildup. • Brightens & Protects Colors: No bleach. Just a formu...",
+                Description = "Removes Tough Stains Fast: From food spills to daily dirt, Ariel's formula removes 100 dried stains in one wash. • Quick Dissolve, Zero Residue: Liquid format dissolves instantly to avoid sticky detergent marks or buildup. • Brightens & Protects Colors: No bleach. Just a formu...",
                 Price = 849.00m,
                 OriginalPrice = 1159.00m,
                 Rating = 4.5,
@@ -46588,7 +46588,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B07VS1YTY2",
                 Title = "Safewash Front Load Matic Premium Liquid Detergent 1.8L Refill Pouch with Colour-Protect Technology | 2x Stain Removal | For All Types of Fabrics",
-                Description = "Advance & Effective Cleaning: Safewash Matic Liquid Detergent’s advanced formulation ensures that your clothes are cleaned thoroughly without compromising on their quality or colour • 2x Stain Removal: From stubborn stains to everyday dirt, the powerful 2x stain removal abilit...",
+                Description = "Advance & Effective Cleaning: Safewash Matic Liquid Detergent's advanced formulation ensures that your clothes are cleaned thoroughly without compromising on their quality or colour • 2x Stain Removal: From stubborn stains to everyday dirt, the powerful 2x stain removal abilit...",
                 Price = 245.00m,
                 OriginalPrice = 490.00m,
                 Rating = 4.5,
@@ -46723,7 +46723,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0GY8GV53J",
                 Title = "enem Tumbler, Petal Pink Pop, Insulated Premium Vacuum Leak Proof Tumblers, Stainless Steel Travel Mug with Handle, Lid & Straw, 1.2L Tumbler for Coffee, Iced Tea, or Water",
-                Description = "⭐【Cupholder Friendly】: Whether you’re commuting or road-tripping, enem’s Tumbler sleek design fits all standard cupholders.. • ⭐【Inside the Package】: 1 Tumbler Only • ⭐【Temperature Lock Technology】: This Sipper keeps drinks cold for up to 20 hours and hot for 5 hours-perfect f...",
+                Description = "⭐【Cupholder Friendly】: Whether you're commuting or road-tripping, enem's Tumbler sleek design fits all standard cupholders.. • ⭐【Inside the Package】: 1 Tumbler Only • ⭐【Temperature Lock Technology】: This Sipper keeps drinks cold for up to 20 hours and hot for 5 hours-perfect f...",
                 Price = 876.00m,
                 OriginalPrice = 1599.00m,
                 Rating = 4.5,
@@ -46963,7 +46963,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B0DPHTF2Q8",
                 Title = "Lifekrafts Standard Size Window Mosquito Net (Size-90x120cms/36x47 Inches/2.95x3.94 Feet, Color-Grey) 120 GSM Stitched Fiberglass Net with Strong Hook & Loop Adhesive Tape",
-                Description = "You have chosen the Standard size 90*120 cms. Please note Customisation on standard sizes won’t be provided. If you need customisation, please chose “size custom” in the size selection drop-down menu. If you need help, please WhatsApp us, or use the Amazon messaging systems. •...",
+                Description = "You have chosen the Standard size 90*120 cms. Please note Customisation on standard sizes won't be provided. If you need customisation, please chose “size custom” in the size selection drop-down menu. If you need help, please WhatsApp us, or use the Amazon messaging systems. •...",
                 Price = 399.00m,
                 OriginalPrice = 499.00m,
                 Rating = 4.5,
@@ -47323,7 +47323,7 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 Asin = "B01MY839VW",
                 Title = "Orient Electric Fabrijoy 1000 Watt Dry Iron for clothes with Weilburger Non Stick Soleplate coating | 5 level safety| 2 Years Replacement Warranty by Orient",
-                Description = "1000W powerful heating element: The dry iron comes with a 1000W heating element for fast and powerful heating. It flattens out even the toughest creases with ease, in no time. • German-made non-stick coating: Orient Electric’s iron comes with a non-stick, scratch-resistant Ger...",
+                Description = "1000W powerful heating element: The dry iron comes with a 1000W heating element for fast and powerful heating. It flattens out even the toughest creases with ease, in no time. • German-made non-stick coating: Orient Electric's iron comes with a non-stick, scratch-resistant Ger...",
                 Price = 539.00m,
                 OriginalPrice = 1020.00m,
                 Rating = 4.5,
@@ -50616,6 +50616,996 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 Category = "Home & Kitchen",
                 ProductUrl = "https://www.amazon.in/dp/B0CL6PR63Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
                 ImageUrl = "https://m.media-amazon.com/images/I/71MzFtJCMDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBVZGW33",
+                Title = "2 Pcs Cartoon Printed Insulated Lunch Storage Hand Bag | Cute Cartoon Lunch Bag for School, Picnic, Office, Outdoor, Travel | Useful for Kids, Men & Women (Design and Color May Vary)",
+                Description = "Adorable Designs: These cartoon lunch bags feature adorable animal characters like a penguin, unicorn, and chick, sure to delight kids. • Compact and Portable: Lightweight and compact, these bags are perfect for carrying snacks, sandwiches, and beverages to school or on picnic...",
+                Price = 217.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DBVZGW33?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51EX81latUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07TBTMB4X",
+                Title = "atorakushon Satin Golden Makeup Pouches Cosmetic Necklace Earrings Vanity Jewellery Organizer For Women's",
+                Description = "atorakushon Satin Golden Makeup Pouches Cosmetic Necklace Earrings Vanity Jewellery Organizer For Women's...",
+                Price = 409.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07TBTMB4X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Ok-NmKyiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CSWN8GM3",
+                Title = "Red Tape Designer Comfortable Clogs, Sandals With Adjustable Back Strap For Men Beige - 9 Uk",
+                Description = "Red Tape Designer Comfortable Clogs, Sandals With Adjustable Back Strap For Men Beige - 9 Uk...",
+                Price = 498.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CSWN8GM3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71iRWRAU7FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQSRL7QY",
+                Title = "Multipurpose Cleaning Brush with Liquid Dispenser - Refillable Scrub Brush for Shoes, Clothes, Sink, Tiles & Kitchen | Soft Bristle Soap Dispensing Scrubber Brush",
+                Description = "🧽 COMPLETE SHOE BRUSH CLEANING All-in-one HARKOIZ Brush includes premium cleaning Brush, soft bristle brush & wet Dispenser - perfect for complete sneaker care and daily shoe cleaning. • 👟 INSTANT DEEP CLEAN FORMULA Powerful cleaning Brush removes dirt, mud, yellow stains & ma...",
+                Price = 59.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GQSRL7QY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614lbFMxzyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BXD2SHH8",
+                Title = "PUMA Unisex-Adult Slide Max Black-Cool Dark Gray Slide - 7 UK (39453701)",
+                Description = "PUMA Unisex-Adult Slide Max Black-Cool Dark Gray Slide - 7 UK (39453701)...",
+                Price = 719.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BXD2SHH8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51utcv6JMNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CCJWFMF9",
+                Title = "Centrino Sandals for Men |Flat Casual Sandals With Adjustable Velcro Closure For Easy Wear With Flexible Fitting And Trendy | Stylish Sandal With Unique Sole Design for Office & Travel Navy 9 UK (3263)",
+                Description = "Centrino Sandals for Men |Flat Casual Sandals With Adjustable Velcro Closure For Easy Wear With Flexible Fitting And Trendy | Stylish Sandal With Unique Sole Design for Office & Travel Navy 9 UK (3263...",
+                Price = 499.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CCJWFMF9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/618x+pWvigL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DV5F1947",
+                Title = "THE SACK CO. Large Canvas Tote Bag for Women, Zipper Handbags for Women Inner Pocket for Shopping, Office & Daily Use",
+                Description = "THE SACK CO. Large Canvas Tote Bag for Women, Zipper Handbags for Women Inner Pocket for Shopping, Office & Daily Use...",
+                Price = 76.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DV5F1947?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61w9+r9j+WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HNSCTKTL",
+                Title = "AshcrafZee Sling Bag for Women - Crossbody Shoulder Bag | Lightweight Casual Everyday Handbag",
+                Description = "AshcrafZee Sling Bag for Women - Crossbody Shoulder Bag | Lightweight Casual Everyday Handbag...",
+                Price = 99.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HNSCTKTL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51zwNbxr3fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMNZBYFQ",
+                Title = "THE SACK CO. Canvas Tote Bags for Women College Bag for Girls, 100% Organic Cotton Tote Bag for Shopping, Travel & beach bags for women, Tote Bag",
+                Description = "THE SACK CO. Canvas Tote Bags for Women College Bag for Girls, 100% Organic Cotton Tote Bag for Shopping, Travel & beach bags for women, Tote Bag...",
+                Price = 76.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FMNZBYFQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/619k8vTjzrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FR9GT4LM",
+                Title = "Frido Cloud Comfort Arch Support Slippers for Women & Men | Orthopedic Soft Home Chappal - Unisex Slipper| House Slipper with Anti-Skid Sole for Home Use & Casual (UK-7), Charcoal Black",
+                Description = "Frido Cloud Comfort Arch Support Slippers for Women & Men | Orthopedic Soft Home Chappal - Unisex Slipper| House Slipper with Anti-Skid Sole for Home Use & Casual (UK-7), Charcoal Black...",
+                Price = 799.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0FR9GT4LM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71C+XPnk0GL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HNVT2YNH",
+                Title = "Tote Bag for women | Tote bag for college girls | Handbags Latest | Black Canvas Tote Bag with Floral Print",
+                Description = "Tote Bag for women | Tote bag for college girls | Handbags Latest | Black Canvas Tote Bag with Floral Print...",
+                Price = 79.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HNVT2YNH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/5189p5miI-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DH2NB9SQ",
+                Title = "TAGAS Men's Bomber Polyester Short Length Jacket Wine XL",
+                Description = "TAGAS Men's Bomber Polyester Short Length Jacket Wine XL...",
+                Price = 569.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DH2NB9SQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91txPuBg+rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B06XJY4GJ4",
+                Title = "Pintola All Natural Peanut Butter Crunchy 350g | Smooth, Unsweetened, 30g Protein | Gluten & Cholesterol Free, Vegan Peanut Butter, Nut Butter, High in Protein Spread, 100% Pure Roasted peanuts butter",
+                Description = "100% Peanut - No Palm Oil / Non Hydrogenated Oil / No Preservatives / No Artificial Flavours / Made with just one ingredient: Hand-selected Premium Roasted Peanuts. Our USFDA-approved and peanut butter is a smart choice! Made with premium peanuts, it's a rich source of fiber, ...",
+                Price = 145.00m,
+                OriginalPrice = 164.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B06XJY4GJ4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cOmYw0tzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B2WQFHB2",
+                Title = "Portronics Power Plate 10 Extension Board with 4 Universal Sockets, 2 Meter Long Cord, 1500 Watts, 6 Amp Multi Plug for Office & Home Appliances (Black)",
+                Description = "4 UNIVERSAL POWER SOCKETS: The Power Plate 10 extension board has 4 separate power sockets for efficient multi-tasking. The power board ensures that equal power is distributed throughout the plugged in 6 Amp devices. • 2 METER LONG CORD: Power Plate 10 comes accompanied with a...",
+                Price = 299.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0B2WQFHB2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ZvXlsv2gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0932T482G",
+                Title = "Liril Lime Bathing Bar | Feel the Citrus Burst of Freshness | Pack of 4 (4 x 125g)",
+                Description = "Liril Lime Bathing Bar | Feel the Citrus Burst of Freshness | Pack of 4 (4 x 125g)...",
+                Price = 145.00m,
+                OriginalPrice = 236.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0932T482G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61r6R0Tgp2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFM8WSST",
+                Title = "VAMA FASHIONS 6 Pcs 18K Gold Plated Anti Tarnish Clip on Nose pin without Hole Non Piercing Pressing Type Nose ring Stud for Women & Girls",
+                Description = "VAMA FASHIONS 6 Pcs 18K Gold Plated Anti Tarnish Clip on Nose pin without Hole Non Piercing Pressing Type Nose ring Stud for Women & Girls...",
+                Price = 462.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DFM8WSST?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71atvekwitL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9BVSCRH",
+                Title = "Taasha Craft Pastel Colour Handcrafted Gotapatti Bangles, Handcrafted Cotton Thread Bangle Set Women & Girls Size 2.12 Set of (12 Bangles)",
+                Description = "Taasha Craft Pastel Colour Handcrafted Gotapatti Bangles, Handcrafted Cotton Thread Bangle Set Women & Girls Size 2.12 Set of (12 Bangles)...",
+                Price = 749.00m,
+                OriginalPrice = 1920.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D9BVSCRH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71OsoWZ8HHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FYY22FJZ",
+                Title = "GC PREMIUM JEWELLERY Antique Elephant Design Adjustable Ring for Women & Girls | Kundan Stone, Enamel Work & Multicolor Bead Danglers Statement Finger Ring | Traditional Ethnic Wedding Party Jewellery",
+                Description = "GC PREMIUM JEWELLERY Antique Elephant Design Adjustable Ring for Women & Girls | Kundan Stone, Enamel Work & Multicolor Bead Danglers Statement Finger Ring | Traditional Ethnic Wedding Party Jewellery...",
+                Price = 269.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FYY22FJZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fE1xgCHSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVNQ7XFB",
+                Title = "Nilu's Collection Rose Gold Plated AD Stone Jewellery Set for Women, Girls | Special Ocassion, Wedding, Engagement, Dating | Anti Tarnish | Anti Allergy | Necklace and Earring Set | Gift for Her (Style 5)",
+                Description = "Nilu's Collection Rose Gold Plated AD Stone Jewellery Set for Women, Girls | Special Ocassion, Wedding, Engagement, Dating | Anti Tarnish | Anti Allergy | Necklace and Earring Set | Gift for Her (Styl...",
+                Price = 1498.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GVNQ7XFB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71w9PxJ3JWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H65CD348",
+                Title = "Gold-Plated Antique Temple Jewellery Set for Women - Traditional Necklace with Large Peacock Pendant & Matching Jhumka Earrings | Ethnic Festive & Bridal Wear Set with Ruby & Emerald Accents (D)",
+                Description = "Gold-Plated Antique Temple Jewellery Set for Women - Traditional Necklace with Large Peacock Pendant & Matching Jhumka Earrings | Ethnic Festive & Bridal Wear Set with Ruby & Emerald Accents (D)...",
+                Price = 474.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H65CD348?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zhSy4cGJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09HC87DDT",
+                Title = "Sri Jagdamba Pearls Pink Stone Pearl Necklace",
+                Description = "Sri Jagdamba Pearls Pink Stone Pearl Necklace...",
+                Price = 3063.00m,
+                OriginalPrice = 6600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09HC87DDT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81pQEWjavaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H21GK1VY",
+                Title = "Nilu's Collection Rose Gold Plated American Diamond Necklace & Earrings Set For Women | Anti-Tranish | Anti Allergy | Latest Fashion Jewellery Accessories for Girls | Minimal Jewelry | Ideal for Gifting (Style 3)",
+                Description = "Nilu's Collection Rose Gold Plated American Diamond Necklace & Earrings Set For Women | Anti-Tranish | Anti Allergy | Latest Fashion Jewellery Accessories for Girls | Minimal Jewelry | Ideal for Gifti...",
+                Price = 1797.00m,
+                OriginalPrice = 3500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H21GK1VY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qVsp+ZxgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCJB41ST",
+                Title = "FUBS Purse of Surprises Pink Dupatta with 4 Oxidised Earrings, 2 Kada & 1 Bracelet Combo Gift Set for Women & Girls",
+                Description = "FUBS Purse of Surprises Pink Dupatta with 4 Oxidised Earrings, 2 Kada & 1 Bracelet Combo Gift Set for Women & Girls...",
+                Price = 949.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HCJB41ST?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71aWc6WwYQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHWPMQJT",
+                Title = "VredeVogel Women's Viscose Silk Blend Straight Kurta Pant Set with Printed Dupatta | Festive & Casual Ethnic Kurta Sets for Women (Lavender-L)",
+                Description = "VredeVogel Women's Viscose Silk Blend Straight Kurta Pant Set with Printed Dupatta | Festive & Casual Ethnic Kurta Sets for Women (Lavender-L)...",
+                Price = 1243.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FHWPMQJT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81CfbzL9X9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GD5PVF57",
+                Title = "LEOTUDE Mens Oversized Half Sleeve Cottonblend Round Neck Tshirt Purple",
+                Description = "LEOTUDE Mens Oversized Half Sleeve Cottonblend Round Neck Tshirt Purple...",
+                Price = 268.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GD5PVF57?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81GDgInztbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FSKY5NS4",
+                Title = "GRECIILOOKS Women's Elegant A Line Dresses Stylish Summer Long Georgette Western Dress with Floral Prints | Perfect Gaun Party for Women (GL-WD1343-L-GREEN)",
+                Description = "GRECIILOOKS Women's Elegant A Line Dresses Stylish Summer Long Georgette Western Dress with Floral Prints | Perfect Gaun Party for Women (GL-WD1343-L-GREEN)...",
+                Price = 699.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FSKY5NS4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81yRCFREp+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H4RF4DWT",
+                Title = "LEOTUDE Women's Regular Fit Tshirts for Women/Girls Combo Pack of 3",
+                Description = "LEOTUDE Women's Regular Fit Tshirts for Women/Girls Combo Pack of 3...",
+                Price = 569.00m,
+                OriginalPrice = 759.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H4RF4DWT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Z7w+IE0dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F7R2JWH4",
+                Title = "WINSTON Turbo Pro Hair Dryer - 1800W | Quick Drying Blow Dryer with Low Noise, Cool Shot & Overheat Protection - 1 Year Warranty (Black)",
+                Description = "Professional Turbo 1800W Hair Dryer: Drying time is up to 5X faster for long and thick hair as compared to a regular hairdryer.",
+                Price = 1249.00m,
+                OriginalPrice = 2890.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0F7R2JWH4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51q1JoHsM0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ5P4VFB",
+                Title = "JUNEBERRY® 100% Pure Cotton Oversized Baggy Fit Round Neck T-Shirt for Women & Girls (Sizes: S to 2XL) (OS_JB_POOKIE18_DC_WT_XL)",
+                Description = "JUNEBERRY® 100% Pure Cotton Oversized Baggy Fit Round Neck T-Shirt for Women & Girls (Sizes: S to 2XL) (OS_JB_POOKIE18_DC_WT_XL)...",
+                Price = 379.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ5P4VFB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81NcUPtcfkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G24TJ9FQ",
+                Title = "Ray-Ban Meta Wayfarer Polarised Smart Glasses | AI-Powered Eyewear",
+                Description = "#1 selling AI glasses**** • Capture photos and videos, listen to music, make hands-free calls or ask Meta AI questions on the go. • Take on life with AI* that helps you flow through your day. When activated, Meta AI can analyse your surroundings and provide context-rich sugges...",
+                Price = 24075.00m,
+                OriginalPrice = 32100.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G24TJ9FQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51GYi1kNaBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09YTMW346",
+                Title = "Max Textured Round Neck T-Shirt Navy",
+                Description = "Max Textured Round Neck T-Shirt Navy...",
+                Price = 299.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09YTMW346?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81tjDODpLKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0948X53Q8",
+                Title = "DAUGHTER EARTH Vegan Lip and Cheek Tint | Matte Natural Blush for Women | Lip Tint with Vitamin E | Nourishing Cheek Tint, 4.5g - Coral Nude",
+                Description = "DAUGHTER EARTH Vegan Lip and Cheek Tint | Matte Natural Blush for Women | Lip Tint with Vitamin E | Nourishing Cheek Tint, 4.5g - Coral Nude...",
+                Price = 581.00m,
+                OriginalPrice = 975.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0948X53Q8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61B4NFRpX2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2Z6M5XT",
+                Title = "Shasmi Women's Elegant French Textured Fabric Solid White Color Lace Panel V-Neck Jacquard Blouse,Short Puff Sleeve Tops Simple Daily Spring/Summer Casual Blouse Shirt (Top 178 White-2XL)",
+                Description = "Shasmi Women's Elegant French Textured Fabric Solid White Color Lace Panel V-Neck Jacquard Blouse,Short Puff Sleeve Tops Simple Daily Spring/Summer Casual Blouse Shirt (Top 178 White-2XL)...",
+                Price = 399.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F2Z6M5XT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712+5zpiwpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJBWWPRR",
+                Title = "DAMENSCH Statement Waffle Johnny Collar Full Sleeve Polo with Premium Cotton Blend, Waffle Texture, Colours by High-IQ Dyes Heavy Weight Fabric T-Shirt for Men - Teal Blue - XL",
+                Description = "DAMENSCH Statement Waffle Johnny Collar Full Sleeve Polo with Premium Cotton Blend, Waffle Texture, Colours by High-IQ Dyes Heavy Weight Fabric T-Shirt for Men - Teal Blue - XL...",
+                Price = 1499.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DJBWWPRR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91zNdlOYgZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFM455VZ",
+                Title = "SOJANYA (Since 1958 Men's Cotton Blend Cream Color Floral Design Only Long Kurta",
+                Description = "SOJANYA (Since 1958 Men's Cotton Blend Cream Color Floral Design Only Long Kurta...",
+                Price = 692.00m,
+                OriginalPrice = 2472.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CFM455VZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91LMBec3lrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H1MXV26T",
+                Title = "Carlton London Women Handbag,Brown,Free Size",
+                Description = "Carlton London Women Handbag,Brown,Free Size...",
+                Price = 2086.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H1MXV26T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61U543HeLVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B071CP6K43",
+                Title = "Fastrack Sunglasses |Wayfarer Green |UV protected | Small",
+                Description = "Fastrack Sunglasses |Wayfarer Green |UV protected | Small...",
+                Price = 803.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B071CP6K43?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+THk53YIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMX3HXR4",
+                Title = "TAGAS Women's Sweatshirt| Women Winter Wear| Printed (Sweatshirt) for Women |Womens Winter wear|Available in Plus Size",
+                Description = "TAGAS Women's Sweatshirt| Women Winter Wear| Printed (Sweatshirt) for Women |Womens Winter wear|Available in Plus Size...",
+                Price = 479.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FMX3HXR4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51mKck+CSRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08HQWHNS2",
+                Title = "Amazon Brand - Myx Women's Relaxed Cotton Flared Palazzo (AUR-PLZ-01_Maroon_L)",
+                Description = "Amazon Brand - Myx Women's Relaxed Cotton Flared Palazzo (AUR-PLZ-01_Maroon_L)...",
+                Price = 429.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08HQWHNS2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1cZ5TwB5wL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09ZLPXCFS",
+                Title = "Bombay Shaving Company Tokyo Perfume for Men",
+                Description = "Bombay Shaving Company Tokyo Perfume for Men...",
+                Price = 209.00m,
+                OriginalPrice = 795.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09ZLPXCFS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71QsSj-tk7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBS1MZ4S",
+                Title = "Levi's LS304 Men's Cotton Stretch Ankle Cut Non Terry Socks (Pack of 3)",
+                Description = "Levi's LS304 Men's Cotton Stretch Ankle Cut Non Terry Socks (Pack of 3)...",
+                Price = 329.00m,
+                OriginalPrice = 549.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FBS1MZ4S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61yvPky02QL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D478QSGF",
+                Title = "BBlunt Hair Fall Control Combo | Shampoo + Conditioner + Hair Mask | Reduces Hair Fall | Strengthens Hair | Enriched with Shine Tonic | For Men & Women | 300 ml + 250 g + 250 g",
+                Description = "BBlunt Hair Fall Control Combo | Shampoo + Conditioner + Hair Mask | Reduces Hair Fall | Strengthens Hair | Enriched with Shine Tonic | For Men & Women | 300 ml + 250 g + 250 g...",
+                Price = 639.00m,
+                OriginalPrice = 1253.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D478QSGF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CiKPLwNVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GLQ7WCJY",
+                Title = "rytras Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women(TCK724,Pink,XXL)",
+                Description = "rytras Women's Pure Cotton Printed Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women(TCK724,Pink,XXL)...",
+                Price = 745.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GLQ7WCJY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71MY++2VDsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GN9438X6",
+                Title = "rytras Woman Pure Cotton Printed Straight Kurta Sets with Afghani Pants|Kurti Set for Woman|Cord Set for Women Cotton(RYT704,XXL) Maroon",
+                Description = "rytras Woman Pure Cotton Printed Straight Kurta Sets with Afghani Pants|Kurti Set for Woman|Cord Set for Women Cotton(RYT704,XXL) Maroon...",
+                Price = 523.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GN9438X6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1GJaBNnAhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPXJJFJR",
+                Title = "TAGAS Women's Floral Print Round Nack Full Sleeve TOP | Women Top's | Tops for Womens| Women Long sleevetops|((WT)-755)",
+                Description = "TAGAS Women's Floral Print Round Nack Full Sleeve TOP | Women Top's | Tops for Womens| Women Long sleevetops|((WT)-755)...",
+                Price = 399.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FPXJJFJR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81AOpu3Rh6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ57FT21",
+                Title = "uppercase Grid 62cm Duffle Bag with Wheels, Spacious Compartment, Trolley | Twin Grab Handles | Front Pocket Access | Push-Button Handle | 4 Years Warranty",
+                Description = "uppercase Grid 62cm Duffle Bag with Wheels, Spacious Compartment, Trolley | Twin Grab Handles | Front Pocket Access | Push-Button Handle | 4 Years Warranty...",
+                Price = 1499.00m,
+                OriginalPrice = 3200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ57FT21?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81KNvwZcesL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5QCFP1S",
+                Title = "Skechers Women ULTRA FLEX Slipper",
+                Description = "Skechers Women ULTRA FLEX Slipper...",
+                Price = 2099.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H5QCFP1S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+VX9gdjqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FVF5XN1T",
+                Title = "Arata Anti-Hair Fall Intensive Shampoo | Hairdian AP, Caffeine & Rosemary | Hair Fall Reduction | Boost in Hair Growth Factors | Paraben & Sulphate-Free Shampoo for Women & Men | 200 ML",
+                Description = "Arata Anti-Hair Fall Intensive Shampoo | Hairdian AP, Caffeine & Rosemary | Hair Fall Reduction | Boost in Hair Growth Factors | Paraben & Sulphate-Free Shampoo for Women & Men | 200 ML...",
+                Price = 359.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FVF5XN1T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ncZc978LL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHFTMHP4",
+                Title = "Red Lemon BANGE 25L Laptop Backpack for Men & Women | 15.6 Inch Anti-Theft Travel Bag Large Capacity Work & College Backpack Lightweight Durable Office Bag with Multi Pockets Bottle Holder (Black V2)",
+                Description = "Red Lemon BANGE 25L Laptop Backpack for Men & Women | 15.6 Inch Anti-Theft Travel Bag Large Capacity Work & College Backpack Lightweight Durable Office Bag with Multi Pockets Bottle Holder (Black V2)...",
+                Price = 1799.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DHFTMHP4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/518YoMXb8sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ62RTQB",
+                Title = "Bare Anatomy Nature X Science Rosemary Water Spray for Hair Growth | 250ml | For Hair Growth & Thickness | with Rice Water 200ml + Anti-Hair Fall Shampoo for 5x Hair Fall Control & Growth | Men & Women",
+                Description = "Bare Anatomy Nature X Science Rosemary Water Spray for Hair Growth | 250ml | For Hair Growth & Thickness | with Rice Water 200ml + Anti-Hair Fall Shampoo for 5x Hair Fall Control & Growth | Men & Wome...",
+                Price = 744.00m,
+                OriginalPrice = 883.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ62RTQB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51WN4Rzta8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B38YWLKW",
+                Title = "rytras Women's Cotton Printed Straight Kurta(RYT311_Blue_Large)",
+                Description = "rytras Women's Cotton Printed Straight Kurta(RYT311_Blue_Large)...",
+                Price = 368.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B38YWLKW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A12mZFqEEjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B098J99N4Q",
+                Title = "Clovia Women Non-Padded Cotton Bra - Full Coverage, Wirefree, Blue, 42B | Wire free, double-layered cups, breathable fabric, stretchable fit, hand wash only, everyday innerwear",
+                Description = "Clovia Women Non-Padded Cotton Bra - Full Coverage, Wirefree, Blue, 42B | Wire free, double-layered cups, breathable fabric, stretchable fit, hand wash only, everyday innerwear...",
+                Price = 263.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B098J99N4Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YT7pxJ+wL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GVSWV8ZV",
+                Title = "DAMENSCH Form Shapewear for Men, Comfortable and Stretchy Body Shaper for Man, Posture Correcting Tummy Tucker, Breathable Compression T Shirt, Ideal for Men Formal - Sculpt Beige - L",
+                Description = "DAMENSCH Form Shapewear for Men, Comfortable and Stretchy Body Shaper for Man, Posture Correcting Tummy Tucker, Breathable Compression T Shirt, Ideal for Men Formal - Sculpt Beige - L...",
+                Price = 899.00m,
+                OriginalPrice = 1049.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GVSWV8ZV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Mpcbw2HsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQM8DZQP",
+                Title = "Symbol Premium Men's Smart Casual Tan Leather Sneakers_9 UK (SYP-M-CSH-SNK-01)",
+                Description = "Symbol Premium Men's Smart Casual Tan Leather Sneakers_9 UK (SYP-M-CSH-SNK-01)...",
+                Price = 799.00m,
+                OriginalPrice = 4399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CQM8DZQP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rxIjMjN9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GLGSX5TC",
+                Title = "TAGAS Mens Polo T-Shirt | Men's Color Block Polo Tshirt | Full Sleeve Casual Pullover with Collar | Winter Wear for Men | Mens Regular FIT T-Shirts",
+                Description = "TAGAS Mens Polo T-Shirt | Men's Color Block Polo Tshirt | Full Sleeve Casual Pullover with Collar | Winter Wear for Men | Mens Regular FIT T-Shirts...",
+                Price = 349.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GLGSX5TC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51fSXPTCM6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DT9V6VV3",
+                Title = "VredeVogel Women's Chanderi Silk Embroidered Kurta with Pant & Organza Dupatta Set | Casual Outfit Ethnic Kurta Set for Women | Modern & Traditional Blend Ethnic Wear (White_Large)",
+                Description = "VredeVogel Women's Chanderi Silk Embroidered Kurta with Pant & Organza Dupatta Set | Casual Outfit Ethnic Kurta Set for Women | Modern & Traditional Blend Ethnic Wear (White_Large)...",
+                Price = 949.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DT9V6VV3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81NDo-U1PHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CPBSXB4W",
+                Title = "Moxie Beauty Wave Enhancing Sets (Wavy Vibe Setter Duo) | A sulphate and paraben-free 4-step travel routine that retains 96% moisture while boosting wave definition every day each day",
+                Description = "Moxie Beauty Wave Enhancing Sets (Wavy Vibe Setter Duo) | A sulphate and paraben-free 4-step travel routine that retains 96% moisture while boosting wave definition every day each day...",
+                Price = 1049.00m,
+                OriginalPrice = 1250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CPBSXB4W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eDrxnbkfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GJ6H8F8H",
+                Title = "The Indian Garage Co Men Regular Fit Long Sleeves Baseball Collar Embroidered Jacket (Black_M)",
+                Description = "The Indian Garage Co Men Regular Fit Long Sleeves Baseball Collar Embroidered Jacket (Black_M)...",
+                Price = 1359.00m,
+                OriginalPrice = 6249.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GJ6H8F8H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81TXSTCAsoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D83YSHDZ",
+                Title = "Cruiser Sneaker for Men | Comfort & Style with Soft Cushioned Insole | Trendy Lace-Up Design for Casual Outfits 2606-4 White",
+                Description = "Cruiser Sneaker for Men | Comfort & Style with Soft Cushioned Insole | Trendy Lace-Up Design for Casual Outfits 2606-4 White...",
+                Price = 649.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D83YSHDZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71pMEwlxUkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBDQBW7T",
+                Title = "Lymio Hoodie| Sweatshirt for Unisex | Unisex Hoodie and Sweatshirt (H-47-Black-XL)",
+                Description = "Lymio Hoodie| Sweatshirt for Unisex | Unisex Hoodie and Sweatshirt (H-47-Black-XL)...",
+                Price = 429.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DBDQBW7T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/9182ps0L0VL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DRFPPCRS",
+                Title = "Lymio Men Shorts | Men Shorts Cotton | Men Shorts Casual (Short-11-Lightgrey-XL)",
+                Description = "Lymio Men Shorts | Men Shorts Cotton | Men Shorts Casual (Short-11-Lightgrey-XL)...",
+                Price = 399.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DRFPPCRS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91DIQJ4Z1QL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZGP8XPW",
+                Title = "LERIYA Fashion Men's Cargo Pants with Pockets | Cotton Joggers for Men | 6 Pocket Jeans Pant | Casual Trousers for Men (LF-TP-1174-M-KHAKHI)",
+                Description = "LERIYA Fashion Men's Cargo Pants with Pockets | Cotton Joggers for Men | 6 Pocket Jeans Pant | Casual Trousers for Men (LF-TP-1174-M-KHAKHI)...",
+                Price = 543.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DZGP8XPW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81yqMjHRwFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCVCWKP8",
+                Title = "Pivl Striped Sweater for Men_Mint-M|Winterwear|",
+                Description = "Pivl Striped Sweater for Men_Mint-M|Winterwear|...",
+                Price = 483.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HCVCWKP8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91aQFRX2FqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FQJ3XWFD",
+                Title = "Tuco Mega Makeup Kit set for Kids, Gift For Girls Age 8-10 Years,With Pouch | Non-Toxic Makeup Kit Set for Girls, Cruetly-Free Lipstick, Nail Paint, Lip Balm, Press on Nails, Organic Kajal & Free Pouch",
+                Description = "Tuco Mega Makeup Kit set for Kids, Gift For Girls Age 8-10 Years,With Pouch | Non-Toxic Makeup Kit Set for Girls, Cruetly-Free Lipstick, Nail Paint, Lip Balm, Press on Nails, Organic Kajal & Free Pouc...",
+                Price = 948.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FQJ3XWFD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xD3foTGHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8SGF3SZ",
+                Title = "Nermosa Women's Printed Anarkali Kurta Palazzo Set with Dupatta | Kurta sets for women",
+                Description = "Nermosa Women's Printed Anarkali Kurta Palazzo Set with Dupatta | Kurta sets for women...",
+                Price = 703.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H8SGF3SZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61PEr9fd9QL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00RCK2GJ4",
+                Title = "LuxaDerme Peeling & Exfoliating Foot Mask",
+                Description = "✅ AHA + BHA DEEP EXFOLIATION : Powered by Glycolic Acid, Lactic Acid & Salicylic Acid to help loosen stubborn calluses and support natural skin renewal. Designed to deliver effective exfoliation while remaining gentle when used as directed. • ✅ EASY SOCK MASK APPLICATION : Was...",
+                Price = 549.00m,
+                OriginalPrice = 750.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B00RCK2GJ4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61VY3KuQnoL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
