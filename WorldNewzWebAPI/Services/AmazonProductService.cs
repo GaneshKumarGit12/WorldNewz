@@ -51609,6 +51609,411 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0HFK2M3TC",
+                Title = "Amayra Woman's Pure Cotton Embroidered A-Line Kurta Sets with Palazzos & Dupatta|Kurti Set for Woman|Suit Set for Women Cotton(Green,TCK831,XXL)",
+                Description = "Amayra Woman's Pure Cotton Embroidered A-Line Kurta Sets with Palazzos & Dupatta|Kurti Set for Woman|Suit Set for Women Cotton(Green,TCK831,XXL)...",
+                Price = 899.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HFK2M3TC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YiXs5SVvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJRLFBX6",
+                Title = "Amayra Woman's Pure Cotton Embroidered Straight Kurta Sets with Pants & Dupatta|Kurti Set for Woman|Suit Set for Women(TCK834-N,Multicolour,L)",
+                Description = "Amayra Woman's Pure Cotton Embroidered Straight Kurta Sets with Pants & Dupatta|Kurti Set for Woman|Suit Set for Women(TCK834-N,Multicolour,L)...",
+                Price = 995.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HJRLFBX6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81IaYQLO5IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKK5TPP8",
+                Title = "Leeli Peeri Designer Women's Muga Cotton Jamdani Pichwai Weaving Work Unstitched Salwar Suit Dress Material 1546PDM5",
+                Description = "Leeli Peeri Designer Women's Muga Cotton Jamdani Pichwai Weaving Work Unstitched Salwar Suit Dress Material 1546PDM5...",
+                Price = 1487.00m,
+                OriginalPrice = 5499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKK5TPP8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91M9QSQwp6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKRMDWPX",
+                Title = "Leeli Peeri Designer Women's Camrbic Cotton Printed Unstitched Salwar Suit Dress Material 1593PDM3",
+                Description = "Leeli Peeri Designer Women's Camrbic Cotton Printed Unstitched Salwar Suit Dress Material 1593PDM3...",
+                Price = 882.00m,
+                OriginalPrice = 3099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKRMDWPX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/815LspHOotL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKRPSPSS",
+                Title = "Leeli Peeri Designer Women's Cambric Cotton Embroidery Unstitched Salwar Suit Dress Material 1596PDM1",
+                Description = "Leeli Peeri Designer Women's Cambric Cotton Embroidery Unstitched Salwar Suit Dress Material 1596PDM1...",
+                Price = 882.00m,
+                OriginalPrice = 3099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKRPSPSS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71c-5762oUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKRP7JJK",
+                Title = "Leeli Peeri Designer Women's Silk Blend Floral Embroidery Unstitched Salwar Suit Dress Material 1597PDM3",
+                Description = "Leeli Peeri Designer Women's Silk Blend Floral Embroidery Unstitched Salwar Suit Dress Material 1597PDM3...",
+                Price = 817.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKRP7JJK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81HIezxO2BL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKQ11XKS",
+                Title = "Amazon Brand - Tavasya Womens Ethnic Motifs Printed Pure Cotton Kurta with Palazzos | Sleeveless | Straight Fit | Festive Ethnic Wear (39316601-NAVYBLUE-L)",
+                Description = "Amazon Brand - Tavasya Womens Ethnic Motifs Printed Pure Cotton Kurta with Palazzos | Sleeveless | Straight Fit | Festive Ethnic Wear (39316601-NAVYBLUE-L)...",
+                Price = 1149.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKQ11XKS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Jqq6MduxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HL4YNFQ5",
+                Title = "HAIDER ALI AND SONS Handloom Cotton Silk Madhubani Print Unstitched Salwar Suit Set for Women with Dupatta | Dress Material for Women & Girls (FIROZA)",
+                Description = "HAIDER ALI AND SONS Handloom Cotton Silk Madhubani Print Unstitched Salwar Suit Set for Women with Dupatta | Dress Material for Women & Girls (FIROZA)...",
+                Price = 883.00m,
+                OriginalPrice = 2250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HL4YNFQ5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71c-sFdT5sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLFZ5Z4P",
+                Title = "MEERA FAB Farshi Salwar Suit for Women Cotton Printed | Kurta Dupatta Set for Woman | Straight Palazzo Outfit Round Neck V-Slit Long Sleeve Ethnic Dress Stylish Womens Clothing Brown",
+                Description = "MEERA FAB Farshi Salwar Suit for Women Cotton Printed | Kurta Dupatta Set for Woman | Straight Palazzo Outfit Round Neck V-Slit Long Sleeve Ethnic Dress Stylish Womens Clothing Brown...",
+                Price = 849.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLFZ5Z4P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71qIUUVsr1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJ8DN49S",
+                Title = "RATAN Women Embroidered Kurta and Pant Set with Dupatta | 3 Piece Ethnic Wear Set | Floral Embroidery Kurta with Pants (JIANA-1930-XL_Peach)",
+                Description = "RATAN Women Embroidered Kurta and Pant Set with Dupatta | 3 Piece Ethnic Wear Set | Floral Embroidery Kurta with Pants (JIANA-1930-XL_Peach)...",
+                Price = 999.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ8DN49S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Y3wCIVxmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLDVG85G",
+                Title = "PARTHVI Women's Olive Green Printed Cotton Blend Straight Kurta with Trouser Pant and Dupatta Set | Ethnic Kurti Set for Women",
+                Description = "PARTHVI Women's Olive Green Printed Cotton Blend Straight Kurta with Trouser Pant and Dupatta Set | Ethnic Kurti Set for Women...",
+                Price = 804.00m,
+                OriginalPrice = 2997.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLDVG85G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vWAH-M1hL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLT8T4MJ",
+                Title = "LIBOZA Women Kurta Pant Set with Dupatta Roman Glass Fabric | Sequin Dori Embroidery, 3/4 Sleeves, Wear, 3-Piece Set, V-Neck Design",
+                Description = "LIBOZA Women Kurta Pant Set with Dupatta Roman Glass Fabric | Sequin Dori Embroidery, 3/4 Sleeves, Wear, 3-Piece Set, V-Neck Design...",
+                Price = 1329.00m,
+                OriginalPrice = 4199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLT8T4MJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Fad-YgZ1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLS99V9Z",
+                Title = "Daevish Tog New Rayon Floral Printed Regular Straight Short Kurti for Women | Women Kurti | Women Office Wear Kurta Wine",
+                Description = "Daevish Tog New Rayon Floral Printed Regular Straight Short Kurti for Women | Women Kurti | Women Office Wear Kurta Wine...",
+                Price = 249.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLS99V9Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81iAhHBtIXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLVT1181",
+                Title = "MEERA FAB Women's Floral Printed Farshi Salwar Suit Set with Dupatta | Straight Kurta, Wide-Leg Salwar & Dupatta | Traditional Ethnic Wear Set | Maroon",
+                Description = "MEERA FAB Women's Floral Printed Farshi Salwar Suit Set with Dupatta | Straight Kurta, Wide-Leg Salwar & Dupatta | Traditional Ethnic Wear Set | Maroon...",
+                Price = 849.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLVT1181?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LiND2YYwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HF4QLJQW",
+                Title = "GRECIILOOKS Kurta Sets for Woman | Short Kurti for Women Latest | Short Kurtis for Woman | Pakistani Suits for Women Kurta Set | Ethnic Kurtis | Daily Wear Kurti Set",
+                Description = "GRECIILOOKS Kurta Sets for Woman | Short Kurti for Women Latest | Short Kurtis for Woman | Pakistani Suits for Women Kurta Set | Ethnic Kurtis | Daily Wear Kurti Set...",
+                Price = 549.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HF4QLJQW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61w0oRY+TgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HLZTJ5Q2",
+                Title = "LIBOZA Women Kashmiri Embroidered Straight Kurta (in, Alpha, L, Regular, White-GRN)",
+                Description = "LIBOZA Women Kashmiri Embroidered Straight Kurta (in, Alpha, L, Regular, White-GRN)...",
+                Price = 569.00m,
+                OriginalPrice = 2399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLZTJ5Q2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hU0Q1Q67L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKDGPPTT",
+                Title = "Amazon Brand - Tavasya Women's Cotton Chanderi Kurta Set (Green, L) | Elegant Flared Sleeves, Lace-Up Back Detail and Printed Bottom for Festive Ease",
+                Description = "Amazon Brand - Tavasya Women's Cotton Chanderi Kurta Set (Green, L) | Elegant Flared Sleeves, Lace-Up Back Detail and Printed Bottom for Festive Ease...",
+                Price = 919.00m,
+                OriginalPrice = 2799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKDGPPTT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RxLp28-nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKD89NT1",
+                Title = "Amazon Brand - Tavasya Women's Floral Printed Kurta Pant Dupatta Set (Beige, L)",
+                Description = "Amazon Brand - Tavasya Women's Floral Printed Kurta Pant Dupatta Set (Beige, L)...",
+                Price = 1299.00m,
+                OriginalPrice = 4199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKD89NT1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81DlklgN9xL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HM88D5H2",
+                Title = "HAIDER ALI AND SONS Handloom Cotton Silk Printed Unstitched Salwar Suit Set for Women with Dupatta | Dress Material for Women & Girls (FIROZA 2)",
+                Description = "HAIDER ALI AND SONS Handloom Cotton Silk Printed Unstitched Salwar Suit Set for Women with Dupatta | Dress Material for Women & Girls (FIROZA 2)...",
+                Price = 883.00m,
+                OriginalPrice = 2250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HM88D5H2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71h+cMnoVcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HHJM4VLK",
+                Title = "Amazon Brand - Tavasya Women's Pure Cotton Printed Kurta(Navy Blue-L) | Shirt Collar , 3/4 Sleeves & Casual Ethnic Wear",
+                Description = "Amazon Brand - Tavasya Women's Pure Cotton Printed Kurta(Navy Blue-L) | Shirt Collar , 3/4 Sleeves & Casual Ethnic Wear...",
+                Price = 419.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HHJM4VLK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zw5KqtkUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HG9ZRZDT",
+                Title = "Amazon Brand - Tavasya Womens Floral Printed Silk Blend Kurta Set | Three-Quarter Sleeves | Straight Fit | Casual",
+                Description = "Amazon Brand - Tavasya Womens Floral Printed Silk Blend Kurta Set | Three-Quarter Sleeves | Straight Fit | Casual...",
+                Price = 1589.00m,
+                OriginalPrice = 5399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HG9ZRZDT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61TLIFT4lbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGFWP7Z9",
+                Title = "Amazon Brand - Tavasya Womens Indigo Circle Printed Pure Cotton Kurta | Sleeveless | Regular Fit | Casual (ANKWK153_L)",
+                Description = "Amazon Brand - Tavasya Womens Indigo Circle Printed Pure Cotton Kurta | Sleeveless | Regular Fit | Casual (ANKWK153_L)...",
+                Price = 499.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HGFWP7Z9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61TdKe6kq9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKD6ZPXL",
+                Title = "Amazon Brand - Tavasya Women's Leaf Printed Kurta Pant Dupatta Set (Brown, L)",
+                Description = "Amazon Brand - Tavasya Women's Leaf Printed Kurta Pant Dupatta Set (Brown, L)...",
+                Price = 989.00m,
+                OriginalPrice = 2699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HKD6ZPXL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CQExeROfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFJZVNMF",
+                Title = "Amayra Woman's Pure Cotton Straight Kurta Sets with Palazzos & Dupatta|Kurti Set for Woman|Suit Set for Women Cotton(TCK808,S) White",
+                Description = "Amayra Woman's Pure Cotton Straight Kurta Sets with Palazzos & Dupatta|Kurti Set for Woman|Suit Set for Women Cotton(TCK808,S) White...",
+                Price = 995.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HFJZVNMF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81EklnPYMDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8T522T1",
+                Title = "Amazon Brand - Tavasya Women's Cotton Cambric Kurta Palazzo Dupatta Set | Embroidered Ethnic Suit Set | Straight Kurta | Festive, Casual & Office Wear (Yellow-L)",
+                Description = "Amazon Brand - Tavasya Women's Cotton Cambric Kurta Palazzo Dupatta Set | Embroidered Ethnic Suit Set | Straight Kurta | Festive, Casual & Office Wear (Yellow-L)...",
+                Price = 1089.00m,
+                OriginalPrice = 3899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H8T522T1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eJH0pFazL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GC7GHFG7",
+                Title = "FABNEX Kurta Set for Women | Women Kurti Pant Set (K-151-Red-4XL)",
+                Description = "FABNEX Kurta Set for Women | Women Kurti Pant Set (K-151-Red-4XL)...",
+                Price = 749.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GC7GHFG7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cGuHPBBgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HP273R4G",
+                Title = "VR VALLEY Women's Off White Cotton Kashmiri Floral Kurta Prined Pant White Dupatta Set | Ethnic Suit Set (IN, Alpha, 6XL, Regular, White)",
+                Description = "VR VALLEY Women's Off White Cotton Kashmiri Floral Kurta Prined Pant White Dupatta Set | Ethnic Suit Set (IN, Alpha, 6XL, Regular, White)...",
+                Price = 949.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HP273R4G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rqPyp-X3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
