@@ -52764,6 +52764,531 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FDKLDXK4",
+                Title = "HP Campus Core 16 Laptop Backpack - Blue",
+                Description = "Superior Device Protection: Travel with peace of mind. Featuring a dedicated padded compartment, your 16-inch laptop is shielded from bumps and bruises. The water-resistant fabric exterior ensures your gear stays dry during unexpected rain or accidental spills • Maximum Organi...",
+                Price = 699.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FDKLDXK4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61GQiq69AwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BL3S5NC1",
+                Title = "NORTH ZONE Lightweight school bags Backpacks for Boys Girls Stylish men and women Casual Travel Laptop Bag College office (BLACK)",
+                Description = "Durable & Lightweight: Made from water-resistant polyester fabric with ergonomic padded shoulder straps. • Multi-Compartment Storage: Features spacious main compartment, dedicated laptop sleeve, and front quick-access pocket. • Everyday Versatility: Ideal for school, college, office, daily commute, and travel.",
+                Price = 429.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BL3S5NC1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LB4CRJ9nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BL3SDSGZ",
+                Title = "NORTH ZONE Lightweight School Standard Backpack For Boys Girls Stylish Men And Women Casual Travel Laptop Bag College Office (Green) Medium",
+                Description = "Durable Water-Resistant Fabric: Built for longevity with reinforced stitching and cushioned shoulder support. • Spacious Layout: Organized compartments for books, 15.6 inch laptop, stationery, and water bottle side mesh. • Unisex Styling: Ergonomic and sleek profile suitable for students and working professionals.",
+                Price = 799.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BL3SDSGZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rYV1pO-FL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CBKMXBKN",
+                Title = "FREEMANS NEO 5m:19mm Steel Inchi Pocket Measuring Tape with Unbreakable ABS Case, Click-Action Front Lock, Finger Stop Protection, Hand Strap and Belt Clip",
+                Description = "★COMPACT AND LIGHWEIGHT MEASURING TAPE WITH UNBREAKABLE ABS CASE★ Compact, Lightweight and Economical Measuring Tape with Unbreakable ABS case stands up to the toughest jobsite demands. • ★ CLICK-ACTION FRONT LOCK★ Click-Action Front Lock button can be used to hold the tape bl...",
+                Price = 85.00m,
+                OriginalPrice = 181.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CBKMXBKN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xkjXp6XyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DMFBF9Z4",
+                Title = "Patanjali Saundarya Neem Tulsi Face Wash, for Clean and Fresh Skin with Natural Ingredients for Daily Use 100g (Pack of 4)",
+                Description = "Deep Cleansing Action: Formulated with natural Neem and Tulsi extracts to remove impurities, excess oil, and dirt. • Acne & Blemish Defense: Herbal antibacterial properties help fight pimples and promote clear, radiant skin. • Gentle Daily Care: Soap-free, non-drying formula suitable for all skin types. Pack of 4 (100g each).",
+                Price = 189.00m,
+                OriginalPrice = 380.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DMFBF9Z4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EXCWavRDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01F32Q800",
+                Title = "Himalaya Nourishing Skin Cream | 200ml | Light Non Greasy| Made with Winter Cherry and Aloe Vera| For Daily Use | Light Moisturizer",
+                Description = "All-Day Moisturization: Enriched with Aloe Vera and Winter Cherry to nourish and protect skin from dryness. • Lightweight & Non-Greasy: Fast-absorbing cream that keeps skin soft, supple, and conditioned throughout the day. • Dermatologically Tested: Gentle daily herbal formula suitable for face and body across all skin types.",
+                Price = 120.00m,
+                OriginalPrice = 220.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01F32Q800?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51jsNLfySsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07YDGQQN5",
+                Title = "Fur Jaden 55 LTR Rucksack Travel Backpack Bag for Trekking, Hiking with Shoe Compartment",
+                Description = "55L High Capacity Rucksack: Ergonomically designed with balanced weight distribution for trekking, hiking, and camping. • Separate Shoe Pocket: Dedicated bottom shoe compartment keeps footwear isolated from clean apparel. • Weather-Resistant Material: Tough polyester build with adjustable straps and breathable back padding.",
+                Price = 699.00m,
+                OriginalPrice = 2500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07YDGQQN5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71GxZAYa6UL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B093TDWVL2",
+                Title = "CLINIC PLUS Strong & Long Shampoo, 355 ml, for Nourished and Healthy Hair, with Milk Proteins & Multivitamins, Strengthening Formula for Hair Growth, Suitable for All Hair Types",
+                Description = "Nourishing Formula: Infused with milk proteins and multivitamins that penetrate strands to strengthen hair from root to tip. • Visible Growth & Strength: Regular use helps reduce hair fall due to breakage, promoting long, healthy hair. • Family Pack: Suitable for all hair types and gentle enough for regular washing (355 ml).",
+                Price = 189.00m,
+                OriginalPrice = 340.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B093TDWVL2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51p6c+hWWML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DKSXFD9G",
+                Title = "DALUCI Self Adhesive Wall Hooks 20 Pcs - Heavy Duty Nail-Free Hooks for Wall Heavy Items | Photo Frame Hooks Without Drilling | Strong Sticky Hook for Frames, Clocks & Keys (Photo Frame Hook, 20)",
+                Description = "Strong & Heavy Duty Wall Hooks - Self adhesive wall hooks made with stainless steel, hold heavy items securely, ideal for daily use. • No Drilling, Nail-Free Solution - Install in seconds without damaging walls. Perfect for rented homes, tiles, glass, wood, and metal surfaces...",
+                Price = 160.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DKSXFD9G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61f0i+03ocL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07RTJV6G4",
+                Title = "Amazon Basics Vacuum Compression Storage Bags with Hand Pump",
+                Description = "Set of heavy-duty plastic vacuum compression storage bags • Compress bulky textiles, clothing, linens, and more at an 80% size reduction • Protects items from moisture, dirt, insects, mold, odors, and more",
+                Price = 429.00m,
+                OriginalPrice = 966.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07RTJV6G4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71qEqnkZg8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9MR5R49",
+                Title = "MARS Edge of Desire Lip Liner Pencil | Dermatologically IN-VIVO Tested | One Swipe Highly Pigmented Lipliner | Smooth Glide | Long-Lasting Lip Pencil (1.4gm) (10-EXOTIC BROWN)",
+                Description = "One-Swipe Pigmentation: Delivers rich, opaque matte color with smooth, skip-free glide for defined lip contouring. • Long-Lasting Wear: Smudge-resistant formula keeps lipstick locked in place without feathering or bleeding. • Dermatologically Tested: Safe, comfortable formula enriched with nourishing ingredients (1.4g).",
+                Price = 67.00m,
+                OriginalPrice = 69.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0C9MR5R49?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61TOTncHSBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D6GP5HSM",
+                Title = "Amazon Basics Flameless LED Candles with Remote Controller & Timer | Golden Acrylic Fiber Glass | Set of 3 | (Golden)",
+                Description = "Convenience: Includes remote control and timer for easy operation and customized lighting schedules and convenience. • Elegant Design: Stylish golden acrylic fiber glass exterior enhances decor with a touch of elegance and aesthetic decor. • Portability: Runs on AA batteries f...",
+                Price = 749.00m,
+                OriginalPrice = 1689.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D6GP5HSM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+E2IwH01L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGVV9PKF",
+                Title = "amazon basics LED Flameless Candles with String Light Effect, Set of 3 (8X10 CM, 8X12.5 CM, 8X15 CM) Ivory Wax Body, Steady Warm Glow, Battery Operated with Remote & Timer, Safe Indoor Lighting",
+                Description = "Elegant Wax Finish:Crafted with real ivory wax, a smooth surface and natural color, these candles feel authentic and feature warm string lights inside for a magical sparkle. • Steady Warm Glow:Emits a soft, non-flickering LED glow, ideal for calm ambient lighting in bedrooms, ...",
+                Price = 999.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FGVV9PKF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LJ2GeEzUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGVRJLD6",
+                Title = "amazon basics LED Pillar Candles, Set of 3 (7.5X10 CM, 7.5X12.5 CM, 7.5X15 CM), Dark Tint Glass with Cement Base, Flameless Flickering, Remote & Timer, Indoor Decorative Lighting",
+                Description = "Modern Glass Design:Crafted with dark tint glass and a sturdy cement base, these candles bring a refined, modern touch that blends perfectly with any décor. • Realistic Warm Glow:A warm white flickering LED flame recreates the charm of real candlelight, giving you cozy ambianc...",
+                Price = 1166.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FGVRJLD6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7168RTGeqpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G6WC9G1Y",
+                Title = "Shasmi Girl's & Women's Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western | Elegant Casual Wear (Dress 246) (in, Alpha, S, Regular, Maroon)",
+                Description = "Shasmi Girl's & Women's Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western | Elegant Casual Wear (Dress 246) (in, Alpha, S, Regular, Maroon)...",
+                Price = 539.00m,
+                OriginalPrice = 2099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G6WC9G1Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81d4gDpUadL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLK97HWP",
+                Title = "Shasmi Girl's & Women's Black Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Black-S)",
+                Description = "Shasmi Girl's & Women's Black Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Black-S)...",
+                Price = 499.00m,
+                OriginalPrice = 2099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FLK97HWP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81hqUrlFICL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLK9RWQV",
+                Title = "Shasmi Girl's & Women's Brown Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Brown-S)",
+                Description = "Shasmi Girl's & Women's Brown Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Brown-S)...",
+                Price = 499.00m,
+                OriginalPrice = 2099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FLK9RWQV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81cIJSHLG7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLK7YSKP",
+                Title = "Shasmi Girl's & Women's Indigo Blue Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Indigo Blue-S)",
+                Description = "Shasmi Girl's & Women's Indigo Blue Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Indigo Blue-S)...",
+                Price = 449.00m,
+                OriginalPrice = 2099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FLK7YSKP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wHlg0xS9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLK6PX4R",
+                Title = "Shasmi Girl's & Women's Magenta Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Magenta-S)",
+                Description = "Shasmi Girl's & Women's Magenta Solid Color V-Neck A-Line Maxi Dress for Women | New Year Party Outfit | Waist Cinched Puff Sleeve Western Dress | Elegant Casual Wear (Dress 246 Magenta-S)...",
+                Price = 499.00m,
+                OriginalPrice = 2099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FLK6PX4R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Bh0Td-0DL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01CCGW4LC",
+                Title = "Cetaphil Gentle Skin Hydrating Face Wash 236ml, Paraben Free, Sulphate-Free Gentle Skin Hydrating Cleanser with Niacinamide, Vitamin B5 for Dry to Normal, Sensitive Skin",
+                Description = "Hydrating Cleanser: Formulated with Niacinamide, Vitamin B5, and hydrating Glycerin to cleanse without stripping moisture. • Protects Skin Barrier: Clinically proven to defend against 5 signs of skin sensitivity. • Dermatologist Recommended: Hypoallergenic, fragrance-free, paraben-free, and non-comedogenic (236 ml).",
+                Price = 639.00m,
+                OriginalPrice = 769.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01CCGW4LC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xxiBVDoaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DG2ZBSK7",
+                Title = "MILTON Cool Touch Coastal Coffee Mug 350 Double Walled 300 ml Inner Stainless Steel Tea Mug and Lid, Coffee Mug Travel Tea Cup, Black Coffee, Single, Aqua Green",
+                Description = "ELEVATE YOUR COFFEE EXPERIENCE: The double wall feature provides Condensation-Free Experience coffe mug. • THOUGHTFUL DESIGN: Say goodbye to water rings and messy drips; the double-wall construction keeps the exterior of the mug cool and dry. • 50 YEARS OF INDIAN INNOVATION: W...",
+                Price = 297.00m,
+                OriginalPrice = 385.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DG2ZBSK7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614NiW0vOkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C9X2V3ZH",
+                Title = "Good Monk Healthy 50+ Multivitamin for Senior Men & Women",
+                Description = "HEALTHY MULTI-NUTRITION POWDER: with 15 essential Vitamins & Minerals (Vitamins A, B1, B3, B6, B9, B12, C, D, E, K, Iron, Zinc); Clinically Proven Probiotics, Fibre, Lysine (Protein building block), Ashwagandha & Brahmi. • IMPROVES ENERGY, BONE HEALTH, GUT HEALTH & IMMUNITY • ...",
+                Price = 575.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0C9X2V3ZH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61J4Lm45UWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B076ZRSLDJ",
+                Title = "Amazon Brand - Solimo Premium Anti-Slip Microfibre Bathmat - 60cm x 40cm, Light Taupe",
+                Description = "Luxurious and plush microfibre bath mat which offers a soft and comfortable place to stand • 2000 GSM polyster fabric soaks up water effectively • Features anti-skid latex grooves that prevent the mat from sliding",
+                Price = 259.00m,
+                OriginalPrice = 650.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B076ZRSLDJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/817rDPsQM5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07KT9Q54M",
+                Title = "Shalimar Scented Garbage Bags Medium 19 X 21 Inches",
+                Description = "Effortless Dispensing: Perforated packaging for quick and easy access to each bag. • Bag on roll with detachable tie-tape to tie the bag after use. • Star sealed bottom provides extra strength and prevents any leakage.",
+                Price = 339.00m,
+                OriginalPrice = 344.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07KT9Q54M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81UM3i0sUbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B06VX7PDXC",
+                Title = "Ezee Garbage Trash Bag for Dustbin",
+                Description = "EZEE Garbage bags make cleaning and garbage disposal a hassle-free task while being easy on the environment. The sealed bottom of the bags prevents any leakage and makes them sturdy and durable to maintain hygiene. • DTIE TAPE - Each bag has a unique detachable tie tape to tie...",
+                Price = 94.00m,
+                OriginalPrice = 162.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B06VX7PDXC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71pBwPOM1IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJ533M1Y",
+                Title = "Crompton 20W Standard B22 LED Bulb",
+                Description = "High Lumen Output: Energy-efficient 20W LED bulb providing bright, cool daylight illumination (6500K). • Long Lifespan: Designed with surge protection and advanced thermal management for durable, flicker-free performance. • Universal B22 Base: Standard pin cap fitting seamlessly into home and office light fixtures.",
+                Price = 158.00m,
+                OriginalPrice = 435.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CJ533M1Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ORf8hyoSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08LHTJTBB",
+                Title = "Dyazo Aluminum Ergonomic Foldable Portable Laptop/Desktop Riser Stand",
+                Description = "Dyazo Height Adjusting Laptop Stand Or Laptop Ergonomic Stand Or Laptop Stands For Office Desk Improves Your Posture Scientifically Designed To Help You Balance You're Sitting Posture Keeping Your Back Straight, Neck Relaxed And Wrists Natural Even After Long Work Hours • Mult...",
+                Price = 349.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08LHTJTBB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61kBmC8NfGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08W9WNN3H",
+                Title = "CELLO Modustack Glassy Storage Jars For Kitchen Set of 2 Pcs, 750ml Maroon | Freezer & Fridge Safe Airtight Stackable Leadfree Toughened Glass Kitchen Storage Container For Beans, Whole Grains, Spices",
+                Description = "Premium Quality Toughened Glass - Made from high-quality, lead-free toughened glass, these durable glass storage jars are designed for long-lasting use, offering a safe, BPA-free, food-grade solution for storing dry food items like grains, pulses, spices, dry fruits, cereals, ...",
+                Price = 241.00m,
+                OriginalPrice = 369.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08W9WNN3H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61EWEuIg-sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C5MKVBN9",
+                Title = "Cockatoo Shoe Bag for Travel Bag for Men & Women, Shoe Cover for Storage at Home Gym Reusable Travelling Accessories, Organizer Pouch Footwear Bags for Travelling-Pack of 6(13 x 17.32 Inch)",
+                Description = "Size: 32cm X 44cm(13inchX17.3inch) • Material: Made of high-quality non-woven fabric, durable. • Daily use and travel use: It can protect your shoes from wear and dust, specially designed for family and travel",
+                Price = 99.00m,
+                OriginalPrice = 549.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C5MKVBN9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81n4y+bTRTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08SMFS5ZF",
+                Title = "OREI European (Schuko) to India Plug Adapter - Convert European Type E/F Input to India Type D Three Prong Output Connection - Heavy Duty - Black Color (2 Pack)",
+                Description = "Designed with European (Schuko) Input Ports allow you to plug-in one electrical devices with Type E/F Schuko plug at once; Accepts plugs from European countries Type C, E/F, L, J • PERFECT FOR: Camera Chargers, Battery Chargers, Laptops, Chargers for iPhone 12/12 mini/12 Pro/ ...",
+                Price = 539.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08SMFS5ZF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719Bn8Hve2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00L2C7GLG",
+                Title = "MX Schuko to India Plug Adapter",
+                Description = "European to Indian Plug Conversion: Converts Type E/F Schuko sockets in Europe to India Type D 3-prong outlets, making it ideal for travelers and international use. • Safe and Reliable Operation: Rated for 5 A and 250 V with grounded design to protect devices from electrical f...",
+                Price = 499.00m,
+                OriginalPrice = 900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B00L2C7GLG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DxcB2sqJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "8183223036",
+                Title = "The Power Of Your Subconscious Mind | Joseph Murphy (Punjabi)",
+                Description = "Transformational Self-Help Classic: Renowned guide by Dr. Joseph Murphy translated into Punjabi, unlocking mental potential. • Practical Affirmations: Step-by-step techniques to overcome anxiety, attract prosperity, and build healthy relationships. • Inspiring Read: Essential spiritual and psychological wisdom for personal development.",
+                Price = 160.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/8183223036?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71m0t3B6pEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5LHG672",
+                Title = "The Secret IN Punjabi (ਰਹੱਸ) by Rhonda Byrne, Punjabi Edition, Self-Help Book",
+                Description = "Law of Attraction Masterpiece: Official Punjabi edition of Rhonda Byrne's worldwide bestseller 'The Secret'. • Empowering Principles: Learn how positive visualization, gratitude, and focused intention manifest success and well-being. • Life-Changing Guide: Practical daily habits to unlock happiness, health, and wealth.",
+                Price = 198.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0H5LHG672?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Mu2of9WcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSZYLQ6S",
+                Title = "WishCare Multi Peptide Anti Hairfall Shampoo & Conditioner Combo | With Rice Water, Rosemary, Hyaluronic Acid & Caffeine | Strengthens Hair, Reduces Breakage, Boosts Growth | For All Hair Types",
+                Description = "Anti-Hairfall Powerhouse: Packed with multi-peptides, rosemary, rice water, and caffeine to reduce hair thinning. • Dual-Action Formula: Strengthens hair follicles, repairs cuticle damage, and boosts scalp microcirculation. • Clean Formulation: Free from sulfates, parabens, and harsh chemicals; suitable for treated and curly hair.",
+                Price = 748.00m,
+                OriginalPrice = 898.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GSZYLQ6S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XE9ld1DmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09C3PX6DY",
+                Title = "Lakme Forever Matte Compact Powder",
+                Description = "All-Day Matte Finish: Oil-absorbing formula that sets foundation and eliminates shine for a smooth, velvety complexion. • Enriched with Vitamin E: Nourishes skin while blurring blemishes and evening out skin tone. • Compact & Travel-Friendly: Built-in mirror and soft puff applicator for quick on-the-go touch-ups.",
+                Price = 145.00m,
+                OriginalPrice = 280.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09C3PX6DY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UQz8aHoHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
