@@ -53289,6 +53289,771 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0DCP51SXY",
+                Title = "Impakto Barefoot Rooted Wide feet Shoes for Men | Lightweight Running & Training Shoes with Soft Sole & Superior Grip | Running, Jogging Regular Gym Shoes for Men Black",
+                Description = "Wide Toe Box Comfort: Ergonomically crafted with a wide footbed allowing natural toe splay, reducing strain and blisters. • Ultra-Lightweight & Breathable: Engineered mesh upper provides optimal ventilation during running, gym workouts, and jogging. • Zero-Drop Natural Foot Movement: Flexible, high-traction rubber outsole delivers superior grip and grounded stability.",
+                Price = 839.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DCP51SXY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ucfxShFYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F13CC4LM",
+                Title = "Impakto Barefoot Rooted Shoes for Men | Lightweight Training Shoes | Wide Toe Box | Soft & Flexible Rubber Sole & Superior Grip | Running on Soft Grounds, Jogging & Regular Gym Shoes | Zero Drop",
+                Description = "Natural Barefoot Ergonomics: Zero-drop sole promotes proper posture and joint alignment on soft ground and gym floors. • Flexible & Durable Rubber Outsole: Designed for high-traction grip across running, lifting, and cross-training activities. • Breathable Comfort: Lightweight fabric upper keeps feet cool and comfortable during extended exercise sessions.",
+                Price = 929.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F13CC4LM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81LpihSoH2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CVGY985K",
+                Title = "One94Store Artificial Leaf Curtain Lights",
+                Description = "📦 Package Contains: 1x Artificial Leaf Curtain String Light (200 Warm White LEDs, 3x1m) with USB Cable. • 🎉 Multi-Use Decor - Great for home, weddings, parties & more • 🧩 Easy to Install - Lightweight & flexible - hang anywhere!",
+                Price = 279.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CVGY985K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AA8WrJUKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CZ3FNZHF",
+                Title = "Ayuzera Himalayan Sea Buckthorn Pulp Concentrate 300ml",
+                Description = "Premium Quality & Himalayan Sourced - Ayuzera Sea Buckthorn Juice is made from wild-grown berries handpicked from the pristine Himalayan forests of Nubra Valley. 100% natural, cold-pressed, and unadulterated - packed fresh in a 300ml bottle for maximum purity and potency. • Ri...",
+                Price = 646.00m,
+                OriginalPrice = 849.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0CZ3FNZHF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711GZkd+onL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B97N5V97",
+                Title = "One94Store Plastic Fairy Curtain String Lights",
+                Description = "📦 Package Contains: 1 x 3x3 Meter LED Curtain String Lights with 300 Warm White LEDs, 1 x Remote Control • 🌟 300 LED Warm White Glow - Covers 3x3 meters to create a soft, elegant sparkle that enhances any space. • 🎮 8 Flash Modes with Remote Control - Easily switch between twi...",
+                Price = 249.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B97N5V97?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ZKmE+hC1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08KNYZ1N5",
+                Title = "Gesto Multicolor LED Serial String Lights",
+                Description = "✨ 45 Meter Multicolor LED String Lights for Decoration - Long 45m coverage with bright 8mm LEDs creates a fuller Multicolor RGB glow for home, room, wall, balcony, entrance and festive decor. Ideal as lights for decoration, fairy lights for room and aesthetic home decoration l...",
+                Price = 275.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08KNYZ1N5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71gGWEdhCIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFNTYNGC",
+                Title = "Gesto 12 Starburst Fairy Lights for Decoration - USB Operated 10 Ft String Lights with 8 Modes Remote | Warm White Decorative Lights for Home Decor, Room,Wall, Balcony, Christmas & Diwali Decoration",
+                Description = "✨ 12 Warm White Starburst Fairy Lights for Home Decoration - 10 ft decorative string with 12 sparkling LED starbursts, perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration items for bedroom and aesthetic home dec...",
+                Price = 575.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFNTYNGC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Rv613LopL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F4L166TY",
+                Title = "Gesto Mesh Curtain Fairy Lights for Decoration - 200 Led String Lights with 8 Modes Remote | Multicolor RGB Decorative Lights for Home Decor, Room,Wall, Balcony,Christmas & Diwali Decoration- 6x6 Ft",
+                Description = "✨ 200 Multicolor Mesh Curtain Fairy Lights for Home Decoration - Full 2m x 2m( 6x6 Ft ) diamond-net design with 200 glowing LEDs gives wide, even coverage , perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration it...",
+                Price = 775.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F4L166TY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81PFqlglKtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F847LZNS",
+                Title = "Gesto 20 Meter Multicolor RGB LED Strip Light with 8 Modes Inline Controller | IP65 Waterproof Outdoor LED Rope Light for Ceiling, Balcony, Home Decor & Cove Light for False Ceiling, Diwali Decoration",
+                Description = "💡 HIGH-DENSITY RGB LED STRIP LIGHT: This RGB light strip and RGB LED strip deliver a smooth multicolor glow for everyday lighting and décor. Ideal as an LED light strip, strip light, LED strip lights for ceiling, room decoration lights, LED lights for room decoration and accen...",
+                Price = 699.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F847LZNS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HAS+va6HL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BLSNB96M",
+                Title = "ROSIER A2 Gir Cow Ghee (500 ml) | Traditional Bilona Method A2 Cow Ghee | Grassfed, Pure and Healthy Desi Cow Ghee (Glass Bottle - 500 ML)",
+                Description = "Desi Ghee and its Indian roots always have a story to tell. Rosier Cow Desi Ghee is crafted from Milk using the traditional Bilona Curd Churning process • Rosier Cow Ghee has an Unique & Distinct TASTE and AROMA which you would have never tasted before. A spoonful of this Ghee...",
+                Price = 940.00m,
+                OriginalPrice = 1320.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0BLSNB96M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71lWHBsQx0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTFNKVD2",
+                Title = "SAYY Moroccan DeTan Brightening Face Pack for Advance Skin Renewal Radiance Clay Mask (2)",
+                Description = "Deep Skin Detoxification: Formulated with authentic Moroccan clay to draw out impurities, pollutants, and excess sebum. • Instant Sun-Tan Removal: Enriched with natural brightening extracts to fade tan lines and even out sun-damaged skin tone. • Smooth Radiance: Restores skin hydration and natural elasticity for a glowing, refreshed complexion (Pack of 2).",
+                Price = 512.00m,
+                OriginalPrice = 1398.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GTFNKVD2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31WYQflajRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07Y24YFSP",
+                Title = "WaterScience Replacement Cartridge for CLEO Shower and Tap Filter for Hard Water | Borewell/Tanker Water Cartridge | Hard Water Softener",
+                Description = "LONG LIFE: SFC-UW 100 comes with a long cartridge life of 25,000 liters or up to 6 months depending on usage and water quality. Use a low to medium flow rate for best results. • FOR BEST RESULTS: Reverse flush the cartridge under the flow of constant water for 3-5 minutes, eve...",
+                Price = 802.00m,
+                OriginalPrice = 845.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07Y24YFSP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51L5n+umNeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0084M66QS",
+                Title = "Command Decorating & organizing Pack of 20 clips/hooks and 24 mini strips, Damage Free walls, Clear,Plastic : 3M",
+                Description = "Material: Plastic, Color: Clear. STRONG AND VERSATILE-Command Clear Decorating Clips include hold strongly on a variety of smooth indoor surfaces including painted walls, smooth ceilings, finished wood, glass, tile, and metal • Item Dimension: 5.08mm x 96.52mm x 170.18mm • Pac...",
+                Price = 239.00m,
+                OriginalPrice = 249.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0084M66QS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61O0OPJlYRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01N33BLDT",
+                Title = "Havells HD3151 1200 W Foldable Hair Dryer; 3 Heat (Hot/Cool/Warm) Settings Including Cool Shot Button; Heat Balance Technology, Turquoise",
+                Description = "Powerful drying with 1200 W, Gently directs the airflow in specific sections , giving better control during styling;3 temperature settings (hot, warm and cool). Ionic : No • Separate cool shot button for convenience • Double protection against over heating; Foldable handle",
+                Price = 799.00m,
+                OriginalPrice = 1415.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01N33BLDT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gHGxAfg1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKYY1CT9",
+                Title = "One94Store 8 Meter LED Rope Light for Decoration - Waterproof Warm White SMD Cove Light for Ceiling, Home Décor, LED Pipe Light for Diwali, Festival, Indoor, Outdoor Use",
+                Description = "📦 Package Contains: 1 x 8 Meter One94Store LED Rope Light (Warm White, Plug-in Type) • 💡 8 Meter Long Strip Light: Offers extensive coverage for decorating ceilings, balconies, halls, and more • 🌟 Bright & Energy Efficient SMD LEDs: Provides powerful illumination while consumi...",
+                Price = 298.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FKYY1CT9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71lQAsVoFNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C85YD9NG",
+                Title = "Lifelong Kick Scooter with Adjustable Height - Foldable - Skate for Kids with PVC Wheel - Max User weight-50 kg, Red & Black, 6 Months Manufacturer's Warranty, LLKS02",
+                Description = "Wide Deck: The 3-wheel Lifelong kick scooter boasts a sleek deck that can support up to 50 kgs in weight and offers ample room for your kid to have a comfortable riding experience. • Foldable Design: The kick scooter features a foldable framework, allowing for easy portability...",
+                Price = 699.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0C85YD9NG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61V252w6tBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZXYTFLK",
+                Title = "amazon basics 100% Room Darkening Blackout Door Curtains - Set of 2, Plain Design for Bedroom and Living Room, 7 Feet, Cream",
+                Description = "Blocks Out Harsh Sunlight for a Calm, Cozy Ambience These blackout curtains are your go-to solution for bright, sunny rooms. They reduce glare, minimize light intrusion, and help create a peaceful, dim-lit space for uninterrupted sleep or focused downtime. • Soft Yet Strong Fa...",
+                Price = 789.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DZXYTFLK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JrZZPLv6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GXCFVQRR",
+                Title = "Amazon Basics - Room Darkening Blackout Door Curtains, 100% Room Darkening | 5 Feet |Set of 2| Plain Design | for Living Room and Bedroom | 115cmx 150cm, Color- Blue",
+                Description = "Blocks Out Harsh Sunlight for a Calm, Cozy Ambience These blackout curtains are your go-to solution for bright, sunny rooms. They reduce glare, minimize light intrusion, and help create a peaceful, dim-lit space for uninterrupted sleep or focused downtime. • Soft Yet Strong Fa...",
+                Price = 630.00m,
+                OriginalPrice = 1579.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GXCFVQRR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rufvlptzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CPPGZ2HR",
+                Title = "Kokila NO PPD Shampoo Hair Colour - Dark Brown 400ml for Women and Men | Natural Extracts | Colours Hair in 10 Minutes | Ammonia Free, Paraben Free - 10 Pair Free Gloves",
+                Description = "10-Minute Gray Coverage: Convenient shampoo-based hair color application that delivers rich, natural dark brown color fast. • Ammonia & PPD Free: Infused with gentle herbal extracts to protect hair texture and prevent scalp irritation. • Complete Kit: Includes 400ml hair color bottle and 10 pairs of protective application gloves.",
+                Price = 750.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CPPGZ2HR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81w9D0VihfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09L7QWYC3",
+                Title = "LAKMÉ Eyeconic Black Kajal 0.35 g (Combo Pack of 2) Matte Kohl Liner in a Twist Up Pencil - Waterproof| Smudge Proof & Long Lasting Eye Makeup",
+                Description = "Intense Matte Black Finish: Delivers deep, dramatic pigmentation in a single smooth, skip-free stroke. • 24-Hour Smudge-Proof Wear: Waterproof, transfer-resistant formula designed to stay put throughout demanding days. • Ophthalmologically Tested: Dermatologist-approved, gentle twist-up pencil safe for contact lens wearers (Pack of 2).",
+                Price = 189.00m,
+                OriginalPrice = 450.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09L7QWYC3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61as79PTNHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01BBNF6C6",
+                Title = "LAKMÉ 9 to 5 CC Cream Beige with 3% Niacinamide Complex SPF 30 PA++| Medium coverage| All skin types| 9g",
+                Description = "Daily Skin Stylist: Combines the nourishing care of a daily moisturizer with the flawless coverage of light foundation. • 3% Niacinamide & SPF 30: Brightens skin, fades dark spots, and shields against harmful UV rays with broad-spectrum protection. • Lightweight Matte Finish: Blends effortlessly into skin to conceal imperfections and provide a fresh, even-toned look (9g).",
+                Price = 100.00m,
+                OriginalPrice = 115.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B01BBNF6C6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51TjBxQilYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GW3N1M37",
+                Title = "pTron Bassbuds Astra in-Ear TWS Earbuds w/Stereo Sound, 50Hrs Playtime, Stereo Calls, Custom EQ, Mobile App, BTv5.3 Headphones, Touch Control, Voice Assistant, Type C Charging & IPX4 (Navy Blue)",
+                Description = "TWS Earbuds with 13mm Dynamic Driver to produce Immersive Stereo Sound | Smart Touch Controls & 50 Hours of Non-stop Playtime with the Charging Case • Lightweight Wireless Earbuds with Ergo-Fit Design | Built-in HD Mic for Clear Call Quality | In-Ear Design Blocks External Noi...",
+                Price = 599.00m,
+                OriginalPrice = 2899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GW3N1M37?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wgLD9Q0tL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDBFF8JM",
+                Title = "VERVENIX (Pack of 24 LED Tea Light Candles - Battery-Operated Flameless & Smokeless Decorative Lights for Diwali, Home Temple, Pooja and Holiday Decorations",
+                Description = "Flameless & Smokeless Design 🔥: Enjoy the warm ambiance of a real candle without the risk of fire or harmful smoke, making these LED tea lights perfect for homes with children or pets. • Hassle-Free Operation 🕯️: No need to worry about lighting or extinguishing candles every t...",
+                Price = 299.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FDBFF8JM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61kVQFjc9gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01A57IV58",
+                Title = "Trance 100% Waterproof Premium Mattress Protector for Double Bed King Size 78x72 Inches | Cotton Feel Mattresses Cover | Elastic Fitted | Fits Upto 10 Inch | Bed Protector Cover (78\"x72\" King Grey)",
+                Description = "Size Inches - 78x72 Inches KIng Size Mattress Protector Size Feet - 6.5 X 6 Feet KIng Size Mattress Protector Size Centimeters - 199 x 183 Centimeters KIng Size Mattress Protector • Material - cottl Feel Terry | 100% Waterproof • Premium Construction: Mattress cover features c...",
+                Price = 539.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01A57IV58?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-sdRPnGIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FDX31YGS",
+                Title = "Amazon Brand - Presto! Dishwash Gel | Neem & Pudina | 5 L Refill Value Pack | Dishwash Liquid | Cuts Through Grease | Safe On Hands",
+                Description = "Fresh scent for spotless utensils, that is harsh on stains, but gentle and safe on your hands • Gel-Like Consistency: The thick, gel-like consistency of the dishwash gel clings to dishes, pots, and pans, delivering superior cleaning performance. • Residue-Free Rinse: Rinses aw...",
+                Price = 409.00m,
+                OriginalPrice = 700.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FDX31YGS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712zIKqv5YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHF27T7Q",
+                Title = "Gesto 10 Feet LED String Lights - 14 LED Pink Rose Fairy Lights for Decoration | 360° Warm Glow Decorative Diwali Lights for Home Decor, Mandir, Pooja Room, Christmas, Festival & Diwali Decoration",
+                Description = "✨ 14 LED String Lights for Decoration - Warm white decorative lights create a soft golden glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room, aesthetic home decoration lighting ,room decoration items for bedroo...",
+                Price = 325.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FHF27T7Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71m00aB2K+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BBFCG66M",
+                Title = "DesiDiya 35 Feet LED Power Pixel Serial String Light",
+                Description = "Radiant Ambiance Creation: 💫 Elevate your indoor and outdoor spaces with the Desidiya LED Rice Light, a versatile 10-meter strip designed to bring a warm and enchanting glow to any setting. • Versatile Decor Possibilities: 🏡 Whether you're decorating a room, patio, garden, or ...",
+                Price = 76.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BBFCG66M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PJM4TO20L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09MS569KQ",
+                Title = "HomeStrap Set of 6 Non-Woven Printed Saree Cover/Cloth Storage/Organizer with Transparent Window (Pink, Featured on Shark Tank, 33.5 cm, 22 cm)",
+                Description = "MADE IN INDIA | Printed Saree Cover to organize your cluttered wardrobe. • Material: Heavy quality Non-Woven fabric to prevent your favorite Silk/Cotton Sarees from Dust, Moisture, and Moths. • Easily stacked one on top of the other, magically creating more space in your wardr...",
+                Price = 331.00m,
+                OriginalPrice = 649.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09MS569KQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711jp9PK0pL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQHTCZWC",
+                Title = "DECOMIZER Cotton Elastic Fitted Printed King Size Double Bed Bedsheet with 2 Pillow Covers Fits Upto 8 inches Mattress,Size- 72x78x10 Inches,Beige Anokhi",
+                Description = "Elastic Fitted Bedsheet with 2 Pillow Covers Size :- 72\" X 78\" x 10\" Inch • Ideal for Mattresses having height 4 to 8 inches and length 6 x 6.5 ft. Easy to tuck-in even on heavy mattress.Full elastic trim for perfect fit. • Color:- Multi ,Material :- Glace Cotton",
+                Price = 569.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CQHTCZWC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71VxenMTW1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHB6FR16",
+                Title = "DECOMIZER 300TC Cotton Feel Glace Cotton Elastic Fitted 7D Printed King Size Double Bed Bedsheet with 2 Pillow Covers Fits Upto 8 inches Mattress,72x78, Baby Pink Bale",
+                Description = "Elastic Fitted Bedsheet with 2 Pillow Covers Size :- 72\" X 78\" x 10\" Inch • Ideal for Mattresses having height 4 to 8 inches and length 6 x 6.5 ft. Easy to tuck-in even on heavy mattress.Full elastic trim for perfect fit. • Color:- Multi ,Material :- Glace Cotton",
+                Price = 709.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FHB6FR16?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Idv0nSdRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HG5NTV9P",
+                Title = "Gesto Diwali Lights for Home - Diya Curtain String Lights with 12 Hanging Diyas, 8 Lighting Modes, Warm White Decorative Lights for Diwali Decoration for Home, Balcony, Mandir & Pooja Room - 10x3 Ft",
+                Description = "✨ 108 Warm White Diya Curtain Lights for Decoration - Beautiful 10 Ft x 3 Ft decorative curtain light featuring glowing diya shapes with warm white LEDs. Perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration items...",
+                Price = 399.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HG5NTV9P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bTiCWoEoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BPYG6BTJ",
+                Title = "Amazon Brand - Presto! Total Wash Detergent Powder | 4 Kg | Machine And Hand Wash | Removes Tough Stains | Safe And Gentle On Fabrics & Hands | Bleach-Free",
+                Description = "Formulated to fight tough stains while being gentle on clothes and skin • Ideal for tackling coffee, tea, turmeric, and mud stains on both light and dark clothing • Ensure hands are protected when using; avoid contact with eyes; rinse thoroughly if contact occurs",
+                Price = 345.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BPYG6BTJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/611e7YMXrXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09FZ4CJ3S",
+                Title = "Gesto 55 Meter LED String Lights -Multicolor 8mm Big Led Fairy Lights for Decoration with 8 Modes | 360° Glow Waterproof Lights for Home Decor Balcony Outdoor Christmas & Diwali Decoration- Pack of 1",
+                Description = "✨ 55 Meter Multicolor LED String Lights for Decoration - Long 55m coverage with bright 8mm LEDs creates a fuller Multicolor RGB glow for home, room, wall, balcony, entrance and festive decor. Ideal as lights for decoration, fairy lights for room ,room decoration items for bedr...",
+                Price = 449.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09FZ4CJ3S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71QGWnuQC3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZNVDVWW",
+                Title = "Desidiya® Net Mesh Led Curtain String Diwali Lights for Decoration for Home | Waterproof Indoor Outdoor Fairy Lights Mesh | Decorative Lighting for Garden, Trees, Bushes, Home Decor (Warm White)",
+                Description = "Decorative Design & Highlights : Beautiful net-style mesh lighting creates a stunning curtain effect with interconnected LED lights perfect for outdoor and indoor spaces. This mesh string light offers different modes including steady on, wave, sequence, chase, flash, flash/fla...",
+                Price = 599.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DZNVDVWW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eZUoeeU1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRZQLPKR",
+                Title = "Medimix Ayurvedic Classic 18 Herbs Bathing Soap 10 gms (Combo Pack of 60) | Natural Oils for Healthy & Protected Skin | Shop Herbal | Paraben-Free & Sulphate-Free | 100% Vegan",
+                Description = "Time-Tested 18 Herbal Formulation: Infused with therapeutic Ayurvedic oils and herbs to fight skin infections and body blemishes. • Gentle & Nourishing: Vegan, paraben-free, and sulphate-free cleansing bar that locks in natural skin moisture. • Value Combo: Pack of 60 travel-sized (10g) soaps ideal for daily hygiene, guest amenities, and travel.",
+                Price = 196.00m,
+                OriginalPrice = 240.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BRZQLPKR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91zLukN0QwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GLGBDVJY",
+                Title = "Amayra Women's Pure Cotton A-Line Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurti Suit Set for Women(TCK728,Black,XXL)",
+                Description = "Pure Breathable Cotton: Soft, premium-grade cotton fabric designed for all-day comfort and elegant drape. • Complete 3-Piece Outfit: Features a stylish printed A-line kurta paired with comfortable palazzo pants and matching dupatta. • Versatile Styling: Beautiful traditional ethnic ensemble suitable for office wear, casual outings, and festive gatherings.",
+                Price = 835.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GLGBDVJY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1g+1ZIgM0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B6W79V4Z",
+                Title = "Amazon Brand - Solimo Plastic Storage Container, BPA Free, 3 Containers (4000ml), Blue",
+                Description = "freshness seal lock keeps contents fresh and free from moisture & contaminants • Made using BPA-free, food-grade plastic. Safe for storing food • Design makes it easy to identify items stored",
+                Price = 668.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B6W79V4Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31EFyzUv4RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07P6VWL98",
+                Title = "Amazon Brand - Solimo Checkered Plastic Jar Set | Set of 18 | Multipurpose Use | for Kitchen Storage | Royal Blue",
+                Description = "Checkered PET containers made from 100% food-grade plastic • BPA-free containers protect you from health hazards of BPA plastics • Available in three different sizes, 1000 ml, 500 ml and 200 ml, for your various storage needs",
+                Price = 725.00m,
+                OriginalPrice = 850.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07P6VWL98?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91E9VO1+0zL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FD33J7BP",
+                Title = "Amazon Brand - Solimo Square Glass Food Storage Container, 360 ml - Set of 3, Airtight & Leakproof, Microwave & Freezer Safe, Transparent",
+                Description = "Leak proof glass containers made from Borosilicate glass • BPA-Free airtight lids with a special locking mechanism with 4 way-locking and silicon gasket which keeps moisture out • Can hold both dry and semi-liquid food including rotis, rice, dals and curries",
+                Price = 649.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FD33J7BP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XT2Uc80dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07P5XLWDT",
+                Title = "Amazon Brand - Solimo Modular Plastic Storage Container With Airtight Lid | BPA-Free Plastic | Microwave Safe | Dishwasher Safe | 2.4 Litres | Set of 6 (Blue)",
+                Description = "Airtight Lid: The easy-to-use and airtight lid is ideal for storing dry food, pulses and spices keeping them fresh and moisture-free. • Space Efficient Containers: Perfectly designed so the containers can be stacked one over the other to keep your kitchen spacious and organise...",
+                Price = 1148.00m,
+                OriginalPrice = 1900.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07P5XLWDT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71VZ12bQIKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GHNR43P7",
+                Title = "Amazon Brand - Solimo Plastic Container Set with Airtight Lids | BPA-Free | Microwave & Dishwasher Safe | Kitchen Storage Containers | Set of 15",
+                Description = "\"Airtight & Freshness Lock These storage containers feature secure airtight lids that help keep food fresh, dry, and protected from moisture, making them ideal for everyday kitchen storage.\" • \"Durable & BPA-Free Material Made from high-quality food-grade plastic that is BPA-f...",
+                Price = 479.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GHNR43P7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61s3Ga9tmaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B097KD89S1",
+                Title = "ExclusiveLane 'Shades of a Leaf' Multi-Purpose Ceramic Pickle Jars for Dining Table with Iron Holder (Set of 4, 220 ml) | Pickle Jar for Pickle Achar Jar Set for Dining Table Chutney Achar Container",
+                Description = "Handmade in India by artisans. • Handmade in India by artisans. • Ideal for serving chutneys, pickles and refreshments like saunf.",
+                Price = 1699.00m,
+                OriginalPrice = 3175.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B097KD89S1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CJwGnQLoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CXDG6BF2",
+                Title = "Amazon Brand - Solimo Borosilicate Glass Container with Detachable Lid | Airtight & Leak-Proof | Freezer, Microwave & Dishwasher Safe | 350ml Each | Transparent",
+                Description = "High-Quality Material: Made from 100% food-safe borosilicate glass, these containers ensure durability and safe food storage. • Versatile Use: Suitable for freezing, microwaving, and dishwashing, these containers provide a multifunctional solution for all your kitchen needs. •...",
+                Price = 589.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CXDG6BF2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61i5XtZ3ZKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ5NZ6FY",
+                Title = "Kuber Industries BPA Free 800 ML Plastic Airtight Jar Containers for Kitchen Storage Set of 3 | Cereals, Pulses, Dry Fruits and Snacks Box Container | Kitchen Accessories Items for Home | Brown",
+                Description = "✅ PACKAGE CONTAINS - (3 Pcs) Kicthen Containers | Color - Transparent Brown | Material - Plastic | Product Dimensions - 10 cm x 10 cm x 15 cm • ✅ AIRTIGHT SEAL - Rice storage container airtight seal mechanism preserves the freshness and flavor of your food items, whether it's ...",
+                Price = 449.00m,
+                OriginalPrice = 756.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ5NZ6FY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81KaltPCHzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07P6VWL5S",
+                Title = "Amazon Brand - Solimo Airtight Plastic Storage Container Set Pack of - 4 , 900ml (Green)",
+                Description = "Airtight Freshness Protection: Precision silicone seal lock protects dry ingredients from humidity, pests, and moisture. • 100% Food-Safe & BPA-Free: High-quality transparent plastic design allows easy visibility of spices, snacks, and pulses. • Stackable Space-Saver: Compact modular footprint maximizes kitchen pantry and cabinet organization (Pack of 4, 900ml each).",
+                Price = 760.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07P6VWL5S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71euM0dJ-dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CBSBM5QH",
+                Title = "PEARLPET Plastic Containers for Kitchen Storage | Plastic Container Set with Spoon | BPA-Free, Stackable Jars | Black,300 ML (Set of 6)",
+                Description = "Freshness Sealed: Tiffany Plastic Container Jars offer airtight perfection for snacks, pulses, and spices. Keep your kitchen essentials moisture-free with lids designed to preserve flavor. • Space-Saving Efficiency: Optimize your kitchen layout with stackable airtight containe...",
+                Price = 332.00m,
+                OriginalPrice = 558.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CBSBM5QH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81h4k4cf8RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CCVFZNTQ",
+                Title = "Amazon Brand - Solimo Plastic Storage Jar and Container Set I Air Tight & BPA Free Containers for Kitchen Storage Set I Grocery Kitchen Container Set I Multipurpose Jar, 800 Ml Each, Set 4, Red",
+                Description = "Compact: Solimo presents this compact containers. • Durable & BPA free: They are made from durable, BPA-free and food-grade plastic. • Flip top lid: These containers come with a silicone gasket and a flip-top lid. They keep your food dry and fresh.",
+                Price = 469.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CCVFZNTQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91-fjD49q2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0744HXHZC",
+                Title = "Indian Art Villa Pure Copper Hammered Design Water Pot/Dispenser/Container/Matka/Tank with Brass Tap, for Storage & Serving Water, Health Benefits, Volume-7 Liters",
+                Description = "Healthy Habit: Water Stored Over Night In Copper Utensil Is Essential For Hemoglobin Synthesis, Bone Strength And Immunity Building. Copper Helps In Maintaining Digestive Health, Healing Wounds And Relieving Pains. Copper Is An Antioxidant And Anti-Carcinogenic That Prevents C...",
+                Price = 5334.00m,
+                OriginalPrice = 8355.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0744HXHZC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eiD+twFQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGFXGNNF",
+                Title = "The Better Home Kitchen Storage Jars and Containers | Durable Material | Airtight Seal & Leak Proof Vacuum Insulation | PET | Transparent Design |1000 ML | Pack of 3",
+                Description = "Leak-Proof Design: Store confidently with our leak-proof containers that maintain vacuum insulation, keeping food fresh longer and elevating your kitchen's style. • Functional & Stylish: Our kitchen container set combines convenience and aesthetics, perfect for organizing spic...",
+                Price = 599.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGFXGNNF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819ned9r2ZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0711H8RMM",
+                Title = "SIGNORA WARE Borosilicate Glass Square Container, 320 ml, Clear, Heat Resistant, Air Tight, Microwave Safe, for Storing Leftovers",
+                Description = "Material Details: Dimension: 11.5cm x 11.5cm x 6cm | Capacity: 320 ml | The Signoraware Glass Container made from High quality borosilicate durable glass which has a high thermal shock resistance upto 120-degree C, Oven safe 400-degree C & Refrigerator safe upto 20-degree C. Y...",
+                Price = 201.00m,
+                OriginalPrice = 389.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0711H8RMM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IbUWfGPvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BSXCFYWV",
+                Title = "Amazon Brand - Solimo Oval Window Steel Jacketed Glass Jar | Multipurpose Kitchen Organizer with See-Through Window | 1200 ml Set of 6 - Black",
+                Description = "LEAD FREE JARS: The steel jars are BPA and lead free, therefore they are healthy alternatives to plastic jars. • SEE-THROUGH WINDOW: The jar comes with a see-through window helping to identify inside contents easily. • TIGHT LID: It comes with a steady lid to seal the freshnes...",
+                Price = 2100.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BSXCFYWV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711ukQmb32L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
