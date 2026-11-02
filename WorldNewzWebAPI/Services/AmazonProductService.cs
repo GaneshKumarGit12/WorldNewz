@@ -54054,6 +54054,906 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0H4RX9WG9",
+                Title = "FABTEC Waterproof Car Body Cover for Hyundai Grand i10 Nios Outdoor/Indoor All Weather Protection with Mirror & Antenna Pocket Triple Stitched (Premium Navy Blue with Neon Piping)",
+                Description = "Stylish Navy Blue Finish with Neon Piping - The premium navy blue color combined with attractive neon piping delivers a modern and elegant appearance, Ideal for car owners who value both protection and style. • Waterproof All-Weather Protection- Designed to protect your vehicl...",
+                Price = 947.00m,
+                OriginalPrice = 2099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H4RX9WG9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/619sYuC12GL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B21VWHSJ",
+                Title = "Gesto Net Mesh Lights 200 LED Waterproof String Lights",
+                Description = "✨ 200 Warm White Mesh Curtain Fairy Lights for Home Decoration - Full 2m x 2m( 6x6 Ft ) diamond-net design with 200 glowing LEDs gives wide, even coverage , perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration it...",
+                Price = 775.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B21VWHSJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81laGTrYX8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKT3NB5W",
+                Title = "One94Store Deep Diya Curtain Decorative LED String Lights - 3 Meter Warm White Plug-in Lights with 108 LEDs, 6+6 Diya Design for Balcony, Indoor & Outdoor & Diwali Lights for Home",
+                Description = "📦 Package Contains: 1 x Deep Diya Curtain LED Light (3 Meter, 108 LEDs) 🪔 • 🪔 Traditional Deep Diya Design: 6+6 hanging diyas bring festive charm to your home. • 💡 108 Warm White LEDs: Soft and elegant lighting creates a cozy and inviting atmosphere.",
+                Price = 499.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FKT3NB5W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61+fRoh33aL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G39Q1SKP",
+                Title = "One94Store G40 Globe String Lights | 25 Ft Outdoor String Light with 25 Edison Bulbs | Waterproof Warm White Decorative Lights for Balcony, Backyard, Porch, Garden & Home Décor",
+                Description = "📦 Package Contains: 1 x 25 Ft G40 String Light, 25 x Edison Bulbs 💡, • 💡 Includes 25 Edison-Style G40 Bulbs + 1 Extra Bulb Get beautiful, vintage-style bulbs that give off a cozy warm white glow. Plus, 1 spare bulb is included for added convenience! • 📏 25 Feet Long Cable Cove...",
+                Price = 899.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G39Q1SKP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61EVsQHzPAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BHZCTS3T",
+                Title = "One94Store Fairy Diya Curtain LED String Light 10 Diyas 96 LED, 3 Meter (5+5) with 8 Modes Window Curtain Decorative Light for Home Decoration, Plug-in (Warm White)",
+                Description = "📦 Package Contains: 1 x One94Store Fairy Diya Curtain LED String Light (96 LEDs, 3 Meter, Warm White) • 🪔 Unique Fairy Diya Curtain Design: Beautiful diya-shaped LEDs add a festive and elegant charm to your home décor • 💡 96 LED Lights: Bright, energy-efficient, and long-lasti...",
+                Price = 299.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BHZCTS3T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dwav9zz8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B091V8HK8Z",
+                Title = "Milton Appliances Go Electric Kettle 1.8 Litre I 3X Protection - Dry Boil, Auto Shut Off, Overheat I 1350 Watt I Super Fast Boiling I Stainless Steel I 360° Power Base I 1 Year Warranty",
+                Description = "100-CYCLE DRY TEST APPROVED - Boil dry protection with smart auto cut-off that activates when no water is detected, preventing damage and ensuring safe, reliable operation. • AUTO CUT-OFF - Built-in thermal control switches the kettle off automatically once water reaches boili...",
+                Price = 749.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B091V8HK8Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71R8NU5Mu7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFKC5YJ8",
+                Title = "QLECT Portable Blender for Smoothies & Juices | 400ml Personal Juicer Mixer Grinder | 1500mAh USB Rechargeable Battery | 2 Jars | Stainless Steel Blades | ISI Certified | Made in India(Blue)",
+                Description = "PORTABLE BLENDER FOR SMOOTHIES & JUICES: QLECT Portable Blender & Juicer Mixer is designed for making fresh fruit juices, smoothies, shakes and protein drinks. A compact personal blender for convenient everyday use at home, office, gym and while travelling. • 1500mAh USB RECHA...",
+                Price = 664.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFKC5YJ8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xeJe4gOPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJ5VHLL6",
+                Title = "FLYNGO 80 Crystal Ball Diwali Lights for Decoration for Home, Warm White LED Ball Pendants String Curtain Lights with 8 Modes for Festive, Party, Christmas, Diwali Decor - 3x1 Mtr",
+                Description = "✨80 Warm White LED Lights - Features 80 warm white LEDs that cast a soft, inviting glow, creating a cozy and magical atmosphere for any occasion. • 🎉 Perfect Festive Illumination - Designed to deliver stunning, celebratory lighting that transforms any space into a charming and...",
+                Price = 498.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ5VHLL6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71eVqTohUnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFNMWS66",
+                Title = "Gesto Waterfall Curtain Fairy Lights for Decoration - 150 Led String Lights with 8 Modes Changer | Multicolor RGB Decorative Lights for Home Decor, Room, Balcony,Christmas & Diwali Decoration- 10x8 Ft",
+                Description = "✨ 150 Multicolor RGB Curtain Fairy Lights for Decoration - 3m wide x 2.44m drop curtain with 10 hanging strands and 15 LEDs on each drop. Perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration items for bedroom and...",
+                Price = 625.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFNMWS66?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZoN8WJOHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07J4LMXH9",
+                Title = "The Purple Tree Star Curtain LED Lights",
+                Description = "⭐ 8 Lighting Modes : This curtain light is one button control, press the button you can select 8 different modes to meet your diverse needs • ⭐ Easy to use : 12 Stars(2 sizes), total 138pcs LED curtain string lights, Low voltage and ul Listed power supply, directly plug in and...",
+                Price = 279.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07J4LMXH9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j5sS2p5+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGXSQXBD",
+                Title = "Gesto 30 Meter LED String Lights - Warm White 8mm Big Led Fairy Lights for Decoration | 360° Glow Waterproof Copper Wire Lights for Home Decor Balcony Outdoor Christmas & Diwali Decoration- Pack of 1",
+                Description = "✨ 30 Meter Warm White LED String Lights for Decoration - Long 30m coverage with bright 8mm LEDs creates a fuller warm glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room, room decoration items for bedroom and ae...",
+                Price = 349.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGXSQXBD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71e51OvSzML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00TO7K08C",
+                Title = "PHILIPS BG1025/15 Body Groomer Shaver For Men",
+                Description = "For all BODY areas- Chest, Arms & Underarms, Back and shoulder, Private Parts and Legs • The unique Skin Protection System guards skin from blades even in sensitive areas • Bidirectional trimmer and the 3 mm attachment comb can catch & cut body hair growing in any direction.",
+                Price = 989.00m,
+                OriginalPrice = 1645.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B00TO7K08C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Wfuh9LXsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H5PWJHWH",
+                Title = "Wakefit Sleeping Pillow with Adjustable Height | Standard Size | 27x16 Inch | Soft & Fluffy Siliconized Hollow Fibre Fill, Knitted Fabric Cover with Zipper Closure, Free Extra Filling - Light Grey",
+                Description = "STANDARD SIZE BED PILLOW: With 27 x 16 inch bed pillows that fit standard pillow covers making them suitable for bedrooms guest rooms and everyday use • SOFT HOLLOW FIBRE FILLING: Premium siliconized hollow fibre provides plush softness, lasting loft, and balanced support for ...",
+                Price = 387.00m,
+                OriginalPrice = 542.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H5PWJHWH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Y71dhLynL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHH388QX",
+                Title = "Wakefit Quilted Sleeping Pillow | Standard 27x16 Inch Bed Pillow | Soft Microfibre Filling | Breathable & Hypoallergenic Quilted Fabric Cover | Comfortable Neck Support | 6 Month Warranty | White",
+                Description = "STANDARD SIZE PILLOW: 27 x 16 inch sleeping pillow fits standard pillow covers and is suitable for single, double, queen and king-size beds • SOFT MICROFIBRE FILLING: Premium microfibre filling delivers plush softness with balanced support to keep your head and neck comfortabl...",
+                Price = 519.00m,
+                OriginalPrice = 915.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FHH388QX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71niuQ8mrzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFN8N918",
+                Title = "Gesto Diwali Lights for Home Decoration, Happy Diwali LED Hanging Light, Dual-Side Display, AC Plug-in Diwali Decorative Light for Pooja Room, Mandir, Door Entry, Balcony, Office, Shop & Showroom",
+                Description = "🪔 FESTIVE DIWALI LIGHT: Bring a bright festive welcome to your space with this Happy Diwali LED hanging light. Ideal as Diwali lights for home, Diwali decoration for home, decorative lights, entrance decor and festive wall decoration. • 🔄 DUAL-SIDE DISPLAY - FRONT & BACK: The ...",
+                Price = 475.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFN8N918?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71y3iXOu6HL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGQKPHPV",
+                Title = "Party Propz Waterfall Fairy Curtain Lights For Decorations - 1pc, 300LED Remote Controlled, 8 Lightning Mode, Diwali Decoration for Home, Fairy Light for Decorations, Diwali Lights for Home Decoration",
+                Description = "WATERFALL FAIRY CURTAIN LIGHTS: Brighten your celebrations with 180 quality LED lights which comes with 8 modes remote control & usb plug, diwali lights for decoration for home, diwali decoration for home, diwali lights for home, diwali lights, lights for diwali, diwali lights...",
+                Price = 259.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FGQKPHPV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71lJy6T+zVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B5RJDWMT",
+                Title = "Philips Starlit 12 Meter 72 LEDs String Light",
+                Description = "Available in 7 colors: The Philips Starlit LED String Light is available in 7 colors, including Warm White, Cool White, Red, Green, Blue, Pink, and Amber. This gives you the flexibility to choose the perfect color for your occasion or decor theme. • Length: The string light is...",
+                Price = 199.00m,
+                OriginalPrice = 360.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B5RJDWMT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61veq+TbylL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HMHYXSWZ",
+                Title = "Desidiya ® Plastic 55 Meter LED Decorative String Fairy Rice Lights for Home Decoration Indoor and Outdoor Decoration Lights, Festival, Party, Garden, Wedding (Multicolor)(Pack of 1)",
+                Description = "✨ 55 Metre Multicolor Rice Lights for Decoration: Add vibrant colour to your celebrations with a long, decorative string. Ideal for Diwali lights for home decoration, festive lighting, walls, windows, entrances and staircases.",
+                Price = 369.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HMHYXSWZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81qiSeiJ+jL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D5QCYM82",
+                Title = "Gesto Leaf Curtain Fairy Lights for Decoration - 180 Led String Lights with 8 Modes Changer | Warm White Decorative Lights for Home Decor, Room,Wall, Balcony, Christmas & Diwali Decoration- 10x3 Ft",
+                Description = "🍃 180 Warm White Leaf Curtain Fairy Lights for Home Decoration - 3m wide x 1m drop design with 10 hanging strands, decorative green leaves and 180 LEDs. Perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration items ...",
+                Price = 325.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D5QCYM82?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7138Spprl0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08KQ7DJ2R",
+                Title = "Gesto Warm White LED String Lights Waterproof Copper Wire",
+                Description = "✨ 19 Meter Warm White LED String Lights for Decoration - Long 19m coverage with bright 8mm LEDs creates a fuller warm glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room,room decoration items for bedroom and aes...",
+                Price = 149.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08KQ7DJ2R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71udBQYDyOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBLTCGMR",
+                Title = "Gesto Diwali Lights for Home, Diya Curtain String Lights with 10 Hanging Diyas, 8 Modes Remote, Multicolor Decorative Lights for Diwali Decoration for Home, Balcony, Mandir & Pooja Room - 11x3 Ft",
+                Description = "✨ 111 Multicolor Leds Diya Curtain Lights for Decoration - Beautiful 11 Ft x 3 Ft decorative curtain light featuring glowing diya shapes with Multicolor RGB LEDs. Perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decorat...",
+                Price = 325.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DBLTCGMR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CsbOEePoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DDBVMMQT",
+                Title = "Desidiya® 16 Plastic Flower String Decoration Lights for for Home, Led Curtain Light Warm White 3Mtr Indoor/Outdoor Lights for Diwali, Christmas, Party, Battery Powered, (Battery Not Included)",
+                Description = "🌻 Versatile Usage: Ideal for both indoor and outdoor spaces, these flower LED string lights are perfect for Diwali, Christmas, weddings, and parties. • ⚡ Easy Setup & Eco-Friendly: Lightweight and flexible, these lights offer hassle-free installation, energy efficiency, and en...",
+                Price = 140.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DDBVMMQT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/614FWQvxVaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D5QDPZ2G",
+                Title = "Gesto 55 Meter LED String Lights - Multicolor RGB Led Fairy Lights for Decoration with 8 Modes Changer | 360° Glow Waterproof Lights for Home Decor Balcony Outdoor Christmas & Diwali Decoration",
+                Description = "✨ 55 Meter Multicolor LED String Lights for Decoration - Long 55m coverage with bright LEDs creates a fuller Multicolor RGB glow for home, room, wall, balcony, entrance and festive decor. Ideal as lights for decoration, fairy lights for room ,room decoration items for bedroom ...",
+                Price = 399.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D5QDPZ2G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71l+rZrLyeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGXYJBR7",
+                Title = "Gesto 45 Meter LED String Lights - Warm White 8mm Big Led Fairy Lights for Decoration | 360° Glow Waterproof Copper Wire Lights for Home Decor Balcony Outdoor Christmas & Diwali Decoration- Pack of 1",
+                Description = "✨ 45 Meter Warm White LED String Lights for Decoration - Long 45m coverage with bright 8mm LEDs creates a fuller warm glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room , room decoration items for bedroom and a...",
+                Price = 425.00m,
+                OriginalPrice = 555.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGXYJBR7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YmV-AuoFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBLT6QZ6",
+                Title = "Gesto Copper Serial String Lights 14 LED Diwali Diya",
+                Description = "✨ 14 LED String Lights for Decoration - Warm white decorative lights create a soft golden glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room, aesthetic home decoration lighting,room decoration items for bedroom...",
+                Price = 199.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DBLT6QZ6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718qFas+8SL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHDZTGKL",
+                Title = "Gesto 10 Feet LED String Lights - 14 LED Crystal Drop Multicolor Fairy Lights for Decoration | 360° Decorative Diwali Lights for Home Decor, Mandir, Pooja Room, Christmas, Festival & Diwali Decoration",
+                Description = "✨ 14 LED Multicolor String Lights for Decoration - Bright colorful decorative lights add a vibrant festive look to home, room, wall, balcony, entrance and celebration décor. Ideal as lights for decoration, fairy lights for room, home decoration lighting ,room decoration items ...",
+                Price = 249.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FHDZTGKL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71FfXZNYEvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B6VL5HYJ",
+                Title = "Gesto 300 LED USB Curtain Fairy Lights for Decoration - Multicolor String Lights with 8 Modes Remote | Decorative Lights for Home Decor, Room,Wall, Balcony, Christmas & Diwali Decoration- 9.8 x 9.8 Ft",
+                Description = "✨ 300 Multicolor Curtain Fairy Lights for Home Decoration - Full 3m x 3m( 9.8x9.8 Ft )curtain coverage with 10 vertical drops and 300 LEDs, perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration items for bedroom a...",
+                Price = 325.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B6VL5HYJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71irURcraXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D78YCR1K",
+                Title = "pTron Bassbuds Astra in-Ear TWS Earbuds w/Stereo Sound, 50Hrs Playtime, Stereo Calls, Custom EQ, Mobile App, BTv5.3 Headphones, Touch Control, Voice Assistant, Type C Charging & IPX4 (Lilac)",
+                Description = "TWS Earbuds with 13mm Dynamic Driver to produce Immersive Stereo Sound | Smart Touch Controls & 50 Hours of Non-stop Playtime with the Charging Case • Lightweight Wireless Earbuds with Ergo-Fit Design | Built-in HD Mic for Clear Call Quality | In-Ear Design Blocks External Noi...",
+                Price = 599.00m,
+                OriginalPrice = 2899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D78YCR1K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41TdDa7cmvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09FHT7GQ4",
+                Title = "Gesto 15 Meter Multicolor RGB LED Strip Light | 8 Modes Inline Controller | IP65 Waterproof Outdoor LED Rope Light for Ceiling, Balcony, Home Decor & Cove Light for False Ceiling | Diwali Decoration",
+                Description = "💡 HIGH-DENSITY RGB LED STRIP LIGHT With 1 Year Warranty : This RGB light strip and RGB LED strip deliver a smooth multicolor glow for everyday lighting and décor. Ideal as an LED light strip, strip light, LED strip lights for ceiling, room decoration lights, LED lights for roo...",
+                Price = 549.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09FHT7GQ4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tyx0Sfo+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DCNCZ1WT",
+                Title = "Gesto Diwali Diya Neon Sign , Warm White LED Neon Light Strip , Diwali Lights for Home Decoration, Mandir & Pooja Room , Deepawali Decor, IP65 Waterproof Led Strip Light | Decorative Light With Electric AC Plug",
+                Description = "【Vibrant Warm White Diya Neon Sign for Diwali Decor】 Crafted in a traditional diya shape with bright Warm White LED neon strip lighting, this decorative light creates an attractive festive glow for Diwali, Deepawali and other Indian celebrations. Its colorful illuminated desig...",
+                Price = 299.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DCNCZ1WT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/712td3D6dmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FTGDZKT9",
+                Title = "Divyakosh Diwali Decorations, Paper hangings 6 pcs with 6 led Lights, Gift Items - Decoration hangings Latkan/Toran/Wall hangings (Paper Lantern - 6)",
+                Description = "Festive Paper Lanterns with LED Lights: Set of 6 colorful decorative paper lanterns equipped with warm glowing LED lights. • Traditional Indian Aesthetics: Beautiful hanging latkan / toran design perfect for door entrances, living rooms, and pooja areas. • Easy to Install: Lightweight, eco-friendly foldable design that hangs effortlessly for Diwali, weddings, and parties.",
+                Price = 425.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FTGDZKT9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81OkwPbl2qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CGNM6P1N",
+                Title = "Desidiya® 14 LED Crystal Ball String LED Diwali Lights for Decoration for Home 4 Mtr Warm White Waterproof Decorative Lights for Festival, Birthday, Wedding, Party for Home, Patio, Lawn, Restaurants",
+                Description = "✨ Illuminate Celebrations: Transform any event into a magical experience with DesiDiya 14 LED Crystal Ball String Lights. • 🎉 Versatile Occasions: Ideal for Diwali, birthdays, festivals, weddings, and parties, adding charm to every gathering. • 🏡 Home Elegance: Adorn your home...",
+                Price = 139.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CGNM6P1N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JWtmdqkXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DPXFH4LB",
+                Title = "Divyakosh Wall Hangings for Home Decoration, Set of 2 Diwali Lights, Home Living Decor, Handmade Diwali Decoration Wall hangings, Door Valance Hanging with LED T-Lights for Wedding Decor",
+                Description = "One Box Contains 2 Pieces of Elegant String with LED T-Lights /Diyas . Product exactly as shown in Image. • Wide Range of Uses: Ideal for festivals, room decoration, marriage decoration, house decoration and all kinds of occasions. Suitable for both indoor and outdoor decorati...",
+                Price = 899.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DPXFH4LB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71yt9IO4KiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBGBS329",
+                Title = "LUXEOASIS Taj Bowl Hammered Urli Candle Stand with Floating Diya, 9 Pieces Combo, Iron, Silver & Gold Diya Vase Set for Wedding, Party, Home Decoration (Taj Urli Set of 9)",
+                Description = "Sophisticated Urli Bowl for Home Decor: The LUXEOASIS Taj Bowl features a large, hammered urli bowl that adds a touch of elegance to your home decor. Its big size makes it a stunning centerpiece for various displays. • Complete Urli Set for Decoration: This versatile urli set ...",
+                Price = 1430.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DBGBS329?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71tXBP8pZoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BH3ZHS1J",
+                Title = "MX European (Schuko) to India Plug Adapter | Type E/F to Type D Travel Adapter 5A | Pack of 2, Black | Compatible with European Devices in India",
+                Description = "Adapter allows European Type E/F plugs (Schuko) to connect to Indian Type D three-prong sockets • Designed for use with European electronics while traveling, suitable for phones, laptops, chargers, and small devices • Compact and lightweight design ensures easy portability for...",
+                Price = 920.00m,
+                OriginalPrice = 1800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BH3ZHS1J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61S7y9h7DRL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G2C4BGX1",
+                Title = "MX 3-Pin German Schuko Socket with Shutter - 2 Module 13A 250V - Compatible with European & UK Brands - 45x45mm Modular Socket Plate",
+                Description = "Rated 13A, 250V: Ideal for home, office, and commercial electrical systems. • German Schuko Standard Socket: 3-pin 13A design with safety shutter for secure electrical connections. • 2 Module Modular Design: Compact 45x45mm size fits standard modular wall plates.",
+                Price = 299.00m,
+                OriginalPrice = 384.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G2C4BGX1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/616lrhPjCoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B005JK5O3O",
+                Title = "OREI USA to India Converter Plug, World (USA, UK, China) Australia to India Converter - Type D Adapter - 2 in 1 Canada to in Adapter - CE - RoHS - Beige - 1 Pack.",
+                Description = "Designed with double ports allow you to plug-in two electrical devices at once; Universal Input: Accepts plugs from all countries (except the Type M - big S. Africa 8.7mm Plug); 2nd input: Accepts 2 prong plug from any country • PERFECT FOR: Camera Chargers, Battery Chargers, ...",
+                Price = 279.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B005JK5O3O?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61l1swnxBsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B004SY5O5K",
+                Title = "OREI Europe Travel Adapter India to Europe (Schuko) Type E/F",
+                Description = "Dual Port Design: Designed with double ports, allowing you to plug in two electrical devices at once. Universal Input: Accepts plugs from all countries (except Type M - large South Africa 8.7mm plug). The second input supports 2-prong plugs from any country. • Perfect For: Cam...",
+                Price = 294.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B004SY5O5K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61T5su2-FGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJ1LGFPS",
+                Title = "Destinio Universal Travel Converter Plug Type D | World to India Adapter | Compatible for US Canada UK Europe Australia China | CE Certified, ROHS Compliant | 10A 250V Single Socket (Pack of 1 Pack)",
+                Description = "One Plug for Global Devices → Indian Sockets Type D travel plug designed for Indian wall outlets, allowing use of devices from USA, Canada, UK, Europe, Australia and China during international travel or daily use. • Compact Size, Easy to Carry Anywhere Lightweight and space-sa...",
+                Price = 247.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ1LGFPS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71i5oxcEdlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B5DPK55P",
+                Title = "Destinio Universal Europe Travel Adapter Type E/F Schuko Plug Converter 13A 250V, International EU Power Socket for Germany France Spain, Portable European Plug for Mobile Laptop Charger (Pack of 2)",
+                Description = "✔ WIDE EUROPE COMPATIBILITY - Type E/F Schuko travel adapter works in most European countries including Germany, France, Spain, Italy, Netherlands and more. Ideal international plug solution for business trips and holidays. • ✔ UNIVERSAL INPUT DESIGN - Accepts multiple interna...",
+                Price = 569.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0B5DPK55P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fDNiWiZTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKW9FCJS",
+                Title = "Browntree Premium 4p - 150g |Fresh & Healthy Dry Fruits (Almonds, Cashewnuts, Salted Pista, Raisins) |Gift Hamper |Corporate Gift| Ideal for Diwali & Festive Gifting",
+                Description = "Premium 4p includes - Almond-40g,cashews-35g,s.pistha-35g, Raisins-40g • Fresh & Hygienically Packed: Carefully sourced and packed to retain natural freshness • READY TO SERVE SNACK OPTION: Convenient as a quick snack, tea-time accompaniment or travel-friendly nut mix. Can be ...",
+                Price = 359.00m,
+                OriginalPrice = 700.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0CKW9FCJS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/713pONclFWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B084ZNM4PM",
+                Title = "XERGY Solar Fairy String Light",
+                Description = "☀️ SOLAR-POWERED LIGHTS: XERGY Solar Fairy String Lights feature an 800mAh built-in rechargeable battery that stores solar energy during the day to provide decorative illumination at night, offering a convenient lighting solution for outdoor spaces. • ✨ 39 FT STRING WITH 120 L...",
+                Price = 399.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B084ZNM4PM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81-DqlSzVEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNW4RHC3",
+                Title = "Amazon Basics Multi-Purpose Organizer | Modular Storage Box for Clothes, Kitchen, Bedroom & Living Room | Stackable Rack, Space-Saving Wardrobe Cabinet (Off White), 1 Piece, Plastic",
+                Description = "BUILT WITH ULTRA-STURDY PLASTIC: Crafted from high-strength PPCP plastic to withstand daily wear, ensuring long-lasting use. SAFE PACKAGING: Packaged with care to prevent damage during transit, so your Chestor arrives in pristine condition. • LAB TESTED DURABILITY: Tested by a...",
+                Price = 789.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DNW4RHC3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91HI9AfrHrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBLSXJ9D",
+                Title = "Gesto 10 Feet LED String Lights - 14 LED Diwali Diya Multicolor Fairy Lights for Decoration | 360° Decorative Diwali Lights for Home Decor, Mandir, Pooja Room, Christmas, Festival & Diwali Decoration",
+                Description = "✨ 14 LED Multicolor String Lights for Decoration - Bright colorful decorative lights add a vibrant festive look to home, room, wall, balcony, entrance and celebration décor. Ideal as lights for decoration, fairy lights for room, home decoration lighting ,room decoration items ...",
+                Price = 225.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DBLSXJ9D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/719ZQa3zFNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H41NX8DH",
+                Title = "IBELL Shower and Tap Filter Replacement Cartridge for Hard Water | 15-Stage Filtration Protects Hair and Skin | Tap Filter Cartridge Pack of 2",
+                Description = "CARTRIDGE ONLY - This is cartridge for IBELL shower filter Pack of 2 • 15-Stage Advanced Filtration - Effectively reduces impurities, sediment, chlorine, rust, and other contaminants to provide cleaner and healthier water for daily use. • Protects Hair & Skin - Helps minimize ...",
+                Price = 763.00m,
+                OriginalPrice = 1200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H41NX8DH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71U9S1btffL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GY4LM2RK",
+                Title = "Dr. Sheth's Collagen & Vitamin C Overnight Wrapping Mask | Firms & Brightens Skin | Deep Hydration for Plump | Dewy Glow | 50 ml",
+                Description = "Intensive Overnight Skin Repair: Formulated with Collagen and Vitamin C to firm, tighten, and restore skin elasticity while you sleep. • Deep Moisture Lock: Peeling peel-off wrapping mask technology delivers deep hydration for a supple, dewy morning glow. • Dermatologist Formulated: Suitable for all Indian skin types, targeting fine lines, dullness, and tired skin (50 ml).",
+                Price = 475.00m,
+                OriginalPrice = 569.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GY4LM2RK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/518cSsmH5KL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BJPLP8HW",
+                Title = "Bblunt Hair Fall Control Shampoo with Pea Protein & Caffeine for Stronger Hair | Reduces Up to 93% Hair Fall | Adds Shine | 300 ml",
+                Description = "Powered by Pea Protein & Caffeine: Nourishing active blend that strengthens weak hair follicles and reduces hair fall by up to 93%. • Restores Shine & Vitality: Gently cleanses scalp impurities while smoothing cuticles for healthier, glossy hair. • Salon-Grade Care: Free from parabens and SLS; suitable for colored, treated, and chemically processed hair (300 ml).",
+                Price = 271.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0BJPLP8HW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51P55ToHOVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G49CNTWH",
+                Title = "DALUCI Cotton Quilted Saree Covers Set of 6 | Saree Cover Bags for Storage with Transparent Window & Zip | Wardrobe Organizer for Clothes, Sarees, Lehengas, Dresses Foldable Closet Storage Bags - Blue",
+                Description = "PREMIUM 3-LAYER QUILTED PROTECTION: Store sarees, lehengas and dresses safely with DALUCI cotton quilted saree covers. The thick 3-layer design helps protect garments from dust, wrinkles and everyday wardrobe damage. • KEEP YOUR WARDROBE ORGANIZED: Designed as a smart wardrobe...",
+                Price = 569.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G49CNTWH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91hRWepz03L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DMJVDW33",
+                Title = "The Derma Co Peptide-Stem Cell Hair Fall Control Shampoo - 200 ml | 94% Stronger Hair* | Anti-Hair Fall Shampoo | Boosts Hair & Scalp Health | For Damaged Hair | Non Drying Formula | Sulphate Free | For Women & Men | For All Hair Types",
+                Description = "The Derma Co Peptide-Stem Cell Hair Fall Control Shampoo - 200 ml | 94% Stronger Hair* | Anti-Hair Fall Shampoo | Boosts Hair & Scalp Health | For Damaged Hair | Non Drying Formula | Sulphate Free | F...",
+                Price = 278.00m,
+                OriginalPrice = 408.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DMJVDW33?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41+bvM+EKHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DBYNBQDD",
+                Title = "DALUCI Shoe Bag for Travel Pack of 6, Shoe Cover & Shoe Organizer, Reusable Travel Shoe Bags for Men & Women, Shoe Pouch Travel Essentials for Gym & Luggage",
+                Description = "Durable Dustproof Protection: High-density non-woven fabric shields shoes from scuffs, dirt, and moisture during travel and storage. • Transparent Window: Clear viewing panel allows quick identification of footwear without opening the bag. • Multi-Purpose Travel Organizer: Pack of 6 spacious bags with sturdy drawstrings, perfect for gym sneakers, dress shoes, and heels.",
+                Price = 168.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DBYNBQDD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71sAma19vqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G1BKBX5C",
+                Title = "DALUCI 100% Cotton Saree Covers for Storage | Clothes Storage Bags with Zip Closure & Transparent Window | Washable Foldable Wardrobe Organizer for Sarees, Lehengas & Dresses (Pack of 3)",
+                Description = "Premium 100% Cotton Fabric - Durable & Breathable: Made from thick cotton fabric that protects your sarees, lehengas & dresses from dust and moisture. Breathable material prevents odour and keeps clothes fresh inside your wardrobe. • Transparent Window & Smooth Zip Closure: Se...",
+                Price = 474.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G1BKBX5C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71khjW-juaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CV79KRMG",
+                Title = "Amazon Brand - Presto! Total Wash Matic Detergent Liquid | 5 Litre | Removes Tough Stains | Gentle On Clothes | Refreshing Fragrance | Liquid Detergent For Washing Machine And Hand Wash",
+                Description = "Triple Action Cleaning Formula: Ensures superior and tough stain removal, making it highly effective in maintaining the cleanliness of your clothes. • Gentle on Clothes: The formula is designed to be gentle on fabrics, ensuring that your clothes remain in excellent condition a...",
+                Price = 519.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CV79KRMG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61E6dXdSRlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F1CGQSWJ",
+                Title = "Mamaearth Ubtan Detan Face Pack with Turmeric & Saffron",
+                Description = "Traditional Ubtan Glow: Crafted with natural Turmeric, Saffron, and Apricot Oil to reverse sun tan and restore natural radiance. • Gentle Exfoliation & Clarification: Removes dead skin cells and absorbs excess oil without drying out the face. • Safe & Natural: Dermatologically tested, toxin-free formula free from parabens, sulfates, and mineral oil (100g).",
+                Price = 324.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0F1CGQSWJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51kC4znu-jL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZXTBXP8",
+                Title = "amazon basics 100% Room Darkening Blackout Window Curtains - Set of 2, Plain Design for Bedroom and Living Room, 5 Feet, Cream",
+                Description = "Total Light Blockage = Total Comfort Crafted to darken your room and block out harsh sunlight, these curtains help you create a peaceful, restful environment-great for afternoon naps, movie marathons, or simply winding down. • Premium Polyester Fabric Made from high-quality, t...",
+                Price = 619.00m,
+                OriginalPrice = 749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DZXTBXP8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6100j3EhNSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F6ZZ9K39",
+                Title = "DECOMIZER Cotton Feel All Around Elastic Fitted Glace Printed King Size Double Bed Bedsheet with 2 Large Pillow Covers Fits Upto Mattress of 8 Inches,Size - 72 x 78 x 10 Inches, Yellow Jaipuri",
+                Description = "Elastic Fitted Bedsheet with 2 Pillow Covers Size :- 72\" X 78\" x 10\" Inch • Ideal for Mattresses having height 4 to 8 inches and length 6 x 6.5 ft. Easy to tuck-in even on heavy mattress.Full elastic trim for perfect fit. • Color:- Multi ,Material :- Glace Cotton",
+                Price = 605.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F6ZZ9K39?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/915Br81OuhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FF1M5HZ8",
+                Title = "One94Store LED Pixel String Light Pack of 1 - 36 Ft Copper Wire Fairy Lights, Bright Warm White Lights for Diwali Decoration, Home Décor, Pooja, Festival, Christmas, Wedding & Party",
+                Description = "📦 Package Contains: 1 x 36 Ft LED Pixel String Light (Warm White) • 📏 36 Feet Long - Perfect for decorating walls, balconies, staircases, windows, and backdrops. • 💡 360° Warm White LED Bulbs - Emits a soft, soothing glow in every direction for a cozy ambiance.",
+                Price = 98.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FF1M5HZ8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rEjMzLxcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FN49VXF5",
+                Title = "One94Store 55 Meter Warm White 208 LED Rice Lights (Pack of 1) | Waterproof LED Copper Wire Decorative String Lights | Special Diwali Lights for Home, Festival, Party, Bedroom & Outdoor Decor",
+                Description = "Package Includes: 1 × One94Store 55 Meter Warm White LED Rice Lights with 208 Bright Warm White LEDs on flexible copper wire for decorative lighting. • 208 Bright Warm White LEDs with 360° Glow: Creates a vibrant and attractive lighting effect with all-around illumination to e...",
+                Price = 349.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FN49VXF5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81fg-VxkHnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BX6ZL8FC",
+                Title = "Gesto 20 Meter LED String Lights - White Led Fairy Lights for Decoration | 360° Premium White Glow Waterproof Copper Wire Lights for Home Decor Balcony Outdoor Christmas & Diwali Decoration",
+                Description = "✨ 20 Meter White LED String Lights for Decoration - Long 20m coverage with bright LEDs creates a fuller White glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room , room decoration items for bedroom and aesthetic...",
+                Price = 199.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BX6ZL8FC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71sEviy4zjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GG96ZDH6",
+                Title = "HOMEMONDE 100% True Blackout Curtains 7 Feet Door - Single Piece Curtain, Embossed Panels Light Block Thermal Insulated & Noise Reducing Room Darkening Curtains (Off White, 84Inch)",
+                Description = "100% True Blackout Curtains Designed with advanced three-layer fabric construction, these curtains feature a dense inner black core layer that delivers one hundred percent blackout performance.Ideal for creating a comfortable, peaceful space for rest, relaxation, and uninterru...",
+                Price = 909.00m,
+                OriginalPrice = 1449.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GG96ZDH6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/714wC5oJscL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GG9CTB5D",
+                Title = "HOMEMONDE 100% True Blackout Curtains 5 Feet Window - 1 Piece Curtain, Embossed Panels Light Block Thermal Insulated & Noise Reducing Room Darkening Curtains (Abstract Brown, 60Inch)",
+                Description = "100% True Blackout Curtains Designed with advanced three-layer fabric construction, these curtains feature a dense inner black core layer that delivers one hundred percent blackout performance.Ideal for creating a comfortable, peaceful space for rest, relaxation, and uninterru...",
+                Price = 773.00m,
+                OriginalPrice = 1139.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GG9CTB5D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NN9k-N2-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
