@@ -54954,6 +54954,756 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B09BFV96TS",
+                Title = "Dyazo Water Resistant Laptop Sleeve with Handle (15 - 15.6 Inch, Grey)",
+                Description = "Water-resistant laptop sleeve and cover case with sturdy carrying handle, tailored for 15 to 15.6-inch laptops and notebooks. Features dedicated accessory storage and protective foam cushioning for everyday office, commute, and travel protection.",
+                Price = 269.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09BFV96TS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81R79IThsCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09X68MQRR",
+                Title = "Dyazo 13 - 13.3 Inch Laptop Sleeve with Handle & 2 Accessory Pockets (Black)",
+                Description = "Premium 13 to 13.3-inch laptop case cover with comfortable grab handle and 2 front accessory pockets. Compatible with all ultrabooks and compact laptops, providing anti-scratch lining and water-resistant padding.",
+                Price = 269.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09X68MQRR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/819-2gnxg3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09X68D3GP",
+                Title = "Dyazo 13 - 13.3 Inch Laptop Sleeve with Handle & 2 Accessory Pockets (Blue)",
+                Description = "Protective laptop sleeve cover compatible with MacBook Pro, MacBook Air, and 13/13.3-inch notebooks. Features 2 front accessory pockets for chargers and mouse, durable top handle, and impact-resistant internal cushioning.",
+                Price = 269.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09X68D3GP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81OHtwJmWpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DC6J9FF1",
+                Title = "Crompton Galaxy Pixel Light 10 Meter 3W Warm White Ladi Lights",
+                Description = "10 Metre String Light: Provides extended decorative coverage across a 10-metre length, suitable for home décor, festive decoration and event settings. • 48 LED Lights: Features 48 LEDs arranged across the flexible wire to provide decorative illumination across the required are...",
+                Price = 99.00m,
+                OriginalPrice = 400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DC6J9FF1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-JCBFZJKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G6TD4M6L",
+                Title = "Plantex Stainless Steel Folding 24 Inch Single Towel Rod/Towel Holder for Bathroom with Hooks/Towel Hanger/Towel Stand/Bathroom Accessories - (24 Inch-Chrome)",
+                Description = "𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐒𝐭𝐚𝐢𝐧𝐥𝐞𝐬𝐬 𝐒𝐭𝐞𝐞𝐥: Plantex folding towel hanger is crafted from high-quality stainless steel with a premium nickel chrome finish and stainless steel hooks. The rust-proof, corrosion-resistant, and scratch-resistant construction ensures long-lasting durability and reliabl...",
+                Price = 449.00m,
+                OriginalPrice = 1435.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G6TD4M6L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81nIJuIOIPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DCNCWN2N",
+                Title = "Gesto Diwali Diya Neon Sign , Multicolor LED Neon RGB Light Strip , Diwali Lights for Home Decoration, Mandir & Pooja Room , Deepawali Decor, IP65 Waterproof Led Strip Light | Decorative Light With Electric AC Plug",
+                Description = "【Vibrant Multicolor Diya Neon Sign for Diwali Decor】 Crafted in a traditional diya shape with bright multicolor LED neon strip lighting, this decorative light creates an attractive festive glow for Diwali, Deepawali and other Indian celebrations. Its colorful illuminated desig...",
+                Price = 225.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DCNCWN2N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PQnF0ZaLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0837C2DZS",
+                Title = "Santoor Skin Softening Sandal & Almond Milk Bathing Soap with Nourishing & Anti-Aging Properties| For Smooth & Soft and Younger-Looking Skin| For All Skin Types| 150g, Pack of 6",
+                Description = "Santoor Skin Softening Bathing Soap infused with authentic sandalwood and nourishing almond milk. Deeply cleanses and moisturizes to restore youthful, smooth skin with a calming traditional fragrance. Suitable for all skin types in a value pack of 6 (150g each).",
+                Price = 209.00m,
+                OriginalPrice = 336.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0837C2DZS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Ezw1CCqUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FR92PQHL",
+                Title = "Fevicol MR 120g Craft Glue (Pack of 2) | Ultimate Adhesive| DIY Art & Craft | Easy to use | Multi-surface | Ideal for Children, Hobbyists, Student’s Project Work",
+                Description = "India's “Most Trusted” Fevicol brand that can be used for multiple occasions. Just Pull it, Stick It, Push It with mess free nozzle and unique pen shape. • Universal craft glue ideal for pasting variety of materials from papers, candy sticks, corrugated sheets to heavy craft a...",
+                Price = 99.00m,
+                OriginalPrice = 120.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FR92PQHL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51L8W5mkvrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F5Q9QTH1",
+                Title = "Portronics Toad 103 Wired Optical Mouse",
+                Description = "High-Precision DPI: Features a powerful 2400 DPI sensor for smooth and accurate tracking-perfect for work, study, and casual gaming. • Ultra-Durable Build: Designed to last with 30 lakh+ click life-ensuring consistent performance over time. • Ambidextrous Design: Comfortable f...",
+                Price = 119.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F5Q9QTH1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61X+SfvMh1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F6JRKNLN",
+                Title = "iBELL WHISK350 Electric Hand Mixer 350W,2 Year warranty with 5 Speed Control, Stainless Steel Beaters & Dough Hooks for Baking, Whipping & Mixing (White)",
+                Description = "Power: 350 watts; Operating voltage: 220-240 volts this hand mixer can handle thick batters, heavy dough, and creamy mixtures with ease, saving you time and effort in the kitchen. • 5 Adjustable Speed Levels: Multiple speed settings for mixing and whipping applications. • Vent...",
+                Price = 999.00m,
+                OriginalPrice = 2250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F6JRKNLN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61KW3rGrmWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08S76Q5RS",
+                Title = "iBELL HM390L PLUS 300-W Hand Mixer Beater/Blender/Electric Cream Maker for Cakes with Base 5 Speed Control and 2 stainless Steel Beaters, 2 Dough Hooks (White)",
+                Description = "Versatile 5-in-1 Appliance: Use as a hand mixer, beater, blender, electric cream maker, and dough kneader for cakes, cookies, whipped cream, and more. • 5 Speed Control for Precise Mixing: Easily adjust the speed to suit your mixing needs, from gentle folding to intense whippi...",
+                Price = 988.00m,
+                OriginalPrice = 2250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08S76Q5RS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41LFvRTasYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CXDN7V9N",
+                Title = "STRIFF World Map Extended Gaming Mouse Pad",
+                Description = "PROTECT YOUR DESK: Made of durable PU leather material, which protects your desk from scratches, stains, spills, heat and scuffs. It also gives your office a modern and professional atmosphere when you put it on your desktop. Its smooth surface will make you enjoy writing, typ...",
+                Price = 219.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CXDN7V9N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61s6d6BxW4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BK1457X3",
+                Title = "Boldfit Shoe Bag for Travel Bag for Man & Women Shoe Cover for Storage at Home Gym Reusable Travelling Accessories Organizer Pouch Travel Essentials Footwear Bags for Travelling Men -Pack of 6, Black",
+                Description = "DUSTPROOF MATERIAL - These shoe bags pouches travel are odorless, stain resistant, breathable, dust proof, lightweight and easy to use. Keep your shoes well organized and dust free in the closet.Travel shoe sag has a wide open mouth and tight closure for easy packing. • FUNCTI...",
+                Price = 179.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BK1457X3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UlEDZPiCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CC2WLF1Z",
+                Title = "Solimo Plastic Analog Wall Clock",
+                Description = "QUALITY: This Solimo clock is made from high-quality material. • ACCURACY: Equipped with precise quartz movement, it shows the accurate time. • SILENT SWEEP TECHNOLOGY: Its hands sweep silently, without a ticking sound. This retains a quiet, non-disturbing sleep and work envir...",
+                Price = 508.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CC2WLF1Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xca58Ac9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRVL7TFK",
+                Title = "Solimo Plastic 11-Inch Analog Wall Clock",
+                Description = "Clear and Readable Design: The Solimo Wall Clock features large numbers and a clear front for easy readability, making it a stylish addition to any wall in your bedroom, school, office, living room, kitchen, or commercial space. • Silent Movement Technology: Enjoy a peaceful e...",
+                Price = 359.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CRVL7TFK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SDj7P53tL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CC2W63V4",
+                Title = "Solimo Plastic Wall Clock",
+                Description = "QUALITY: This Solimo clock is made from high-quality material. • ACCURACY: Equipped with precise quartz movement, it shows the accurate time. • SILENT SWEEP TECHNOLOGY: Its hands sweep silently, without a ticking sound. This retains a quiet, non-disturbing sleep and work envir...",
+                Price = 518.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CC2W63V4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61EWnR+jcOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CC2TJRK7",
+                Title = "Amazon Brand - Solimo Plastic Analog Wall Clock, Quartz Movement, Silent Sweep, Modern Embossed, Easy-to-Read Time Indicator (30 Cm X 30 Cm, Green)",
+                Description = "QUALITY: This Solimo clock is made from high-quality material. • ACCURACY: Equipped with precise quartz movement, it shows the accurate time. • SILENT SWEEP TECHNOLOGY: Its hands sweep silently, without a ticking sound. This retains a quiet, non-disturbing sleep and work envir...",
+                Price = 449.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CC2TJRK7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61IzRDZ3tOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HFN8BZ21",
+                Title = "Gesto 8 Stick Meteor Shower LED String Lights - 192 LEDs Warm White Fairy Lights for Decoration | 30cm Falling Rain Tube Lights with 8 Modes | for Christmas, Balcony, Tree, Outdoor & Diwali Decor",
+                Description = "✨ METEOR SHOWER FALLING RAIN EFFECT: Gesto 8 Stick Meteor Shower LED Lights create a flowing sequential rain-drop effect that gives balconies, trees, entrances and outdoor spaces a unique golden waterfall appearance unlike ordinary decoration lights. • 💡 192 WARM WHITE LEDs: B...",
+                Price = 675.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFN8BZ21?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81DHHSV7doL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGJRHZLV",
+                Title = "Halonix Twinkle 10M Yellow LED Decorative String Light | Fairy Light | USB Light | Curtain Light | Diwali Lights for Decoration for Home | Pack 1",
+                Description = "10 meter with bright led bulbs, A perfect decorative LED Serial Led String lights are suitable for your all indoor decoration. • Exceptional Quality: Designed with incredibly vibrant LEDs, 10 meters diwali ladiya light serves as a perfect addition of Diwali lights for home dec...",
+                Price = 78.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FGJRHZLV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71XxXlcSI-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPX6QBZ1",
+                Title = "Desidiya 3 Meter 10 Happy Diwali Round Metallic LED String Lights (Warm White)",
+                Description = "✨ Bright Festive Glow - 3-meter \"Happy Diwali\" LED string light spreads warm white illumination for a divine celebration. • 🏡 Perfect Décor Piece - Ideal for decorating mandir, entrance, balcony, windows, living room, or party spaces. • ⚡ Plug-In Powered - Easy-to-use plug-in ...",
+                Price = 199.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FPX6QBZ1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71z4ZAioqpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HGXVYNDQ",
+                Title = "Gesto 17 Meter LED String Lights - Warm White 12mm Big Led Fairy Lights for Decoration | 360° Glow Waterproof Copper Wire Lights for Home Decor Balcony Outdoor Christmas & Diwali Decoration-Pack of 10",
+                Description = "✨ 17 Meter Warm White LED String Lights for Decoration - Long 17m coverage with bright 12mm LEDs creates a fuller warm glow for home, room, wall, balcony, entrance and festive décor. Ideal as lights for decoration, fairy lights for room,room decoration items for bedroom and ae...",
+                Price = 1649.00m,
+                OriginalPrice = 9999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGXVYNDQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81br7drmNtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGJW3XSX",
+                Title = "Halonix Twinkle 32 Feet Multicolor 46 LED Decorative Light | Diwali Lights for Decoration for Home | Fairy Light | Festival Light | Curtain Light for Decoration | String Light for Diwali | Pack of 1",
+                Description = "10 meter with 46 led bulbs, A perfect decorative LED Serial Led String lights are suitable for your all indoor decoration. • Exceptional Quality: Designed with 46 incredibly vibrant LEDs, 10 meters diwali ladiya light serves as a perfect addition of Diwali lights for home deco...",
+                Price = 88.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FGJW3XSX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81MQ83-fnVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09Y23QLNR",
+                Title = "Toy Imagine 54 Pcs Colourful Wooden Blocks for Boys 7-14 Years - Indoor Balancing & Building Game, Montessori Wooden Toys, Kids Activity Tower Block for Cognitive Development & Fun",
+                Description = "Educational Wooden Jenga Blocks for Kids 7-14 Years: Enhance creativity and fine motor skills with this colourful wooden block set from TOY IMAGINE, suitable for balancing games, building fun indoors, and classic jenga game for kids • Montessori Inspired Building and Balancing...",
+                Price = 284.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B09Y23QLNR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61f0GOwDeUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJ2LY2JN",
+                Title = "Zebronics Wattz 60CC4 Type-C to Type-C Braided Cable, PD 60W, Upto 480Mbps Data Sync, 20 cm, Durable, Charge & Sync, Rapid Charging, Compact with Keychain Case, For Laptops, Tablets, Mobiles (Black)",
+                Description = "CHARGE AND SYNC: Delivers blazing-fast charging and seamless data transfer with up to 60W power delivery for all your USB-C devices. • BRAIDED DESIGN: A tough braided exterior resists wear, bending, and tangling for unmatched durability and lasting performance. • CABLE LENGTH:...",
+                Price = 169.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FJ2LY2JN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61jkpHqtacL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGVFLG1N",
+                Title = "Gesto Diya Curtain Fairy Lights for Decoration - 80 Led String Lights with 8 Modes Changer | Multicolor Decorative Lights for Home Decor, Room,Wall, Balcony, Christmas & Diwali Decoration- 10x3 Ft",
+                Description = "🍃 80 Multicolor Diya Curtain Fairy Lights for Home Decoration - 3m wide x 1m drop design with 10 hanging strands, decorative diyas and 80 LEDs. Perfect as lights for decoration, fairy lights for room, wall décor, bedroom décor, balcony lighting, room decoration items for bedro...",
+                Price = 899.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FGVFLG1N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fGey8R6aL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08NT98LKX",
+                Title = "Ceptics India to Europe Plug Adapter (Schuko) Type E/F",
+                Description = "UNIVERSAL INPUT: Meaning these adapters accepts 2-prong 3-prong plugs from all countries except Type M (South Africa). Small, easy to carry around and perfect for your travels • Compatible with cell phones, tablets, battery charges, laptops and other dual voltage or world-wide...",
+                Price = 573.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08NT98LKX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/514r05LFF2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08NT82X1C",
+                Title = "Ceptics India to European Travel Adapter (Schuko) Type E/F",
+                Description = "UNIVERSAL INPUT: Meaning these adapters accepts 2-prong 3-prong plugs from all countries except Type M (South Africa). Small, easy to carry around and perfect for your travels • Compatible with cell phones, tablets, battery charges, laptops and other dual voltage or world-wide...",
+                Price = 298.90m,
+                OriginalPrice = 749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08NT82X1C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51jTaWhoGmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPD5XHSJ",
+                Title = "FLYNGO Fairy Curtain String Lights for Decoration, Warm White USB Powered 300 LED Lights with 8 Flashing Modes, Lights for Diwali, Christmas, Wedding, Party, Home (Fairy Curtain Warm White)",
+                Description = "📦 Package Contains: 1 x 3x3 Meter LED Curtain String Lights with 300 Warm White LEDs, 1 x Remote Control • 🌟 300 LED Warm White Glow - Covers 3x3 meters to create a soft, elegant sparkle that enhances any space. • 🎮 8 Flash Modes with Remote Control - Easily switch between twi...",
+                Price = 295.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FPD5XHSJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bYilOoW9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HKSQMLMM",
+                Title = "Festival Decoration Items Wall and Door Hanging for Home Decor | Diwali Ganesh Pooja Backdrop Decorative Items Pack of 5 Pompom Diya String by Avyksh Creations Size-2 feet Each String",
+                Description = "FESTIVE WALL & DOOR HANGING: Vibrant pompom diya string decorations perfect for Diwali, Ganesh Pooja, weddings, and all festive occasions. • PACK OF 5 STRINGS: Each set includes 5 decorative hanging strings, each measuring 4 feet in length, ideal for creating a stunning festiv...",
+                Price = 789.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HKSQMLMM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71bIbni1taL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CF2F28KS",
+                Title = "VERVENIX 12 Pcs LED Tea Light Candles | Flameless & Smokeless Acrylic Diyas | Battery-Operated | Warm White 3cm Candles for Diwali, Festive, Wedding, Party & Christmas Décor (Pack of 12)",
+                Description = "🕯️ Set of 12 LED Tea Light Candles Includes 12 transparent, battery-operated LED candles in a warm yellow glow. • 📏 Compact & Stylish Design Each candle measures 5 cm (H) x 4 cm (L), designed to fit standard tea light holders. • 🎁 Perfect for Gifting & Special Moments An elega...",
+                Price = 349.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CF2F28KS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71QivffrXLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FKYJVQ3J",
+                Title = "One94Store 12 Diya Curtain String LED Lights - 3 Meter Warm White Plug-in Decorative Fairy Lights with 108 LEDs, 8 Lighting Modes for Wall, Diwali & Festival Decoration (Plastic)",
+                Description = "📦 Package Contains: 1 x 12 Diya Curtain LED Light (3 Meter, 108 LEDs) • 🪔 Traditional Diya Design - Features 12 beautiful hanging diya shapes (6+6) that bring a divine and festive aura to your home. • 💡 108 Warm White LEDs - Bright yet soothing golden glow that creates a perfe...",
+                Price = 298.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FKYJVQ3J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ujrTAVdPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FLDHN2C6",
+                Title = "EVEREADY UTSAV 15-Meter LED Pixel Chain Lights, Warm White, Pack of 1 | 72 LEDs, BIS Approved, Decoration Lighting for Diwali, Weddings, Home Decor, Festivals & More",
+                Description = "EXTENDED COVERAGE & BRIGHTNESS: 72 LEDs spread across 15 meters deliver wider illumination and a sparkling glow for large indoor spaces. • FLEXIBLE & FUNCTIONAL DESIGN: Perfect for wrapping over stair railings, curtain rods, party walls, or floor to create stunning decor effec...",
+                Price = 99.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FLDHN2C6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81kAq3ibePL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07YC739KM",
+                Title = "Sumeet Stainless Steel Induction Bottom Kadhai with Glass Lid",
+                Description = "Induction & Gas Stove Compatible: Built with a versatile base that works seamlessly on both induction cooktops and traditional gas stoves, offering flexibility in your kitchen • High-Quality Stainless Steel: Crafted from premium stainless steel for excellent durability, easy c...",
+                Price = 499.00m,
+                OriginalPrice = 1260.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07YC739KM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Cv-gAjXlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQ39KR5W",
+                Title = "Zebronics Foldable Mobile & Tablet Stand, Multi-Angle Adjustable, Supports Up to 30.48cm Devices, Lightweight & Portable Design (MTS30)",
+                Description = "FOLDABLE DESIGN: Smart foldable structure allows easy storage and portability, making it perfect for travel, office, or home use. • WIDE DEVICE COMPATIBILITY: Compatible with both mobile phones and tablets, supporting devices up to 30.48cm screen size. • MULTI-ANGLE ADJUSTMENT...",
+                Price = 89.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GQ39KR5W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61gC0efEr5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08R5MVCJY",
+                Title = "Motomax Chain Lube Aerosol Spray 100 ml |Provides Lubrication and corrosion protection of Chain & sprockets for Bikes, Motorbikes, Cars| Avoid Sling Off & Prevent Chain breakage | Extended Chain Life",
+                Description = "🏍 Lubrication and corrosion protection of chains and sprockets. • 🏍COATS, PROTECTS AND PRESERVE: Motomax Chain Lube is a unique lubricant that coats, protects and preserves the chain and sprocket of vehicle; Forms a protective film on chain that avoids friction. • 🏍 APPLICATIO...",
+                Price = 90.00m,
+                OriginalPrice = 125.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08R5MVCJY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51D9yTVA9RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B096XGB49Z",
+                Title = "Aristo Lock & Fresh 503 Plastic Storage Container",
+                Description = "Airtight seal with great elasticity power locks tightly. • Microwave, freezer and dishwasher safe • It is made up of superior raw material with durability and heatresistant ability which is friendly to the human body",
+                Price = 63.00m,
+                OriginalPrice = 125.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B096XGB49Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/513jJVyjIiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09KHFWNBF",
+                Title = "Pears 98% Pure Glycerin Soft & Fresh Glow Body Wash with Mint Extract and 0% Parabens & Soap for Freshness & Glow, 750 ml",
+                Description = "Crafted with 98% pure glycerin and natural mint extract, Pears Soft & Fresh body wash gently purifies while preserving natural skin moisture. 100% soap-free and dermatologically tested formula delivers a refreshing cooling sensation and radiant glow in an economy 750ml bottle.",
+                Price = 262.00m,
+                OriginalPrice = 545.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09KHFWNBF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51CdfC6cHUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DV5B8K76",
+                Title = "Gesto Portable Fan Rechargeable with LED Light - Foldable Mini Fan, Small Fan,USB Charging Hand Fan with 1200mAh Battery & 3 Speed Modes | Travel, Makeup, Kitchen,Women’s Personal Pankhaa - Green",
+                Description = "Rechargeable Fan with Long Battery Life: Gesto mini pankhaa features a powerful 1200mAh battery offering long-lasting use. Use this portable fan rechargeable anywhere-home, office, travel, or kitchen. Charge with USB, power bank, laptop, or car charger. A must-have summer gadg...",
+                Price = 418.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DV5B8K76?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SYrFZJXAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09CL4SK8H",
+                Title = "Yellow Weaves Top Load Fully Automatic Washing Machine Cover for 6 kg, 6.5 kg, 7kg, 7.5 kg & 8kg Waterproof & Dust-Proof Top Loading Machine Protective Cover (Dimensions- 59x59x86 cm, Grey)",
+                Description = "Package Content: Top Load Fully Automatic Washing Machine Cover, Material: Polyester • Color: Grey, Material: Polyester, Product Dimension: 59X59X86 CM • Top Zip provides for Opening & Closing. Cover has holes on backside for drainage pipe and wire. So, no need to remove whole...",
+                Price = 328.00m,
+                OriginalPrice = 649.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09CL4SK8H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61jM3HAsvrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CPYJW4P1",
+                Title = "IFTEX Clean System D with Triple Action Diesel Additive for All Diesel Cars (Pack of 2, 250 ml)",
+                Description = "IFTEX introduced first time indigenously developed Fuel Additives in India in 1996. • System D designed for diesel applications, tested and approved in past by major Auto Manufacturers like Ford, General Motors, Tata Motors and Marketed by BPCL and IBP across India through the...",
+                Price = 484.00m,
+                OriginalPrice = 600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CPYJW4P1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zkexNk-oL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CH68DKPK",
+                Title = "Orient Electric 12W Rimless LED Surface Panel Light | 990 Lumens | Wide Voltage Operation | Up to 4.0 kV Surge Protection| Cool White Light| BIS Certified | Made in India| Pack of 1",
+                Description = "Full Uniform Glow: The rimless diffuser ensures a complete and even illumination that spreads seamlessly across the entire room. • Versatile Installation: With polycarbonate surface panels, these lights can be easily installed directly on surfaces where a false ceiling option ...",
+                Price = 275.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CH68DKPK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Pj74jtwWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D4V37C55",
+                Title = "Orient Electric 12W Rimless Round LED Full Screen Surface Panel Light |3000K, Warm White | Surface Ceiling LED Light (No False Ceiling Required)| Pack of 1",
+                Description = "Full Uniform Glow: The rimless diffuser ensures a complete and even illumination that spreads seamlessly across the entire room. • Versatile Installation: With polycarbonate surface panels, these lights can be easily installed directly on surfaces where a false ceiling option ...",
+                Price = 289.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D4V37C55?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61QDB0wM8RL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CSSVBM2G",
+                Title = "Solimo Cotton Bath Towel",
+                Description = "Lightweight Design: Crafted with a lightweight fabric, the Solimo towel provides a luxurious feel without the bulk, ensuring a comfortable and easy-to-handle experience. • Easy Home Maintenance: Designed for convenience, these towels are easy to wash at home, making them a pra...",
+                Price = 289.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CSSVBM2G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91N6zeywh+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFDVC736",
+                Title = "Amazon Brand - Solimo - Cotton Bath Towel | 500 GSM | Fade Resistant | Blue",
+                Description = "High GSM Cotton Fabric: Densely woven cotton fabric with high grams per square meter (GSM) counts for superior absorbency. • Fade-Resistant Dyes: Utilizes fade-resistant dyes to maintain vibrant colours, wash after wash. • Breathable Weave: Specialized weaving pattern enhances...",
+                Price = 289.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CFDVC736?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71o25HaToaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CFDY9PK7",
+                Title = "Solimo - Cotton Bath Towel | 500 GSM | Fade Resistant | Dark Grey",
+                Description = "High GSM Cotton Fabric: Densely woven cotton fabric with high grams per square meter (GSM) counts for superior absorbency. • Fade-Resistant Dyes: Utilizes fade-resistant dyes to maintain vibrant colours, wash after wash. • Breathable Weave: Specialized weaving pattern enhances...",
+                Price = 289.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CFDY9PK7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71+chERyI0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00T926QUI",
+                Title = "WARMEE Body Warmers (Pack of 5 pcs) Safe & Natural Heat Patches, Heat Packs for Men, Women and Children | Travel Warmers to Stay Warm in Winters| Camping, Trekking, Holidays",
+                Description = "Includes: Pack of 5 Hot Body Warmers. • These body warmers are single-use packs that activate upon exposure to air. Once activated, they provide heat for more than 8 hours, making them ideal for prolonged outdoor activities or cold environments. The warmers can be placed insid...",
+                Price = 579.00m,
+                OriginalPrice = 625.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B00T926QUI?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DqE8274PL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09FN65GQ5",
+                Title = "Love Beauty & Planet Onion, Black Seed & Patchouli Hairfall Control Natural Shampoo|No Sulfates,No Paraben|400ml",
+                Description = "Formulated with pure onion bulb oil, black seed oil, and ethically sourced Indonesian patchouli, this natural shampoo strengthens hair fibers and reduces hairfall. Free from sulfates, parabens, and artificial colorants, delivering salon-quality nourishment in a 400ml bottle.",
+                Price = 295.00m,
+                OriginalPrice = 650.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B09FN65GQ5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51bVdDoEn0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HCNL9F23",
+                Title = "Cult Nova Portable Deep Tissue Massage Gun for Full-Body Muscle Relief, Ultra-Lightweight Handheld Design, 6 Speed Levels, Up to 3-Hour Battery Life, 4 Interchangeable Heads, Deep Tissue Massager for Arms, Shoulders, Legs & Everyday Recovery White",
+                Description = "COMPACT RELIEF, ANYWHERE: Target everyday aches and muscle tension wherever you go with a massager designed for life on the move. Its lightweight, compact form fits easily into your bag, making relief accessible whenever you need it. • 4-IN-1 VERSATILITY: Personalise your mass...",
+                Price = 749.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0HCNL9F23?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Kb2a066aL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DYP8F8BT",
+                Title = "Himalaya Anti Hair Fall Bhringaraja Conditioner 180Ml",
+                Description = "Enriched with time-tested Ayurvedic herbs Bhringaraja and Butea Frondosa, this revitalizing conditioner strengthens hair follicles, detangles unruly strands, and helps curb hair breakage without parabens or harsh chemicals. Convenient 180ml tube.",
+                Price = 111.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DYP8F8BT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51H1X4dEdyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F2237QFM",
+                Title = "Lifelong Toiletry Bag for Men & Women | Vegan Leather Travel Pouch | Shaving Kit, Grooming & Makeup Organizer | Toiletry Bag for Travel, Gym, Daily Use, Cosmetics, Toiletries & Essentials (Tan)",
+                Description = "Spacious & Well-Organized: Thoughtfully designed compartments provide ample space to keep your shaving tools, toiletries, cosmetics, and grooming essentials neatly arranged. • Versatile & Multi-Purpose: Use it as a shaving kit, makeup pouch, travel organizer, or daily carry-al...",
+                Price = 179.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F2237QFM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81BgGlPYfIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
