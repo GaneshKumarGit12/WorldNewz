@@ -55704,6 +55704,936 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0HGRQ6V86",
+                Title = "Phool 13 item Diwali Lantern Gift Box with Ceramic Diya, Chocolate Ladoo, Chikky, T-Light Lantern, Candles, Incense, Hawan Cups, Oil Burner & Oil | Diwali Gift for Family & Corporate",
+                Description = "Complete Diwali Puja & Decor Essentials in One Box - This thoughtfully curated 13-piece Diwali gift hamper includes 2 handcrafted Pallav ceramic diyas, lotus-shaped wax candles, a handmade T-light lantern, a single T-light candle, cotton wicks, an oil burner, and 3 hawan cups ...",
+                Price = 899.00m,
+                OriginalPrice = 1725.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HGRQ6V86?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Vfaow3+dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GCNX54Q9",
+                Title = "Smylo Adult Wet Cat Food Trial Box (1+ Yrs) with Fish & Chicken Broth | Chicken, Tuna & Mackerel Recipes | Grain Free, No Preservatives | Omega 3 & 6 for Shiny Fur | Wet Food for Cats, Cat Food Topper",
+                Description = "PURRFECT FOR FUSSY CATS: The Smylo Starter Box lets your cat try a variety of delicious recipes. It includes a tasty pouch of each of our 4 cat wet food recipes: Tuna & Salmon, Chicken & Chicken Liver, Chicken & Tuna, and Mackerel & Kanikama, along with 1 Chicken and 1 Fish Br...",
+                Price = 550.00m,
+                OriginalPrice = 600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GCNX54Q9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sNHNbWjOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJWS628Y",
+                Title = "EAT BETTER CO Happy Diwali Dry-Fruit Hamper - 8-Item Diwali Gift Pack",
+                Description = "Festive 8-item dry fruit and treat gift hamper featuring chocolate laddoos, orange chocolate laddoos, mango achari millet namkeen, chocolate almonds, banarasi paan & jaljeera mukhwas, fragrant incense, and a heartfelt greeting card.",
+                Price = 399.00m,
+                OriginalPrice = 750.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0HJWS628Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81UmFP42EaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJ5RSBFH",
+                Title = "Phool 15 Item Kalamkari Diwali Utsav Gift Box Ladoo, Chikky, Laxmi Charan, Incense, Havan Cup, Candles, diya and Decor, Premium Diwali Gift Hamper for Family, Friends & Corporate Gifting",
+                Description = "A beautifully curated Diwali gift hamper: The Phool Kalamkari Diwali Utsav Gift Box brings together traditional festive essentials, elegant décor, fragrances, candles and delicious treats for a memorable Diwali celebration. • Festive diyas and lighting: Includes Pallav Ceramic...",
+                Price = 699.00m,
+                OriginalPrice = 1095.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ5RSBFH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81BVTpl3USL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HHS2TQCP",
+                Title = "Hyperfoods® Diwali Gifts For Family And Friends Gifts From The Orchard Diwali Gift Hamper For Employees Dry Fruits Gift Box, Chocolate & Coconut Brittles, Tea Light Holder & Candles",
+                Description = "Diwali Gift Contains : Cashews (30g), Almonds (30g), Raisins (30g), Pistachios (30g), Chocolate Peanut Butter Brittle 100g, Coconut Crush Brittle 100g, A Diwali Greeting Card, Pack of 4 Tea Lights Candles and Pack of 2 Metal Tea Lights Holder. • Dry Fruits : 30% more fresh, yi...",
+                Price = 499.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B0HHS2TQCP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oPKail1-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GY2T8Q7Z",
+                Title = "First Kick Baby Blanket Newborn Combo Gift Pack of Swaddle Wrapper & Baby Bath Towel, 0-9 Months, Length 68 cm x Width 68 cm, Pack of 2 Pcs.",
+                Description = "SUPERVISED USE ONLY - FOR ACTIVE MOMENTS: This product is designed exclusively for supervised awake-time such as tummy time, interactive play, or diaper changes. Do not use for sleep or leave baby unattended. • ULTRA-SOFT PREMIUM FLANNEL FABRIC - Made with high-quality brushed...",
+                Price = 398.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GY2T8Q7Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xg98-R1fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTPT7R5D",
+                Title = "Air Wick Airwick Scented Candle for Home & Gift Purpose|Apple Orchard & Ceylon Cinnamon Aroma Fragrance|40 Hours Burn Time",
+                Description = "Air Wick aromatic scented candle featuring an invigorating Apple Orchard and Ceylon Cinnamon fragrance. Delivers up to 40 hours of continuous soothing aroma to elevate your living room, bedroom, or festive celebration.",
+                Price = 509.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTPT7R5D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/715T9LJHnvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B9X1CVQH",
+                Title = "Chip Chop Dog Treat Combo of 5 - (70g Each, Mix Flavour) | Tender, Roast Duck, Codfish Sandwich, Chicken & Cod Roll, Diced Chicken | Sold by Foodie Puppies with Free Key Ring",
+                Description = "Chip Chops premium dog treat combo (pack of 5, 70g each) featuring tender roast duck, codfish sandwich, chicken & cod rolls, and diced chicken. Packed with high-protein nutrition for all dog breeds with zero added sugar.",
+                Price = 902.00m,
+                OriginalPrice = 1050.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B9X1CVQH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81XvyuSsP3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F3355JNY",
+                Title = "VIP Supreme White Mens 100% Cotton Sleeveless White Vest, 90 Size, Pack of 1",
+                Description = "Crafted from 100% combed cotton fabric, the VIP Supreme sleeveless undershirt offers breathable comfort and all-day sweat absorption. Contoured fit with durable ribbed trims for seamless layering under shirts.",
+                Price = 94.00m,
+                OriginalPrice = 105.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F3355JNY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81R4mdyJx1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BWPGC2PR",
+                Title = "SWAGR 5 Pairs Solid Cotton Feel Ankle Socks for Men & Women, Reinforced Heel & Toe, Multicolor, Pack of 5, Free Size | SOXCO Style SWG22",
+                Description = "SWAGR pack of 5 breathable cotton-feel ankle socks for men and women. Designed with reinforced heel and toe, elastic arch support, and anti-slip ribbed cuffs for daily active wear.",
+                Price = 99.00m,
+                OriginalPrice = 1200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BWPGC2PR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81WJ4NVGrQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DYK85DJZ",
+                Title = "UNAAR SPORT_ 5 Pairs Solid Cotton Ankle Length Socks for Men & Women, Anti Odour & Anti Bacterial, Multicolor, Pack of 5, Free Size",
+                Description = "UNAAR SPORT 5-pair pack of solid cotton ankle socks featuring anti-odour and anti-bacterial technology. Soft cushioned footbed ensures dry comfort throughout workouts, walking, and office use.",
+                Price = 89.00m,
+                OriginalPrice = 389.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DYK85DJZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WVrGduJdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D2TSQBQG",
+                Title = "SNMMIFER Silicone Nipple Covers Reusable for Women with Double Sided Tape 36 Pieces, Fashion Clothing Accessory (Nude, Medium, Nipple Cover (2 Pair Combo, 4 Pcs))",
+                Description = "Reusable medical-grade silicone nipple covers for women paired with 36 pieces of skin-safe double-sided fashion tape. Provides invisible, smooth coverage with sweatproof waterproof adhesion under backless dresses and swimwear.",
+                Price = 99.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D2TSQBQG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nQETUrreL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HJ8XTW4R",
+                Title = "Radhav Mart Handmade Crochet Flower Bouquet for Women, Birthday & Gifts | Ideal for Teachers' Day, congratulations, anniversaries and celebrations, adding a cheerful touch to desks, rooms and shelve.",
+                Description = "Handmade knitted crochet flower bouquet crafted with premium yarns for everlasting beauty. An elegant, eco-friendly decorative keepsake for living rooms, study desks, anniversaries, and celebratory gifting.",
+                Price = 198.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ8XTW4R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YEExtweQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY1QX53M",
+                Title = "JEMOX BRIGHT Bamboo Ankle Length Socks for Men Pack of 5 | 5X Softer Than Cotton | Odour-Free Anti-Bacterial Breathable Fabric with Cushioned Sole | Ideal for Gym, Walking, Running, Work",
+                Description = "JEMOX BRIGHT premium bamboo ankle length socks for men (pack of 5). Engineered with 5X softer bamboo yarn, cushioned heel and toe, and breathable anti-bacterial fibers for daily athletic and office comfort.",
+                Price = 89.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DY1QX53M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710EkPkmBSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F255X3CV",
+                Title = "Surgix Anti-Static ESD Latex Finger Cots, Reusable Rubber Fingertips Protective Finger Gloves (White, 100 pcs)",
+                Description = "Premium Latex Construction: These finger cots are made of high-quality latex that is optimally conductive, flexible, and durable for efficient dissipation of static electricity. • ESD Protection: Our ESD latex finger cots offer dependable protection against electrostatic disch...",
+                Price = 95.00m,
+                OriginalPrice = 239.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0F255X3CV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31ZpmBWHngL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FXTZ8B3K",
+                Title = "Adjustable Waist Buckle for Loose Jeans Pants, Pearl Detachable Instant Jeans Button Pins Waist Tightener Set, Make The Waist Fit for Skirt Pants Robe (Pack of 2)",
+                Description = "[FLOWER BUTTONS PINS]These detachable button pins can help you adjust the waist size of your pants, tighten your loose waist, perfectly fit your waist and more comfortable to wear. • [QUALITY OF MATERIAL]These small daisy flower daisy waist tighteners are crafted from top-qual...",
+                Price = 89.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FXTZ8B3K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51jpUFS8A0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G64C6Y8K",
+                Title = "Shoe Wipes & Sneaker Wipes - (80 + 80 Count) Pack of 2 - Quick Wipes for Shoes Cleaning - Shoe Cleaning Wipes for All Shoes - Portable Cleaner for Sneakers, Leather & Sports Footwear White",
+                Description = "Quick sneaker and shoe cleaner wipes (pack of 2, 80+80 count). Specially formulated moist wipes gently remove stubborn dirt, scuffs, and mud from sneakers, leather, canvas, and athletic footwear without water.",
+                Price = 62.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G64C6Y8K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51RyDFQxj0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CRF5MK18",
+                Title = "Dollar Bigboss Men's Assorted Solid Combed Cotton Shrinkless Vest (8905203815135_MBVE-01-FNRN2-CLR-PO1-CO7-S24_L)",
+                Description = "Dollar Bigboss premium sleeveless vest made from 100% combed cotton with shrinkless technology. Features reinforced flat-lock seams and skin-friendly breathability for long-lasting daily ease.",
+                Price = 76.00m,
+                OriginalPrice = 189.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CRF5MK18?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81MPOAO66IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FRM5N6LL",
+                Title = "6 Pcs LED Tea Light Candles | Flameless & Smokeless Acrylic Diyas | Battery-Operated | Warm White 3cm Candles for Diwali, Festive, Wedding, Party & Christmas Décor (Pack of 6)",
+                Description = "Set of 6 battery-operated acrylic LED tea light candles emitting a realistic warm white glow. Completely flameless and smokeless, making them safe and reusable for Diwali, festive decor, and dinner parties.",
+                Price = 98.40m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FRM5N6LL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wM8yHaRyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GNH3CZF6",
+                Title = "JAGMOOLYA Products Multicolour Gujiya/Gujia Karanji Maker Mould Cutter for Festivals (Pack of (3)",
+                Description = "JAGMOOLYA multicolour Gujiya / Karanji maker mould cutter set (pack of 3). High-grade food-safe plastic mould with precision crimping edges for creating traditional dumplings, turnovers, and festival pastries effortlessly.",
+                Price = 46.00m,
+                OriginalPrice = 159.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GNH3CZF6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51qxG5t4uqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8NV1QMV",
+                Title = "Tick Mark® Rubber HH Cleaning Gloves for Kitchen & Household Cleaning, Reusable Waterproof Hand Gloves with Non-Slip Grip, Orange, Large Size(Pack of 1 Pair)",
+                Description = "Premium Rubber Material: Made from durable, flexible rubber that offers long-lasting performance for everyday household cleaning and washing tasks. • Comfortable & Reusable: Soft inner surface provides a comfortable fit, while the reusable design helps reduce waste and offers ...",
+                Price = 94.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H8NV1QMV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ReqYzuM5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G2JDNWSJ",
+                Title = "Electric Hot Water Bottle with Random Pattern Cover, Rechargeable Heating Pad with Auto Shutoff",
+                Description = "HEATING PAD DESIGN: Beautiful paisley patterned cover with yellow trim, combining style with functionality in this rechargeable hot water bottle • SAFETY FEATURES: Built-in automatic shutoff function prevents overheating, ensuring safe and worry-free use during operation • CON...",
+                Price = 93.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G2JDNWSJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71cwyIfGMML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CMZZN9VY",
+                Title = "Soap Box, Soap Dishes with Draining Rack, Soap Box, Waterproof, Small for Travel, Moisture-proof Soap Dishes for Bathroom, Travel, Camping",
+                Description = "Waterproof portable soap dish with removable drainage tray and tight-sealing lid. Made from heavy-duty PP material to prevent soap mushiness, perfect for household bathrooms, travel luggage, and gym kits.",
+                Price = 94.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CMZZN9VY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/516Tycw1MBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07Y8W2N2L",
+                Title = "Suninow Natural Gomti Chakra Original for Puja (White, 11 Pieces)",
+                Description = "Sacred Gomti Chakra 11-piece set extracted from the Gomati river, traditionally used in Vedic rituals, Diwali Puja, and Vastu remedies to invoke positive energy, financial prosperity, and spiritual protection.",
+                Price = 53.00m,
+                OriginalPrice = 220.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07Y8W2N2L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61mga1AuI-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GHZC91J1",
+                Title = "Plastic Cute Mini Projector Camera Toy with Bell for Kids and Girls, Kawaii Style Multicolor Design, Light Projection Feature, Fun Cartoon Keychain for Bags, Pouches, Zippers & Gifting (Pack of 1)",
+                Description = "Plastic Cute Mini Projector Camera Toy with Bell for Kids and Girls, Kawaii Style Multicolor Design, Light Projection Feature, Fun Cartoon Keychain for Bags, Pouches, Zippers & Gifting (Pack of 1)...",
+                Price = 57.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GHZC91J1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51KuEYWcHLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H318LZQX",
+                Title = "Invisible ear lobe support for earrings | earlobe support patches for Droopy & Torn Pierced Ears | earring supporter for heavy earrings with Waterproof Clear Adhesive | ear patches for heavy earrings & Big Hole Support (Transparent - Pack of 30)",
+                Description = "Invisible waterproof earlobe support patches (pack of 30) for droopy, stretched, or torn pierced ears. High-strength hypoallergenic clear adhesive provides discreet lifting and stabilization for heavy earrings.",
+                Price = 65.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H318LZQX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CsCxf-98L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08V88G361",
+                Title = "BlackEye - China Grass - Agar Agar - Kanten - 10 Grams",
+                Description = "100% plant-based Agar Agar (China Grass / Kanten) natural vegetarian gelling agent (10g). Perfect for making fruit jellies, custards, puddings, cheesecakes, and culinary foams with superior setting strength.",
+                Price = 64.00m,
+                OriginalPrice = 279.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Grocery & Gourmet Foods",
+                ProductUrl = "https://www.amazon.in/dp/B08V88G361?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31U+3rxsr-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWFQ7CVM",
+                Title = "TEZURTH - Ice Cube Squishy Stress Ball - Sensory Fidget Toy for Your Best Mellow and Chill-Masonry-Square Shape Pink Bule Purple Stress Relief Ball idea Gift- Age 3 to Adult Multicolor (1-pcs )",
+                Description = "Ultimate Stress Relief - Gently squeeze, squish, and stretch to relieve anxiety, tension, or fidgety energy. Ideal for both kids and adults seeking a calming sensory experience. • Unique Ice Cube Design - Enjoy a cool twist on classic stress relief toys with our masonry-square...",
+                Price = 99.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GWFQ7CVM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fjyr2CvxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CYXTYB8T",
+                Title = "Cotton Male Amb Bandana For Dust & Sun Protection, Comes With Cool Lightweight, Windproof, Breathable Material, Fishing Hiking Running Cycling Black(Pack Of 1)",
+                Description = "Pure cotton unisex bandana face mask for dust, pollution, and UV protection. Features ultra-lightweight, breathable, and quick-drying fabric ideal for motorcycle riding, cycling, running, and outdoor hiking.",
+                Price = 44.88m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CYXTYB8T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/511B-tvXEFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GDZ2ZNMB",
+                Title = "Lymphatic Contour Face Brush for Sculpting & Drainage - Facial Massager for Jawline, Chin & Neck - Reduces Puffiness, Promotes Detox & Lift - Soft Bristles, Improves Skin Glow,",
+                Description = "Lymphatic contour facial massage brush designed for sculpting jawline, cheeks, and neck. Ultra-soft fine bristles promote lymphatic drainage, detoxify facial skin, and stimulate circulation for a radiant natural glow.",
+                Price = 73.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GDZ2ZNMB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71MIDRaNfCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8P3KM2Z",
+                Title = "SOFTSTYLE Handkerchief for Men Cotton White",
+                Description = "Premium pure cotton white handkerchiefs for men featuring ultra-absorbent soft-spun yarn and neatly stitched hems. Gentle on the skin and compact for everyday formal and daily utility.",
+                Price = 74.00m,
+                OriginalPrice = 800.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H8P3KM2Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gmOtoc-8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSSBNJJ9",
+                Title = "Sports Quarter ankle Socks, 3 Pair Pack, Black White Grey, Unique Design with Reinforced Heel and Toe",
+                Description = "Sports quarter ankle socks in a 3-pair assortment (black, white, grey). Features reinforced heel and toe pockets with dynamic arch compression for jogging, gym workouts, and sneakers.",
+                Price = 49.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GSSBNJJ9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-384Tva2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H8KBKLN2",
+                Title = "TEZURTH®-One Power Auto Focus Reading Glasses for Men & Women - +0.5 to +2.5 Power Flex Focus Blue Light Blocking Specs,Progressive Magnifying Rimless Lightweight Readers for Computer, Books & Screens",
+                Description = "TEZURTH®-One Power Auto Focus Reading Glasses for Men & Women - +0.5 to +2.5 Power Flex Focus Blue Light Blocking Specs,Progressive Magnifying Rimless Lightweight Readers for Computer, Books & Screens...",
+                Price = 74.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0H8KBKLN2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31n31Lv3-2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FB55RB29",
+                Title = "FITINC Weight Lifting Wrist Support for Men & Women with Thumb Loop Strap for Gym & Workout - Made of Premium Velcro and Elastic Band | Black - Neon Yellow",
+                Description = "PERFECT ACCESSORY FOR TRAINING: Whether you're just getting into working out or are a seasoned weight lifter these gym band are for you, wrap them around as tight or loose as needed for your desired level of restriction without cutting of circulation or causing pain from stiff...",
+                Price = 99.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0FB55RB29?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-Au-VwP5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CY1QFLHJ",
+                Title = "FROCEL 120W 3-in-1 Retractable Fast Charging Cable",
+                Description = "120W Super Fast Charging Support - High-power cable designed for fast and efficient charging of smartphones, tablets, and compatible devices. • 3-in-1 Universal Connector Design - Includes Type-C, Micro USB & Lightning connectors, making it suitable for almost all smartphones ...",
+                Price = 99.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CY1QFLHJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51rMLflOuCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B9Y46J5C",
+                Title = "GIVA Rose Gold Dreamy Crush Earrings (Sterling Silver) | Delicate Studs Gift for Girlfriend Wife Women & Girls Authentic 925 Silver & 6 Months Warranty | Life Time Free Plating",
+                Description = "GIVA Rose Gold Dreamy Crush Earrings (Sterling Silver) | Delicate Studs Gift for Girlfriend Wife Women & Girls Authentic 925 Silver & 6 Months Warranty | Life Time Free Plating...",
+                Price = 699.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B9Y46J5C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZRsckeJlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FK4LWV5H",
+                Title = "BSB HOME 300 TC Microfiber XXL Soft Cotton Super King Size Bedsheet for Double Bed, King Size 108 Inches X 108 Inches, 9 Feet, 275 X 275 cm with 2 Large Size Pillow Covers - Lime Green",
+                Description = "Premium Fabric & Finish Crafted from high-quality, breathable fabric, this bedsheet offers a soft, smooth, and luxurious feel. Its skin-friendly texture ensures comfort throughout the year. The elegant finish and wrinkle-free drape add a touch of sophistication to your bedroom...",
+                Price = 598.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FK4LWV5H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cjc4GnvaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08F5GK11L",
+                Title = "AIR O MATIC Urinal Screen Mat Lemon (Yellow, Medium) -20 Pieces Urinal Screen Mat for Men’s Restroom, Lemon Scented",
+                Description = "✔️PREVENTS SPLASHING TO KEEP YOUR FLOOR CLEAN: The clever bristles on the Flying swallow mat trap the urine stream and direct it down the drain. That means no splash back and no wet mess around the urinal. It also stops urinal clogging debris like chewing gum from getting down...",
+                Price = 639.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08F5GK11L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61F75Pc0IDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D673FG7H",
+                Title = "Amazon Brand - Solimo 8-Piece Gardening Tool Kit",
+                Description = "Solimo 8-piece comprehensive home gardening tool kit including hand cultivator, trowels, transplanter, pruner, and weeder. Constructed with rust-resistant powder-coated iron and ergonomic non-slip grip handles.",
+                Price = 449.00m,
+                OriginalPrice = 1209.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D673FG7H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ETYbB22BL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09B544SVJ",
+                Title = "OPR Stainless Steel 5 Litre (7 x 11 Inch) Pedal Dustbin, Silver Covered Garbage Bin with Foot Pedal and Plastic Bucket for Home, Kitchen, Bathroom & Office",
+                Description = "5 LITRE CAPACITY: Compact OPR stainless steel dustbin measuring approximately 7 x 11 inches, suitable for everyday waste disposal in smaller spaces. • STAINLESS STEEL BODY: Features a plain silver finish that complements modern home, kitchen, bathroom, and office interiors. • ...",
+                Price = 534.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09B544SVJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71k5nufXHoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FD9P93HV",
+                Title = "Wakefit Orthopedic Cervical Pillow | Small Size 19.5x11.5x4 Inch Memory Foam Pillow for Neck & Shoulder Pain | Machine Washable Ultra Soft Jacquard Cover | 2 Year Manufacturer Warranty - Dark Grey",
+                Description = "COMFORTABLE MEDIUM SIZE: Generous 19.5x11.5x4 Inch dimensions offer ample support for the head neck and shoulders without feeling bulky • PREMIUM MEMORY FOAM: Adaptive memory foam gently conforms to your head and neck to provide balanced comfort and responsive support througho...",
+                Price = 597.00m,
+                OriginalPrice = 1332.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0FD9P93HV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zkIChS3+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C8JSQLM4",
+                Title = "Kaku Fancy Dresses Polyester Bhagat Singh Costume For Boys For Republic Day & Independence Day | National Hero Freedom Fighter Costume For Kids - 3-4 Years,Multicolor",
+                Description = "Kaku Fancy Dresses authentic Bhagat Singh freedom fighter costume for boys (3-4 years). Made from comfortable breathable polyester fabric, complete with traditional patriotic outfit for school plays and national celebrations.",
+                Price = 739.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C8JSQLM4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41kyyS2PrKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07MXLWR99",
+                Title = "Securement Amazon Economy Poly Bags (Without POD Jacket) (12 x 14-100 Pcs)",
+                Description = "Securement heavy-duty 51-micron tamper-evident poly courier bags (12 x 14 inches, pack of 100). Engineered with permanent peel-and-seal adhesive for secure mailing, shipping, and storage.",
+                Price = 533.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07MXLWR99?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81YDf0oipEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GL7PBRSK",
+                Title = "Zesta Wooden Mandir for Home Big Size | DIY Pooja Mandir with LED Spot Light | Devghar Cabinet for Living Room or Office | Wall Mounted Pooja Unit for Home",
+                Description = "PEACEFUL DAILY WORSHIP SPACE: This 5.5MM DIY wooden temple for home arrives with easy assembling so you can gently set up a calm corner, temple for home a perfect place for idols. Use Silicone rings to lock the parts of the Mandir • WARM DECORATIVE AMBIENCE GLOW: Create a soot...",
+                Price = 597.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GL7PBRSK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/618FGDUf8zL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FNR62HGY",
+                Title = "CraftVatika Pack of 10 Lotus Buds Hanging Latkan for Wall Door Festival Decorations, Diwali Decor Items, Size 1.6 Ft, Pooja Room Decoration Items, Pink Lotus Buds Hangings for Mandir Decorations",
+                Description = "In The Packages :- 10 Pcs Lotus Buds Hanging Latkan Flower Bell Strings Wall Hanging Decor Items for Diwali Home Decorations • Dimensions :- 5 CM (L) x 5 CM (W) x 50 CM (H) | Weight :- 20g Each | Material :- Multiple Beads • This decorative piece is completely handmade by skil...",
+                Price = 597.00m,
+                OriginalPrice = 1200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FNR62HGY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81rFyvQ8APL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08QTBGWPY",
+                Title = "Kuber Industries Flower Design Cotton Floral 5 Seater Sofa Cover Set",
+                Description = "PACKAGE CONTAINS: 16 Piece 5 Seater Sofa Cover With Arms & Center Table covers • MATERIAL: Cotton • PRODUCT DIMENSION: Sofa Seat Cover 178 cm x 74 cm, Chair Seat Cover 74 cm x 61 cm,Arms Cover 74 cm x 61 cm",
+                Price = 597.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08QTBGWPY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81zwCiU4waL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DS1HSLDY",
+                Title = "CADLEC Aquanix 1.8 Litre Electric Kettle with Stainless Steel Body | Automatic Cut-Off | Cool-Touch Handle & Lid | Multi-Use for Tea, Coffee, Noodles | 1500W | 2-Year Warranty",
+                Description = "CADLEC Aquanix 1.8-litre rapid-boil electric kettle powered by 1500W stainless steel heating element. Features 360-degree cordless swivel base, automatic shutoff, dry-boil safety protection, and cool-touch handle.",
+                Price = 499.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DS1HSLDY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51gvTfFGmeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07B6NS5Q8",
+                Title = "Homestrap set of 12 Foldable Saree Covers/Clothes Storage Bag/Wardrobe Organizer With Transparent Window And Zip For Lehenga, Suit, Dress,& Accessories (Grey)(Featured on Shark Tank), Polypropylene",
+                Description = "CLUTTER-FREE CUPBOARD ORGANIZATION - Keep sarees, lehengas, suits, kurtis, shirts and ethnic wear protected from dust, stains and moisture. With these non-woven storage covers preserve your clothes fabric while keeping them neatly stored, crease-free and ready to wear. • IDEAL...",
+                Price = 654.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07B6NS5Q8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/615qe1t251L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099WNYHY2",
+                Title = "Fastrack Tees Analog Watch",
+                Description = "Fastrack Tees minimalist unisex analog watch featuring a durable resin case, comfortable polyurethane strap, and precise quartz movement. Water-resistant and stylish for everyday casual wear.",
+                Price = 850.00m,
+                OriginalPrice = 850.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B099WNYHY2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71hlUZCLvhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CZSYNFKR",
+                Title = "Matrix Classic 2.0 Day & Date Analog Watch with Softest Silicone Strap for Men & Boys (Teal) (Blue)",
+                Description = "Matrix Classic 2.0 analog wristwatch for men featuring an integrated day and date window, vibrant teal textured dial, and ultra-soft silicone strap. Shock-resistant build for work and weekend outings.",
+                Price = 269.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CZSYNFKR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j5ISN-OQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00GSJ5L3S",
+                Title = "Sonata NP7987YM06W Quartz Watch For Men",
+                Description = "Sonata men's classic quartz watch featuring a champagne dial with elegant gold-tone indices, stainless steel case, and comfortable bracelet. Water-resistant build ideal for business and casual attire.",
+                Price = 999.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B00GSJ5L3S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71xiRGONksL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CDJHYGZZ",
+                Title = "Sonata Classic Quartz Analog Green Dial Silver Stainless Steel Strap Watch for Men-NS7987SM10W/NT7987SM10W",
+                Description = "Sonata Classic analog men's watch featuring a sophisticated emerald green sunray dial, durable stainless steel link bracelet, and reliable quartz movement. Water-resistant design perfect for formal and celebratory wear.",
+                Price = 999.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CDJHYGZZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/511pcYWZNXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CQP921DX",
+                Title = "Fastrack NT38024PP68W Analog Unisex-Adult Watch",
+                Description = "Fastrack analog unisex watch engineered with an impact-resistant round case, textured matte dial, and flexible silicone strap. Lightweight and water-resistant for an active youth lifestyle.",
+                Price = 796.00m,
+                OriginalPrice = 995.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CQP921DX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61blRjGudAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GKPC14QL",
+                Title = "Carlington Classic Series Analog Men Wrist Watches with Stainless Steel Strap & Date Display | Premium Fashion Watches for Gents | CT - 5010",
+                Description = "Carlington Classic CT-5010 analog gent's wristwatch featuring a sleek stainless steel mesh strap, integrated date display, scratch-resistant mineral glass, and Japanese quartz movement.",
+                Price = 948.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GKPC14QL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61oAF67bvKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C8J5CCZK",
+                Title = "SF Sporty Black Dial Polyurethane Strap Watch for Men-7930PP22W/NT7930PP22W",
+                Description = "SF by Sonata sporty analog watch boasting a bold black textured dial, durable polyurethane case, and flexible strap. Built for endurance with high-accuracy quartz movement and daily water resistance.",
+                Price = 629.00m,
+                OriginalPrice = 675.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C8J5CCZK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71xRQgS4AHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CWL1F2LY",
+                Title = "Fastrack Tees Wanderlust Quartz Analog Black Dial Green Silicone Strap Unisex Watch - NT38024PP71W",
+                Description = "Fastrack Tees Wanderlust edition watch featuring an earthy green silicone strap, striking black analog dial, and lightweight case. Designed with quartz precision and daily splash resistance for adventurous explorers.",
+                Price = 915.00m,
+                OriginalPrice = 995.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CWL1F2LY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zawCS0InL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWDDGQ95",
+                Title = "Carlington Analog-Digital Sports Watch, Dual Time,Alarm, Stopwatch, Calendar, Water-Resistant, Shock-Resistant, Back Light Display. The Perfect Watches for Men-CT_8665",
+                Description = "Carlington CT-8665 tactical analog-digital sports watch for men with dual time display, stopwatch, alarm, calendar, EL backlight, and shock-resistant 30M water-resistant housing.",
+                Price = 899.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GWDDGQ95?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71TnuR488rL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G1HC4FXP",
+                Title = "Carlington Endurance Series Digital Wrist Watches for Men with Transparent Case Cover - CT_9079",
+                Description = "Carlington Endurance series rugged digital sports watch equipped with a transparent protective case, digital LED backlight, multiple alarms, stopwatch, calendar, and water-resistant construction for outdoor activities.",
+                Price = 948.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G1HC4FXP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718P3xzuE0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D96MZV2Z",
+                Title = "HS ART Test Tube Wall Planters (Set of 2) | Hanging Stick-On Planter for Indoor Plants | Decorative Natural Planter Double-Sided Tape",
+                Description = "Eco-Friendly Wall Planter- HS ART glass planters for indoor plants is a beautiful and sustainable way to display your plants. Hand Crafted from premium high-quality pinewood. • Easy Installation: Our planters for office desk or living room come with Double sided tapes making i...",
+                Price = 94.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D96MZV2Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41GyWkoJjQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F28YCYZX",
+                Title = "Orient Electric 9W High Glow LED Bulb",
+                Description = "Orient Electric 9W High Glow B22 LED bulb delivering crisp illumination with a 180-degree wide beam angle. Features wide voltage surge protection (100V-440V) and energy-efficient long lifespan.",
+                Price = 164.00m,
+                OriginalPrice = 720.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F28YCYZX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71mO3PYIVEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B083C6XMKQ",
+                Title = "Aliston Atom Kitchen Weight Machine 6 Months Manufacturer Warranty, Digital Scale with LCD Display, Scale for Home Baking, Cooking & Balance Diet. Machine with capacity 10Kg, SF400/A121,Color May Vary",
+                Description = "Aliston Atom digital kitchen weighing scale with high-precision strain gauge sensors. Features clear LCD display, tare function, and 10kg capacity with gram/ounce conversion for cooking and portion control.",
+                Price = 204.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B083C6XMKQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51C6yp8HitL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HC6M53N8",
+                Title = "GOLAJI 6 Layer Shoe Rack Plastic with Grey Cover | Multipurpose Plastic Shoe Rack for Home | Space Saving Foldable Shoe Stand | Storage Rack for Home, Bedroom & Entryway.",
+                Description = "Large Storage Capacity Features 6 spacious shelves that provide organized storage for multiple pairs of shoes, including sneakers, heels, sandals, slippers, and sports shoes. • Dustproof Zip Cover Comes with a high-quality zippered fabric cover that protects your footwear from...",
+                Price = 435.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HC6M53N8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zAQ7YXhwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
