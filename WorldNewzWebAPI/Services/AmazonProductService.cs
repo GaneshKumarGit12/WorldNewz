@@ -56634,6 +56634,996 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FVVXN3YW",
+                Title = "100+ Pcs Classic Rock Band Vinyl Stickers for Laptop, Journal, Guitar, Mobile Phone - Waterproof Residue Free Multicolor Stickers for Metal, Glass, Wooden, Plastic Surface",
+                Description = "Over 100 unique classic rock band-themed vinyl decals and stickers. Water-resistant, UV-protected, and residue-free self-adhesive stickers ideal for personalizing laptops, guitars, journals, skateboards, and helmets.",
+                Price = 92.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FVVXN3YW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SC6apOUlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FWCJXL3W",
+                Title = "Halonix 70W Waterproof Outdoor led Flood Light | Halogen Light,Focus Light, Outdoor Light for Garage,Parking,Shop -(Cool White)-Pack of 1|Short Circuit & Surge Protection., Aluminium",
+                Description = "Wattage-70W, IP66 Rating (Waterproof), CRI : >80%, Premium quality, LED : 100 lm/w, CCT - 6500K (Cool White), 2 Years Warranty, Power factor-≥0.95 • Operating Voltage Range:140V~ 270V | Operating Temperature: -10ᵒC~ 50ᵒC | Lumen Maintenance: 50000 hours | Front Cover: Clear to...",
+                Price = 999.00m,
+                OriginalPrice = 3199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FWCJXL3W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vZbnE-R3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DY52BBYP",
+                Title = "Himalaya Extra Moisturizing Baby Soap for Dry Skin | B3G1-125g Helps Lock In Moisture With Aloe-Milk Moisture Complex of Almond & Olive Oil | Clinically Tested | No. 1 Doctor Recommended Brand",
+                Description = "Enriched with natural Olive Oil and Almond Oil, Himalaya Extra Moisturizing Baby Soap locks in essential moisture and soothes dry, delicate baby skin. Clinically tested and pediatrician recommended for everyday bathing.",
+                Price = 176.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DY52BBYP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71z0jexQREL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BGBJ2T4X",
+                Title = "Murphy 2835-120 LED High Lumen Waterproof Indoor Outdoor Home Deorative, Diwali Lights, Rope Pipe Light, Cove Light (120 Led/Mtr) (Natural White, 15 Meter)",
+                Description = "Specification: Input Voltage: Ac220-240V, 50/60Hz, Lumens: 800-850Lm/Ft Led Chips: SMD 2835, Protection: IP65 Waterproof • Weather Resistance: The waterproof rating is IP65 which means it is protected from low pressure water jets from any direction. It can be widely used as ho...",
+                Price = 1365.00m,
+                OriginalPrice = 3150.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BGBJ2T4X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81wYB1l6eCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWQS3V9N",
+                Title = "Portronics 60W Quadline 4-In-1 Multifunctional Fast Charging Retractable Cable With Multiple Port & Strong Heads, Strong, Type C, Lightening, USB A, Fast Data Sync, 1M Cable Length (White)",
+                Description = "4-in-1 Multi-Device Charging: Charge multiple devices effortlessly with built-in connectors, eliminating the need for carrying multiple cables. • 60W PD Fast Charging: Delivers powerful and efficient charging for smartphones, tablets, and even compatible laptops. • Freely Retr...",
+                Price = 359.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GWQS3V9N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61vb+0cnQjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CPWK7QTX",
+                Title = "DETACHI Advanced Chipset Car Scanner OBD 2 Bluetooth",
+                Description = "FUNCTIONS : 1. Read diagnostic trouble codes, both generic&manufacturer-specific, and display their meaning (over 3000 code). 2. Clear trouble codes and turn off the MIL (\"Check Engine\" light) 3. current sensor data, including: 4. Engine RPM 5. Load 6. Coolant Temperature 7. V...",
+                Price = 281.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CPWK7QTX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81giwgYy76L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJS3SDCB",
+                Title = "JAGMOOLYA PRODUCTS Wooden Bamboo Flute - Professional Musical Instrument for Beginners and Kids(Pack Of 1)",
+                Description = "Handcrafted natural bamboo flute (bansuri) tuned to accurate classical pitch. Designed with smooth finger holes and a durable polished finish, ideal for beginners, music students, and meditation.",
+                Price = 55.00m,
+                OriginalPrice = 138.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FJS3SDCB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31NJXuyHkVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CGDBR125",
+                Title = "Zebronics USB Type-A to Type-B Printer Cable, 3 Meters (PC30P)",
+                Description = "USB TYPE A TO B- Provides a reliable connection between your computer and supported devices, ensuring smooth data communication for everyday printing, scanning, and office tasks without interruptions. • 3-METER LENGTH- Gives you comfortable flexibility to place your devices ex...",
+                Price = 119.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CGDBR125?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ebKzSfOPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08M399ZXV",
+                Title = "Portronics Modesk Plus POR-1196 Universal Mobile Phone Stand with Card Holder (Black)",
+                Description = "Angular design: It has an angular design that provides the perfect viewing angle for your smartphone. Place it on any desk, and privately browse, watch movies, scroll through images, etc, without the fear of prying eyes.",
+                Price = 134.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08M399ZXV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61uYxcXESQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C7CD832N",
+                Title = "Purav Light Anti-Skid Non-Slip Waterproof Rubber Door Mat for Outdoor Home Entrance Mats (16x24 Inch, Black)",
+                Description = "Color & Size: Black non slip rubber mat 16x24 Inch. • Comfortable Cushion Feel: The Paydan noodle mat features a cushioned design for added comfort, making it ideal for repeated use as an indoor or outdoor home entrance doormat. • Anti-Slip Floor Mat: These floor mats are desi...",
+                Price = 99.00m,
+                OriginalPrice = 889.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C7CD832N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71M53lSTIXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FJS49766",
+                Title = "JAGMOOLYA PRODUCTS Traditional Thin Handmade Wooden Bamboo Flute Basuri Musical Instrument For Gifting And Janmastami, (Pack Of 1)",
+                Description = "Traditional Indian bamboo flute (bansuri) expertly tuned for sweet melodic acoustic tones. Lightweight and durable, perfect for classical music practice, Janmashtami celebrations, and musical gifting.",
+                Price = 54.00m,
+                OriginalPrice = 149.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FJS49766?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31WURhrrYUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GTYGGDLT",
+                Title = "Portronics Snapcase 6 60W Multifunctional Fast Charging Data Cable Kit with Wireless Watch Charging Slot, Conversion Set USB A & Type C to Type C/Lightning, Data Transfer, Sim Storage, Sim Eject Pin",
+                Description = "All-in-One Multipurpose Charging Kit: Carry everything you need in one compact case-charging cables, connectors, SIM tools, and storage-all organized for ultimate convenience on the go. • Built-in Wireless Apple Watch Charger: Charge your Apple Watch effortlessly with the inte...",
+                Price = 670.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GTYGGDLT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AIOrUMwtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFH26PTG",
+                Title = "Ant Esports Lapi MousePad 260x210x3mm with Universal Shortcut Sheet & Anti-Fray Stitching",
+                Description = "Universal Shortcut Sheet - Compact mouse pad features essential keyboard shortcut layouts for Excel, Word, PowerPoint, CAD, Photoshop and more-perfect for quick reference and productivity on the go • Washable Design and Fade Prevent: This mouse mat is made of muti-spandex whic...",
+                Price = 75.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FFH26PTG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ubrDJ-unL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GQTFG469",
+                Title = "JAGMOOLYA Products Black Double Side Slate Board for Kids Learning (Slate Board with Slate Chalk) (Pack of 1)",
+                Description = "📝 Perfect for Writing Practice - Ideal for ABCD, numbers, Hindi alphabets and homework • 🌿 Eco-Friendly & Reusable - Save paper with this long-lasting slate board • 👶 Best for Nursery & KG Kids - Designed especially for small children",
+                Price = 49.00m,
+                OriginalPrice = 159.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0GQTFG469?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41YllTBeR+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HBCPNN4K",
+                Title = "LESLEE Metal Luggage Tags Set,Durable Aluminium Travel Suitcase ID Tags with Stainless Steel Cable Ties & Waterproof PVC Cards (Multicolour), 2-PCS",
+                Description = "✔ Premium Aluminium Build - Lightweight yet robust, these scratch-resistant luggage tags won’t fade or bend, even on long-haul flights. • ✔ Weatherproof & Secure - Includes PVC-covered ID cards to shield handwritten or printed details from rain, spills, and dirt. • ✔ 5 Vibrant...",
+                Price = 81.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HBCPNN4K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71MJmXcb8sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DXC243X7",
+                Title = "JAGMOOLYA Products Plastic Laser Pointer Torch with Different Shape Led Light and Hook, Xs (Multicolor) (Pack of - 1)",
+                Description = "Long battery life Performance • Easy To Carry With The Help Of Holder • Cat has gone crazy to chase it. His only mission is to catch the red dot. Playtime has become much interactive and it's best to play with before bed time.",
+                Price = 60.00m,
+                OriginalPrice = 149.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DXC243X7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Dtcq0gtzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D3TQ3NYW",
+                Title = "Glamveda Glutathione Skin Whitening Soap with Kojic Acid | Body Tan Removal | Bath for Men & Women | Remove Dark Spots & Hyperpigmentation | For Nourishing & Glowing Skin (Pack of 2)",
+                Description = "Formulated with active Glutathione and Kojic Acid, this brightening bathing bar deeply cleanses, gently exfoliates sun tan, and diminishes dark spots for an even, radiant complexion. Suitable for all skin types.",
+                Price = 238.00m,
+                OriginalPrice = 270.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D3TQ3NYW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/514OqAPWp+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GH799879",
+                Title = "Pikkme Back Cover for Nothing Phone 3a Pro 5G | 3D Cartoon Silicone Case Cute & Fun Full Protective Bumper Cover (Brown)",
+                Description = "Adorable 3D Cartoon Design: Bring a playful touch to your phone with a standout 3D that adds charm and personality to your everyday style • All-Around Protection: Durable bumper construction provides full coverage against drops, bumps, scratches, and dust-keeping your device s...",
+                Price = 249.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0GH799879?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61q54fgRsWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BVMXR9B9",
+                Title = "Onsitego 1 Year Extended Warranty for Small Household Appliances from Rs. 1-500 (Email Delivery - No Physical Kit)",
+                Description = "REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give a replacement. The replacement device will be provided at the discretion of Onsitego on the basis of the depreciated value of your device • HASSLE-FREE SERVICE: ‘No Questions Asked’ Repair Policy | Zero...",
+                Price = 71.00m,
+                OriginalPrice = 109.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BVMXR9B9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61l6W3nERIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FMYGFZBM",
+                Title = "Shasmi Women’s White Solid Color Applique Lace-Up Collared Short Sleeve, Side-Tie Waist Long Casual Maxi Women Dress Outfit Long Evening Midi Western Party Dress for Women (Dress 211 White-L)",
+                Description = "Elegant white evening maxi dress featuring delicate applique detailing, collared neckline, and an adjustable side-tie waist. Crafted from soft, breathable fabric suitable for casual day outings, dinner dates, and parties.",
+                Price = 499.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FMYGFZBM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91tcx853CvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSSD2FHR",
+                Title = "LESLEE 64 Wipes Mini Wet Wipes for Kids & Adults (Pocket Water Tissues)",
+                Description = "Ultra-soft alcohol-free and fragrance-free pocket wet wipes formulated with 99% pure water. Gentle on delicate baby skin and ideal for sanitizing hands and refreshing faces during daily travel.",
+                Price = 72.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GSSD2FHR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CZ8N+7lSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GSTPLH9R",
+                Title = "LESLEE Mini Wet Wipes - 64 Count Pocket Wipes (8 Packs × 8 Wipes) | Alcohol & Fragrance Free | 99% Pure Water Baby & Adult Wet Tissues for Hand, Face & Travel Use [ 1-Pack 64-Wipes ]",
+                Description = "Convenient travel pack of 8 individual mini pocket wipe pouches (64 wipes total). Made with skin-safe, alcohol-free pure water formula for quick hand, face, and mess cleanups on the go.",
+                Price = 93.99m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GSTPLH9R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61751CIBiTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B12RZ9G3",
+                Title = "Kuber Industries PVC Floral Print Fridge Handle Cover/Refrigerator Handle Cover For Home & Kitchen Pack Of 2 (Silver)",
+                Description = "Protective floral print PVC refrigerator door handle covers designed to prevent oil, stains, fingerprints, and scratches. Equipped with strong velcro fastening for easy attachment and machine washing.",
+                Price = 90.00m,
+                OriginalPrice = 198.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B12RZ9G3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81fft6M3OcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09FZ3S16L",
+                Title = "Gesto Blue Led Serial String Lights - Waterproof Copper Wire Fairy Lights for Home Decoration |360 ° Pixel Light for Diwali Decoration,Lights for Balcony Outdoor,Christmas - (20 Meter | Pack of 1)",
+                Description = "LED String Light: Fairy lights are delicate, versatile, and charming, and you can expect no less from the String Lights. These LED strips light comes with warm white LED lights which make every night starry nights, creating any mood from festive to romance, elegant to magical....",
+                Price = 199.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09FZ3S16L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81dP+OS03OL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GMXTJGCC",
+                Title = "JAGMOOLYA Products Multicolor Nylon Bottle Cleaning Brush with Long Handle | Water Bottle Cleaner Brush | Baby Bottle & Kitchen Bottle Scrubber | Multipurpose Flexible Cleaning Brush (Pack of (3)",
+                Description = "🧴 Deep Cleaning Bristles: High-quality nylon bristles easily remove dirt, stains, and residue from bottles and containers. • 🪥 Long & Flexible Handle: Designed to reach deep inside water bottles, baby bottles, flasks, jars, and narrow containers. • 💪 Durable & Strong Build: St...",
+                Price = 73.00m,
+                OriginalPrice = 449.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GMXTJGCC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Us+drKc7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRGVVX1T",
+                Title = "Daesyn Deal 1PCs Stainless Steel Convenient Pineapple Eye Remover Tool - Eye Peeler, Practical Seed Remover Clip Slicer Clip Fruit Kitchen Tool - Silver",
+                Description = "🍍 Removes Pineapple Eyes Quickly & Easily - Special V-shape design helps remove pineapple eyes, seeds, and hard spots neatly without wasting fruit. Saves time in the kitchen. • 🔪 Sharp Stainless Steel Blade - Made from high-quality stainless steel for smooth cutting and long-l...",
+                Price = 84.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BRGVVX1T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qv4kHZy0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTZ5HP8Q",
+                Title = "JEBISON 2L Motivational Water Bottle with Time Marker & Belt Straw",
+                Description = "Leakproof & Easy to Drink: Leak proof locking lid prevents 100% leak. Also, the half-gallon water jug with a straw, that is long to reach the bottom, so you can easy to drink. • Light weight & compact : the bottle is designed to fit perfectly into the fridge door pocket as wel...",
+                Price = 83.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTZ5HP8Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81-79orGl8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07LC95P6C",
+                Title = "Halonix 10W B22d LED Bulb",
+                Description = "Wattage-10W, Type- T bulb Base Type- B22D, CCT- 6500K Cool day light, Pack-1 • Wider light spread: The new Halonix 10W T bulb with its futuristic design resembling a tube light, has a brighter and wider light spread • This T bulb has a flexible swivelling body action for bette...",
+                Price = 94.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07LC95P6C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612HaqNF-uL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H2J1G699",
+                Title = "Sounce FPS Freek Galaxy Thumbstick Caps for PS4 & PS5 Controller | Non-Slip Rubber Joystick Cover | 1 High-Rise + 1 Mid-Rise Concave Analog Grip | Improved Accuracy & Comfort (Black)",
+                Description = "✅ENHANCED ACCURACY WITH MIXED-HEIGHT COMBO - The high-rise and mid-rise thumbstick cap combo provides faster target acquisition on the right analog and superior in-game movement control on the left, giving you a competitive edge in every match. • ✅NON-SLIP RUBBER GRIP FOR ALL-...",
+                Price = 208.05m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H2J1G699?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j779ZkNuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FBX6MGVP",
+                Title = "Desidiya® Rose Flower LED Curtain String Diwali Lights for Decoration For Home, Bedroom | Fairy Lights for Diwali, Christmas, Birthday, Wedding & Party | Home Decor Plastic Flower Design Curtain Light",
+                Description = "🌸 Beautiful Rose Flower Design - Elegant rose-shaped LED lights that add a soft and romantic glow to your home, perfect for festivals, parties, or daily décor. • 🏡 Perfect Home & Room Décor - Enhances walls, windows, balconies, curtains, bedrooms, living rooms, gardens, and ev...",
+                Price = 849.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FBX6MGVP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71EWQ5iH83L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BL3JNZLF",
+                Title = "Kuber Industries Saop Holder for Bathroom|Portable Plastic Self Draining Soap Holder|Leakproof Soap Box for Bathroom,Outdoor Camping,Traveling (Sky Blue)",
+                Description = "♥ PACKAGE CONTAIN : 1 Piece Soap Holder|MATERIAL: Plastic|PACKAGE DIMENSION: 14 cm x 9 cm x 6 cm • ♥ LEAKPROOF & PORTABLE: This Case is very durable. It comes with a leak-proof design and can be locked. The tight lid prevents any possible leakage of the wet soap. The locked de...",
+                Price = 66.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BL3JNZLF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XQbpBb2-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BJF1Z8JR",
+                Title = "MX 2-Pin German Schuko Plug Universal Adapter Multi Connector - 3 Way, India to Europe (Schuko) Plug - Type E/F - 3 in 1 - Perfect for Laptop, Camera Charger and More with LED Indicator",
+                Description = "German Schuko 2-Pin Plug - Compatible with Schuko standard sockets used in Germany and many European countries. • 3-Way Multi Connector - Power up to three devices at the same time for maximum convenience. • 6A Current Capacity - Suitable for powering appliances, chargers, lap...",
+                Price = 299.00m,
+                OriginalPrice = 708.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BJF1Z8JR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41VwA0gCwGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BKWBXR41",
+                Title = "ProElite Cover for Apple iPad (A16) 11th/10th Generation (2025/2022) Cover Case, Transparent Smart case for iPad 11th/10th Gen 2025/2022 (Supports Auto Sleep Wake) with Stylus Pen, Dark Green",
+                Description = "This Case is Specifically Designed To Fit The New iPad 11th/10th Generation 2025/2022 model. Please Confirm Your IPad Model Prior Purchase. • Keeping Your Convenience In Mind, This Case For New iPad 10th Gen 10.9 inch is Designed To Give You The Best Utility and User Experienc...",
+                Price = 499.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BKWBXR41?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51a3pENVxiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08JM851FK",
+                Title = "Party Propz Bottle Lights for Decoration with Cork - 12 Pcs, 20 LED, 2m, Battery Operated, Bottle Cork Light, Copper Wire Bottle LED Lights, Decorative Light for Room, Diwali Lights for Home",
+                Description = "BOTTLE LIGHTS FOR DECORATION: In this package, you will get 12 cork light, each cork light is of 2meter in length and has 20 fairy led. Elevate the ambiance of your living space with Party Propz Bottle Lights for Decoration. These enchanting fairy lights with cork are ingeniou...",
+                Price = 521.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08JM851FK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81gRsh7MdvL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DK9H55SG",
+                Title = "Tuco Kids Dull Skin Combo, Turmeric Soap 3x75g + Lotion 200ml | Bye Dull Skin Cleanse + Moisturise Routine. Haldi, Shea Butter, Coconut Oil & Kakadu Plum. SLS & Sulphate Free.",
+                Description = "Gentle daily skincare duo for children featuring Haldi turmeric cleansing soap bars (3x75g) and a nourishing 200ml body lotion. Free from SLS, parabens, and sulfates, packed with shea butter and Kakadu plum for soft, glowing skin.",
+                Price = 516.00m,
+                OriginalPrice = 715.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DK9H55SG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SYPMv1smL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H6C1H6G5",
+                Title = "Plastic Oil Dispenser Bottle with Silicone Brush, Oil Dispenser Jar with Cute Duck Design Brush for Basting, Grilling and Cooking in Kitchen",
+                Description = "ADORABLE DUCK DESIGN: Features a charming duck-shaped silicone handle that makes this oil dispenser a delightful addition to any kitchen. • 2-IN-1 FUNCTIONALITY: Combines a glass oil storage jar with a built-in silicone brush, allowing you to store and apply oil conveniently i...",
+                Price = 57.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H6C1H6G5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61M3WrduzgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08PVYDSX1",
+                Title = "Babique Ball Rattle Sound Soft Toy for Kids Baby Boy Girl Birthday (10 cm)",
+                Description = "Non-Toxic And Soft Fabric quality and Washable • It helps your baby naturally develop concepts of colour, shape, size and sound through fun filled play activity • This brightly colored soft Toys will surely woo your child's heart. He/She will love to play with it when she craw...",
+                Price = 89.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B08PVYDSX1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61JLJWkVeQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CZ453VP2",
+                Title = "ProElite Cover for Samsung Galaxy Tab S10 Lite 10.9\"/ Tab S9 FE 10.9 inch/Tab S10 FE/Tab S9 11\" Cover, Soft Flexible Flip Case Cover with S Pen Holder, Auto Sleep Wake, [Recoil Series] - Flowers",
+                Description = "Compatible Devices: ProElite case designed for Samsung Galaxy Tab S10 Lite 10.9\"/ Tab S9 FE 10.9 inch/Tab S10 FE/Tab S9 11\" tablet. Not compatible with any other devices. Please check the back bottom of your Tablet to find the model number • Pen Holder: Built-in Pen holder for...",
+                Price = 695.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CZ453VP2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81mKakVAkwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B9HDXBTR",
+                Title = "Ant Esports MP290 Gaming Mouse Pad",
+                Description = "Durable Stitched Edges -MP290 large mouse pad has delicate edges which can prevent wear, deformation and degumming in prolonged use. And the edge even the seams at the edge are flat, comfortable for your wrists and hands. Gaming Mouse Pad • Anti-slip Rubber Base Gaming Mouse P...",
+                Price = 175.00m,
+                OriginalPrice = 355.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0B9HDXBTR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91lKGkGXsoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B59SF3LT",
+                Title = "Shri & Sam Stainless Steel Sigma Border Fruit Fork, 6 Pieces",
+                Description = "Set of 6 premium food-grade stainless steel two-prong fruit forks featuring classic sigma border detailing. Rust-resistant, mirror-polished finish ideal for serving cut fruits, salads, appetizers, and desserts.",
+                Price = 58.00m,
+                OriginalPrice = 129.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B59SF3LT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41Ww0UeVhoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CB4D8Z1R",
+                Title = "BSB HOME® 220 TC Premium Glace Cotton Solid Striped Pillow Covers | Ultrasoft Breathable Envelope Closure| Pack of 2 Pillow Covers King Size (Grey, 20 x 30 Inches)",
+                Description = "Pair of ultra-soft 220 TC glace cotton king-size pillow covers (20 x 30 inches) with elegant sateen stripes. Features a protective envelope closure and wrinkle-resistant, breathable fabric for a restful sleep.",
+                Price = 99.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CB4D8Z1R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51SwHHSClyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00NB0D98Q",
+                Title = "STANLEY 71-669 10 in.(250mm) Water Pump Plier Box Joint Curve Steel, Used for Holding Nuts & Bolts and Gripping Irregular Shaped Objects, DIN/ASO/ANSI Compliant",
+                Description = "Ergonomically designed with a tilted head and machined jaws to provide superior grip • It is forged with high density curve steel to form a robust and durable structure. • The jaws are precisely shaped for superior grip. These jaws designed to provide high torque",
+                Price = 330.00m,
+                OriginalPrice = 455.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B00NB0D98Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bWnaG9DOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D2Y2SYBD",
+                Title = "Choicecases Ceramic Coffee Mug - Best Mom In The World (325 ml)",
+                Description = "High-quality 325ml ceramic coffee mug printed with vibrant, fade-proof heartfelt greetings for mothers. Microwave and dishwasher safe with a comfortable C-shaped ergonomic handle, making it a memorable birthday or Mother's Day gift.",
+                Price = 80.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D2Y2SYBD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/5133bubGQjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CW9ZZY94",
+                Title = "Portronics Konnect View 100W Type C to Type C Cable with LED Display",
+                Description = "100W/5A Super Fast Charging: Konnect View 100W, a Type C to Type C PD cable, provides fast charging with a max output of 100W (5A) to charge all your Type C devices efficiently with compatible chargers. • LED Wattage Display: This USB cable has a real-time charging status LED ...",
+                Price = 489.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CW9ZZY94?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61a4yNDQCBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DZT9SPQF",
+                Title = "JAGMOOLYA PRODUCTS Premium Pre-Tied Satin Bow Tie and Pocket Square for Men | Handcrafted Bow Tie & Wedding Handkerchief for Suits, Blazers & Tuxedo for Formal Events & Weddings (BLACK)",
+                Description = "Classic pre-tied black satin bow tie paired with a matching pocket square. Features an adjustable neck strap for a tailored, crisp fit with tuxedos, suits, and blazers at weddings and black-tie events.",
+                Price = 55.00m,
+                OriginalPrice = 189.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DZT9SPQF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41KvDEtYTSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FPR47H5K",
+                Title = "Glamveda Intimate Hair Removal Cream for Women | Gentle Hair Remover for Bikini Line & Sensitive Areas | With Aloe Vera Extract | Painless & Smooth Hair Removal | 60g",
+                Description = "Gentle on Sensitive Skin: Specially formulated for sensitive and delicate skin, this hair removal cream helps remove unwanted hair from areas like the bikini line, underarms, arms, and legs without causing redness, irritation, dryness, or discomfort. • Infused with Aloe Vera E...",
+                Price = 78.00m,
+                OriginalPrice = 99.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FPR47H5K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51nhNm1PTLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099YV4V6R",
+                Title = "Desidiya Copper Fairy String LED Lights with USB Cable for Home Decoration (10 Meters)",
+                Description = "USB Plug-In: 5V USB Plug in from any USB source. Benefits from the plug in design, now you can use mobile power bank to operate the string fairy lights and use it almost anywhere you like such as outdoor, camping, party, cafe, wedding, home, bedroom, patio, garden. port which ...",
+                Price = 89.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B099YV4V6R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71qXr4bFWFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DPX6M4L5",
+                Title = "Portronics Snapcase 2 60W Fast Charging Data Cable Kit",
+                Description = "Multipurpose Cable Card: The case has allocated Type C to Type C Retractable Cable and Type C to Micro/ Lightning Cable. It can also hold a variety of converters and connectors including USB to Type C converter, Lightning to Type C converter and Type C to USB connector. Now th...",
+                Price = 476.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DPX6M4L5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61U53pEqNwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9HF8TXQ",
+                Title = "Halonix 50W Solaris Waterproof Outdoor led Flood Light | Halogen Light,Focus Light for Garage,Parking,Shop -(Cool White)-Pack of 1|Short Circuit & Surge Protection | 2 Year Warranty",
+                Description = "Wattage-50W, IP66 Rating (Waterproof), CRI : >80%, Premium quality, LED : 100 lm/w, CCT - 6500K (Cool White), Pack of 1, Power factor-≥0.95. 2 Year Warranty • Operating Voltage Range:140V~ 270V | Operating Temperature: -10ᵒC~ 50ᵒC | Lumen Maintenance: 50000 hours | Front Cover...",
+                Price = 850.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D9HF8TXQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wcnaE6awL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09CMQRQM6",
+                Title = "Ambrane 100W Fast Charging Cable",
+                Description = "⚡ 100W / 5A Super Fast Charging Experience ultra-fast charging with up to 100W Power Delivery (PD 5A) output, ideal for powering MacBook, iPad Pro, Samsung Galaxy, OnePlus, Google Pixel and other USB-C devices quickly and efficiently when used with compatible chargers. • 🧵 Unb...",
+                Price = 249.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09CMQRQM6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61xU-68Y4SL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0B9119GT5",
+                Title = "FEDUS USB 3.0 Extension Cable 4.9 Feet Aluminum Alloy Type A Male to Female",
+                Description = "▶EXTEND & PROTECT USB PORT - With this USB 3.0 extension cord, no need to squeeze yourself to the back of the TV or desktop to connect usb disk or other usb peripherals anymore, you can extend the USB port to a more convenient and easy reach location. In addition, this usb typ...",
+                Price = 426.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0B9119GT5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cKQ1r2xjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C6QVNMTM",
+                Title = "Kuber Industries Polyvinyl Chloride Circle Print Fridge Mat Set Of 6|Water Proof Refrigerator Drawer Mat|Reusable & Washable|Multipurpose Mat For Kitchen|Pack Of 6 (Pink)",
+                Description = "PACKAGE CONATAIN: 6 Piece Fridge Mats|MATERIAL: PVC|PRODUCT DIMENSION: 48x33x1 CM|MADE IN INDIA • WATERPROOF MATERIAL: These refrigerator drawer mats are a must-have for any kitchen. They offer superior protection for your refrigerator and are easy to install, clean and custom...",
+                Price = 212.00m,
+                OriginalPrice = 659.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C6QVNMTM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sm5ubTjsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07NJ3LZMQ",
+                Title = "HORNBULL Men's Stylist Black Genuine Leather Wallet with RFID Protection | Branded Gift Wallet for Men",
+                Description = "Handcrafted from 100% genuine top-grain black leather, this slim bifold wallet features built-in RFID blocking technology, multiple card slots, hidden compartments, and a transparent ID window in a stylish gift box.",
+                Price = 323.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07NJ3LZMQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41XrRYH2sFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D9YHNG4Q",
+                Title = "INSTITCH Sewing Machine Leather Belt with Metal Hook, (1) (Brown) | Leather Belt for Full Wheel Machine, Durable and Long-Lasting Usage, Heavy Quality Leather, tailoring accessories",
+                Description = "Durable and Long-Lasting: Crafted from premium leather, this belt is designed to withstand continuous use, ensuring your sewing machine operates smoothly for years to come. • Versatile Compatibility: Works with a wide range of sewing machines, making it a versatile addition to...",
+                Price = 89.10m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0D9YHNG4Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81xACKZo7gL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07NJ41FPC",
+                Title = "HORNBULL Maddison Men's Brown Genuine Leather Wallet | Branded Quality Wallet for Men with RFID Blocking | Mens Gift Set",
+                Description = "HORNBULL Maddison series vintage brown leather wallet equipped with advanced RFID shielding against digital theft. Compact and spacious with dedicated currency dividers and secure card organizers.",
+                Price = 323.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07NJ41FPC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41JYVKQps1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BVQHB4VP",
+                Title = "Onsitego 1 Year Extended Warranty for Small Appliances from Rs. 501-1000 (Email Delivery - No Physical Kit)",
+                Description = "REPAIR OR REPLACEMENT GUARANTEE: We will either repair your device or give a replacement. The replacement device will be provided at the discretion of Onsitego on the basis of the depreciated value of your device • HASSLE-FREE SERVICE: ‘No Questions Asked’ Repair Policy | Zero...",
+                Price = 75.00m,
+                OriginalPrice = 149.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BVQHB4VP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HtlPW8hEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B086H8KM61",
+                Title = "UGREEN Cat 6 Ethernet Cable 1M, High Speed Braided 5Gbps LAN Wire | Gigabit Shielded Network Cord for PS5 PS4 Xbox One WiFi Extender TV Box Switch Router",
+                Description = "Gigabit Ethernet Cable: UGREEN Cat6 ethernet cable supports up to 1000Mbps data transfer (10x compared to cat5e with 100Mbps) and 250MHz bandwidth (2.5x compared to cat5e with 100MHz) with less interference, which is a great choice for playing games, online video streaming, do...",
+                Price = 769.00m,
+                OriginalPrice = 1618.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B086H8KM61?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LgaNlfx3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00AFB2WRI",
+                Title = "Khadi Natural Sandal and Rose Herbal Face Pack",
+                Description = "Ayurvedic rejuvenating face pack formulated with pure sandalwood extract and distilled rose petals. Absorbs excess sebum, unclogs pores, and revitalizes tired skin for a luminous, smooth finish.",
+                Price = 98.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B00AFB2WRI?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61DV0KBIfSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00HFPYRMK",
+                Title = "Khadi Natural Herbal Rosewater Handmade Soap | Refreshing & Cleansing | Nourishing and Hydrating Formula | Perfect for Glowing Skin | Pack of 2 (125 * 2, 250gm)",
+                Description = "Artisanal cold-processed handmade glycerin soaps infused with natural rosewater and essential oils. Hydrates skin, restores natural pH balance, and leaves a gentle floral aroma after every shower.",
+                Price = 127.00m,
+                OriginalPrice = 198.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B00HFPYRMK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51rf5-XKyNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CYT9TQRL",
+                Title = "Amazon Basics Hollow Fiber Sleeping Pillow with Zip",
+                Description = "Soft and Fluffy: Crafted with poly fill, providing a comfortable sleeping surface that cradles the head and neck. • Easy Maintenance: Machine washable and tumble dryable, offering convenience for regular upkeep. • Durable Construction: Resilient polyester fiberfill maintains s...",
+                Price = 257.01m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CYT9TQRL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/610-xzvxvJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07XLSP6Y6",
+                Title = "PrettyKrafts 3-Shelf Hanging Wardrobe Organiser with Engineered Wood Base | Heavy-Duty Non-Woven Foldable Closet Storage & Almirah Organizer for Clothes, Accessories, and Toys (Grey)",
+                Description = "All the 3 compartment have hard engineered wood base to give it more stability and strength as compared to similar products available which have cardboard base only on top and bottom • PrettyKrafts hanging clothes organizer is made up of heavy 90 GSM non woven fabric + enginee...",
+                Price = 84.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07XLSP6Y6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31+-jpIfq9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DNKGHX8K",
+                Title = "Halonix Aluminium 50W Yellow Waterproof Outdoor led Yellow Flood Light|Halogen Light, Street Light for Garage, Parking, Shop -Pack of 1|Short Circuit & Surge Protection.",
+                Description = "Wattage-50W, IP66 Rating (Waterproof), CRI : >80%, Premium quality, CCT - 3000K (Yellow), Pack of 1, 2 Years Warranty, Power factor-≥0.95 • Operating Voltage Range:140V~ 270V | Operating Temperature: -10ᵒC~ 50ᵒC | Lumen Maintenance: 50000 hours | Front Cover: Clear toughened g...",
+                Price = 699.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DNKGHX8K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51EnloecI5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09RWSFW44",
+                Title = "MX Europe Travel Adapter India to Europe | 2-Pin & 3-Pin Universal Socket Type E/F Schuko Plug | Worldwide Travel Adapter for Home, Office, and Multi-Purpose Use - White",
+                Description = "UNIVERSAL EUROPEAN PLUG: Converts Indian plugs to Type E/F Schuko outlets, compatible across Europe for safe and convenient travel. • MULTI-PIN ADAPTER: Supports 2-pin and 3-pin plugs, making it compatible with laptops, mobile chargers, and other household electronics. • WORLD...",
+                Price = 249.00m,
+                OriginalPrice = 410.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09RWSFW44?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/519iUSymi7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FTVR48SD",
+                Title = "TNW - The Natural Wash Skin Reset Glutathione Face Sheet Mask | Brightening & Hydrating | Enriched With Glutathione & Vitamin C | Suitable for Oily & Combination Skin | 20g",
+                Description = "Intensive brightening face sheet mask soaked in concentrated glutathione, vitamin C, and hyaluronic acid essence. Revitalizes dull, dehydrated skin in 15 minutes, restoring a luminous glass-skin glow.",
+                Price = 89.00m,
+                OriginalPrice = 149.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FTVR48SD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/513yZ0uAn5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FVVXCRSQ",
+                Title = "100+ Pcs Football Soccer Stickers for Laptop, Planner, Diary, Waterproof,Residue Free, Self Adhesive",
+                Description = "Pack of 100+ dynamic football and soccer vinyl stickers. High-grade waterproof adhesive adheres firmly to notebooks, water bottles, mobile phones, laptops, and travel cases without peeling or sticky residue.",
+                Price = 91.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FVVXCRSQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/619PZXvOB8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D17Z1KN5",
+                Title = "La Pink Ideal Bright Face Wash with White Haldi & Kakadu Plum | 25ml | 100% Microplastic Free | For Glass like Skin, Evens Skin Tone | All Skin Types",
+                Description = "100% microplastic-free brightening face cleanser enriched with White Haldi, Kakadu Plum, and Sea Lettuce flakes. Gently removes impurities, evens out hyperpigmentation, and promotes a clear glass-like glow.",
+                Price = 94.00m,
+                OriginalPrice = 110.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0D17Z1KN5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61kNEpYjdeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
