@@ -57624,6 +57624,996 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
             },
+            new AmazonProduct
+            {
+                Asin = "B0FP22KLZL",
+                Title = "JM LOOKS Women’s Kitten Heel Slingback Heel | Pointed Toe Patent Dress Shoes with Adjustable Strap - Cherry",
+                Description = "Classic pointed-toe patent dress shoes featuring a sensible 2-inch kitten heel and adjustable slingback buckle strap. Cushioned insole provides all-day elegance and comfort for weddings, office, and evening parties.",
+                Price = 849.00m,
+                OriginalPrice = 2995.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FP22KLZL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71P8REpkG7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01MS0KWTN",
+                Title = "Hauser Berlin Half Metal Ball Pen Box Pack | Retractable Mechanism With Smudge Free Writing | Attractive Designer Pen | Smooth, Sturdy, Refillable Pen | Ideal For Gifting | Blue Ink, Pack of 5",
+                Description = "Premium retractable ballpoint pens featuring a sturdy half-metal barrel, ergonomic non-slip grip, and ultra-smooth blue ink. Smudge-free and refillable design, ideal for students, professionals, and gifting.",
+                Price = 349.00m,
+                OriginalPrice = 375.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01MS0KWTN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51xBwrrjiiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0GWV82D7D",
+                Title = "Nuatrafol Ultra-Thin Hydrocolloid Pimple Patches - 36 Dots | with 2% Salicylic Acid, Tea Tree & Hyaluronic Acid | Waterproof Acne Spot Cover | Absorbs Pimple Overnight & Reduces Excess Oil | Suitable for All Skin Types (36 Count)",
+                Description = "Ultra-thin hydrocolloid acne dots infused with 2% Salicylic Acid, Tea Tree Oil, and Hyaluronic Acid. Waterproof translucent patches absorb pus and excess oil overnight to accelerate pimple healing without scarring.",
+                Price = 89.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0GWV82D7D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AV-aD88jL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01N34I7O1",
+                Title = "House of Quirk Hanging Toiletry Kit Bag Travel Organizer",
+                Description = "Water-resistant hanging travel toiletry bag designed with multiple transparent mesh pockets, elastic loops, and a 360-degree swivel hook. Keeps cosmetics, shaving gear, and toiletries neatly organized on hotel bathroom doors.",
+                Price = 499.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01N34I7O1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fWQ8x3sVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FCFXJJ11",
+                Title = "ProElite Case Cover for Xiaomi Redmi Pad 2 11 inch Cover, Smart Flip Case Cover for Xiaomi Redmi Pad 2 11 inch Translucent Back with Stylus Pen [Auto Sleep Wake Feature], Dark Blue",
+                Description = "This Case is Specifically Designed To Fit The Xiaomi Redmi Pad 2 11 inch model. Please Confirm Your Tab Model Prior Purchase. • Keeping Your Convenience In Mind, This Case For New Xiaomi Redmi Pad 2 11 inch is Designed To Give You The Best Utility and User Experience Possible....",
+                Price = 469.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FCFXJJ11?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61V2ZkFa5yL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09X5XYPM3",
+                Title = "HEELIUM Bamboo Face Towel | Ultra Absorbent & Odour-Free | 3X Softer Than Cotton Towels | 30 x 30 cm - 600 GSM | Pack of 3 - Iris",
+                Description = "💖 SUPER SOFT: Bamboo fiber is known for its softness. These super soft bamboo towels give you an experience of luxury & warmth. • 💧 QUICK ABSORBENT: The internal hollow fiber structure of these towels make them 3 times more absorbent than the cotton towels available. These sof...",
+                Price = 435.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09X5XYPM3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71OWBTB6Q8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CJJWDQFW",
+                Title = "AKANSHA Simontak Natural Ayurvedic Smooth Liquid Sindoor (Maroon)",
+                Description = "Ayurvedic herbal liquid sindoor formulated with natural floral extracts and skin-friendly minerals. Delivers a rich, smudge-proof maroon finish with a sponge-tip applicator that lasts all day without irritation.",
+                Price = 76.00m,
+                OriginalPrice = 110.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CJJWDQFW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/517PigInNpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08D5ZLRCD",
+                Title = "Ant Esports GM100 V2 Optical Gaming Mouse",
+                Description = "🔹 Precision Sensor for Competitive Gaming: Equipped with a high-speed 4000 FPS optical sensor and adjustable DPI settings up-to 3600 DPI, the GM100 delivers pinpoint accuracy for FPS, MOBA, and RTS games • 🔹 7 Programmable Buttons for Pro-Level Control: Includes Left/Right Cli...",
+                Price = 315.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08D5ZLRCD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/715OxxoEkML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H494QJHN",
+                Title = "Glamveda Korean Rice & Ceramide Peel-Off Mask for Men & Women | Brightening Face Pack for Even Skin Tone | Anti-Ageing & Deep Nourishment | Hydrates Dry & Dull Skin | Dermatologically Tested | 100g",
+                Description = "K-Beauty inspired peel-off face pack enriched with Korean fermented rice water and ceramides. Gently unclogs pores, lifts dead skin cells, and reinforces the skin barrier for an illuminated, glass-skin radiance.",
+                Price = 155.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0H494QJHN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51EK3JP6kFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00LY1FBU8",
+                Title = "Camel 20-Shade Soft Pastel Set",
+                Description = "Camel 20-shade soft pastel set conforming to EN 71-3 safety standards. Velvety smooth pigments blend seamlessly on drawing paper, canvas, and textured surfaces for sketching, portraits, and blending.",
+                Price = 269.00m,
+                OriginalPrice = 295.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B00LY1FBU8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71uQ2mcddEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DJXJRYXX",
+                Title = "Design Decor Gallery Diya Shape Flower Decorative Urli Bowl Handcrafted Bowl for Floating Flowers T Light Candle for Home Decor and Wedding Return Gift Ideas (7 Inches) with Gift Box",
+                Description = "ELEGANT DIYA-SHAPED DESIGN: Beautiful handcrafted urli bowl with a traditional diya-inspired shape, perfect for adding an artistic and festive touch to your home décor. • FOR FLOWERS & T-LIGHT CANDLES: Fill with water and decorate with floating flowers, petals, or T-light cand...",
+                Price = 65.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DJXJRYXX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oe6WCLu5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C7BM7L45",
+                Title = "Amazon Basics Memory Foam Orthopedic Wedge Pillow",
+                Description = "Multi-Purpose Wedge Pillow Design - Designed for versatile use, this wedge pillow can be used for resting, lounging, reading, watching TV, or elevating different parts of the body for everyday comfort. • Adjustable Incline Positions - Features multiple adjustable incline and h...",
+                Price = 1329.00m,
+                OriginalPrice = 2799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0C7BM7L45?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61x2f6FTVXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C2VM8VQR",
+                Title = "The White Willow Elevator Pillow for Support-Wedge Memory Foam HR-Pain Relief Pillow for Sleeping-Wedge Cushion-Elevation Support for Varicose Veins & Post Surgery Recovery - Grey",
+                Description = "Ergonomic Elevated Design & Enhanced Comfort: The ergonomically designed leg elevation wedge pillow offers a comfortable, gradual slope with a platform to promote increased blood circulation, relief from back, leg pains, and even assist in post surgery and pregnancy. • The Eli...",
+                Price = 1699.00m,
+                OriginalPrice = 6999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0C2VM8VQR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ucEKRBunL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DFVM35JD",
+                Title = "FLAIR Estella 8L Plastic Bathroom Bucket, Blue | Durable Virgin Plastic Buckets with Easy-Grip Handle | Lightweight & Multipurpose for Mopping, Floor Cleaning, Kitchen and Daily Use",
+                Description = "8L Spacious Capacity:- Each bucket holds up to 8 liters of water, providing ample capacity for daily Floor cleaning, Mopping, Kitchen, laundry, water storage, and other household tasks. • Premium Virgin Plastic Construction:- Made from high-quality, BPA-free virgin plastic for...",
+                Price = 161.00m,
+                OriginalPrice = 244.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DFVM35JD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51hS09Yt0xL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BZV8Y135",
+                Title = "Maharishi Ayurveda Triphala Tablets 1000mg",
+                Description = "Authentic Ayurvedic digestion formulation combining Amla, Haritaki, and Vibhitaki. Acts as a mild natural detoxifier and herbal laxative to relieve constipation, cleanse the gut, and enhance nutrient absorption.",
+                Price = 233.00m,
+                OriginalPrice = 310.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0BZV8Y135?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HsKjhke2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07LDV9GQK",
+                Title = "FOVERA Knee Pillow for Side Sleepers",
+                Description = "✅ BRINGS YOU IN A HEALTHY SLEEPING POSITION: FOVERA knee memory foam pillow is a soft yet dense memory foam that conforms to your lower body, providing you with knee and leg support. Its contour design keeps knees separated while aligning your spine, legs, and hips. • ✅ SCIATI...",
+                Price = 849.00m,
+                OriginalPrice = 1290.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07LDV9GQK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rp9UWAuDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09TVXNZY1",
+                Title = "Shri & Sam Stainless Steel New Stribes Fruit Fork,6 Pieces",
+                Description = "Crafted from 100% food-grade stainless steel with polished striped handles, these durable two-prong fruit forks are perfect for serving cut fruits, cheeses, hors d'oeuvres, and pastries.",
+                Price = 160.00m,
+                OriginalPrice = 185.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09TVXNZY1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41mvC1WSSUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FGXLLPQJ",
+                Title = "Khadi Natural Sandalwood Hand Wash | Purifying & Calming Cleanser | Gently Cleanses, Revives Skin | No Parabens | For all skin types | 300 ml",
+                Description = "Gentle herbal liquid hand wash enriched with pure sandalwood oil and botanical extracts. Effectively removes impurities while maintaining natural moisture balance, leaving hands softly scented and refreshed.",
+                Price = 97.00m,
+                OriginalPrice = 149.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FGXLLPQJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51XxpuqRpBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFMXLJF7",
+                Title = "Homesake® Retro Matt Black Table Lamp | Iron Tripod Base, E27 Bulb Holder | Lamps for Bedroom, Bedside, Living Room, Study, Desk, Warm Night Lamp, Light, Pleated Fabric, (Hazelnut)",
+                Description = "𝐓𝐑𝐈𝐏𝐎𝐃 𝐃𝐄𝐒𝐈𝐆𝐍 𝐓𝐀𝐁𝐋𝐄 𝐋𝐀𝐌𝐏: Modern table lamp featuring a pleated fabric shade, brown and sturdy white iron tripod base for contemporary home decor, makes it ideal for bedside tables, desk corners, or small accent tables while providing ample illumination • 𝐒𝐈𝐌𝐏𝐋𝐄 𝐃𝐄𝐂𝐎𝐑𝐀𝐓𝐈𝐕𝐄 𝐋𝐀𝐌...",
+                Price = 1360.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FFMXLJF7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CrXpHRBYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BZ3WJF89",
+                Title = "Kuber Industries Bolster & Cushion Cover Set - 2 Piece Bolster, 3 Piece Square Cushion Covers - Soft Cotton, Zig Zag Design - Pack of 5, Multicolor",
+                Description = "🌼 PACKAGE CONTAIN : (5 Piece) 2 Piece Bolster & 3 Piece Cushion Cover Set|MATERIAL: Cotton|PACKAGE DIMENSION: Bolster Cover-80 cm x 40 cm x 1 cm|Cushion Cover-41 cm x 41 cm x 1 cm • 🌼 COMFORT & SOFTNESS : These Bolster Covers are made from the finest cotton to ensure softness,...",
+                Price = 679.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BZ3WJF89?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/710P2f0ivwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09TQZHC7T",
+                Title = "Shri & Sam Stainless Steel Monika with Laser Fruit Fork,6 Pieces",
+                Description = "Set of 6 high-grade stainless steel fruit and dessert forks featuring precision laser-etched floral handles. Rust-resistant and dishwasher-safe for everyday family dining and festive table arrangements.",
+                Price = 247.00m,
+                OriginalPrice = 329.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09TQZHC7T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41+hpzNoh5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09513B61J",
+                Title = "Doms Aqua 24 Shades Watercolour Sketch Pen Set | Unique Push Resistant Tip With Bright & Intense Colors | Non-Toxic & Safe For Kids | Colourful Sketching, Doodling & Mandala Art | Pack of 2",
+                Description = "Set of 24 vibrant water-based sketch pens equipped with durable push-resistant tips and ventilated safety caps. Non-toxic, washable ink ideal for kids' school projects, coloring books, doodling, and mandala art.",
+                Price = 237.00m,
+                OriginalPrice = 250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B09513B61J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61f-27map0S._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTTYWTF7",
+                Title = "Tuco Kids Sunscreen for Kids, Sunscreen spf30 PA++++, 2-in-1 Face Cream-30g | UVA/UVB Broad Spectrum Protection. With Saffron Oil. Light-weight, non-greasy, no white cast. Sunscreen SPF30 for Oily Skin",
+                Description = "Tuco Kids Sunscreen for Kids, Sunscreen spf30 PA++++, 2-in-1 Face Cream-30g | UVA/UVB Broad Spectrum Protection. With Saffron Oil. Light-weight, non-greasy, no white cast. Sunscreen SPF30 for Oily Ski...",
+                Price = 189.00m,
+                OriginalPrice = 300.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DTTYWTF7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61QEyAKJ+pL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CBK2NJSB",
+                Title = "Shubhkart Tejas Samai Diya bati-Medium Length (Pack of 5) 100% Pure & Natural Long Handmade Cotton Long Tip Wicks | Ghee Wick Jyot Batti for Puja Arti & Traditional Rituals - 500 Bati 8.5 Cm Long",
+                Description = "Pure cotton handmade long-tip wicks (500 batti, 8.5cm) designed for brass Samai, Akhand Jyot, and puja lamps. Ensures a steady, clean-burning flame for daily temple aarti, Diwali celebrations, and spiritual rituals.",
+                Price = 50.00m,
+                OriginalPrice = 60.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CBK2NJSB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-ZpDurG2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B099WQQ9BV",
+                Title = "Fastrack Tees Analog Grey Dial Unisex-Adult Watch-NG38003PP08W",
+                Description = "Minimalist Fastrack Tees unisex wristwatch showcasing a sleek matte grey dial, contrasting neon hands, durable resin case, and flexible silicone strap. Powered by high-accuracy quartz movement for casual daily wear.",
+                Price = 659.00m,
+                OriginalPrice = 795.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B099WQQ9BV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61yrFvFQn+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKW923PB",
+                Title = "Shoetopia Stylish Strappy Block Rose Gold Heels for Women - Open Toe Ankle Strap Sandals | Perfect for PartiesWeddings & Night Out Comfortable & Stylish EU39",
+                Description = "Chic rose gold evening sandals featuring delicate criss-cross straps, secure buckle ankle closure, and a sturdy 2.5-inch block heel. Padded footbed ensures stability and comfort from cocktail receptions to dance floors.",
+                Price = 680.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CKW923PB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Vyd8GzN-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09DY7ZVXJ",
+                Title = "FACTOR NOTES A5 Notebook: 90 GSM | Ruled | 160 Pages (Redwood)",
+                Description = "Premium A5 ruled notebook featuring 160 pages of 90 GSM bleed-resistant natural shade paper. Built with lay-flat thread binding, rounded corners, and a durable softcover for journaling, note-taking, and sketching.",
+                Price = 175.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09DY7ZVXJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51w+icGbB2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C7V2Q7XS",
+                Title = "Spaces Quilted Microfiber Bed Pillow Set",
+                Description = "LUXURY DESIGN: Crafted with premium quilted fabric and elegant patterns, these pillows for bed create a luxurious 5-star hotel-like sleeping experience. This pillow set of 2 adds comfort and style to your bedroom décor. • PLUMP & SUPPORTIVE: These soft pillows for sleeping pro...",
+                Price = 948.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C7V2Q7XS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XmYiEBsML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07DR4GXF6",
+                Title = "Scotch-Brite Microfiber Kitchen Cleaning Cloth",
+                Description = "Material: Microfiber, Finish: Microfiber wipe, Color: Orange • Item Dimension: 290mm x 310mm x 1mm • Package Contents: 1-Piece Microfiber wipe",
+                Price = 129.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07DR4GXF6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/615OA2845qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DTHMSMXM",
+                Title = "Orgatre Moodbliss Liquid Lipstick | Waterproof, Long Lasting & Smudge Proof | Non-Drying, Lightweight & Highly Pigmented | Matte Finish | 4.5ml (Choco Sizzler)",
+                Description = "Long-wear transfer-proof matte liquid lipstick enriched with vitamin E and nourishing organic oils. Delivers rich, highly pigmented coverage in Choco Sizzler that stays vibrant for up to 12 hours without drying lips.",
+                Price = 99.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DTHMSMXM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WrmmErfhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0H296MF2S",
+                Title = "Sounce Hard EVA Headphone Travel Case, Carrying Storage Bag for Sony CH520, JBL Tune 720BT/510BT, Soundcore Q20i - Anti-Scratch Zipper Case with Mesh Pocket & Elastic Band (19.5 x 23 cm) - Black",
+                Description = "✅【Durable EVA Hard Shell Protection】: Crafted from high-quality EVA material, this headphone travel case delivers a tough, resilient hard shell that shields your headphones against impacts, accidental drops, crushing pressure, and everyday knocks. Whether tossed into a backpac...",
+                Price = 599.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H296MF2S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81SKb5TAuFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07KQCD8R4",
+                Title = "Doms Smart Kit | Comes with Transparent Zipper Bag | Perfect Value Pack | Kit for School Essentials | Gifting Range for Kids | Combination of 12 Stationery Items",
+                Description = "Comprehensive 12-item stationery gift kit packed in a transparent zipper carry bag. Includes groove triangle pencils, oil pastels, watercolor pens, crayons, rulers, and erasers for school students and budding artists.",
+                Price = 500.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B07KQCD8R4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81LlsU7F2OL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BMX9RTQT",
+                Title = "JETech Magnetic Case for iPad (A16) 11th/10th Gen, Black | For 2025/2022 Model, Slim Smart Design Cover, Auto Wake/Sleep, Lightweight Protection",
+                Description = "[Compatibility] Specially fit for iPad (A16) 11th/10th Generation (2025/2022). Fit iPad Models: A3354 / A3355 / A3356 / A2696 / A2757 / A2777 / A3162. Please Go to Settings > General > About, then tap the Model Number field to reveal the A model number. Note: Not support 1st G...",
+                Price = 1503.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BMX9RTQT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61WtJaCBE9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B01L3XLIFI",
+                Title = "AirCase 2.5 Inch External Hard Drive Case with Shockproof EVA Hardshell & Soft Lining | Travel Organizer Pouch with Mesh Pocket, Zipper Closure for HDD/SSD, Earphones, Cable, Charger & Gadgets(Black)",
+                Description = "Premium Lycra Material With EVA Foam: Durable exterior made from premium lycra combined with EVA foam for shock absorption to keep your devices safe during travel or storage • Shockproof And Water-Resistant Protection: Hard EVA shell and water-resistant coating safeguard your ...",
+                Price = 329.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B01L3XLIFI?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71TVIsn2SWL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B09TVYWQSG",
+                Title = "Shri & Sam Stainless Steel GSW Plain Fruit Fork,6 Pieces",
+                Description = "Heavy-gauge stainless steel plain dessert and fruit forks (set of 6) with mirror-finish luster and tapered ergonomic handles. Ideal for serving sliced melon, berries, cake, and appetizers.",
+                Price = 153.00m,
+                OriginalPrice = 185.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09TVYWQSG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41HybmQjijL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0C1X8N7G8",
+                Title = "KBS DustBin For Car Accessories (PACK OF 1) with Black Push-Lid Design for Office Home Kithcen Automotive Cup Holder Garbage Can Mini Trash Can Multi-Purpose Bucket 20cm small Stylist Black",
+                Description = "CLEANLINESS - keeps your car clean and tidy. This TRASH BIN is very handy and an ultra convenient car accessory that will help you get rid of all your unwanted trash. Its perfect for throwing your daily garbage without making your car untidy its really easy to empty it. • COMP...",
+                Price = 84.00m,
+                OriginalPrice = 89.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C1X8N7G8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51EOG6izEDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FFMWPN75",
+                Title = "Homesake® Modern Table Lamp with Iron Tripod Base, E27 Holder, for Bedroom, Bedside, Living Room, Home Decor, Study Lamp for Desk, Night Lamp, Warm Light, Gifting, Pleated Fabric Shade, (Hazelnut)",
+                Description = "𝐓𝐑𝐈𝐏𝐎𝐃 𝐃𝐄𝐒𝐈𝐆𝐍 𝐓𝐀𝐁𝐋𝐄 𝐋𝐀𝐌𝐏: Modern table lamp featuring a pleated fabric shade with delicate brown pattern and sturdy white iron tripod base for contemporary home decor, makes it ideal for bedside tables, desk corners, or small accent tables while providing ample illumination • ...",
+                Price = 425.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FFMWPN75?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71dLFzS+nmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B083FK4HWF",
+                Title = "MY ARMOR Memory Foam Pillow for Neck Pain | Inner Cover | 4.5 Inch | 2 Year Warranty, Orthopedic Memory Foam Pillow for Shoulder Pain, Neck Support, Skin-Friendly, Queen - Size, Pack of 1",
+                Description = "𝐏𝐚𝐜𝐤𝐚𝐠𝐞 𝐈𝐧𝐜𝐥𝐮𝐝𝐞𝐬: 1 x MY ARMOR Memory foam king size pillow for neck & shoulder pain, 4.5 inch high - Without cover • 𝐄𝐫𝐠𝐨𝐧𝐨𝐦𝐢𝐜 𝐒𝐮𝐩𝐩𝐨𝐫𝐭: Crafted with an ergonomic contour to help maintain proper spinal alignment, making it suitable for side sleepers and those looking for suppo...",
+                Price = 1259.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B083FK4HWF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vCWhtq9dL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DQP5LYZG",
+                Title = "Homesake® Retro Down to the Wire Metal Table Lamp with Fabric Shade, Bedside Lamp Gift Housewarming Home Living Room, Pleated Shade (Beige)",
+                Description = "𝐄𝐋𝐄𝐆𝐀𝐍𝐓 𝐃𝐄𝐒𝐈𝐆𝐍: This stylish lamp features a sleek, minimalist design with a pleated khadi Beige fabric shade perched atop a tripod metal base. • 𝐒𝐈𝐌𝐏𝐋𝐄 𝐃𝐄𝐂𝐎𝐑𝐀𝐓𝐈𝐕𝐄 𝐋𝐀𝐌𝐏𝐒: Compact and stylish with minimalist metal frames and basic fabric shades for a timeless indoor look, Antiq...",
+                Price = 369.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DQP5LYZG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/816zMHT-J-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DB66N79Z",
+                Title = "PowerA Protection Case for PlayStation Portal™ Remote Player with Accessories Storage, White (Officially Licensed)",
+                Description = "Officially licensed by PlayStation • Store and Protect - Sturdy outer shell, molded interior and dual zipper pulls provides protection for the PlayStation Portal remote player • Charging Cable Pass-through - Allows a charging cable to be plugged into the PS Portal while stored...",
+                Price = 2469.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DB66N79Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51f4ZOskZ6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08WRS7P7G",
+                Title = "FOVERA Single Leg Elevation & Support Pillow for Surgery, Injury, or Rest - Aids in Reducing Edema (Grey)",
+                Description = "✅ Elevates and Angles Injured Legs and Knee Joints for an Optimal Healing Position • ✅ Reduces Swelling and Decreases Pain by Controlling Blood Flow to the Injury • ✅ Made from Premium Supersoft Foam with a sculpted Leg Channel and a 45° Angled Thigh Ramp",
+                Price = 1794.00m,
+                OriginalPrice = 2390.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08WRS7P7G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81xFI+GzWHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08GZD63SJ",
+                Title = "The White Willow Memory Foam Couple Hug Pillow - Arm, Hand & Pressure Relief Love Pillow for Comfortable Sleeping for Husband & Wife (25.5\" x 18\" x 4.5\") - Classic White",
+                Description = "DESIGNED TO EMULATE THE SNUGGLE POSITION: A classic snuggle is achieved when he/she rests her head on his arm as they sleep on their sides. The pillow lets you snuggle up without any discomfort. The special contour tunnel shaped pillow with an ergonomic arch design and cutting...",
+                Price = 1467.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08GZD63SJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41drJhDVAsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F13T67Y3",
+                Title = "Lavie Women's Sacy Wallet | Ladies Stylish Purse Bag | Zip Around Wallet | Gift for Women",
+                Description = "Sophisticated zip-around ladies wallet crafted from premium textured faux leather. Features multiple card slots, full-length cash compartments, and a zippered coin pouch in a compact, travel-friendly silhouette.",
+                Price = 611.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F13T67Y3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61XIY-W5POL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B08YYGDZJT",
+                Title = "BRUSTRO Artists Oil Pastels | 48 Shades | Smooth, Multicolor, Intermixing, Bright and Intense Colours | Ideal for Students, Professionals, Non-Toxic, School.",
+                Description = "Professional 48-shade artists' oil pastel set with rich, buttery pigment formulation. Glides effortlessly on paper, canvas, and board with smooth inter-mixing and superior blending capabilities.",
+                Price = 848.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B08YYGDZJT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61pTW7pzccS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B06XYLPDKT",
+                Title = "Ezee Live Life Ezee Way Garbage Bags for Dustbin/Trash Bag|30 count|Medium 19 X 21 Inches",
+                Description = "Good quality bags best for restaurants, beauty parlour saloon, kitchen, washroom, toilets, malls and shops etc • Most convenient method of garbage disposal to maintain cleanliness and hygiene • Disposable garbage bag",
+                Price = 59.00m,
+                OriginalPrice = 65.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B06XYLPDKT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51WrcXgeLAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0875NB89J",
+                Title = "UGREEN CAT 8 Ethernet Cable",
+                Description = "High-Speed 40Gbps Ethernet Cable: UGREEN Cat 8 Ethernet cable supports up to 40Gbps data transfer (4x compared to Cat 7 with 10Gbps) and 2000MHz bandwidth (3x compared to Cat 7 with 600MHz) without dropout. Transfer speed up to 5GB/s (2.5x compared to Cat 7 with 1.25GB/s). A g...",
+                Price = 631.00m,
+                OriginalPrice = 1798.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0875NB89J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71BTSapMiGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0D1FZQLYD",
+                Title = "Ambrane USB Type C Female to USB Male OTG Adapter",
+                Description = "5 Gbps High-Speed Data Transfer: Transfer data at lightning-fast speeds of up to 5 Gbps • Plug and Play: No installation or setup required - simply plug in and start using. • Charge & Sync: Conveniently charge and sync your devices simultaneously.",
+                Price = 129.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0D1FZQLYD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61s4K51Go3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0G5PX8HSL",
+                Title = "Lifelong Memory Foam Cervical Pillow for Neck Support | Orthopedic Contour Foam Pillow for Neck Pain with Breathable Cover | Fits Side & Back Sleepers | Pain Relief for Adults | Comfortable Bed Pillow",
+                Description = "Orthopedic Cervical Support - Engineered to relieve neck and shoulder pain, this cervical pillow for neck pain promotes healthy spinal alignment and posture while you sleep. • Premium Memory Foam Comfort - Made with high-density memory foam, the neck pillow adapts to your head...",
+                Price = 616.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0G5PX8HSL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61R6U4XbvjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DPKYKC8J",
+                Title = "Ambrane ATA-03 Universal Travel Adapter Socket",
+                Description = "Universal Travel Socket: The 9-hole universal socket is designed to accommodate a wide variety of plug types, providing seamless connectivity for diverse electronic devices. This universal compatibility ensures ease of use across multiple regions. • High Output Power: With a m...",
+                Price = 699.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DPKYKC8J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61TQIZKgEKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0HD6ZPC6S",
+                Title = "Portronics Snapcase Ultra Multifunctional 8-in-1 Cable & tool Kit, 60W Fast Charging, USB-A, Type-C to Type C, 8-Pin & Micro Adapters, SIM & Micro SD Holder, High-Speed Data transfer, White",
+                Description = "8-in-1 Multipurpose Design Simplify your everyday carry with the Snapcase Ultra, an all-in-one connectivity kit featuring a Type-C cable, USB-A adapter, 8-pin adapter, Micro USB adapter, SIM card slots, a Micro SD card holder, and a SIM ejector pin. • 60W PD Fast Charging Powe...",
+                Price = 349.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0HD6ZPC6S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612wGUSvshL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07LDD1K55",
+                Title = "Bata Deva Thong Women's Beige Heels - 6 UK (6718970)",
+                Description = "Bata contemporary thong-style slide heels designed with a cushioned contoured footbed, supportive low kitten heel, and durable non-slip synthetic outsole for effortless daily styling.",
+                Price = 839.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07LDD1K55?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51eT85RmbwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CKW6898L",
+                Title = "AKANSHA Keshchamak Men's & Women's Natural Ayurvedic Hair Conditioner (100ml)",
+                Description = "Ayurvedic herbal hair conditioner blended with Hibiscus, Amla, and Bhringraj extracts. Nourishes dry strands, detangles unruly frizz, and restores silky natural shine without silicones or heavy residues.",
+                Price = 94.00m,
+                OriginalPrice = 170.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CKW6898L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51t0fe3WvKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B07M61J8QH",
+                Title = "BRUSTRO Artists Acrylic Paint 120ml Fluorescent Blue | Ideal for Paper, Canvas, Water-Based Colours, Non-Toxic, Inter-mixable Colors, Crafters, Fine Art Students and Professionals",
+                Description = "High-pigment fluorescent blue acrylic paint (120ml) formulated for high coverage on canvas, wood, terracotta, and paper. Dries quickly to a waterproof, fade-resistant satin finish.",
+                Price = 241.00m,
+                OriginalPrice = 270.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07M61J8QH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/615SL9OW4SL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DCBWDKWC",
+                Title = "Ant Esports Pyramid Mouse Pad Gaming Extended Mouse Mat (35.4 x 15.7 Inches, Stitched Edges)",
+                Description = "Extra Large Mouse Pad: The XL Size mousepad is designed for comfort and productivity replacing the traditional small size mouse pads. Measuring at 35.4x15.74 inches, it provides ample space to accommodate your mouse, keyboard, and other desk essentials. The extra thickness of ...",
+                Price = 278.00m,
+                OriginalPrice = 3699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DCBWDKWC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71SoiaiOz5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0FHBFRRCX",
+                Title = "Glamveda Hair Removal Spray with Aloe Vera Extract | Painless Body Hair Remover for Men & Women | Helps Leave Skin Soft & Smooth | Suitable for Chest, Arms, Legs & Underarms | 200 ml",
+                Description = "Quick, painless spray-on body hair remover enriched with moisturizing Aloe Vera extract. Dissolves unwanted hair on legs, arms, and chest in 6 to 8 minutes without razor cuts, bumps, or harsh odors.",
+                Price = 245.00m,
+                OriginalPrice = 345.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FHBFRRCX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71IO7JZCkLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BRZZCRPW",
+                Title = "Ant Esports Dock5 RGB PS5 Console Charging Station",
+                Description = "ALL-IN-ONE STAND FOR YOUR PS5 CONSOLE - Designed for both PlayStation 5 Disc and Digital Edition consoles, the Ant Esports Dock5 keeps your gaming setup organized with a secure vertical stand, integrated cooling system, dual controller charging dock and dedicated storage for y...",
+                Price = 1799.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BRZZCRPW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81jrnsmHlPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DR2CR58Q",
+                Title = "Panasonic 50 Watt Outdoor Waterproof Flood Light, Fire Retardant Grade LED Flood Light for Outdoor Lighting, Area Lighting, Boundaries Area, Parks & Sports Ground - (Warm White - PFLM24503)",
+                Description = "Sleek and Durable Design: Features a compact and robust structure with fire-retardant grade plastic, ensuring longevity and safety. • Weatherproof and Impact Resistant: Built for outdoor use with an IP66 rating for water and dust resistance and IK07 impact protection. • Advanc...",
+                Price = 999.00m,
+                OriginalPrice = 3200.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DR2CR58Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61A9EGyisSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00IP6C78Y",
+                Title = "GM 3036 Focus LED Night Lamp - 0.5 W Plug‑in Soft-Glow Energy-Saving Light for Bedroom, Kids’ Room, Hallway; Long-Life LED (10 000 h) - Pack of 1",
+                Description = "💡 Energy-Efficient LED (0.5 W) - Low consumption and cost-effective lighting. • 🌙 Soft Ambient Glow - Ideal for bedrooms, kids’ rooms, and hallways without disturbing sleep. • 🔌 Easy Plug-in Design - No installation needed; just plug into any standard 240 V outlet.",
+                Price = 89.00m,
+                OriginalPrice = 105.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B00IP6C78Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51hlIWIOQtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0CNKN381W",
+                Title = "AKANSHA Nabaroop Men's & Women's Ayurvedic Natural Face and Body Wash- 100ml (Lemon)",
+                Description = "Revitalizing citrus face and body cleanser infused with natural lemon peel oil and antibacterial botanicals. Cleanses away excess sebum and body odor, promoting clear, invigorated skin.",
+                Price = 98.00m,
+                OriginalPrice = 185.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CNKN381W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61PAoBerd3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0BSR2N5W9",
+                Title = "Sounce Mouse Pad Speed Type with Antifray Stitched Embroidery Edges",
+                Description = "【Size and Thickness 】 The Sounce Mouse Pad has a compact size of 260mm x 210mm x 2mm, making it ideal for use with laptops and desktop computers. The 2mm thickness provides a comfortable cushioning for your wrist and forearm, reducing strain and fatigue during extended use. • ...",
+                Price = 79.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0BSR2N5W9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/512kJc9mROL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B096BGFYRQ",
+                Title = "Bata Boss-Grip Men's Black Formal Shoes - 8 UK (8216133)",
+                Description = "Bata Boss-Grip classic formal slip-on shoes crafted from durable synthetic leather with a cushioned footbed and high-traction grooved outsole. Perfect for office wear, business conferences, and formal gatherings.",
+                Price = 824.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B096BGFYRQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rYxtbE8SS._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DF2WK35W",
+                Title = "Orgatre Moodbliss Lip, Cheek & Eye Tint with Goodness of Kojic Acid & Retinol (Cocoa Kiss, 8GM)",
+                Description = "Versatile 3-in-1 multi-pot tint enriched with Kojic Acid, Retinol, and botanical oils in shade Cocoa Kiss. Melts effortlessly into lips, cheeks, and eyelids for a dewy, buildable flush of natural color.",
+                Price = 69.00m,
+                OriginalPrice = 329.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DF2WK35W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Vt4+Rb+sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B00I100KEC",
+                Title = "OREI European Plug Adapter Type C 2-in-1",
+                Description = "Designed with double ports, allowing you to plug in two electrical devices at once; Universal Input: Accepts plugs from all countries (except Type M - big S. Africa 8.7mm Plug); 2nd Input: Accepts 2-prong plugs from any country; The package includes 4 plugs. • PERFECT FOR: Cam...",
+                Price = 799.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B00I100KEC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61iL-jub9eL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0F9TGLHXB",
+                Title = "ZUKU (1 PCS) No Drill Toilet Paper Roll Holder Self Adhesive/Toilet Paper Holder Self Adhesive/Hand Towel Holder for Bathroom Accessories",
+                Description = "Versatile Bathroom Organizer: Elevate your bathroom with our high-quality bathroom accessories. This wall-mounted tissue paper holder is not only a functional bathroom organiser but also a stylish addition to your space. • Multi-Purpose Tissue Holder: Our innovative design mak...",
+                Price = 99.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F9TGLHXB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51WfqAXb85L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B0DHZZ3Z3S",
+                Title = "Sounce External Hard Drive Case 2.5-Inch, Hard Drive Portable Storage Organizer Bag, External Hard Disk Cover, Portable Storage Shell for Gadget Hard Disk USB Cable Mobile Charger Earphone (Black)",
+                Description = "【Versatile Design】: This Sounce case is designed to accommodate all 2.5\" hard drives from brands like WD, WD Essentials, Seagate, Samsung, Sony, Transcend, Toshiba, Hitachi, Lenovo, HP, ADATA, Dell, and more. It can hold any HDD that measures less than 14 cm x 9 cm x 1.8 cm. •...",
+                Price = 198.55m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DHZZ3Z3S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71CciD8Il9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
+            new AmazonProduct
+            {
+                Asin = "B081WCRSKP",
+                Title = "HASTHIP Pencil Pouch 22X11Cm Nylon Large Capacity Multi-Compartment | Organised Storage, Separate Compartments Reduce Clutter, Sturdy Material, Everyday Carry Fit, Customer Care Support",
+                Description = "PREMIUM CANVAS FABRIC: Made of premium canvas with fine stitching, sturdy and wear resistance. The lining is made of nylon material, durable to use. Fine zipper is providing smooth open and close. Simple and classic color design is never beout of date. • EXPANDABLE LARGE CAPAC...",
+                Price = 390.00m,
+                OriginalPrice = 1106.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B081WCRSKP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61NYPqeVViL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },
         };
 
             bool changed = false;
