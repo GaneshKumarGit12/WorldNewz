@@ -60461,6 +60461,888 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ImageUrl = "https://m.media-amazon.com/images/I/71wxAIi2x2L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H1JH1VVN",
+                Title = "COMFYPOT Stainless Steel Tumbler with Lid & Straw, 100% Leakproof Tumblers with Handle, Drink Sipper for Office,Gym & Outdoors 1200ml Tumbler",
+                Description = "Customised Just for You - Personalised with your name, special date, or meaningful word. Add a unique touch to your tumbler - perfect for gifting or daily use. Unlike others, our leak-proof design ensures zero spills. • 40oz Large Capacity & Cupholder Friendly - Designed with ...",
+                Price = 1999.00m,
+                OriginalPrice = 3998.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H1JH1VVN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/618M3IiLi3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BMXW26R4",
+                Title = "NYRWANA Coffee Mug, Marriage Gifts for Wedding, Wedding Present for Couples, Mugs for Present, Diwali Gifts, Mr & Mrs Set of 2 Coffee Mugs, Lids and Beautiful Gift Box (350ml - Ceramic)",
+                Description = "𝗖𝗢𝗙𝗙𝗘𝗘 𝗠𝗨𝗚𝗦, 𝗘𝗡𝗝𝗢𝗬 𝗟𝗜𝗙𝗘: You can enjoy your cup of coffee, espresso, cappuccino or tea warmer longer. When you have hot coffee, you won't feel hot from the outside; when you have a cold drink, there is no condensation on the glass and table. • 𝗨𝗡𝗜𝗤𝗨𝗘 𝗗𝗘𝗦𝗜𝗚𝗡: Keep your fingers ...",
+                Price = 690.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BMXW26R4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71AQryCLWiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GQSTN82H",
+                Title = "COMFYPOT 1200ml Steel Tumbler with Straw | Personalized Tumbler + Crochet Flower Bouquet Gift for Birthdays, Weddings, Anniversaries - Gift for Women, Men, and Girls",
+                Description = "Customised Just for You - Personalised with your name, special date, or meaningful word. Add a unique touch to your tumbler - perfect for gifting or daily use. Unlike others, our leak-proof design ensures zero spills. • 40oz Large Capacity & Cupholder Friendly - Designed with ...",
+                Price = 1999.00m,
+                OriginalPrice = 4080.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GQSTN82H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51B48CBeluL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HRFZ7LN9",
+                Title = "TheGiftKart Tough Armor Bumper Back Cover Case for Vivo S2 5G | Sliding Camera Cover, Kickstand & Ring Holder | 360 Degree Protection Back Cover Case for Vivo S2 5G (PC & TPU, Blue)",
+                Description = "COMPATIBILITY: Mobile Back Case Cover for Vivo S2 5G only. • 360 DEGREE PROTECTION: This Sturdy Armor Case has a Rugged Construction which provides the phone All-Round Protection. Raised Lip on Front & Sliding Camera Cover on Back provide Proper Camera & Screen Protection. • R...",
+                Price = 349.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0HRFZ7LN9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UGbsM2eEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GTVXTDMR",
+                Title = "Amazon Basics Sliding Drawer 12-Slot Watch and Jewelry Organizer - Faux Leather & MDF Storage Box for Men and Women, Brown",
+                Description = "12 Dedicated Watch Slots: Features plush, removable cushions that hold your watches securely and prevent them from shifting or scratching. • Integrated Storage Drawer: A smooth-sliding bottom drawer provides additional space for rings, cufflinks, sunglasses, or other daily acc...",
+                Price = 1499.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GTVXTDMR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vcoXxKkcL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G4R4H62M",
+                Title = "TAGAS Men's Mask Sweater Hoodie |Mens Hoodies|Mens Full Sleeve Hoodies|S-XXL",
+                Description = "Stylish and warm men's hooded sweater featuring an integrated face-mask collar, drawstring hood, ribbed cuffs, and a kangaroo front pocket. Crafted from premium breathable cotton-blend fabric for winter comfort and everyday casual style.",
+                Price = 748.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G4R4H62M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71nAXRhHvPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07XKRTCGV",
+                Title = "URBAN FOREST James Leather Wallet Combo for Men - Classic Medium Brown Men's Leather Wallet, Keyring & Pen Combo Gift Set for Men",
+                Description = "Premium men's gift combo set featuring a handcrafted genuine leather bifold wallet with multiple card slots, an elegant leather-accented metal keyring, and a sleek executive ballpoint pen in an attractive gift box.",
+                Price = 638.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XKRTCGV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/31GF1SfFxyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G4GWNXSX",
+                Title = "Nestasia PickSip40 Tumbler 1.2L with Dustproof Two Sided Lid with Straw for Sip & Gulp | Leakproof & Insulated Stainless Steel Sipper Water Bottle for Office & Gym with Top Handle (Blue Frost)",
+                Description = "Tri-Ply Vacuum Insulation: High quality triple-layer insulation keeps beverages hot or cold for hours, making this 40 oz tumbler ideal for travel, office use, or workouts. • Dual-Compartment Sip-Swig Lid: Effortlessly switch between sip and swig options in lid for convenient, ...",
+                Price = 999.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0G4GWNXSX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/618IBEWbH0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CYCG3S81",
+                Title = "Shesha Ayurveda Red Sandalwood Skin Brightening & Night Repair Cream For Men & Women - For Natural, Anti-Aging, Hydrating, And Radiant Skin, Natural, Ayurvedic",
+                Description = "Ayurvedic night repair face cream infused with pure red sandalwood extract, saffron, and natural botanicals. Deeply hydrates overnight, diminishes blemishes, evens out complexion, and promotes youthful glowing skin.",
+                Price = 619.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0CYCG3S81?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81civt9dW9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GD7VN8W6",
+                Title = "Murphy Stellar 20W LED Flood Light with 2-Year Warranty | Cool White | High Brightness Outdoor LED for Security, Landscape, Warehouse, Backyard | IP66 Waterproof | BIS Approved Pack of 1",
+                Description = "💡 Super Bright 20W LED Light - Murphy Stellar 20W Flood Light delivers high brightness with cool white illumination (6500K) for clear, crisp lighting in outdoor and indoor spaces. • 🌧️ IP66 Waterproof & Dustproof - Designed for harsh weather, this LED flood light is fully seal...",
+                Price = 499.00m,
+                OriginalPrice = 845.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GD7VN8W6?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/810icczu-9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FM4DT7RJ",
+                Title = "Murphy Stellar 10W LED Flood Light with 2-Year Warranty | Cool White | High Brightness Outdoor LED for Security, Landscape, Warehouse, Backyard | IP66 Waterproof | BIS Approved Pack of 1",
+                Description = "💡 Super Bright 10W LED Light - Murphy Stellar 10W Security Light delivers high brightness with cool white illumination (6500K) for clear, crisp lighting in outdoor and indoor spaces. • 🌧️ IP66 Waterproof & Dustproof - Designed for harsh weather, this LED Security light is full...",
+                Price = 405.00m,
+                OriginalPrice = 705.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FM4DT7RJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81pZ-4O2sYL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F8J592VH",
+                Title = "HOMEMONDE 100% True Blackout Curtain Window 5 Feet 1 Piece - Thermal Insulation, Fade Resistant & Black Backing Drapes - (60 Inch, Solid Beige)",
+                Description = "HOMEMONDE Window Curtains 5 Feet 1 Piece - Thermal Insulation 100% True Blackout Curtain, Fade Resistant & Black Backing Drapes - (60 Inch, Solid Beige) • Package Content - 1 curtains per package. Each panel measures 48 Inch wide by 60 inch long with 6 steel metal grommets (1....",
+                Price = 687.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F8J592VH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51jd7sYZY+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DJQQWBS4",
+                Title = "Story@Home King Size Cloud Cotton Flatsheet with Two Pillow Covers",
+                Description = "Package Contents: Pack of 1 King size Bedsheet with 2 Pillow Covers | Dimension (Size) : King Size Bedsheet : 250 x 270 cm or 98 x 108 inches, Pillow Cover : 46 x 69 cm or 18 x 27 inches, 210 TC, Pattern : Floral, Material : Cloud Cotton Color : Off White & Red. The elegant Of...",
+                Price = 799.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DJQQWBS4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91pImXMmF7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DTK4RD1W",
+                Title = "Murphy Stellar 150W LED Flood Light with 2-Year Warranty | Cool White | High Brightness Outdoor LED for Security, Landscape, Warehouse, Backyard | IP66 Waterproof | BIS Approved Pack of 1",
+                Description = "IP65 Rating (Waterproof), CRI : >100%, Premium quality, LED : 100-120lm/w, CCT - 6000-6500K (Cool White) • ENERGY SAVING - This LED Security light offer high effective lighting with low consumption, save up up 60% of energy compared with traditional lighting fixture. • ROBUST ...",
+                Price = 2075.00m,
+                OriginalPrice = 5085.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTK4RD1W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JQyuh8qTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DTK2L113",
+                Title = "Murphy Stellar 200W LED Flood Light with 2-Year Warranty | Cool White | High Brightness Outdoor LED for Security, Landscape, Warehouse, Backyard| IP66 Waterproof | BIS Approved - Pack of 1",
+                Description = "✔ Ultra-Bright & Energy Efficient - The Murphy Stellar 200W LED Security Light delivers high lumens with 6500K cool white illumination, ensuring maximum brightness with minimal power consumption. • ✔ IP66 Waterproof & Durable Build - Designed to withstand extreme weather condi...",
+                Price = 2765.00m,
+                OriginalPrice = 6885.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTK2L113?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-lU5rskXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0756DXV8M",
+                Title = "Amazon Basics Velvet Suit Hangers - 30-Pack, Grey(Metal;Plastic, 30)",
+                Description = "Velvet surface and notched shoulders to prevent slipping • Ultra slim profile to maximize space in your closet • Sturdy design can hold up to 10 pounds",
+                Price = 695.00m,
+                OriginalPrice = 1500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0756DXV8M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81yeSy2PbtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GC79L9R8",
+                Title = "amazon basics Unisex Faux Leather Watch Organiser Box with 12 Slots |Watch Organiser|33.5LX20.5BX8H cm| Black",
+                Description = "Organised Space For 12 Watches: Keeps up to twelve watches neatly arranged in individual slots so you can pick the right one quickly. • Durable, Sturdy Construction: High-quality materials help the box hold its shape and protect your watches during daily use. • Sleek Faux Leat...",
+                Price = 708.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GC79L9R8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71fxwG38MPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07XL4TY5C",
+                Title = "URBAN FOREST Weasley Black Leather Wallet, Keyring & Pen Combo Gift Set for Men",
+                Description = "Sophisticated men's gift hamper featuring a classic black genuine leather bifold wallet with RFID protection, a durable leather keychain, and a luxury executive ballpoint pen packaged in an embossed gift box.",
+                Price = 599.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XL4TY5C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/4144kOOP-CL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07XQHR7RC",
+                Title = "URBAN FOREST Weasley Brown Leather Wallet, Keyring & Pen Combo Gift Set for Men",
+                Description = "Elegant men's accessories combo set featuring a rich brown genuine leather bifold wallet with spacious card and currency compartments, a matching leather key fob, and a refined metal ballpoint pen.",
+                Price = 599.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XQHR7RC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/4109oDcOguL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09C8MQ8S5",
+                Title = "Centrino Brown Men's Formal Shoe- 6 UK (8620-2)",
+                Description = "Classic men's formal lace-up derby shoes designed with polished faux leather uppers, cushioned insole, and durable non-slip TPR outsole. Perfect footwear for corporate office wear, business meetings, and formal events.",
+                Price = 549.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09C8MQ8S5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718tEMcpg+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0B6H6JGY4",
+                Title = "Amazon Brand - Presto! Plastic Elite Spin Mop with Bigger Wheels and Auto- Fold Handle, Blue, 2 Refills",
+                Description = "Deep clean the floors of your home and office quickly with the Presto! Elite 360-Degree Spin Mop. • The user-friendly spin mop helps save time and energy, supports 360-degree hassle-free deep cleaning and is suitable for wet and dry use. • The mop head is made from non-abrasiv...",
+                Price = 999.00m,
+                OriginalPrice = 1978.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B6H6JGY4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Hi4W0iNPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DFLMMF99",
+                Title = "Murphy Stellar 100W LED Flood Light With 2-Year Warranty | Cool White | High Brightness Outdoor LED For Security, Landscape, Warehouse, Backyard| IP66 Waterproof | BIS Approved Pack of 1,G5",
+                Description = "IP65 Rating (Waterproof), CRI : >100%, Premium quality, LED : 100-120lm/w, CCT - 6000-6500K (Cool White) • ENERGY SAVING - This LED Security light offer high effective lighting with low consumption, save up up 60% of energy compared with traditional lighting fixture. • ROBUST ...",
+                Price = 1315.00m,
+                OriginalPrice = 3299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DFLMMF99?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LtZssQaxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F8HYF8MH",
+                Title = "HOMEMONDE 100% True Blackout Curtains 5 Feet Single Pcs - Faux Silk Room Darkening Window Curtain with Eyelets, Fade Resistant Panels with Black Backing - (60 Inch, Grey)",
+                Description = "HOMEMONDE 100% Complete Blackout Curtains 5 Feet Single Pcs - Faux Silk Room Darkening Window Curtain with Eyelets, Fade Resistant Panels with Black Backing - (60 Inch, Grey) • Package Content - 1 curtains per package. Each panel measures 48 Inch wide by 60 inch long with 6 st...",
+                Price = 689.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F8HYF8MH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51WnWAN6k4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07M9S7LX4",
+                Title = "SECUREMENT Bubble Padded Courier Bags (Recyclable) - Select Any Size (6.5 x 8 inch - 100 Pcs)",
+                Description = "Pack of 100 heavy-duty bubble padded courier envelopes (6.5 x 8 inches) featuring multi-layer tamper-evident self-adhesive seal, waterproof exterior, and shock-absorbing bubble lining for secure shipping of fragile goods.",
+                Price = 934.00m,
+                OriginalPrice = 1607.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B07M9S7LX4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dOPSjBawL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F8HYDD5T",
+                Title = "HOMEMONDE 100% True Blackout Curtains Window 5 Feet Single Pcs - Thermal Insulation & Room Privacy Blackout Curtain, Black Backing & Fade Resistant Drapes - (60 Inch, Golden)",
+                Description = "HOMEMONDE 100% True Blackout Window Curtains 5 Feet Single Pcs - Thermal Insulation & Room Privacy Blackout Curtain, Black Backing & Fade Resistant Drapes - (60 Inch, Golden) • Package Content - 1 curtains per package. Each panel measures 48 Inch wide by 60 inch long with 6 st...",
+                Price = 687.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F8HYDD5T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51YzSKwRpoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FD9T4NPJ",
+                Title = "Desidiya 16-Color LED Night Light Sunset Lamp",
+                Description = "🌇 Vibrant Sunset Projection Effect - Fill your room with a warm, atmospheric glow inspired by natural sunsets-perfect for calming evenings or stylish decor. • 🌈 16 Adjustable Colors + Modes - Choose from 16 color options and smooth fade effects to match your mood, theme, or oc...",
+                Price = 299.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FD9T4NPJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/713fAW3HyUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DTK38JY4",
+                Title = "Murphy Stellar 30W LED Flood Light with 2-Year Warranty | Cool White | High Brightness Outdoor LED for Security, Landscape, Warehouse, Backyard | IP66 Waterproof | BIS Approved Pack of 1",
+                Description = "✅ Super Bright & Energy Efficient Equipped with high-lumen SMD LEDs, this 30W LED Security light delivers powerful brightness with low power consumption-perfect for outdoor and security lighting. • 💧 IP66 Waterproof Design Built to withstand rain, dust, and harsh weather. Idea...",
+                Price = 695.00m,
+                OriginalPrice = 1785.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DTK38JY4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81CsLw2Xg1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B082MM2T4M",
+                Title = "Plantex Eco Stainless Steel Folding Towel Rack/Towel Hanger for Bathroom/Wall Mounted Towel Rack/Bathroom Accessories Set(24-inch) Chrome",
+                Description = "𝐅𝐨𝐥𝐝𝐚𝐛𝐥𝐞 𝐓𝐨𝐰𝐞𝐥 𝐇𝐨𝐥𝐝𝐞𝐫: This Plantex Towel Hanger for Bathroom offers a complete solution with a swivel towel hanger, towel holder, shelf, and hooks, saving you space and keeping your bathroom organized. • 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥: Towel Holder in Bathroom Crafted from durable stainles...",
+                Price = 899.00m,
+                OriginalPrice = 2940.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B082MM2T4M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KGN-DeSyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07XNRX7SY",
+                Title = "URBAN FOREST Sherlock Blue Leather Wallet, Keyring & Pen Combo Gift Set for Men",
+                Description = "Refined men's leather gift set featuring a deep blue genuine leather bifold wallet with multiple credit card slots and currency pockets, an engraved matching leather keychain, and an executive styling pen.",
+                Price = 619.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XNRX7SY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81hjFNtCNyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F7FK2CX2",
+                Title = "HOMEMONDE 100% True Blackout Curtains 5 Feet Long - Heavy Faux Silk Room Darkening Curtains with Black Backing, Room Privacy and Thermal Insulation Panels 1 Piece - (60 Inch, Solid Dutch White)",
+                Description = "HOMEMONDE 100% Complete Blackout Curtains 5 Feet Long - Heavy Faux Silk Room Darkening Curtains with Black Backing, Room Privacy and Thermal Insulation Panels 1 Piece - (60 Inch, Solid Dutch White) • Package Content - 1 curtains per package. Each panel measures 48 Inch wide by...",
+                Price = 659.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F7FK2CX2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51pwlFear-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FD2CC4QZ",
+                Title = "Spigen Ultra Hybrid Back Cover Case Compatible with iPhone 17 (TPU + Poly Carbonate | Crystal Clear)",
+                Description = "[iPhone 17] Spigen Original patent design. Genuinely designed and manufactured by Spigen with the Precise Form-Fitted Fit for iPhone 17 • [Camera Control Button Protection] Smooth touch and full protection for camera control button with TPU layer • [Material] Hybrid technology...",
+                Price = 999.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FD2CC4QZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61FzGjBR9AL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0B8JWDSWC",
+                Title = "MY ARMOR Waterproof Mattress Protector King Size, 78x72, 6.5x6 feet, Double Bed Protector Sheet Cover, Breathable and Hypoallergenic Ultra Soft Fitted Terry Cotton Feel Fabric, Elastic Skirting, Grey",
+                Description = "✅ Package Includes - 1 My Armor Mattress Cover King Size (78X72 Inches, 6.5X6 Ft), Perfectly Designed As A Bed Protector • ✅ Soft Cotton Feel Fabric - Premium Terry Top Provides The Comfort While Keeping Your Bed Fresh And Hygienic. • ✅ 100% Waterproof Protection - Works As A ...",
+                Price = 859.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B8JWDSWC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61wiQFgOohL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FBRR3JYW",
+                Title = "Richpet Furtick Tick Chewable Tablet for Dogs (4.5-10 kg) | Fluralaner 250mg | 3 Month Tick Flea & Mite Protection",
+                Description = "ONE CHEW = 3 FULL MONTHS OF PROTECTION - A single Furtick chew gives your dog 12 continuous weeks of protection from ticks, fleas and mites. One tablet, one easy moment, and the whole season is taken care of • VET FORMULATED WITH FLURALANER 250MG - Fluralaner is among the most...",
+                Price = 899.00m,
+                OriginalPrice = 1000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Pet Supplies",
+                ProductUrl = "https://www.amazon.in/dp/B0FBRR3JYW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71l00zrXnFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DH83Y8RK",
+                Title = "DesiDiya Astronaut Light Projector Galaxy Star Projector",
+                Description = "🌌 Transform Your Space: Create a stunning galaxy on your walls or ceiling with twinkling green stars and a variety of mesmerizing mode combinations.",
+                Price = 599.00m,
+                OriginalPrice = 5999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DH83Y8RK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81YpFCy0rBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H9F1WWY7",
+                Title = "ONE AND ONLY Extra Large Foldable Baby Play Mat Reversible Fish & Number | Premium XPE Foam Waterproof Floor Mat for Babies & Toddlers Non-Slip Crawling Mat Tummy Time Counting Skills & Indoor Play",
+                Description = "Fish & Number Educational Play Mat: Encourage early learning and imaginative play with the One & Only Extra Large Foldable Baby Play Mat featuring colourful fish, sea creatures and number illustrations. Made from premium high-density XPE foam, this non-toxic, waterproof baby p...",
+                Price = 999.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Baby Products",
+                ProductUrl = "https://www.amazon.in/dp/B0H9F1WWY7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81d7ksz2BdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09WXYK6RD",
+                Title = "NYRWANA Coffee Mug, Marriage Gifts for Wedding, Mugs for Gift, Diwali Gifts, Mom & Dad Set of 2 Coffee Mugs, Lids, Ceramic Spoons, Coasters, Best Wishes Card & Beautiful Carry Bag (380ml-Ceramic)",
+                Description = "MEET YOUR NEED: Are you still worry about what to send to your family or friends? And when they will become new Dad and new Mom, you need to send a meaningful gift for them. This Dad and Mom mug set will be a funny, symbolic, commemorative gift for couples, expecting and new p...",
+                Price = 848.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09WXYK6RD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61wZEjpjSUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FJSCSWBK",
+                Title = "ONE AND ONLY Stainless Steel Tumbler for Kids 350ml Mini Tumbler with Straw | Kids Steel Sipper with Lid Straw Spill-Proof Travel Mug Cup Sipper Water Bottle For Girls And Boys Pink",
+                Description = "Designed for comfortable everyday sipping, this 350 ml kids tumbler with straw is suitable for water, milk and juice at school, home and travel. • The practical 350 ml capacity makes this stainless steel kids tumbler convenient for children's everyday drinking and easy to carr...",
+                Price = 854.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FJSCSWBK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61g4Cjyru5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07XQKMRX8",
+                Title = "URBAN FOREST Weasley Dark Brown Leather Wallet, Keyring & Pen Combo Gift Set for Men",
+                Description = "Deluxe men's combo set featuring a dark brown genuine leather bifold wallet with RFID-blocking security, a sturdy leather-trimmed key ring, and a premium writing pen in an elegant presentation box.",
+                Price = 599.00m,
+                OriginalPrice = 2000.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XQKMRX8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/4145Wfr71jL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GMWVQCR2",
+                Title = "Desidiya Star Master Projector Night Light - Mother's Day LED Sky Projector Lamp with USB Cable - Colorful Rotating Galaxy Light for Bedroom, and Home Décor (Assorted Color)",
+                Description = "📦 Package Includes: 1 x Star Master Projector Lamp, 1 x USB Cable (Assorted Color) • 🌌 Dreamy Starry Sky Projection: Projects a calming night sky filled with stars and moon patterns, instantly creating a peaceful, cozy vibe-perfect for winding down after a long day. • 🌈 Multip...",
+                Price = 269.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GMWVQCR2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Jeck8k6ZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GJD1KG9F",
+                Title = "Robustt 1.5 Ton Split AC Cover for Indoor and Outdoor Unit | Waterproof & Dustproof AC Covers with Sun Exposure and Rust Protection | Fabric",
+                Description = "Product Dimensions: This AC cover set are made to fit most standard 1.5 Ton AC models with outdoor unit cover measuring and indoor cover measuring. • Elastic Hem Indoor AC Cover: The indoor split AC cover comes with an elastic hem, making it very easy to put on and remove. Onc...",
+                Price = 225.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GJD1KG9F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716cnYGcSPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H3F4V3Z8",
+                Title = "BEHOMA Metal Pair of Love Swans with 2 Tea Lights, Golden | Decorative Romantic Showpiece for Home Decor Tabletop,Desktop, Cabinets|Festival Anniversary Wedding Birthday Couple Gift",
+                Description = "Heart-Shaped Swan Couple Design: Features a beautifully crafted pair of swans forming an elegant heart-shaped silhouette, symbolizing love, togetherness, harmony, and grace. A timeless décor accent that enhances any interior setting. • Decorative Showpiece & Tea Light Holder: ...",
+                Price = 998.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H3F4V3Z8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81PSn+TwRPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FPGG4Y77",
+                Title = "DODGE 'N WOLVES 3 in 1 Bathroom Cleaning Brush with Wiper - Heavy Duty 52 inch Long Handle 360° Rotate Floor Scrubber Brush, Tiles Cleaning, Floor Scrub for Kitchen and Bathroom Wall (Dark Grey)",
+                Description = "[ 3 in 1 Floor Scrub Brush ] : Our long handle scrub brush is compatible with hard brushes (to remove stubborn stains), soft bristled brushes (to protect the floor), silicone scrapers (to clean water stains), built-in dirt clips (to clean hair and debris), and one click switch...",
+                Price = 943.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FPGG4Y77?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sqDAp4rzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07DYRL3X7",
+                Title = "Autofact Car Body Cover with Mirror Pockets Compatible for Ritz | Custom Fit | Full Body Car Cover | Fabric | Triple-Stitched | Lightweight | Dustproof & Scratchproof | Indoor & Outdoor",
+                Description = "Full Size Car Cover for . It Covers your Car bumper to bumper accurately. Fabric used is very Soft and feel like feather, helps to avoid scratches to you Car • Mirror Pockets are included to provide extra care to your Car • Triple Stitching is done with high quality Thread to ...",
+                Price = 999.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Automotive",
+                ProductUrl = "https://www.amazon.in/dp/B07DYRL3X7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71UqF2ttbFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DQXQD16C",
+                Title = "Toy Imagine Kids Digital Camera",
+                Description = "CHARGE BEFORE FIRST USE: Fully charge for 1-2 hours initially; slight delay is normal and ensures optimal battery performance for longer usage • FULL HD CLEAR PHOTOS & VIDEOS: Capture bright 1080P videos and 3MP photos with sharp details, helping kids record fun memories with ...",
+                Price = 599.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B0DQXQD16C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/717McG7-isL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DLWC4KCL",
+                Title = "Dr.Ortho Pregnancy Pillow for Pregnant Women | Memory Foam Maternity Pillow | Helps in Back Pain Relief Multipurpose Wedge Maternity Pillow for Body & Belly Support",
+                Description = "Unique C-Shape Design - The Dr. Ortho Pregnancy Pillow features a specially crafted C-shape that fits perfectly under your baby bump, offering gentle support where it's needed most. This design helps to alleviate pressure on the back and hips, providing comfort throughout the ...",
+                Price = 1150.00m,
+                OriginalPrice = 1150.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DLWC4KCL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/516--eYlDlL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H82M49C9",
+                Title = "OYO BABY Maternity Pillow Bundle | 2 Year Warranty | Full Body Pregnancy Pillow for Women, Adjustable Butterfly Design, Pillow for Back, Belly, Hips & Leg Support - Grey",
+                Description = "🖤 PLUSH VELVET COVER - Soft, brushed velvet that feels indulgent against the skin, in a versatile grey that hides everyday marks and matches any bedroom decor, from nursery neutrals to your existing bedspread. • 🎁 COMPLETE 4-PIECE SET - Includes 1 long body pillow, 2 Velcro-co...",
+                Price = 1519.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0H82M49C9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61BOkZmG95L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FY3B18HS",
+                Title = "GLUN®Flower Print Cotton Bolster Cover Set of 2 | 16 x 30 Inches | Soft & Luxurious Decorative Bolster Pillow Covers for Sofa, Bed & Living Room | Cream",
+                Description = "Attractive Floral Print Design: Features a multicolour flower pattern on a cream base that adds a cheerful, modern look to your home décor. • Premium Cotton Fabric: Made from high-quality breathable cotton that feels soft, smooth, and comfortable for everyday use. • Perfect St...",
+                Price = 217.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FY3B18HS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Vl-wsE7IL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DSKMV3ZC",
+                Title = "Samsung Galaxy S25 Ultra 5G Mobile with Galaxy AI",
+                Description = "𝐆𝐀𝐋𝐀𝐗𝐘 𝐀𝐈 𝐀𝐍𝐃 𝐍𝐎𝐖 𝐁𝐑𝐈𝐄𝐅 - Enter the new era of 5G smartphone AI with a companion that stays one-step ahead of your needs. Let natural conversation guide you through everyday tasks without switching between multiple apps, while Now Brief keeps you updated with your schedule, re...",
+                Price = 94999.00m,
+                OriginalPrice = 129999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DSKMV3ZC?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/7114RlvzXnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0821PN8L4",
+                Title = "Presto! Garbage Bags Medium 19 X 21 Inches Black",
+                Description = "Convenient for clean-up and garbage disposal • Multifunctional use; ideal for office, hotels, household use, parties, baby diapers, and clearing pet's litter • Detachable tie-tape to tie up bag after use",
+                Price = 329.00m,
+                OriginalPrice = 480.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0821PN8L4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GX6T2DZK",
+                Title = "Momcozy Portable Pregnancy Pillow - Adjustable Wedge Maternity Pillow | W Shaped Pillow for Belly, Back&Hip Support for Pregnant Women, Space-saving Ideal for Traveling, Breathable Removable Cover",
+                Description = "【Side-Sleeping Pain Relief】Designed for comfortable side sleeping, this W-shaped pregnancy pillow supports the belly, back and hips to help relieve pressure and discomfort during pregnancy. Its ergonomic shape promotes a stable sleeping position and helps reduce the need for c...",
+                Price = 2999.00m,
+                OriginalPrice = 3889.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GX6T2DZK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Gp+Lv-zyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DS5SK3M9",
+                Title = "Green Wood Stylish Wooden 6 Pcs Cooking Spoon, Kitchen Tool Set - Serving Spoon, Table Spoon, Salad Spoon, Measuring Spoon | Medium, Non-Chemical, Eco-Friendly (Brown1)",
+                Description = "Eco-Friendly & Chemical-Free: Made from natural, non-toxic wood, this kitchen tool set is safe for cooking and serving, promoting a healthier lifestyle. • Versatile Set of Spoons: Includes serving spoons, table spoons, salad spoons, and measuring spoons, making it ideal for va...",
+                Price = 128.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DS5SK3M9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41KX0A2xfuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B000LQUA6M",
+                Title = "Simple Kind To Skin Refreshing Facial Wash 150 ml | 100% Soap-Free Facewash that doesn't dry out your skin| For All Skin Types",
+                Description = "100% soap-free facial wash from Simple Kind to Skin formulated with multi-vitamins and triple-purified water. Gently removes oil, dirt, and impurities without stripping natural moisture, suitable for sensitive skin.",
+                Price = 338.00m,
+                OriginalPrice = 490.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B000LQUA6M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51wqZYWGr+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C5XZCY2F",
+                Title = "hoop Magnesium Body Lotion Sleep Minerals | Relax, Sleep Routine | 250ml | Lavender & Chamomile Oils",
+                Description = "Calming sleep body lotion formulated with pure elemental magnesium, soothing lavender essential oil, and chamomile extracts. Relaxes tense muscles, eases body stress, and supports deep restorative nighttime sleep.",
+                Price = 520.00m,
+                OriginalPrice = 680.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0C5XZCY2F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71zlkmDM9zL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GW97DYXJ",
+                Title = "OYO BABY Pregnancy Pillows for Women J-Shape Full Body Pillow | 360° Maternity Support for Back, Hips, Legs & Belly | Maternity Pillow | Removable Washable Velvet Cover (Royal Blue)",
+                Description = "🎁 INCLUDED COMPONENTS: OYO BABY J-Shaped Full Body Pregnancy Pillow with Premium Velvet Cover Elegant Light Grey Colour, a Thoughtful Baby Shower Gift for Expecting Moms • 📐 ERGONOMIC DESIGN: J-Shape Maternity Pillow delivers 360° full body support with proper body alignment A...",
+                Price = 1499.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GW97DYXJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/613BkKZ06ML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07KCCSJG8",
+                Title = "Shadow Securitronics Tom CAT No Entry Rat Repellent Spray for Cars Highly Effective with and Lasts 1 Year Leak Free Easy to Spray Nozzle 1st time in India (1) - FORMULATION 1 X 200 ML",
+                Description = "FORMULATION 1 X - Keeps Rats away from Car Engine for up to 3 months. Rodent Repellent is a repellent that drives mice & rats out of structures and areas without harming them. • RAT REPELLENT SPRAY FOR Vehical USE: Rats, mice, and rodents not only damage your belongings, leave...",
+                Price = 463.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Automotive",
+                ProductUrl = "https://www.amazon.in/dp/B07KCCSJG8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71vIuYzSvhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F54GKQ38",
+                Title = "Milton Rapid Electric Kettle 1.8L | 1500 Watts | Stainless Steel Hot Water portable Electric Kettle for Home, Office | Auto Shut-Off with Wide Mouth | Cool-touch Handle and Single-Touch Lid Lock",
+                Description = "🔹 1.8L Family-Size Capacity - Ideal Electric Kettle for Home & Office This Milton electric kettle lets you boil up to 1.8 litres at once - perfect for families, office pantries, or hostel rooms. A must-have hot water electric kettle for tea, coffee, and everyday use. • 🔹 Elega...",
+                Price = 649.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F54GKQ38?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51lYFOP2mUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07VKM2HR5",
+                Title = "NIVEA Nourishing Body Milk 600ml Body Lotion with Hyaluronic Acid | 72Hr Hydration | Deep Moisture Care for Very Dry Skin | Enriched with Almond Oil | Smooth, Radiant & Healthy Looking Skin Care",
+                Description = "Deep moisture body lotion from Nivea enriched with almond oil, hyaluronic acid, and deep moisture serum. Delivers 72 hours of intensive nourishment and repair for very dry, rough skin, leaving it soft and healthy.",
+                Price = 399.00m,
+                OriginalPrice = 760.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B07VKM2HR5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/4125gF+XmHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B082J5MWHG",
+                Title = "Desidiya Copper Fairy String Lights with USB Cable for Home Decoration 5 Meters(LED)",
+                Description = "USB Plug-In: 5V USB Plug in from any USB source. Benefits from the plug in design, now you can use mobile power bank to operate the string fairy lights and use it almost anywhere you like such as outdoor, camping, party, cafe, wedding, home, bedroom, patio, garden. port which ...",
+                Price = 99.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B082J5MWHG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71HkjEJupzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B01K9V3ETS",
+                Title = "wipro Garnet 9W LED Bulb",
+                Description = "Wider Coverage : The Bulb comes with 220 Degree Light Coverage, which makes the home brighter • Wattage : 9W Colour : Warm White (2700K) Base : E27 Number of Units : 1 • Wide Voltage Range & High Voltage Protection: This LED Bulb has a wide voltage range of 150-300VAC & High V...",
+                Price = 66.00m,
+                OriginalPrice = 240.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01K9V3ETS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61LIxjcf-oL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07S5FBY3J",
+                Title = "HIT Anti Mosquito Racquet Rechargeable Insect Killer Bat with LED Light",
+                Description = "Contains: 1 unit of HIT Mosquito Racquet • INSTANT KILL: 3,500V DC voltage on the net mesh that kills mosquitoes instantly • STRONG AND DURABLE: Made from Aircraft Grade ABS Plastic for high durability and long life",
+                Price = 421.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07S5FBY3J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Xe3zMVWeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B00IZ932WG",
+                Title = "SPARX mens SF0014G Navygrey Flip-flop - 8 UK (SF0014GNVGY0008)",
+                Description = "Comfortable and lightweight men's casual flip-flops from Sparx featuring textured anti-slip footbed, flexible rubber straps, and grooved traction soles for daily home, beach, and casual outdoor wear.",
+                Price = 295.00m,
+                OriginalPrice = 349.50m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B00IZ932WG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61dgP8XDIoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GJDY85GX",
+                Title = "Necxy Pregnancy Pillow for Women | Maternity Pillow for Pregnancy Sleeping | Pregnant Pillow with Belly Support | Adjustable Butterfly Design, Cotton Blend Cover (White & Grey, Set of 2)",
+                Description = "FULL-BODY SUPPORT: Pregnancy pillow for women with cushioning for the belly, back, hips and legs. Ideal for pregnancy sleeping, side sleeping, resting and relaxation. • ADJUSTABLE BUTTERFLY DESIGN: Flexible maternity pillow adapts to body curves and provides support for the be...",
+                Price = 979.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0GJDY85GX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eN-Dd9JgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09H4DKRNM",
+                Title = "Fybros Extension Wire Holder, Wire Link Bulb Holder with 5 Meter Extension Wire Suitable For Home And Office Use, Made In India, Pack of 1",
+                Description = "High-Quality Bulb Holder: Durable and heat-resistant bulb holder compatible with standard B22 bulbs; ensures a firm grip and safe connection. • 5-Metre Extension Wire: Equipped with a heavy-duty, flexible 5-metre wire for easy placement and extended reach in homes, offices, or...",
+                Price = 129.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09H4DKRNM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61h4MPUEKQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
             },
         };
 
