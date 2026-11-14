@@ -61343,6 +61343,930 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ImageUrl = "https://m.media-amazon.com/images/I/61h4MPUEKQL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FBKCYTB7",
+                Title = "BMOSESE® Stainless Steel M2x8mm Allen Bolt Screws with Nuts & Washers | Rustproof 304 Grade | Full Thread | Hex Socket Cap Head | Free Allen Key| (10PCS SET)",
+                Description = "Diameter:-2mm. This socket head cap srcew are 100% genuine 304 stainless steel which offers high level of chemical and corrosion resistance. • Thread diameter with full thread length (M2x6mm,M2x8mm,M2x10mm,M2x12mm,M2x15mm,M2x20mm, M2x25mm),drive type -allen socket,Head style -...",
+                Price = 219.00m,
+                OriginalPrice = 539.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FBKCYTB7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51ZdeZrjkrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G3X5WK8M",
+                Title = "Naman Arts Oxidised Silver Toned Combo Jewellery Set for Women | Antique Silver Toned Necklace with Earrings, Studs & Bangle | Pure Brass Ethnic Boho Combo Set",
+                Description = "Exquisite oxidised silver-toned bohemian jewellery set for women featuring an intricate floral choker necklace, coordinating jhumka earrings, nose ring, studs, and a matching adjustable bangle. Handcrafted in pure brass for festive and ethnic occasions.",
+                Price = 573.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G3X5WK8M?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81-tBfREaAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GNMKDLDX",
+                Title = "Hercules Bicycle Pedal & Handle Grip Kit | Heavy-Duty Anti-Slip Platform Pedals & Ergonomic Lock-On Handlebar Grips | MTB Cycle Combo with Reflectors & End Caps",
+                Description = "Complete Upgrade Kit: Includes 1 Pair of Heavy-Duty Platform Pedals, 1 Pair of Ergonomic Lock-On Handlebar Grips, and 2 Bar End Caps for a full cockpit and drivetrain refresh. • Heavy-Duty Anti-Slip Pedals: Features a wide, durable platform with an aggressive textured surface ...",
+                Price = 268.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Sports & Outdoors",
+                ProductUrl = "https://www.amazon.in/dp/B0GNMKDLDX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61KESFYIvSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GJFGYT4W",
+                Title = "Azyeea Leather A4 Office Paper Tray Stackable Letter Trays Jewelry Display Tray for Home Room Desk Organiser Accessories (Brown Taper)",
+                Description = "【Simple Desk Organizer】Customize your workplace so you don't have loose paper and desk accessories distrupting your work by having our letter tray organizer on your desk to be at ease in your office",
+                Price = 759.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B0GJFGYT4W?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61zvKo6N-2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08Y6L9NQM",
+                Title = "AZYEEA - Paper Tray Stackable Letter Trays Jewelry Display Tray for Home, Room Desk, Organiser Accessories Rectangular Leather A4 Office Paper Tray (Black)",
+                Description = "【Simple Desk Organizer】Customize your workplace so you don't have loose paper and desk accessories distrupting your work by having our letter tray organizer on your desk to be at ease in your office • 【High-Quality】Covered in vegan PU leather our letter trays are designed to a...",
+                Price = 711.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B08Y6L9NQM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sSeDMikNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C5VJSVXW",
+                Title = "ABS HERBALS: ABS HERBALS: Rangoli Kolam Stickers for Home Entrance & Pooja Room | Vinyl/Self Adhesive, Waterproof, Floor Decoration for Diwali, Navratri & Festivals (Combo Pack of 5) [CP51]",
+                Description = "1. INSTANT TRADITIONAL DECOR Bring home a beautiful Rangoli Sticker / Kolam Sticker for instant festive decoration. Perfect for home entrance, pooja room, doorway & steps - no daily drawing needed. • 2. EASY PEEL & STICK APPLICATION This self adhesive rangoli floor sticker com...",
+                Price = 189.00m,
+                OriginalPrice = 550.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C5VJSVXW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61uV229TKZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CF5ZRF3G",
+                Title = "Macroclo Plastic Clipboards, A4 Acrylic Clear Board 8.5x11 | Transparent Letter Size 9\" x 12.5\" for Classroom, Students,Office & School Supply",
+                Description = "Strong Plastic Clipboard: Our clip board is made of strong and high-quality plastic material, Making them very strong, Not easy to break, Clipboards with high-gloss surface and sturdy base. Cleanable and waterproof • Dimension Lightweight & Portable: Each clipboard measures 12...",
+                Price = 229.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B0CF5ZRF3G?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41SCHQJoFLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07WPSY3V4",
+                Title = "ARCTIC C Key 10-Hole 20-Tone Diatonic Harmonica With Case & Cloth - Silver | Excellent Airtightness, Smooth Airflow, Clear Bright Tone, ABS Comb, Brass Reeds",
+                Description = "C KEY SCALE: Standard C Key Scale, Suitable For Beginners, Students, Practice, Blues, Folk, Country And Various Music Styles. • QUALITY MATERIAL: Durable Metal Cover, ABS Comb And Brass Reeds For Clear Sound, Comfortable Handling And Reliable Performance. • EXCELLENT AIRTIGHTN...",
+                Price = 366.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Toys & Games",
+                ProductUrl = "https://www.amazon.in/dp/B07WPSY3V4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61P35htIDbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GNZDCPBS",
+                Title = "Grillverse Fire Starter Pack of 2 (24 Pcs) Easy-Burning Fire Starter Squares for Wood Stoves, Campfires, Grill Pit and Fireplace, Natural & Waterproof BBQ Fire Starters (Cubes, 24, Count)",
+                Description = "IGNITE YOUR FIRE EFFORTLESSLY - Ignite Your Life Adventures You're ready to increase your experience of the goodness of our great fire intensity. With an impressive burn time of 10-18 minutes, it's great for grills, fireplaces, wood stoves and more. • NATURAL AND WATERPROOF - ...",
+                Price = 299.00m,
+                OriginalPrice = 600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GNZDCPBS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RmvYK4jkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B06ZZDZWLS",
+                Title = "Kassa Large Whiteboard Wall Self-Adhesive Sticker Roll-17.3\" X 78? (6.5 Feet)-3 Dry Erase Board Markers Included-Adhesive White Board Wallpaper For Fridge,Office&Kids Room-Peel And Stick Paper Decal",
+                Description = "Simple Peel & Stick: Designed for convenience, the adhesive chalkboard wallpaper easily attaches to walls, tables, or desks. Suitable for home, school, or office use, this white board roll creates an ideal backdrop for spontaneous ideas and planning • Effortless Installation: ...",
+                Price = 518.00m,
+                OriginalPrice = 1250.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B06ZZDZWLS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71+oTaNejaL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FD7R94N1",
+                Title = "GOEKA® 2-in-1 ABS Bottle Trap with Convertible Waste Pipe | Expandable & Flexible Chrome Drain | Rust-Resistant Bathroom & Kitchen Basin Trap | Easy Installation",
+                Description = "🛠️ Professional Installation Recommended - For proper and safe installation, we suggest getting help from a qualified plumber. • 🚰 1 ABS Bottle Trap Expandable (Flexible Pipe) - Adjustable for a perfect fit with most basins and sinks. • 🧱 1 Waste Drain with Plastic Pipe - Dura...",
+                Price = 469.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0FD7R94N1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71JO9ekIVXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GZ3YD42B",
+                Title = "Sigma CARES Carnauba Car Wax Polish & Car Wash Shampoo Combo for Car & Bike | High Gloss Shine, Deep Cleaning & Paint Protection | Foam Rich Formula | Scratch-Free Finish",
+                Description = "DEEP CLEAN + HIGH GLOSS SHINE Advanced foam-rich car shampoo removes dirt, dust, mud, and road grime while Carnauba wax polish enhances gloss and delivers showroom-like shine for cars and bikes. • PROTECTS VEHICLE PAINT Carnauba wax creates a protective layer that helps mainta...",
+                Price = 234.00m,
+                OriginalPrice = 500.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Automotive",
+                ProductUrl = "https://www.amazon.in/dp/B0GZ3YD42B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/713CXlYLbfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HFX2GWJW",
+                Title = "LITO LINEN AND TOWEL Single Bed Solapur Chaddar 100% Cotton Blanket - Reversible Handloom Bedspread for Winter & All Seasons, Soft Breathable Cotton Bedsheet/Blanket - Warm Taupe Brown, 60\"x90\"",
+                Description = "100% Pure Cotton - Made from premium Solapur cotton, offering superior breathability and comfort for year-round use. • Reversible Design - Dual-sided color pattern allows you to switch styles with a flip, enhancing room aesthetics. • Generous Size - Measures 60\" × 90\", perfect...",
+                Price = 473.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HFX2GWJW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ir+6an-sL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B083RC3YDS",
+                Title = "VOILA Indian Flags for Car Dashboard Study Table Home & Office Bharat Mata Flag",
+                Description = "High-quality material • Easy installation - just stick the base of the product with a double sided tape • This item shows the love and respect you have towards your country.",
+                Price = 378.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Automotive",
+                ProductUrl = "https://www.amazon.in/dp/B083RC3YDS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81aKo+FD6BL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08SBG5J5L",
+                Title = "AZYEEA - Leather A4 Office Paper Rectangular Tray Paper Tray | Stackable Letter Trays Jewelry Holder | Jewelry Display Trey for Home Room Desk Organiser Document Tray for Office Table(Brown)",
+                Description = "✔️ Premium Leather Finish - High-quality faux leather exterior gives a sophisticated and professional look to your office desk. • ✔️ Minimal & Modern Design - Clean rectangular shape with open front cut-out for easy access to papers and documents. • ✔️ Perfect for A4 Documents...",
+                Price = 759.00m,
+                OriginalPrice = 1600.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B08SBG5J5L?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61CcWohbpwL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DL39JPTZ",
+                Title = "Improvhome Artificial Marigold Flowers,Silk Marigold Flower Heads,Orange Flowers Artificial for Decoration,Marigold Heads for Parties, Indian Weddings, Indian Theme,Diwali (50)",
+                Description = "Fluffy And Realistic Artificial Flowers: These Marigolds Flowers are made of bright orange silk wich feels fluffy like actual marigold flower. There is a green and hollow artificial flower receptacle at the bottom of each marigold to keep Marigolds fluffy enough,which can deco...",
+                Price = 324.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DL39JPTZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81QZeTfifhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09FYJCL9C",
+                Title = "CIRO Double Sided Adhesive Tape Size 2 mm For Repair Touch Screen Tablets LCD Screen Display Professional Kit For Mobile Screen (Pack of 5pcs)",
+                Description = "Strong Adhesive tape. • Easy to apply and use. • Double Sided Layer Adhesive Sticky Tape for Mobile.",
+                Price = 284.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B09FYJCL9C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61yGmn-7+YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H8SPC995",
+                Title = "O2 Green Organics Wax for Hair Removal, 800 ml with (Pre Lemon Gel + After Lavender Oil) | Professional Liposoluble | Salon & Home Use | Suitable for Women & Men",
+                Description = "Complete 3-Step Waxing Kit: Get a professional waxing experience with O2 Green Organics Korean Glass Pink Soft Gel Liposoluble Wax. This complete kit includes an 800 ml Soft Gel Wax, 100 ml Lemon Pre Wax Gel, and 100 ml Lavender After Wax Oil for effective pre- and post-wax ca...",
+                Price = 800.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0H8SPC995?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AmT1cF4HL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H4ZLN6LK",
+                Title = "Hygiea Organic Pitambar Liquid Copper & Brass Cleaner 100ml Pack of 1 | Liquid Form, Removes Tarnish & Stains, For Utensils & Idols",
+                Description = "RESTORES ORIGINAL SHINE: Effectively removes tarnish, oxidation, stains, and dullness from copper and brass surfaces in minutes • WIDE APPLICATION: Suitable for cleaning pooja utensils, brass décor, copper bottles, idols, kitchenware, and antique collectibles at home • EASY-TO...",
+                Price = 166.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0H4ZLN6LK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-cwXt2DTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FMKCHYV5",
+                Title = "KURTIVERSE Women's Cotton Half Slip with Side Slits - Short Inner Liner for Sheer Dresses & Kurtis, Breathable Underskirt for Summer, (in, Alpha, XL, Regular, White)",
+                Description = "Breathable and ultra-soft 100% pure combed cotton half slip underskirt for women. Features deep side slits, an elasticated waistband, and lightweight anti-static fabric designed to provide seamless coverage under sheer dresses, kurtis, and skirts.",
+                Price = 284.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FMKCHYV5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61AtrR1Zl3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HLXXDBLS",
+                Title = "TEKIMART Tap Extender for Kitchen Sink, Flexible Faucet with Tap Extension for Convenient Use Upgrade Your Kitchen Sink with Flexible Tap for Easy Access",
+                Description = "3 FUNCTIONS: Kitchen faucet extender provides 3 functions; gentle water flow for daily use; medium pressure water flow for cleaning sinks; high pressure water flow is suitable for washing dishes, or rinsing stains. • HIGH QUALITY MATERIALS: Faucet aerator is made of high quali...",
+                Price = 295.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0HLXXDBLS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qhUyupoTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BZVZHNWK",
+                Title = "ERATO™ Vinyl Self Adhesive Frosted Window Glass Film Privacy Frosted Film for Office/Home/Bathroom Static Cling Frosted Film (Inch 12x40, Small Flower Print Frosted)",
+                Description = "ERATO🌸Self adhesive, easy to cut and easy to paste. Can be self installed at home and can be removed when not required • ERATO🌸UV PREVENTION and ENERGY SAVING: Heat-control window vinyl films retain heat in winter and keep it out in summer, cut your energy bills, block 96% UV ...",
+                Price = 202.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BZVZHNWK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81PtaqxBubL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GVZYQXKZ",
+                Title = "Guruji Plantation Kadamba (Neolamarckia Cadamba) Medicinal Sacred Flowering Tree Easy Grow Live Plant for Home Garden Pack of 1",
+                Description = "Kadamba live plant suitable for home garden, terrace garden, balcony gardening and outdoor plantation. • Healthy nursery grown kadamba plant with strong roots and well developed foliage. • Traditionally valued in herbal and ayurvedic gardens and commonly grown in many parts of...",
+                Price = 189.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0GVZYQXKZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/616sdYJFL7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DY8YNGZZ",
+                Title = "Greenviv Hair Growth Serum for Hair Fall Control | 3% Caffeine | 30 ml | Strengthens Roots & Boosts Hair Growth, 3% Pea Peptide, Keratin & Bhringraj",
+                Description = "Intensive Ayurvedic hair growth and anti-hair fall serum formulated with 3% caffeine, 3% pea peptides, hydrolyzed keratin, and bhringraj extract. Strengthens hair follicles from the roots, reduces breakage, and stimulates fuller, thicker hair growth.",
+                Price = 329.00m,
+                OriginalPrice = 495.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0DY8YNGZZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51sefl9mvxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DJXJ8R1Q",
+                Title = "Beadsnfashion 200 Loops Bracelet Memory Wire Combo (Gold & Silver) 0.6mm Thickness 6cm Diameter for Jewellery Making, Cuff Bracelet Beading Wire DIY Craft Supplies",
+                Description = "200 Loops Combo Pack - Includes 100 gold and 100 silver loops for multiple jewellery making projects. • Strong Memory Wire - Retains its shape without clasps, ensuring durable and professional designs. • 0.6mm Thickness - Ideal balance of strength and flexibility for easy bead...",
+                Price = 336.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Office Products",
+                ProductUrl = "https://www.amazon.in/dp/B0DJXJ8R1Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71-IWqi5aoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FRMMQK4Z",
+                Title = "Lord of the Senses | Blue Legacy for Men | 50 ML | Citrus Woody Aromatic Fresh Fragrance | EDP Long Lasting Luxury Perfume Spray",
+                Description = "Luxury long-lasting Eau de Parfum for men featuring an invigorating citrus-woody fragrance profile. Opens with zesty bergamot and fresh aquatic top notes, transitioning into aromatic lavender heart and warm cedarwood base for sophisticated all-day wear.",
+                Price = 449.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Beauty & Personal Care",
+                ProductUrl = "https://www.amazon.in/dp/B0FRMMQK4Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71j084auDuL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CQ2T3F4V",
+                Title = "Doodle Baby Journal Set to Record Your Little One's Journey from Birth to Age 5 | Record Baby's Birth Story | Store Memories | Storage for photos and Documents (Growing Adventures)",
+                Description = "CAPTURE BABY'S ENTIRE JOURNEY: Our baby journal is a complete, 122-page keepsake book that covers every major milestone from birth to age 5 • EASY-TO-FILL-OUT DESIGN: This baby milestone book is designed to be easy to fill out and won't overwhelm new parents • AMPLE PHOTO ROOM...",
+                Price = 997.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Baby Products",
+                ProductUrl = "https://www.amazon.in/dp/B0CQ2T3F4V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71slnfaxSkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C1P65Y4H",
+                Title = "Xiaomi Air Purifier 4 Lite for home|360 m3/hr CADR covers 640 sq.ft.|3Stage HighEfficiencyFilter| 160 Sq.ft in 6 mins | App+Voice control|Realtime filter usage + AQI Monitor|1yr replacement warranty",
+                Description = "Ideal Air Purifier for Bedroom: Large coverage area of 462 Sq.ft and high particle CADR of up to 360m³/h, delivering 6000L of clean air per minute • Real-time AQI & Environmental Display: LED display provides real-time AQI, temperature, humidity, Wi-Fi status and mode informat...",
+                Price = 10990.00m,
+                OriginalPrice = 14999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0C1P65Y4H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81juk45eY2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B01GFTEV5Y",
+                Title = "Pigeon by Stovekraft Cruise 1800 watt Induction Cooktop",
+                Description = "Pigeon Cruise Induction Cooktop Comes with 7 segments LED display for power and temperature. This Induction Stove comes with high-grade electrical that protects against short circuits. It's superior top plate cans with-stand very high temperatures, making it very durable;Smart...",
+                Price = 1599.00m,
+                OriginalPrice = 3195.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01GFTEV5Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61aM36RGwgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CCM8L54V",
+                Title = "Zulaxy Photo Frame Hooks for Wall Without Drilling, 10 Pack Self Adhesive Hooks for Wall Heavy Duty Strong Nail Free for Hanging Photo Frame (Hanging Hook, Transparent) Stainless Steel",
+                Description = "PROUDLY MADE IN INDIA: The Zulaxy heavy quality Strong nail hook is proudly Made in India. The Zulaxy wall nail hooks has 33% more adhesion, so it is strong and lasts long. • STRONG & VERSATILE: Heavy duty hooks can hold up to 10 KG on smooth surface. These adhesive hooks can ...",
+                Price = 249.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CCM8L54V?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61WnmpLwAQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CXNSCCVW",
+                Title = "MILTON Comet 1000 Stainless Steel Water Bottle",
+                Description = "#1 WATER BOTTLES BRAND : Join the club, choose the premium brand and elevate your style with Milton. • 50 YEARS OF INDIAN INNOVATION : Milton Water Bottle 1 litre features a sleek, single-walled design for everyday convenience. • PREMIUM MATERIAL - Crafted with high-quality st...",
+                Price = 249.00m,
+                OriginalPrice = 439.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CXNSCCVW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61K8wOHMIXL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DFHJTBFX",
+                Title = "EUROWRAP Food Wrapping Paper 500g - Butter Paper Roll, Greaseproof & Microwave Safe, Roti Wrapping Sheets for Kitchen Use, Ideal for Baking, Packing, and Serving",
+                Description = "High-Quality Food-Grade Wrapping Paper: Eurowrap food paper wrap roll is ideal for cooking, baking, packing lunch and serving, ensuring your food stays fresh and safe. • Non-Stick & Moisture-Locking: This butter paper for packing is designed to prevent food from sticking while...",
+                Price = 149.00m,
+                OriginalPrice = 398.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DFHJTBFX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71rvtPfzWdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BSRX7P6F",
+                Title = "JIALTO Wall Hooks for Hanging Strong, Adhesive Hooks for Wall Heavy Duty, Wall hangings, Kitchen Accessories Items, Sticky Photo Frame Hangers (Pack of 20, Nail Hook)",
+                Description = "𝗦𝗧𝗥𝗢𝗡𝗚 & 𝗥𝗘𝗟𝗜𝗔𝗕𝗟𝗘 𝗔𝗗𝗛𝗘𝗦𝗜𝗢𝗡: JIALTO adhesive wall hooks are designed with high-strength PVC, ABS, and stainless steel, holding up to 10KG on smooth surfaces. These wall hooks for hanging strong 5kg, 10kg ensure a secure grip for coats, towels, keys, and kitchen utensils • 𝗘𝗔𝗦𝗬 ...",
+                Price = 160.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BSRX7P6F?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Sg8yZVJZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DJ7VFKRN",
+                Title = "Desidiya Plastic 12 Meter LED Decorative String Fairy Rice Lights",
+                Description = "✨ Perfect for Decoration: Transform empty wine bottles into magical displays! These bottle lights create a warm, romantic atmosphere, making them ideal for birthday parties, weddings, Halloween, Christmas, and more. • ✨APPLICATION: These lights can be used for christmas, parti...",
+                Price = 99.00m,
+                OriginalPrice = 499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DJ7VFKRN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71c8uwuv-nL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BLJ3FJRJ",
+                Title = "Havells Zeta 1500 Watt Immersion Heater",
+                Description = "Product: Havells 1000 Watts Shock-Proof Immersion Rod & Specially Designed heating element For Super-Fast Uninterrupted Heating. You are set for A Warm Bath. • Shock-Proof with Water Level Indicator: Designed to prevent electric shocks and includes a water level indicator for ...",
+                Price = 649.00m,
+                OriginalPrice = 1090.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0BLJ3FJRJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/510WX836ZQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CQH5N1DY",
+                Title = "AERYS Digital Alarm Clock with Automatic Sensor",
+                Description = "LARGE LCD DISPLAY DIGITAL ALARM CLOCK - Big, easy-to-read numbers even without glasses; perfect table clock for bedroom, office & study desk. • SNOOZE & BACKLIGHT FUNCTION - One-touch snooze alarm clock with soft backlight for hassle-free night viewing; photosensitive sensor a...",
+                Price = 299.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0CQH5N1DY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51GynVCypsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08GSQXLJ2",
+                Title = "Crompton Arno Neo 15-L 5 Star Rated Storage Water Heater (Geyser) with Advanced 3 Level Safety, National Energy Conservation Award Winner 2023",
+                Description = "5‑Level Advanced Safety for Total Protection:Includes high‑precision thermostat, preset thermal cut‑out, multi‑functional safety valve, Shockproof body and fire proof cable. • Superior Anti Scale Coated Tank for Hard Water : The inner tank is protected by a Anti Scale coating ...",
+                Price = 6299.00m,
+                OriginalPrice = 10400.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B08GSQXLJ2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61-CIiWd0OL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F8HJJVW1",
+                Title = "Nova Electric Milk Frother for Coffee - Rechargeable Coffee Frother, Beater, Blender & Mixer | Handheld Coffee Whisker for Cold Coffee, Latte & Cappuccino | Mini Coffee Maker Machine for Home (Black)",
+                Description = "Electric Milk Frother for Coffee: builds thick, stable cafe-style froth in about 15 seconds, not the thin bubbles a spoon leaves behind, so your latte holds its foam right down to the last sip. • Coffee Frother Rechargeable: one full charge gives you around 30 cups, so there i...",
+                Price = 301.00m,
+                OriginalPrice = 799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0F8HJJVW1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71TD7nkRWtL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B01LWYDEQ7",
+                Title = "Pigeon Polypropylene Mini Handy and Compact Chopper with 3 Blades",
+                Description = "Unique string function to chop vegetables and fruits with ease;Package Contents: 1-Piece Handy Chopper.Blade Length: 3 centimeters • Eco-friendly design, no electricity required;Warranty: 30 Days Warranty, Only On Manufacturing Defects • Made from unbreakable ABS plastic for l...",
+                Price = 189.00m,
+                OriginalPrice = 545.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B01LWYDEQ7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51RXzjrUmkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DRCT1MTK",
+                Title = "PEXPO Water Bottle 1 ltr Stainless Steel Sports/Fridge Bottle",
+                Description = "Fast Fridge Cooling: Premium stainless steel cools faster than plastic and glass, giving you refreshing hydration sooner. The capacity offers the utility of a stainless steel water bottle 1 litre • Leakproof & Easy to Sip: Leakproof lid and smooth-flow spout make this water bo...",
+                Price = 239.00m,
+                OriginalPrice = 649.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DRCT1MTK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71KObe9c-fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B00MIYM0VS",
+                Title = "Milton Flip Lid 1000 Thermosteel Water Bottle",
+                Description = "#1 WATER BOTTLES BRAND : Join the club, choose the premium brand and elevate your style with Milton. • 50 YEARS OF INDIAN INNOVATION : Milton Water Bottle 1 litre has Double walled Vacuum Insulated technology that keeps beverages Hot or Cold for 24 hours. • PREMIUM SS304 STAIN...",
+                Price = 929.00m,
+                OriginalPrice = 1205.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B00MIYM0VS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81KrnHiiIHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09VL787WJ",
+                Title = "GADDA CO 100% Waterproof Premium Cotton Feel Mattress Protector King Size 78x72 Inch|Ultra Soft Breathable & Fitted Bed Protector Terry Cover Double Bed (6.5x6 feet, Fits 10 Inches, Grey)",
+                Description = "✔ Perfect Fit for king size double bed : Fits mattresses up to 2-10 inches thick with its 360° elastic corners, offering a secure fitted bed protector , snug fit ( 6.5x6 feet, 78x72 inches, 198x182 cm). • ✔ 100% Waterproof Mattress Protector : Safeguard your mattress with GADD...",
+                Price = 599.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B09VL787WJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81aDT+NbweL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07WMS7TWB",
+                Title = "Pigeon Amaze Plus Electric Kettle 1.5 L, 1300 Watt, Stainless Steel Body with Auto Shut-off Feature Used for Boiling Water - (Silver)",
+                Description = "CLASSIC DESIGN: The classical mirror polish of the appearance makes your electric kettle unique and aesthetic, which can match any type of kitchen design and 360° swivel base is connected with standard power cord for safe usage and convenient storage • CORDLESS POURING: The el...",
+                Price = 489.00m,
+                OriginalPrice = 1245.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B07WMS7TWB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51DGcy8eBCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DXBCP7M4",
+                Title = "CareFoam Memory Foam Cervical Neck Pillow",
+                Description = "✅ Ergonomic Cervical Support for Better Sleep Designed with an orthopedic contour shape that naturally supports your neck, shoulders and head, helping maintain proper spinal alignment while sleeping. Ideal for reducing neck stiffness and improving sleeping posture. • ✅ Premium...",
+                Price = 658.00m,
+                OriginalPrice = 1699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Health & Fitness",
+                ProductUrl = "https://www.amazon.in/dp/B0DXBCP7M4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51iOIPuNN5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B074CW3JV4",
+                Title = "Ezee Black Medium Garbage Bags",
+                Description = "Designed to fit simplehuman trash cans perfectly • Tear- and leak-resistant garbage bags • Good quality bags best for restaurants, beauty parlor saloon, kitchen, washroom, toilets, malls, shops etc",
+                Price = 299.00m,
+                OriginalPrice = 390.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B074CW3JV4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51bYYE-jFKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0B4RZ3XNP",
+                Title = "Milton Aura 1000 Thermosteel Water Bottle",
+                Description = "#1 WATER BOTTLES BRAND : Join the club, choose the premium brand and elevate your style with Milton • 50 YEARS OF INDIAN INNOVATION : Milton Water Bottle 1 litre has Double walled Vacuum Insulated technology that keeps beverages Hot or Cold for 24 hours. • PREMIUM SS304 STAINL...",
+                Price = 991.00m,
+                OriginalPrice = 1165.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0B4RZ3XNP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61SHImx3ixL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DN1RWNSQ",
+                Title = "One94Store Astronaut Galaxy Projector Night Light",
+                Description = "📦 Package Contain: 1 x Starry Projector Night Light, Remote, User Manual (Multicolor) • ✨ Transform Your Space with a Mesmerizing Galaxy Effect Experience a stunning nebula and star projection with vibrant colors, creating a magical ambiance for bedrooms, gaming rooms, and hom...",
+                Price = 747.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DN1RWNSQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71Hq4fQz2ML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DB65HXZP",
+                Title = "Honeywell Air Purifier for Home & Office, 3-in-1, Pre, H13 HEPA, Activated Carbon, Removes 99.99% Pollutants, Allergens, Pet Dander, Smoke, Dust & Pollens - Air touch V1",
+                Description = "Protect your Home & Office from smoke, Dust, Pollens, virus, Bacteria and Pet Danger to give safe indoor environment to you & your loved ones • Removes 99.99% Micro Allergens and airborne Pollutants including PM 2.5 and PM 10 • CADR of Up to 152 m3/h and coverage area of up to...",
+                Price = 5028.00m,
+                OriginalPrice = 9999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B0DB65HXZP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716mieWpn2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B06VX8YR6Q",
+                Title = "Ezee Live Life Ezee Way Black Garbage Bags for Dustbin",
+                Description = "- MULTIPURPOSE: Ezee Garbage Bags which are fit to use at home, kitchen, offices, restraurants, use for baby diapers, pet litter • * WASTE DISPOSAL: Perfect for wet and dry waste, food waste and fits the trash cans conveniently without tearing. • * QUALITY: Sealed bottom of th...",
+                Price = 179.00m,
+                OriginalPrice = 216.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B06VX8YR6Q?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71erHCKJ3WL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B00OHNGJ2Y",
+                Title = "Godrej aer Spray Room Freshener",
+                Description = "Contains: 1 unit of Godrej aer spray - Room freshener spray (180 ml). Variant - Cool Aqua • REFRESHING FRAGRANCE: Inspired by the smooth sea breeze flowing over coral reefs in Mauritius • CONVENIENT TO USE: Easy push and spray mechanism designed for convenience",
+                Price = 97.00m,
+                OriginalPrice = 99.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Home & Kitchen",
+                ProductUrl = "https://www.amazon.in/dp/B00OHNGJ2Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/612dwuTHwSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FJGDS5W3",
+                Title = "45W GaN Type- C Super Fast Charger Compatible with Samsung Galaxy S26/S25/S24/S23/S22/S21/S20(Ultra/Plus/Fe),A56/A55/A35/M56/M35/M16 (S,M,F,Z,A)...All Series & Other Devices",
+                Description = "\"⚡ Super Fast 45W Output: Get up to 45 watts of charging power for ultra-fast performance-ideal for Device. Universal USB-C Support: Compatible with all USB Type-C devices including tablets, headphones, portable game consoles, and more.\" • 🌐 Universal USB-C Support: Compatible...",
+                Price = 586.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FJGDS5W3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61qv1JP-ZxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FY3CMS78",
+                Title = "Kratos Tune V5 C Type Earphones Wired, Deep Bass Drivers Earphone, Inline Control Type c Headphones with Mic, Sweat Resistant, Comfort Fit Type c Earphone with Volume Control,Metallic c pin Earphones",
+                Description = "[ type c wired earphones with mic ]: Unleash the power of large 10mm bass drivers offering an unmatched listening experience that immerses you in the magic of sound. Prepare to be captivated by deep, opulent, and resonating audio, bring music to life • [ earphone type c ]: Imm...",
+                Price = 299.00m,
+                OriginalPrice = 699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FY3CMS78?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51BSqXDEmKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FBRGKXHG",
+                Title = "OnePlus Bullets Wireless Z3 in-Ear Neckband with 12.4mm Drivers, 3D Spatial Audio,10 mins Charge for 27 hrs Playback, 4 EQ preset, Dynamic bass Enhancement & BT5.4, Black (E307A)",
+                Description = "[Ultra-fasting 10 minutes charging gives 27 hours of music] Hassle free quick charging without worrying of the low battery. A full charge BWZ3 gives upto 36 hours of music playback. • [Meet the ace of bass with 12.4mm large drivers] Experience deep, punchy bass and incredibly ...",
+                Price = 1899.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FBRGKXHG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51vT4GzBObL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H1X5XP25",
+                Title = "Samsung Galaxy A56 5G Mobile (Awesome Midnight Blue, 8GB, 128GB) | Segment Most Complete Triple Camera | 50MP | AI Editing | 4nm Processor | sAMOLED | 5000mAh | Gorilla Glass Victus+| Knox Security",
+                Description = "𝐒𝐄𝐆𝐌𝐄𝐍𝐓 𝐌𝐎𝐒𝐓 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐄 𝐂𝐀𝐌𝐄𝐑𝐀 - Capture every detail with the 50MP Main camera. Big Pixel sensor and enhanced OIS (1.5°) for shake-free shots even in low light. Capture more in the frame with the 12MP Ultra-wide lens (123° FOV) or get close to the nature with the dedicated 5MP ...",
+                Price = 31999.00m,
+                OriginalPrice = 49999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0H1X5XP25?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71huGP+5FkL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C497MSQN",
+                Title = "Fire-Boltt Ninja Call Pro Max Bluetooth Calling Smart Watch, 2.01\" HD Display, 120+ Sports Modes, Health Suite, AI Voice Assistance, SpO2 & Heart Rate Monitor Smartwatch for Men & Women - Black",
+                Description = "51.05mm (2.01 inch) Large display, 240*296 pixels resolution - Style meets technology in perfect harmony. Immerse yourself in the captivating world of the 51.05mm (2.01 inch) large display, and a brilliant resolution of 240*296 pixels. Every detail comes to life with exception...",
+                Price = 1399.00m,
+                OriginalPrice = 14999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0C497MSQN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61sFBIcJAqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G48KWP3C",
+                Title = "boAt BassHeads 210 Wired Earphones with 10mm Drivers, Signature Sound, in-Line Microphone, 3.5mm Jack, Voice Assistant & 120cm Cable (Active Black)",
+                Description = "10mm Drivers with boAt Signature Sound: Experience powerful sound with the boAt BassHeads 210 Wired Earphones, equipped with 10mm dynamic drivers that deliver punchy bass with boAt's Signature Sound. Whether you're deep into a binge-watch session or catching up on podcasts, ev...",
+                Price = 299.00m,
+                OriginalPrice = 599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G48KWP3C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61hbAbUHDxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CDGYCZF9",
+                Title = "Zapcase Back Case Cover for OnePlus Nord CE 3 5G | Compatible for OnePlus Nord CE 3 5G Back Case Cover | Matte Case | Liquid Silicon Magic Case with Camera Protection |Black",
+                Description = "[Compatibility] Designed For OnePlus Nord CE 3 5G & This Cover Supports Wireless Charging. • [Precise Fit] An excellent fit for your Device. All cut-outs and buttons are precisely designed to access all your device's features. • [Protection] Edge to Edge protection for your Mo...",
+                Price = 299.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CDGYCZF9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Im3Q7AUAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G2B2QVLL",
+                Title = "Redmi 15C 5G Prime Edition Dusk Purple 6GB + 128GB | Massive 6000mAh Battery | Segment's Largest 17.53cm Display Up to 120Hz | MediaTek Dimensity 6300 | 33W Fast Charging | 50MP AI Dual Camera",
+                Description = "Royale Design • Massive 6000mAh Battery • Segment's Largest & Smoothest Display 17.53cm(6.9) Up to 120Hz",
+                Price = 18999.00m,
+                OriginalPrice = 31999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G2B2QVLL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/711q7oij2qL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07T5DKR5D",
+                Title = "ZEBRONICS BRO 3.5mm Wired Earphones, in-Line MIC, Deep Bass, 1.2m Strong and Long Lasting Cable, Light Weight, Compatible with Mobile | Tablet | Laptop (Black)",
+                Description = "The earphone comes with a snug fit providing utmost comfort while wearing them regularly. • The snug-fit also ensures a passive noise cancellation so that you can bask in the pure audio experience.Water Resistant :Yes • Impedance 16 Ω",
+                Price = 122.00m,
+                OriginalPrice = 299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B07T5DKR5D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51D37uhFFBL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FC2Y3XGV",
+                Title = "boAt Airdopes 219, 4Mics ENx, 40H Battery, Best in Segment for Calling, App Support, Bluetooth Earbuds, TWS Ear Buds Wireless Earphones with mic (Carbon Black)",
+                Description = "Quad Mics with ENx Technology: ENx-powered quad mics in these earbuds eliminate noise for clear calls regardless of your location. Converse in cafés and on public transport hands-free with your Airdopes. • Powerful 13mm Drivers: Tune into thumping bass-rich boAt Signature Soun...",
+                Price = 1099.00m,
+                OriginalPrice = 3990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0FC2Y3XGV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71FOccCOQmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B098NS6PVG",
+                Title = "Ambrane Unbreakable 3A Fast Charging 1.5m Braided Type C Cable",
+                Description = "3A Fast Charging - Delivers 3A fast charging and 480 Mbps data transfer speed. • Quick Charge 2.0/ 3.0 - Supports Quick Charge (QC) 2.0/3.0 to deliver rapid charging speed. • Wide Compatibility - It is compatible with all Type-C enabled devices including IPhone 16 & 17 series ...",
+                Price = 179.00m,
+                OriginalPrice = 349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B098NS6PVG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61W8xeZTwxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08TTXNZ4Y",
+                Title = "boAt Rockerz 255 Pro+ (Navy Blue)",
+                Description = "Playback- Leave all charging worries at bay as the Rockerz 255 Pro+ comes with a humongous battery back up of 60 Hours • ASAP Charge- With a few minutes of ASAP Charge you can get upto 20 hours of audio time by charging them for only 10 mins • Drivers- The unbeatable boAt sign...",
+                Price = 1199.00m,
+                OriginalPrice = 3990.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B08TTXNZ4Y?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61HZLDc2ykL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CJJ9H4XK",
+                Title = "DIZORO Compatible for iPhone 15 Case 6.1, Slim Liquid Silicone Case 3 Layers Full Covered Soft Gel Rubber Phone Case Protective Cover 6.1 Inch (Mist Blue)",
+                Description = "★【iPhone 15 Phone Case】DIZORO cute silicone design phone case Compatible with iPhone 15 6.1\" 2023 Released ONLY, NOT fit for any other phone models. • ★【Slim & Smooth Design】Tired of having a heavy bulky cover? This is the one. It fits your iPhone 15 like a glove. Sleek and li...",
+                Price = 339.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0CJJ9H4XK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51g5kI3dHiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G4MZ85QG",
+                Title = "Kratos Selfie Stick with Tripod Stand,Extendable Selfie Stick for Mobile Phone with Bluetooth Remote,3-in-1 Multifunctional Design for Redmi/Xiaomi/OnePlus/Samsung/Oppo/Vivo and All Phones",
+                Description = "【 DESIGNED FOR TRAVELLERS 】: Perfect Selfie Stick for travelers & selfie enthusiasts, enabling independent photo capture anytime, anywhere. No reliance on others • 【 SELFIE STICK WITH BLUETOOTH REMOTE 】: Bluetooth remote offers hassle-free photo control from a distance of up t...",
+                Price = 199.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0G4MZ85QG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YUCBUcpPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DSFTRX77",
+                Title = "Samsung Galaxy 45W Travel Adaptor (Without Cable), Black",
+                Description = "SUPERCHARGE YOUR DEVICES - Rapid charging with high efficiency • LOW STANDBY POWER - Smart IC technology ensures less than 5mw standby power consumption • VERSATILE COMPATIBILITY - Charges anything from Notebook, Tablet, Smartphone and others",
+                Price = 840.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DSFTRX77?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61bB+v8qJqL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DCZ3WDTB",
+                Title = "Xiaomi Power Bank 4i 20000mAh 33W Super Fast Charging PD |Smart 12 Layer Protection|Type C Input & Output|Triple Output Ports|Supports Android,Apple, Tablets, Earbuds,Watch(MI Powerbank),Black",
+                Description = "33W Fast Charging Support - High-speed charging with two-way fast charge via Type-C port; charges compatible devices quickly and efficiently. Superior Output • Smart Protection Safety & Compatibility - Equipped with 12-layer advanced circuit protection and compatible with a wi...",
+                Price = 2449.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Technology",
+                ProductUrl = "https://www.amazon.in/dp/B0DCZ3WDTB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41vBAaU8clL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
             },
         };
 
