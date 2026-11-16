@@ -62267,6 +62267,860 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ImageUrl = "https://m.media-amazon.com/images/I/41vBAaU8clL._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DBPV7KKY",
+                Title = "FABNEX Reyon Regular Women Kurta Set (F-36-E-Pink-L_Pink",
+                Description = "Beautifully tailored ethnic kurta for women crafted from pure, breathable cotton fabric. Features a flattering neckline, three-quarter sleeves, and artisanal floral prints that deliver all-day comfort and timeless ethnic elegance.",
+                Price = 533.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DBPV7KKY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91yaflyplLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H1HRSHHS",
+                Title = "ANNI Designer Women's Viscose Blend Printed A-Line Kurta with Palazzo for Women (RUPIKA Pista_M_Pista_M)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 499.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H1HRSHHS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81IkR5Ew8SL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H6JSHZK4",
+                Title = "PARTHVI Women's Pure Cotton Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurta Set for Women",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 747.00m,
+                OriginalPrice = 2997.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H6JSHZK4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1PU+h4kshL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F8ZR53TT",
+                Title = "ANNI Designer Women's Rayon Viscose Straight Printed Kurta with Pant & Dupatta (CHAKORI MAROON-VKS05_L_Maroon_Large)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 695.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F8ZR53TT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81u33Nc2QAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HJGHWB58",
+                Title = "GoSriKi Women's Poly Printed Straight Kurta with Pant and Dupatta for Women (Sanchaya Pink-GS_M_Pink_M)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 791.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HJGHWB58?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Hc3ou3aQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G5JYJLT9",
+                Title = "Bee M Pee Designer Trendy Floral Printed Pure Cotton Latest Kurta Coord Sets for Women | Stylish Casual Tunic Kurti Set with Pant for Woman for Office",
+                Description = "Chic contemporary ethnic co-ord set for women featuring a tailored tunic top paired with matching straight-fit trousers. Crafted from premium breathable cotton-blend fabric for a sleek modern silhouette suited for office wear, casual outings, and daytime events.",
+                Price = 498.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G5JYJLT9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/813azfZcLjL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DC5B84VL",
+                Title = "ANNI DESIGNER Women's Rayon Blend Straight Solid Kurta with Pant & Dupatta (Raja Saab Purple-VKS01_M_Purple_Medium)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 670.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DC5B84VL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81I1HG6PZyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HBVZYCHB",
+                Title = "GoSriKi Women's Rayon Viscose Straight Printed Kurta with Pant & Dupatta (AHANKAR WINE-GS-FBA_M_WINE_Medium)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 739.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HBVZYCHB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61wawSCGkFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GFXXNNX9",
+                Title = "PEACH PIPER Cord Set for Women Cotton Stylish Co Ord Outfit Kurta Pant Western Office Casual Summer Wear Style Coord Sets for Women Stylish Dress Daily Use Co Order, Coat, Cod, Cot, co-ord, corts",
+                Description = "Chic contemporary ethnic co-ord set for women featuring a tailored tunic top paired with matching straight-fit trousers. Crafted from premium breathable cotton-blend fabric for a sleek modern silhouette suited for office wear, casual outings, and daytime events.",
+                Price = 778.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GFXXNNX9?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81h4LgbEsAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C249BQ1X",
+                Title = "Pro-Ethic Style Developer Kids Ethnic Wear Cotton Pathani Suit for Boys|Plain Kurta Pajama (S-216) (1-2 Years, Black)",
+                Description = "Classic boys' cotton Pathani suit set crafted from high-quality breathable fabric. Features a collared neckline, front button placket, side pockets, and relaxed-fit salwar pyjamas for a sharp traditional look at festivals and special events.",
+                Price = 618.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C249BQ1X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81JsNqpF1UL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G1HW2PB4",
+                Title = "Nermosa Women Embroidery Solid Anarkali Kurta and Pant Set with Dupatta (in, Alpha, XL, Rust)",
+                Description = "Graceful women's Anarkali kurta set featuring a flared silhouette, coordinated straight pants, and an elegant lightweight dupatta. Tailored with intricate detailing and comfortable breathable fabric, making it ideal for festive celebrations, weddings, and evening gatherings.",
+                Price = 799.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G1HW2PB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91vc8GyeNJL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DD78S3M2",
+                Title = "GoSriKi Women's Rayon Blend Anarkali Printed Kurta with Pant & Dupatta & Dupatta (CIA Yellow-GS_XL_Yellow_X-Large)",
+                Description = "Graceful women's Anarkali kurta set featuring a flared silhouette, coordinated straight pants, and an elegant lightweight dupatta. Tailored with intricate detailing and comfortable breathable fabric, making it ideal for festive celebrations, weddings, and evening gatherings.",
+                Price = 652.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DD78S3M2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91nggokq8HL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CKRNN652",
+                Title = "Pro-Ethic Style Developer Kurta Set For Kids Boys with Waistcoat | Silk | Floral | Traditional Dress (S-240) 3-4 years, Navy Blue",
+                Description = "Traditional Indian ethnic wear set for boys featuring an elegantly tailored kurta, matching pajama pants, and an embroidered floral jacquard waistcoat. Crafted from premium breathable fabric for comfortable all-day wear during weddings, festive celebrations, and family functions.",
+                Price = 901.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CKRNN652?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91mlHN9ZayL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G545VB9D",
+                Title = "Kaari Women's Embroidered Kurta Set with Dupatta,Aasman Blue,2XL",
+                Description = "Beautifully tailored ethnic kurta for women crafted from pure, breathable cotton fabric. Features a flattering neckline, three-quarter sleeves, and artisanal floral prints that deliver all-day comfort and timeless ethnic elegance.",
+                Price = 1399.00m,
+                OriginalPrice = 3349.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G545VB9D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ntsj4ijpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GM877V5X",
+                Title = "GoSriKi Women's Salsa A-Line Embroidery Kurta with Palazzo (Davina Grey-GS_XL_Grey_X-Large)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 799.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GM877V5X?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81d2bnnzoQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08YYVWTBX",
+                Title = "Divena ivory white self print cotton kurti with palazzo set",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 999.00m,
+                OriginalPrice = 3599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08YYVWTBX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Ob4jRKt0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GPQXCD26",
+                Title = "KLOSIA Women Embroidery Solid Anarkali Kurta and Pant Set with Dupatta (in, Alpha, M, Blue)",
+                Description = "Graceful women's Anarkali kurta set featuring a flared silhouette, coordinated straight pants, and an elegant lightweight dupatta. Tailored with intricate detailing and comfortable breathable fabric, making it ideal for festive celebrations, weddings, and evening gatherings.",
+                Price = 799.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GPQXCD26?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Q4OvIdMoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HLWJBWX5",
+                Title = "KLOSIA Women Printed Anarkali Kurta Pant Set with Dupatta | Kurta Set for Women Red",
+                Description = "Graceful women's Anarkali kurta set featuring a flared silhouette, coordinated straight pants, and an elegant lightweight dupatta. Tailored with intricate detailing and comfortable breathable fabric, making it ideal for festive celebrations, weddings, and evening gatherings.",
+                Price = 719.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLWJBWX5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716gmP8hEzL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HLR6G6WF",
+                Title = "KLOSIA Women Printed A-Line Kurta and Pant Set with Dupatta Blue",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 719.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HLR6G6WF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cWbMgk6fL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GM8QS1C5",
+                Title = "Klosia Women Embroidery Solid Straight Kurta and Pant Set with Dupatta",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 799.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GM8QS1C5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81i1iVO9FnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08VHJYCXW",
+                Title = "Pro-Ethic Style Developer Handloom Jacquard Silk Kurta Set for Boys | Traditional Ethnic Wear | Indian Dress for Kids (Blue, 15-16 Y)",
+                Description = "Exquisite boys' jacquard silk kurta pyjama set tailored with traditional Indian motifs and fine stitching. Provides luxurious comfort and an elegant royal silhouette ideal for Diwali, weddings, and traditional parties.",
+                Price = 892.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08VHJYCXW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/910vd3TKRpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HL4G68S3",
+                Title = "GoSriKi Women's Viscose Printed Kurta and Palazzo with Dupatta Womens (Tambura Pink-VKS02-GS_L_Pink_L)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 1244.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HL4G68S3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Jdr4zhsZL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HDD7NYG7",
+                Title = "Yashika Women's Chikankari Georgette Beige Embroidery Kurta Set with Pant and Dupatta | Traditional Ethnic Co-ord Set for Women | Office, Casual Wear-(AZ-YS-OG2-KS2394 Beige-XL)",
+                Description = "Chic contemporary ethnic co-ord set for women featuring a tailored tunic top paired with matching straight-fit trousers. Crafted from premium breathable cotton-blend fabric for a sleek modern silhouette suited for office wear, casual outings, and daytime events.",
+                Price = 976.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HDD7NYG7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61nq7EA7F1L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HJ96H7XY",
+                Title = "GoSriKi Women's Viscose Solid Straight Kurta with Pant and Dupatta for Women (Qistina Purple-GS_L_Purple_L)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 1299.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ96H7XY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51VkO+i1RTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CKRJN9ZL",
+                Title = "Pro-Ethic Style Developer Boys Silk Kurta Pajama with Waistcoat for kid's Ethnic Wear | Jacquard Silk Kurta Pajama (S-232), 6-7 years, Green",
+                Description = "Traditional Indian ethnic wear set for boys featuring an elegantly tailored kurta, matching pajama pants, and an embroidered floral jacquard waistcoat. Crafted from premium breathable fabric for comfortable all-day wear during weddings, festive celebrations, and family functions.",
+                Price = 949.00m,
+                OriginalPrice = 4499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CKRJN9ZL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91JQZn0xCgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GV3PMS8Z",
+                Title = "ANNI Designer Women's Cotton Blend Straight Printed Kurta with Palazzo(SAHIRA Blue_XL_Blue_X-Large)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 599.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GV3PMS8Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/9183N0erIbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BC9HYLXH",
+                Title = "Pro-Ethic Style Developer Boy's Cotton Regular Fit Embellished Geometric Kurta Pajama Suit Set For Baby Kids Ethnic Wear (S-166) 13-14 Years Blue",
+                Description = "Comfortable and stylish ethnic kurta pyjama set for boys made from soft, skin-friendly cotton fabric. Designed with subtle geometric detailing, full sleeves, and an elasticated waistband for effortless celebration wear.",
+                Price = 713.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BC9HYLXH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81E8Vp-6HsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DCKB89JH",
+                Title = "GoSriKi Women's Rayon Blend Straight Printed Kurta with Pant & Dupatta (TURAE Green-GS_XL_Green_X-Large)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 722.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DCKB89JH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81KlvU7pHeL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H4VZZV96",
+                Title = "Solid Shirt Collar Kurti with Front Button Detail & 3/4 Sleeves",
+                Description = "Beautifully tailored ethnic kurta for women crafted from pure, breathable cotton fabric. Features a flattering neckline, three-quarter sleeves, and artisanal floral prints that deliver all-day comfort and timeless ethnic elegance.",
+                Price = 599.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H4VZZV96?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81FWLU9Vn5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HH3SCKCS",
+                Title = "GoSriKi Women's Straight Viscose Kalamkari Print Kurta with Pant and Dupatta (Vanani Blue-GS_L_Blue_L)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 680.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HH3SCKCS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rkbD9Rx8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DT9T4GM1",
+                Title = "VredeVogel Women's Silk Blend Kurta Pant Set with Organza Heavy Embroidery Dupatta | Casual Outfit Ethnic Kurta Set for Women | Modern & Traditional Blend Ethnic Wear (Teal Blue_Small)",
+                Description = "Luxurious women's silk-blend 3-piece kurta suit set featuring rich zari embroidery, tailored cigarette trousers, and an ornate organza dupatta with delicate tassels. Perfect attire for wedding guest celebrations, receptions, and grand festivals.",
+                Price = 791.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DT9T4GM1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81rvc3VYiSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FVNVSGVW",
+                Title = "ISTOCAN Anarkali Kurta Pant Set for Women Long Flared V-Neck Kurta | Office & Casual Wear | 3/4 Sleeve | Button Front (Olive, L)",
+                Description = "Graceful women's Anarkali kurta set featuring a flared silhouette, coordinated straight pants, and an elegant lightweight dupatta. Tailored with intricate detailing and comfortable breathable fabric, making it ideal for festive celebrations, weddings, and evening gatherings.",
+                Price = 436.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FVNVSGVW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Li-+MuJ0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HDHRHDCH",
+                Title = "ZORO CREATIONS Women's Cotton Floral Printed Straight Kurti with Palazzo (White-L)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 649.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HDHRHDCH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/41gnzxU83-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HG5J9DG7",
+                Title = "ANNI DESIGNER Women's A-Line Crunchi Embroidered Kurta with Palazzo for Women (Turya Peach_S_Peach_S)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 849.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HG5J9DG7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Ue2MFCSyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GVSF3PDG",
+                Title = "Nermosa Women Solid A-line Kurta and Pant set With Dupatta | Women Kurta Set | Solid Suit | Embroidery Kurta Set | (IN, Alpha, L, Standard, Blue)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 799.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GVSF3PDG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81qH-wnb6mL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H3FJLWB1",
+                Title = "ANNI DESIGNER Women's Viscose Embroidered A-Line Kurta with Pant and Dupatta for Women (Sadguna Red_M_Red_M)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 721.65m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H3FJLWB1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51AdpOGlziL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08ZKTQYNT",
+                Title = "Pro-Ethic Style Developer Ethnic Wear Cotton Self Design Kurta Pyjama Set for Kids and Boys Maroon (13-14 Years)",
+                Description = "Comfortable and stylish ethnic kurta pyjama set for boys made from soft, skin-friendly cotton fabric. Designed with subtle geometric detailing, full sleeves, and an elasticated waistband for effortless celebration wear.",
+                Price = 695.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08ZKTQYNT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Q3xd0hyhL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F9Q1CPF5",
+                Title = "GoSriKi Women's Rayon Viscose Solid A-Line Kurta with Pant (ANVI RED-GS_XL_Red_X-Large)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 575.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F9Q1CPF5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91Iyzb94j2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FRY7PBW3",
+                Title = "ANNI Designer Women's Rayon Viscose A-Line Printed Kurta with Palazzo (QUSHI Rust_XL_Rust_X-Large)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 543.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FRY7PBW3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91WRy6cGD9L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08ZKTC29H",
+                Title = "Pro-Ethic Style Developer Ethnic Wear Silk Printed Kurta Pyjama Set for Kids and Boys Maroon (15-16 Years)",
+                Description = "Exquisite boys' jacquard silk kurta pyjama set tailored with traditional Indian motifs and fine stitching. Provides luxurious comfort and an elegant royal silhouette ideal for Diwali, weddings, and traditional parties.",
+                Price = 726.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08ZKTC29H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A11sDtiEmUL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HDL1R3JT",
+                Title = "S S Craft Women's Viscose Silk Heavy Embroidered Straight Kurta with Trouser & Banarasi Jacquard Dupatta Set (Purple-XL)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 1499.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HDL1R3JT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61L7KOcxmpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GXYR3TTQ",
+                Title = "Kaari Women's Kurti Pant Set with Mirror Work Neck Yoke | Elegant Ethnic Wear | Regular Fit, Rani Pink,XL",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 1099.00m,
+                OriginalPrice = 2799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GXYR3TTQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91qfwAKXA5L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HJ889K12",
+                Title = "PEACH PIPER Kurta Sets For Woman Cotton Kurti Pant Set Woman Long Sleeves | 2 Piece Kurta Set For Women Schiffli Cotton With Embroidered Suit Set For Women Cotton, Collar Neck, Daily Wear Kurta",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 1348.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HJ889K12?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/714F7nT6q6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HJDFZKWQ",
+                Title = "Celary Women's Kurtas & Kurtis|Kurti with Palazzo Pants|Ethnic Kurti Set for Woman|Kurtas & Kurtis Suit Set for Women with Size S to 3XL|Stylish Dress for Woman White",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 799.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HJDFZKWQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61cZ8+RrlGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HH3RB5GP",
+                Title = "GoSriKi Women's Straight Cotton Printed Kurta with Pant and Dupatta (Syeti White-GS_S_White_S)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 749.00m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HH3RB5GP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Gf4f2luDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HM49PTBV",
+                Title = "BHAVIKA Women's Straight Kurta with 3/4 Sleeves and Round Neck, Elegant Casual Kurti for Office, Small Gatherings, Comfortable Ethic Wear (Multicolour)",
+                Description = "Beautifully tailored ethnic kurta for women crafted from pure, breathable cotton fabric. Features a flattering neckline, three-quarter sleeves, and artisanal floral prints that deliver all-day comfort and timeless ethnic elegance.",
+                Price = 499.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HM49PTBV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61UIOkOLDQL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H6JL12YL",
+                Title = "Nermosa Women's Hand Block Floral Printed Straight Kurta Set with Palazzo Pants & Dupatta Ethnic Kurta Set for Casual Outings Day Events Summer Wear Festive (IN, Alpha, M, Standard, White)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 699.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H6JL12YL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61awScTSePL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09FQ8LHKV",
+                Title = "Pro-Ethic Style Developer Cotton Solid Kids Kurta Pyjama For Boys | Kurta Paijama Set, (S-145) (Pink, 13-14 Years)",
+                Description = "Comfortable and stylish ethnic kurta pyjama set for boys made from soft, skin-friendly cotton fabric. Designed with subtle geometric detailing, full sleeves, and an elasticated waistband for effortless celebration wear.",
+                Price = 712.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09FQ8LHKV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1G7Xa4vknL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0B1C248YR",
+                Title = "Pro-Ethic Style Developer Cotton Kurta Pajama | Traditional Style Kurta Pajama (S-155) Yellow, 10-11 Years",
+                Description = "Beautifully tailored ethnic kurta for women crafted from pure, breathable cotton fabric. Features a flattering neckline, three-quarter sleeves, and artisanal floral prints that deliver all-day comfort and timeless ethnic elegance.",
+                Price = 630.00m,
+                OriginalPrice = 2499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B1C248YR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51iXBTzXLrL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DPCJMKR2",
+                Title = "Sun Fashion And Lifestyle Women's Kurta And Pant Set (Maroon, Medium)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 699.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DPCJMKR2?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/6108H2rX8BL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GHXFDXGW",
+                Title = "Naixa Women's Vichitra Silk with Lining Embroidered Straight Kurta with Pant and Dupatta Sets (NX-895-Liril-4XL)",
+                Description = "Luxurious women's silk-blend 3-piece kurta suit set featuring rich zari embroidery, tailored cigarette trousers, and an ornate organza dupatta with delicate tassels. Perfect attire for wedding guest celebrations, receptions, and grand festivals.",
+                Price = 1899.00m,
+                OriginalPrice = 5299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GHXFDXGW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81u6N93fxiL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CKTJT3VY",
+                Title = "Pro-Ethic Style Developer Boy's Cotton Self Design Kurta Pyjama For Kids Ethnic Wear For Wedding & Function (S-241) 1-2 years, Orange",
+                Description = "Comfortable and stylish ethnic kurta pyjama set for boys made from soft, skin-friendly cotton fabric. Designed with subtle geometric detailing, full sleeves, and an elasticated waistband for effortless celebration wear.",
+                Price = 284.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CKTJT3VY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91NwlNCJSDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G4879H64",
+                Title = "Amazon Brand - Tavasya Kurta Set for Women Purple Vichitra Zari Sequence Embroidered Kurta with Pant and Organza Dupatta (TKVSKS430_INDS_A)",
+                Description = "Luxurious women's silk-blend 3-piece kurta suit set featuring rich zari embroidery, tailored cigarette trousers, and an ornate organza dupatta with delicate tassels. Perfect attire for wedding guest celebrations, receptions, and grand festivals.",
+                Price = 1539.00m,
+                OriginalPrice = 4299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G4879H64?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/916VnKc0oCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HCZLLXZL",
+                Title = "Naixa Women's Maroon Cotton Printed Straight Kurta with Off White Cotton Plazzo Set | Sleeveless | V-Neck | Festive Suit (NX-1070-Maroon-L)",
+                Description = "Vibrant ethnic kurta set for women featuring a stylish printed kurta paired with wide-leg palazzo pants and a coordinated dupatta. Crafted from breathable, drape-friendly fabric ensuring optimum airflow and graceful movement throughout the day.",
+                Price = 598.00m,
+                OriginalPrice = 1799.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HCZLLXZL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/619WxSCpOVL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H1HQ4CH8",
+                Title = "Nermosa Women Printed Anarkali Kurta and Pant Set with Dupatta | Printed Kurta Set | Cotton Suit | Women Kurta Sets | (IN, Alpha, L, Regular, Standard, Maroon)",
+                Description = "Graceful women's Anarkali kurta set featuring a flared silhouette, coordinated straight pants, and an elegant lightweight dupatta. Tailored with intricate detailing and comfortable breathable fabric, making it ideal for festive celebrations, weddings, and evening gatherings.",
+                Price = 799.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H1HQ4CH8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91xmm3LdpsL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HFNXQW1S",
+                Title = "Colour and Code Women Pure Cotton Embroidery Straight Kurti with Pant & Dupatta Set (Brown-L)",
+                Description = "Sophisticated women's straight kurta and pant set designed with refined neckline embellishments and tasteful all-over prints. Provides a relaxed regular fit that effortlessly transitions from professional office environments to festive social gatherings.",
+                Price = 1299.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HFNXQW1S?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51Ee8ADFV3L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HH6R6HQK",
+                Title = "feranoid Women's Chic Printed Co-Ord Set | Everyday Ethnic Wear with Coordinated Pants",
+                Description = "Chic contemporary ethnic co-ord set for women featuring a tailored tunic top paired with matching straight-fit trousers. Crafted from premium breathable cotton-blend fabric for a sleek modern silhouette suited for office wear, casual outings, and daytime events.",
+                Price = 949.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HH6R6HQK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61eAfVtcq2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HBQXBDBK",
+                Title = "Olive Green Tissue Silk 3-Piece Kurta Suit Set with Dupatta | Floral Print, Notch Neck, 3/4 Sleeves, Tassel Dupatta, Side Pocket",
+                Description = "Luxurious women's silk-blend 3-piece kurta suit set featuring rich zari embroidery, tailored cigarette trousers, and an ornate organza dupatta with delicate tassels. Perfect attire for wedding guest celebrations, receptions, and grand festivals.",
+                Price = 1200.00m,
+                OriginalPrice = 1950.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HBQXBDBK?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61ciYaYFw8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HH42P33K",
+                Title = "feranoid Women's Pure Cotton Floral Print Straight Kurti | Elegant Curved V-Neck | Sleeveless Calf-Length Ethnic Wear | Comfortable Regular Fit | Sizes XS-XXL",
+                Description = "Beautifully tailored ethnic kurta for women crafted from pure, breathable cotton fabric. Features a flattering neckline, three-quarter sleeves, and artisanal floral prints that deliver all-day comfort and timeless ethnic elegance.",
+                Price = 664.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HH42P33K?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61WvOPZnLIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HCXH17PW",
+                Title = "Rangrooh Women's Cotton Kurti Co-ord Set | Straight Kurta with Pyjama | 3/4 Sleeve Round Neck | 2 Piece Ethnic Office & Casual Wear - Indigo",
+                Description = "Chic contemporary ethnic co-ord set for women featuring a tailored tunic top paired with matching straight-fit trousers. Crafted from premium breathable cotton-blend fabric for a sleek modern silhouette suited for office wear, casual outings, and daytime events.",
+                Price = 1399.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HCXH17PW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718nHqzsUOL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H7XQYPC1",
+                Title = "Women's Green Floral Printed Kurti with Trouser Set | Round Neck with Tie-Up Dori | 3/4 Sleeve Straight Kurti & Printed Pants | Ethnic Co-Ord Set for Casual, Office & Daily Wear (IN, Alpha, M)",
+                Description = "Chic contemporary ethnic co-ord set for women featuring a tailored tunic top paired with matching straight-fit trousers. Crafted from premium breathable cotton-blend fabric for a sleek modern silhouette suited for office wear, casual outings, and daytime events.",
+                Price = 399.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H7XQYPC1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/716TWOyRa6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
             },
         };
 
