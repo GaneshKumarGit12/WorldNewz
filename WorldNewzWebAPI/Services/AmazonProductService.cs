@@ -63947,6 +63947,930 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                 ImageUrl = "https://m.media-amazon.com/images/I/91mBRvmTo4L._SL1500_.jpg",
                 IsActive = true,
                 DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GY98G1B8",
+                Title = "AUSK Baggy Hip-Hop T-Shirt for Men - Graphic Printed T Shirts | Oversized Men Tshirt Off Shoulder Tshirts",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 649.00m,
+                OriginalPrice = 2998.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GY98G1B8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71kUj9f-D7L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B076CJQPWF",
+                Title = "Van Heusen Men's Regular Fit Polo T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 479.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B076CJQPWF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71ZCqabpjNL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GRVTD7X1",
+                Title = "Noble Monk Mens Polo Neck Oversized Full Sleeve T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 273.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GRVTD7X1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91iqz3VT88L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07Q1YCK97",
+                Title = "U.S. POLO ASSN.. Men's I643 Comfort Fit Printed Lounge T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 547.00m,
+                OriginalPrice = 749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07Q1YCK97?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71wXjjNgzbL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07XGJYRTY",
+                Title = "Levi's Men's Cotton Plain Regular Fit T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 389.00m,
+                OriginalPrice = 649.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07XGJYRTY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/817OhwK84kL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D9LMZRZF",
+                Title = "BAGHADBILLO Men's and Boy's Polyster T-Shirt with Mandarin Collared Neck Half Sleeves Closuer Button and Regular Fit",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 395.00m,
+                OriginalPrice = 899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D9LMZRZF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91PeVfSFeSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GBY2XLWX",
+                Title = "London Hills Men's Waffle Textured T-Shirt | Solid Regular Fit Round Neck Half Sleeve Casual Wear Tee | Soft, Breathable & Lightweight Fabric",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 299.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GBY2XLWX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/912ITyJXYnL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HG4ZVSXR",
+                Title = "AUSK Men's Full Sleeve Henley T Shirts | Premium Waffle Texture Cotton Blend Casual T Shirt | Regular Fit T Shirts for Men | Perfect, Travel Wear & Office Wear Brown",
+                Description = "Stylish men's Henley t-shirt crafted from textured waffle cotton-blend fabric. Features a classic buttoned placket, full sleeves, and a regular fit that offers a rugged yet sophisticated look for travel, work, and casual wear.",
+                Price = 398.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HG4ZVSXR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91ieqx617BL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FFBQCMQT",
+                Title = "TURMS Men's Casual Solid Linen Shirts, Odor Control, Kansas Linen, Concealed Button Down Collar, Tailored Fit, Half Sleeve White",
+                Description = "Premium men's pure linen casual shirt from TURMS engineered with advanced odor-control and moisture-wicking technology. Designed with a concealed button-down collar and tailored fit, delivering superior breathability and effortless elegance for warm climates.",
+                Price = 2399.00m,
+                OriginalPrice = 3699.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FFBQCMQT?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1jG0ZyXicL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CTMVMGQV",
+                Title = "DEELMO Men's Cotton Blend Mandarin Collar Self One Design Full Sleeve Casual Short Kurta",
+                Description = "Graceful women's ethnic kurta and pant set crafted from premium rayon-viscose fabric with vibrant floral prints. Features a straight-silhouette kurta paired with coordinated trousers and a lightweight dupatta, offering effortless elegance and all-day comfort for festive and casual occasions.",
+                Price = 485.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CTMVMGQV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61YVvNQ2J-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C4PQQDTJ",
+                Title = "SLEEPY NUTS Round Neck Plain Cotton T-Shirt for Men Pack of 4",
+                Description = "Essential multi-pack of men's plain crewneck t-shirts made from 100% bio-washed breathable cotton. Designed with reinforced collar seams and a relaxed regular fit, delivering enduring comfort and versatile everyday layering options.",
+                Price = 999.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C4PQQDTJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71QhpzIbxLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D4R3ZG6Z",
+                Title = "Van Heusen Men's Cotton Solid Regular Fit T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 497.00m,
+                OriginalPrice = 549.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D4R3ZG6Z?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/814X0m+N0OL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B06Y2DV85R",
+                Title = "Allen Solly Men's Polo",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 670.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B06Y2DV85R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91LIitURNTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D4VP4TKB",
+                Title = "Louis Philippe Men Cotton Solid Slim Fit T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 809.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D4VP4TKB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81db8pYE8oL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DNFS6CQX",
+                Title = "TURMS Men's Solid Knitted Shirts, Odor Control, Stretchable & Breathable, Cotton Blend, Tailored Fit, Full Sleeve Charcoal Grey",
+                Description = "Smart men's casual button-down shirt from TURMS crafted from high-grade breathable cotton fabric with built-in odor-control. Delivers a refined tailored fit with crisp collars and all-day freshness, ideal for executive meetings, weekend outings, and evening socials.",
+                Price = 2499.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DNFS6CQX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61rF1TwzswL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GRVMTW78",
+                Title = "JVX Men Polo T Shirt | Waffle Polo T Shirt for Men | Regular Fit Knitted Tshirt for Man",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 599.00m,
+                OriginalPrice = 2999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GRVMTW78?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1x7-1DqUIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08KTXPYD5",
+                Title = "Allen Solly Men Light Blue Solid Polo Neck T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 713.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08KTXPYD5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/917Ra5zQz0L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C1RYGDVD",
+                Title = "Peter England Men's Everyday Solid Regular Fit Polo | Cotton Rich | Premium Pique Weave Navy",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 789.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C1RYGDVD?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81ZkZD7rt-L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C96XDRPX",
+                Title = "Lux Cozi Men's Pack of 1 Oxford Blue Regular Fit Polo Neck Half Sleeve Solid Casual T-Shirt (Size : X-Large)",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 360.00m,
+                OriginalPrice = 485.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C96XDRPX?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81x-feTeJdL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BPD69H8C",
+                Title = "FTX Mens Polyester Regular Fit T-Shirt Multicolor S",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 499.00m,
+                OriginalPrice = 1249.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BPD69H8C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A18nt0Ggm+L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0824QRN24",
+                Title = "AUSK Cotton Blend Regular Fit T-Shirt For Mens Double Stripes On Chest",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 279.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0824QRN24?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81oACF5rEyL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F6K64ZBF",
+                Title = "TURMS Men's Casual Checks Shirts, Odor Control, Moisture Wicking, Button Down Collar, Cool Tech Cotton Fabric, Tailored Fit, Full Sleeve Light Grey Off White",
+                Description = "Smart men's casual button-down shirt from TURMS crafted from high-grade breathable cotton fabric with built-in odor-control. Delivers a refined tailored fit with crisp collars and all-day freshness, ideal for executive meetings, weekend outings, and evening socials.",
+                Price = 2499.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F6K64ZBF?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/915mcA+ilPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FN871T3C",
+                Title = "LEOTUDE Men's Fashionable Oversized Half Sleeve Round Neck Casual Graphic Print Cottonblend Tshirt for Man",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 599.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FN871T3C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71WD9qQo7HL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DM1VZQ86",
+                Title = "Max Men Cotton Regular Fit URB_N Striped T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 349.00m,
+                OriginalPrice = 399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DM1VZQ86?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81rvkEVcegL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B09XMVVTVM",
+                Title = "Peter England Men's Regular Fit Branded Insignia Half Sleeve Polo T-Shirt | Cotton Rich | Premium Pique Weave Grey",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 649.97m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B09XMVVTVM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91w8DNKoziL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D5MLQMNR",
+                Title = "AUSK Men Tshirt | Mens Sports T-Shirts with Full Sleeves Teal",
+                Description = "High-performance men's athletic sports t-shirt pack engineered with ultra-lightweight, quick-drying polyester fabric. Features moisture-wicking technology, flatlock ergonomic seams, and four-way stretch for optimal mobility during workouts, running, gym sessions, and outdoor sports.",
+                Price = 349.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D5MLQMNR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91HmOB95AfL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DTTYY64J",
+                Title = "Amazon Brand - Symbol Men's Solid Cotton Rich Polo T Shirt | Mandarin Collar Tshirts | Half Sleeves | Plain-Regular Fit_AW19MCPO_Jet Black",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 549.00m,
+                OriginalPrice = 1399.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DTTYY64J?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/9111MXoNlEL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GP5YDTTR",
+                Title = "ATICX Slim Fit Pack of 3 Polyester Sports T-Shirts for Men - Round Neck Quick Dry Half Sleeve Breathable Stylish Gym & Workout Combo for Running, Cycling, Swimming, Black, Grey & Aqua, XL",
+                Description = "High-performance men's athletic sports t-shirt pack engineered with ultra-lightweight, quick-drying polyester fabric. Features moisture-wicking technology, flatlock ergonomic seams, and four-way stretch for optimal mobility during workouts, running, gym sessions, and outdoor sports.",
+                Price = 444.00m,
+                OriginalPrice = 3297.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GP5YDTTR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51yVKqzl76L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B083537MB4",
+                Title = "Max Men's Solid Slim fit Polo",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 395.00m,
+                OriginalPrice = 449.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B083537MB4?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1vQAzkEV2L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B08KTZB14H",
+                Title = "Allen Solly Men's Plain Regular fit T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 899.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B08KTZB14H?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81WxQ5N+3pL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H9LJF9VN",
+                Title = "Symbol Classic Men's Senior Wear Super Soft Cotton Stretch Full Sleeve Round Neck T-Shirt | Regular Fit | Elderly Wear",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 899.00m,
+                OriginalPrice = 2299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H9LJF9VN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A14u+1ohpSL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07FLCWX4N",
+                Title = "London Hills Men Regular Fit T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 249.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07FLCWX4N?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71woegevuDL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FFMGLZ4B",
+                Title = "KAJARU Men's Polyester Blend T Shirt with Spread Collar Neck Line Zipper Closure Full Sleeves Solid Pattern Regular Fit and Standard Length Black",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 339.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FFMGLZ4B?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1ylF0UAHAL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GMXNS8GB",
+                Title = "London Hills Men's Loose Fit Half Sleeve Vertical Striped Polo T-Shirt with Zip Collar | Premium Polyester Fabric | T Shirt for Man",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 399.00m,
+                OriginalPrice = 1299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GMXNS8GB?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81mhqLwaepL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GDQTT1PY",
+                Title = "SMOWKLY Men's T-Shirt | Stylish T Shirt with a Ribbed Collar | Soft Breathable Lightweight Polyester Blend | Stylish Regular Fit Casual Tshirt for Men(1691_BK_L) Black",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 208.00m,
+                OriginalPrice = 4999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GDQTT1PY?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71LgnHoVRKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H88F2LB5",
+                Title = "Todo BASIQUE Men's Solid Cotton T-Shirt Pack of 3 | Breathable, Round Neck Combo, Half Sleeve, Solid-Regular Fit Casual Wear",
+                Description = "Essential multi-pack of men's plain crewneck t-shirts made from 100% bio-washed breathable cotton. Designed with reinforced collar seams and a relaxed regular fit, delivering enduring comfort and versatile everyday layering options.",
+                Price = 799.00m,
+                OriginalPrice = 2097.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H88F2LB5?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Qfc05ChIL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GJFCSZVV",
+                Title = "AUSK Men's Retro Cable-Knit Quarter-Zip Polo | Premium Textured Self-Design Half Sleeve T-Shirt for Men",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 275.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GJFCSZVV?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71RhGFbcXoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CR4575CJ",
+                Title = "LEOTUDE Men's Regular Fit Matty Polo T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 999.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CR4575CJ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/61Mz3gMeTTL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0B6P3YYDQ",
+                Title = "Toodlegram Men Plus Size Cotton Printed T-Shirt Regular Fit Olive Green",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 663.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0B6P3YYDQ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71PtwUU7yKL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CVXRZ91T",
+                Title = "Lux Cozi Men's Half Sleeve Soild Casual T-Shirt with Chest Pocket",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 399.00m,
+                OriginalPrice = 479.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CVXRZ91T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81tIZV8J-UL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0BYJWG9DZ",
+                Title = "Max Men's Half Sleeves Regular Fit Crew Neck Solid Lounge T-Shirt",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 199.00m,
+                OriginalPrice = 199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0BYJWG9DZ?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/913UbivApLL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0GZZZXWTW",
+                Title = "Eonix Mens Regular Fit Round Neck Tshirt with Multicolored Lines Comfortable Cotton Blend Tee for Everyday Wear | Size l",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 699.00m,
+                OriginalPrice = 1049.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0GZZZXWTW?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/811wxJCSV6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0H26NZQ6P",
+                Title = "TURMS Men's Cotton Solid Luxe Intelligent Corduroy Shirts, Breathable & Odor Control, Tailored Fit, Full Sleeve Olive Green",
+                Description = "Sophisticated men's full-sleeve corduroy casual shirt from TURMS featuring intelligent odor-control and breathable cotton fabric. Crafted with a tailored silhouette, buttoned cuffs, and a structured collar for a smart, modern autumn-winter wardrobe staple.",
+                Price = 3799.00m,
+                OriginalPrice = 3999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0H26NZQ6P?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91-BKeKaEPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D1XXW98D",
+                Title = "XENOVAURBAN Unisex Regular Cotton Combo of 3 Solid Color Tshirt - RNM3-PLN-BEI-BLK-OLV-2XL",
+                Description = "Essential multi-pack of men's plain crewneck t-shirts made from 100% bio-washed breathable cotton. Designed with reinforced collar seams and a relaxed regular fit, delivering enduring comfort and versatile everyday layering options.",
+                Price = 1099.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D1XXW98D?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/71YW6hhW02L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HL4S6HSR",
+                Title = "Campus Men Printed Cotton Round Neck T-Shirt D.Plum Maroon",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 749.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HL4S6HSR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1dmHk0r4YL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HGG3MN5R",
+                Title = "Amazon Brand - Serve Men's Oversized Graphic Print T-Shirt | 100% Cotton Terry Fabric | Round Neck | Drop Shoulder",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 599.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HGG3MN5R?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/914Bf6Q1lPL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G4LZMYWS",
+                Title = "AUSK T-Shirt for Men Zip Neck Texture Self Design Cotton Blend Mens Tshirts Beige",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 345.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G4LZMYWS?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/718JlrOQMHL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B012SSWU2C",
+                Title = "Jockey Men's Regular Fit Round Neck Half Sleeved T-Shirt 2714_Black",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 579.00m,
+                OriginalPrice = 579.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B012SSWU2C?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91fKCY89sCL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HD7T2LH1",
+                Title = "Artist Valley Men's Premium Regular Fit Fly Bird Graphic T-Shirt | 220 GSM | Combed Cotton | Stretchable | Bio-Washed | Round Neck | Half Sleeve | Breathable",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 649.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HD7T2LH1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91pLjSMrA8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DX1K3116",
+                Title = "TURMS Men's Casual Checkered Shirts, Odor Control, 100% Cotton Breathable, Regular Fit, Full Sleeve",
+                Description = "Smart men's casual button-down shirt from TURMS crafted from high-grade breathable cotton fabric with built-in odor-control. Delivers a refined tailored fit with crisp collars and all-day freshness, ideal for executive meetings, weekend outings, and evening socials.",
+                Price = 2349.00m,
+                OriginalPrice = 3499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DX1K3116?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91WtGNUaKgL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C1RVTFCM",
+                Title = "Peter England Men's Snug Fit Solid Polo T-Shirt with Coloured Collar Tipping| Cotton Rich| Premium Pique Weave Green, Large",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 619.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C1RVTFCM?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81iN42TCraL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HL4RSXPN",
+                Title = "Campus Men Solid Cotton Round Neck T-Shirt Navy",
+                Description = "Versatile men's classic crewneck t-shirt crafted from soft, breathable pure cotton jersey fabric. Features a ribbed round collar, half sleeves, and a clean regular fit that serves as an indispensable foundation for casual layering or solo styling.",
+                Price = 749.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HL4RSXPN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91dInw0BOxL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0C2MQGYVR",
+                Title = "Alan Jones Clothing Men's Mandarin Collar Polo T-Shirt | Tich Button Closure, Chest Stripes, Ribbed Sleeves - Regular Fit",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 448.00m,
+                OriginalPrice = 1199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0C2MQGYVR?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/916JYpLwzpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CZL992QG",
+                Title = "XYXX Nova Solid Cotton Polo T-Shirt for Men",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 629.00m,
+                OriginalPrice = 749.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CZL992QG?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91wkm84+L4L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D4YTRMF3",
+                Title = "TURMS Men's Oxford Plain Shirts, Odor Control, 100% Pure Premium Cotton, Tailored Fit, Full Sleeve Lavender",
+                Description = "Smart men's casual button-down shirt from TURMS crafted from high-grade breathable cotton fabric with built-in odor-control. Delivers a refined tailored fit with crisp collars and all-day freshness, ideal for executive meetings, weekend outings, and evening socials.",
+                Price = 2499.00m,
+                OriginalPrice = 3299.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D4YTRMF3?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/A1R2HQTa6hL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D7LXYB95",
+                Title = "ADRO Tshirt for Men | Printed T Shirt for Men | 100% Cotton T-Shirt |Printed T Shirt",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 599.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D7LXYB95?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81AHROkWVoL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0F1V2TGN1",
+                Title = "XENOVAURBAN Men's Polycotton Striped Polo Collar T-Shirt | Stylish Casual Half Sleeve Polo Neck Tshirt for Men | Smart Casual Wear for Everyday - Post-PLN-YL",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 699.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0F1V2TGN1?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91AONtuQpML._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0CNTL5R72",
+                Title = "TURMS Men's Solid Polo T-Shirt, Odor Control, Stretchable & Breathable, Cotton Rich Fabric, Collared Neck, Half Sleeve Wine",
+                Description = "Smart men's casual button-down shirt from TURMS crafted from high-grade breathable cotton fabric with built-in odor-control. Delivers a refined tailored fit with crisp collars and all-day freshness, ideal for executive meetings, weekend outings, and evening socials.",
+                Price = 1799.00m,
+                OriginalPrice = 2199.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0CNTL5R72?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91d9NhkUx8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HMX4WDQ8",
+                Title = "VYOMK Men Graphic Print Round Neck Half Sleeve T-Shirt | Casual Printed Tee | Comfortable Wear | Stylish Short Sleeve T-Shirt for Outings, Travel and College Black",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 349.00m,
+                OriginalPrice = 999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HMX4WDQ8?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81rrrCupWmL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B07DQLM1JN",
+                Title = "AMERICAN CREW Men's Polo Regular Fit T-Shirt (Ac166-4Xl_Black & Charcoal Melange)",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 699.00m,
+                OriginalPrice = 1499.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B07DQLM1JN?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91QUbJwNg8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0DL392KX7",
+                Title = "Van Heusen Athleisure Men Modern Graphic Print T-Shirt - Round Neck, Short Sleeve, Regular Fit",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 688.00m,
+                OriginalPrice = 849.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0DL392KX7?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/81Qh72pE5oL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0D5VDGTXL",
+                Title = "TURMS Men's Casual Solid Round Neck Chest Print T-Shirt, Odor Control, Stretchable & Breathable, Cotton Rich Fabric, Half Sleeve",
+                Description = "Smart men's casual button-down shirt from TURMS crafted from high-grade breathable cotton fabric with built-in odor-control. Delivers a refined tailored fit with crisp collars and all-day freshness, ideal for executive meetings, weekend outings, and evening socials.",
+                Price = 924.00m,
+                OriginalPrice = 1599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0D5VDGTXL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/51koVr5JZGL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0HCL6T4CP",
+                Title = "Artist Valley Men's Premium Regular Fit Wolf Graphic T-Shirt | 220 GSM | Combed Cotton | Stretchable | Bio-Washed | Round Neck | Half Sleeve | Breathable",
+                Description = "Trendy men's oversized graphic t-shirt crafted from heavy-gauge combed cotton fabric. Features a relaxed drop-shoulder cut, ribbed crew neckline, and high-density vibrant screen print, making it a standout streetwear staple for everyday casual styling.",
+                Price = 599.00m,
+                OriginalPrice = 1899.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0HCL6T4CP?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91H10QBsg6L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0FYQF1V2T",
+                Title = "Van Heusen Men's Regular Fit Polo T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 659.00m,
+                OriginalPrice = 1099.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0FYQF1V2T?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/91g8RxaoSpL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B075JG59BL",
+                Title = "AMERICAN CREW Men's Cotton-Poly Blend Half Sleeve Polo T-Shirt",
+                Description = "Classic men's polo t-shirt tailored from breathable, premium pique-knit cotton-rich fabric. Designed with a ribbed collar, button placket, and regular fit that seamlessly bridges formal workwear with relaxed weekend comfort.",
+                Price = 699.00m,
+                OriginalPrice = 1999.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B075JG59BL?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/811TCi2YQFL._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
+            },            new AmazonProduct
+            {
+                Asin = "B0G526GYJH",
+                Title = "ANNI Designer Women's Rayon Viscose Straight Printed Kurta with Pant & Dupatta",
+                Description = "Graceful women's ethnic kurta and pant set crafted from premium rayon-viscose fabric with vibrant floral prints. Features a straight-silhouette kurta paired with coordinated trousers and a lightweight dupatta, offering effortless elegance and all-day comfort for festive and casual occasions.",
+                Price = 696.15m,
+                OriginalPrice = 2599.00m,
+                Rating = 4.5,
+                ReviewCount = 150,
+                Category = "Fashion",
+                ProductUrl = "https://www.amazon.in/dp/B0G526GYJH?tag=ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl",
+                ImageUrl = "https://m.media-amazon.com/images/I/915rCoXLF8L._SL1500_.jpg",
+                IsActive = true,
+                DateAdded = DateTime.UtcNow
             },
         };
 
