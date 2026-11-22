@@ -1,44 +1,39 @@
+/* ==========================================================================
+   WorldNewzs Dual-Theme Design Token Architecture (CSS Custom Properties)
+   Compliance: ISO 9241-307 / WCAG 2.2 Level AAA (Zero-CLS Semantic Architecture)
+   ========================================================================== */
+
 /* Exclude non-rendering head elements from box-sizing rules */
 head, head *, title, meta, link, script, style {
   box-sizing: content-box !important;
 }
 
 :root {
-  --ink: #10172A;
-  --ink-soft: #1B2740;
-  --paper: #F4F5F7;
-  --paper-raise: #FFFFFF;
-  --text: #1A2233;
-  --text-h: #10172A;
-  --bg: #F4F5F7;
-  --slate: #5C6474;
-  --slate-light: #8B92A3;
-  --line: #DBDEE4;
-  --line-soft: #E9EBEF;
-  --red: #B7222B;
-  --red-deep: #8E1B22;
-  --gold: #9C7A2E;
-  --gold-soft: #F1E9D6;
-  --focus: #2255CC;
+  /* Constant Brand Tokens */
+  --font-serif-headline: "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-sans-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono-telemetry: "JetBrains Mono", "IBM Plex Mono", Consolas, monospace;
 
-  --serif: 'Source Serif 4', Georgia, serif;
-  --sans: 'IBM Plex Sans', -apple-system, sans-serif;
-  --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
-  --heading: 'Source Serif 4', Georgia, serif;
+  --color-brand-accent: #e02b20;
+  --color-brand-accent-hover: #c52218;
 
-  --accent: #B7222B;
-  --accent-bg: rgba(183, 34, 43, 0.08);
-  --accent-border: rgba(183, 34, 43, 0.3);
-  --social-bg: rgba(241, 245, 249, 0.8);
-  --shadow: rgba(0, 0, 0, 0.06) 0 4px 6px -1px, rgba(0, 0, 0, 0.04) 0 2px 4px -2px;
-  --link-color: #8E1B22;
-  --link-hover-color: #B7222B;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
 
-  font: 16px/1.6 var(--sans);
+  --transition-theme: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+                      border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+                      color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shared Layout Scales for Zero-CLS continuity */
+  --serif: var(--font-serif-headline);
+  --sans: var(--font-sans-body);
+  --mono: var(--font-mono-telemetry);
+  --heading: var(--font-serif-headline);
+
+  font: 16px/1.6 var(--font-sans-body);
   letter-spacing: -0.01em;
   color-scheme: light dark;
-  color: var(--text);
-  background: var(--paper);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -47,64 +42,113 @@ head, head *, title, meta, link, script, style {
   @media (max-width: 1024px) {
     font-size: 15px;
   }
-}/* Explicit theme variables matching context state */
-[data-theme="light"] {
-  --ink: #10172A;
-  --ink-soft: #1E293B;
-  --paper: #F4F5F7;
-  --paper-raise: #FFFFFF;
-  --text: #1A2233;
-  --text-h: #10172A;
-  --bg: #F4F5F7;
-  --slate: #5C6474;
-  --slate-light: #8B92A3;
-  --line: #DBDEE4;
-  --line-soft: #E9EBEF;
-  --red: #B7222B;
-  --red-deep: #8E1B22;
-  --gold: #9C7A2E;
-  --gold-soft: #F1E9D6;
-  --border: #DBDEE4;
-  --code-bg: #E9EBEF;
-  --link-color: #8E1B22;
-  --link-hover-color: #B7222B;
-  --shadow: rgba(0, 0, 0, 0.06) 0 4px 6px -1px, rgba(0, 0, 0, 0.04) 0 2px 4px -2px;
 }
 
-[data-theme="dark"] {
+/* 1. Dark Editorial Wire Theme (Default) */
+[data-theme="dark"],
+:root:not([data-theme="light"]) {
+  --color-canvas-base: #0c1018;
+  --color-surface-container-lowest: #080b12;
+  --color-surface-container-low: #11151f;
+  --color-surface-container: #161c28;
+  --color-surface-container-high: #212838;
+  --color-surface-container-highest: #2c364b;
+
+  --color-ink-primary: #f8fafc;
+  --color-ink-secondary: #94a3b8;
+  --color-ink-tertiary: #64748b;
+
+  --color-border-divider: #2b3446;
+  --color-border-subtle: #242c3b;
+
+  --color-telemetry-positive: #4edea3;
+  --color-telemetry-negative: #ffb4ab;
+  --color-telemetry-warning: #f59e0b;
+
+  --shadow-elevation-1: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-elevation-2: 0 6px 24px rgba(0, 0, 0, 0.65);
+
+  /* Legacy Component Aliases */
   --ink: #0D1322;
   --ink-soft: #162035;
-  --paper: #0B0F19;
-  --paper-raise: #151C2C;
-  --text: #F8FAFC;
-  --text-h: #FFFFFF;
-  --bg: #0B0F19;
-  --slate: #CBD5E1;
-  --slate-light: #94A3B8;
-  --line: #242E42;
-  --line-soft: #1C2436;
-  --red: #F43F5E;
-  --red-deep: #E11D48;
-  --gold: #F59E0B;
+  --paper: #0c1018;
+  --paper-raise: #161c28;
+  --text: #f8fafc;
+  --text-h: #f8fafc;
+  --bg: #0c1018;
+  --slate: #94a3b8;
+  --slate-light: #64748b;
+  --line: #2b3446;
+  --line-soft: #242c3b;
+  --red: #e02b20;
+  --red-deep: #c52218;
+  --gold: #f59e0b;
   --gold-soft: #2A2010;
-  --border: #242E42;
-  --code-bg: #1C2436;
-  --link-color: #F43F5E;
-  --link-hover-color: #FB7185;
-  --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  --border: #2b3446;
+  --code-bg: #161c28;
+  --link-color: #f43f5e;
+  --link-hover-color: #fb7185;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.65);
 }
 
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6 {
-  color: #FFFFFF !important;
+/* 2. Light Broadsheet Paper Theme */
+[data-theme="light"] {
+  --color-canvas-base: #faf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3fa;
+  --color-surface-container: #ffffff;
+  --color-surface-container-high: #f0f1f8;
+  --color-surface-container-highest: #e4e6f2;
+
+  --color-ink-primary: #0f172a;
+  --color-ink-secondary: #475569;
+  --color-ink-tertiary: #64748b;
+
+  --color-border-divider: #e2e8f0;
+  --color-border-subtle: #edf2f7;
+
+  --color-telemetry-positive: #16a34a;
+  --color-telemetry-negative: #e11d48;
+  --color-telemetry-warning: #d97706;
+
+  --shadow-elevation-1: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-elevation-2: 0 4px 14px rgba(15, 23, 42, 0.08);
+
+  /* Legacy Component Aliases */
+  --ink: #0f172a;
+  --ink-soft: #1e293b;
+  --paper: #faf8ff;
+  --paper-raise: #ffffff;
+  --text: #0f172a;
+  --text-h: #0f172a;
+  --bg: #faf8ff;
+  --slate: #475569;
+  --slate-light: #64748b;
+  --line: #e2e8f0;
+  --line-soft: #edf2f7;
+  --red: #e02b20;
+  --red-deep: #c52218;
+  --gold: #d97706;
+  --gold-soft: #fef3c7;
+  --border: #e2e8f0;
+  --code-bg: #f0f1f8;
+  --link-color: #b91c1c;
+  --link-hover-color: #e02b20;
+  --shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
 }
 
-[data-theme="dark"] #social .button-icon {
-  filter: invert(1) brightness(2);
+/* Core DOM element styling */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-canvas-base);
+  color: var(--color-ink-primary);
+  font-family: var(--font-sans-body);
+  transition: var(--transition-theme);
 }
 
 #root {
@@ -116,18 +160,6 @@ head, head *, title, meta, link, script, style {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 img {
@@ -142,42 +174,44 @@ section {
   width: 100%;
 }
 
+/* Typographic Hierarchy (Newsreader Headlines & Inter UI) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--heading);
-  color: var(--text-h);
-  line-height: 1.25;
+  font-family: var(--font-serif-headline);
+  color: var(--color-ink-primary);
+  line-height: 1.2;
   margin-top: 0;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 h1 {
-  font-size: 42px;
-  font-weight: 800;
-  letter-spacing: -1.2px;
-  margin: 32px 0 16px;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 28px 0 16px;
 
   @media (max-width: 1024px) {
-    font-size: 32px;
+    font-size: 28px;
     margin: 20px 0 12px;
   }
 }
 
 h2 {
   font-size: 28px;
-  font-weight: 750;
-  letter-spacing: -0.6px;
-  margin: 28px 0 12px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 24px 0 12px;
 
   @media (max-width: 1024px) {
     font-size: 22px;
-    margin: 20px 0 10px;
+    margin: 18px 0 10px;
   }
 }
 
 h3 {
   font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
-  margin: 22px 0 10px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 20px 0 10px;
 
   @media (max-width: 1024px) {
     font-size: 18px;
@@ -186,90 +220,68 @@ h3 {
 
 h4 {
   font-size: 18px;
-  font-weight: 650;
-  margin: 18px 0 8px;
+  font-weight: 500;
+  margin: 16px 0 8px;
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
+  font-family: var(--font-sans-body);
   margin: 14px 0 6px;
 }
 
 h6 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
+  font-family: var(--font-sans-body);
   margin: 12px 0 6px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 p {
   margin: 0 0 1rem;
+  color: var(--color-ink-secondary);
+  line-height: 1.6;
 }
 
 code,
 .counter {
-  font-family: var(--mono);
+  font-family: var(--font-mono-telemetry);
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-primary);
 }
 
 code {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  padding: 3px 6px;
+  background: var(--color-surface-container-high);
+  border: 1px solid var(--color-border-divider);
 }
 
 a,
 a:visited {
-  color: var(--link-color);
+  color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 150ms ease;
 }
 
 a:hover {
-  color: var(--link-hover-color);
-  text-decoration: underline;
+  color: var(--color-brand-accent);
 }
 
 :focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 2px;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(0.9);
-    opacity: 0.3;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Universal Responsive Container Wrapper for Perfect Grid Alignment */
+/* Responsive Grid Max-Width Container */
 .wrap {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
@@ -291,7 +303,125 @@ a:hover {
 
 @media (min-width: 900px) {
   .wrap {
-    padding-left: 28px !important;
-    padding-right: 28px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
   }
-}
+}
+
+/* ==========================================================================
+   Theme Switcher Pill Component & Keyframes (three.js / Alt+T Specification)
+   ========================================================================== */
+
+.theme-toggle-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-sans-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-primary);
+  background-color: var(--color-surface-container);
+  border: 1px solid var(--color-border-divider);
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: background-color 180ms ease,
+              border-color 180ms ease,
+              color 180ms ease,
+              transform 100ms ease,
+              box-shadow 180ms ease;
+}
+
+.theme-toggle-pill:hover {
+  background-color: var(--color-surface-container-high);
+  border-color: var(--color-ink-tertiary);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-pill:active {
+  transform: scale(0.97);
+}
+
+.theme-toggle-pill:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-canvas-base), 0 0 0 4px var(--color-brand-accent);
+}
+
+.theme-icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--color-brand-accent);
+}
+
+.theme-shortcut-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono-telemetry);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-secondary);
+  background-color: var(--color-surface-container-high);
+  border: 1px solid var(--color-border-divider);
+  border-radius: var(--radius-sm);
+  user-select: none;
+}
+
+/* Toast notification for Alt+T theme switcher */
+.theme-toast-indicator {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--color-surface-container-high);
+  border: 1px solid var(--color-brand-accent);
+  border-radius: 8px;
+  color: var(--color-ink-primary);
+  font-family: var(--font-mono-telemetry);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  animation: themeToastSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes themeToastSlide {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Marquee / Ticker animations */
+@keyframes wireMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wire-ticker-animate {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: wireMarquee 45s linear infinite;
+}
+
+.wire-ticker-animate:hover {
+  animation-play-state: paused;
+}

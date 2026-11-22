@@ -205,17 +205,18 @@ const Footer: React.FC = () => {
         mt: 6,
         py: 5,
         px: 0,
-        backgroundColor: "var(--ink, #10172A)",
-        color: "#9AA2B4",
-        borderTop: "1px solid #1E293B",
+        backgroundColor: "var(--color-surface-container-low)",
+        color: "var(--color-ink-secondary)",
+        borderTop: "1px solid var(--color-border-divider)",
+        transition: "var(--transition-theme)",
       }}
     >
       <Box
         className="wrap"
         sx={{
-          maxWidth: "1240px",
+          maxWidth: "1440px",
           margin: "0 auto",
-          px: { xs: 2, sm: 3, md: 3.5 },
+          px: { xs: 2, sm: 3, md: 4 },
         }}
       >
         {/* ─── Newsletter Signup section ─── */}
@@ -223,21 +224,22 @@ const Footer: React.FC = () => {
         sx={{
           mb: 4,
           p: { xs: 3, md: 4 },
-          borderRadius: 1,
-          backgroundColor: "#162035",
-          border: "1px solid #232E48",
+          borderRadius: "4px",
+          backgroundColor: "var(--color-surface-container)",
+          border: "1px solid var(--color-border-divider)",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           alignItems: "center",
-          gap: 3
+          gap: 3,
+          transition: "var(--transition-theme)",
         }}
       >
         <Box sx={{ maxWidth: 550, textAlign: { xs: "center", md: "left" } }}>
-          <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "var(--serif)", color: "white", mb: 0.5, letterSpacing: "-0.01em" }}>
+          <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: "var(--font-serif-headline)", color: "var(--color-ink-primary)", mb: 0.5, letterSpacing: "-0.01em" }}>
             Subscribe to the WorldNewzs Newsletter
           </Typography>
-          <Typography variant="body2" sx={{ color: "#9AA2B4", lineHeight: 1.5, fontFamily: "var(--sans)" }}>
+          <Typography variant="body2" sx={{ color: "var(--color-ink-secondary)", lineHeight: 1.5, fontFamily: "var(--font-sans-body)" }}>
             Get curated editorial briefings, breaking news alerts, and premium factual analysis delivered directly to your inbox daily.
           </Typography>
         </Box>

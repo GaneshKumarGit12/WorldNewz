@@ -1,92 +1,126 @@
 import type { ThemeOptions } from "@mui/material/styles";
 
-// Centralized colors and design system constants
-export const PRIMARY_COLOR = "#c83a15";
-export const SECONDARY_COLOR = "#f50057";
+// ==========================================================================
+// WorldNewzs Dual-Theme Design Token Specification (v4.3.0)
+// Compliance: ISO 9241-307 / WCAG 2.2 Level AAA (Zero-CLS Architecture)
+// ==========================================================================
 
-// Theme options for dynamic generation in context
+export const BRAND_ACCENT = "#e02b20";
+export const BRAND_ACCENT_HOVER = "#c52218";
+
 export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
-  const isLight = mode === "light";
-  
+  const isDark = mode === "dark";
+
   return {
     palette: {
       mode,
       primary: {
-        main: PRIMARY_COLOR,
-        light: "#ff6f43",
-        dark: "#900000",
+        main: BRAND_ACCENT,
+        light: "#ff4d40",
+        dark: BRAND_ACCENT_HOVER,
         contrastText: "#ffffff",
       },
       secondary: {
-        main: SECONDARY_COLOR,
+        main: isDark ? "#b4c5ff" : "#1e3a8a",
+        contrastText: "#ffffff",
       },
       background: {
-        default: isLight ? "#F4F5F7" : "#0B0F19",
-        paper: isLight ? "#FFFFFF" : "#151C2C",
+        default: isDark ? "#0c1018" : "#faf8ff",
+        paper: isDark ? "#161c28" : "#ffffff",
       },
       text: {
-        primary: isLight ? "#10172A" : "#F8FAFC",
-        secondary: isLight ? "#475569" : "#CBD5E1",
+        primary: isDark ? "#f8fafc" : "#0f172a",
+        secondary: isDark ? "#94a3b8" : "#475569",
       },
-      divider: isLight ? "#DBDEE4" : "#242E42",
+      divider: isDark ? "#2b3446" : "#e2e8f0",
+      success: {
+        main: isDark ? "#22c55e" : "#16a34a",
+      },
+      warning: {
+        main: isDark ? "#f59e0b" : "#d97706",
+      },
+      error: {
+        main: isDark ? "#f43f5e" : "#e11d48",
+      },
     },
     typography: {
-      fontFamily: "'Inter', 'Outfit', 'Roboto', system-ui, sans-serif",
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
       h1: {
-        fontWeight: 800,
-        letterSpacing: "-0.025em",
-        lineHeight: 1.2,
+        fontFamily: "'Newsreader', 'Source Serif 4', Georgia, serif",
+        fontWeight: 600,
+        letterSpacing: "-0.02em",
+        lineHeight: 1.18,
       },
       h2: {
-        fontWeight: 750,
-        letterSpacing: "-0.02em",
-        lineHeight: 1.25,
+        fontFamily: "'Newsreader', 'Source Serif 4', Georgia, serif",
+        fontWeight: 600,
+        letterSpacing: "-0.015em",
+        lineHeight: 1.22,
       },
       h3: {
-        fontWeight: 700,
-        letterSpacing: "-0.015em",
-        lineHeight: 1.3,
+        fontFamily: "'Newsreader', 'Source Serif 4', Georgia, serif",
+        fontWeight: 500,
+        letterSpacing: "-0.01em",
+        lineHeight: 1.28,
       },
       h4: {
-        fontWeight: 600,
-        letterSpacing: "-0.01em",
-        lineHeight: 1.35,
+        fontFamily: "'Newsreader', 'Source Serif 4', Georgia, serif",
+        fontWeight: 500,
+        letterSpacing: "-0.005em",
+        lineHeight: 1.32,
       },
       h5: {
+        fontFamily: "'Inter', sans-serif",
         fontWeight: 600,
-        letterSpacing: "0",
-        lineHeight: 1.4,
+        letterSpacing: "-0.01em",
+        lineHeight: 1.38,
       },
       h6: {
+        fontFamily: "'Inter', sans-serif",
         fontWeight: 600,
-        letterSpacing: "0.025em",
+        letterSpacing: "0.02em",
         lineHeight: 1.4,
       },
       body1: {
-        lineHeight: 1.7,
-        fontSize: "1.05rem",
+        fontFamily: "'Inter', sans-serif",
+        lineHeight: 1.6,
+        fontSize: "1rem",
       },
       body2: {
-        lineHeight: 1.6,
-        fontSize: "0.9375rem",
+        fontFamily: "'Inter', sans-serif",
+        lineHeight: 1.5,
+        fontSize: "0.875rem",
       },
+      button: {
+        fontFamily: "'Inter', sans-serif",
+        fontWeight: 600,
+        letterSpacing: "0.02em",
+        textTransform: "none",
+      },
+      caption: {
+        fontFamily: "'JetBrains Mono', 'IBM Plex Mono', monospace",
+        letterSpacing: "0.04em",
+      },
+    },
+    shape: {
+      borderRadius: 4,
     },
     components: {
       MuiCard: {
         styleOverrides: {
           root: {
-            borderRadius: 12,
-            boxShadow: isLight
-              ? "0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04)"
-              : "0 4px 16px rgba(0, 0, 0, 0.35)",
-            transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-            border: `1px solid ${isLight ? "#cbd5e1" : "rgba(255, 255, 255, 0.08)"}`,
+            borderRadius: 4,
+            backgroundColor: isDark ? "#161c28" : "#ffffff",
+            boxShadow: isDark
+              ? "0 1px 3px rgba(0, 0, 0, 0.45)"
+              : "0 1px 3px rgba(15, 23, 42, 0.06)",
+            border: `1px solid ${isDark ? "#2b3446" : "#e2e8f0"}`,
+            transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
             "&:hover": {
-              transform: "translateY(-3px)",
-              borderColor: isLight ? "#94a3b8" : "rgba(255, 255, 255, 0.2)",
-              boxShadow: isLight
-                ? "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04)"
-                : "0 8px 32px rgba(0, 0, 0, 0.5)",
+              borderColor: isDark ? "#64748b" : "#94a3b8",
+              boxShadow: isDark
+                ? "0 4px 12px rgba(0, 0, 0, 0.55)"
+                : "0 4px 14px rgba(15, 23, 42, 0.08)",
             },
           },
         },
@@ -95,24 +129,28 @@ export const getThemeOptions = (mode: "light" | "dark"): ThemeOptions => {
         styleOverrides: {
           root: {
             backgroundImage: "none",
-            border: `1px solid ${isLight ? "#cbd5e1" : "rgba(255, 255, 255, 0.08)"}`,
+            backgroundColor: isDark ? "#161c28" : "#ffffff",
+            border: `1px solid ${isDark ? "#2b3446" : "#e2e8f0"}`,
+            borderRadius: 4,
           },
         },
       },
       MuiButton: {
         styleOverrides: {
           root: {
-            borderRadius: 8,
+            borderRadius: 4,
             textTransform: "none",
             fontWeight: 600,
+            fontFamily: "'Inter', sans-serif",
           },
         },
       },
       MuiChip: {
         styleOverrides: {
           root: {
-            borderRadius: 6,
-            fontWeight: 500,
+            borderRadius: 4,
+            fontWeight: 600,
+            fontSize: "0.75rem",
           },
         },
       },

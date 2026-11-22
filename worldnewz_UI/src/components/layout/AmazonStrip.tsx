@@ -20,9 +20,9 @@ export const AmazonStrip: React.FC = () => {
       <Box
         className="wrap"
         sx={{
-          maxWidth: "1240px",
+          maxWidth: "1440px",
           margin: "0 auto",
-          px: { xs: 2, sm: 3, md: 3.5 },
+          px: { xs: 2, sm: 3, md: 4 },
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",

@@ -206,14 +206,14 @@ export const TopStoriesSection: React.FC<TopStoriesSectionProps> = ({
   const activeFilter = CATEGORY_FILTERS.find((f) => f.id === activeCategory) || CATEGORY_FILTERS[0];
 
   return (
-    <Box id="top-stories-section" sx={{ mb: 6 }}>
+    <Box id="top-stories-section" sx={{ mb: 5 }}>
       {/* --- Section Header with Category Chips --- */}
       <Box
         className="section-head"
         sx={{
-          borderBottom: "1px solid var(--line)",
+          borderBottom: "1px solid var(--color-border-divider)",
           pb: 1.5,
-          mb: 3,
+          mb: 2.5,
         }}
       >
         <Box
@@ -226,27 +226,30 @@ export const TopStoriesSection: React.FC<TopStoriesSectionProps> = ({
             mb: 1.5,
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
             <Typography
               component="h2"
               sx={{
-                fontFamily: "var(--serif)",
+                fontFamily: "var(--font-serif-headline)",
                 fontSize: { xs: "20px", sm: "24px" },
-                fontWeight: 750,
-                color: "var(--text)",
+                fontWeight: 600,
+                letterSpacing: "-0.015em",
+                color: "var(--color-ink-primary)",
               }}
             >
-              Top Stories
+              Top Stories &amp; Curated Wire
             </Typography>
             <Chip
               label={activeFilter.name}
               size="small"
               sx={{
-                fontSize: "11px",
-                fontWeight: 750,
-                bgcolor: "var(--red)",
+                fontSize: "10.5px",
+                fontFamily: "var(--font-mono-telemetry)",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                bgcolor: "var(--color-brand-accent)",
                 color: "#FFFFFF",
-                borderRadius: "4px",
+                borderRadius: "2px",
                 height: "22px",
               }}
             />
@@ -258,11 +261,12 @@ export const TopStoriesSection: React.FC<TopStoriesSectionProps> = ({
             size="small"
             endIcon={<ArrowForwardIcon sx={{ fontSize: 14 }} />}
             sx={{
-              fontFamily: "var(--sans)",
-              fontSize: "12.5px",
+              fontFamily: "var(--font-sans-body)",
+              fontSize: "12px",
               fontWeight: 600,
-              textTransform: "none",
-              color: "var(--red)",
+              textTransform: "uppercase",
+              letterSpacing: "0.04em",
+              color: "var(--color-brand-accent)",
               "&:hover": { textDecoration: "underline", bgcolor: "transparent" },
             }}
           >
@@ -291,18 +295,18 @@ export const TopStoriesSection: React.FC<TopStoriesSectionProps> = ({
                 onClick={() => setActiveCategory(cat.id)}
                 size="small"
                 sx={{
-                  fontFamily: "var(--sans)",
+                  fontFamily: "var(--font-sans-body)",
                   fontSize: "12px",
                   fontWeight: isSelected ? 700 : 500,
                   cursor: "pointer",
-                  backgroundColor: isSelected ? "var(--red, #B7222B)" : "var(--paper-raise)",
-                  color: isSelected ? "#FFFFFF" : "var(--text)",
-                  border: isSelected ? "1px solid var(--red, #B7222B)" : "1px solid var(--line)",
+                  backgroundColor: isSelected ? "var(--color-brand-accent)" : "var(--color-surface-container)",
+                  color: isSelected ? "#FFFFFF" : "var(--color-ink-primary)",
+                  border: isSelected ? "1px solid var(--color-brand-accent)" : "1px solid var(--color-border-divider)",
                   transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                   flexShrink: 0,
                   "&:hover": {
-                    backgroundColor: isSelected ? "var(--red-deep, #8E1B22)" : "rgba(183, 34, 43, 0.08)",
-                    color: isSelected ? "#FFFFFF" : "var(--red, #B7222B)",
+                    backgroundColor: isSelected ? "var(--color-brand-accent-hover)" : "var(--color-surface-container-high)",
+                    color: isSelected ? "#FFFFFF" : "var(--color-brand-accent)",
                   },
                   "& .MuiChip-icon": {
                     color: isSelected ? "#FFFFFF" : "inherit",

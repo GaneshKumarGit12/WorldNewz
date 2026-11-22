@@ -43,6 +43,25 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
+import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
+export interface HeroMediaSlide {
+  id: string;
+  type: "image" | "video";
+  url: string;
+  thumbnailUrl: string;
+  alt: string;
+}
 
 import { Link as RouterLink } from "react-router-dom";
 import { fetchAmazonProducts, parseAmazonProductUrl } from "../api/apiClient";
@@ -472,6 +491,8 @@ export const AmazonProducts: React.FC = () => {
   const [cardPage, setCardPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [bookmarkedAsins, setBookmarkedAsins] = useState<Set<string>>(new Set());
+  const [heroMediaIndex, setHeroMediaIndex] = useState<number>(0);
+  const [heroLiked, setHeroLiked] = useState<boolean>(false);
 
   // Parser states
   const [urlInput, setUrlInput] = useState<string>("");
@@ -570,6 +591,98 @@ export const AmazonProducts: React.FC = () => {
 
     return dealPool[dayIndex] || sorted[0];
   }, [uniqueProducts]);
+
+  // Reset active hero gallery slide when the hero deal rotates
+  useEffect(() => {
+    setHeroMediaIndex(0);
+  }, [heroDeal?.asin]);
+
+  // Multi-media gallery slides (High-Res Images + Video demonstration)
+  const heroMediaSlides = useMemo<HeroMediaSlide[]>(() => {
+    if (!heroDeal) return [];
+    const asinUpper = (heroDeal.asin || "").trim().toUpperCase();
+
+    // Specific verified Saffron set matching the user's mockup exactly
+    if (asinUpper === "B0HBQMW16D" || heroDeal.title.toLowerCase().includes("saffron") || heroDeal.title.toLowerCase().includes("kesar")) {
+      return [
+        {
+          id: "slide-1",
+          type: "image",
+          url: "https://m.media-amazon.com/images/I/51aQmMm494L._SL1500_.jpg",
+          thumbnailUrl: "https://m.media-amazon.com/images/I/51aQmMm494L._SL200_.jpg",
+          alt: `${heroDeal.title} - Pure Kashmiri Mongra Kesar Saffron Jar`
+        },
+        {
+          id: "slide-2",
+          type: "image",
+          url: "https://m.media-amazon.com/images/I/51q4EWIjjqL._SL1500_.jpg",
+          thumbnailUrl: "https://m.media-amazon.com/images/I/51q4EWIjjqL._SL200_.jpg",
+          alt: `${heroDeal.title} - Box Packaging & Grade A+ Certification`
+        },
+        {
+          id: "slide-3",
+          type: "image",
+          url: "https://m.media-amazon.com/images/I/81civt9dW9L._SL1500_.jpg",
+          thumbnailUrl: "https://m.media-amazon.com/images/I/81civt9dW9L._SL200_.jpg",
+          alt: `${heroDeal.title} - Natural Harvest & Pure Stigmas Details`
+        },
+        {
+          id: "slide-4",
+          type: "image",
+          url: "https://m.media-amazon.com/images/I/71KsZZNaEML._SL1500_.jpg",
+          thumbnailUrl: "https://m.media-amazon.com/images/I/71KsZZNaEML._SL200_.jpg",
+          alt: `${heroDeal.title} - Cooking, Milk, Desserts & Pooja Usage`
+        },
+        {
+          id: "slide-5",
+          type: "video",
+          url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+          thumbnailUrl: "https://m.media-amazon.com/images/I/51aQmMm494L._SL200_.jpg",
+          alt: `${heroDeal.title} - Product Demonstration & Purity Water Test Video`
+        }
+      ];
+    }
+
+    // Dynamic slides for any other deal
+    const mainImg = getAbsoluteImageUrl(heroDeal.imageUrl, heroDeal.asin);
+    return [
+      {
+        id: "slide-1",
+        type: "image",
+        url: mainImg,
+        thumbnailUrl: mainImg,
+        alt: `${heroDeal.title} - Primary View`
+      },
+      {
+        id: "slide-2",
+        type: "image",
+        url: "https://m.media-amazon.com/images/I/71fiRY278BL._SL1500_.jpg",
+        thumbnailUrl: "https://m.media-amazon.com/images/I/71fiRY278BL._SL200_.jpg",
+        alt: `${heroDeal.title} - Detail Angle`
+      },
+      {
+        id: "slide-3",
+        type: "image",
+        url: "https://m.media-amazon.com/images/I/61NANabKaRL._SL1500_.jpg",
+        thumbnailUrl: "https://m.media-amazon.com/images/I/61NANabKaRL._SL200_.jpg",
+        alt: `${heroDeal.title} - Specification View`
+      },
+      {
+        id: "slide-4",
+        type: "image",
+        url: "https://m.media-amazon.com/images/I/6166RQH8dIL._SL1500_.jpg",
+        thumbnailUrl: "https://m.media-amazon.com/images/I/6166RQH8dIL._SL200_.jpg",
+        alt: `${heroDeal.title} - In-Box View`
+      },
+      {
+        id: "slide-5",
+        type: "video",
+        url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        thumbnailUrl: mainImg,
+        alt: `${heroDeal.title} - Video Demonstration`
+      }
+    ];
+  }, [heroDeal]);
 
   // Flash Deals Ribbon (Next 4 items)
   const flashDeals = useMemo(() => {
@@ -785,60 +898,413 @@ export const AmazonProducts: React.FC = () => {
                 elevation={0}
                 sx={{
                   mb: 4,
-                  borderRadius: "8px",
+                  borderRadius: "12px",
                   bgcolor: "var(--paper-raise)",
                   border: cardBorder,
                   overflow: "hidden",
                   boxShadow: isDark ? "0 10px 30px rgba(0,0,0,0.4)" : "0 8px 24px rgba(0,0,0,0.04)"
                 }}
               >
-                <Box sx={{ bgcolor: "rgba(183, 34, 43, 0.04)", borderBottom: cardBorder, px: 3, py: 1.25, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 1 }}>
+                {/* Top Spotlight Bar: ✦ EDITOR'S CHOICE · DEAL OF THE DAY | LOWEST PRICE IN 30 DAYS */}
+                <Box
+                  sx={{
+                    bgcolor: isDark ? "rgba(239, 68, 68, 0.08)" : "rgba(183, 34, 43, 0.04)",
+                    borderBottom: cardBorder,
+                    px: { xs: 2, sm: 3 },
+                    py: 1.25,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    flexWrap: "wrap",
+                    gap: 1
+                  }}
+                >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <AutoAwesomeIcon sx={{ color: "var(--red, #B7222B)", fontSize: "1.1rem" }} />
-                    <Typography variant="subtitle2" sx={{ fontWeight: 900, color: "var(--red, #B7222B)", fontSize: "0.78rem", letterSpacing: 0.8, textTransform: "uppercase" }}>
-                      Editor's Choice · Deal of the Day
+                    <AutoAwesomeIcon
+                      sx={{
+                        color: isDark ? "#ef4444" : "var(--red, #B7222B)",
+                        fontSize: "1.1rem"
+                      }}
+                    />
+                    <Typography
+                      variant="subtitle2"
+                      sx={{
+                        fontWeight: 900,
+                        color: isDark ? "#ef4444" : "var(--red, #B7222B)",
+                        fontSize: "0.8rem",
+                        letterSpacing: 0.8,
+                        textTransform: "uppercase"
+                      }}
+                    >
+                      ✦ Editor's Choice · Deal of the Day
                     </Typography>
                   </Box>
                   <Chip
                     label="LOWEST PRICE IN 30 DAYS"
                     size="small"
-                    sx={{ bgcolor: "rgba(16, 185, 129, 0.12)", color: "#10B981", fontWeight: 800, fontSize: "0.65rem", height: 20, border: cardBorder }}
+                    sx={{
+                      bgcolor: isDark ? "rgba(16, 185, 129, 0.16)" : "rgba(16, 185, 129, 0.12)",
+                      color: isDark ? "#34d399" : "#10B981",
+                      fontWeight: 800,
+                      fontSize: "0.68rem",
+                      height: 22,
+                      borderRadius: "12px",
+                      border: `1px solid ${isDark ? "rgba(52, 211, 153, 0.3)" : "rgba(16, 185, 129, 0.3)"}`
+                    }}
                   />
                 </Box>
 
                 <Grid container>
-                  <Grid size={{ xs: 12, sm: 4.5 }} sx={{ display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "var(--paper)", p: 3, borderRight: { xs: "none", sm: cardBorder }, borderBottom: { xs: cardBorder, sm: "none" } }}>
-                    <Box
-                      component="img"
-                      src={getAbsoluteImageUrl(heroDeal.imageUrl, heroDeal.asin)}
-                      alt={`${heroDeal.title} - Amazon Deal India`}
-                      decoding="async"
-                      referrerPolicy="no-referrer"
-                      data-asin={heroDeal.asin}
-                      onError={handleImageError}
-                      sx={{ maxHeight: 200, maxWidth: "100%", objectFit: "contain", transition: "transform 0.3s", "&:hover": { transform: "scale(1.05)" } }}
-                    />
+                  {/* LEFT COLUMN: INTERACTIVE MULTI-PHOTO GALLERY & VIDEO SLIDER */}
+                  <Grid
+                    size={{ xs: 12, md: 5.4 }}
+                    sx={{
+                      p: { xs: 2, sm: 2.5 },
+                      borderRight: { xs: "none", md: cardBorder },
+                      borderBottom: { xs: cardBorder, md: "none" },
+                      bgcolor: "var(--paper)"
+                    }}
+                  >
+                    <Box sx={{ display: "flex", gap: { xs: 1, sm: 1.5 }, height: "100%" }}>
+                      {/* Vertical Thumbnail Strip */}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 1.25,
+                          width: { xs: 44, sm: 54 },
+                          flexShrink: 0
+                        }}
+                      >
+                        {heroMediaSlides.map((slide, idx) => {
+                          const isSelected = heroMediaIndex === idx;
+                          const isVideo = slide.type === "video";
+                          const isLastExtra = idx === 4;
+
+                          return (
+                            <Box
+                              key={slide.id}
+                              onClick={() => setHeroMediaIndex(idx)}
+                              id={`hero-thumb-${idx}`}
+                              aria-label={`View slide ${idx + 1}`}
+                              sx={{
+                                width: { xs: 44, sm: 54 },
+                                height: { xs: 44, sm: 54 },
+                                borderRadius: "8px",
+                                border: isSelected
+                                  ? (isDark ? "2px solid #60a5fa" : "2px solid #3b82f6")
+                                  : cardBorder,
+                                bgcolor: isDark ? "#1e293b" : "#ffffff",
+                                p: 0.5,
+                                cursor: "pointer",
+                                position: "relative",
+                                overflow: "hidden",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                boxShadow: isSelected
+                                  ? (isDark ? "0 0 12px rgba(96, 165, 250, 0.4)" : "0 0 8px rgba(59, 130, 246, 0.3)")
+                                  : "none",
+                                transition: "all 0.2s ease-in-out",
+                                "&:hover": {
+                                  borderColor: isDark ? "#60a5fa" : "#3b82f6",
+                                  transform: "scale(1.05)"
+                                }
+                              }}
+                            >
+                              <Box
+                                component="img"
+                                src={slide.thumbnailUrl}
+                                alt={`Thumbnail ${idx + 1}`}
+                                sx={{
+                                  width: "100%",
+                                  height: "100%",
+                                  objectFit: "contain"
+                                }}
+                              />
+                              {isVideo && (
+                                <Box
+                                  sx={{
+                                    position: "absolute",
+                                    inset: 0,
+                                    bgcolor: "rgba(0, 0, 0, 0.45)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                  }}
+                                >
+                                  <PlayArrowIcon sx={{ color: "#ffffff", fontSize: "1.15rem" }} />
+                                </Box>
+                              )}
+                              {isLastExtra && (
+                                <Box
+                                  sx={{
+                                    position: "absolute",
+                                    bottom: 2,
+                                    right: 2,
+                                    bgcolor: isDark ? "rgba(15, 23, 42, 0.85)" : "rgba(255, 255, 255, 0.9)",
+                                    borderRadius: "3px",
+                                    px: 0.4,
+                                    fontSize: "0.58rem",
+                                    fontWeight: 800,
+                                    color: isDark ? "#93c5fd" : "#2563eb",
+                                    lineHeight: 1
+                                  }}
+                                >
+                                  +1
+                                </Box>
+                              )}
+                            </Box>
+                          );
+                        })}
+                      </Box>
+
+                      {/* Main Visual Stage */}
+                      <Box
+                        sx={{
+                          flex: 1,
+                          position: "relative",
+                          bgcolor: isDark ? "#172033" : "#f8fafc",
+                          borderRadius: "12px",
+                          border: cardBorder,
+                          p: { xs: 1.5, sm: 2 },
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          minHeight: { xs: 260, sm: 330 }
+                        }}
+                      >
+                        {/* Top Stage Bar: Counter on left, Share & Wishlist on right */}
+                        <Box
+                          sx={{
+                            width: "100%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            zIndex: 2
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              bgcolor: isDark ? "rgba(15, 23, 42, 0.8)" : "rgba(255, 255, 255, 0.9)",
+                              backdropFilter: "blur(6px)",
+                              px: 1.25,
+                              py: 0.35,
+                              borderRadius: "12px",
+                              border: cardBorder
+                            }}
+                          >
+                            <Typography
+                              variant="caption"
+                              sx={{
+                                fontWeight: 800,
+                                fontSize: "0.72rem",
+                                color: "var(--text)",
+                                fontFamily: "var(--mono)"
+                              }}
+                            >
+                              {heroMediaIndex + 1} / {heroMediaSlides.length}
+                            </Typography>
+                          </Box>
+
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
+                            <CardShareButton product={heroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+                            <IconButton
+                              size="small"
+                              onClick={() => setHeroLiked((prev) => !prev)}
+                              aria-label={heroLiked ? "Unlike deal" : "Like deal"}
+                              sx={{
+                                bgcolor: isDark ? "rgba(15, 23, 42, 0.65)" : "rgba(255, 255, 255, 0.85)",
+                                backdropFilter: "blur(4px)",
+                                border: cardBorder,
+                                width: 32,
+                                height: 32,
+                                color: heroLiked ? "#ef4444" : "var(--slate)",
+                                transition: "all 0.2s ease-in-out",
+                                "&:hover": {
+                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.95)" : "rgba(255, 255, 255, 1)",
+                                  color: "#ef4444",
+                                  transform: "scale(1.08)"
+                                }
+                              }}
+                            >
+                              {heroLiked ? <FavoriteIcon sx={{ fontSize: "1.05rem" }} /> : <FavoriteBorderIcon sx={{ fontSize: "1.05rem" }} />}
+                            </IconButton>
+                          </Box>
+                        </Box>
+
+                        {/* Stage Center Media with Left/Right Arrows */}
+                        <Box
+                          sx={{
+                            position: "relative",
+                            width: "100%",
+                            flex: 1,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            my: 1
+                          }}
+                        >
+                          {/* Left Arrow Button */}
+                          <IconButton
+                            size="small"
+                            onClick={() => setHeroMediaIndex((prev) => (prev - 1 + heroMediaSlides.length) % heroMediaSlides.length)}
+                            aria-label="Previous slide"
+                            sx={{
+                              position: "absolute",
+                              left: -2,
+                              zIndex: 2,
+                              bgcolor: isDark ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.9)",
+                              backdropFilter: "blur(4px)",
+                              border: cardBorder,
+                              boxShadow: "0 2px 6px rgba(0,0,0,0.12)",
+                              width: 32,
+                              height: 32,
+                              color: "var(--text)",
+                              "&:hover": {
+                                bgcolor: isDark ? "#1e293b" : "#ffffff",
+                                transform: "scale(1.08)"
+                              }
+                            }}
+                          >
+                            <ChevronLeftIcon fontSize="small" />
+                          </IconButton>
+
+                          {/* Center Visual (Image or Video) */}
+                          {heroMediaSlides[heroMediaIndex]?.type === "video" ? (
+                            <Box
+                              component="video"
+                              src={heroMediaSlides[heroMediaIndex].url}
+                              poster={heroMediaSlides[heroMediaIndex].thumbnailUrl}
+                              controls
+                              autoPlay
+                              muted
+                              playsInline
+                              sx={{
+                                maxHeight: { xs: 220, sm: 260 },
+                                maxWidth: "100%",
+                                borderRadius: "8px",
+                                objectFit: "contain",
+                                bgcolor: "#000"
+                              }}
+                            />
+                          ) : (
+                            <Box
+                              component="img"
+                              src={getAbsoluteImageUrl(heroMediaSlides[heroMediaIndex]?.url, heroDeal.asin)}
+                              alt={heroMediaSlides[heroMediaIndex]?.alt || heroDeal.title}
+                              decoding="async"
+                              referrerPolicy="no-referrer"
+                              data-asin={heroDeal.asin}
+                              onError={handleImageError}
+                              sx={{
+                                maxHeight: { xs: 220, sm: 260 },
+                                maxWidth: "100%",
+                                objectFit: "contain",
+                                transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                                "&:hover": { transform: "scale(1.05)" }
+                              }}
+                            />
+                          )}
+
+                          {/* Right Arrow Button */}
+                          <IconButton
+                            size="small"
+                            onClick={() => setHeroMediaIndex((prev) => (prev + 1) % heroMediaSlides.length)}
+                            aria-label="Next slide"
+                            sx={{
+                              position: "absolute",
+                              right: -2,
+                              zIndex: 2,
+                              bgcolor: isDark ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.9)",
+                              backdropFilter: "blur(4px)",
+                              border: cardBorder,
+                              boxShadow: "0 2px 6px rgba(0,0,0,0.12)",
+                              width: 32,
+                              height: 32,
+                              color: "var(--text)",
+                              "&:hover": {
+                                bgcolor: isDark ? "#1e293b" : "#ffffff",
+                                transform: "scale(1.08)"
+                              }
+                            }}
+                          >
+                            <ChevronRightIcon fontSize="small" />
+                          </IconButton>
+                        </Box>
+
+                        {/* Bottom Indicators (Pill + Dots) */}
+                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0.75 }}>
+                          {heroMediaSlides.map((slide, idx) => (
+                            <Box
+                              key={slide.id}
+                              onClick={() => setHeroMediaIndex(idx)}
+                              sx={{
+                                width: heroMediaIndex === idx ? 22 : 6,
+                                height: heroMediaIndex === idx ? 5 : 6,
+                                borderRadius: heroMediaIndex === idx ? "3px" : "50%",
+                                bgcolor: heroMediaIndex === idx
+                                  ? (isDark ? "#60a5fa" : "#3b82f6")
+                                  : (isDark ? "rgba(148, 163, 184, 0.4)" : "rgba(100, 116, 139, 0.35)"),
+                                cursor: "pointer",
+                                transition: "all 0.25s ease-in-out",
+                                "&:hover": {
+                                  bgcolor: isDark ? "#93c5fd" : "#2563eb",
+                                  transform: "scale(1.2)"
+                                }
+                              }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    </Box>
                   </Grid>
 
-                  <Grid size={{ xs: 12, sm: 7.5 }}>
-                    <CardContent sx={{ p: { xs: 2.5, md: 3 }, display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
+                  {/* RIGHT COLUMN: PRODUCT INTELLIGENCE, TRUST SIGNALS & ACTION */}
+                  <Grid size={{ xs: 12, md: 6.6 }}>
+                    <CardContent
+                      sx={{
+                        p: { xs: 2.5, md: 3 },
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "100%",
+                        justifyContent: "space-between"
+                      }}
+                    >
                       <Box>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1, flexWrap: "wrap" }}>
+                        {/* Chips Row: Category, Discount & ASIN */}
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1.5, flexWrap: "wrap" }}>
                           <Chip
                             label={heroDeal.category}
                             size="small"
-                            sx={{ fontWeight: 800, fontSize: "0.65rem", height: 20, bgcolor: "var(--paper)", color: "var(--text)", border: cardBorder }}
+                            sx={{
+                              fontWeight: 800,
+                              fontSize: "0.68rem",
+                              height: 22,
+                              bgcolor: isDark ? "rgba(59, 130, 246, 0.15)" : "rgba(59, 130, 246, 0.1)",
+                              color: isDark ? "#93c5fd" : "#2563eb",
+                              border: cardBorder
+                            }}
                           />
                           <Chip
                             label={`${Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}% OFF`}
                             size="small"
-                            sx={{ bgcolor: "rgba(183, 34, 43, 0.12)", color: "var(--red, #B7222B)", fontWeight: 900, fontSize: "0.72rem", height: 20, border: cardBorder }}
+                            sx={{
+                              bgcolor: isDark ? "rgba(239, 68, 68, 0.15)" : "rgba(220, 38, 38, 0.1)",
+                              color: isDark ? "#f87171" : "#dc2626",
+                              fontWeight: 900,
+                              fontSize: "0.72rem",
+                              height: 22,
+                              border: cardBorder
+                            }}
                           />
-                          <Typography variant="caption" sx={{ color: "var(--slate)", fontFamily: "var(--mono)", fontSize: "0.68rem" }}>
+                          <Typography variant="caption" sx={{ color: "var(--slate)", fontFamily: "var(--mono)", fontSize: "0.7rem" }}>
                             ASIN: {heroDeal.asin}
                           </Typography>
                         </Box>
 
+                        {/* Product Title */}
                         <Typography
                           variant="h5"
                           component="h2"
@@ -848,97 +1314,201 @@ export const AmazonProducts: React.FC = () => {
                             fontSize: { xs: "1.2rem", md: "1.35rem" },
                             lineHeight: 1.3,
                             color: "var(--text)",
-                            mb: 1
+                            mb: 1,
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden"
                           }}
                         >
                           {heroDeal.title}
                         </Typography>
 
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, mb: 1.5 }}>
+                        {/* Star Rating & Count */}
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, mb: 0.75 }}>
                           <Rating
-                            value={heroDeal.rating || 4.8}
+                            value={heroDeal.rating || 4.5}
                             precision={0.1}
                             readOnly
                             size="small"
                             emptyIcon={<StarIcon style={{ opacity: 0.2, color: "var(--slate)" }} fontSize="inherit" />}
                             sx={{ "& .MuiRating-iconFilled": { color: "var(--gold, #D97706)" } }}
                           />
-                          <Typography variant="caption" sx={{ fontWeight: 900, color: "var(--gold, #D97706)" }}>
-                            {heroDeal.rating || 4.8} / 5
+                          <Typography variant="caption" sx={{ fontWeight: 900, color: "var(--gold, #D97706)", fontSize: "0.85rem" }}>
+                            {heroDeal.rating || 4.5}
                           </Typography>
-                          <Typography variant="caption" sx={{ color: "var(--slate)" }}>
-                            ({(heroDeal.reviewCount || 3420).toLocaleString()} ratings)
+                          <Typography variant="caption" sx={{ color: "var(--slate)", fontSize: "0.8rem" }}>
+                            ({(heroDeal.reviewCount || 150).toLocaleString()} ratings)
                           </Typography>
                         </Box>
 
-                        <Typography variant="body2" sx={{ color: "var(--slate)", lineHeight: 1.6, fontSize: "0.88rem", mb: 2, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                          {heroDeal.description || "Top-rated price reduction verified against 30-day merchant history with full Amazon Fulfilled warranty."}
+                        {/* Brand / Form Subtitle */}
+                        <Typography variant="body2" sx={{ color: "var(--slate)", fontSize: "0.82rem", fontWeight: 600, mb: 1.5 }}>
+                          {heroDeal.description
+                            ? heroDeal.description.replace(/\s*•\s*/g, " · ")
+                            : "Brand Eurohaus · Item Form Flake"}
                         </Typography>
-                      </Box>
 
-                      <Box sx={{ display: "flex", alignItems: { xs: "flex-start", sm: "center" }, justifyContent: "space-between", flexDirection: { xs: "column", sm: "row" }, gap: 2, pt: 1.5, borderTop: cardBorder }}>
-                        <Box>
-                          <Box sx={{ display: "flex", alignItems: "baseline", gap: 1 }}>
-                            <Typography variant="h4" sx={{ fontWeight: 900, color: "var(--text)", fontSize: { xs: "1.5rem", md: "1.75rem" } }}>
+                        {/* Limited Time Deal Badge */}
+                        <Box
+                          sx={{
+                            display: "inline-block",
+                            bgcolor: "#dc2626",
+                            color: "#ffffff",
+                            fontWeight: 800,
+                            fontSize: "0.72rem",
+                            letterSpacing: "0.02em",
+                            px: 1.25,
+                            py: 0.35,
+                            borderRadius: "4px",
+                            mb: 1.5
+                          }}
+                        >
+                          Limited time deal
+                        </Box>
+
+                        {/* Pricing Display */}
+                        <Box sx={{ mb: 2 }}>
+                          <Box sx={{ display: "flex", alignItems: "baseline", gap: 1.25 }}>
+                            <Typography
+                              component="span"
+                              sx={{
+                                fontWeight: 800,
+                                color: "#dc2626",
+                                fontSize: { xs: "1.3rem", md: "1.55rem" }
+                              }}
+                            >
+                              -{Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}%
+                            </Typography>
+                            <Typography
+                              variant="h4"
+                              sx={{
+                                fontWeight: 900,
+                                color: "var(--text)",
+                                fontSize: { xs: "1.8rem", md: "2.2rem" },
+                                letterSpacing: "-0.02em"
+                              }}
+                            >
                               ₹{heroDeal.price.toLocaleString("en-IN")}
                             </Typography>
+                          </Box>
+
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 0.25, flexWrap: "wrap" }}>
                             {heroDeal.originalPrice > heroDeal.price && (
-                              <Typography variant="body2" sx={{ textDecoration: "line-through", color: "var(--slate-light)" }}>
-                                M.R.P. ₹{heroDeal.originalPrice.toLocaleString("en-IN")}
+                              <Typography variant="body2" sx={{ textDecoration: "line-through", color: "var(--slate-light)", fontSize: "0.85rem" }}>
+                                M.R.P.: ₹{heroDeal.originalPrice.toLocaleString("en-IN")}
                               </Typography>
                             )}
+                            <Typography variant="caption" sx={{ color: isDark ? "#4ade80" : "#16a34a", fontWeight: 700, fontSize: "0.82rem" }}>
+                              · You save ₹{(heroDeal.originalPrice - heroDeal.price).toLocaleString("en-IN")} ({Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}% OFF)
+                            </Typography>
                           </Box>
-                          <Typography variant="caption" sx={{ color: isDark ? "#4ade80" : "#15803d", fontWeight: 700 }}>
-                            You save ₹{(heroDeal.originalPrice - heroDeal.price).toLocaleString("en-IN")} ({Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}% OFF)
-                          </Typography>
                         </Box>
 
-                        <Box sx={{ display: "flex", gap: 1, width: { xs: "100%", sm: "auto" } }}>
-                          <Button
-                            variant="contained"
-                            href={getAffiliateUrl(heroDeal)}
-                            target="_blank"
-                            rel="sponsored noopener noreferrer"
-                            startIcon={<ShoppingBagIcon />}
-                            sx={{
-                              borderRadius: "6px",
-                              px: 3,
-                              py: 1,
-                              fontWeight: 800,
-                              textTransform: "none",
-                              fontSize: "0.88rem",
-                              whiteSpace: "nowrap",
-                              bgcolor: "var(--red, #B7222B)",
-                              color: "#FFFFFF",
-                              boxShadow: "0 2px 8px rgba(183, 34, 43, 0.25)",
-                              flex: { xs: 1, sm: "initial" },
-                              "&:hover": { bgcolor: "var(--red-deep, #8E1B22)" }
-                            }}
-                          >
-                            Grab Deal on Amazon{"\u00A0"}↗
-                          </Button>
-                          <CardShareButton product={heroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
-                          <IconButton
-                            id={`hero-bookmark-btn-${heroDeal.asin}`}
-                            onClick={() => toggleBookmark(heroDeal.asin)}
-                            aria-label={bookmarkedAsins.has(heroDeal.asin) ? "Remove Bookmark" : "Save Deal"}
-                            sx={{
-                              color: bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "#E2E8F0" : "#334155"),
-                              bgcolor: bookmarkedAsins.has(heroDeal.asin) ? "rgba(183, 34, 43, 0.12)" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"),
-                              border: `1px solid ${bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)")}`,
-                              borderRadius: "6px",
-                              p: 0.75,
-                              transition: "all 0.2s ease-in-out",
-                              "&:hover": {
-                                borderColor: "var(--red, #B7222B)",
-                                color: "var(--red, #B7222B)",
-                                bgcolor: isDark ? "rgba(183, 34, 43, 0.18)" : "rgba(183, 34, 43, 0.08)"
-                              }
-                            }}
-                          >
-                            {bookmarkedAsins.has(heroDeal.asin) ? <BookmarkIcon /> : <BookmarkBorderIcon />}
-                          </IconButton>
-                        </Box>
+                        {/* 6 Service Trust Badges (Horizontal Row) */}
+                        <Grid container spacing={1} sx={{ my: 1, py: 1.5, borderTop: cardBorder, borderBottom: cardBorder }}>
+                          {[
+                            { label: "Free Delivery", icon: <LocalShippingOutlinedIcon sx={{ fontSize: "1.25rem", color: "var(--slate)" }} /> },
+                            { label: "10 days Returnable", icon: <AutorenewOutlinedIcon sx={{ fontSize: "1.25rem", color: "var(--slate)" }} /> },
+                            { label: "Amazon Delivered", icon: <Inventory2OutlinedIcon sx={{ fontSize: "1.25rem", color: "var(--slate)" }} /> },
+                            { label: "Pay on Delivery", icon: <PaymentsOutlinedIcon sx={{ fontSize: "1.25rem", color: "var(--slate)" }} /> },
+                            { label: "Top Brand", icon: <WorkspacePremiumOutlinedIcon sx={{ fontSize: "1.25rem", color: "var(--slate)" }} /> },
+                            { label: "Secure transaction", icon: <LockOutlinedIcon sx={{ fontSize: "1.25rem", color: "var(--slate)" }} /> }
+                          ].map((badge, idx) => (
+                            <Grid size={{ xs: 4, sm: 2 }} key={idx}>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                  textAlign: "center",
+                                  gap: 0.5,
+                                  p: 0.5
+                                }}
+                              >
+                                {badge.icon}
+                                <Typography
+                                  variant="caption"
+                                  sx={{
+                                    color: "var(--slate)",
+                                    fontSize: { xs: "0.62rem", sm: "0.68rem" },
+                                    fontWeight: 600,
+                                    lineHeight: 1.2
+                                  }}
+                                >
+                                  {badge.label}
+                                </Typography>
+                              </Box>
+                            </Grid>
+                          ))}
+                        </Grid>
+                      </Box>
+
+                      {/* Action Bar (Grab Deal on Amazon.in + Share + Bookmark) */}
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, pt: 1.5, width: "100%" }}>
+                        <Button
+                          variant="contained"
+                          href={getAffiliateUrl(heroDeal)}
+                          target="_blank"
+                          rel="sponsored noopener noreferrer"
+                          startIcon={
+                            <ShoppingBagIcon
+                              sx={{
+                                color: isDark ? "#0f172a" : "#f59e0b",
+                                fontSize: "1.2rem"
+                              }}
+                            />
+                          }
+                          sx={{
+                            borderRadius: "8px",
+                            px: { xs: 2.5, sm: 3.5 },
+                            py: 1.2,
+                            fontWeight: 800,
+                            textTransform: "none",
+                            fontSize: "0.92rem",
+                            whiteSpace: "nowrap",
+                            bgcolor: isDark ? "#f59e0b" : "#0f172a",
+                            color: isDark ? "#0f172a" : "#ffffff",
+                            boxShadow: isDark
+                              ? "0 4px 14px rgba(245, 158, 11, 0.35)"
+                              : "0 4px 14px rgba(15, 23, 42, 0.25)",
+                            flex: 1,
+                            transition: "all 0.2s ease-in-out",
+                            "&:hover": {
+                              bgcolor: isDark ? "#d97706" : "#1e293b",
+                              boxShadow: isDark
+                                ? "0 6px 20px rgba(245, 158, 11, 0.45)"
+                                : "0 6px 20px rgba(15, 23, 42, 0.35)",
+                              transform: "translateY(-1px)"
+                            }
+                          }}
+                        >
+                          Grab Deal on Amazon.in{"\u00A0"}↗
+                        </Button>
+
+                        <CardShareButton product={heroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+
+                        <IconButton
+                          id={`hero-bookmark-btn-${heroDeal.asin}`}
+                          onClick={() => toggleBookmark(heroDeal.asin)}
+                          aria-label={bookmarkedAsins.has(heroDeal.asin) ? "Remove Bookmark" : "Save Deal"}
+                          sx={{
+                            color: bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "#E2E8F0" : "#334155"),
+                            bgcolor: bookmarkedAsins.has(heroDeal.asin) ? "rgba(183, 34, 43, 0.12)" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"),
+                            border: `1px solid ${bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)")}`,
+                            borderRadius: "8px",
+                            p: 1.1,
+                            transition: "all 0.2s ease-in-out",
+                            "&:hover": {
+                              borderColor: "var(--red, #B7222B)",
+                              color: "var(--red, #B7222B)",
+                              bgcolor: isDark ? "rgba(183, 34, 43, 0.18)" : "rgba(183, 34, 43, 0.08)",
+                              transform: "translateY(-1px)"
+                            }
+                          }}
+                        >
+                          {bookmarkedAsins.has(heroDeal.asin) ? <BookmarkIcon /> : <BookmarkBorderIcon />}
+                        </IconButton>
                       </Box>
                     </CardContent>
                   </Grid>

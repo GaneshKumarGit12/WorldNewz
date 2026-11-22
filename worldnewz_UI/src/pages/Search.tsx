@@ -5,6 +5,10 @@ import { SEOMeta } from "../seo/SEOMeta";
 import type { Article } from "../types";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from "@mui/icons-material/Search";
 import NewsGrid from "../components/NewsGrid";
 import SectionStatus from "../components/SectionStatus";
 import { useBookmarks } from "../hooks/useBookmarks";
@@ -13,12 +17,25 @@ import { deduplicateArticles } from "../utils/deduplicate";
 
 
 const Search: React.FC = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q")?.trim() ?? "";
   const category = searchParams.get("category")?.trim() ?? "";
+  const [inputValue, setInputValue] = useState(query);
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setInputValue(query);
+  }, [query]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = inputValue.trim();
+    if (trimmed) {
+      setSearchParams({ q: trimmed });
+    }
+  };
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarks();
   const { 
     getEngagement, 
@@ -105,8 +122,56 @@ const Search: React.FC = () => {
         <Typography variant="h4" component="h1" sx={{ mb: 1, fontWeight: 700, fontFamily: "var(--serif)" }}>
           🔍 Search Results
         </Typography>
+
+        {/* Dedicated Search Input Bar */}
+        <Box
+          component="form"
+          onSubmit={handleSearchSubmit}
+          sx={{ display: "flex", gap: 1, mb: 2.5, maxWidth: 640 }}
+        >
+          <TextField
+            id="page-search-input"
+            fullWidth
+            size="small"
+            placeholder="Search wire dispatches, topics, headlines…"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon sx={{ color: "var(--color-ink-tertiary)", fontSize: 20 }} />
+                </InputAdornment>
+              ),
+              sx: {
+                borderRadius: "9999px",
+                backgroundColor: "var(--color-surface-container)",
+                fontFamily: "var(--font-sans-body)",
+                fontSize: "14px",
+              },
+            }}
+          />
+          <Button
+            id="page-search-submit-btn"
+            type="submit"
+            variant="contained"
+            sx={{
+              borderRadius: "9999px",
+              px: 3,
+              backgroundColor: "var(--color-brand-accent)",
+              color: "#ffffff",
+              fontWeight: 700,
+              textTransform: "none",
+              fontFamily: "var(--font-sans-body)",
+              boxShadow: "none",
+              "&:hover": { backgroundColor: "var(--color-brand-accent-hover)" },
+            }}
+          >
+            Search
+          </Button>
+        </Box>
+
         <Typography variant="subtitle1" sx={{ mb: 3, color: "var(--slate)" }}>
-          {hasSearch ? `Showing results for ${headingText}` : "Enter a search term to begin."}
+          {hasSearch ? `Showing results for ${headingText}` : "Enter a search term above to begin exploring our news archives."}
         </Typography>
 
         {!hasSearch ? (

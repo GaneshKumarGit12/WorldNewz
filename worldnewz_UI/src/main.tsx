@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 import Box from "@mui/material/Box";
 
+import "./index.css";
+
 import { AppThemeProvider } from "./context/ThemeContext";
 import App from "./App";
 import { SEOProvider } from "./seo/SEOProvider";

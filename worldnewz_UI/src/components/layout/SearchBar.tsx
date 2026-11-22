@@ -48,14 +48,22 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   // Persistent show/hide expansion state (Default is 'show' / true)
   const [isExpanded, setIsExpanded] = useState<boolean>(() => {
-    const saved = localStorage.getItem("global_nav_search_expanded");
-    return saved !== "false";
+    try {
+      const saved = localStorage.getItem("global_nav_search_expanded");
+      return saved !== "false";
+    } catch {
+      return true;
+    }
   });
 
   const handleToggleExpand = () => {
     setIsExpanded((prev) => {
       const next = !prev;
-      localStorage.setItem("global_nav_search_expanded", String(next));
+      try {
+        localStorage.setItem("global_nav_search_expanded", String(next));
+      } catch (e) {
+        console.warn("Storage write failed", e);
+      }
       return next;
     });
   };
@@ -67,46 +75,48 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <Box
       id="collapsible-global-search-nav"
+      component="section"
+      aria-label="Category Navigation and Search Bar"
       sx={{
         position: "sticky",
         top: 0,
         zIndex: 1100,
-        backgroundColor: isDark ? "rgba(15, 23, 42, 0.96)" : "rgba(248, 250, 252, 0.96)",
-        backdropFilter: "blur(12px)",
+        backgroundColor: "var(--color-surface-container-low)",
+        backdropFilter: "blur(16px)",
         py: isExpanded ? { xs: 1.25, sm: 1.5 } : { xs: 0.5, sm: 0.75 },
         px: 0,
-        borderBottom: "1px solid",
-        borderColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
+        borderBottom: "1px solid var(--color-border-divider)",
         boxShadow: isExpanded 
-          ? "0 4px 20px rgba(0,0,0,0.12)" 
-          : "0 2px 8px rgba(0,0,0,0.06)",
-        transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+          ? (isDark ? "0 4px 20px rgba(0,0,0,0.5)" : "0 4px 14px rgba(15,23,42,0.06)")
+          : (isDark ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 6px rgba(15,23,42,0.04)"),
+        transition: "var(--transition-theme)",
       }}
     >
-      <Box sx={{ maxWidth: "1240px", mx: "auto", px: { xs: 2, sm: 3, md: 3.5 } }}>
+      <Box sx={{ maxWidth: "1440px", mx: "auto", px: { xs: 2, sm: 3, md: 4 } }}>
         {/* Top Control Bar with Show/Hide Toggle */}
         <Box 
           sx={{ 
             display: "flex", 
             justifyContent: "space-between", 
             alignItems: "center", 
-            mb: isExpanded ? 1 : 0,
+            mb: isExpanded ? 1.2 : 0,
             gap: 1
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <TuneIcon sx={{ fontSize: 16, color: "#c83a15" }} />
+            <TuneIcon sx={{ fontSize: 16, color: "var(--color-brand-accent)" }} />
             <Typography 
               variant="caption" 
               sx={{ 
-                fontWeight: 800, 
-                letterSpacing: 0.5, 
+                fontFamily: "var(--font-mono-telemetry)",
+                fontWeight: 700, 
+                letterSpacing: "0.08em", 
                 textTransform: "uppercase",
-                fontSize: "0.72rem",
-                color: isDark ? "rgba(255,255,255,0.7)" : "text.secondary"
+                fontSize: "0.75rem",
+                color: "var(--color-ink-primary)"
               }}
             >
-              Category Navigation & Search
+              Category Navigation &amp; Search
             </Typography>
           </Box>
 
@@ -118,10 +128,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 sx={{ 
                   display: { xs: "none", sm: "inline-block" },
                   cursor: "pointer", 
-                  color: "primary.main",
-                  fontWeight: 700,
-                  fontSize: "0.75rem",
+                  color: "var(--color-brand-accent)",
+                  fontFamily: "var(--font-mono-telemetry)",
+                  fontWeight: 600,
+                  fontSize: "0.72rem",
                   mr: 0.5,
+                  textTransform: "uppercase",
                   "&:hover": { textDecoration: "underline" }
                 }}
               >
@@ -134,33 +146,26 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 id="btn-toggle-search-nav"
                 size="small"
                 onClick={handleToggleExpand}
-                startIcon={isExpanded ? <RemoveIcon sx={{ fontSize: 14 }} /> : <AddIcon sx={{ fontSize: 14 }} />}
-                endIcon={isExpanded ? <ExpandLessIcon sx={{ fontSize: 16 }} /> : <ExpandMoreIcon sx={{ fontSize: 16 }} />}
+                startIcon={isExpanded ? <RemoveIcon sx={{ fontSize: 13 }} /> : <AddIcon sx={{ fontSize: 13 }} />}
+                endIcon={isExpanded ? <ExpandLessIcon sx={{ fontSize: 15 }} /> : <ExpandMoreIcon sx={{ fontSize: 15 }} />}
                 sx={{
-                  textTransform: "none",
-                  fontWeight: 800,
-                  fontSize: "0.75rem",
-                  py: 0.25,
-                  px: 1.25,
-                  borderRadius: 4,
-                  border: "1px solid",
-                  borderColor: isExpanded 
-                    ? (isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)")
-                    : "#c83a15",
-                  backgroundColor: isExpanded 
-                    ? (isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)")
-                    : "rgba(200, 58, 21, 0.12)",
-                  color: isExpanded 
-                    ? (isDark ? "#ffffff" : "#1f2937") 
-                    : "#c83a15",
+                  textTransform: "uppercase",
+                  fontFamily: "var(--font-mono-telemetry)",
+                  fontWeight: 700,
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.04em",
+                  py: 0.35,
+                  px: 1.4,
+                  borderRadius: "9999px",
+                  border: "1px solid var(--color-border-divider)",
+                  backgroundColor: "var(--color-surface-container)",
+                  color: "var(--color-ink-secondary)",
                   boxShadow: "none",
-                  transition: "all 0.2s ease-in-out",
+                  transition: "all 0.18s ease-in-out",
                   "&:hover": {
-                    backgroundColor: isExpanded 
-                      ? (isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)")
-                      : "#c83a15",
-                    color: isExpanded ? (isDark ? "#ffffff" : "#000000") : "#ffffff",
-                    borderColor: "#c83a15",
+                    backgroundColor: "var(--color-surface-container-high)",
+                    color: "var(--color-ink-primary)",
+                    borderColor: "var(--color-ink-tertiary)",
                   }
                 }}
               >
@@ -172,7 +177,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
         {/* Collapsible Content: Search Bar + Category Chips */}
         <Collapse in={isExpanded} timeout={300} unmountOnExit={false}>
-          {/* Compact search section */}
+          {/* Centered Pill Search Bar */}
           {!(location.pathname === "/games/dvcubie2026" && hideSearchInGame) && (
             <Box component="form" onSubmit={onSearchSubmit} sx={{ display: "flex", justifyContent: "center", mb: 1.5, mt: 0.5 }}>
               <TextField
@@ -181,33 +186,44 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                 fullWidth
                 value={searchTerm}
                 onChange={onSearchChange}
-                placeholder="Search news, weather, shopping, sports…"
+                placeholder="Search wire dispatches, weather, shopping, stocks, sports… (Ctrl+K)"
                 variant="outlined"
                 size="small"
                 autoComplete="off"
-                inputProps={{ "aria-label": "Search news, weather, shopping, sports" }}
+                inputProps={{ "aria-label": "Search wire dispatches, weather, shopping, stocks, sports" }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start" sx={{ ml: 1, mr: 0 }}>
-                      <SearchIcon color="action" sx={{ fontSize: 20 }} />
+                      <SearchIcon sx={{ fontSize: 18, color: "var(--color-ink-tertiary)" }} />
                     </InputAdornment>
                   ),
                   endAdornment: (
                     <InputAdornment position="end" sx={{ mr: 0.5 }}>
                       <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                         <Tooltip title="Voice search">
-                          <IconButton id="btn-voice-search" size="small" aria-label="Voice search" onClick={onVoiceSearch} sx={{ p: 0.5 }}>
+                          <IconButton id="btn-voice-search" size="small" aria-label="Voice search" onClick={onVoiceSearch} sx={{ p: 0.5, color: "var(--color-ink-secondary)" }}>
                             <MicIcon sx={{ fontSize: 18 }} />
                           </IconButton>
                         </Tooltip>
                         <Button
                           id="btn-copilot-search"
-                          startIcon={<WzChatbotIcon size={18} variant="tile" borderRadius={4} bg="#10172A" zColor="#C4272F" />}
+                          startIcon={<WzChatbotIcon size={16} variant="tile" borderRadius={3} bg="#0f131c" zColor="#e02b20" />}
                           variant="contained"
-                          color="primary"
                           size="small"
                           onClick={onCopilotSearch}
-                          sx={{ textTransform: "none", borderRadius: 4, boxShadow: "none", fontSize: "0.8rem", py: 0.5 }}
+                          sx={{
+                            backgroundColor: "var(--color-brand-accent)",
+                            color: "#ffffff",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.04em",
+                            borderRadius: "9999px",
+                            boxShadow: "none",
+                            fontSize: "0.75rem",
+                            fontWeight: 700,
+                            py: 0.4,
+                            px: 1.5,
+                            "&:hover": { backgroundColor: "var(--color-brand-accent-hover)" },
+                          }}
                         >
                           Search
                         </Button>
@@ -216,36 +232,46 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                   ),
                 }}
                 sx={{
-                  maxWidth: 600,
-                  backgroundColor: "background.paper",
-                  borderRadius: 6,
-                  boxShadow: "0 4px 20px rgba(15,23,42,0.08)",
+                  maxWidth: 680,
+                  backgroundColor: "var(--color-surface-container)",
+                  borderRadius: "9999px",
                   "& .MuiOutlinedInput-root": {
-                    py: 0.75,
-                    fontSize: "0.95rem",
+                    borderRadius: "9999px",
+                    py: 0.35,
+                    fontSize: "0.88rem",
+                    color: "var(--color-ink-primary)",
+                    fontFamily: "var(--font-sans-body)",
+                    "& fieldset": {
+                      borderColor: "var(--color-border-divider)",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "var(--color-ink-tertiary)",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "var(--color-brand-accent)",
+                    },
                   },
                 }}
               />
             </Box>
           )}
 
-          {/* Compact category chips grid */}
+          {/* Compact Category Chips Bar */}
           {!(location.pathname === "/games/dvcubie2026" && hideBadgesInGame) && (
             <Box 
               sx={{ 
                 display: "flex", 
                 flexWrap: { xs: "nowrap", md: "wrap" }, 
-                gap: 1.0, 
-                rowGap: 1.25,
+                gap: 0.8, 
+                rowGap: 1.0,
                 justifyContent: { xs: "flex-start", md: "center" },
                 alignItems: "center",
                 overflowX: "auto",
                 width: "100%",
                 maxWidth: "100%",
                 pb: 0.5,
-                "&::-webkit-scrollbar": { height: "4px" },
-                "&::-webkit-scrollbar-track": { background: "transparent" },
-                "&::-webkit-scrollbar-thumb": { background: "#ccc", borderRadius: "2px" },
+                scrollbarWidth: "none",
+                "&::-webkit-scrollbar": { display: "none" },
               }}
             >
               {categories.map((cat) => {
@@ -260,36 +286,33 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                     onClick={() => navigate(path)}
                     sx={{
                       textTransform: "capitalize",
-                      fontSize: isPlayGames ? "0.85rem" : "0.82rem",
-                      fontWeight: isPlayGames || isActive ? 700 : 600,
-                      fontFamily: "var(--sans)",
-                      height: 32,
-                      px: isPlayGames ? 2 : 1.5,
+                      fontSize: isPlayGames ? "0.82rem" : "0.78rem",
+                      fontWeight: isPlayGames || isActive ? 700 : 500,
+                      fontFamily: "var(--font-sans-body)",
+                      height: 30,
+                      px: isPlayGames ? 1.8 : 1.3,
                       border: isPlayGames 
-                        ? "2px solid #00e676"
-                        : "1px solid var(--line)",
-                      borderRadius: "4px",
+                        ? "1.5px solid #22c55e"
+                        : `1px solid ${isActive ? "var(--color-brand-accent)" : "var(--color-border-divider)"}`,
+                      borderRadius: "9999px",
                       cursor: "pointer",
                       whiteSpace: "nowrap",
                       flexShrink: 0,
                       background: isPlayGames
-                        ? "linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #006064 100%)"
-                        : (isActive ? "var(--red)" : "var(--paper-raise)"),
+                        ? "linear-gradient(135deg, #181c24 0%, #1e3a8a 100%)"
+                        : (isActive ? "var(--color-brand-accent)" : "var(--color-surface-container)"),
                       color: isPlayGames || isActive 
                         ? "#ffffff" 
-                        : "var(--text)",
-                      boxShadow: isPlayGames ? "0 2px 8px rgba(13, 71, 161, 0.4)" : "none",
-                      transition: "all 0.2s ease-in-out",
+                        : "var(--color-ink-primary)",
+                      boxShadow: isActive ? "0 2px 6px rgba(224, 43, 32, 0.35)" : "none",
+                      transition: "all 0.16s ease-in-out",
                       "&:hover": {
-                        transform: isPlayGames ? "scale(1.04)" : "none",
-                        backgroundColor: isPlayGames
-                          ? "#0d47a1"
-                          : (isActive ? "var(--red-deep)" : "var(--paper)"),
-                        borderColor: isPlayGames ? "#00c853" : (isActive ? "var(--red-deep)" : "var(--red)"),
+                        backgroundColor: isActive 
+                          ? "var(--color-brand-accent-hover)" 
+                          : "var(--color-surface-container-high)",
+                        borderColor: isActive ? "var(--color-brand-accent-hover)" : "var(--color-ink-tertiary)",
+                        transform: "translateY(-1px)",
                       },
-                      "&:focus": {
-                        outline: "none",
-                      }
                     }}
                   >
                     {cat}
@@ -303,5 +326,3 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     </Box>
   );
 };
-
-export default SearchBar;

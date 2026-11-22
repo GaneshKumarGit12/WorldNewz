@@ -5454,5 +5454,1214 @@
         }
       ]
     }
+  },
+  {
+    "ArticleUrl": "https://theprint.in/economy/grocery-startup-zepto-founded-by-2-indian-teenagers-crosses-over-rs-6800-cr-valuation/940755/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10355,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Grocery startup Zepto, founded by 2 Indian teenagers, crosses over Rs 6,800 cr valuation\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.ndtv.com/india-news/sachin-pilot-meets-sonia-gandhi-over-his-future-role-in-congress-sources-2907424",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10829,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Sachin Pilot Meets Sonia Gandhi Over His Future Role In Congress: Sources\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.livemint.com/news/india/long-covid-more-severe-in-women-than-men-suggests-study-11650538683775.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10643,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Long Covid More Severe In Women Than Men, Suggests Study\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.europeanscientist.com/en/environment/air-pollution-increases-risk-of-getting-covid-19-in-young-adults/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10576,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Air pollution increases risk of getting COVID-19 in young adults\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://science.thewire.in/health/we-cannot-boost-our-way-out-of-covid-19-pandemic-in-long-term/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10187,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Why We Can\u0027t \u0027Boost\u0027 Our Way Out of the COVID-19 Pandemic in the Long Term \u2013 The Wire Science\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://keralakaumudi.com/en/news/news.php?id=797844\u0026u",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10975,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Let\u0027s manage pain, learn about \u0027Pain Medicine\u0027 - LIFESTYLE - GENERAL\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.usatoday.com/story/life/health-wellness/2022/04/21/salt-sodium-how-much-too-much-your-food/7383952001/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10381,
+      "Question": "Which sector is primarily associated with the latest news on \u0027We\u0027ve long been told salt is bad for you. Is it really?\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.theweek.in/news/health/2022/04/21/good-hdl-cholesterol-may-keep-alzheimer-s-away--study-.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10967,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Good HDL cholesterol may keep Alzheimer\u0027s away: study\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://timesofindia.indiatimes.com/life-style/health-fitness/health-news/cdc-confirms-4-americans-got-coronavirus-from-mink-here-is-all-you-need-to-know-about-the-first-animal-to-human-transmission-of-covid-virus/photostory/90979229.cms",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10967,
+      "Question": "Which sector is primarily associated with the latest news on \u0027CDC confirms 4 Americans got Coronavirus from Mink; here is all you need to know about the first animal-to-human transmission of COVID virus\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.news18.com/news/tech/apple-magsafe-battery-pack-will-now-charge-your-iphone-faster-heres-how-5026621.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10263,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Apple MagSafe Battery Pack Will Now Charge Your iPhone Faster: Here\u2019s How\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://tech.hindustantimes.com/mobile/news/no-11-after-14-iphone-11-said-to-be-counting-its-last-days-71650537406297.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10887,
+      "Question": "Which sector is primarily associated with the latest news on \u0027No 11 after 14! iPhone 11 said to be counting its LAST days\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.aninews.in/news/health/genetic-differences-can-affect-ability-to-utilize-energy-of-various-nutrients-report20220421155949",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10262,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Genetic differences can affect ability to utilize energy of various nutrients: Report\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://indiaeducationdiary.in/johns-hopkins-university-mediterranean-style-diet-further-linked-to-reduced-risk-of-preeclampsia-in-pregnant-women-of-all-races/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10547,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Johns Hopkins University: Mediterranean-Style Diet Further Linked to Reduced Risk of Preeclampsia in Pregnant Women of All Races\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.thevalleypost.com/nasas-creativity-helicopter-continues-to-defy-expectations/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11041,
+      "Question": "Which sector is primarily associated with the latest news on \u0027NASA\u0027s Creativity Helicopter continues to defy expectations\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.republicworld.com/science/space/nasa-defers-arrival-of-axiom-space-astronauts-to-april-24-spacex-crew-4-delayed-again-articleshow.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10533,
+      "Question": "Which sector is primarily associated with the latest news on \u0027NASA defers arrival of Axiom Space astronauts to April 24; SpaceX Crew-4 delayed again\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.manutd.com/en/news/detail/erik-ten-hag-appointed-as-man-utd-manager-official-statement",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10965,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Official statement: Erik ten Hag\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://indianexpress.com/article/india/kishor-wants-to-join-cong-preconditions-induction-will-help-party-congress-gen-secy-tariq-anwar-7880283/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10724,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Kishor wants to join Cong without preconditions, his induction will help party: Gen secy Tariq Anwar\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.space.com/spacex-falcon-9-starlink-group-4-14-launch",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10757,
+      "Question": "Which sector is primarily associated with the latest news on \u0027SpaceX Falcon 9 rocket to launch on record-tying 12th mission Thursday: Watch it live\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.ndtv.com/india-news/dont-lecture-judiciary-supreme-court-to-centre-over-abu-salem-plea-2906903",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11183,
+      "Question": "Which sector is primarily associated with the latest news on \u0027\u0022Don\u0027t Lecture Judiciary\u0022: Supreme Court To Centre Over Abu Salem Plea\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.91mobiles.com/hub/oneplus-nord-2t-moniker-confirmed-camera-details-leaked-ahead-of-india-launch/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11024,
+      "Question": "Which sector is primarily associated with the latest news on \u0027OnePlus Nord 2T moniker confirmed, camera details leaked ahead of India launch\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.indiatoday.in/technology/news/story/oneplus-nord-ce-2-lite-5g-buds-launch-india-april-28-1940164-2022-04-21",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11149,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Nord CE 2 Lite 5G and Nord Buds arriving on April 28 in India as OnePlus goes big on brand Nord\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://economictimes.indiatimes.com/magazines/panache/did-you-have-pneumonia-during-covid-infection-you-may-be-at-a-great-risk-of-dementia-says-study/articleshow/90977886.cms",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10672,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Did you have pneumonia during Covid infection? You may be at a great risk of dementia, says study\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://economictimes.indiatimes.com/magazines/panache/iphones-with-full-screen-display-apple-may-introduce-under-display-camera-and-face-id-in-2024/articleshow/90978007.cms",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10547,
+      "Question": "Which sector is primarily associated with the latest news on \u0027iPhones with full-screen display? Apple may introduce under-display camera and Face ID in 2024\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://news.abplive.com/technology/garena-free-fire-max-redeem-codes-date-heres-how-to-get-redeem-free-rewards-codes-1527539",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10627,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Garena Free Fire Max Codes For April 21: Here\u0027s How To Redeem Them For Free Rewards\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.hindustantimes.com/entertainment/bollywood/priyanka-chopra-honoured-mom-madhu-chopra-mom-in-law-denise-jonas-with-daughter-malti-s-name-here-s-how-101650530353702.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11079,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Priyanka Chopra honoured mom, mom-in-law with daughter Malti\u0027s name. Here\u0027s how\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://health.economictimes.indiatimes.com/news/diagnostics/bacteria-in-urine-may-signal-aggressive-prostate-cancer-study/90976478",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10667,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Bacteria in urine may signal aggressive prostate cancer: Study\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.livemint.com/technology/realme-announces-narzo-50a-prime-for-next-week-to-come-without-charger-11650532243547.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10911,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Realme Announces Narzo 50a Prime For Next Week, To Come Without Charger | Mint\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.livelaw.in/top-stories/you-require-bulldozers-to-remove-stalls-chairs-supreme-court-asks-ndmc-on-jahangirpuri-demolitions-197162",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10922,
+      "Question": "Which sector is primarily associated with the latest news on \u0027You Require Bulldozers To Remove Stalls \u0026 Chairs?: Supreme Court Asks NDMC On Jahangirpuri Demolitions - Live Law\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://tech.hindustantimes.com/tech/news/this-macos-inspired-new-windows-11-feature-will-let-you-view-files-without-opening-them-71650531863260.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10656,
+      "Question": "Which sector is primarily associated with the latest news on \u0027This MacOS inspired new Windows 11 feature will let you view files without opening them\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.hindustantimes.com/cricket/ipl-2022-even-shaheen-afridi-doesn-t-bowl-over-145-kph-but-umran-malik-pakistan-legend-rashid-latif-says-srh-pacer-will-make-a-name-for-himself-101650531002768.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10519,
+      "Question": "Which sector is primarily associated with the latest news on \u0027\u0027Even Shaheen doesn\u0027t bowl over 145 kph, but Umran...\u0027: Ex-Pakistan captain\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.ndtv.com/world-news/watch-nasas-perseverance-rover-captures-stunning-video-of-solar-eclipse-on-mars-2906661",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10588,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Watch: NASA\u0027s Perseverance Rover Captures Stunning Video of Solar Eclipse On Mars\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.indiatoday.in/coronavirus-outbreak/story/delhi-covid-cases-omicron-sub-types-1940147-2022-04-21",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11017,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Omicron and its 9 sub-types driving up Delhi Covid cases, say govt sources\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.sportskeeda.com/minecraft/10-best-minecraft-java-edition-seeds-speedrunning-2022",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10786,
+      "Question": "Which sector is primarily associated with the latest news on \u002710 best Minecraft Java Edition seeds for speedrunning in 2022\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.downtoearth.org.in/news/science-technology/genetically-modified-mosquitoes-for-controlling-vector-borne-diseases-successful-trial-gives-hope-82495",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10308,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Genetically modified mosquitoes for controlling vector-borne diseases? Successful trial gives hope\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.iplt20.com/news/3778/matheesha-pathirana-joins-chennai-super-kings-as-a-replacement-for-adam-milne",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10373,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Matheesha Pathirana joins Chennai Super Kings as a replacement for Adam Milne\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.irishtimes.com/life-and-style/health-family/study-finds-no-benefit-to-restricting-diet-by-time-of-the-day-1.4858302",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10397,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Study finds no benefit to restricting diet by time of the day\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.moneycontrol.com/news/india/boris-johnson-india-visit-live-updates-india-visit-will-deepen-strategic-ties-says-british-pm-boris-johnson-8387411.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10353,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Boris Johnson India Visit LIVE Updates: UK PM meets Gautam Adani in Ahemdabad\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://www.formula1.com/en/latest/article.breaking-sainz-to-remain-with-ferrari-until-2024-following-contract.5WQKCJkNKDXWEtZsAYkBh7.html",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 11109,
+      "Question": "Which sector is primarily associated with the latest news on \u0027Sainz to remain with Ferrari until 2024 following contract extension\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
+  },
+  {
+    "ArticleUrl": "https://wccftech.com/nvidia-ad102-gpu-geforce-rtx-4090-600w-tbp-rtx-l6000-375w-tbp-graphics-card-rumor/",
+    "Category": "Discover",
+    "Quiz": {
+      "Id": 10260,
+      "Question": "Which sector is primarily associated with the latest news on \u0027NVIDIA AD102 GPU Flagships To Consume Insane Amounts of Power: Gaming GeForce RTX 4090 at 600W TBP \u0026 Workstation RTX L6000 at 375W TBP\u0027?",
+      "Description": "General knowledge trivia question based on recent Discover headlines.",
+      "Options": [
+        {
+          "Id": 1,
+          "OptionText": "Discover",
+          "IsCorrect": true
+        },
+        {
+          "Id": 2,
+          "OptionText": "Consumer Markets",
+          "IsCorrect": false
+        },
+        {
+          "Id": 3,
+          "OptionText": "Leisure Activities",
+          "IsCorrect": false
+        },
+        {
+          "Id": 4,
+          "OptionText": "Traditional Logistics",
+          "IsCorrect": false
+        }
+      ]
+    }
   }
 ]

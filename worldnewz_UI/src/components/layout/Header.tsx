@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Box, Typography, Button, Menu, MenuItem, Tooltip, IconButton, Badge } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -6,13 +6,12 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
 import { newsPillarLinks, lifestylePillarLinks, explorePillarLinks, playPillarLinks } from "../../utils/navigationConfig";
 import { VerificationStrip } from "./VerificationStrip";
+import { GlobalSearchModal } from "./GlobalSearchModal";
 
 interface HeaderProps {
   isDark: boolean;
@@ -41,6 +40,20 @@ export const Header: React.FC<HeaderProps> = ({
   const [lifestyleAnchorEl, setLifestyleAnchorEl] = useState<null | HTMLElement>(null);
   const [exploreAnchorEl, setExploreAnchorEl] = useState<null | HTMLElement>(null);
   const [playAnchorEl, setPlayAnchorEl] = useState<null | HTMLElement>(null);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+
+  // Global Ctrl+K / Cmd+K keyboard shortcut listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't intercept when user is typing inside an input/textarea unless it's Ctrl+K
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setIsSearchModalOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const moreNewsOpen = Boolean(moreNewsAnchorEl);
   const lifestyleOpen = Boolean(lifestyleAnchorEl);
@@ -67,31 +80,32 @@ export const Header: React.FC<HeaderProps> = ({
   });
 
   return (
-    <Box component="header" sx={{ width: "100%", backgroundColor: "#10172A", color: "#FFFFFF" }}>
+    <Box component="header" sx={{ width: "100%", backgroundColor: "var(--color-surface-container)", color: "var(--color-ink-primary)", transition: "var(--transition-theme)" }}>
       {/* 1. Top Utility Strip */}
       <Box
         className="masthead-top"
         sx={{
-          backgroundColor: "#10172A",
-          color: "#9AA2B4",
-          borderBottom: "1px solid #1E293B",
+          backgroundColor: "var(--color-surface-container-low)",
+          color: "var(--color-ink-secondary)",
+          borderBottom: "1px solid var(--color-border-divider)",
           fontSize: "12px",
-          fontFamily: "var(--mono, 'IBM Plex Mono', monospace)",
+          fontFamily: "var(--font-mono-telemetry)",
           py: 0.75,
+          transition: "var(--transition-theme)",
         }}
       >
         <Box
           className="wrap"
           sx={{
-            maxWidth: "1240px",
+            maxWidth: "1440px",
             margin: "0 auto",
-            px: { xs: 2, sm: 3, md: 3.5 },
+            px: { xs: 2, sm: 3, md: 4 },
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
           }}
         >
-          {/* Left info */}
+          {/* Left info: Live Bureau Status & Timestamp */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
               <Box
@@ -100,44 +114,51 @@ export const Header: React.FC<HeaderProps> = ({
                   width: 6,
                   height: 6,
                   borderRadius: "50%",
-                  backgroundColor: "var(--red, #B7222B)",
+                  backgroundColor: "var(--color-brand-accent)",
                   display: "inline-block",
-                  boxShadow: "0 0 0 3px rgba(183, 34, 43, 0.25)",
+                  boxShadow: "0 0 0 3px rgba(224, 43, 32, 0.25)",
                 }}
               />
-              <Typography component="span" sx={{ fontSize: "11.5px", color: "#C9CEDA", fontFamily: "inherit", fontWeight: 600 }}>
-                LIVE COVERAGE
+              <Typography component="span" sx={{ fontSize: "11px", color: "var(--color-brand-accent)", fontFamily: "inherit", fontWeight: 700, letterSpacing: "0.05em" }}>
+                LIVE BUREAU WIRE
               </Typography>
             </Box>
-            <Typography component="span" sx={{ fontSize: "11.5px", color: "#8B92A3", fontFamily: "inherit", display: { xs: "none", sm: "inline" } }}>
-              {currentDateStr}
+            <Typography component="span" sx={{ fontSize: "11px", color: "var(--color-ink-secondary)", fontFamily: "inherit", display: { xs: "none", sm: "inline" } }}>
+              {currentDateStr} • Global / US / Asia
             </Typography>
           </Box>
 
           {/* Right utility actions */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            {/* Search Pill Button */}
+            {/* Search Pill Button with Ctrl+K shortcut */}
             <Button
-              component={Link}
-              to="/search"
+              id="header-search-btn"
+              onClick={() => setIsSearchModalOpen(true)}
+              aria-label="Search dispatches and tickers (Ctrl+K)"
               sx={{
-                border: "1px solid #2E3A58",
-                borderRadius: "20px",
-                px: 1.8,
-                py: 0.3,
-                color: "#8C93A8",
+                border: "1px solid var(--color-border-divider)",
+                borderRadius: "9999px",
+                px: 1.5,
+                py: 0.35,
+                color: "var(--color-ink-secondary)",
                 fontSize: "11.5px",
                 textTransform: "none",
-                fontFamily: "var(--sans)",
-                backgroundColor: "transparent",
-                "&:hover": { borderColor: "#4C5670", color: "#FFFFFF" },
-                display: { xs: "none", sm: "flex" },
+                fontFamily: "var(--font-sans-body)",
+                backgroundColor: "var(--color-surface-container)",
+                "&:hover": {
+                  borderColor: "var(--color-ink-tertiary)",
+                  color: "var(--color-ink-primary)",
+                  backgroundColor: "var(--color-surface-container-high)",
+                },
+                display: { xs: "none", md: "inline-flex" },
                 alignItems: "center",
                 gap: 0.75,
+                cursor: "pointer",
               }}
             >
-              <SearchIcon sx={{ fontSize: 14 }} />
-              Search news, topics, tickers…
+              <SearchIcon sx={{ fontSize: 14, color: "var(--color-ink-tertiary)" }} />
+              <span>Search wire dispatches, tickers…</span>
+              <kbd className="theme-shortcut-badge" style={{ marginLeft: 4 }}>Ctrl+K</kbd>
             </Button>
 
             {/* Badges & Actions */}
@@ -150,7 +171,7 @@ export const Header: React.FC<HeaderProps> = ({
                     to="/comments"
                     size="small"
                     aria-label="Comments"
-                    sx={{ color: location.pathname === "/comments" ? "var(--red)" : "#9AA2B4" }}
+                    sx={{ color: location.pathname === "/comments" ? "var(--color-brand-accent)" : "var(--color-ink-secondary)" }}
                   >
                     <Badge badgeContent={totalComments} color="error" max={999}>
                       <ChatBubbleIcon sx={{ fontSize: 16 }} />
@@ -165,7 +186,7 @@ export const Header: React.FC<HeaderProps> = ({
                     to="/bookmarks"
                     size="small"
                     aria-label="Bookmarks"
-                    sx={{ color: location.pathname === "/bookmarks" ? "var(--gold)" : "#9AA2B4" }}
+                    sx={{ color: location.pathname === "/bookmarks" ? "var(--color-telemetry-warning)" : "var(--color-ink-secondary)" }}
                   >
                     <Badge badgeContent={bookmarksCount} color="warning" max={99}>
                       <BookmarkIcon sx={{ fontSize: 16 }} />
@@ -182,7 +203,7 @@ export const Header: React.FC<HeaderProps> = ({
                 to="/admin"
                 size="small"
                 aria-label="Admin Dashboard"
-                sx={{ color: location.pathname === "/admin" ? "var(--gold)" : "#9AA2B4" }}
+                sx={{ color: location.pathname === "/admin" ? "var(--color-brand-accent)" : "var(--color-ink-secondary)" }}
               >
                 <AdminPanelSettingsIcon sx={{ fontSize: 16 }} />
               </IconButton>
@@ -195,17 +216,47 @@ export const Header: React.FC<HeaderProps> = ({
                 to="/facebook-settings"
                 size="small"
                 aria-label="Facebook Settings"
-                sx={{ color: location.pathname === "/facebook-settings" ? "var(--red)" : "#9AA2B4" }}
+                sx={{ color: location.pathname === "/facebook-settings" ? "var(--color-brand-accent)" : "var(--color-ink-secondary)" }}
               >
                 <FacebookIcon sx={{ fontSize: 16 }} />
               </IconButton>
             </Tooltip>
 
-            <Tooltip title={isDark ? "Switch to Light mode" : "Switch to Dark mode"}>
-              <IconButton id="btn-theme-toggle" onClick={toggleMode} size="small" aria-label="Toggle theme" sx={{ color: "#9AA2B4" }}>
-                {isDark ? <LightModeIcon sx={{ fontSize: 16 }} /> : <DarkModeIcon sx={{ fontSize: 16 }} />}
-              </IconButton>
-            </Tooltip>
+            {/* Accessible Interactive Theme Switcher Pill Component (three.js / Alt+T Spec) */}
+            <button
+              type="button"
+              id="theme-toggle-btn"
+              className="theme-toggle-pill"
+              role="switch"
+              aria-checked={isDark ? "true" : "false"}
+              aria-label={isDark ? "Switch to Light Broadsheet Paper mode (Press Alt+T)" : "Switch to Dark Editorial Wire mode (Press Alt+T)"}
+              title="Toggle reading theme (Alt+T or click)"
+              onClick={() => toggleMode()}
+            >
+              <span className="theme-icon-slot" aria-hidden="true">
+                {isDark ? (
+                  <svg className="icon-sun" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </svg>
+                ) : (
+                  <svg className="icon-moon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                  </svg>
+                )}
+              </span>
+              <span id="theme-status-label" style={{ fontSize: "11px", fontWeight: 600 }}>
+                {isDark ? "Light" : "Dark"}
+              </span>
+              <kbd className="theme-shortcut-badge" title="Global keyboard shortcut">Alt+T</kbd>
+            </button>
           </Box>
         </Box>
       </Box>
@@ -214,72 +265,101 @@ export const Header: React.FC<HeaderProps> = ({
       <Box
         className="masthead-main"
         sx={{
-          backgroundColor: "#10172A",
-          py: { xs: 2, md: 2.8 },
-          borderBottom: "1px solid #1B2740",
+          backgroundColor: "var(--color-surface-container)",
+          py: { xs: 1.8, md: 2.2 },
+          borderBottom: "1px solid var(--color-border-divider)",
+          transition: "var(--transition-theme)",
         }}
       >
         <Box
           className="wrap"
           sx={{
-            maxWidth: "1240px",
+            maxWidth: "1440px",
             margin: "0 auto",
-            px: { xs: 2, sm: 3, md: 3.5 },
+            px: { xs: 2, sm: 3, md: 4 },
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
           }}
         >
-          {/* Brand Logo & Tagline */}
-          <Box component={Link} to="/" sx={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: 0.2 }}>
+          {/* Brand Logo & Edition Tagline */}
+          <Box component={Link} to="/" sx={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 1.5 }}>
             <Box sx={{ display: "flex", alignItems: "baseline", gap: 1.5 }}>
               <Typography
                 component="span"
                 sx={{
-                  fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)",
+                  fontFamily: "var(--font-serif-headline)",
                   fontWeight: 700,
-                  fontSize: { xs: "26px", sm: "34px" },
-                  color: "#FFFFFF",
-                  letterSpacing: "-0.01em",
+                  fontSize: { xs: "26px", sm: "32px", md: "36px" },
+                  color: "var(--color-ink-primary)",
+                  letterSpacing: "-0.02em",
                   lineHeight: 1.1,
+                  textTransform: "uppercase",
                 }}
               >
-                WorldNew<Typography component="span" sx={{ color: "var(--red, #B7222B)", fontFamily: "inherit", fontWeight: 700, fontSize: "inherit" }}>z</Typography>s
+                WorldNew<Typography component="span" sx={{ color: "var(--color-brand-accent)", fontFamily: "inherit", fontWeight: 700, fontSize: "inherit" }}>z</Typography>s
               </Typography>
             </Box>
             <Typography
               component="span"
               sx={{
-                fontFamily: "var(--mono, 'IBM Plex Mono', monospace)",
-                fontSize: "10.5px",
-                letterSpacing: "0.12em",
+                fontFamily: "var(--font-mono-telemetry)",
+                fontSize: "10px",
+                fontWeight: 700,
+                letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "#7C86A0",
+                color: "var(--color-brand-accent)",
+                backgroundColor: isDark ? "rgba(224, 43, 32, 0.15)" : "rgba(224, 43, 32, 0.08)",
+                border: "1px solid var(--color-brand-accent)",
+                px: 0.8,
+                py: 0.2,
+                borderRadius: "2px",
+                display: { xs: "none", sm: "inline-block" },
               }}
             >
-              Reporting, verified
+              EDITION 5,525
             </Typography>
           </Box>
 
           {/* Right Header Actions */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+            <Box
+              sx={{
+                display: { xs: "none", md: "inline-flex" },
+                alignItems: "center",
+                gap: 0.8,
+                backgroundColor: "var(--color-brand-accent)",
+                color: "#ffffff",
+                fontFamily: "var(--font-mono-telemetry)",
+                fontSize: "10.5px",
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                px: 1.2,
+                py: 0.4,
+                borderRadius: "3px",
+              }}
+            >
+              <Box sx={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#ffffff", animation: "pulse 1.5s infinite" }} />
+              <span>LIVE WIRE</span>
+            </Box>
+
             <Button
               id="btn-header-subscribe"
               component={Link}
               to="/editorial-briefings"
               variant="contained"
               sx={{
-                backgroundColor: "var(--red, #B7222B)",
+                backgroundColor: "var(--color-brand-accent)",
                 color: "#FFFFFF",
-                fontWeight: 600,
-                fontSize: "13px",
-                px: 2.5,
-                py: 1,
-                borderRadius: "3px",
-                textTransform: "none",
-                letterSpacing: "0.02em",
-                fontFamily: "var(--sans)",
-                "&:hover": { backgroundColor: "var(--red-deep, #8E1B22)" },
+                fontWeight: 700,
+                fontSize: "12.5px",
+                px: 2.2,
+                py: 0.8,
+                borderRadius: "4px",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                fontFamily: "var(--font-sans-body)",
+                "&:hover": { backgroundColor: "var(--color-brand-accent-hover)" },
                 display: { xs: "none", sm: "inline-flex" },
               }}
             >
@@ -289,7 +369,7 @@ export const Header: React.FC<HeaderProps> = ({
             <IconButton
               id="btn-mobile-drawer"
               aria-label="Menu"
-              sx={{ color: "#FFFFFF", display: { xs: "inline-flex", md: "none" } }}
+              sx={{ color: "var(--color-ink-primary)", display: { xs: "inline-flex", md: "none" } }}
               edge="end"
               onClick={onDrawerOpen}
             >
@@ -306,23 +386,24 @@ export const Header: React.FC<HeaderProps> = ({
       <Box
         component="nav"
         className="primary"
+        aria-label="Main Editorial Navigation"
         sx={{
-          backgroundColor: "var(--paper-raise)",
-          borderTop: "1px solid var(--line-soft)",
-          borderBottom: "1px solid var(--line)",
+          backgroundColor: "var(--color-surface-container)",
+          borderBottom: "1px solid var(--color-border-divider)",
           boxShadow: isDark ? "0 2px 8px rgba(0,0,0,0.35)" : "0 1px 3px rgba(0,0,0,0.03)",
+          transition: "var(--transition-theme)",
         }}
       >
         <Box
           className="wrap"
           sx={{
-            maxWidth: "1240px",
+            maxWidth: "1440px",
             margin: "0 auto",
-            px: { xs: 2, sm: 3, md: 3.5 },
+            px: { xs: 2, sm: 3, md: 4 },
             display: "flex",
             alignItems: "center",
             gap: { xs: 0.5, md: 1 },
-            height: "50px",
+            height: "48px",
             overflowX: "auto",
             scrollbarWidth: "none",
             "&::-webkit-scrollbar": { display: "none" },
@@ -942,6 +1023,13 @@ export const Header: React.FC<HeaderProps> = ({
           })()}
         </Box>
       </Box>
+
+      {/* Global Command Palette & Wire Search Modal */}
+      <GlobalSearchModal
+        open={isSearchModalOpen}
+        onClose={() => setIsSearchModalOpen(false)}
+        isDark={isDark}
+      />
     </Box>
   );
 };
