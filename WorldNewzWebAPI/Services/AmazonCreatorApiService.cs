@@ -81,25 +81,36 @@ namespace WorldNewzWebAPI.Services
                             ?? config["AmazonCreatorApi:TokenEndpoint"]
                             ?? "https://api.amazon.com/auth/o2/token";
 
-            _marketplaceHost = Environment.GetEnvironmentVariable("AMAZON_MARKETPLACE_HOST")
-                               ?? config["AmazonCreatorApi:MarketplaceHost"]
-                               ?? "webservices.amazon.in";
+            var rawMarketplaceHost = Environment.GetEnvironmentVariable("AMAZON_MARKETPLACE_HOST")
+                                     ?? config["AmazonCreatorApi:MarketplaceHost"]
+                                     ?? "creatorsapi.amazon";
 
-            // If user passed a web domain (e.g. www.amazon.in or amazon.in), normalize to API gateway
-            if (_marketplaceHost.Equals("www.amazon.in", StringComparison.OrdinalIgnoreCase) || 
-                _marketplaceHost.Equals("amazon.in", StringComparison.OrdinalIgnoreCase))
+            if (string.IsNullOrWhiteSpace(rawMarketplaceHost) || 
+                rawMarketplaceHost.Equals("webservices.amazon.in", StringComparison.OrdinalIgnoreCase) ||
+                rawMarketplaceHost.Equals("webservices.amazon.com", StringComparison.OrdinalIgnoreCase) ||
+                rawMarketplaceHost.Equals("www.amazon.in", StringComparison.OrdinalIgnoreCase) ||
+                rawMarketplaceHost.Equals("amazon.in", StringComparison.OrdinalIgnoreCase))
             {
-                _marketplaceHost = "webservices.amazon.in";
+                _marketplaceHost = "creatorsapi.amazon";
             }
-            else if (_marketplaceHost.Equals("www.amazon.com", StringComparison.OrdinalIgnoreCase) || 
-                     _marketplaceHost.Equals("amazon.com", StringComparison.OrdinalIgnoreCase))
+            else
             {
-                _marketplaceHost = "webservices.amazon.com";
+                _marketplaceHost = rawMarketplaceHost.Trim();
             }
 
-            _scope = Environment.GetEnvironmentVariable("AMAZON_SCOPE")
-                     ?? config["AmazonCreatorApi:Scope"]
-                     ?? "creators::api";
+            var rawScope = Environment.GetEnvironmentVariable("AMAZON_SCOPE")
+                           ?? config["AmazonCreatorApi:Scope"]
+                           ?? "creatorsapi::default";
+
+            // Auto-sanitize legacy or invalid scope values (e.g. creators::api) to creatorsapi::default
+            if (string.IsNullOrWhiteSpace(rawScope) || rawScope.Equals("creators::api", StringComparison.OrdinalIgnoreCase))
+            {
+                _scope = "creatorsapi::default";
+            }
+            else
+            {
+                _scope = rawScope.Trim();
+            }
         }
 
         /// <summary>
@@ -119,7 +130,7 @@ namespace WorldNewzWebAPI.Services
                 {
                     return (true, "Amazon OAuth2 authentication active.");
                 }
-                return (false, "Could not acquire Amazon OAuth2 token.");
+                return (false, "Could not acquire Amazon OAuth2 token (check client credentials and permissions).");
             }
             catch (Exception ex)
             {
@@ -155,7 +166,7 @@ namespace WorldNewzWebAPI.Services
 
                 _logger.LogInformation("[AmazonCreatorApiService] Requesting fresh OAuth2 token from Amazon...");
 
-                var scopeToUse = !string.IsNullOrWhiteSpace(_scope) ? _scope : "creators::api";
+                var scopeToUse = !string.IsNullOrWhiteSpace(_scope) ? _scope : "creatorsapi::default";
                 var formParams = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("grant_type", "client_credentials"),
@@ -180,7 +191,8 @@ namespace WorldNewzWebAPI.Services
                         return lastGood;
                     }
 
-                    throw new HttpRequestException($"Failed to obtain Amazon OAuth token: {response.StatusCode} - {errContent}");
+                    // Return empty string gracefully so caller falls back to offline catalog without unhandled crash
+                    return string.Empty;
                 }
 
                 var json = await response.Content.ReadAsStringAsync();
@@ -201,6 +213,15 @@ namespace WorldNewzWebAPI.Services
 
                 _logger.LogInformation($"[AmazonCreatorApiService] Successfully cached Amazon OAuth token. Expires in {effectiveTtlSeconds}s (90% of {expiresInSeconds}s).");
                 return accessToken;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning($"[AmazonCreatorApiService] Exception during token acquisition: {ex.Message}");
+                if (_cache.TryGetValue<string>(LastGoodTokenCacheKey, out var lastGood) && !string.IsNullOrWhiteSpace(lastGood))
+                {
+                    return lastGood;
+                }
+                return string.Empty;
             }
             finally
             {
@@ -234,37 +255,46 @@ namespace WorldNewzWebAPI.Services
                 string token = await GetAccessTokenAsync();
                 if (string.IsNullOrWhiteSpace(token)) return items;
 
+                string targetEndpoint = _marketplaceHost.Contains("creatorsapi", StringComparison.OrdinalIgnoreCase)
+                    ? $"https://{_marketplaceHost}/catalog/v1/getItems"
+                    : $"https://{_marketplaceHost}/paapi5/getitems";
+
                 // Process ASINs in batches of 10 (Amazon API limit)
                 for (int i = 0; i < cleanAsins.Count; i += 10)
                 {
                     var batch = cleanAsins.Skip(i).Take(10).ToList();
                     var requestPayload = new
                     {
-                        ItemIds = batch,
-                        PartnerTag = _associateTag,
-                        PartnerType = "Associates",
-                        Marketplace = "www.amazon.in",
-                        Resources = new[]
+                        itemIds = batch,
+                        itemIdType = "ASIN",
+                        partnerTag = _associateTag,
+                        partnerType = "Associates",
+                        marketplace = "www.amazon.in",
+                        resources = new[]
                         {
-                            "ItemInfo.Title",
-                            "ItemInfo.ByLineInfo",
-                            "ItemInfo.Features",
-                            "Images.Primary.Large",
-                            "Offers.Listings.Price",
-                            "Offers.Listings.SavingBasis",
-                            "CustomerReviews.Count",
-                            "CustomerReviews.StarRating"
+                            "itemInfo.title",
+                            "itemInfo.byLineInfo",
+                            "itemInfo.features",
+                            "images.primary.large",
+                            "offersV2.listings.price",
+                            "customerReviews.count",
+                            "customerReviews.starRating"
                         }
                     };
 
                     string jsonBody = JsonSerializer.Serialize(requestPayload);
-                    var request = new HttpRequestMessage(HttpMethod.Post, $"https://{_marketplaceHost}/paapi5/getitems")
+                    var request = new HttpRequestMessage(HttpMethod.Post, targetEndpoint)
                     {
                         Content = new StringContent(jsonBody, Encoding.UTF8, "application/json")
                     };
 
                     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                    request.Headers.Add("X-Amz-Target", "com.amazon.paapi5.v1.ProductAdvertisingAPIv1.GetItems");
+                    request.Headers.Add("x-marketplace", "www.amazon.in");
+
+                    if (!targetEndpoint.Contains("catalog/v1/getItems"))
+                    {
+                        request.Headers.Add("X-Amz-Target", "com.amazon.paapi5.v1.ProductAdvertisingAPIv1.GetItems");
+                    }
 
                     var response = await _httpClient.SendAsync(request);
 
@@ -297,53 +327,81 @@ namespace WorldNewzWebAPI.Services
                 using var doc = JsonDocument.Parse(json);
                 var root = doc.RootElement;
 
-                if (root.TryGetProperty("ItemsResult", out var itemsResult) &&
-                    itemsResult.TryGetProperty("Items", out var itemsArray) &&
-                    itemsArray.ValueKind == JsonValueKind.Array)
+                JsonElement itemsArray = default;
+                if (TryGetPropertyCaseInsensitive(root, "itemsResult", out var itemsResult) &&
+                    TryGetPropertyCaseInsensitive(itemsResult, "items", out var foundArray))
+                {
+                    itemsArray = foundArray;
+                }
+                else if (TryGetPropertyCaseInsensitive(root, "items", out var directArray))
+                {
+                    itemsArray = directArray;
+                }
+
+                if (itemsArray.ValueKind == JsonValueKind.Array)
                 {
                     foreach (var item in itemsArray.EnumerateArray())
                     {
                         var dto = new AmazonCreatorItemDto();
 
-                        if (item.TryGetProperty("ASIN", out var asinProp))
+                        if (TryGetPropertyCaseInsensitive(item, "asin", out var asinProp))
                             dto.Asin = asinProp.GetString() ?? string.Empty;
 
-                        if (item.TryGetProperty("DetailPageURL", out var urlProp))
+                        if (TryGetPropertyCaseInsensitive(item, "detailPageUrl", out var urlProp) ||
+                            TryGetPropertyCaseInsensitive(item, "detailPageURL", out urlProp))
+                        {
                             dto.ProductUrl = urlProp.GetString() ?? string.Empty;
+                        }
 
                         // Title
-                        if (item.TryGetProperty("ItemInfo", out var info) &&
-                            info.TryGetProperty("Title", out var titleProp) &&
-                            titleProp.TryGetProperty("DisplayValue", out var titleVal))
+                        if (TryGetPropertyCaseInsensitive(item, "itemInfo", out var info) &&
+                            TryGetPropertyCaseInsensitive(info, "title", out var titleProp) &&
+                            TryGetPropertyCaseInsensitive(titleProp, "displayValue", out var titleVal))
                         {
                             dto.Title = titleVal.GetString() ?? string.Empty;
                         }
 
                         // Image
-                        if (item.TryGetProperty("Images", out var images) &&
-                            images.TryGetProperty("Primary", out var primary) &&
-                            primary.TryGetProperty("Large", out var large) &&
-                            large.TryGetProperty("URL", out var imgUrl))
+                        if (TryGetPropertyCaseInsensitive(item, "images", out var images) &&
+                            TryGetPropertyCaseInsensitive(images, "primary", out var primary) &&
+                            TryGetPropertyCaseInsensitive(primary, "large", out var large) &&
+                            TryGetPropertyCaseInsensitive(large, "url", out var imgUrl))
                         {
                             dto.ImageUrl = imgUrl.GetString() ?? string.Empty;
                         }
 
-                        // Price
-                        if (item.TryGetProperty("Offers", out var offers) &&
-                            offers.TryGetProperty("Listings", out var listings) &&
+                        // Price (Offers or OffersV2)
+                        JsonElement offers = default;
+                        if (TryGetPropertyCaseInsensitive(item, "offersV2", out var offV2))
+                            offers = offV2;
+                        else if (TryGetPropertyCaseInsensitive(item, "offers", out var off))
+                            offers = off;
+
+                        if (offers.ValueKind == JsonValueKind.Object &&
+                            TryGetPropertyCaseInsensitive(offers, "listings", out var listings) &&
                             listings.ValueKind == JsonValueKind.Array &&
                             listings.GetArrayLength() > 0)
                         {
                             var listing = listings[0];
-                            if (listing.TryGetProperty("Price", out var priceProp) &&
-                                priceProp.TryGetProperty("Amount", out var amountProp))
+                            if (TryGetPropertyCaseInsensitive(listing, "price", out var priceProp))
                             {
-                                dto.Price = amountProp.GetDecimal();
+                                if (TryGetPropertyCaseInsensitive(priceProp, "amount", out var amountProp))
+                                {
+                                    if (amountProp.ValueKind == JsonValueKind.Number)
+                                        dto.Price = amountProp.GetDecimal();
+                                    else if (amountProp.ValueKind == JsonValueKind.String && decimal.TryParse(amountProp.GetString(), out var dPrice))
+                                        dto.Price = dPrice;
+                                }
                             }
-                            if (listing.TryGetProperty("SavingBasis", out var basisProp) &&
-                                basisProp.TryGetProperty("Amount", out var basisAmount))
+                            if (TryGetPropertyCaseInsensitive(listing, "savingBasis", out var basisProp))
                             {
-                                dto.OriginalPrice = basisAmount.GetDecimal();
+                                if (TryGetPropertyCaseInsensitive(basisProp, "amount", out var basisAmount))
+                                {
+                                    if (basisAmount.ValueKind == JsonValueKind.Number)
+                                        dto.OriginalPrice = basisAmount.GetDecimal();
+                                    else if (basisAmount.ValueKind == JsonValueKind.String && decimal.TryParse(basisAmount.GetString(), out var dBasis))
+                                        dto.OriginalPrice = dBasis;
+                                }
                             }
                         }
 
@@ -353,16 +411,22 @@ namespace WorldNewzWebAPI.Services
                         }
 
                         // Reviews
-                        if (item.TryGetProperty("CustomerReviews", out var reviews))
+                        if (TryGetPropertyCaseInsensitive(item, "customerReviews", out var reviews))
                         {
-                            if (reviews.TryGetProperty("StarRating", out var ratingProp) &&
-                                ratingProp.TryGetProperty("Value", out var rateVal))
+                            if (TryGetPropertyCaseInsensitive(reviews, "starRating", out var ratingProp) &&
+                                TryGetPropertyCaseInsensitive(ratingProp, "value", out var rateVal))
                             {
-                                dto.Rating = rateVal.GetDouble();
+                                if (rateVal.ValueKind == JsonValueKind.Number)
+                                    dto.Rating = rateVal.GetDouble();
+                                else if (rateVal.ValueKind == JsonValueKind.String && double.TryParse(rateVal.GetString(), out var dRate))
+                                    dto.Rating = dRate;
                             }
-                            if (reviews.TryGetProperty("Count", out var countProp))
+                            if (TryGetPropertyCaseInsensitive(reviews, "count", out var countProp))
                             {
-                                dto.ReviewCount = countProp.GetInt32();
+                                if (countProp.ValueKind == JsonValueKind.Number)
+                                    dto.ReviewCount = countProp.GetInt32();
+                                else if (countProp.ValueKind == JsonValueKind.String && int.TryParse(countProp.GetString(), out var dCount))
+                                    dto.ReviewCount = dCount;
                             }
                         }
 
@@ -382,6 +446,23 @@ namespace WorldNewzWebAPI.Services
             }
 
             return list;
+        }
+
+        private static bool TryGetPropertyCaseInsensitive(JsonElement element, string propertyName, out JsonElement value)
+        {
+            if (element.ValueKind == JsonValueKind.Object)
+            {
+                foreach (var prop in element.EnumerateObject())
+                {
+                    if (prop.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        value = prop.Value;
+                        return true;
+                    }
+                }
+            }
+            value = default;
+            return false;
         }
     }
 }

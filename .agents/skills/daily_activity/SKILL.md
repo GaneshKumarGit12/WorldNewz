@@ -54,8 +54,8 @@ Before seeding or committing, verify that every candidate product satisfies all 
 WorldNewz operates on a dual-mode Amazon architecture with automated expired product handling:
 
 1. **Live Creator API Mode (When Credentials Configured)**:
-   - **Environment Variables**: `AMAZON_CLIENT_ID`, `AMAZON_CLIENT_SECRET`, `AMAZON_ASSOCIATE_TAG` (default: `ganeshd12-21`), `AMAZON_SCOPE` (default: `creators::api`), `AMAZON_MARKETPLACE_HOST` (default: `www.amazon.in`).
-   - **Token Refresh**: Uses LWA OAuth2 `grant_type=client_credentials` with `scope=creators::api` cached in memory with a 90% TTL buffer.
+   - **Environment Variables**: `AMAZON_CLIENT_ID`, `AMAZON_CLIENT_SECRET`, `AMAZON_ASSOCIATE_TAG` (default: `ganeshd12-21`), `AMAZON_SCOPE` (default: `creatorsapi::default`), `AMAZON_MARKETPLACE_HOST` (default: `creatorsapi.amazon`).
+   - **Token Refresh**: Uses LWA OAuth2 `grant_type=client_credentials` with `scope=creatorsapi::default` cached in memory with a 90% TTL buffer.
    - **Background Sync**: `AmazonTokenBackgroundRefreshService` proactively refreshes tokens every 45 minutes; `AmazonProductRefreshJob` refreshes live pricing & images daily via Quartz.
 2. **Expired Product Cleanup Process (`ExpiredProcess.cs`)**:
    - `ExpiredProcess.cs` continuously inspects database listings for expired signatures (`not a functioning page on our site`, 404s, `Currently unavailable`).

@@ -58,10 +58,12 @@ namespace WorldNewzWebAPI.Extensions
                     return;
                 }
 
-                // Skip ETag if request is for swagger or SignalR hubs
+                // Skip ETag if request is for swagger, SignalR hubs, or dynamic high-payload API endpoints
                 var path = context.Request.Path.Value ?? "";
                 if (path.Contains("swagger", StringComparison.OrdinalIgnoreCase) || 
-                    path.Contains("/hubs/", StringComparison.OrdinalIgnoreCase))
+                    path.Contains("/hubs/", StringComparison.OrdinalIgnoreCase) ||
+                    path.StartsWith("/api/amazonproducts", StringComparison.OrdinalIgnoreCase) ||
+                    path.StartsWith("/api/news", StringComparison.OrdinalIgnoreCase))
                 {
                     await next();
                     return;

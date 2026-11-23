@@ -21,6 +21,8 @@ namespace WorldNewzWebAPI.Services
         private readonly ILogger<AmazonProductService>? _logger;
         private readonly string _associateTag;
         private readonly int _stalenessThresholdHours;
+        private static bool _isSeeded = false;
+        private static readonly System.Threading.SemaphoreSlim _seedLock = new System.Threading.SemaphoreSlim(1, 1);
 
         public AmazonProductService(
             WorldNewsDbContext context,
@@ -49,10 +51,14 @@ namespace WorldNewzWebAPI.Services
         /// </summary>
         public async Task<List<AmazonProduct>> GetAffiliateProductsAsync()
         {
-            // Seed and ensure default products are synchronized in database
-            await EnsureDefaultProductsSeededAsync();
+            // Seed and ensure default products are synchronized in database only once on startup if needed
+            if (!_isSeeded)
+            {
+                await EnsureDefaultProductsSeededAsync(force: false);
+            }
 
             var products = await _context.AmazonProducts
+                .AsNoTracking()
                 .Where(p => p.IsActive && p.Asin != "B0GR1YWWQ6")
                 .OrderByDescending(p => p.Id)
                 .ToListAsync();
@@ -74,7 +80,10 @@ namespace WorldNewzWebAPI.Services
         /// </summary>
         public async Task RefreshDailyDealsAsync()
         {
-            await EnsureDefaultProductsSeededAsync();
+            if (!_isSeeded)
+            {
+                await EnsureDefaultProductsSeededAsync(force: false);
+            }
 
             var products = await _context.AmazonProducts.ToListAsync();
             if (products.Count == 0) return;
@@ -779,11 +788,28 @@ namespace WorldNewzWebAPI.Services
         }
 
         /// <summary>
-        /// Seeds and synchronizes default high-converting product deals in Amazon India
+        /// Seeds and synchronizes default high-converting product deals in Amazon India.
+        /// Guarded to run only once at startup or when forced, preventing repeated memory allocation.
         /// </summary>
-        private async Task EnsureDefaultProductsSeededAsync()
+        private async Task EnsureDefaultProductsSeededAsync(bool force = false)
         {
-            var seedData = new List<AmazonProduct>
+            if (_isSeeded && !force) return;
+
+            await _seedLock.WaitAsync();
+            try
+            {
+                if (_isSeeded && !force) return;
+
+                // Check if database already contains seeded products
+                var existingCount = await _context.AmazonProducts.CountAsync();
+                if (existingCount > 0 && !force)
+                {
+                    _isSeeded = true;
+                    _logger?.LogInformation($"[AmazonProductService] Catalog already seeded with {existingCount} products. Skipping redundant seed generation.");
+                    return;
+                }
+
+                var seedData = new List<AmazonProduct>
             {
                 new AmazonProduct
                 {
@@ -64942,10 +64968,10 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
             {
                 await _context.SaveChangesAsync();
 
-                // Auto-create Pins on Pinterest for newly seeded products
-                if (_pinterestService != null && _pinterestService.IsConfigured)
+                // Auto-create Pins on Pinterest for newly seeded products (capped to 10 to prevent runaway background loops)
+                if (_pinterestService != null && _pinterestService.IsConfigured && newProductsToAdd.Count > 0)
                 {
-                    var newSeeds = seedData.ToList();
+                    var newSeeds = newProductsToAdd.Take(10).ToList();
                     _ = Task.Run(async () =>
                     {
                         foreach (var seed in newSeeds)
@@ -64963,6 +64989,13 @@ Description = "Premium Decorative Indoor/Outdoor Succulent Planter Pot for Home 
                     });
                 }
             }
+
+            _isSeeded = true;
+        }
+        finally
+        {
+            _seedLock.Release();
         }
     }
+}
 }

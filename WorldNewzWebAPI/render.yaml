@@ -23,6 +23,14 @@ services:
         sync: true
       - key: DOTNET_USE_POLLING_FILE_WATCHER
         value: "true"
+      - key: DOTNET_gcServer
+        value: "0"
+      - key: DOTNET_GCHeapHardLimitPercent
+        value: "60"
+      - key: DOTNET_GCConserveMemory
+        value: "5"
+      - key: AMAZON_SCOPE
+        value: "creatorsapi::default"
     healthCheckPath: "/health"
 
 databases:
