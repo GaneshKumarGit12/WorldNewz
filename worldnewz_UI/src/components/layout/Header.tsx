@@ -392,6 +392,12 @@ export const Header: React.FC<HeaderProps> = ({
           borderBottom: "1px solid var(--color-border-divider)",
           boxShadow: isDark ? "0 2px 8px rgba(0,0,0,0.35)" : "0 1px 3px rgba(0,0,0,0.03)",
           transition: "var(--transition-theme)",
+          "& a, & a:visited, & button": {
+            color: "var(--slate)",
+          },
+          "& a:hover, & button:hover": {
+            color: isDark ? "#FFFFFF !important" : "var(--text-h) !important",
+          },
         }}
       >
         <Box
@@ -419,7 +425,10 @@ export const Header: React.FC<HeaderProps> = ({
                 to={link.path}
                 disableRipple
                 sx={{
-                  color: isActive ? "var(--red)" : "var(--slate)",
+                  color: (isActive ? "var(--red)" : "var(--slate)") + " !important",
+                  "&, &:visited": {
+                    color: (isActive ? "var(--red)" : "var(--slate)") + " !important",
+                  },
                   fontWeight: isActive ? 700 : 600,
                   fontSize: "13.5px",
                   fontFamily: "var(--sans, 'IBM Plex Sans', sans-serif)",
@@ -434,7 +443,7 @@ export const Header: React.FC<HeaderProps> = ({
                   position: "relative",
                   transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                   "&:hover": {
-                    color: isDark ? "#FFFFFF" : "var(--text-h)",
+                    color: (isDark ? "#FFFFFF" : "var(--text-h)") + " !important",
                     backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(183, 34, 43, 0.06)",
                   },
                   "&::after": isActive ? {
@@ -478,7 +487,10 @@ export const Header: React.FC<HeaderProps> = ({
                   }
                   disableRipple
                   sx={{
-                    color: isMoreActive || moreNewsOpen ? "var(--red)" : "var(--slate)",
+                    color: (isMoreActive || moreNewsOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    "&, &:visited": {
+                      color: (isMoreActive || moreNewsOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    },
                     fontWeight: isMoreActive || moreNewsOpen ? 700 : 600,
                     fontSize: "13.5px",
                     fontFamily: "var(--sans)",
@@ -493,7 +505,7 @@ export const Header: React.FC<HeaderProps> = ({
                     position: "relative",
                     transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                     "&:hover": {
-                      color: isDark ? "#FFFFFF" : "var(--text-h)",
+                      color: (isDark ? "#FFFFFF" : "var(--text-h)") + " !important",
                       backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(183, 34, 43, 0.06)",
                     },
                     "&::after": isMoreActive ? {
@@ -620,7 +632,10 @@ export const Header: React.FC<HeaderProps> = ({
                   }
                   disableRipple
                   sx={{
-                    color: isLifeActive || lifestyleOpen ? "var(--red)" : "var(--slate)",
+                    color: (isLifeActive || lifestyleOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    "&, &:visited": {
+                      color: (isLifeActive || lifestyleOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    },
                     fontWeight: isLifeActive || lifestyleOpen ? 700 : 600,
                     fontSize: "13.5px",
                     fontFamily: "var(--sans)",
@@ -635,7 +650,7 @@ export const Header: React.FC<HeaderProps> = ({
                     position: "relative",
                     transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                     "&:hover": {
-                      color: isDark ? "#FFFFFF" : "var(--text-h)",
+                      color: (isDark ? "#FFFFFF" : "var(--text-h)") + " !important",
                       backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(183, 34, 43, 0.06)",
                     },
                     "&::after": isLifeActive ? {
@@ -762,7 +777,10 @@ export const Header: React.FC<HeaderProps> = ({
                   }
                   disableRipple
                   sx={{
-                    color: isExploreActive || exploreOpen ? "var(--red)" : "var(--slate)",
+                    color: (isExploreActive || exploreOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    "&, &:visited": {
+                      color: (isExploreActive || exploreOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    },
                     fontWeight: isExploreActive || exploreOpen ? 700 : 600,
                     fontSize: "13.5px",
                     fontFamily: "var(--sans)",
@@ -777,7 +795,7 @@ export const Header: React.FC<HeaderProps> = ({
                     position: "relative",
                     transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                     "&:hover": {
-                      color: isDark ? "#FFFFFF" : "var(--text-h)",
+                      color: (isDark ? "#FFFFFF" : "var(--text-h)") + " !important",
                       backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(183, 34, 43, 0.06)",
                     },
                     "&::after": isExploreActive ? {
@@ -904,7 +922,10 @@ export const Header: React.FC<HeaderProps> = ({
                   }
                   disableRipple
                   sx={{
-                    color: isPlayActive || playOpen ? "var(--red)" : "var(--slate)",
+                    color: (isPlayActive || playOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    "&, &:visited": {
+                      color: (isPlayActive || playOpen ? "var(--red)" : "var(--slate)") + " !important",
+                    },
                     fontWeight: isPlayActive || playOpen ? 700 : 600,
                     fontSize: "13.5px",
                     fontFamily: "var(--sans)",
@@ -919,7 +940,7 @@ export const Header: React.FC<HeaderProps> = ({
                     position: "relative",
                     transition: "all 0.18s cubic-bezier(0.4, 0, 0.2, 1)",
                     "&:hover": {
-                      color: isDark ? "#FFFFFF" : "var(--text-h)",
+                      color: (isDark ? "#FFFFFF" : "var(--text-h)") + " !important",
                       backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(183, 34, 43, 0.06)",
                     },
                     "&::after": isPlayActive ? {
