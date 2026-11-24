@@ -25,6 +25,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import StarIcon from "@mui/icons-material/Star";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
@@ -95,34 +96,42 @@ const formatPrice = (val: number): string => {
   return val.toLocaleString("en-IN");
 };
 
+// Helper to extract a punchy, clean category label matching the screenshot (e.g. FASHION, TECH, HOME)
+const formatCategoryBadge = (category: string = ""): string => {
+  const cat = (category || "").trim().toUpperCase();
+  if (!cat) return "DEALS";
+  if (cat.includes("FASHION") || cat.includes("CLOTHING") || cat.includes("APPAREL") || cat.includes("KURTA") || cat.includes("SAREE") || cat.includes("WEAR")) return "FASHION";
+  if (cat.includes("ELECTRONIC") || cat.includes("GADGET") || cat.includes("TECH") || cat.includes("MOBILE") || cat.includes("PHONE") || cat.includes("AUDIO")) return "TECH";
+  if (cat.includes("KITCHEN") || cat.includes("APPLIANCE") || cat.includes("HOME")) return "HOME";
+  if (cat.includes("BEAUTY") || cat.includes("GROOMING") || cat.includes("SKINCARE") || cat.includes("CARE")) return "BEAUTY";
+  if (cat.includes("FITNESS") || cat.includes("SPORT")) return "SPORTS";
+  if (cat.includes("BOOK")) return "BOOKS";
+  const firstWord = cat.split(/[\s,&/-]+/)[0];
+  return (firstWord || "DEALS").slice(0, 10);
+};
+
 // Helper to determine category pill badge style matching modern aesthetic (e.g. lavender #EDE9FE + violet #6D28D9 for fashion)
 const getCategoryBadgeStyle = (category: string = "", isDark: boolean = false) => {
   const cat = category.toLowerCase().trim();
-  if (cat.includes("electronics") || cat.includes("gadget") || cat.includes("tech")) {
+  if (cat.includes("electronics") || cat.includes("gadget") || cat.includes("tech") || cat.includes("mobile") || cat.includes("audio")) {
     return {
-      bg: isDark ? "rgba(59, 130, 246, 0.2)" : "#DBEAFE",
-      color: isDark ? "#93C5FD" : "#1D4ED8",
-      border: isDark ? "rgba(59, 130, 246, 0.35)" : "#BFDBFE"
+      bg: isDark ? "#DBEAFE" : "#DBEAFE",
+      color: "#1D4ED8",
+      border: isDark ? "rgba(147, 197, 253, 0.4)" : "#BFDBFE"
     };
   }
   if (cat.includes("kitchen") || cat.includes("home") || cat.includes("appliance")) {
     return {
-      bg: isDark ? "rgba(16, 185, 129, 0.2)" : "#DCFCE7",
-      color: isDark ? "#86EFAC" : "#15803D",
-      border: isDark ? "rgba(16, 185, 129, 0.35)" : "#BBF7D0"
+      bg: isDark ? "#DCFCE7" : "#DCFCE7",
+      color: "#15803D",
+      border: isDark ? "rgba(134, 239, 172, 0.4)" : "#BBF7D0"
     };
   }
-  if (cat.includes("lifestyle") || cat.includes("fashion") || cat.includes("clothing") || cat.includes("apparel") || cat.includes("beauty")) {
-    return {
-      bg: isDark ? "rgba(168, 85, 247, 0.22)" : "#EDE9FE",
-      color: isDark ? "#D8B4FE" : "#6D28D9",
-      border: isDark ? "rgba(168, 85, 247, 0.38)" : "#DDD6FE"
-    };
-  }
+  // Fashion / Lifestyle / default (lavender #EDE9FE + violet #6D28D9)
   return {
-    bg: isDark ? "rgba(168, 85, 247, 0.22)" : "#EDE9FE",
-    color: isDark ? "#D8B4FE" : "#6D28D9",
-    border: isDark ? "rgba(168, 85, 247, 0.38)" : "#DDD6FE"
+    bg: "#EDE9FE",
+    color: "#6D28D9",
+    border: isDark ? "rgba(216, 180, 254, 0.4)" : "#DDD6FE"
   };
 };
 
@@ -329,11 +338,14 @@ const CardShareButton: React.FC<CardShareButtonProps> = React.memo(({ product, g
           onClick={handleClick}
           aria-label="Share Deal"
           sx={{
-            color: isDark ? "#F8FAFC" : "#334155",
+            color: isDark ? "#FFFFFF" : "#334155",
             bgcolor: isDark ? "#1E293B" : "#F1F5F9",
-            border: `1px solid ${isDark ? "rgba(255, 255, 255, 0.12)" : "#E2E8F0"}`,
+            border: `1px solid ${isDark ? "rgba(255, 255, 255, 0.14)" : "#E2E8F0"}`,
             borderRadius: "12px",
-            p: 0.75,
+            width: 44,
+            height: 44,
+            minWidth: 44,
+            p: 0,
             transition: "all 0.2s ease-in-out",
             "&:hover": {
               borderColor: "#E11D48",
@@ -1048,7 +1060,7 @@ export const AmazonProducts: React.FC = () => {
                           </Box>
 
                           <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
-                            <CardShareButton product={activeHeroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+                            <CardShareButton product={activeHeroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} sx={{ width: 32, height: 32, minWidth: 32, borderRadius: "8px" }} />
                             <IconButton
                               size="small"
                               onClick={() => toggleLike(activeHeroDeal.asin)}
@@ -1480,8 +1492,8 @@ export const AmazonProducts: React.FC = () => {
                           sx={{
                             p: 2,
                             height: "100%",
-                            borderRadius: "18px",
-                            bgcolor: isDark ? "#0B1120" : "#FFFFFF",
+                            borderRadius: "20px",
+                            bgcolor: isDark ? "#0F172A" : "#FFFFFF",
                             border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid #E2E8F0",
                             display: "flex",
                             flexDirection: "column",
@@ -1514,7 +1526,7 @@ export const AmazonProducts: React.FC = () => {
                               display: "flex",
                               justifyContent: "center",
                               alignItems: "center",
-                              height: 180,
+                              height: 190,
                               overflow: "hidden"
                             }}
                           >
@@ -1529,16 +1541,20 @@ export const AmazonProducts: React.FC = () => {
                                 color: badgeStyle.color,
                                 border: `1px solid ${badgeStyle.border}`,
                                 borderRadius: "9999px",
-                                px: 1.15,
-                                py: 0.35,
-                                fontSize: "0.65rem",
+                                px: 1.25,
+                                py: 0.4,
+                                fontSize: "0.68rem",
                                 fontWeight: 800,
                                 letterSpacing: "0.04em",
                                 textTransform: "uppercase",
-                                lineHeight: 1
+                                lineHeight: 1,
+                                maxWidth: "58%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis"
                               }}
                             >
-                              {deal.category || "FLASH"}
+                              {formatCategoryBadge(deal.category || "FLASH")}
                             </Box>
 
                             {/* Discount Chip on Top Right */}
@@ -1552,9 +1568,9 @@ export const AmazonProducts: React.FC = () => {
                                   bgcolor: "#EF4444",
                                   color: "#FFFFFF",
                                   borderRadius: "9999px",
-                                  px: 1.15,
-                                  py: 0.35,
-                                  fontSize: "0.68rem",
+                                  px: 1.2,
+                                  py: 0.4,
+                                  fontSize: "0.7rem",
                                   fontWeight: 800,
                                   letterSpacing: "0.02em",
                                   lineHeight: 1,
@@ -1580,14 +1596,15 @@ export const AmazonProducts: React.FC = () => {
                                   bottom: 10,
                                   right: 10,
                                   zIndex: 3,
-                                  width: 36,
-                                  height: 36,
-                                  color: isBookmarked ? "#EF4444" : (isDark ? "#F8FAFC" : "#334155"),
-                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.82)" : "rgba(255, 255, 255, 0.92)",
+                                  width: 38,
+                                  height: 38,
+                                  minWidth: 38,
+                                  color: isBookmarked ? "#EF4444" : (isDark ? "#FFFFFF" : "#1E293B"),
+                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.85)" : "#FFFFFF",
                                   backdropFilter: "blur(8px)",
-                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.16)" : "1px solid rgba(0, 0, 0, 0.08)",
+                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.16)" : "1px solid rgba(0, 0, 0, 0.1)",
                                   borderRadius: "12px",
-                                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.18)",
+                                  boxShadow: isDark ? "0 4px 12px rgba(0, 0, 0, 0.25)" : "0 4px 10px rgba(0, 0, 0, 0.08)",
                                   transition: "all 0.2s ease-in-out",
                                   "&:hover": {
                                     transform: "scale(1.08)",
@@ -1598,9 +1615,9 @@ export const AmazonProducts: React.FC = () => {
                                 }}
                               >
                                 {isBookmarked ? (
-                                  <BookmarkIcon sx={{ fontSize: "1.1rem" }} />
+                                  <BookmarkIcon sx={{ fontSize: "1.15rem" }} />
                                 ) : (
-                                  <BookmarkBorderIcon sx={{ fontSize: "1.1rem" }} />
+                                  <BookmarkBorderIcon sx={{ fontSize: "1.15rem" }} />
                                 )}
                               </IconButton>
                             </Tooltip>
@@ -1616,8 +1633,8 @@ export const AmazonProducts: React.FC = () => {
                               data-asin={deal.asin}
                               onError={handleImageError}
                               sx={{
-                                maxHeight: "80%",
-                                maxWidth: "80%",
+                                maxHeight: "82%",
+                                maxWidth: "82%",
                                 width: "auto",
                                 height: "auto",
                                 objectFit: "contain",
@@ -1636,14 +1653,14 @@ export const AmazonProducts: React.FC = () => {
                               title={deal.title}
                               sx={{
                                 fontWeight: 800,
-                                fontSize: "0.88rem",
-                                color: isDark ? "#F8FAFC" : "#0F172A",
+                                fontSize: "0.9rem",
+                                color: isDark ? "#FFFFFF" : "#0F172A",
                                 lineHeight: 1.35,
                                 display: "-webkit-box",
                                 WebkitLineClamp: 2,
                                 WebkitBoxOrient: "vertical",
                                 overflow: "hidden",
-                                minHeight: "2.4rem",
+                                minHeight: "2.45rem",
                                 mb: 1.25,
                                 transition: "color 0.2s ease",
                                 "&:hover": {
@@ -1667,22 +1684,22 @@ export const AmazonProducts: React.FC = () => {
                                   "& .MuiRating-iconFilled": { color: "#F59E0B" }
                                 }}
                               />
-                              <Typography variant="caption" sx={{ fontWeight: 800, color: isDark ? "#F8FAFC" : "#0F172A", fontSize: "0.82rem" }}>
-                                {rating}
+                              <Typography variant="caption" sx={{ fontWeight: 800, color: isDark ? "#FFFFFF" : "#0F172A", fontSize: "0.84rem" }}>
+                                {typeof rating === "number" ? rating.toFixed(1) : "4.5"}
                               </Typography>
-                              <Typography variant="caption" sx={{ color: isDark ? "#94A3B8" : "#64748B", fontSize: "0.74rem" }}>
+                              <Typography variant="caption" sx={{ color: isDark ? "#94A3B8" : "#64748B", fontSize: "0.76rem" }}>
                                 ({reviewCount.toLocaleString()} reviews)
                               </Typography>
                             </Box>
 
                             {/* Price Row */}
-                            <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.75, mb: 0.75, flexWrap: "wrap" }}>
+                            <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.85, mb: 0.85, flexWrap: "wrap" }}>
                               <Typography
                                 variant="subtitle1"
                                 sx={{
                                   fontWeight: 900,
                                   color: isDark ? "#FFFFFF" : "#0F172A",
-                                  fontSize: { xs: "1.35rem", sm: "1.45rem" },
+                                  fontSize: { xs: "1.4rem", sm: "1.55rem" },
                                   lineHeight: 1,
                                   letterSpacing: "-0.02em"
                                 }}
@@ -1695,7 +1712,7 @@ export const AmazonProducts: React.FC = () => {
                                   sx={{
                                     textDecoration: "line-through",
                                     color: isDark ? "#64748B" : "#94A3B8",
-                                    fontSize: "0.85rem",
+                                    fontSize: "0.88rem",
                                     fontWeight: 500
                                   }}
                                 >
@@ -1710,7 +1727,7 @@ export const AmazonProducts: React.FC = () => {
                                 sx={{
                                   display: "inline-flex",
                                   alignItems: "center",
-                                  bgcolor: isDark ? "rgba(34, 197, 94, 0.14)" : "rgba(34, 197, 94, 0.12)",
+                                  bgcolor: isDark ? "rgba(34, 197, 94, 0.16)" : "rgba(34, 197, 94, 0.12)",
                                   border: isDark ? "1px solid rgba(74, 222, 128, 0.25)" : "1px solid rgba(22, 163, 74, 0.2)",
                                   borderRadius: "8px",
                                   px: 1.15,
@@ -1725,7 +1742,7 @@ export const AmazonProducts: React.FC = () => {
                                   sx={{
                                     color: isDark ? "#4ADE80" : "#15803D",
                                     fontWeight: 800,
-                                    fontSize: "0.72rem",
+                                    fontSize: "0.74rem",
                                     letterSpacing: "0.01em",
                                     whiteSpace: "nowrap",
                                     textOverflow: "ellipsis",
@@ -1770,14 +1787,14 @@ export const AmazonProducts: React.FC = () => {
                                 href={getAffiliateUrl(deal)}
                                 target="_blank"
                                 rel="sponsored noopener noreferrer"
-                                startIcon={<ShoppingBagIcon sx={{ fontSize: "1.1rem" }} />}
+                                startIcon={<ShoppingBagOutlinedIcon sx={{ fontSize: "1.15rem" }} />}
                                 sx={{
                                   flex: 1,
-                                  height: 42,
+                                  height: 44,
                                   borderRadius: "12px",
                                   textTransform: "none",
                                   fontWeight: 800,
-                                  fontSize: "0.85rem",
+                                  fontSize: "0.88rem",
                                   letterSpacing: "0.01em",
                                   whiteSpace: "nowrap",
                                   bgcolor: "#E11D48",
@@ -1798,20 +1815,10 @@ export const AmazonProducts: React.FC = () => {
                                 product={deal}
                                 getAbsoluteImageUrl={getAbsoluteImageUrl}
                                 sx={{
-                                  width: 42,
-                                  height: 42,
-                                  minWidth: 42,
-                                  borderRadius: "12px",
-                                  bgcolor: isDark ? "#1E293B" : "#F1F5F9",
-                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.12)" : "1px solid #E2E8F0",
-                                  color: isDark ? "#F8FAFC" : "#334155",
-                                  transition: "all 0.2s ease-in-out",
-                                  "&:hover": {
-                                    borderColor: "#E11D48",
-                                    color: "#E11D48",
-                                    bgcolor: isDark ? "rgba(225, 29, 72, 0.15)" : "rgba(225, 29, 72, 0.08)",
-                                    transform: "translateY(-1px)"
-                                  }
+                                  width: 44,
+                                  height: 44,
+                                  minWidth: 44,
+                                  borderRadius: "12px"
                                 }}
                               />
                             </Box>
@@ -1955,8 +1962,8 @@ export const AmazonProducts: React.FC = () => {
                             height: "100%",
                             display: "flex",
                             flexDirection: "column",
-                            borderRadius: "18px",
-                            bgcolor: isDark ? "#0B1120" : "#FFFFFF",
+                            borderRadius: "20px",
+                            bgcolor: isDark ? "#0F172A" : "#FFFFFF",
                             color: "var(--text)",
                             border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid #E2E8F0",
                             p: 2,
@@ -2009,10 +2016,14 @@ export const AmazonProducts: React.FC = () => {
                                 fontWeight: 800,
                                 letterSpacing: "0.04em",
                                 textTransform: "uppercase",
-                                lineHeight: 1
+                                lineHeight: 1,
+                                maxWidth: "58%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis"
                               }}
                             >
-                              {product.category || "DEALS"}
+                              {formatCategoryBadge(product.category || "DEALS")}
                             </Box>
 
                             {/* Top Right Discount Badge */}
@@ -2056,12 +2067,13 @@ export const AmazonProducts: React.FC = () => {
                                   zIndex: 3,
                                   width: 38,
                                   height: 38,
-                                  color: isBookmarked ? "#EF4444" : (isDark ? "#F8FAFC" : "#334155"),
-                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.82)" : "rgba(255, 255, 255, 0.92)",
+                                  minWidth: 38,
+                                  color: isBookmarked ? "#EF4444" : (isDark ? "#FFFFFF" : "#1E293B"),
+                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.85)" : "#FFFFFF",
                                   backdropFilter: "blur(8px)",
-                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.16)" : "1px solid rgba(0, 0, 0, 0.08)",
+                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.16)" : "1px solid rgba(0, 0, 0, 0.1)",
                                   borderRadius: "12px",
-                                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.18)",
+                                  boxShadow: isDark ? "0 4px 12px rgba(0, 0, 0, 0.25)" : "0 4px 10px rgba(0, 0, 0, 0.08)",
                                   transition: "all 0.2s ease-in-out",
                                   "&:hover": {
                                     transform: "scale(1.08)",
@@ -2107,7 +2119,7 @@ export const AmazonProducts: React.FC = () => {
                                 fontWeight: 800,
                                 mb: 1.25,
                                 fontSize: "0.96rem",
-                                color: isDark ? "#F8FAFC" : "#0F172A",
+                                color: isDark ? "#FFFFFF" : "#0F172A",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
                                 display: "-webkit-box",
@@ -2137,8 +2149,8 @@ export const AmazonProducts: React.FC = () => {
                                   "& .MuiRating-iconFilled": { color: "#F59E0B" }
                                 }}
                               />
-                              <Typography variant="caption" sx={{ fontWeight: 800, color: isDark ? "#F8FAFC" : "#0F172A", fontSize: "0.84rem" }}>
-                                {rating}
+                              <Typography variant="caption" sx={{ fontWeight: 800, color: isDark ? "#FFFFFF" : "#0F172A", fontSize: "0.84rem" }}>
+                                {typeof rating === "number" ? rating.toFixed(1) : "4.5"}
                               </Typography>
                               <Typography variant="caption" sx={{ color: isDark ? "#94A3B8" : "#64748B", fontSize: "0.78rem" }}>
                                 ({reviewCount.toLocaleString()} reviews)
@@ -2152,7 +2164,7 @@ export const AmazonProducts: React.FC = () => {
                                 sx={{
                                   fontWeight: 900,
                                   color: isDark ? "#FFFFFF" : "#0F172A",
-                                  fontSize: { xs: "1.5rem", sm: "1.7rem" },
+                                  fontSize: { xs: "1.55rem", sm: "1.75rem" },
                                   lineHeight: 1,
                                   letterSpacing: "-0.02em"
                                 }}
@@ -2180,14 +2192,15 @@ export const AmazonProducts: React.FC = () => {
                                 sx={{
                                   display: "inline-flex",
                                   alignItems: "center",
-                                  bgcolor: isDark ? "rgba(34, 197, 94, 0.14)" : "rgba(34, 197, 94, 0.12)",
+                                  bgcolor: isDark ? "rgba(34, 197, 94, 0.16)" : "rgba(34, 197, 94, 0.12)",
                                   border: isDark ? "1px solid rgba(74, 222, 128, 0.25)" : "1px solid rgba(22, 163, 74, 0.2)",
                                   borderRadius: "8px",
                                   px: 1.25,
                                   py: 0.4,
                                   mb: 2.25,
                                   alignSelf: "flex-start",
-                                  width: "fit-content"
+                                  maxWidth: "100%",
+                                  overflow: "hidden"
                                 }}
                               >
                                 <Typography
@@ -2195,7 +2208,10 @@ export const AmazonProducts: React.FC = () => {
                                     color: isDark ? "#4ADE80" : "#15803D",
                                     fontWeight: 800,
                                     fontSize: "0.76rem",
-                                    letterSpacing: "0.01em"
+                                    letterSpacing: "0.01em",
+                                    whiteSpace: "nowrap",
+                                    textOverflow: "ellipsis",
+                                    overflow: "hidden"
                                   }}
                                 >
                                   You save ₹{formatPrice(savingsAmount)} ({discount}%)
@@ -2212,8 +2228,7 @@ export const AmazonProducts: React.FC = () => {
                                   px: 1.25,
                                   py: 0.4,
                                   mb: 2.25,
-                                  alignSelf: "flex-start",
-                                  width: "fit-content"
+                                  alignSelf: "flex-start"
                                 }}
                               >
                                 <Typography
@@ -2244,7 +2259,7 @@ export const AmazonProducts: React.FC = () => {
                                 href={getAffiliateUrl(product)}
                                 target="_blank"
                                 rel="sponsored noopener noreferrer"
-                                startIcon={<ShoppingBagIcon sx={{ fontSize: "1.15rem" }} />}
+                                startIcon={<ShoppingBagOutlinedIcon sx={{ fontSize: "1.15rem" }} />}
                                 sx={{
                                   flex: 1,
                                   height: 44,
@@ -2274,17 +2289,7 @@ export const AmazonProducts: React.FC = () => {
                                   width: 44,
                                   height: 44,
                                   minWidth: 44,
-                                  borderRadius: "12px",
-                                  bgcolor: isDark ? "#1E293B" : "#F1F5F9",
-                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.12)" : "1px solid #E2E8F0",
-                                  color: isDark ? "#F8FAFC" : "#334155",
-                                  transition: "all 0.2s ease-in-out",
-                                  "&:hover": {
-                                    borderColor: "#E11D48",
-                                    color: "#E11D48",
-                                    bgcolor: isDark ? "rgba(225, 29, 72, 0.15)" : "rgba(225, 29, 72, 0.08)",
-                                    transform: "translateY(-1px)"
-                                  }
+                                  borderRadius: "12px"
                                 }}
                               />
                             </Box>
