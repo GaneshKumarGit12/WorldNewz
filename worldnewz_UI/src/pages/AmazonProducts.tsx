@@ -117,21 +117,26 @@ const parseBrandAndTitle = (rawTitle: string = "", category: string = ""): { bra
     return { brand: formatCategoryBadge(category), cleanTitle: "Amazon Verified Deal" };
   }
 
-  // Common verified brands
+  // Common verified brands in Indian Amazon catalog & fashion/tech deals
   const KNOWN_BRANDS = [
     "ANNI DESIGNER", "AMERICAN CREW", "VAN HEUSEN", "ARTIST VALLEY", "ALLEN SOLLY",
     "PETER ENGLAND", "U.S. POLO ASSN.", "U.S. POLO ASSN", "US POLO", "LEVI'S", "LEVIS",
+    "LOUIS PHILIPPE", "LONDON HILLS", "NOBLE MONK", "SLEEPY NUTS", "BAGHADBILLO", "TURMS", "DEELMO", "AUSK",
     "MAX", "ZARA", "H&M", "BULLMER", "LYMIO", "JBL", "BOAT", "SONY", "APPLE",
     "SAMSUNG", "ONEPLUS", "NOISE", "BOULT", "REALME", "XIAOMI", "REDMI", "PHILIPS",
     "BAJAJ", "PIGEON", "PRESTIGE", "MILTON", "CELLO", "WROGN", "HIGHLANDER", "ROADSTER",
-    "ARAYNA", "PISTAA", "MOKOSH", "INDO ERA", "LERIYA FASHION", "AMAYRA", "ROYALSCOUT"
+    "ARAYNA", "PISTAA", "MOKOSH", "INDO ERA", "LERIYA FASHION", "AMAYRA", "ROYALSCOUT",
+    "PUMA", "ADIDAS", "NIKE", "REEBOK", "RED TAPE", "CAMPUS", "SPARX", "BATA", "WOODLAND",
+    "FASTRACK", "FASTTRACK", "TITAN", "CASIO", "TIMEX", "FOSSIL", "FIRE-BOLTT", "FIREBOLT",
+    "AMAZFIT", "ZEBRONICS", "PORTRONICS", "SANDISK", "HP", "DELL", "LENOVO", "ACER", "ASUS",
+    "JOCKEY", "PARX", "RAYMOND", "ARROW", "BLACKBERRYS", "MUFTI", "SPYKAR", "KILLER"
   ];
 
   for (const kb of KNOWN_BRANDS) {
     const escaped = kb.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const regex = new RegExp(`^${escaped}\\b[:\\-\\s]*`, "i");
+    const regex = new RegExp(`^${escaped}\\b[:\\-\\s.,|]*`, "i");
     if (regex.test(trimmed)) {
-      const rest = trimmed.replace(regex, "").trim();
+      const rest = trimmed.replace(regex, "").replace(/^[:\\-\\s.,|]+/, "").trim();
       return {
         brand: kb.toUpperCase(),
         cleanTitle: rest || trimmed
@@ -140,13 +145,13 @@ const parseBrandAndTitle = (rawTitle: string = "", category: string = ""): { bra
   }
 
   // Pattern: "Brand Name Women's..." / "Brand Name Men's..."
-  const genderPattern = /^([A-Za-z0-9&.'\s]{2,25}?)\s+(Women's|Men's|Kids'|Boy's|Girl's|Unisex)\b/i;
+  const genderPattern = /^([A-Za-z0-9&.'\s]{2,25}?)\s+(Women's|Men's|Mens|Womens|Kids'|Boy's|Girl's|Unisex)\b/i;
   const match = trimmed.match(genderPattern);
   if (match && match[1]) {
     const potentialBrand = match[1].trim();
-    const genericWords = ["THE", "NEW", "BUY", "BEST", "TOP", "LATEST", "PREMIUM", "EXCLUSIVE"];
+    const genericWords = ["THE", "NEW", "BUY", "BEST", "TOP", "LATEST", "PREMIUM", "EXCLUSIVE", "COTTON", "CASUAL"];
     if (!genericWords.includes(potentialBrand.toUpperCase())) {
-      const rest = trimmed.slice(potentialBrand.length).trim();
+      const rest = trimmed.slice(potentialBrand.length).replace(/^[:\\-\\s.,|]+/, "").trim();
       return {
         brand: potentialBrand.toUpperCase(),
         cleanTitle: rest || trimmed
@@ -154,24 +159,27 @@ const parseBrandAndTitle = (rawTitle: string = "", category: string = ""): { bra
     }
   }
 
-  // Pattern: "Brand Name - Title..." or "Brand Name | Title..."
-  if (trimmed.includes(" - ") || trimmed.includes(" | ")) {
-    const separator = trimmed.includes(" - ") ? " - " : " | ";
-    const parts = trimmed.split(separator);
-    if (parts[0].trim().length >= 2 && parts[0].trim().length <= 25) {
+  // Pattern: "Brand Name - Title..."
+  if (trimmed.includes(" - ")) {
+    const parts = trimmed.split(" - ");
+    const candidate = parts[0].trim();
+    const isGeneric = /(cotton|t-shirt|shirt|pack of|set of|kurta|dress|casual|regular)/i.test(candidate);
+    if (!isGeneric && candidate.length >= 2 && candidate.length <= 25) {
       return {
-        brand: parts[0].trim().toUpperCase(),
-        cleanTitle: parts.slice(1).join(separator).trim()
+        brand: candidate.toUpperCase(),
+        cleanTitle: parts.slice(1).join(" - ").trim()
       };
     }
   }
 
-  // Fallback: If title has words, take first word if length is 2-15 chars, else category badge
+  // Fallback: If title has words, take first word if length is 2-15 chars (excluding generic terms) and strip from cleanTitle
   const firstWord = trimmed.split(/\s+/)[0];
-  if (firstWord && firstWord.length >= 2 && firstWord.length <= 15 && !["THE", "NEW", "ALL", "SET", "PACK"].includes(firstWord.toUpperCase())) {
+  const genericFirstWords = ["THE", "NEW", "ALL", "SET", "PACK", "BEST", "TOP", "MEN", "WOMEN", "BOY", "GIRL", "COMBO", "BUY", "COTTON"];
+  if (firstWord && firstWord.length >= 2 && firstWord.length <= 15 && !genericFirstWords.includes(firstWord.toUpperCase())) {
+    const rest = trimmed.slice(firstWord.length).replace(/^[:\\-\\s.,|]+/, "").trim();
     return {
       brand: firstWord.toUpperCase(),
-      cleanTitle: trimmed
+      cleanTitle: rest || trimmed
     };
   }
 
@@ -735,11 +743,32 @@ export const AmazonProducts: React.FC = () => {
     setHeroMediaIndex(0);
   }, [heroDeals.map(d => d.asin).join(",")]);
 
-  // Flash Deals Ribbon (Next 4 items, excluding the Editor's Choice deals)
+  // Flash Deals Ribbon (Next 4 high-discount items, excluding Editor's Choice deals)
   const flashDeals = useMemo(() => {
-    if (uniqueProducts.length <= 1) return [];
+    if (uniqueProducts.length === 0) return [];
     const heroAsins = new Set(heroDeals.map(d => d.asin));
-    return uniqueProducts.filter(p => !heroAsins.has(p.asin)).slice(0, 4);
+    const eligible = uniqueProducts.filter(p => !heroAsins.has(p.asin));
+
+    // Sort eligible deals by discount percentage descending for authentic high-drop flash deals
+    const sortedByDiscount = [...eligible].sort((a, b) => {
+      const discA = a.originalPrice && a.originalPrice > a.price ? (1 - (a.price / a.originalPrice)) : 0;
+      const discB = b.originalPrice && b.originalPrice > b.price ? (1 - (b.price / b.originalPrice)) : 0;
+      return discB - discA;
+    });
+
+    if (sortedByDiscount.length >= 4) {
+      return sortedByDiscount.slice(0, 4);
+    }
+
+    // Backfill from remaining products if eligible pool has fewer than 4 deals
+    const combined = [...sortedByDiscount];
+    for (const p of uniqueProducts) {
+      if (combined.length >= 4) break;
+      if (!combined.some(c => c.asin === p.asin)) {
+        combined.push(p);
+      }
+    }
+    return combined.slice(0, 4);
   }, [uniqueProducts, heroDeals]);
 
   // Scratch card deal selection
@@ -1672,17 +1701,25 @@ export const AmazonProducts: React.FC = () => {
                         >
                           {/* Top Media Container - Flush with card top */}
                           <Box
+                            onClick={() => window.open(getAffiliateUrl(deal), "_blank", "noopener,noreferrer")}
                             sx={{
                               position: "relative",
+                              cursor: "pointer",
                               background: isDark
                                 ? (index === 0
-                                    ? "linear-gradient(180deg, #24241B 0%, #151A22 100%)"
+                                    ? "linear-gradient(180deg, #383520 0%, #151A22 100%)"
                                     : index === 1
-                                    ? "linear-gradient(180deg, #1C2331 0%, #131A26 100%)"
+                                    ? "linear-gradient(180deg, #2D3342 0%, #131A26 100%)"
                                     : index === 2
-                                    ? "linear-gradient(180deg, #182338 0%, #101826 100%)"
-                                    : "linear-gradient(180deg, #1E212B 0%, #121722 100%)")
-                                : "linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)",
+                                    ? "linear-gradient(180deg, #1E3558 0%, #101826 100%)"
+                                    : "linear-gradient(180deg, #24283B 0%, #121722 100%)")
+                                : (index === 0
+                                    ? "linear-gradient(180deg, #FEFCE8 0%, #F8FAFC 100%)"
+                                    : index === 1
+                                    ? "linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%)"
+                                    : index === 2
+                                    ? "linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 100%)"
+                                    : "linear-gradient(180deg, #F5F3FF 0%, #FFFFFF 100%)"),
                               borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.06)" : "1px solid #F1F5F9",
                               borderTopLeftRadius: "18px",
                               borderTopRightRadius: "18px",
@@ -1693,7 +1730,7 @@ export const AmazonProducts: React.FC = () => {
                               overflow: "hidden"
                             }}
                           >
-                            {/* Top Left: Red Discount Badge */}
+                            {/* Top Left: Red Discount Pill Badge */}
                             {discount > 0 && (
                               <Box
                                 sx={{
@@ -1703,8 +1740,8 @@ export const AmazonProducts: React.FC = () => {
                                   zIndex: 2,
                                   bgcolor: "#EF4444",
                                   color: "#FFFFFF",
-                                  borderRadius: "8px",
-                                  px: 1.25,
+                                  borderRadius: "9999px",
+                                  px: 1.35,
                                   py: 0.45,
                                   fontSize: "0.72rem",
                                   fontWeight: 800,
@@ -1833,7 +1870,9 @@ export const AmazonProducts: React.FC = () => {
                               variant="subtitle2"
                               component="h3"
                               title={parsed.cleanTitle}
+                              onClick={() => window.open(getAffiliateUrl(deal), "_blank", "noopener,noreferrer")}
                               sx={{
+                                cursor: "pointer",
                                 fontWeight: 800,
                                 fontSize: "0.92rem",
                                 color: isDark ? "#FFFFFF" : "#0F172A",
@@ -1974,7 +2013,13 @@ export const AmazonProducts: React.FC = () => {
                                   width: 42,
                                   height: 42,
                                   minWidth: 42,
-                                  borderRadius: "10px"
+                                  borderRadius: "10px",
+                                  "&:hover": {
+                                    borderColor: "#EF4444",
+                                    color: "#EF4444",
+                                    bgcolor: isDark ? "rgba(239, 68, 68, 0.15)" : "rgba(239, 68, 68, 0.08)",
+                                    transform: "translateY(-1px)"
+                                  }
                                 }}
                               />
                             </Box>
