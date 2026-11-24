@@ -1,13 +1,20 @@
 import { useNavigate, useLocation, useParams, Link } from "react-router-dom";
-import { Box, Typography, CardMedia, Button, Container, LinearProgress, Menu, MenuItem, ListItemIcon, ListItemText, Link as MuiLink, Avatar } from "@mui/material";
+import { Box, Typography, CardMedia, Button, Container, LinearProgress, Menu, MenuItem, ListItemIcon, ListItemText, Link as MuiLink, Avatar, Tooltip, IconButton, Chip } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ShareIcon from "@mui/icons-material/Share";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import PauseIcon from "@mui/icons-material/Pause";
+import StopIcon from "@mui/icons-material/Stop";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import CheckIcon from "@mui/icons-material/Check";
 import React, { useEffect, useState, useMemo, Fragment } from "react";
 import type { Article } from "../types";
 import { fetchFullContent, fetchSearch, fetchDiscover } from "../api/apiClient";
@@ -140,6 +147,126 @@ const ReadFullArticles: React.FC = () => {
     }
     return faqs;
   }, [paragraphs]);
+
+  // Estimated reading time in minutes (based on 200 words per minute)
+  const readingTimeMinutes = useMemo(() => {
+    if (!paragraphs || paragraphs.length === 0) return 3;
+    const totalWords = paragraphs.reduce((acc, p) => acc + (typeof p === "string" ? p.split(/\s+/).length : 0), 0);
+    return Math.max(1, Math.ceil(totalWords / 200));
+  }, [paragraphs]);
+
+  // Audio reader and reading comfort states
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [isPausedAudio, setIsPausedAudio] = useState(false);
+  const [copyFeedback, setCopyFeedback] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const [fontSizeMultiplier, setFontSizeMultiplier] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem("worldnewz_article_font_size");
+      return saved ? parseFloat(saved) : 1;
+    } catch {
+      return 1;
+    }
+  });
+
+  const handleFontSizeChange = (delta: number) => {
+    setFontSizeMultiplier(prev => {
+      const next = Math.min(1.35, Math.max(0.85, Math.round((prev + delta) * 100) / 100));
+      try { 
+        localStorage.setItem("worldnewz_article_font_size", String(next)); 
+      } catch {
+        // Storage access may be blocked
+      }
+      return next;
+    });
+  };
+
+  const handleResetFontSize = () => {
+    setFontSizeMultiplier(1);
+    try { 
+      localStorage.setItem("worldnewz_article_font_size", "1"); 
+    } catch {
+      // Storage access may be blocked
+    }
+  };
+
+  // Scroll reading progress & TTS audio cleanup
+  useEffect(() => {
+    const handleScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0) {
+        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / total) * 100)));
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const handleToggleAudio = () => {
+    if (!("speechSynthesis" in window)) {
+      alert("Text-to-speech audio reader is not supported in this browser.");
+      return;
+    }
+
+    if (isPlayingAudio && !isPausedAudio) {
+      window.speechSynthesis.pause();
+      setIsPausedAudio(true);
+      return;
+    }
+
+    if (isPlayingAudio && isPausedAudio) {
+      window.speechSynthesis.resume();
+      setIsPausedAudio(false);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const cleanLines = [
+      article?.headline || article?.title || "",
+      article?.summary || article?.description || "",
+      ...paragraphs.map(p => typeof p === "string" ? p.replace(/^#+\s*|\*\*|\*/g, "") : "")
+    ].filter(Boolean).join(". ");
+
+    const utterance = new SpeechSynthesisUtterance(cleanLines);
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
+    utterance.onend = () => {
+      setIsPlayingAudio(false);
+      setIsPausedAudio(false);
+    };
+    utterance.onerror = () => {
+      setIsPlayingAudio(false);
+      setIsPausedAudio(false);
+    };
+    window.speechSynthesis.speak(utterance);
+    setIsPlayingAudio(true);
+    setIsPausedAudio(false);
+  };
+
+  const handleStopAudio = () => {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsPlayingAudio(false);
+    setIsPausedAudio(false);
+  };
+
+  const handleCopyLink = () => {
+    const url = article?.url || window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopyFeedback(true);
+      setShareAnchorEl(null);
+      setTimeout(() => setCopyFeedback(false), 2000);
+    }).catch(() => {
+      setShareAnchorEl(null);
+    });
+  };
 
   useEffect(() => {
     setImgSrc(optimizedUrl);
@@ -330,7 +457,19 @@ const ReadFullArticles: React.FC = () => {
     }
   };
 
-  const handleShareClick = (e: React.MouseEvent<HTMLElement>) => {
+  const handleShareClick = async (e: React.MouseEvent<HTMLElement>) => {
+    if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
+      try {
+        await navigator.share({
+          title: article?.headline || article?.title || "WorldNewzs",
+          text: article?.summary || article?.description || "",
+          url: window.location.href,
+        });
+        return;
+      } catch (err: any) {
+        if (err.name === "AbortError") return;
+      }
+    }
     setShareAnchorEl(e.currentTarget);
   };
 
@@ -351,6 +490,11 @@ const ReadFullArticles: React.FC = () => {
       shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
     } else if (platform === "linkedin") {
       shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    } else if (platform === "whatsapp") {
+      shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text || "News Report"} - ${url}`)}`;
+    } else if (platform === "copy") {
+      handleCopyLink();
+      return;
     }
 
     if (shareUrl) {
@@ -361,7 +505,7 @@ const ReadFullArticles: React.FC = () => {
   const parseInlineMarkdown = (text: any) => {
     if (!text) return "";
     const str = typeof text === "string" ? text : String(text);
-    const parts = str.split(/(\[.*?\]\(https?:\/\/[^\s\)]+\)|\*\*.*?\*\*|\*.*?\*)/g);
+    const parts = str.split(/(\[.*?\]\(https?:\/\/[^\s)]+\)|\*\*.*?\*\*|\*.*?\*)/g);
     return parts.map((part, i) => {
       if (!part) return null;
       if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
@@ -463,12 +607,12 @@ const ReadFullArticles: React.FC = () => {
           key={index}
           sx={{
             fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)",
-            fontSize: "18.5px",
+            fontSize: `${18.5 * fontSizeMultiplier}px`,
             lineHeight: 1.75,
             color: "var(--text)",
             mb: 3,
             "&::first-letter": {
-              fontSize: "56px",
+              fontSize: `${56 * fontSizeMultiplier}px`,
               fontWeight: 700,
               float: "left",
               lineHeight: 0.85,
@@ -487,7 +631,7 @@ const ReadFullArticles: React.FC = () => {
         key={index}
         sx={{
           fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)",
-          fontSize: "18.5px",
+          fontSize: `${18.5 * fontSizeMultiplier}px`,
           lineHeight: 1.75,
           color: "var(--text)",
           mb: 3,
@@ -539,6 +683,20 @@ const ReadFullArticles: React.FC = () => {
 
   return (
     <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 4, minHeight: "80vh" }}>
+      {/* Scroll Reading Progress Bar */}
+      <Box
+        sx={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: `${scrollProgress}%`,
+          height: "3.5px",
+          backgroundColor: "var(--red, #B7222B)",
+          zIndex: 9999,
+          transition: "width 0.1s ease-out",
+          boxShadow: "0 0 8px rgba(183, 34, 43, 0.6)"
+        }}
+      />
       <SEOMeta
         title={article.headline || article.title}
         description={(article.summary || article.description || "").replace(/\s+/g, " ").trim()}
@@ -675,8 +833,13 @@ const ReadFullArticles: React.FC = () => {
                         <span itemProp="name">{author.name}</span>
                       </MuiLink>
                     </Typography>
-                    <Typography sx={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--slate-light)" }}>
-                      Published <time itemProp="datePublished" dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+                    <Typography sx={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--slate-light)", display: "flex", alignItems: "center", gap: 0.8, flexWrap: "wrap" }}>
+                      <span>Published <time itemProp="datePublished" dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time></span>
+                      <span>•</span>
+                      <Box component="span" sx={{ display: "inline-flex", alignItems: "center", gap: 0.4 }}>
+                        <AccessTimeIcon sx={{ fontSize: 13, color: "var(--red, #B7222B)" }} />
+                        <span>{readingTimeMinutes} min read</span>
+                      </Box>
                     </Typography>
                   </Box>
                 </Box>
@@ -712,6 +875,108 @@ const ReadFullArticles: React.FC = () => {
                   >
                     Share
                   </Button>
+                </Box>
+              </Box>
+
+              {/* Interactive Audio Reader & Reading Comfort Toolbar */}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  flexWrap: "wrap",
+                  gap: 1.5,
+                  mt: 1.5,
+                  p: 1.25,
+                  borderRadius: "6px",
+                  backgroundColor: "var(--paper-raise, rgba(0,0,0,0.03))",
+                  border: "1px solid var(--line, rgba(255,255,255,0.08))",
+                }}
+              >
+                {/* Audio Listen Controls */}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <Button
+                    size="small"
+                    variant={isPlayingAudio ? "contained" : "outlined"}
+                    color={isPlayingAudio ? "error" : "inherit"}
+                    onClick={handleToggleAudio}
+                    startIcon={isPlayingAudio && !isPausedAudio ? <PauseIcon fontSize="small" /> : <VolumeUpIcon fontSize="small" />}
+                    sx={{
+                      fontSize: "12px",
+                      textTransform: "none",
+                      fontWeight: 600,
+                      borderRadius: "20px",
+                      px: 1.8,
+                      borderColor: "var(--line)",
+                      color: isPlayingAudio ? "#fff" : "var(--text)",
+                      backgroundColor: isPlayingAudio ? "var(--red, #B7222B)" : "transparent",
+                      "&:hover": {
+                        backgroundColor: isPlayingAudio ? "var(--red-deep, #8E1B22)" : "rgba(183, 34, 43, 0.08)",
+                      }
+                    }}
+                  >
+                    {isPlayingAudio ? (isPausedAudio ? "Resume Audio" : "Pause Listening") : "Listen to Story"}
+                  </Button>
+                  {isPlayingAudio && (
+                    <Tooltip title="Stop Audio">
+                      <IconButton size="small" onClick={handleStopAudio} sx={{ color: "var(--text)" }}>
+                        <StopIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                  )}
+                  {isPlayingAudio && !isPausedAudio && (
+                    <Chip
+                      size="small"
+                      label="Playing audio..."
+                      sx={{
+                        fontSize: "10.5px",
+                        height: 22,
+                        backgroundColor: "rgba(183, 34, 43, 0.12)",
+                        color: "var(--red, #B7222B)",
+                        fontWeight: 600,
+                        animation: "pulse 1.5s infinite"
+                      }}
+                    />
+                  )}
+                </Box>
+
+                {/* Text Size Controls */}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                  <Typography sx={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--slate-light)", mr: 0.5, display: { xs: "none", sm: "inline" } }}>
+                    Text Size:
+                  </Typography>
+                  <Tooltip title="Smaller text">
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleFontSizeChange(-0.1)}
+                      disabled={fontSizeMultiplier <= 0.85}
+                      sx={{ minWidth: 32, px: 1, py: 0.2, fontSize: "11.5px", fontWeight: 700, borderColor: "var(--line)", color: "var(--text)" }}
+                    >
+                      A-
+                    </Button>
+                  </Tooltip>
+                  <Tooltip title="Reset standard size">
+                    <Button
+                      size="small"
+                      variant="text"
+                      onClick={handleResetFontSize}
+                      sx={{ minWidth: 28, px: 0.8, py: 0.2, fontSize: "11px", fontFamily: "var(--mono)", color: "var(--slate-light)" }}
+                    >
+                      {Math.round(fontSizeMultiplier * 100)}%
+                    </Button>
+                  </Tooltip>
+                  <Tooltip title="Larger text">
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={() => handleFontSizeChange(0.1)}
+                      disabled={fontSizeMultiplier >= 1.35}
+                      sx={{ minWidth: 32, px: 1, py: 0.2, fontSize: "12.5px", fontWeight: 700, borderColor: "var(--line)", color: "var(--text)" }}
+                    >
+                      A+
+                    </Button>
+                  </Tooltip>
                 </Box>
               </Box>
             </Box>
@@ -942,6 +1207,10 @@ const ReadFullArticles: React.FC = () => {
           sx: { minWidth: 150 }
         }}
       >
+        <MenuItem onClick={handleShare("whatsapp")}>
+          <ListItemIcon><WhatsAppIcon fontSize="small" sx={{ color: "#25D366" }} /></ListItemIcon>
+          <ListItemText>WhatsApp</ListItemText>
+        </MenuItem>
         <MenuItem onClick={handleShare("facebook")}>
           <ListItemIcon><FacebookIcon fontSize="small" color="primary" /></ListItemIcon>
           <ListItemText>Facebook</ListItemText>
@@ -953,6 +1222,12 @@ const ReadFullArticles: React.FC = () => {
         <MenuItem onClick={handleShare("linkedin")}>
           <ListItemIcon><LinkedInIcon fontSize="small" color="primary" /></ListItemIcon>
           <ListItemText>LinkedIn</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleShare("copy")}>
+          <ListItemIcon>
+            {copyFeedback ? <CheckIcon fontSize="small" color="success" /> : <ContentCopyIcon fontSize="small" />}
+          </ListItemIcon>
+          <ListItemText>{copyFeedback ? "Copied!" : "Copy Link"}</ListItemText>
         </MenuItem>
       </Menu>
 

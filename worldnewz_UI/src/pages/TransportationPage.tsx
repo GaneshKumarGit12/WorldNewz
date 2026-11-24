@@ -85,54 +85,7 @@ export const TransportationPage: React.FC = () => {
 
   const statusTimer = useRef<number | null>(null);
   const countdownTimer = useRef<number | null>(null);
-
-  // Load Maps Config & Ride History
-  useEffect(() => {
-    fetchMapsConfig()
-      .then(res => {
-        if (res.data.hasValidKey && res.data.apiKey) {
-          loadGoogleMapsScript(res.data.apiKey);
-        }
-      })
-      .catch(err => console.error("Maps config error:", err));
-
-    loadHistory();
-
-    return () => {
-      clearTimers();
-    };
-  }, []);
-
-  const loadHistory = () => {
-    fetchRideHistory(email)
-      .then(res => setHistory(res.data))
-      .catch(err => console.error("Error loading ride history:", err));
-  };
-
-  const clearTimers = () => {
-    if (statusTimer.current) window.clearInterval(statusTimer.current);
-    if (countdownTimer.current) window.clearInterval(countdownTimer.current);
-  };
-
-  // Dynamically load Google Maps JS SDK script safely
-  const loadGoogleMapsScript = (key: string) => {
-    if ((window as any).google && (window as any).google.maps) {
-      initMap();
-      return;
-    }
-    const scriptId = "google-maps-js-sdk";
-    if (document.getElementById(scriptId)) return;
-
-    const script = document.createElement("script");
-    script.id = scriptId;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places,geometry,drawing`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => {
-      initMap();
-    };
-    document.head.appendChild(script);
-  };
+  const latestDirectionsRef = useRef<DirectionsResult | null>(null);
 
   // Initialize interactive Google Map
   const initMap = () => {
@@ -168,7 +121,60 @@ export const TransportationPage: React.FC = () => {
       }
     });
     directionsRendererRef.current = directionsRenderer;
+
+    // Immediately render any previously calculated route onto the newly loaded map
+    if (latestDirectionsRef.current) {
+      renderRouteOnMap(latestDirectionsRef.current);
+    }
   };
+
+  // Dynamically load Google Maps JS SDK script safely
+  const loadGoogleMapsScript = (key: string) => {
+    if ((window as any).google && (window as any).google.maps) {
+      initMap();
+      return;
+    }
+    const scriptId = "google-maps-js-sdk";
+    if (document.getElementById(scriptId)) return;
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places,geometry,drawing`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      initMap();
+    };
+    document.head.appendChild(script);
+  };
+
+  const loadHistory = () => {
+    fetchRideHistory(email)
+      .then(res => setHistory(res.data))
+      .catch(err => console.error("Error loading ride history:", err));
+  };
+
+  const clearTimers = () => {
+    if (statusTimer.current) window.clearInterval(statusTimer.current);
+    if (countdownTimer.current) window.clearInterval(countdownTimer.current);
+  };
+
+  // Load Maps Config & Ride History
+  useEffect(() => {
+    fetchMapsConfig()
+      .then(res => {
+        if (res.data.hasValidKey && res.data.apiKey) {
+          loadGoogleMapsScript(res.data.apiKey);
+        }
+      })
+      .catch(err => console.error("Maps config error:", err));
+
+    loadHistory();
+
+    return () => {
+      clearTimers();
+    };
+  }, []);
 
   // Debounced Places Autocomplete for Pickup
   useEffect(() => {
@@ -201,26 +207,6 @@ export const TransportationPage: React.FC = () => {
     }, 300);
     return () => clearTimeout(timer);
   }, [destInput]);
-
-  // Recalculate Distance & Directions whenever pickup, destination, or mode changes
-  useEffect(() => {
-    if (!pickupInput || !destInput || pickupInput === destInput) return;
-
-    setCalcLoading(true);
-    const mode = vehicleType === "Transit" ? "transit" : "driving";
-
-    Promise.all([
-      fetchDistanceMatrix(pickupInput, destInput, mode),
-      fetchDirections(pickupInput, destInput, mode)
-    ])
-      .then(([matrixRes, dirRes]) => {
-        setMatrixData(matrixRes.data);
-        setDirectionsData(dirRes.data);
-        renderRouteOnMap(dirRes.data);
-      })
-      .catch(err => console.error("Route calculation error:", err))
-      .finally(() => setCalcLoading(false));
-  }, [pickupInput, destInput, vehicleType]);
 
   // Render Route Polyline & Markers on Google Map
   const renderRouteOnMap = (dir: DirectionsResult) => {
@@ -269,6 +255,40 @@ export const TransportationPage: React.FC = () => {
       });
     }
   };
+
+  // Debounced recalculation of Distance & Directions to avoid thrashing and race conditions
+  useEffect(() => {
+    if (!pickupInput || !destInput || pickupInput === destInput) return;
+
+    let isSubscribed = true;
+    const timer = setTimeout(() => {
+      setCalcLoading(true);
+      const mode = vehicleType === "Transit" ? "transit" : "driving";
+
+      Promise.all([
+        fetchDistanceMatrix(pickupInput, destInput, mode),
+        fetchDirections(pickupInput, destInput, mode)
+      ])
+        .then(([matrixRes, dirRes]) => {
+          if (!isSubscribed) return;
+          setMatrixData(matrixRes.data);
+          setDirectionsData(dirRes.data);
+          latestDirectionsRef.current = dirRes.data;
+          renderRouteOnMap(dirRes.data);
+        })
+        .catch(err => {
+          if (isSubscribed) console.error("Route calculation error:", err);
+        })
+        .finally(() => {
+          if (isSubscribed) setCalcLoading(false);
+        });
+    }, 400);
+
+    return () => {
+      isSubscribed = false;
+      clearTimeout(timer);
+    };
+  }, [pickupInput, destInput, vehicleType]);
 
   // Swap Locations handler
   const handleSwap = () => {
@@ -655,7 +675,7 @@ export const TransportationPage: React.FC = () => {
             <Paper 
               elevation={4} 
               sx={{ 
-                height: 520, 
+                height: { xs: 380, md: 520 }, 
                 borderRadius: 4, 
                 overflow: "hidden", 
                 border: "1px solid rgba(255,255,255,0.08)",

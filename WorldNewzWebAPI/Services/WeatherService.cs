@@ -70,7 +70,7 @@ namespace WorldNewzWebAPI.Services
                 ? $"weather:coords:{Math.Round(lat.Value, 3)}:{Math.Round(lon.Value, 3)}" 
                 : $"weather:city:{sanitizedLocation.ToLowerInvariant()}";
 
-            if (_cache.TryGetValue(cacheKey, out WeatherDashboardResponse cached))
+            if (_cache.TryGetValue(cacheKey, out WeatherDashboardResponse? cached) && cached != null)
             {
                 return cached;
             }

@@ -27,12 +27,16 @@ const App: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
   const [showPushBanner, setShowPushBanner] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState(() => searchParams.get("q") ?? "");
+  const [prevLocationKey, setPrevLocationKey] = useState(location.key);
+  if (location.key !== prevLocationKey) {
+    setPrevLocationKey(location.key);
+    setSearchTerm(searchParams.get("q") ?? "");
+  }
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const { mode, toggleMode } = useColorMode();
   const { bookmarks } = useBookmarks();
   const { getAllComments } = useComments();
@@ -78,10 +82,6 @@ const App: React.FC = () => {
     severity: "success" 
   });
 
-  useEffect(() => {
-    const query = searchParams.get("q") ?? "";
-    setSearchTerm(query);
-  }, [searchParams]);
 
   // Listen for subscription verification parameters
   useEffect(() => {

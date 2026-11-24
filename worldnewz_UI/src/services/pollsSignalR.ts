@@ -18,11 +18,19 @@ export const getPollsHubConnection = (): signalR.HubConnection => {
   return connection;
 };
 
-export const startPollsSignalR = async (onPollUpdated: (data: any) => void) => {
+export interface LivePollUpdate {
+  pollId?: number;
+  id?: number;
+  totalVotes?: number;
+  results?: Array<{ optionId?: number; id?: number; votes: number; [key: string]: unknown }>;
+  [key: string]: unknown;
+}
+
+export const startPollsSignalR = async (onPollUpdated: (data: LivePollUpdate) => void) => {
   const conn = getPollsHubConnection();
 
   conn.off("PollUpdated");
-  conn.on("PollUpdated", (data: any) => {
+  conn.on("PollUpdated", (data: LivePollUpdate) => {
     onPollUpdated(data);
   });
 

@@ -42,26 +42,38 @@ namespace WorldNewzWebAPI.Controllers
 
             if (string.IsNullOrWhiteSpace(lookupCity))
             {
-                // Try to get cached city from IP geolocation
-                if (!_cache.TryGetValue("geolocated_ip_city", out string? cityFromIp))
+                var clientIp = Request.Headers["X-Forwarded-For"].FirstOrDefault()?.Split(',')[0].Trim();
+                if (string.IsNullOrWhiteSpace(clientIp))
                 {
-                    try
+                    clientIp = HttpContext.Connection.RemoteIpAddress?.ToString();
+                }
+
+                string? cityFromIp = null;
+                bool isLocalIp = string.IsNullOrWhiteSpace(clientIp) || clientIp == "::1" || clientIp == "127.0.0.1" || clientIp.StartsWith("10.") || clientIp.StartsWith("192.168.");
+
+                if (!isLocalIp && clientIp != null)
+                {
+                    var cacheKey = $"geolocated_ip_{clientIp}";
+                    if (!_cache.TryGetValue(cacheKey, out cityFromIp))
                     {
-                        using var cts = new System.Threading.CancellationTokenSource(2500);
-                        var geoResponse = await _httpClient.GetStringAsync("https://ipapi.co/json/", cts.Token);
-                        var geoData = JsonDocument.Parse(geoResponse);
-                        if (geoData.RootElement.TryGetProperty("city", out var cityProp))
+                        try
                         {
-                            cityFromIp = cityProp.GetString();
-                            if (!string.IsNullOrWhiteSpace(cityFromIp))
+                            using var cts = new System.Threading.CancellationTokenSource(2000);
+                            var geoResponse = await _httpClient.GetStringAsync($"https://ipapi.co/{clientIp}/json/", cts.Token);
+                            var geoData = JsonDocument.Parse(geoResponse);
+                            if (geoData.RootElement.TryGetProperty("city", out var cityProp))
                             {
-                                _cache.Set("geolocated_ip_city", cityFromIp, TimeSpan.FromHours(24));
+                                cityFromIp = cityProp.GetString();
+                                if (!string.IsNullOrWhiteSpace(cityFromIp))
+                                {
+                                    _cache.Set(cacheKey, cityFromIp, TimeSpan.FromHours(24));
+                                }
                             }
                         }
-                    }
-                    catch
-                    {
-                        // Quiet fallback on timeout or IP rate limit
+                        catch
+                        {
+                            // Quiet fallback on timeout or IP rate limit
+                        }
                     }
                 }
 

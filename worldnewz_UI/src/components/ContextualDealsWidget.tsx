@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Box, Typography, Card, CardMedia, CardContent, Button, Chip, Grid } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -78,7 +78,9 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
     return rotated;
   };
 
-  const deals = getRotatedDeals(products);
+  const deals = useMemo(() => {
+    return getRotatedDeals(products);
+  }, [products, category]);
 
   if (deals.length === 0) return null;
 
@@ -115,7 +117,7 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
       </Box>
 
       <Grid container spacing={2}>
-        {deals.map((deal) => {
+        {deals.map((deal: Partial<AmazonProduct>) => {
           const discountPercent = deal.originalPrice && deal.originalPrice > (deal.price || 0)
             ? Math.round(((deal.originalPrice - (deal.price || 0)) / deal.originalPrice) * 100)
             : 0;

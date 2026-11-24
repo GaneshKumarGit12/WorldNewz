@@ -463,7 +463,7 @@ export const TrendingVideos: React.FC = () => {
                           alt={video.title}
                           decoding="async"
                           loading="lazy"
-                          onError={(e: any) => {
+                          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                             e.currentTarget.onerror = null;
                             e.currentTarget.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800";
                           }}

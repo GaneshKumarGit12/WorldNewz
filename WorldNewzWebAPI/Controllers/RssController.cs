@@ -36,7 +36,7 @@ namespace WorldNewzWebAPI.Controllers
             feedType = feedType?.ToLower() ?? "discover";
             var cacheKey = $"rss_feed_{feedType}";
 
-            if (!_cache.TryGetValue(cacheKey, out List<Article> articles))
+            if (!_cache.TryGetValue(cacheKey, out List<Article>? articles) || articles == null)
             {
                 articles = await FetchArticlesInternal(feedType);
                 _cache.Set(cacheKey, articles, TimeSpan.FromMinutes(5));

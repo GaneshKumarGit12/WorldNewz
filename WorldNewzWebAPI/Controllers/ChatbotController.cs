@@ -451,11 +451,11 @@ namespace WorldNewzWebAPI.Controllers
                 }
             }
 
-            // If all providers are rate-limited, return a graceful, friendly 200 response rather than an unhandled 429 crash
+            // If all providers are rate-limited or unconfigured, return a graceful, friendly 200 response
             return Ok(new
             {
-                reply = "⏳ **High Traffic Rate Limit**: The AI service is currently experiencing high inquiry volume on the free tier. Please wait **15 seconds** and try sending your question again.",
-                modelUsed = "Traffic Cooldown"
+                reply = "🤖 **WorldNewz Assistant Notice**: The AI assistant service is temporarily unconfigured or waiting for API keys. In the meantime, explore our live coverage across [Technology](https://worldnewzs.in/technology), [Business](https://worldnewzs.in/business), and [Today's Top Stories](https://worldnewzs.in/).",
+                modelUsed = "System Standby"
             });
         }
     }

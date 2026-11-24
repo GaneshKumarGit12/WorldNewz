@@ -297,7 +297,9 @@ export class HitGoalSoccerEngine {
       gain.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.3);
-    } catch (e) {}
+    } catch {
+      // AudioContext may be suspended or blocked
+    }
   }
 
   private playKickSound(): void {
@@ -312,7 +314,9 @@ export class HitGoalSoccerEngine {
       gain.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.1);
-    } catch (e) {}
+    } catch {
+      // AudioContext may be suspended or blocked
+    }
   }
 
   private playGoalSound(): void {
@@ -327,7 +331,9 @@ export class HitGoalSoccerEngine {
       gain.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.35);
-    } catch (e) {}
+    } catch {
+      // AudioContext may be suspended or blocked
+    }
   }
 
   private playSaveSound(): void {
@@ -342,7 +348,9 @@ export class HitGoalSoccerEngine {
       gain.connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.2);
-    } catch (e) {}
+    } catch {
+      // AudioContext may be suspended or blocked
+    }
   }
 
   private draw(): void {

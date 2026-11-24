@@ -429,16 +429,16 @@ export const AmazonProducts: React.FC = () => {
 
   const getAbsoluteImageUrl = (url: string | undefined | null, asin?: string) => {
     if (url && url.trim()) {
-      let trimmed = url.trim();
+      const trimmed = url.trim();
       if (trimmed.startsWith("/images/") || trimmed.startsWith("data:")) {
         return trimmed;
       }
 
       // If it's an Amazon CDN image, clean resolution modifiers for 1500px Ultra HD crystal clarity
       if (trimmed.includes("amazon.com/images/I/") || trimmed.includes("images-amazon.com/images/I/")) {
-        let cleanUrl = trimmed
-          .replace(/\._[A-Za-z0-9%_\-\+\.]+\.(jpg|png|jpeg|webp)/i, '._SL1500_.$1')
-          .replace(/\._[A-Za-z0-9%_\-\+\.]+\._/i, '._');
+        const cleanUrl = trimmed
+          .replace(/\._[A-Za-z0-9%_\-+.]+\.(jpg|png|jpeg|webp)/i, '._SL1500_.$1')
+          .replace(/\._[A-Za-z0-9%_\-+.]+\._/i, '._');
         return cleanUrl;
       }
 

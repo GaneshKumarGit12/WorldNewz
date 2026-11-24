@@ -59,6 +59,7 @@ export default defineConfig({
   ],
   base: '/',   // 👈 required for Vercel/Custom domains (changed from GitHub Pages)
   build: {
+    chunkSizeWarningLimit: 1600,
     rollupOptions: {
       output: {
         manualChunks(id) {

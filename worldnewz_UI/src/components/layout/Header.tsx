@@ -367,6 +367,15 @@ export const Header: React.FC<HeaderProps> = ({
             </Button>
 
             <IconButton
+              id="btn-mobile-search"
+              aria-label="Search wire dispatches"
+              onClick={() => setIsSearchModalOpen(true)}
+              sx={{ color: "var(--color-ink-primary)", display: { xs: "inline-flex", md: "none" } }}
+            >
+              <SearchIcon sx={{ fontSize: 22 }} />
+            </IconButton>
+
+            <IconButton
               id="btn-mobile-drawer"
               aria-label="Menu"
               sx={{ color: "var(--color-ink-primary)", display: { xs: "inline-flex", md: "none" } }}

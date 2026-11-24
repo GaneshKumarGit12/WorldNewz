@@ -26,7 +26,7 @@ const CommentHistory: React.FC = () => {
   const allComments = getAllComments();
 
   const filteredAndSortedComments = useMemo(() => {
-    let filtered = allComments.filter(
+    const filtered = allComments.filter(
       (comment) =>
         comment.text.toLowerCase().includes(searchTerm.toLowerCase()) ||
         comment.author.toLowerCase().includes(searchTerm.toLowerCase()) ||

@@ -396,13 +396,18 @@ namespace WorldNewzWebAPI.Controllers
         /// </summary>
         [HttpGet("unified-story/{id}")]
         [HttpGet("unified-story")]
-        public async Task<IActionResult> GetUnifiedStory(string id, [FromQuery] string? category = "Technology", [FromQuery] string? subcategory = "Artificial Intelligence")
+        public async Task<IActionResult> GetUnifiedStory(string? id = null, [FromQuery] string? category = "Technology", [FromQuery] string? subcategory = "Artificial Intelligence")
         {
             try
             {
                 // 1. Fetch cached enriched article or database item
-                var cached = await _db.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == id || e.Headline.Contains(id));
-                var newsItem = await _db.NewsArticles.FirstOrDefaultAsync(a => a.Url == id || a.Title.Contains(id));
+                EnrichedArticle? cached = null;
+                NewsArticle? newsItem = null;
+                if (!string.IsNullOrWhiteSpace(id))
+                {
+                    cached = await _db.EnrichedArticles.FirstOrDefaultAsync(e => e.Url == id || (e.Headline != null && e.Headline.Contains(id)));
+                    newsItem = await _db.NewsArticles.FirstOrDefaultAsync(a => a.Url == id || (a.Title != null && a.Title.Contains(id)));
+                }
 
                 string storyTitle = cached?.Headline ?? newsItem?.Title ?? "Apple AI Launch: New Privacy Features Set to Disrupt Smartphone Industry";
                 string summaryText = cached?.Summary ?? newsItem?.Description ?? "Apple has officially unveiled its latest artificial intelligence suite, focusing heavily on on-device processing and data privacy. The announcement marks a significant shift towards hardware-level security, setting new benchmarks for competitor mobile ecosystems.";
@@ -447,7 +452,7 @@ namespace WorldNewzWebAPI.Controllers
                 // 4. Assemble Unified JSON DTO Blueprint Payload
                 var unifiedDto = new UnifiedNewsStoryDto
                 {
-                    StoryId = id,
+                    StoryId = id ?? Guid.NewGuid().ToString(),
                     Category = category,
                     Subcategory = subcategory,
                     Title = storyTitle,

@@ -278,12 +278,12 @@ const Footer: React.FC = () => {
                   </InputAdornment>
                 ),
                 sx: {
-                  color: "white",
-                  backgroundColor: "#10172A",
+                  color: "var(--color-ink-primary, #ffffff)",
+                  backgroundColor: "var(--color-surface-container, #10172A)",
                   borderRadius: 1,
                   fontFamily: "var(--sans)",
-                  "& fieldset": { borderColor: "#2E3A58" },
-                  "&:hover fieldset": { borderColor: "#4C5670 !important" },
+                  "& fieldset": { borderColor: "var(--color-border-divider, #2E3A58)" },
+                  "&:hover fieldset": { borderColor: "var(--color-border-neutral, #4C5670) !important" },
                   "&.Mui-focused fieldset": { borderColor: "var(--red, #B7222B) !important" },
                 }
               }}
@@ -381,7 +381,7 @@ const Footer: React.FC = () => {
         </Box>
       </Box>
 
-      <Divider sx={{ borderColor: "#1E293B", mb: 4 }} />
+      <Divider sx={{ borderColor: "var(--color-border-divider, #1E293B)", mb: 4 }} />
       <Box 
         sx={{ 
           display: "flex", 
@@ -395,7 +395,7 @@ const Footer: React.FC = () => {
         {/* Left Side: Brand & Structured Multi-Column Directory */}
         <Box sx={{ display: "flex", flexDirection: "column", width: "100%", mb: 2 }}>
           <Box component={Link} to="/" sx={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: 1, mb: 2.5 }}>
-            <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)", color: "white", letterSpacing: "-0.01em", fontSize: "24px" }}>
+            <Typography variant="h6" sx={{ fontWeight: 700, fontFamily: "var(--serif, 'Source Serif 4', Georgia, serif)", color: "var(--color-ink-primary, white)", letterSpacing: "-0.01em", fontSize: "24px" }}>
               WorldNew<Typography component="span" sx={{ color: "var(--red, #B7222B)", fontFamily: "inherit", fontWeight: 700, fontSize: "inherit" }}>z</Typography>s
             </Typography>
           </Box>
@@ -403,7 +403,7 @@ const Footer: React.FC = () => {
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }, gap: 3 }}>
             {/* Column 1: Core News Pillars */}
             <Box>
-              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+              <Typography sx={{ color: "var(--color-ink-primary, #FFFFFF)", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
                 News Pillars
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
@@ -418,7 +418,7 @@ const Footer: React.FC = () => {
                   { label: "Podcasts & Videos", to: "/podcasts-videos" },
                   { label: "Trending News", to: "/trending" },
                 ].map((l) => (
-                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "var(--color-ink-secondary, #9AA2B4)", "&:hover": { color: "var(--color-ink-primary, #FFFFFF)" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
                     {l.label}
                   </MuiLink>
                 ))}
@@ -427,7 +427,7 @@ const Footer: React.FC = () => {
 
             {/* Column 2: Lifestyle & Culture */}
             <Box>
-              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+              <Typography sx={{ color: "var(--color-ink-primary, #FFFFFF)", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
                 Lifestyle & Culture
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
@@ -443,7 +443,7 @@ const Footer: React.FC = () => {
                   { label: "Cartoons & Satire", to: "/cartoons" },
                   { label: "Online Services", to: "/services" },
                 ].map((l) => (
-                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "var(--color-ink-secondary, #9AA2B4)", "&:hover": { color: "var(--color-ink-primary, #FFFFFF)" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
                     {l.label}
                   </MuiLink>
                 ))}
@@ -452,7 +452,7 @@ const Footer: React.FC = () => {
 
             {/* Column 3: Interactive Utilities */}
             <Box>
-              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+              <Typography sx={{ color: "var(--color-ink-primary, #FFFFFF)", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
                 Interactive Utilities
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
@@ -471,7 +471,7 @@ const Footer: React.FC = () => {
                   { label: "Trending Videos", to: "/trending-videos" },
                   { label: "Saved Bookmarks", to: "/bookmarks" },
                 ].map((l) => (
-                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                  <MuiLink key={l.to} component={Link} to={l.to} underline="hover" sx={{ color: "var(--color-ink-secondary, #9AA2B4)", "&:hover": { color: "var(--color-ink-primary, #FFFFFF)" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
                     {l.label}
                   </MuiLink>
                 ))}
@@ -480,7 +480,7 @@ const Footer: React.FC = () => {
 
             {/* Column 4: Editorial & Legal */}
             <Box>
-              <Typography sx={{ color: "#FFFFFF", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
+              <Typography sx={{ color: "var(--color-ink-primary, #FFFFFF)", fontWeight: 700, fontSize: "0.9rem", mb: 1.5, fontFamily: "var(--sans)" }}>
                 Editorial & Company
               </Typography>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
@@ -494,7 +494,7 @@ const Footer: React.FC = () => {
                   { label: "Content Disclaimer", to: "/disclaimer" },
                   { label: "RSS Feed", to: "/rss/discover", isExternal: true },
                 ].map((l) => (
-                  <MuiLink key={l.to} {...(l.isExternal ? { href: l.to } : { component: Link, to: l.to })} underline="hover" sx={{ color: "#9AA2B4", "&:hover": { color: "#FFFFFF" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
+                  <MuiLink key={l.to} {...(l.isExternal ? { href: l.to } : { component: Link, to: l.to })} underline="hover" sx={{ color: "var(--color-ink-secondary, #9AA2B4)", "&:hover": { color: "var(--color-ink-primary, #FFFFFF)" }, fontSize: "0.82rem", fontFamily: "var(--sans)" }}>
                     {l.label}
                   </MuiLink>
                 ))}
@@ -563,7 +563,7 @@ const Footer: React.FC = () => {
         </Box>
       </Box>
 
-      <Divider sx={{ borderColor: "#1E293B", mb: 2, mt: 2 }} />
+      <Divider sx={{ borderColor: "var(--color-border-divider, #1E293B)", mb: 2, mt: 2 }} />
       <Typography variant="caption" sx={{ color: "#7C86A0", display: "block", textAlign: "center", mb: 0.5, fontFamily: "var(--mono)" }}>
         © {new Date().getFullYear()} WorldNewzs. Reporting, verified. Built for local validation & newsroom integrity.
       </Typography>

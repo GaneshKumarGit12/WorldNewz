@@ -45,16 +45,39 @@ namespace WorldNewzWebAPI.Controllers
                         links = apiResponse.links;
                         meta = apiResponse.meta;
 
-                        var slugs = apiResponse.data.Select(j => j.slug).ToList();
+                        var slugs = apiResponse.data
+                            .Where(j => !string.IsNullOrWhiteSpace(j.slug))
+                            .Select(j => j.slug)
+                            .Distinct()
+                            .ToList();
                         var existingJobs = await _db.JobPostings
                             .Where(j => slugs.Contains(j.Slug))
                             .ToDictionaryAsync(j => j.Slug);
 
+                        var seenSlugs = new HashSet<string>(existingJobs.Keys, StringComparer.OrdinalIgnoreCase);
+
                         foreach (var job in apiResponse.data)
                         {
-                            existingJobs.TryGetValue(job.slug, out var existing);
-                            if (existing == null)
+                            if (string.IsNullOrWhiteSpace(job.slug)) continue;
+
+                            if (existingJobs.TryGetValue(job.slug, out var existing))
                             {
+                                if (!existing.IsLocal)
+                                {
+                                    existing.CompanyName = job.company_name;
+                                    existing.Title = job.title;
+                                    existing.Description = job.description;
+                                    existing.Remote = job.remote;
+                                    existing.Url = job.url;
+                                    existing.Tags = job.tags != null ? string.Join(",", job.tags) : null;
+                                    existing.JobTypes = job.job_types != null ? string.Join(",", job.job_types) : null;
+                                    existing.Location = job.location;
+                                    existing.CreatedAt = job.created_at;
+                                }
+                            }
+                            else if (!seenSlugs.Contains(job.slug))
+                            {
+                                seenSlugs.Add(job.slug);
                                 _db.JobPostings.Add(new JobPosting
                                 {
                                     Slug = job.slug,
@@ -69,18 +92,6 @@ namespace WorldNewzWebAPI.Controllers
                                     CreatedAt = job.created_at,
                                     IsLocal = false
                                 });
-                            }
-                            else if (!existing.IsLocal)
-                            {
-                                existing.CompanyName = job.company_name;
-                                existing.Title = job.title;
-                                existing.Description = job.description;
-                                existing.Remote = job.remote;
-                                existing.Url = job.url;
-                                existing.Tags = job.tags != null ? string.Join(",", job.tags) : null;
-                                existing.JobTypes = job.job_types != null ? string.Join(",", job.job_types) : null;
-                                existing.Location = job.location;
-                                existing.CreatedAt = job.created_at;
                             }
                         }
                         await _db.SaveChangesAsync();

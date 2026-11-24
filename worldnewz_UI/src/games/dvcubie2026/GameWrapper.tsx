@@ -159,7 +159,9 @@ const GameWrapper: React.FC = () => {
 
       osc.start();
       osc.stop(ctx.currentTime + 1.8);
-    } catch (e) {}
+    } catch {
+      // AudioContext may be suspended or blocked until user gesture
+    }
   };
 
   useEffect(() => {

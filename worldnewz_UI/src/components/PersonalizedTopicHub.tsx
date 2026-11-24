@@ -777,7 +777,11 @@ export const PersonalizedTopicHub: React.FC<PersonalizedTopicHubProps> = ({
                               onClick={(e) => {
                                 e.stopPropagation();
                                 if (art.url) {
-                                  bookmarked ? removeBookmark(art.url) : addBookmark(art);
+                                  if (bookmarked) {
+                                    removeBookmark(art.url);
+                                  } else {
+                                    addBookmark(art);
+                                  }
                                 }
                               }}
                               sx={{

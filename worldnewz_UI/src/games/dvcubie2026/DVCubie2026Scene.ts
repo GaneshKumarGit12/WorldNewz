@@ -903,9 +903,9 @@ export default class DVCubie2026Scene extends Phaser.Scene {
       if (hex.length === 3) {
         hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
       }
-      let rHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(0, 2), 16) * percent)));
-      let gHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(2, 4), 16) * percent)));
-      let bHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(4, 6), 16) * percent)));
+      const rHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(0, 2), 16) * percent)));
+      const gHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(2, 4), 16) * percent)));
+      const bHexVal = Math.max(0, Math.min(255, Math.floor(parseInt(hex.substring(4, 6), 16) * percent)));
 
       return `#${rHexVal.toString(16).padStart(2, "0")}${gHexVal.toString(16).padStart(2, "0")}${bHexVal.toString(16).padStart(2, "0")}`;
     };

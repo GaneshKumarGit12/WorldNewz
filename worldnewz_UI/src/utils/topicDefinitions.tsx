@@ -227,7 +227,7 @@ export const getTopicById = (id: string): TopicDefinition | undefined => {
 };
 
 export const isArticleMatchingTopics = (
-  article: { title?: string; description?: string; summary?: string; category?: string; source?: any },
+  article: { title?: string; description?: string; summary?: string; category?: string; source?: string | { id?: string | null; name?: string } | null },
   topicIds: string[]
 ): boolean => {
   if (!topicIds || topicIds.length === 0) return false;

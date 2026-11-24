@@ -590,7 +590,7 @@ namespace WorldNewzWebAPI.Services
             return $"https://www.amazon.in/dp/{cleanAsin}?tag={_associateTag}&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl";
         }
 
-        private string EnsureAbsoluteImageUrl(string url, string asin = null)
+        private string EnsureAbsoluteImageUrl(string? url, string? asin = null)
         {
             if (string.IsNullOrWhiteSpace(url))
             {
