@@ -51,17 +51,8 @@ import WorkspacePremiumOutlinedIcon from "@mui/icons-material/WorkspacePremiumOu
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
-export interface HeroMediaSlide {
-  id: string;
-  type: "image" | "video";
-  url: string;
-  thumbnailUrl: string;
-  alt: string;
-}
 
 import { Link as RouterLink } from "react-router-dom";
 import { fetchAmazonProducts, parseAmazonProductUrl } from "../api/apiClient";
@@ -492,7 +483,19 @@ export const AmazonProducts: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [bookmarkedAsins, setBookmarkedAsins] = useState<Set<string>>(new Set());
   const [heroMediaIndex, setHeroMediaIndex] = useState<number>(0);
-  const [heroLiked, setHeroLiked] = useState<boolean>(false);
+  const [likedAsins, setLikedAsins] = useState<Set<string>>(new Set());
+
+  const toggleLike = (asin: string) => {
+    setLikedAsins((prev) => {
+      const next = new Set(prev);
+      if (next.has(asin)) {
+        next.delete(asin);
+      } else {
+        next.add(asin);
+      }
+      return next;
+    });
+  };
 
   // Parser states
   const [urlInput, setUrlInput] = useState<string>("");
@@ -573,122 +576,64 @@ export const AmazonProducts: React.FC = () => {
     });
   }, [products]);
 
-  // Editor's Choice Hero Deal Spotlight - Rotates day-wise every 24 hours
-  const heroDeal = useMemo(() => {
-    if (uniqueProducts.length === 0) return null;
+  // Top 5 Curated Editor's Choice Deals of the Day (Rotated daily, diverse high-discount highlights)
+  const heroDeals = useMemo<AmazonProduct[]>(() => {
+    if (uniqueProducts.length === 0) return [];
     const sorted = [...uniqueProducts].sort((a, b) => {
       const discA = Math.round((1 - (a.price / a.originalPrice)) * 100) || 0;
       const discB = Math.round((1 - (b.price / b.originalPrice)) * 100) || 0;
       return discB - discA;
     });
 
-    // Select top deals pool (top 15 highest discount deals)
-    const dealPool = sorted.slice(0, Math.min(15, sorted.length));
-    
-    // 24-hour day-wise epoch calculation for daily rotation
+    // 24-hour day-wise epoch calculation for daily rotation offset across the top deals
     const dayEpoch = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
-    const dayIndex = dayEpoch % dealPool.length;
+    const offset = dayEpoch % Math.max(1, Math.min(10, Math.max(0, sorted.length - 5)));
+    const pool = sorted.slice(offset, offset + 25);
 
-    return dealPool[dayIndex] || sorted[0];
-  }, [uniqueProducts]);
+    const selected: AmazonProduct[] = [];
+    const seenAsins = new Set<string>();
 
-  // Reset active hero gallery slide when the hero deal rotates
-  useEffect(() => {
-    setHeroMediaIndex(0);
-  }, [heroDeal?.asin]);
-
-  // Multi-media gallery slides (High-Res Images + Video demonstration)
-  const heroMediaSlides = useMemo<HeroMediaSlide[]>(() => {
-    if (!heroDeal) return [];
-    const asinUpper = (heroDeal.asin || "").trim().toUpperCase();
-
-    // Specific verified Saffron set matching the user's mockup exactly
-    if (asinUpper === "B0HBQMW16D" || heroDeal.title.toLowerCase().includes("saffron") || heroDeal.title.toLowerCase().includes("kesar")) {
-      return [
-        {
-          id: "slide-1",
-          type: "image",
-          url: "https://m.media-amazon.com/images/I/51aQmMm494L._SL1500_.jpg",
-          thumbnailUrl: "https://m.media-amazon.com/images/I/51aQmMm494L._SL200_.jpg",
-          alt: `${heroDeal.title} - Pure Kashmiri Mongra Kesar Saffron Jar`
-        },
-        {
-          id: "slide-2",
-          type: "image",
-          url: "https://m.media-amazon.com/images/I/51q4EWIjjqL._SL1500_.jpg",
-          thumbnailUrl: "https://m.media-amazon.com/images/I/51q4EWIjjqL._SL200_.jpg",
-          alt: `${heroDeal.title} - Box Packaging & Grade A+ Certification`
-        },
-        {
-          id: "slide-3",
-          type: "image",
-          url: "https://m.media-amazon.com/images/I/81civt9dW9L._SL1500_.jpg",
-          thumbnailUrl: "https://m.media-amazon.com/images/I/81civt9dW9L._SL200_.jpg",
-          alt: `${heroDeal.title} - Natural Harvest & Pure Stigmas Details`
-        },
-        {
-          id: "slide-4",
-          type: "image",
-          url: "https://m.media-amazon.com/images/I/71KsZZNaEML._SL1500_.jpg",
-          thumbnailUrl: "https://m.media-amazon.com/images/I/71KsZZNaEML._SL200_.jpg",
-          alt: `${heroDeal.title} - Cooking, Milk, Desserts & Pooja Usage`
-        },
-        {
-          id: "slide-5",
-          type: "video",
-          url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-          thumbnailUrl: "https://m.media-amazon.com/images/I/51aQmMm494L._SL200_.jpg",
-          alt: `${heroDeal.title} - Product Demonstration & Purity Water Test Video`
-        }
-      ];
+    // Select diverse categories among the 5 Editor's Choice deals
+    const usedCategories = new Set<string>();
+    for (const p of pool) {
+      if (selected.length >= 5) break;
+      const cat = (p.category || "").toLowerCase();
+      if (!usedCategories.has(cat) && !seenAsins.has(p.asin)) {
+        selected.push(p);
+        usedCategories.add(cat);
+        seenAsins.add(p.asin);
+      }
     }
 
-    // Dynamic slides for any other deal
-    const mainImg = getAbsoluteImageUrl(heroDeal.imageUrl, heroDeal.asin);
-    return [
-      {
-        id: "slide-1",
-        type: "image",
-        url: mainImg,
-        thumbnailUrl: mainImg,
-        alt: `${heroDeal.title} - Primary View`
-      },
-      {
-        id: "slide-2",
-        type: "image",
-        url: "https://m.media-amazon.com/images/I/71fiRY278BL._SL1500_.jpg",
-        thumbnailUrl: "https://m.media-amazon.com/images/I/71fiRY278BL._SL200_.jpg",
-        alt: `${heroDeal.title} - Detail Angle`
-      },
-      {
-        id: "slide-3",
-        type: "image",
-        url: "https://m.media-amazon.com/images/I/61NANabKaRL._SL1500_.jpg",
-        thumbnailUrl: "https://m.media-amazon.com/images/I/61NANabKaRL._SL200_.jpg",
-        alt: `${heroDeal.title} - Specification View`
-      },
-      {
-        id: "slide-4",
-        type: "image",
-        url: "https://m.media-amazon.com/images/I/6166RQH8dIL._SL1500_.jpg",
-        thumbnailUrl: "https://m.media-amazon.com/images/I/6166RQH8dIL._SL200_.jpg",
-        alt: `${heroDeal.title} - In-Box View`
-      },
-      {
-        id: "slide-5",
-        type: "video",
-        url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-        thumbnailUrl: mainImg,
-        alt: `${heroDeal.title} - Video Demonstration`
+    // Backfill up to 5 deals if pool has fewer distinct categories
+    for (const p of pool) {
+      if (selected.length >= 5) break;
+      if (!seenAsins.has(p.asin)) {
+        selected.push(p);
+        seenAsins.add(p.asin);
       }
-    ];
-  }, [heroDeal]);
+    }
 
-  // Flash Deals Ribbon (Next 4 items)
+    return selected.length > 0 ? selected : sorted.slice(0, 5);
+  }, [uniqueProducts]);
+
+  // Active deal selected in the hero spotlight
+  const activeHeroDeal = useMemo<AmazonProduct | null>(() => {
+    if (heroDeals.length === 0) return null;
+    return heroDeals[heroMediaIndex] || heroDeals[0] || null;
+  }, [heroDeals, heroMediaIndex]);
+
+  // Reset active hero gallery slide index when the hero deals list changes
+  useEffect(() => {
+    setHeroMediaIndex(0);
+  }, [heroDeals.map(d => d.asin).join(",")]);
+
+  // Flash Deals Ribbon (Next 4 items, excluding the Editor's Choice deals)
   const flashDeals = useMemo(() => {
     if (uniqueProducts.length <= 1) return [];
-    return uniqueProducts.filter(p => p.asin !== heroDeal?.asin).slice(0, 4);
-  }, [uniqueProducts, heroDeal]);
+    const heroAsins = new Set(heroDeals.map(d => d.asin));
+    return uniqueProducts.filter(p => !heroAsins.has(p.asin)).slice(0, 4);
+  }, [uniqueProducts, heroDeals]);
 
   // Scratch card deal selection
   const scratchDealProduct = useMemo(() => {
@@ -893,7 +838,7 @@ export const AmazonProducts: React.FC = () => {
           <Grid size={{ xs: 12, lg: 8.2 }}>
 
             {/* 🌟 1. EDITOR'S CHOICE — DEAL OF THE DAY HERO SPOTLIGHT */}
-            {heroDeal && (
+            {activeHeroDeal && (
               <Card
                 elevation={0}
                 sx={{
@@ -976,17 +921,17 @@ export const AmazonProducts: React.FC = () => {
                           flexShrink: 0
                         }}
                       >
-                        {heroMediaSlides.map((slide, idx) => {
+                        {heroDeals.map((deal, idx) => {
                           const isSelected = heroMediaIndex === idx;
-                          const isVideo = slide.type === "video";
-                          const isLastExtra = idx === 4;
+                          const thumbUrl = getAbsoluteImageUrl(deal.imageUrl, deal.asin);
 
                           return (
                             <Box
-                              key={slide.id}
+                              key={deal.asin || idx}
                               onClick={() => setHeroMediaIndex(idx)}
                               id={`hero-thumb-${idx}`}
-                              aria-label={`View slide ${idx + 1}`}
+                              aria-label={`View deal ${idx + 1}: ${deal.title}`}
+                              title={deal.title}
                               sx={{
                                 width: { xs: 44, sm: 54 },
                                 height: { xs: 44, sm: 54 },
@@ -1014,46 +959,16 @@ export const AmazonProducts: React.FC = () => {
                             >
                               <Box
                                 component="img"
-                                src={slide.thumbnailUrl}
+                                src={thumbUrl}
                                 alt={`Thumbnail ${idx + 1}`}
+                                data-asin={deal.asin}
+                                onError={handleImageError}
                                 sx={{
                                   width: "100%",
                                   height: "100%",
                                   objectFit: "contain"
                                 }}
                               />
-                              {isVideo && (
-                                <Box
-                                  sx={{
-                                    position: "absolute",
-                                    inset: 0,
-                                    bgcolor: "rgba(0, 0, 0, 0.45)",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center"
-                                  }}
-                                >
-                                  <PlayArrowIcon sx={{ color: "#ffffff", fontSize: "1.15rem" }} />
-                                </Box>
-                              )}
-                              {isLastExtra && (
-                                <Box
-                                  sx={{
-                                    position: "absolute",
-                                    bottom: 2,
-                                    right: 2,
-                                    bgcolor: isDark ? "rgba(15, 23, 42, 0.85)" : "rgba(255, 255, 255, 0.9)",
-                                    borderRadius: "3px",
-                                    px: 0.4,
-                                    fontSize: "0.58rem",
-                                    fontWeight: 800,
-                                    color: isDark ? "#93c5fd" : "#2563eb",
-                                    lineHeight: 1
-                                  }}
-                                >
-                                  +1
-                                </Box>
-                              )}
                             </Box>
                           );
                         })}
@@ -1104,23 +1019,23 @@ export const AmazonProducts: React.FC = () => {
                                 fontFamily: "var(--mono)"
                               }}
                             >
-                              {heroMediaIndex + 1} / {heroMediaSlides.length}
+                              {heroMediaIndex + 1} / {heroDeals.length}
                             </Typography>
                           </Box>
 
                           <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
-                            <CardShareButton product={heroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+                            <CardShareButton product={activeHeroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
                             <IconButton
                               size="small"
-                              onClick={() => setHeroLiked((prev) => !prev)}
-                              aria-label={heroLiked ? "Unlike deal" : "Like deal"}
+                              onClick={() => toggleLike(activeHeroDeal.asin)}
+                              aria-label={likedAsins.has(activeHeroDeal.asin) ? "Unlike deal" : "Like deal"}
                               sx={{
                                 bgcolor: isDark ? "rgba(15, 23, 42, 0.65)" : "rgba(255, 255, 255, 0.85)",
                                 backdropFilter: "blur(4px)",
                                 border: cardBorder,
                                 width: 32,
                                 height: 32,
-                                color: heroLiked ? "#ef4444" : "var(--slate)",
+                                color: likedAsins.has(activeHeroDeal.asin) ? "#ef4444" : "var(--slate)",
                                 transition: "all 0.2s ease-in-out",
                                 "&:hover": {
                                   bgcolor: isDark ? "rgba(15, 23, 42, 0.95)" : "rgba(255, 255, 255, 1)",
@@ -1129,7 +1044,11 @@ export const AmazonProducts: React.FC = () => {
                                 }
                               }}
                             >
-                              {heroLiked ? <FavoriteIcon sx={{ fontSize: "1.05rem" }} /> : <FavoriteBorderIcon sx={{ fontSize: "1.05rem" }} />}
+                              {likedAsins.has(activeHeroDeal.asin) ? (
+                                <FavoriteIcon sx={{ fontSize: "1.05rem" }} />
+                              ) : (
+                                <FavoriteBorderIcon sx={{ fontSize: "1.05rem" }} />
+                              )}
                             </IconButton>
                           </Box>
                         </Box>
@@ -1149,7 +1068,7 @@ export const AmazonProducts: React.FC = () => {
                           {/* Left Arrow Button */}
                           <IconButton
                             size="small"
-                            onClick={() => setHeroMediaIndex((prev) => (prev - 1 + heroMediaSlides.length) % heroMediaSlides.length)}
+                            onClick={() => setHeroMediaIndex((prev) => (prev - 1 + heroDeals.length) % heroDeals.length)}
                             aria-label="Previous slide"
                             sx={{
                               position: "absolute",
@@ -1171,47 +1090,29 @@ export const AmazonProducts: React.FC = () => {
                             <ChevronLeftIcon fontSize="small" />
                           </IconButton>
 
-                          {/* Center Visual (Image or Video) */}
-                          {heroMediaSlides[heroMediaIndex]?.type === "video" ? (
-                            <Box
-                              component="video"
-                              src={heroMediaSlides[heroMediaIndex].url}
-                              poster={heroMediaSlides[heroMediaIndex].thumbnailUrl}
-                              controls
-                              autoPlay
-                              muted
-                              playsInline
-                              sx={{
-                                maxHeight: { xs: 220, sm: 260 },
-                                maxWidth: "100%",
-                                borderRadius: "8px",
-                                objectFit: "contain",
-                                bgcolor: "#000"
-                              }}
-                            />
-                          ) : (
-                            <Box
-                              component="img"
-                              src={getAbsoluteImageUrl(heroMediaSlides[heroMediaIndex]?.url, heroDeal.asin)}
-                              alt={heroMediaSlides[heroMediaIndex]?.alt || heroDeal.title}
-                              decoding="async"
-                              referrerPolicy="no-referrer"
-                              data-asin={heroDeal.asin}
-                              onError={handleImageError}
-                              sx={{
-                                maxHeight: { xs: 220, sm: 260 },
-                                maxWidth: "100%",
-                                objectFit: "contain",
-                                transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                                "&:hover": { transform: "scale(1.05)" }
-                              }}
-                            />
-                          )}
+                          {/* Center Visual Image */}
+                          <Box
+                            component="img"
+                            key={activeHeroDeal.asin}
+                            src={getAbsoluteImageUrl(activeHeroDeal.imageUrl, activeHeroDeal.asin)}
+                            alt={activeHeroDeal.title}
+                            decoding="async"
+                            referrerPolicy="no-referrer"
+                            data-asin={activeHeroDeal.asin}
+                            onError={handleImageError}
+                            sx={{
+                              maxHeight: { xs: 220, sm: 260 },
+                              maxWidth: "100%",
+                              objectFit: "contain",
+                              transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                              "&:hover": { transform: "scale(1.05)" }
+                            }}
+                          />
 
                           {/* Right Arrow Button */}
                           <IconButton
                             size="small"
-                            onClick={() => setHeroMediaIndex((prev) => (prev + 1) % heroMediaSlides.length)}
+                            onClick={() => setHeroMediaIndex((prev) => (prev + 1) % heroDeals.length)}
                             aria-label="Next slide"
                             sx={{
                               position: "absolute",
@@ -1236,10 +1137,11 @@ export const AmazonProducts: React.FC = () => {
 
                         {/* Bottom Indicators (Pill + Dots) */}
                         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0.75 }}>
-                          {heroMediaSlides.map((slide, idx) => (
+                          {heroDeals.map((deal, idx) => (
                             <Box
-                              key={slide.id}
+                              key={deal.asin || idx}
                               onClick={() => setHeroMediaIndex(idx)}
+                              title={deal.title}
                               sx={{
                                 width: heroMediaIndex === idx ? 22 : 6,
                                 height: heroMediaIndex === idx ? 5 : 6,
@@ -1264,19 +1166,25 @@ export const AmazonProducts: React.FC = () => {
                   {/* RIGHT COLUMN: PRODUCT INTELLIGENCE, TRUST SIGNALS & ACTION */}
                   <Grid size={{ xs: 12, md: 6.6 }}>
                     <CardContent
+                      key={activeHeroDeal.asin}
                       sx={{
                         p: { xs: 2.5, md: 3 },
                         display: "flex",
                         flexDirection: "column",
                         height: "100%",
-                        justifyContent: "space-between"
+                        justifyContent: "space-between",
+                        animation: "heroFadeIn 0.25s ease-in-out",
+                        "@keyframes heroFadeIn": {
+                          "0%": { opacity: 0.65, transform: "translateY(2px)" },
+                          "100%": { opacity: 1, transform: "translateY(0)" }
+                        }
                       }}
                     >
                       <Box>
                         {/* Chips Row: Category, Discount & ASIN */}
                         <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1.5, flexWrap: "wrap" }}>
                           <Chip
-                            label={heroDeal.category}
+                            label={activeHeroDeal.category || "DEAL OF THE DAY"}
                             size="small"
                             sx={{
                               fontWeight: 800,
@@ -1288,7 +1196,7 @@ export const AmazonProducts: React.FC = () => {
                             }}
                           />
                           <Chip
-                            label={`${Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}% OFF`}
+                            label={`${Math.round((1 - (activeHeroDeal.price / activeHeroDeal.originalPrice)) * 100)}% OFF`}
                             size="small"
                             sx={{
                               bgcolor: isDark ? "rgba(239, 68, 68, 0.15)" : "rgba(220, 38, 38, 0.1)",
@@ -1300,7 +1208,7 @@ export const AmazonProducts: React.FC = () => {
                             }}
                           />
                           <Typography variant="caption" sx={{ color: "var(--slate)", fontFamily: "var(--mono)", fontSize: "0.7rem" }}>
-                            ASIN: {heroDeal.asin}
+                            ASIN: {activeHeroDeal.asin}
                           </Typography>
                         </Box>
 
@@ -1321,13 +1229,13 @@ export const AmazonProducts: React.FC = () => {
                             overflow: "hidden"
                           }}
                         >
-                          {heroDeal.title}
+                          {activeHeroDeal.title}
                         </Typography>
 
                         {/* Star Rating & Count */}
                         <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, mb: 0.75 }}>
                           <Rating
-                            value={heroDeal.rating || 4.5}
+                            value={activeHeroDeal.rating || 4.5}
                             precision={0.1}
                             readOnly
                             size="small"
@@ -1335,18 +1243,18 @@ export const AmazonProducts: React.FC = () => {
                             sx={{ "& .MuiRating-iconFilled": { color: "var(--gold, #D97706)" } }}
                           />
                           <Typography variant="caption" sx={{ fontWeight: 900, color: "var(--gold, #D97706)", fontSize: "0.85rem" }}>
-                            {heroDeal.rating || 4.5}
+                            {activeHeroDeal.rating || 4.5}
                           </Typography>
                           <Typography variant="caption" sx={{ color: "var(--slate)", fontSize: "0.8rem" }}>
-                            ({(heroDeal.reviewCount || 150).toLocaleString()} ratings)
+                            ({(activeHeroDeal.reviewCount || 150).toLocaleString()} ratings)
                           </Typography>
                         </Box>
 
                         {/* Brand / Form Subtitle */}
                         <Typography variant="body2" sx={{ color: "var(--slate)", fontSize: "0.82rem", fontWeight: 600, mb: 1.5 }}>
-                          {heroDeal.description
-                            ? heroDeal.description.replace(/\s*•\s*/g, " · ")
-                            : "Brand Eurohaus · Item Form Flake"}
+                          {activeHeroDeal.description
+                            ? activeHeroDeal.description.replace(/\s*•\s*/g, " · ")
+                            : "Verified Amazon Deal · Genuine Seller Warranty"}
                         </Typography>
 
                         {/* Limited Time Deal Badge */}
@@ -1378,7 +1286,7 @@ export const AmazonProducts: React.FC = () => {
                                 fontSize: { xs: "1.3rem", md: "1.55rem" }
                               }}
                             >
-                              -{Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}%
+                              -{Math.round((1 - (activeHeroDeal.price / activeHeroDeal.originalPrice)) * 100)}%
                             </Typography>
                             <Typography
                               variant="h4"
@@ -1389,18 +1297,18 @@ export const AmazonProducts: React.FC = () => {
                                 letterSpacing: "-0.02em"
                               }}
                             >
-                              ₹{heroDeal.price.toLocaleString("en-IN")}
+                              ₹{activeHeroDeal.price.toLocaleString("en-IN")}
                             </Typography>
                           </Box>
 
                           <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 0.25, flexWrap: "wrap" }}>
-                            {heroDeal.originalPrice > heroDeal.price && (
+                            {activeHeroDeal.originalPrice > activeHeroDeal.price && (
                               <Typography variant="body2" sx={{ textDecoration: "line-through", color: "var(--slate-light)", fontSize: "0.85rem" }}>
-                                M.R.P.: ₹{heroDeal.originalPrice.toLocaleString("en-IN")}
+                                M.R.P.: ₹{activeHeroDeal.originalPrice.toLocaleString("en-IN")}
                               </Typography>
                             )}
                             <Typography variant="caption" sx={{ color: isDark ? "#4ade80" : "#16a34a", fontWeight: 700, fontSize: "0.82rem" }}>
-                              · You save ₹{(heroDeal.originalPrice - heroDeal.price).toLocaleString("en-IN")} ({Math.round((1 - (heroDeal.price / heroDeal.originalPrice)) * 100)}% OFF)
+                              · You save ₹{(activeHeroDeal.originalPrice - activeHeroDeal.price).toLocaleString("en-IN")} ({Math.round((1 - (activeHeroDeal.price / activeHeroDeal.originalPrice)) * 100)}% OFF)
                             </Typography>
                           </Box>
                         </Box>
@@ -1447,8 +1355,9 @@ export const AmazonProducts: React.FC = () => {
                       {/* Action Bar (Grab Deal on Amazon.in + Share + Bookmark) */}
                       <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, pt: 1.5, width: "100%" }}>
                         <Button
+                          id={`hero-grab-deal-btn-${activeHeroDeal.asin}`}
                           variant="contained"
-                          href={getAffiliateUrl(heroDeal)}
+                          href={getAffiliateUrl(activeHeroDeal)}
                           target="_blank"
                           rel="sponsored noopener noreferrer"
                           startIcon={
@@ -1486,16 +1395,16 @@ export const AmazonProducts: React.FC = () => {
                           Grab Deal on Amazon.in{"\u00A0"}↗
                         </Button>
 
-                        <CardShareButton product={heroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+                        <CardShareButton product={activeHeroDeal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
 
                         <IconButton
-                          id={`hero-bookmark-btn-${heroDeal.asin}`}
-                          onClick={() => toggleBookmark(heroDeal.asin)}
-                          aria-label={bookmarkedAsins.has(heroDeal.asin) ? "Remove Bookmark" : "Save Deal"}
+                          id={`hero-bookmark-btn-${activeHeroDeal.asin}`}
+                          onClick={() => toggleBookmark(activeHeroDeal.asin)}
+                          aria-label={bookmarkedAsins.has(activeHeroDeal.asin) ? "Remove Bookmark" : "Save Deal"}
                           sx={{
-                            color: bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "#E2E8F0" : "#334155"),
-                            bgcolor: bookmarkedAsins.has(heroDeal.asin) ? "rgba(183, 34, 43, 0.12)" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"),
-                            border: `1px solid ${bookmarkedAsins.has(heroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)")}`,
+                            color: bookmarkedAsins.has(activeHeroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "#E2E8F0" : "#334155"),
+                            bgcolor: bookmarkedAsins.has(activeHeroDeal.asin) ? "rgba(183, 34, 43, 0.12)" : (isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.05)"),
+                            border: `1px solid ${bookmarkedAsins.has(activeHeroDeal.asin) ? "var(--red, #B7222B)" : (isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)")}`,
                             borderRadius: "8px",
                             p: 1.1,
                             transition: "all 0.2s ease-in-out",
@@ -1507,7 +1416,7 @@ export const AmazonProducts: React.FC = () => {
                             }
                           }}
                         >
-                          {bookmarkedAsins.has(heroDeal.asin) ? <BookmarkIcon /> : <BookmarkBorderIcon />}
+                          {bookmarkedAsins.has(activeHeroDeal.asin) ? <BookmarkIcon /> : <BookmarkBorderIcon />}
                         </IconButton>
                       </Box>
                     </CardContent>
@@ -1530,14 +1439,16 @@ export const AmazonProducts: React.FC = () => {
                 <Grid container spacing={2}>
                   {flashDeals.map((deal) => {
                     const discount = Math.round((1 - (deal.price / deal.originalPrice)) * 100);
+                    const isBookmarked = bookmarkedAsins.has(deal.asin);
+
                     return (
                       <Grid size={{ xs: 12, sm: 6, md: 3 }} key={deal.asin}>
                         <Card
                           elevation={0}
                           sx={{
-                            p: 2,
+                            p: 1.75,
                             height: "100%",
-                            borderRadius: "8px",
+                            borderRadius: "10px",
                             bgcolor: "var(--paper-raise)",
                             border: cardBorder,
                             display: "flex",
@@ -1551,12 +1462,81 @@ export const AmazonProducts: React.FC = () => {
                             }
                           }}
                         >
-                          <Box sx={{ position: "relative", bgcolor: "var(--paper)", borderRadius: "6px", p: 1.5, mb: 1.5, display: "flex", justifyContent: "center", alignItems: "center", minHeight: 110, border: cardBorder }}>
-                            <Chip
-                              label={`${discount}% OFF`}
-                              size="small"
-                              sx={{ position: "absolute", top: 6, right: 6, bgcolor: "rgba(183, 34, 43, 0.12)", color: "var(--red, #B7222B)", fontWeight: 900, fontSize: "0.62rem", height: 18, border: cardBorder }}
-                            />
+                          {/* Top Media Container */}
+                          <Box
+                            sx={{
+                              position: "relative",
+                              bgcolor: isDark ? "rgba(255, 255, 255, 0.02)" : "#FFFFFF",
+                              borderRadius: "8px",
+                              p: 1.5,
+                              mb: 1.5,
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              minHeight: 125,
+                              border: cardBorder
+                            }}
+                          >
+                            {/* Discount Chip on Top Left */}
+                            {discount > 0 && (
+                              <Chip
+                                label={`${discount}% OFF`}
+                                size="small"
+                                sx={{
+                                  position: "absolute",
+                                  top: 8,
+                                  left: 8,
+                                  zIndex: 2,
+                                  bgcolor: "rgba(183, 34, 43, 0.12)",
+                                  color: "var(--red, #B7222B)",
+                                  fontWeight: 900,
+                                  fontSize: "0.65rem",
+                                  height: 20,
+                                  borderRadius: "4px",
+                                  border: cardBorder
+                                }}
+                              />
+                            )}
+
+                            {/* Quick Bookmark Button on Top Right */}
+                            <Tooltip title={isBookmarked ? "Remove Bookmark" : "Save Deal"}>
+                              <IconButton
+                                id={`flash-bookmark-btn-${deal.asin}`}
+                                size="small"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  toggleBookmark(deal.asin);
+                                }}
+                                aria-label={isBookmarked ? "Remove Bookmark" : "Save Deal"}
+                                sx={{
+                                  position: "absolute",
+                                  top: 6,
+                                  right: 6,
+                                  zIndex: 2,
+                                  width: 28,
+                                  height: 28,
+                                  p: 0,
+                                  color: isBookmarked ? "var(--red, #B7222B)" : "var(--slate)",
+                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.9)",
+                                  backdropFilter: "blur(4px)",
+                                  border: cardBorder,
+                                  transition: "all 0.2s ease-in-out",
+                                  "&:hover": {
+                                    color: "var(--red, #B7222B)",
+                                    bgcolor: isDark ? "#1e293b" : "#ffffff",
+                                    transform: "scale(1.1)"
+                                  }
+                                }}
+                              >
+                                {isBookmarked ? (
+                                  <BookmarkIcon sx={{ fontSize: "1rem" }} />
+                                ) : (
+                                  <BookmarkBorderIcon sx={{ fontSize: "1rem" }} />
+                                )}
+                              </IconButton>
+                            </Tooltip>
+
+                            {/* Product Image */}
                             <Box
                               component="img"
                               src={getAbsoluteImageUrl(deal.imageUrl, deal.asin)}
@@ -1565,56 +1545,120 @@ export const AmazonProducts: React.FC = () => {
                               referrerPolicy="no-referrer"
                               data-asin={deal.asin}
                               onError={handleImageError}
-                              sx={{ maxHeight: 90, maxWidth: "100%", objectFit: "contain" }}
+                              sx={{ maxHeight: 95, maxWidth: "100%", objectFit: "contain" }}
                             />
                           </Box>
 
-                          <Box sx={{ mb: 1.5 }}>
+                          {/* Product Title */}
+                          <Box sx={{ mb: 1.5, flexGrow: 1 }}>
                             <Typography
                               variant="subtitle2"
+                              title={deal.title}
                               sx={{
                                 fontWeight: 800,
-                                fontSize: "0.82rem",
+                                fontSize: "0.84rem",
                                 color: "var(--text)",
-                                lineHeight: 1.3,
+                                lineHeight: 1.35,
                                 display: "-webkit-box",
                                 WebkitLineClamp: 2,
                                 WebkitBoxOrient: "vertical",
                                 overflow: "hidden",
-                                minHeight: "2.1rem"
+                                minHeight: "2.3rem"
                               }}
                             >
                               {deal.title}
                             </Typography>
                           </Box>
 
-                          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", pt: 1, borderTop: cardBorder }}>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 900, color: "var(--text)", fontSize: "0.95rem" }}>
-                              ₹{deal.price.toLocaleString("en-IN")}
-                            </Typography>
+                          {/* Card Footer: Dedicated Price Row + Action Buttons Row */}
+                          <Box sx={{ pt: 1.25, borderTop: cardBorder, mt: "auto" }}>
+                            {/* Price & Savings Row */}
+                            <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", mb: 1 }}>
+                              <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.75, flexWrap: "wrap" }}>
+                                <Typography
+                                  variant="subtitle1"
+                                  sx={{
+                                    fontWeight: 900,
+                                    color: "var(--text)",
+                                    fontSize: "1.05rem",
+                                    lineHeight: 1
+                                  }}
+                                >
+                                  ₹{deal.price.toLocaleString("en-IN")}
+                                </Typography>
+                                {deal.originalPrice > deal.price && (
+                                  <Typography
+                                    variant="caption"
+                                    sx={{
+                                      textDecoration: "line-through",
+                                      color: "var(--slate-light)",
+                                      fontSize: "0.75rem",
+                                      fontWeight: 500
+                                    }}
+                                  >
+                                    ₹{deal.originalPrice.toLocaleString("en-IN")}
+                                  </Typography>
+                                )}
+                              </Box>
+
+                              {deal.originalPrice > deal.price && (
+                                <Typography
+                                  variant="caption"
+                                  sx={{
+                                    color: isDark ? "#4ade80" : "#16a34a",
+                                    fontWeight: 800,
+                                    fontSize: "0.68rem",
+                                    whiteSpace: "nowrap"
+                                  }}
+                                >
+                                  Save ₹{(deal.originalPrice - deal.price).toLocaleString("en-IN")}
+                                </Typography>
+                              )}
+                            </Box>
+
+                            {/* Action Row: Full 'Get Deal' CTA + Accessible Share Button */}
                             <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
                               <Button
+                                id={`flash-deal-btn-${deal.asin}`}
                                 size="small"
-                                variant="outlined"
+                                variant="contained"
                                 href={getAffiliateUrl(deal)}
                                 target="_blank"
                                 rel="sponsored noopener noreferrer"
                                 sx={{
+                                  flex: 1,
+                                  height: 34,
                                   borderRadius: "6px",
                                   textTransform: "none",
                                   fontWeight: 800,
-                                  fontSize: "0.72rem",
+                                  fontSize: "0.78rem",
                                   whiteSpace: "nowrap",
-                                  px: 1.2,
-                                  py: 0.3,
-                                  borderColor: isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.15)",
-                                  color: "var(--text)",
-                                  "&:hover": { borderColor: "var(--red, #B7222B)", color: "var(--red, #B7222B)" }
+                                  bgcolor: isDark ? "#f59e0b" : "#0f172a",
+                                  color: isDark ? "#0f172a" : "#ffffff",
+                                  boxShadow: "none",
+                                  transition: "all 0.2s ease-in-out",
+                                  "&:hover": {
+                                    bgcolor: isDark ? "#d97706" : "#1e293b",
+                                    boxShadow: isDark
+                                      ? "0 2px 8px rgba(245, 158, 11, 0.3)"
+                                      : "0 2px 8px rgba(15, 23, 42, 0.2)"
+                                  }
                                 }}
                               >
                                 Get Deal{"\u00A0"}↗
                               </Button>
-                              <CardShareButton product={deal} getAbsoluteImageUrl={getAbsoluteImageUrl} />
+
+                              <CardShareButton
+                                product={deal}
+                                getAbsoluteImageUrl={getAbsoluteImageUrl}
+                                sx={{
+                                  width: 34,
+                                  height: 34,
+                                  p: 0,
+                                  borderRadius: "6px",
+                                  flexShrink: 0
+                                }}
+                              />
                             </Box>
                           </Box>
                         </Card>
