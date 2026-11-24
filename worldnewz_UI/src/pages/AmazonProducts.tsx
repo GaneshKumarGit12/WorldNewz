@@ -110,6 +110,77 @@ const formatCategoryBadge = (category: string = ""): string => {
   return (firstWord || "DEALS").slice(0, 10);
 };
 
+// Helper to parse brand caption and clean title for Flash Drops and product cards matching UI specification
+const parseBrandAndTitle = (rawTitle: string = "", category: string = ""): { brand: string; cleanTitle: string } => {
+  const trimmed = (rawTitle || "").trim();
+  if (!trimmed) {
+    return { brand: formatCategoryBadge(category), cleanTitle: "Amazon Verified Deal" };
+  }
+
+  // Common verified brands
+  const KNOWN_BRANDS = [
+    "ANNI DESIGNER", "AMERICAN CREW", "VAN HEUSEN", "ARTIST VALLEY", "ALLEN SOLLY",
+    "PETER ENGLAND", "U.S. POLO ASSN.", "U.S. POLO ASSN", "US POLO", "LEVI'S", "LEVIS",
+    "MAX", "ZARA", "H&M", "BULLMER", "LYMIO", "JBL", "BOAT", "SONY", "APPLE",
+    "SAMSUNG", "ONEPLUS", "NOISE", "BOULT", "REALME", "XIAOMI", "REDMI", "PHILIPS",
+    "BAJAJ", "PIGEON", "PRESTIGE", "MILTON", "CELLO", "WROGN", "HIGHLANDER", "ROADSTER",
+    "ARAYNA", "PISTAA", "MOKOSH", "INDO ERA", "LERIYA FASHION", "AMAYRA", "ROYALSCOUT"
+  ];
+
+  for (const kb of KNOWN_BRANDS) {
+    const escaped = kb.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`^${escaped}\\b[:\\-\\s]*`, "i");
+    if (regex.test(trimmed)) {
+      const rest = trimmed.replace(regex, "").trim();
+      return {
+        brand: kb.toUpperCase(),
+        cleanTitle: rest || trimmed
+      };
+    }
+  }
+
+  // Pattern: "Brand Name Women's..." / "Brand Name Men's..."
+  const genderPattern = /^([A-Za-z0-9&.'\s]{2,25}?)\s+(Women's|Men's|Kids'|Boy's|Girl's|Unisex)\b/i;
+  const match = trimmed.match(genderPattern);
+  if (match && match[1]) {
+    const potentialBrand = match[1].trim();
+    const genericWords = ["THE", "NEW", "BUY", "BEST", "TOP", "LATEST", "PREMIUM", "EXCLUSIVE"];
+    if (!genericWords.includes(potentialBrand.toUpperCase())) {
+      const rest = trimmed.slice(potentialBrand.length).trim();
+      return {
+        brand: potentialBrand.toUpperCase(),
+        cleanTitle: rest || trimmed
+      };
+    }
+  }
+
+  // Pattern: "Brand Name - Title..." or "Brand Name | Title..."
+  if (trimmed.includes(" - ") || trimmed.includes(" | ")) {
+    const separator = trimmed.includes(" - ") ? " - " : " | ";
+    const parts = trimmed.split(separator);
+    if (parts[0].trim().length >= 2 && parts[0].trim().length <= 25) {
+      return {
+        brand: parts[0].trim().toUpperCase(),
+        cleanTitle: parts.slice(1).join(separator).trim()
+      };
+    }
+  }
+
+  // Fallback: If title has words, take first word if length is 2-15 chars, else category badge
+  const firstWord = trimmed.split(/\s+/)[0];
+  if (firstWord && firstWord.length >= 2 && firstWord.length <= 15 && !["THE", "NEW", "ALL", "SET", "PACK"].includes(firstWord.toUpperCase())) {
+    return {
+      brand: firstWord.toUpperCase(),
+      cleanTitle: trimmed
+    };
+  }
+
+  return {
+    brand: formatCategoryBadge(category),
+    cleanTitle: trimmed
+  };
+};
+
 // Helper to determine category pill badge style matching modern aesthetic (e.g. lavender #EDE9FE + violet #6D28D9 for fashion)
 const getCategoryBadgeStyle = (category: string = "", isDark: boolean = false) => {
   const cat = category.toLowerCase().trim();
@@ -1464,35 +1535,118 @@ export const AmazonProducts: React.FC = () => {
             {/* 🔥 2. TRENDING FLASH DEALS RIBBON (4 ITEMS) */}
             {flashDeals.length > 0 && (
               <Box sx={{ mb: 4 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
-                  <BoltIcon sx={{ color: "var(--red, #B7222B)" }} />
-                  <Typography variant="h6" sx={{ fontWeight: 900, fontFamily: "var(--serif)", color: "var(--text)" }}>
-                    Trending Flash Drops
-                  </Typography>
-                  <Chip label="LIMITED STOCK" size="small" sx={{ bgcolor: "rgba(183, 34, 43, 0.08)", color: "var(--red, #B7222B)", fontWeight: 800, fontSize: "0.62rem", height: 18, border: cardBorder }} />
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    mb: 2.5,
+                    flexWrap: "wrap",
+                    gap: 1.5
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1.25, flexWrap: "wrap" }}>
+                    <Box
+                      sx={{
+                        width: 38,
+                        height: 38,
+                        borderRadius: "10px",
+                        bgcolor: isDark ? "#1E293B" : "rgba(239, 68, 68, 0.08)",
+                        border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(239, 68, 68, 0.2)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0
+                      }}
+                    >
+                      <BoltIcon sx={{ color: "#EF4444", fontSize: "1.35rem" }} />
+                    </Box>
+                    <Typography
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        fontWeight: 800,
+                        fontSize: { xs: "1.25rem", sm: "1.45rem" },
+                        color: isDark ? "#FFFFFF" : "#0F172A",
+                        letterSpacing: "-0.01em"
+                      }}
+                    >
+                      Trending Flash Drops
+                    </Typography>
+                    <Box
+                      sx={{
+                        bgcolor: isDark ? "rgba(239, 68, 68, 0.15)" : "#FEE2E2",
+                        color: isDark ? "#F87171" : "#DC2626",
+                        border: isDark ? "1px solid rgba(239, 68, 68, 0.25)" : "1px solid #FECACA",
+                        borderRadius: "9999px",
+                        px: 1.3,
+                        py: 0.35,
+                        fontSize: "0.68rem",
+                        fontWeight: 800,
+                        letterSpacing: "0.06em",
+                        lineHeight: 1,
+                        textTransform: "uppercase"
+                      }}
+                    >
+                      LIMITED STOCK
+                    </Box>
+                  </Box>
+
+                  <Box
+                    component="button"
+                    id="view-all-flash-deals-btn"
+                    onClick={() => {
+                      const target = document.getElementById("all-deals-section");
+                      if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }}
+                    aria-label="View all deals"
+                    sx={{
+                      background: "none",
+                      border: "none",
+                      p: 0,
+                      m: 0,
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 0.5,
+                      color: isDark ? "#94A3B8" : "#64748B",
+                      fontSize: { xs: "0.82rem", sm: "0.88rem" },
+                      fontWeight: 600,
+                      transition: "color 0.2s ease, transform 0.2s ease",
+                      whiteSpace: "nowrap",
+                      "&:hover": {
+                        color: isDark ? "#FFFFFF" : "#0F172A",
+                        transform: "translateX(2px)"
+                      }
+                    }}
+                  >
+                    View all deals →
+                  </Box>
                 </Box>
 
                 <Grid container spacing={2}>
-                  {flashDeals.map((deal) => {
+                  {flashDeals.map((deal, index) => {
                     const discount = deal.originalPrice && deal.originalPrice > deal.price
                       ? Math.round((1 - (deal.price / deal.originalPrice)) * 100)
                       : 0;
                     const savingsAmount = deal.originalPrice && deal.originalPrice > deal.price
                       ? deal.originalPrice - deal.price
                       : 0;
-                    const badgeStyle = getCategoryBadgeStyle(deal.category, isDark);
                     const rating = deal.rating && deal.rating > 0 ? deal.rating : 4.5;
                     const reviewCount = deal.reviewCount && deal.reviewCount > 0 ? deal.reviewCount : 161;
                     const isBookmarked = bookmarkedAsins.has(deal.asin);
+                    const parsed = parseBrandAndTitle(deal.title, deal.category);
 
                     return (
                       <Grid size={{ xs: 12, sm: 6, md: 3 }} key={deal.asin}>
                         <Card
                           elevation={0}
                           sx={{
-                            p: 2,
+                            p: 0,
                             height: "100%",
-                            borderRadius: "20px",
+                            borderRadius: "18px",
                             bgcolor: isDark ? "#0F172A" : "#FFFFFF",
                             border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid #E2E8F0",
                             display: "flex",
@@ -1505,83 +1659,66 @@ export const AmazonProducts: React.FC = () => {
                               : "0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03)",
                             transition: "all 0.25s ease-in-out",
                             "&:hover": {
-                              borderColor: "rgba(225, 29, 72, 0.6)",
+                              borderColor: "rgba(239, 68, 68, 0.5)",
                               transform: "translateY(-4px)",
                               boxShadow: isDark
-                                ? "0 20px 35px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(225, 29, 72, 0.15)"
-                                : "0 20px 35px -5px rgba(0, 0, 0, 0.1), 0 0 15px rgba(225, 29, 72, 0.08)",
+                                ? "0 20px 35px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(239, 68, 68, 0.15)"
+                                : "0 20px 35px -5px rgba(0, 0, 0, 0.1), 0 0 15px rgba(239, 68, 68, 0.08)",
                               "& .flash-deal-img": {
                                 transform: "scale(1.06)"
                               }
                             }
                           }}
                         >
-                          {/* Top Media Container */}
+                          {/* Top Media Container - Flush with card top */}
                           <Box
                             sx={{
                               position: "relative",
-                              bgcolor: isDark ? "#172033" : "#F8FAFC",
-                              borderRadius: "14px",
-                              border: isDark ? "1px solid rgba(255, 255, 255, 0.06)" : "1px solid #F1F5F9",
+                              background: isDark
+                                ? (index === 0
+                                    ? "linear-gradient(180deg, #24241B 0%, #151A22 100%)"
+                                    : index === 1
+                                    ? "linear-gradient(180deg, #1C2331 0%, #131A26 100%)"
+                                    : index === 2
+                                    ? "linear-gradient(180deg, #182338 0%, #101826 100%)"
+                                    : "linear-gradient(180deg, #1E212B 0%, #121722 100%)")
+                                : "linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)",
+                              borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.06)" : "1px solid #F1F5F9",
+                              borderTopLeftRadius: "18px",
+                              borderTopRightRadius: "18px",
                               display: "flex",
                               justifyContent: "center",
                               alignItems: "center",
-                              height: 190,
+                              height: 200,
                               overflow: "hidden"
                             }}
                           >
-                            {/* Category Pill on Top Left */}
-                            <Box
-                              sx={{
-                                position: "absolute",
-                                top: 10,
-                                left: 10,
-                                zIndex: 2,
-                                bgcolor: badgeStyle.bg,
-                                color: badgeStyle.color,
-                                border: `1px solid ${badgeStyle.border}`,
-                                borderRadius: "9999px",
-                                px: 1.25,
-                                py: 0.4,
-                                fontSize: "0.68rem",
-                                fontWeight: 800,
-                                letterSpacing: "0.04em",
-                                textTransform: "uppercase",
-                                lineHeight: 1,
-                                maxWidth: "58%",
-                                whiteSpace: "nowrap",
-                                overflow: "hidden",
-                                textOverflow: "ellipsis"
-                              }}
-                            >
-                              {formatCategoryBadge(deal.category || "FLASH")}
-                            </Box>
-
-                            {/* Discount Chip on Top Right */}
+                            {/* Top Left: Red Discount Badge */}
                             {discount > 0 && (
                               <Box
                                 sx={{
                                   position: "absolute",
-                                  top: 10,
-                                  right: 10,
+                                  top: 12,
+                                  left: 12,
                                   zIndex: 2,
                                   bgcolor: "#EF4444",
                                   color: "#FFFFFF",
-                                  borderRadius: "9999px",
-                                  px: 1.2,
-                                  py: 0.4,
-                                  fontSize: "0.7rem",
+                                  borderRadius: "8px",
+                                  px: 1.25,
+                                  py: 0.45,
+                                  fontSize: "0.72rem",
                                   fontWeight: 800,
                                   letterSpacing: "0.02em",
                                   lineHeight: 1,
-                                  boxShadow: "0 2px 8px rgba(239, 68, 68, 0.35)"
+                                  boxShadow: "0 2px 8px rgba(239, 68, 68, 0.4)",
+                                  textTransform: "uppercase"
                                 }}
                               >
                                 {discount}% OFF
                               </Box>
                             )}
 
-                            {/* Quick Bookmark Button on Bottom Right of Image */}
+                            {/* Top Right: Glassmorphic Bookmark Button */}
                             <Tooltip title={isBookmarked ? "Remove Bookmark" : "Save Deal"}>
                               <IconButton
                                 id={`flash-bookmark-btn-${deal.asin}`}
@@ -1593,24 +1730,24 @@ export const AmazonProducts: React.FC = () => {
                                 aria-label={isBookmarked ? "Remove Bookmark" : "Save Deal"}
                                 sx={{
                                   position: "absolute",
-                                  bottom: 10,
-                                  right: 10,
+                                  top: 12,
+                                  right: 12,
                                   zIndex: 3,
-                                  width: 38,
-                                  height: 38,
-                                  minWidth: 38,
-                                  color: isBookmarked ? "#EF4444" : (isDark ? "#FFFFFF" : "#1E293B"),
-                                  bgcolor: isDark ? "rgba(15, 23, 42, 0.85)" : "#FFFFFF",
-                                  backdropFilter: "blur(8px)",
-                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.16)" : "1px solid rgba(0, 0, 0, 0.1)",
-                                  borderRadius: "12px",
-                                  boxShadow: isDark ? "0 4px 12px rgba(0, 0, 0, 0.25)" : "0 4px 10px rgba(0, 0, 0, 0.08)",
+                                  width: 36,
+                                  height: 36,
+                                  minWidth: 36,
+                                  color: isBookmarked ? "#EF4444" : "#FFFFFF",
+                                  bgcolor: "rgba(0, 0, 0, 0.45)",
+                                  backdropFilter: "blur(6px)",
+                                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                                  borderRadius: "10px",
+                                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)",
                                   transition: "all 0.2s ease-in-out",
                                   "&:hover": {
                                     transform: "scale(1.08)",
                                     color: "#EF4444",
                                     borderColor: "#EF4444",
-                                    bgcolor: isDark ? "#1E293B" : "#FFFFFF"
+                                    bgcolor: "rgba(0, 0, 0, 0.65)"
                                   }
                                 }}
                               >
@@ -1621,6 +1758,34 @@ export const AmazonProducts: React.FC = () => {
                                 )}
                               </IconButton>
                             </Tooltip>
+
+                            {/* Bottom Left: Translucent Dark Category Pill */}
+                            <Box
+                              sx={{
+                                position: "absolute",
+                                bottom: 12,
+                                left: 12,
+                                zIndex: 2,
+                                bgcolor: "rgba(0, 0, 0, 0.6)",
+                                backdropFilter: "blur(6px)",
+                                color: "#E2E8F0",
+                                border: "1px solid rgba(255, 255, 255, 0.12)",
+                                borderRadius: "9999px",
+                                px: 1.25,
+                                py: 0.35,
+                                fontSize: "0.68rem",
+                                fontWeight: 800,
+                                letterSpacing: "0.05em",
+                                textTransform: "uppercase",
+                                lineHeight: 1,
+                                maxWidth: "60%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis"
+                              }}
+                            >
+                              {formatCategoryBadge(deal.category || "FASHION")}
+                            </Box>
 
                             {/* Product Image */}
                             <Box
@@ -1645,61 +1810,82 @@ export const AmazonProducts: React.FC = () => {
                           </Box>
 
                           {/* Card Content Below Image */}
-                          <Box sx={{ pt: 1.75, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                          <Box sx={{ p: 2, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                            {/* Small Brand Caption */}
+                            <Typography
+                              variant="caption"
+                              sx={{
+                                display: "block",
+                                fontWeight: 800,
+                                fontSize: "0.72rem",
+                                color: isDark ? "#94A3B8" : "#64748B",
+                                letterSpacing: "0.06em",
+                                textTransform: "uppercase",
+                                lineHeight: 1.2,
+                                mb: 0.5
+                              }}
+                            >
+                              {parsed.brand}
+                            </Typography>
+
                             {/* Product Title */}
                             <Typography
                               variant="subtitle2"
                               component="h3"
-                              title={deal.title}
+                              title={parsed.cleanTitle}
                               sx={{
                                 fontWeight: 800,
-                                fontSize: "0.9rem",
+                                fontSize: "0.92rem",
                                 color: isDark ? "#FFFFFF" : "#0F172A",
                                 lineHeight: 1.35,
                                 display: "-webkit-box",
                                 WebkitLineClamp: 2,
                                 WebkitBoxOrient: "vertical",
                                 overflow: "hidden",
-                                minHeight: "2.45rem",
-                                mb: 1.25,
+                                minHeight: "2.55rem",
+                                mb: 1.2,
                                 transition: "color 0.2s ease",
                                 "&:hover": {
-                                  color: "#E11D48"
+                                  color: "#EF4444"
                                 }
                               }}
                             >
-                              {deal.title}
+                              {parsed.cleanTitle}
                             </Typography>
 
-                            {/* Rating & Reviews */}
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, mb: 1.25 }}>
-                              <Rating
-                                value={rating}
-                                readOnly
-                                precision={0.1}
-                                size="small"
-                                emptyIcon={<StarIcon style={{ opacity: 0.25, color: isDark ? "#64748B" : "#94A3B8" }} fontSize="inherit" />}
+                            {/* Rating & Reviews Row */}
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 0.6, mb: 1.25 }}>
+                              <StarIcon sx={{ color: "#F59E0B", fontSize: "1.1rem" }} />
+                              <Typography
+                                variant="caption"
                                 sx={{
-                                  fontSize: "0.95rem",
-                                  "& .MuiRating-iconFilled": { color: "#F59E0B" }
+                                  fontWeight: 800,
+                                  color: isDark ? "#FFFFFF" : "#0F172A",
+                                  fontSize: "0.85rem"
                                 }}
-                              />
-                              <Typography variant="caption" sx={{ fontWeight: 800, color: isDark ? "#FFFFFF" : "#0F172A", fontSize: "0.84rem" }}>
+                              >
                                 {typeof rating === "number" ? rating.toFixed(1) : "4.5"}
                               </Typography>
-                              <Typography variant="caption" sx={{ color: isDark ? "#94A3B8" : "#64748B", fontSize: "0.76rem" }}>
-                                ({reviewCount.toLocaleString()} reviews)
+                              <Typography
+                                variant="caption"
+                                sx={{
+                                  color: isDark ? "#94A3B8" : "#64748B",
+                                  fontSize: "0.8rem",
+                                  fontWeight: 500
+                                }}
+                              >
+                                · {reviewCount.toLocaleString()} reviews
                               </Typography>
                             </Box>
 
-                            {/* Price Row */}
-                            <Box sx={{ display: "flex", alignItems: "baseline", gap: 0.85, mb: 0.85, flexWrap: "wrap" }}>
+                            {/* Price Row: Large Bold Price + Strikethrough Original Price */}
+                            <Box sx={{ display: "flex", alignItems: "baseline", gap: 1, mb: 0.5, flexWrap: "wrap" }}>
                               <Typography
                                 variant="subtitle1"
                                 sx={{
                                   fontWeight: 900,
                                   color: isDark ? "#FFFFFF" : "#0F172A",
-                                  fontSize: { xs: "1.4rem", sm: "1.55rem" },
+                                  fontSize: { xs: "1.45rem", sm: "1.6rem" },
                                   lineHeight: 1,
                                   letterSpacing: "-0.02em"
                                 }}
@@ -1712,7 +1898,7 @@ export const AmazonProducts: React.FC = () => {
                                   sx={{
                                     textDecoration: "line-through",
                                     color: isDark ? "#64748B" : "#94A3B8",
-                                    fontSize: "0.88rem",
+                                    fontSize: "0.9rem",
                                     fontWeight: 500
                                   }}
                                 >
@@ -1721,64 +1907,34 @@ export const AmazonProducts: React.FC = () => {
                               )}
                             </Box>
 
-                            {/* Savings Pill */}
+                            {/* Savings Text (Clean green text matching screenshot) */}
                             {savingsAmount > 0 ? (
-                              <Box
+                              <Typography
                                 sx={{
-                                  display: "inline-flex",
-                                  alignItems: "center",
-                                  bgcolor: isDark ? "rgba(34, 197, 94, 0.16)" : "rgba(34, 197, 94, 0.12)",
-                                  border: isDark ? "1px solid rgba(74, 222, 128, 0.25)" : "1px solid rgba(22, 163, 74, 0.2)",
-                                  borderRadius: "8px",
-                                  px: 1.15,
-                                  py: 0.35,
+                                  color: isDark ? "#22C55E" : "#15803D",
+                                  fontWeight: 700,
+                                  fontSize: "0.82rem",
                                   mb: 2,
-                                  alignSelf: "flex-start",
-                                  maxWidth: "100%",
-                                  overflow: "hidden"
+                                  lineHeight: 1.2
                                 }}
                               >
-                                <Typography
-                                  sx={{
-                                    color: isDark ? "#4ADE80" : "#15803D",
-                                    fontWeight: 800,
-                                    fontSize: "0.74rem",
-                                    letterSpacing: "0.01em",
-                                    whiteSpace: "nowrap",
-                                    textOverflow: "ellipsis",
-                                    overflow: "hidden"
-                                  }}
-                                >
-                                  You save ₹{formatPrice(savingsAmount)} ({discount}%)
-                                </Typography>
-                              </Box>
+                                You save ₹{formatPrice(savingsAmount)}
+                              </Typography>
                             ) : (
-                              <Box
+                              <Typography
                                 sx={{
-                                  display: "inline-flex",
-                                  alignItems: "center",
-                                  bgcolor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
-                                  border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.06)",
-                                  borderRadius: "8px",
-                                  px: 1.15,
-                                  py: 0.35,
+                                  color: isDark ? "#94A3B8" : "#64748B",
+                                  fontWeight: 700,
+                                  fontSize: "0.82rem",
                                   mb: 2,
-                                  alignSelf: "flex-start"
+                                  lineHeight: 1.2
                                 }}
                               >
-                                <Typography
-                                  sx={{
-                                    color: isDark ? "#94A3B8" : "#64748B",
-                                    fontWeight: 700,
-                                    fontSize: "0.72rem"
-                                  }}
-                                >
-                                  Best Verified Deal
-                                </Typography>
-                              </Box>
+                                Best Verified Deal
+                              </Typography>
                             )}
 
-                            {/* Action Row: Full 'Grab Deal' CTA + Accessible Share Button */}
+                            {/* Action Row: 'Grab Deal' CTA + Accessible Share Button */}
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: "auto" }}>
                               <Button
                                 id={`flash-deal-btn-${deal.asin}`}
@@ -1790,20 +1946,20 @@ export const AmazonProducts: React.FC = () => {
                                 startIcon={<ShoppingBagOutlinedIcon sx={{ fontSize: "1.15rem" }} />}
                                 sx={{
                                   flex: 1,
-                                  height: 44,
-                                  borderRadius: "12px",
+                                  height: 42,
+                                  borderRadius: "10px",
                                   textTransform: "none",
                                   fontWeight: 800,
                                   fontSize: "0.88rem",
                                   letterSpacing: "0.01em",
                                   whiteSpace: "nowrap",
-                                  bgcolor: "#E11D48",
+                                  bgcolor: "#EF4444",
                                   color: "#FFFFFF",
-                                  boxShadow: "0 4px 12px rgba(225, 29, 72, 0.3)",
+                                  boxShadow: "0 4px 12px rgba(239, 68, 68, 0.3)",
                                   transition: "all 0.2s ease-in-out",
                                   "&:hover": {
-                                    bgcolor: "#BE123C",
-                                    boxShadow: "0 6px 18px rgba(225, 29, 72, 0.45)",
+                                    bgcolor: "#DC2626",
+                                    boxShadow: "0 6px 18px rgba(239, 68, 68, 0.45)",
                                     transform: "translateY(-1px)"
                                   }
                                 }}
@@ -1815,10 +1971,10 @@ export const AmazonProducts: React.FC = () => {
                                 product={deal}
                                 getAbsoluteImageUrl={getAbsoluteImageUrl}
                                 sx={{
-                                  width: 44,
-                                  height: 44,
-                                  minWidth: 44,
-                                  borderRadius: "12px"
+                                  width: 42,
+                                  height: 42,
+                                  minWidth: 42,
+                                  borderRadius: "10px"
                                 }}
                               />
                             </Box>
@@ -1833,6 +1989,7 @@ export const AmazonProducts: React.FC = () => {
 
             {/* 📂 3. CATEGORY SWITCHER & SEARCH BAR (CARD VIEW ONLY) */}
             <Paper
+              id="all-deals-section"
               elevation={0}
               sx={{
                 p: 2,
