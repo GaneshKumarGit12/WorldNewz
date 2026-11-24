@@ -368,7 +368,7 @@ export default async function handler(req, res) {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; connect-src 'self' https: wss:; img-src * data: blob: android-webview-video-poster:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; frame-src 'self' https:; object-src 'none'; media-src * data: blob:;");
 
-  const { id, page, jobSlug } = req.query;
+  const { id, page, jobSlug, authorSlug } = req.query;
 
   // Load Built index.html template from Vercel's output
   const pathsToTry = [
@@ -1031,7 +1031,29 @@ export default async function handler(req, res) {
       ${buildInternalLinkHub()}
     `;
   }
-  // Case D: Single Article
+  // Case D: Author Profile
+  else if (authorSlug) {
+    const authorName = authorSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    title = `${authorName} – Author Profile & Editorial Dossiers | WorldNewzs`;
+    description = `Read verified reporting, investigative journalism dossiers, and editorial analysis by ${authorName} on WorldNewzs.`;
+    canonical = `https://worldnewzs.in/author/${authorSlug}`;
+    ogType = 'profile';
+
+    richFallbackBody = `
+      <article>
+        <h1>${escapeHtml(authorName)}</h1>
+        <p style="color: #64748b;">Verified Contributing Journalist | WorldNewzs Editorial Desk</p>
+        <p style="line-height: 1.75; color: #334155;">
+          ${escapeHtml(authorName)} is a verified investigative writer and analyst contributing to WorldNewzs. Explore their recent articles, verified briefings, and category dossiers below.
+        </p>
+        <div style="margin-top: 25px; padding: 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+          <p><a href="/about" style="color: #c83a15; font-weight: bold; text-decoration: none;">&larr; Learn more about the WorldNewzs Editorial Team</a></p>
+        </div>
+      </article>
+      ${buildInternalLinkHub()}
+    `;
+  }
+  // Case E: Single Article
   else if (id) {
     let article = fallbackNews.find(a => a.id === id) || fallbackNews[0];
 

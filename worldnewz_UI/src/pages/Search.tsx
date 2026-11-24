@@ -110,6 +110,7 @@ const Search: React.FC = () => {
         description={headingText ? `Browse current news and headlines for ${headingText} on WorldNewzs.` : "Search across sports, technology, business, food, and travel news on WorldNewzs."}
         keywords="search news, latest news search, WorldNewzs news lookup, world news query"
         canonical="https://worldnewzs.in/search"
+        noIndex={true}
       />
       <Box
         className="wrap"

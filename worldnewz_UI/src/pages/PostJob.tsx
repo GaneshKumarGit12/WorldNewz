@@ -20,6 +20,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import StarIcon from "@mui/icons-material/Star";
 import { postJob } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 const jobTypesOptions = [
@@ -124,6 +125,14 @@ const PostJob: React.FC = () => {
         title="Post a Job – Reach Top Talent Instantly"
         description="Submit your job opening on WorldNewzs. Get high-quality applications for developer, design, and remote roles from a global audience."
         canonical="https://worldnewzs.in/jobs/post-job"
+      />
+
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Jobs", url: "https://worldnewzs.in/jobs" },
+          { name: "Post a Job", url: "https://worldnewzs.in/jobs/post-job" }
+        ]}
       />
 
       {/* Breadcrumbs */}

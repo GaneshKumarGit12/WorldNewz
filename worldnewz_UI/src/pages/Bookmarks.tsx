@@ -41,6 +41,7 @@ const Bookmarks: React.FC = () => {
         description="Access and read your saved news articles and stories on WorldNewzs."
         keywords="saved articles, bookmarked news, reading list, saved headlines"
         canonical="https://worldnewzs.in/bookmarks"
+        noIndex={true}
       />
       <Box
         className="wrap"

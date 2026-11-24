@@ -84,11 +84,16 @@ namespace WorldNewzWebAPI.Controllers
                 ("badge-quiz", "0.8", "hourly"),
                 ("quiz-history", "0.8", "hourly"),
                 ("jobs", "0.6", "daily"),
+                ("jobs/post-job", "0.7", "daily"),
                 ("movies", "0.6", "daily"),
                 ("transportation", "0.6", "daily"),
                 ("stocks", "0.6", "hourly"),
                 ("trending-videos", "0.8", "daily"),
                 ("play-games", "0.8", "daily"),
+                ("games/dvcubie2026", "0.7", "daily"),
+                ("games/chess", "0.7", "daily"),
+                ("games/mario", "0.7", "daily"),
+                ("games/hit-goal", "0.7", "daily"),
                 ("amazon-products", "0.9", "daily"),
                 ("privacy-policy", "0.3", "yearly"),
                 ("terms", "0.3", "yearly"),
@@ -221,9 +226,40 @@ Disallow: /search
 Disallow: /gsearch
 Disallow: /bookmarks
 Disallow: /comments
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-News
+Allow: /
+Allow: /article/
+Allow: /read-article/
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: {siteUrl}/sitemap.xml
-Sitemap: {siteUrl}/news-sitemap.xml";
+Sitemap: {siteUrl}/news-sitemap.xml
+Host: worldnewzs.in";
             Response.Headers.CacheControl = "public, max-age=3600";
             return Content(content, "text/plain");
         }

@@ -9,6 +9,36 @@ Disallow: /search
 Disallow: /gsearch
 Disallow: /bookmarks
 Disallow: /comments
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-News
+Allow: /
+Allow: /article/
+Allow: /read-article/
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://worldnewzs.in/sitemap.xml
 Sitemap: https://worldnewzs.in/news-sitemap.xml

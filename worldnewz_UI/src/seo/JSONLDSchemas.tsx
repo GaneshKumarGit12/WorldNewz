@@ -286,3 +286,49 @@ export const JSONLDProductList = ({ products }: { products: ProductSchemaItem[] 
     })}</script>
   </Helmet>
 );
+
+/* ── JobPosting schema (Google for Jobs) ── */
+export interface JobPostingSchemaItem {
+  title: string;
+  description: string;
+  companyName: string;
+  location: string;
+  jobType?: string;
+  remote?: boolean;
+  url: string;
+  datePosted?: string;
+}
+
+export const JSONLDJobPosting = ({ job }: { job: JobPostingSchemaItem }) => (
+  <Helmet>
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": job.title,
+      "description": job.description,
+      "datePosted": job.datePosted || new Date().toISOString(),
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": job.companyName,
+        "sameAs": SITE_URL
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": job.location || "Remote",
+          "addressCountry": "US"
+        }
+      },
+      "applicantLocationRequirements": job.remote ? {
+        "@type": "Country",
+        "name": "Worldwide"
+      } : undefined,
+      "jobLocationType": job.remote ? "TELECOMMUTE" : undefined,
+      "employmentType": job.jobType ? job.jobType.toUpperCase().replace(/-/g, '_') : "FULL_TIME",
+      "url": job.url,
+      "directApply": true
+    })}</script>
+  </Helmet>
+);
+

@@ -272,6 +272,11 @@ const ResultPage: React.FC = () => {
   if (!article) {
     return (
       <Container maxWidth="md" sx={{ py: 4 }}>
+        <SEOMeta
+          title="Article Not Found | WorldNewzs"
+          description="The requested news article could not be found or has been moved on WorldNewzs."
+          noIndex={true}
+        />
         <Alert severity="error">Article not found. Please go back and select an article.</Alert>
         <Button variant="contained" startIcon={<ArrowBackIcon />} onClick={() => navigate(-1)} sx={{ mt: 2 }}>
           Go Back

@@ -97,6 +97,7 @@ const GSearchResults: React.FC = () => {
         title={displayTitle}
         description={`Google search results for "${query}" on WorldNewzs.`}
         keywords={["google search", query, "worldnewzs search"]}
+        noIndex={true}
       />
 
       <Container maxWidth="lg">

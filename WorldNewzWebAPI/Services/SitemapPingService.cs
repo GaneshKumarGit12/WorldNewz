@@ -23,13 +23,16 @@ namespace WorldNewzWebAPI.Services
 
         public async Task PingSearchEnginesAsync()
         {
-            var sitemapUrl = "https://worldnewzs.in/news-sitemap.xml";
+            var sitemapUrl = "https://worldnewzs.in/sitemap.xml";
+            var newsSitemapUrl = "https://worldnewzs.in/news-sitemap.xml";
             var client = _httpClientFactory.CreateClient();
 
             var pingTargets = new[]
             {
                 $"https://www.google.com/ping?sitemap={Uri.EscapeDataString(sitemapUrl)}",
-                $"https://www.bing.com/ping?sitemap={Uri.EscapeDataString(sitemapUrl)}"
+                $"https://www.bing.com/ping?sitemap={Uri.EscapeDataString(sitemapUrl)}",
+                $"https://www.google.com/ping?sitemap={Uri.EscapeDataString(newsSitemapUrl)}",
+                $"https://www.bing.com/ping?sitemap={Uri.EscapeDataString(newsSitemapUrl)}"
             };
 
             foreach (var target in pingTargets)

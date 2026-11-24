@@ -51,8 +51,13 @@ export default async function handler(req, res) {
   <url><loc>https://worldnewzs.in/movies</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/transportation</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/jobs</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/jobs/post-job</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/trending-videos</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/play-games</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/games/dvcubie2026</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/games/chess</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/games/mario</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
+  <url><loc>https://worldnewzs.in/games/hit-goal</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/amazon-products</loc><changefreq>daily</changefreq><priority>0.9</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/chatbot</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>
   <url><loc>https://worldnewzs.in/editorial-briefings</loc><changefreq>daily</changefreq><priority>0.8</priority><lastmod>${today}</lastmod></url>

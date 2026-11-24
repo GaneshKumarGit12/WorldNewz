@@ -38,6 +38,7 @@ import {
   WorkspacePremium
 } from "@mui/icons-material";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 
 interface PlayerProfile {
   id: string;
@@ -316,6 +317,12 @@ const PlayGamesPage: React.FC = () => {
         title="Google Play Games Services API | WorldNewzs"
         description="The Google Play Games Service allows developers to enhance games with social leaderboards, achievements, game state, sign-in with Google, and interactive web games on WorldNewzs."
         canonical="https://worldnewzs.in/play-games"
+      />
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Play Games", url: "https://worldnewzs.in/play-games" }
+        ]}
       />
 
       {/* Hero Banner with Glassmorphism */}

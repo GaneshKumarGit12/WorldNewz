@@ -18,6 +18,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { fetchJobDetail } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDJobPosting, JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 interface Job {
@@ -83,6 +84,11 @@ const JobDetails: React.FC = () => {
   if (error || !job) {
     return (
       <Box sx={{ p: 4, textAlign: "center", minHeight: "60vh" }}>
+        <SEOMeta
+          title="Job Opening Not Found | WorldNewzs Jobs"
+          description="The requested job opening could not be found or has expired on WorldNewzs Jobs."
+          noIndex={true}
+        />
         <Typography color="error" variant="h6" sx={{ mb: 2 }}>
           {error || "Job details not found."}
         </Typography>
@@ -98,12 +104,35 @@ const JobDetails: React.FC = () => {
     );
   }
 
+  const jobCanonical = `https://worldnewzs.in/jobs/detail/${job.slug}`;
+
   return (
     <Box sx={{ p: { xs: 2, sm: 3 }, minHeight: "80vh", maxWidth: 900, mx: "auto" }}>
       <SEOMeta
         title={`${job.title} at ${job.company_name} – WorldNewzs Jobs`}
         description={`Apply for ${job.title} at ${job.company_name} in ${job.location}. ${job.remote ? "Remote work available." : ""} Read full details and apply now.`}
-        canonical={`https://worldnewzs.in/jobs/detail/${job.slug}`}
+        canonical={jobCanonical}
+      />
+
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Jobs", url: "https://worldnewzs.in/jobs" },
+          { name: job.title, url: jobCanonical }
+        ]}
+      />
+
+      <JSONLDJobPosting
+        job={{
+          title: job.title,
+          description: job.description,
+          companyName: job.company_name,
+          location: job.location,
+          jobType: job.job_types?.[0] || "Full-time",
+          remote: job.remote,
+          url: jobCanonical,
+          datePosted: job.created_at ? new Date(job.created_at).toISOString() : new Date().toISOString()
+        }}
       />
 
       {/* Breadcrumbs */}

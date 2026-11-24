@@ -23,6 +23,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 import SearchIcon from "@mui/icons-material/Search";
 import { fetchJobs } from "../api/apiClient";
 import { SEOMeta } from "../seo/SEOMeta";
+import { JSONLDBreadcrumb } from "../seo/JSONLDSchemas";
 import { CategoryEditorial } from "../components/CategoryEditorial";
 import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
@@ -122,6 +123,13 @@ const Jobs: React.FC = () => {
         title="Jobs – Latest Career Opportunities & Remote Openings"
         description="Explore the latest job listings, career openings, visa sponsorship, and remote employment opportunities on WorldNewzs."
         canonical="https://worldnewzs.in/jobs"
+      />
+
+      <JSONLDBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://worldnewzs.in" },
+          { name: "Jobs", url: "https://worldnewzs.in/jobs" }
+        ]}
       />
 
       {/* Breadcrumbs */}

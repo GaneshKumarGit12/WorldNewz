@@ -601,10 +601,11 @@ const AdminDashboard: React.FC = () => {
   return (
     <main style={{ minHeight: "85vh", paddingBottom: "40px" }}>
       <SEOMeta 
-        title="Admin Control Center Portal | WorldNewz" 
-        description="Access the secure administrative control center for WorldNewz. View database stats, manage subscribers, polls, and quiz submissions." 
+        title="Admin Control Center Portal | WorldNewzs" 
+        description="Access the secure administrative control center for WorldNewzs. View database stats, manage subscribers, polls, and quiz submissions." 
         keywords={["admin portal", "worldnewzs admin", "newsletter subscriber management", "polls admin", "quiz admin"]} 
         canonical="https://worldnewzs.in/admin" 
+        noIndex={true}
       />
 
       <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, mt: 4 }}>

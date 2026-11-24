@@ -186,6 +186,7 @@ const CommentHistory: React.FC = () => {
         description="View, search, and manage your complete comment history across WorldNewzs articles."
         keywords="comment history, user comments, discussion history, article replies"
         canonical="https://worldnewzs.in/comments"
+        noIndex={true}
       />
       {/* Back Button */}
       <Button

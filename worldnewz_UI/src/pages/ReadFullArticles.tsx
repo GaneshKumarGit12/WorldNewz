@@ -522,6 +522,11 @@ const ReadFullArticles: React.FC = () => {
   if (!article) {
     return (
       <Container maxWidth="lg" sx={{ py: 6, textAlign: "center" }}>
+        <SEOMeta
+          title="Article Not Found | WorldNewzs"
+          description="The requested news article could not be found or has been moved on WorldNewzs."
+          noIndex={true}
+        />
         <Typography variant="h5" sx={{ mb: 2 }}>Article not found</Typography>
         <Button variant="outlined" onClick={() => navigate("/")}>Return to Discover</Button>
       </Container>
@@ -530,6 +535,7 @@ const ReadFullArticles: React.FC = () => {
 
   const author = getAuthorForCategory(article.category);
   const catConfig = getCategoryConfig(article.category);
+  const canonicalArticleUrl = `${SITE_URL}/article/${encodeURIComponent(id || "")}`;
 
   return (
     <Box className="wrap" sx={{ maxWidth: "1240px", margin: "0 auto", px: { xs: 2, sm: 3, md: 3.5 }, py: 4, minHeight: "80vh" }}>
@@ -542,13 +548,13 @@ const ReadFullArticles: React.FC = () => {
         articlePublishedTime={article.publishedAt}
         articleModifiedTime={article.publishedAt}
         articleSection={article.category}
-        canonical={`${SITE_URL}/read-article/${encodeURIComponent(id || "")}`}
+        canonical={canonicalArticleUrl}
       />
       <JSONLDNewsArticle
         article={{
           title: article.headline || article.title,
           summary: article.summary || article.description || "",
-          url: `${SITE_URL}/read-article/${encodeURIComponent(id || "")}`,
+          url: canonicalArticleUrl,
           imageUrl: article.urlToImage || article.imageUrl || "",
           publishedAt: article.publishedAt || "",
           category: article.category || "",

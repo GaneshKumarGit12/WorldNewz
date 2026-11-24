@@ -83,6 +83,11 @@ const AuthorBioPage: React.FC = () => {
   if (!author) {
     return (
       <Container maxWidth="md" sx={{ py: 8 }}>
+        <SEOMeta
+          title="Author Profile Not Found | WorldNewzs"
+          description="The requested author profile could not be found on WorldNewzs."
+          noIndex={true}
+        />
         <Alert severity="error">Author profile not found.</Alert>
         <Button variant="outlined" startIcon={<ArrowBackIcon />} onClick={() => navigate("/")} sx={{ mt: 3 }}>
           Back to Homepage
