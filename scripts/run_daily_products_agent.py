@@ -39,7 +39,7 @@ from datetime import datetime
 
 AFFILIATE_TAG = "ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
 SEEN_ASINS_FILE = os.path.join("scratch", "seen_asins.json")
-CSHARP_SERVICE_FILE = os.path.join("WorldNewzWebAPI", "Services", "AmazonProductService.cs")
+SEED_JSON_FILE = os.path.join("WorldNewzWebAPI", "Data", "amazon-products-seed.json")
 FAILED_LOG_FILE = os.path.join("scratch", "failed_links.log")
 RESOLVED_BATCH_FILE = os.path.join("scratch", "resolved_daily_batch.json")
 
@@ -486,68 +486,79 @@ def resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, 
         "isActive": True
     }
 
-def seed_to_csharp(products):
-    """Appends new product blocks to WorldNewzWebAPI/Services/AmazonProductService.cs."""
-    if not os.path.exists(CSHARP_SERVICE_FILE):
-        print(f"❌ C# Service file not found: {CSHARP_SERVICE_FILE}")
-        return False
+def seed_to_json(products):
+    """Appends deduplicated product records to WorldNewzWebAPI/Data/amazon-products-seed.json."""
+    os.makedirs(os.path.dirname(SEED_JSON_FILE), exist_ok=True)
 
-    with open(CSHARP_SERVICE_FILE, "r", encoding="utf-8") as f:
-        csharp_code = f.read()
+    existing = []
+    if os.path.exists(SEED_JSON_FILE):
+        with open(SEED_JSON_FILE, "r", encoding="utf-8") as f:
+            existing = json.load(f)
 
-    new_blocks = []
+    existing_asins = {str(item.get("asin", "")).upper() for item in existing}
+    existing_images = set()
+    existing_titles = set()
+    for item in existing:
+        img = str(item.get("imageUrl", ""))
+        m = re.search(r'/images/I/([A-Za-z0-9\-_%+]+)', img)
+        existing_images.add(m.group(1) if m else img)
+        existing_titles.add(re.sub(r'[^a-zA-Z0-9]', '', str(item.get("title", "")).lower())[:40])
+
+    added = 0
     for p in products:
-        asin = p["asin"]
-        if f'Asin = "{asin}"' in csharp_code:
+        asin = str(p.get("asin", "")).strip().upper()
+        if not asin or asin in existing_asins:
             continue
 
-        title_esc = p["title"].replace('"', '\\"').replace('\n', ' ').strip()
-        desc_esc = p["description"].replace('"', '\\"').replace('\n', ' ').strip()
-        cat = p["category"]
-        img = p["imageUrl"]
-        price = p["price"]
-        orig_price = p["originalPrice"]
-        prod_url = p["productUrl"]
+        price = round(float(p.get("price", 0) or 0), 2)
+        if price <= 0:
+            continue  # Zero synthetic pricing protocol
+        orig_price = round(float(p.get("originalPrice", price) or price), 2)
+        if orig_price < price:
+            orig_price = price
 
-        block = f"""            new AmazonProduct
-            {{
-                Asin = "{asin}",
-                Title = "{title_esc}",
-                Description = "{desc_esc}",
-                Price = {price:.2f}m,
-                OriginalPrice = {orig_price:.2f}m,
-                Rating = 4.5,
-                ReviewCount = 150,
-                Category = "{cat}",
-                ProductUrl = "{prod_url}",
-                ImageUrl = "{img}",
-                IsActive = true,
-                DateAdded = DateTime.UtcNow
-            }},"""
-        new_blocks.append(block)
+        img_url = str(p.get("imageUrl", "")).strip()
+        m = re.search(r'/images/I/([A-Za-z0-9\-_%+]+)', img_url)
+        media_id = m.group(1) if m else img_url
+        norm_title = re.sub(r'[^a-zA-Z0-9]', '', str(p.get("title", "")).lower())[:40]
+        if (media_id and media_id in existing_images) or (norm_title and norm_title in existing_titles):
+            continue
 
-    if not new_blocks:
-        print("ℹ️ No new C# blocks to inject.")
+        record = {
+            "asin": asin,
+            "title": str(p["title"]).replace("\n", " ").strip(),
+            "description": str(p["description"]).replace("\n", " ").strip(),
+            "imageUrl": img_url,
+            "price": price,
+            "originalPrice": orig_price,
+            "rating": float(p.get("rating", 4.5) or 4.5),
+            "reviewCount": int(p.get("reviewCount", 150) or 150),
+            "category": str(p.get("category", "Shopping")).strip() or "Shopping",
+            "productUrl": str(p.get("productUrl", f"https://www.amazon.in/dp/{asin}?tag={AFFILIATE_TAG}")).strip(),
+            "isActive": True,
+        }
+        existing.append(record)
+        existing_asins.add(asin)
+        if media_id:
+            existing_images.add(media_id)
+        if norm_title:
+            existing_titles.add(norm_title)
+        added += 1
+
+    if added == 0:
+        print("ℹ️ No new JSON seed products to append.")
         return True
 
-    insertion_text = "\n".join(new_blocks)
-    target = "            },\n        };"
-    if target in csharp_code:
-        updated_code = csharp_code.replace(target, f"            }},\n{insertion_text}\n        }};", 1)
-    else:
-        target_alt = "        };"
-        pos = csharp_code.rfind(target_alt, 0, csharp_code.rfind("bool changed = false;"))
-        if pos != -1:
-            updated_code = csharp_code[:pos] + insertion_text + "\n" + csharp_code[pos:]
-        else:
-            print("❌ Failed to locate insertion target in AmazonProductService.cs")
-            return False
+    with open(SEED_JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump(existing, f, ensure_ascii=False, separators=(",", ":"))
 
-    with open(CSHARP_SERVICE_FILE, "w", encoding="utf-8") as f:
-        f.write(updated_code)
-
-    print(f"✨ Successfully injected {len(new_blocks)} new product seeds into AmazonProductService.cs!")
+    print(f"✨ Successfully appended {added} new product seeds into {SEED_JSON_FILE} (Total: {len(existing)})!")
     return True
+
+
+def seed_to_csharp(products):
+    """Backward-compatible wrapper redirecting to JSON seed catalog."""
+    return seed_to_json(products)
 
 def run_build_verification():
     """Runs dotnet build and npm run build to verify integrity."""
@@ -618,19 +629,35 @@ def main():
 
     print(f"\n📋 Received {len(urls)} links to process.")
 
-    # Load deduplication registries
+    # Load deduplication registries from seen_asins.json and amazon-products-seed.json
     seen_asins = load_seen_asins()
-    existing_csharp_asins = set()
-    if os.path.exists(CSHARP_SERVICE_FILE):
-        with open(CSHARP_SERVICE_FILE, "r", encoding="utf-8") as f:
-            existing_csharp_asins = set(re.findall(r'Asin\s*=\s*"([A-Z0-9]{10})"', f.read()))
-
+    existing_seed_asins = set()
     seen_images = set()
     seen_titles = set()
+    if os.path.exists(SEED_JSON_FILE):
+        try:
+            with open(SEED_JSON_FILE, "r", encoding="utf-8") as f:
+                seed_items = json.load(f)
+            for item in seed_items:
+                asin_val = str(item.get("asin", "")).strip().upper()
+                if asin_val:
+                    existing_seed_asins.add(asin_val)
+                img_val = str(item.get("imageUrl", ""))
+                m = re.search(r'/images/I/([A-Za-z0-9\-_%+]+)', img_val)
+                if m:
+                    seen_images.add(m.group(1))
+                elif img_val:
+                    seen_images.add(img_val)
+                t_val = re.sub(r'[^a-zA-Z0-9]', '', str(item.get("title", "")).lower())[:40]
+                if t_val:
+                    seen_titles.add(t_val)
+        except Exception as e:
+            print(f"⚠️ Warning loading {SEED_JSON_FILE}: {e}")
+
     resolved_products = []
 
     for raw_url in urls:
-        product = resolve_single_url(raw_url, seen_asins, existing_csharp_asins, seen_images, seen_titles)
+        product = resolve_single_url(raw_url, seen_asins, existing_seed_asins, seen_images, seen_titles)
         if product:
             resolved_products.append(product)
             seen_asins.add(product["asin"])
@@ -648,9 +675,9 @@ def main():
     with open(RESOLVED_BATCH_FILE, "w", encoding="utf-8") as f:
         json.dump(resolved_products, f, indent=2)
 
-    # Seed to C#
-    if not seed_to_csharp(resolved_products):
-        print("❌ Seeding to C# failed.")
+    # Seed to JSON catalog
+    if not seed_to_json(resolved_products):
+        print("❌ Seeding to JSON catalog failed.")
         return
 
     # Update seen ASINs registry

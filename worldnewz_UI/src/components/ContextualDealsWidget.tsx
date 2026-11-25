@@ -3,8 +3,13 @@ import { Box, Typography, Card, CardMedia, CardContent, Button, Chip, Grid } fro
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import { fetchAmazonProducts } from "../api/apiClient";
 import type { AmazonProduct } from "../api/apiClient";
+import { getCachedWidgetDeals, getCurrentFourHourBlock } from "../api/dealsCache";
+import {
+  getBrandedCategoryPlaceholder,
+  getResponsiveAmazonImage,
+  getVerifiedDiscountPercent,
+} from "./deals/dealsUtils";
 
 interface ContextualDealsWidgetProps {
   category?: string;
@@ -33,54 +38,40 @@ const fallbackDeals: Partial<AmazonProduct>[] = [
 
 export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ category = "general" }) => {
   const [products, setProducts] = useState<Partial<AmazonProduct>[]>(fallbackDeals);
+  const [fourHourBlock] = useState<number>(() => getCurrentFourHourBlock());
 
   useEffect(() => {
-    fetchAmazonProducts()
-      .then((res) => {
-        if (res.data && res.data.products && res.data.products.length > 0) {
-          const clean = res.data.products.filter(
+    let active = true;
+    const queryCat = category && category.toLowerCase() !== "general" ? category : undefined;
+    getCachedWidgetDeals(queryCat, 6)
+      .then((data) => {
+        if (!active) return;
+        if (data && data.products && data.products.length > 0) {
+          const clean = data.products.filter(
             (p: Partial<AmazonProduct>) =>
               p.asin !== "B0GR1YWWQ6" &&
               !p.title?.toLowerCase().includes("d-force vitamin d3 60000 iu")
           );
-          setProducts(clean);
+          if (clean.length > 0) setProducts(clean);
         }
       })
-      .catch((err) => {
-        console.warn("Could not retrieve Amazon products for contextual deals, using fallback.", err);
+      .catch(() => {
+        // Silently keep fallbacks
       });
-  }, []);
-
-  const getRotatedDeals = (list: Partial<AmazonProduct>[]) => {
-    // 1. Filter by category
-    const catKey = category.toLowerCase();
-    let filtered = list.filter((p) => {
-      const pCat = (p.category || "").toLowerCase();
-      return pCat === catKey || (catKey === "technology" && pCat === "electronics") || (catKey === "electronics" && pCat === "technology");
-    });
-
-    // Fallback if no products match this category
-    if (filtered.length === 0) {
-      filtered = list;
-    }
-
-    if (filtered.length === 0) return [];
-
-    // 2. Compute 4-hour block rotation index
-    const fourHourBlock = Math.floor(Date.now() / (4 * 60 * 60 * 1000));
-    const startIndex = fourHourBlock % filtered.length;
-
-    // 3. Maintain queue rotation
-    const rotated: Partial<AmazonProduct>[] = [];
-    for (let i = 0; i < Math.min(2, filtered.length); i++) {
-      rotated.push(filtered[(startIndex + i) % filtered.length]);
-    }
-    return rotated;
-  };
+    return () => {
+      active = false;
+    };
+  }, [category]);
 
   const deals = useMemo(() => {
-    return getRotatedDeals(products);
-  }, [products, category]);
+    if (!products || products.length === 0) return [];
+    const startIndex = fourHourBlock % products.length;
+    const rotated: Partial<AmazonProduct>[] = [];
+    for (let i = 0; i < Math.min(2, products.length); i++) {
+      rotated.push(products[(startIndex + i) % products.length]);
+    }
+    return rotated;
+  }, [products, fourHourBlock]);
 
   if (deals.length === 0) return null;
 
@@ -118,9 +109,7 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
 
       <Grid container spacing={2}>
         {deals.map((deal: Partial<AmazonProduct>) => {
-          const discountPercent = deal.originalPrice && deal.originalPrice > (deal.price || 0)
-            ? Math.round(((deal.originalPrice - (deal.price || 0)) / deal.originalPrice) * 100)
-            : 0;
+          const discountPercent = getVerifiedDiscountPercent(deal.price, deal.originalPrice);
 
           return (
             <Grid key={deal.asin} size={{ xs: 12, sm: 6 }}>
@@ -128,15 +117,16 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
                 <CardMedia
                   component="img"
                   sx={{ width: 110, height: 110, objectFit: "contain", p: 1, bgcolor: "#ffffff" }}
-                  image={deal.imageUrl || "/images/amazon_placeholder.png"}
+                  image={getResponsiveAmazonImage(deal.imageUrl, "thumb")}
                   alt={deal.title}
+                  loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     if (!target.dataset.hasFailed) {
                       target.dataset.hasFailed = "true";
-                      target.src = "/images/amazon_placeholder.png";
+                      target.src = getBrandedCategoryPlaceholder(deal.category);
                     }
                   }}
                 />
@@ -149,23 +139,26 @@ export const ContextualDealsWidget: React.FC<ContextualDealsWidgetProps> = ({ ca
                     <Typography variant="subtitle2" sx={{ fontWeight: 800, color: "error.main" }}>
                       ₹{(deal.price)?.toLocaleString("en-IN")}
                     </Typography>
-                    {deal.originalPrice && deal.originalPrice > (deal.price || 0) && (
+                    {discountPercent !== null && deal.originalPrice && deal.originalPrice > (deal.price || 0) && (
                       <Typography variant="caption" sx={{ textDecoration: "line-through", color: "text.secondary" }}>
                         ₹{deal.originalPrice.toLocaleString("en-IN")}
                       </Typography>
                     )}
-                    {discountPercent > 0 && (
+                    {discountPercent !== null && discountPercent > 0 && (
                       <Chip label={`${discountPercent}% OFF`} size="small" color="error" sx={{ height: 18, fontSize: "0.65rem", fontWeight: 700 }} />
                     )}
                   </Box>
 
                   <Button
-                    id={`contextual-deal-btn-${deal.asin}`}
+                    id={`btn-buy-amazon-${deal.asin}`}
+                    component="a"
+                    href={deal.productUrl}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
                     variant="contained"
                     color="secondary"
                     size="small"
                     endIcon={<OpenInNewIcon sx={{ fontSize: "0.85rem !important" }} />}
-                    onClick={() => window.open(deal.productUrl, "_blank", "noopener,noreferrer")}
                     sx={{ textTransform: "none", fontSize: "0.75rem", py: 0.4, fontWeight: 700 }}
                   >
                     View on Amazon

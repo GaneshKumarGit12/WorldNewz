@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -12,21 +14,16 @@ namespace WorldNewzWebAPI.Services
 {
     /// <summary>
     /// ExpiredProcess - Automated verification and purge service for expired or non-functioning Amazon products.
-    /// Detects 'not a functioning page on our site' 404/dog pages and immediately removes them from the database
-    /// so they are never displayed on the website application.
+    /// Processes products in memory-bounded paginated batches (50 rows at a time) using IHttpClientFactory
+    /// and capped HTML reads to remain safe under Render.com's 512 MB RAM ceiling.
     /// </summary>
     public class ExpiredProcess
     {
         private readonly WorldNewsDbContext _context;
+        private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<ExpiredProcess>? _logger;
-        private static readonly HttpClient _httpClient = new HttpClient(new HttpClientHandler
-        {
-            AllowAutoRedirect = true,
-            AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
-        })
-        {
-            Timeout = TimeSpan.FromSeconds(15)
-        };
+        private const int BatchSize = 50;
+        private const int MaxHtmlBytes = 256 * 1024;
 
         private static readonly string[] ExpiredSignatures = new[]
         {
@@ -38,61 +35,75 @@ namespace WorldNewzWebAPI.Services
             "Currently unavailable"
         };
 
-        static ExpiredProcess()
-        {
-            _httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36");
-            _httpClient.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-            _httpClient.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.9");
-        }
-
-        public ExpiredProcess(WorldNewsDbContext context, ILogger<ExpiredProcess>? logger = null)
+        public ExpiredProcess(
+            WorldNewsDbContext context,
+            IHttpClientFactory httpClientFactory,
+            ILogger<ExpiredProcess>? logger = null)
         {
             _context = context;
+            _httpClientFactory = httpClientFactory;
             _logger = logger;
         }
 
         /// <summary>
-        /// Scans all Amazon products in the database table and purges any expired or non-functioning listings.
+        /// Scans Amazon products in paginated AsNoTracking batches and purges expired listings cleanly.
         /// </summary>
         public async Task<int> VerifyAndPurgeExpiredProductsAsync()
         {
-            _logger?.LogInformation("[ExpiredProcess] Starting verification of Amazon products in database...");
+            _logger?.LogInformation("[ExpiredProcess] Starting batched verification of Amazon products in database...");
 
-            var products = await _context.AmazonProducts.ToListAsync();
-            if (products.Count == 0)
+            int totalPurged = 0;
+            int lastId = 0;
+
+            while (true)
             {
-                _logger?.LogInformation("[ExpiredProcess] No products found in database.");
-                return 0;
-            }
+                var batch = await _context.AmazonProducts
+                    .AsNoTracking()
+                    .Where(p => p.Id > lastId)
+                    .OrderBy(p => p.Id)
+                    .Take(BatchSize)
+                    .ToListAsync();
 
-            var expiredProducts = new List<AmazonProduct>();
-
-            foreach (var product in products)
-            {
-                bool isExpired = await CheckIfProductIsExpiredAsync(product);
-                if (isExpired)
+                if (batch.Count == 0)
                 {
-                    _logger?.LogWarning($"[ExpiredProcess] Product '{product.Title}' (ASIN: {product.Asin}) is EXPIRED. Marking for deletion.");
-                    expiredProducts.Add(product);
+                    break;
+                }
+
+                lastId = batch[^1].Id;
+                var expiredIds = new List<int>();
+
+                foreach (var product in batch)
+                {
+                    bool isExpired = await CheckIfProductIsExpiredAsync(product);
+                    if (isExpired)
+                    {
+                        _logger?.LogWarning($"[ExpiredProcess] Product '{product.Title}' (ASIN: {product.Asin}) is EXPIRED. Marking for deletion.");
+                        expiredIds.Add(product.Id);
+                    }
+                }
+
+                if (expiredIds.Count > 0)
+                {
+                    var toDelete = await _context.AmazonProducts
+                        .Where(p => expiredIds.Contains(p.Id))
+                        .ToListAsync();
+
+                    if (toDelete.Count > 0)
+                    {
+                        _context.AmazonProducts.RemoveRange(toDelete);
+                        await _context.SaveChangesAsync();
+                        totalPurged += toDelete.Count;
+                    }
+                    _context.ChangeTracker.Clear();
                 }
             }
 
-            if (expiredProducts.Count > 0)
-            {
-                _context.AmazonProducts.RemoveRange(expiredProducts);
-                await _context.SaveChangesAsync();
-                _logger?.LogInformation($"[ExpiredProcess] Successfully purged {expiredProducts.Count} expired products from database.");
-            }
-            else
-            {
-                _logger?.LogInformation("[ExpiredProcess] All products verified active and functioning.");
-            }
-
-            return expiredProducts.Count;
+            _logger?.LogInformation($"[ExpiredProcess] Completed verification. Purged {totalPurged} expired products.");
+            return totalPurged;
         }
 
         /// <summary>
-        /// Checks a single product URL or ASIN against Amazon web endpoints to determine if the page is expired or non-functioning.
+        /// Checks a single product URL or ASIN against Amazon web endpoints with a bounded response read.
         /// </summary>
         public async Task<bool> CheckIfProductIsExpiredAsync(AmazonProduct product)
         {
@@ -107,18 +118,15 @@ namespace WorldNewzWebAPI.Services
 
             try
             {
-                using var request = new HttpRequestMessage(HttpMethod.Get, testUrl);
-                using var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+                var client = _httpClientFactory.CreateClient("AmazonScraper");
+                using var response = await AmazonProductService.SendSafeAmazonGetAsync(client, testUrl, maxRedirects: 5);
 
-                if (!response.IsSuccessStatusCode)
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound) // 404
-                    {
-                        return true;
-                    }
+                    return true;
                 }
 
-                var html = await response.Content.ReadAsStringAsync();
+                var html = await ReadBoundedStringAsync(response.Content, MaxHtmlBytes);
                 if (string.IsNullOrWhiteSpace(html))
                 {
                     return false;
@@ -144,6 +152,23 @@ namespace WorldNewzWebAPI.Services
                 _logger?.LogError($"[ExpiredProcess] Unexpected error checking ASIN {product.Asin}: {ex.Message}");
                 return false;
             }
+        }
+
+        private static async Task<string> ReadBoundedStringAsync(HttpContent content, int maxBytes)
+        {
+            await using var stream = await content.ReadAsStreamAsync();
+            var buffer = new byte[Math.Min(16384, maxBytes)];
+            using var ms = new MemoryStream();
+            int totalRead = 0;
+            while (totalRead < maxBytes)
+            {
+                int toRead = Math.Min(buffer.Length, maxBytes - totalRead);
+                int read = await stream.ReadAsync(buffer, 0, toRead);
+                if (read <= 0) break;
+                ms.Write(buffer, 0, read);
+                totalRead += read;
+            }
+            return Encoding.UTF8.GetString(ms.ToArray());
         }
     }
 }

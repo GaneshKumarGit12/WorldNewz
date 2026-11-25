@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,10 +9,9 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
-import { fetchAmazonProducts } from "../api/apiClient";
 import type { AmazonProduct } from "../api/apiClient";
-
-const AMAZON_PLACEHOLDER = "/images/amazon_placeholder.png";
+import { getCachedWidgetDeals, getCurrentFourHourBlock } from "../api/dealsCache";
+import { getBrandedCategoryPlaceholder, getResponsiveAmazonImage } from "./deals/dealsUtils";
 
 export interface ParsedProductInfo {
   categoryLabel: string;
@@ -169,18 +168,20 @@ export const ShoppingWidget: React.FC = () => {
   const [products, setProducts] = useState<Partial<AmazonProduct>[]>(fallbackProducts);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [fourHourBlock] = useState<number>(() => getCurrentFourHourBlock());
 
   useEffect(() => {
-    fetchAmazonProducts()
-      .then((res) => {
-        if (res.data && res.data.products && res.data.products.length > 0) {
-          const clean = res.data.products.filter(
+    let active = true;
+    getCachedWidgetDeals(undefined, 8)
+      .then((data) => {
+        if (!active) return;
+        if (data && data.products && data.products.length > 0) {
+          const clean = data.products.filter(
             (p: Partial<AmazonProduct>) =>
               p.asin !== "B0GR1YWWQ6" &&
               !p.title?.toLowerCase().includes("d-force vitamin d3 60000 iu")
           );
           if (clean.length > 0) {
-            // Guarantee the featured hero product (Parker Gift Set) is preserved at the top
             const hero = fallbackProducts[0];
             const hasHero = clean.some((p: Partial<AmazonProduct>) => p.asin === hero.asin);
             const merged = hasHero ? clean : [hero, ...clean];
@@ -188,29 +189,29 @@ export const ShoppingWidget: React.FC = () => {
           }
         }
       })
-      .catch((err) => {
-        console.warn("Could not retrieve Amazon products for widget, using curated fallbacks.", err);
+      .catch(() => {
+        // Silently keep curated fallbacks
       });
+    return () => {
+      active = false;
+    };
   }, []);
 
-  // Rotated products helper: keep hero product in slot 0 + rotate 3 items every 4 hours
-  const getRotatedProducts = (list: Partial<AmazonProduct>[]) => {
-    if (list.length <= 4) return list;
+  // Memoized 4-hour rotated deck (prevents array reallocation every 4.5s carousel tick)
+  const dailyProducts = useMemo(() => {
+    if (products.length <= 4) return products;
 
-    const hero = list.find((p) => p.asin === fallbackProducts[0].asin) || list[0];
-    const otherProducts = list.filter((p) => p.asin !== hero.asin);
+    const hero = products.find((p) => p.asin === fallbackProducts[0].asin) || products[0];
+    const otherProducts = products.filter((p) => p.asin !== hero.asin);
 
-    const fourHourBlock = Math.floor(Date.now() / (4 * 60 * 60 * 1000));
     const startIndex = fourHourBlock % otherProducts.length;
 
     const daily: Partial<AmazonProduct>[] = [hero];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < Math.min(3, otherProducts.length); i++) {
       daily.push(otherProducts[(startIndex + i) % otherProducts.length]);
     }
     return daily;
-  };
-
-  const dailyProducts = getRotatedProducts(products);
+  }, [products, fourHourBlock]);
 
   // Auto rotate products every 4.5 seconds (pauses on mouse hover)
   useEffect(() => {
@@ -326,11 +327,14 @@ export const ShoppingWidget: React.FC = () => {
             }}
           >
             <img
-              src={activeProduct.imageUrl || AMAZON_PLACEHOLDER}
+              key={activeProduct.asin || activeProduct.id}
+              src={getResponsiveAmazonImage(activeProduct.imageUrl, "card")}
               alt={mainTitle}
               width={240}
               height={180}
+              loading="lazy"
               decoding="async"
+              referrerPolicy="no-referrer"
               style={{
                 maxHeight: "140px",
                 maxWidth: "100%",
@@ -338,7 +342,11 @@ export const ShoppingWidget: React.FC = () => {
                 transition: "transform 0.3s ease",
               }}
               onError={(e) => {
-                (e.target as HTMLImageElement).src = AMAZON_PLACEHOLDER;
+                const target = e.currentTarget;
+                if (!target.dataset.fallbackApplied) {
+                  target.dataset.fallbackApplied = "true";
+                  target.src = getBrandedCategoryPlaceholder(activeProduct.category);
+                }
               }}
             />
           </Box>

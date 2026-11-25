@@ -28,25 +28,24 @@ Use a robust Python scraper script to bypass Captcha blocks and extract accurate
 5. **Image Preservation & Depixelation**:
    - Extract high-res image directly (`data-old-hires` or `"hiRes"` from HTML, restricted to `\.(?:jpg|jpeg|png|webp)`).
    - Convert thumbnail modifiers to full 1500px Ultra HD (`_SL1500_.jpg`), verifying HTTP 200 accessibility.
-6. **C# Code Formatting**: Output the scraped products as valid C# `AmazonProduct` seed instances.
+6. **JSON Seed Catalog Formatting**: Output the scraped products as valid JSON records matching the `AmazonProduct` schema in `WorldNewzWebAPI/Data/amazon-products-seed.json`.
 
 ---
 
 ## Step 2: Comprehensive Multi-Dimensional Deduplication Protocol
 Before seeding or committing, verify that every candidate product satisfies all deduplication constraints:
-1. **ASIN Uniqueness**: Discard any ASIN already present in `scratch/seen_asins.json` or `AmazonProductService.cs`.
+1. **ASIN Uniqueness**: Discard any ASIN already present in `scratch/seen_asins.json` or `WorldNewzWebAPI/Data/amazon-products-seed.json` (or returned by `GET /api/amazonproducts/asins`).
 2. **Image Uniqueness**: Do not accept duplicate/identical images (`ImageUrl` or Amazon image asset ID `https://m.media-amazon.com/images/I/{IMAGE_ID}...`). Each product must feature its own distinct visual asset.
 3. **Title & Description Text Uniqueness**: Do not accept duplicate title text or identical descriptions across products. Ensure each product has distinct, scrubbed naming and clear descriptive copy.
 4. **Authentic Distinct Rates & Discounts**: Extract authentic live prices and true MRP discounts directly from Amazon. Never synthesize or fabricate uniform placeholder rates or random discounts.
-5. **Cross-Layer Enforcement**: Deduplication is enforced during Python scraping/resolution, backend C# EF Core queries, and frontend React UI state (`useMemo` unique filters in `AmazonProducts.tsx`, `ShoppingWidget.tsx`, `ContextualDealsWidget.tsx`).
+5. **Cross-Layer Enforcement**: Deduplication is enforced during Python scraping/resolution, backend C# incremental ASIN-diff seeding & indexed queries, and frontend React UI state (`AmazonProducts.tsx`, `ShoppingWidget.tsx`, `ContextualDealsWidget.tsx`).
 
 ---
 
-## Step 3: Seed C# Database list
-1. Open [AmazonProductService.cs](file:///c:/WorldNewz/WorldNewzWebAPI/Services/AmazonProductService.cs).
-2. Scroll to the end of the `seedData` list in `EnsureDefaultProductsSeededAsync()`.
-3. Append the formatted C# `new AmazonProduct { ... }` blocks right before the list's closing brackets `};`.
-4. Ensure the tracking tag is kept clean and valid (`tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl`).
+## Step 3: Seed JSON Catalog (`WorldNewzWebAPI/Data/amazon-products-seed.json`)
+1. Open or run `scripts/run_daily_products_agent.py` (or `scratch/seed_daily_to_csharp.py`) to append new deduplicated records to [amazon-products-seed.json](file:///c:/WorldNewz/WorldNewzWebAPI/Data/amazon-products-seed.json).
+2. On startup or first request, [AmazonProductService.cs](file:///c:/WorldNewz/WorldNewzWebAPI/Services/AmazonProductService.cs) streams `Data/amazon-products-seed.json` and runs **incremental ASIN-diff sync** in batches of 100 (guarded by SHA-256 hash) so new daily products automatically sync into PostgreSQL/SQLite without bloating the DLL or RAM.
+3. Ensure the tracking tag is kept clean and valid (`tag=ganeshd12-21&linkCode=ll2&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl`).
 
 ---
 

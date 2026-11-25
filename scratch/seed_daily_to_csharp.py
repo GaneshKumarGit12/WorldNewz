@@ -1,73 +1,86 @@
 import json
+import os
 import re
 
+SEED_JSON_PATH = os.path.join("WorldNewzWebAPI", "Data", "amazon-products-seed.json")
+RESOLVED_BATCH_PATH = os.path.join("scratch", "resolved_daily_batch.json")
+TAG = "ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+
+
 def main():
-    with open("scratch/resolved_daily_batch.json", "r", encoding="utf-8") as f:
+    with open(RESOLVED_BATCH_PATH, "r", encoding="utf-8") as f:
         products = json.load(f)
 
-    print(f"Loaded {len(products)} products from resolved_daily_batch.json")
+    print(f"Loaded {len(products)} products from {RESOLVED_BATCH_PATH}")
 
-    with open("WorldNewzWebAPI/Services/AmazonProductService.cs", "r", encoding="utf-8") as f:
-        csharp_code = f.read()
+    existing = []
+    if os.path.exists(SEED_JSON_PATH):
+        with open(SEED_JSON_PATH, "r", encoding="utf-8") as f:
+            existing = json.load(f)
 
-    seed_blocks = []
-    tag = "ganeshd12-21&linkCode=ll1&linkId=309384296fe1c1e72569a81c50402f7a&ref_=as_li_ss_tl"
+    existing_asins = {str(p.get("asin", "")).strip().upper() for p in existing}
+    existing_images = set()
+    existing_titles = set()
+    for item in existing:
+        img = str(item.get("imageUrl", ""))
+        m = re.search(r"/images/I/([A-Za-z0-9\-_%+]+)", img)
+        existing_images.add(m.group(1) if m else img)
+        existing_titles.add(re.sub(r"[^a-zA-Z0-9]", "", str(item.get("title", "")).lower())[:40])
 
+    added = 0
     for p in products:
-        asin = p["asin"]
-        if f'Asin = "{asin}"' in csharp_code:
-            print(f"ASIN {asin} already in C# file. Skipping.")
+        asin = str(p.get("asin", "")).strip().upper()
+        if not asin or asin in existing_asins:
+            print(f"ASIN {asin} already in JSON seed catalog. Skipping.")
             continue
 
-        title_escaped = p["title"].replace('"', '\\"').replace('\n', ' ').strip()
-        desc_escaped = p["description"].replace('"', '\\"').replace('\n', ' ').strip()
-        category = p["category"]
-        img_url = p["imageUrl"]
-        price = p["price"]
-        orig_price = p["originalPrice"]
-        product_url = f"https://www.amazon.in/dp/{asin}?tag={tag}"
+        price = round(float(p.get("price", 0) or 0), 2)
+        if price <= 0:
+            print(f"ASIN {asin} missing valid price (Zero Synthetic Pricing). Skipping.")
+            continue
 
-        block = f"""            new AmazonProduct
-            {{
-                Asin = "{asin}",
-                Title = "{title_escaped}",
-                Description = "{desc_escaped}",
-                Price = {price:.2f}m,
-                OriginalPrice = {orig_price:.2f}m,
-                Rating = 4.5,
-                ReviewCount = 150,
-                Category = "{category}",
-                ProductUrl = "{product_url}",
-                ImageUrl = "{img_url}",
-                IsActive = true,
-                DateAdded = DateTime.UtcNow
-            }},"""
-        seed_blocks.append(block)
+        orig_price = round(float(p.get("originalPrice", price) or price), 2)
+        if orig_price < price:
+            orig_price = price
 
-    print(f"Generated {len(seed_blocks)} new C# seed blocks.")
+        img_url = str(p.get("imageUrl", "")).strip()
+        m = re.search(r"/images/I/([A-Za-z0-9\-_%+]+)", img_url)
+        media_id = m.group(1) if m else img_url
+        norm_title = re.sub(r"[^a-zA-Z0-9]", "", str(p.get("title", "")).lower())[:40]
+        if (media_id and media_id in existing_images) or (norm_title and norm_title in existing_titles):
+            print(f"ASIN {asin} duplicate image or title. Skipping.")
+            continue
 
-    if not seed_blocks:
-        print("No new seed blocks to add.")
+        existing.append({
+            "asin": asin,
+            "title": str(p["title"]).replace("\n", " ").strip(),
+            "description": str(p["description"]).replace("\n", " ").strip(),
+            "imageUrl": img_url,
+            "price": price,
+            "originalPrice": orig_price,
+            "rating": float(p.get("rating", 4.5) or 4.5),
+            "reviewCount": int(p.get("reviewCount", 150) or 150),
+            "category": str(p.get("category", "Shopping")).strip() or "Shopping",
+            "productUrl": f"https://www.amazon.in/dp/{asin}?tag={TAG}",
+            "isActive": True,
+        })
+        existing_asins.add(asin)
+        if media_id:
+            existing_images.add(media_id)
+        if norm_title:
+            existing_titles.add(norm_title)
+        added += 1
+
+    if added == 0:
+        print("No new seed products to add.")
         return
 
-    new_blocks_str = "\n".join(seed_blocks)
+    os.makedirs(os.path.dirname(SEED_JSON_PATH), exist_ok=True)
+    with open(SEED_JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(existing, f, ensure_ascii=False, separators=(",", ":"))
 
-    target = "            },\n        };"
-    if target in csharp_code:
-        updated_code = csharp_code.replace(target, f"            }},\n{new_blocks_str}\n        }};", 1)
-        with open("WorldNewzWebAPI/Services/AmazonProductService.cs", "w", encoding="utf-8") as f:
-            f.write(updated_code)
-        print("Successfully updated AmazonProductService.cs with new seed products!")
-    else:
-        target_alt = "        };"
-        pos = csharp_code.rfind(target_alt, 0, csharp_code.rfind("bool changed = false;"))
-        if pos != -1:
-            updated_code = csharp_code[:pos] + new_blocks_str + "\n" + csharp_code[pos:]
-            with open("WorldNewzWebAPI/Services/AmazonProductService.cs", "w", encoding="utf-8") as f:
-                f.write(updated_code)
-            print("Successfully updated AmazonProductService.cs via fallback target match!")
-        else:
-            print("❌ Could not locate insertion point in AmazonProductService.cs")
+    print(f"Successfully appended {added} new products to {SEED_JSON_PATH} (Total: {len(existing)})!")
+
 
 if __name__ == "__main__":
     main()

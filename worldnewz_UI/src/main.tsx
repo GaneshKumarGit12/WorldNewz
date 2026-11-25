@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LinearProgress from "@mui/material/LinearProgress";
 import Box from "@mui/material/Box";
 
@@ -117,6 +117,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="quiz-history" element={<QuizHistory />} />
                   <Route path="movies" element={<Movies />} />
                   <Route path="amazon-products" element={<AmazonProducts />} />
+                  <Route path="amazon-proudcts" element={<Navigate to="/amazon-products" replace />} />
                   <Route path="deals" element={<AmazonProducts />} />
                   <Route path="jobs" element={<Jobs />} />
                   <Route path="trending-videos" element={<TrendingVideos />} />

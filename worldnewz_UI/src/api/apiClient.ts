@@ -702,11 +702,82 @@ export interface AmazonProductsResponse {
   products: AmazonProduct[];
 }
 
+export interface CategoryStat {
+  key: string;
+  label: string;
+  count: number;
+  maxDiscount: number;
+}
+
+export interface RawCategoryStat {
+  name: string;
+  group: string;
+  count: number;
+}
+
+export interface AmazonCatalogQueryParams {
+  page?: number;
+  pageSize?: number;
+  category?: string;
+  search?: string;
+  sort?: "newest" | "discount" | "price_asc" | "price_desc" | "rating";
+  minDiscount?: number;
+  maxPrice?: number;
+  minRating?: number;
+  excludeAsins?: string;
+}
+
+export interface AmazonCatalogPageResponse {
+  status: string;
+  page: number;
+  pageSize: number;
+  totalResults: number;
+  totalPages: number;
+  catalogTotal: number;
+  products: AmazonProduct[];
+  categoryCounts: Record<string, number>;
+  maxDiscountByCategory: Record<string, number>;
+  categoryStats: CategoryStat[];
+  availableCategories: RawCategoryStat[];
+  lastUpdated: string;
+}
+
+export interface AmazonHighlightsResponse {
+  status: string;
+  heroDeals: AmazonProduct[];
+  flashDrops: AmazonProduct[];
+  priceDrops: AmazonProduct[];
+  mysteryDeal: AmazonProduct | null;
+  totalActiveDeals: number;
+  topVerifiedDiscount: number;
+  categoryStats: CategoryStat[];
+  lastUpdated: string;
+}
+
+export interface AmazonWidgetDealsResponse {
+  status: string;
+  fourHourBlock: number;
+  category: string;
+  totalPoolSize: number;
+  products: AmazonProduct[];
+  lastUpdated: string;
+}
+
 export const fetchAmazonProducts = () =>
   apiClient.get<AmazonProductsResponse>("/amazonproducts");
 
+export const fetchAmazonCatalog = (params: AmazonCatalogQueryParams) =>
+  apiClient.get<AmazonCatalogPageResponse>("/amazonproducts", { params });
+
+export const fetchAmazonHighlights = () =>
+  apiClient.get<AmazonHighlightsResponse>("/amazonproducts/highlights");
+
+export const fetchAmazonWidgetDeals = (params?: { category?: string; limit?: number; fourHourBlock?: number }) =>
+  apiClient.get<AmazonWidgetDealsResponse>("/amazonproducts/widgets", { params });
+
 export interface AmazonProductParseResponse {
   status: string;
+  persisted?: boolean;
   product: AmazonProduct;
 }
 

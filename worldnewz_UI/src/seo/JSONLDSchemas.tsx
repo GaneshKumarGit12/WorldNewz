@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SITE_URL = 'https://worldnewzs.in';
@@ -235,10 +236,15 @@ export const JSONLDFAQPage = ({ faqs }: { faqs: FAQItem[] }) => (
   </Helmet>
 );
 
-/* ── ItemList / Product Catalog Schema ── */
-const DEFAULT_PRICE_VALID_UNTIL = '2099-12-31';
+/* ── CollectionPage + ItemList / Product Catalog Schema ── */
+function getRollingPriceValidUntil(): string {
+  const future = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  return future.toISOString().split('T')[0];
+}
 
 export interface ProductSchemaItem {
+  asin?: string;
+  brand?: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -250,42 +256,84 @@ export interface ProductSchemaItem {
   category?: string;
 }
 
-export const JSONLDProductList = ({ products }: { products: ProductSchemaItem[] }) => (
-  <Helmet>
-    <script type="application/ld+json">{JSON.stringify({
+export interface JSONLDProductListProps {
+  products: ProductSchemaItem[];
+  collectionName?: string;
+  collectionDescription?: string;
+  canonicalUrl?: string;
+}
+
+export const JSONLDProductList = ({
+  products,
+  collectionName = "Amazon India Deals Hub",
+  collectionDescription = "Hand-picked Amazon India flash sales, verified price drops, and daily offers curated by WorldNewzs.",
+  canonicalUrl = `${SITE_URL}/amazon-products`,
+}: JSONLDProductListProps) => {
+  const serializedSchema = useMemo(() => {
+    const validUntil = getRollingPriceValidUntil();
+    const cappedProducts = products.slice(0, 30);
+
+    return JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Amazon Deals of the Day",
-      "description": "Hand-picked Amazon flash sales, tech discounts, and daily offers in India.",
-      "numberOfItems": products.length,
-      "itemListElement": products.map((prod, idx) => ({
-        "@type": "ListItem",
-        "position": idx + 1,
-        "item": {
-          "@type": "Product",
-          "name": prod.title,
-          "description": prod.description,
-          "image": prod.imageUrl,
-          "category": prod.category || "Shopping",
-          "aggregateRating": prod.rating ? {
-            "@type": "AggregateRating",
-            "ratingValue": prod.rating,
-            "reviewCount": prod.reviewCount || 100
-          } : undefined,
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "price": prod.price,
-            "priceValidUntil": DEFAULT_PRICE_VALID_UNTIL,
-            "itemCondition": "https://schema.org/NewCondition",
-            "availability": "https://schema.org/InStock",
-            "url": prod.productUrl
+      "@type": "CollectionPage",
+      "name": collectionName,
+      "description": collectionDescription,
+      "url": canonicalUrl,
+      "publisher": {
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "logo": { "@type": "ImageObject", "url": LOGO_URL }
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": collectionName,
+        "description": collectionDescription,
+        "numberOfItems": cappedProducts.length,
+        "itemListElement": cappedProducts.map((prod, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "item": {
+            "@type": "Product",
+            "name": prod.title,
+            "description": prod.description || prod.title,
+            "image": prod.imageUrl,
+            "sku": prod.asin || undefined,
+            "brand": prod.brand ? { "@type": "Brand", "name": prod.brand } : undefined,
+            "category": prod.category || "Shopping",
+            "aggregateRating": prod.rating && prod.rating > 0 ? {
+              "@type": "AggregateRating",
+              "ratingValue": Number(prod.rating.toFixed(1)),
+              "reviewCount": Math.max(1, prod.reviewCount || 100),
+              "bestRating": 5,
+              "worstRating": 1
+            } : undefined,
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "price": prod.price,
+              "priceValidUntil": validUntil,
+              "itemCondition": "https://schema.org/NewCondition",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Amazon India"
+              },
+              "url": prod.productUrl
+            }
           }
-        }
-      }))
-    })}</script>
-  </Helmet>
-);
+        }))
+      }
+    });
+  }, [products, collectionName, collectionDescription, canonicalUrl]);
+
+  if (!products || products.length === 0) return null;
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{serializedSchema}</script>
+    </Helmet>
+  );
+};
 
 /* ── JobPosting schema (Google for Jobs) ── */
 export interface JobPostingSchemaItem {

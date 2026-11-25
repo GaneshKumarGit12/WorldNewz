@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using WorldNewzWebAPI.Data;
 using WorldNewzWebAPI.Models;
 using WorldNewzWebAPI.Services;
@@ -11,12 +12,12 @@ namespace WorldNewzWebAPI.Controllers
     public class NewsletterController : ControllerBase
     {
         private readonly UserPollsDbContext _userDb;
-        private readonly IEmailService _emailService;
+        private readonly IServiceScopeFactory _scopeFactory;
 
-        public NewsletterController(UserPollsDbContext userDb, IEmailService emailService)
+        public NewsletterController(UserPollsDbContext userDb, IServiceScopeFactory scopeFactory)
         {
             _userDb = userDb;
-            _emailService = emailService;
+            _scopeFactory = scopeFactory;
         }
 
         [HttpPost("subscribe")]
@@ -109,12 +110,15 @@ namespace WorldNewzWebAPI.Controllers
     </p>
 </div>";
 
-                    // Send email in a background task so it doesn't block the API response
+                    // Send email in a background task using a fresh DI scope so it doesn't capture request-scoped services
+                    var recipientEmail = request.Email.Trim();
                     _ = Task.Run(async () =>
                     {
                         try
                         {
-                            await _emailService.SendEmailAsync(request.Email.Trim(), emailSubject, emailBody);
+                            using var scope = _scopeFactory.CreateScope();
+                            var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
+                            await emailService.SendEmailAsync(recipientEmail, emailSubject, emailBody);
                         }
                         catch (Exception ex)
                         {
@@ -156,12 +160,15 @@ namespace WorldNewzWebAPI.Controllers
     </p>
 </div>";
 
-                    // Send email in a background task so it doesn't block the API response
+                    // Send email in a background task using a fresh DI scope so it doesn't capture request-scoped services
+                    var verifyRecipient = request.Email.Trim();
                     _ = Task.Run(async () =>
                     {
                         try
                         {
-                            await _emailService.SendEmailAsync(request.Email.Trim(), emailSubject, emailBody);
+                            using var scope = _scopeFactory.CreateScope();
+                            var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
+                            await emailService.SendEmailAsync(verifyRecipient, emailSubject, emailBody);
                         }
                         catch (Exception ex)
                         {

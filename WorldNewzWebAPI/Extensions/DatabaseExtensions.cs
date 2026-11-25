@@ -183,6 +183,19 @@ namespace WorldNewzWebAPI.Extensions
                             Console.WriteLine($"⚠️ Error altering PostgreSQL AmazonProducts table: {ex.Message}");
                         }
 
+                        // Idempotent PostgreSQL indexes for fast paginated catalog queries
+                        SafeExecuteSql(db, @"CREATE INDEX IF NOT EXISTS idx_amazonproducts_active_id ON ""AmazonProducts"" (""IsActive"", ""Id"" DESC);", "idx_amazonproducts_active_id", logger);
+                        SafeExecuteSql(db, @"CREATE INDEX IF NOT EXISTS idx_amazonproducts_category ON ""AmazonProducts"" (""Category"");", "idx_amazonproducts_category", logger);
+                        SafeExecuteSql(db, @"CREATE INDEX IF NOT EXISTS idx_amazonproducts_price ON ""AmazonProducts"" (""Price"");", "idx_amazonproducts_price", logger);
+                        // Deduplicate case-insensitive ASINs and enforce unique ASIN index (avoids redundant non-unique ASIN index)
+                        SafeExecuteSql(db, @"
+                            DELETE FROM ""AmazonProducts"" a
+                            USING ""AmazonProducts"" b
+                            WHERE a.""Id"" < b.""Id"" AND LOWER(a.""Asin"") = LOWER(b.""Asin"");
+                            DROP INDEX IF EXISTS idx_amazonproducts_asin;
+                            CREATE UNIQUE INDEX IF NOT EXISTS uq_amazonproducts_asin ON ""AmazonProducts"" (""Asin"");
+                        ", "uq_amazonproducts_asin", logger);
+
                         SafeExecuteSql(db, @"
                             CREATE TABLE IF NOT EXISTS ""SeoKeywords"" (
                                 ""Id"" SERIAL PRIMARY KEY,
@@ -488,6 +501,10 @@ namespace WorldNewzWebAPI.Extensions
                         try { db.Database.ExecuteSqlRaw("ALTER TABLE AmazonProducts ADD COLUMN IsFallback INTEGER NOT NULL DEFAULT 0;"); } catch {}
                         try { db.Database.ExecuteSqlRaw("UPDATE AmazonProducts SET DateAdded = CURRENT_TIMESTAMP WHERE DateAdded IS NULL;"); } catch {}
                         try { db.Database.ExecuteSqlRaw("UPDATE AmazonProducts SET LastUpdated = CURRENT_TIMESTAMP WHERE LastUpdated IS NULL;"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS idx_amazonproducts_asin ON AmazonProducts (Asin);"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS idx_amazonproducts_active_id ON AmazonProducts (IsActive, Id DESC);"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS idx_amazonproducts_category ON AmazonProducts (Category);"); } catch {}
+                        try { db.Database.ExecuteSqlRaw("CREATE INDEX IF NOT EXISTS idx_amazonproducts_price ON AmazonProducts (Price);"); } catch {}
 
                         db.Database.ExecuteSqlRaw(@"
                             CREATE TABLE IF NOT EXISTS SeoKeywords (

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export interface SEOMetaProps {
@@ -28,14 +29,63 @@ const DEFAULTS: SEOMetaProps = {
 
 export const SEOMeta = (props: SEOMetaProps) => {
   const p = { ...DEFAULTS, ...props };
-  const baseTitle = p.title || DEFAULTS.title || SITE_NAME;
-  const fullTitle = baseTitle === DEFAULTS.title ? baseTitle : `${baseTitle} | ${SITE_NAME}`;
+  const baseTitle = (p.title || DEFAULTS.title || SITE_NAME).trim();
+  const hasBrandSuffix = /\bworldnewzs\b/i.test(baseTitle);
+  const fullTitle = hasBrandSuffix ? baseTitle : `${baseTitle} | ${SITE_NAME}`;
   const canonical = p.canonical ?? (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname.replace(/\/$/, '')}` : SITE_URL);
   const keywordsStr = Array.isArray(p.keywords) ? p.keywords.join(', ') : (p.keywords ?? '');
   const normalizedTitle = fullTitle.replace(/\s+/g, ' ').trim();
   const metaDescription = p.description?.trim() || DEFAULT_DESCRIPTION;
   const metaImage = p.ogImage || DEFAULT_OG;
   const robotsContent = p.noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+  // Ensure live SPA document.head always reflects the active route's canonical and meta tags without duplicate static index.html tags
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.title = normalizedTitle;
+
+    const syncMeta = (attr: 'name' | 'property', key: string, content: string) => {
+      const nodes = Array.from(document.head.querySelectorAll(`meta[${attr}="${key}"]`));
+      if (nodes.length === 0) {
+        const el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        el.setAttribute('content', content);
+        el.setAttribute('data-rh', 'true');
+        document.head.appendChild(el);
+        return;
+      }
+      nodes[0].setAttribute('content', content);
+      for (let i = 1; i < nodes.length; i++) {
+        nodes[i].remove();
+      }
+    };
+
+    syncMeta('name', 'description', metaDescription);
+    syncMeta('name', 'keywords', keywordsStr);
+    syncMeta('name', 'robots', robotsContent);
+    syncMeta('property', 'og:title', normalizedTitle);
+    syncMeta('property', 'og:description', metaDescription);
+    syncMeta('property', 'og:url', canonical);
+    syncMeta('property', 'og:type', p.ogType || 'website');
+    syncMeta('property', 'og:image', metaImage);
+    syncMeta('name', 'twitter:title', normalizedTitle);
+    syncMeta('name', 'twitter:description', metaDescription);
+    syncMeta('name', 'twitter:image', metaImage);
+
+    const canonicalNodes = Array.from(document.head.querySelectorAll('link[rel="canonical"]'));
+    if (canonicalNodes.length === 0) {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      link.setAttribute('href', canonical);
+      link.setAttribute('data-rh', 'true');
+      document.head.appendChild(link);
+    } else {
+      canonicalNodes[0].setAttribute('href', canonical);
+      for (let i = 1; i < canonicalNodes.length; i++) {
+        canonicalNodes[i].remove();
+      }
+    }
+  }, [normalizedTitle, metaDescription, keywordsStr, robotsContent, canonical, metaImage, p.ogType]);
 
   return (
     <Helmet prioritizeSeoTags>

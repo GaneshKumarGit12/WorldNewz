@@ -60,13 +60,15 @@ namespace WorldNewzWebAPI.Controllers
                         {
                             using var cts = new System.Threading.CancellationTokenSource(2000);
                             var geoResponse = await _httpClient.GetStringAsync($"https://ipapi.co/{clientIp}/json/", cts.Token);
-                            var geoData = JsonDocument.Parse(geoResponse);
+                            using var geoData = JsonDocument.Parse(geoResponse);
                             if (geoData.RootElement.TryGetProperty("city", out var cityProp))
                             {
                                 cityFromIp = cityProp.GetString();
                                 if (!string.IsNullOrWhiteSpace(cityFromIp))
                                 {
-                                    _cache.Set(cacheKey, cityFromIp, TimeSpan.FromHours(24));
+                                    _cache.Set(cacheKey, cityFromIp, new MemoryCacheEntryOptions()
+                                        .SetAbsoluteExpiration(TimeSpan.FromHours(24))
+                                        .SetSize(1));
                                 }
                             }
                         }

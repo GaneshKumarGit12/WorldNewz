@@ -4,11 +4,6 @@ using WorldNewzWebAPI.Extensions;
 // Prevent Linux inotify limit (128) IOException crash (Exit Status 139) in containerized environments like Render.com
 Environment.SetEnvironmentVariable("DOTNET_USE_POLLING_FILE_WATCHER", "true");
 
-// Optimize GC for containerized environments (Render.com 512MB RAM free-tier limit)
-// Workstation GC + aggressive page release prevents runaway heap growth and OOM Exit 137
-Environment.SetEnvironmentVariable("DOTNET_gcServer", "0");
-Environment.SetEnvironmentVariable("DOTNET_GCConserveMemory", "5");
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Try to load local .env file (safe for production if missing)

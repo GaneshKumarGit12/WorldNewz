@@ -165,8 +165,8 @@ namespace WorldNewzWebAPI.Extensions
 
         public static void AddAppServices(this IServiceCollection services)
         {
-            // Memory Cache
-            services.AddMemoryCache();
+            // Bounded Memory Cache (SizeLimit = 2048 prevents unbounded RAM growth on Render.com 512 MB tier)
+            services.AddSingleton<Microsoft.Extensions.Caching.Memory.IMemoryCache>(_ => new BoundedMemoryCache(2048));
 
             // Scoped Services
             services.AddScoped<INewsEnrichmentService, NewsEnrichmentService>();
@@ -174,7 +174,6 @@ namespace WorldNewzWebAPI.Extensions
             services.AddScoped<NewsService>();
             services.AddScoped<AmazonProductService>();
             services.AddScoped<ExpiredProcess>();
-            services.AddScoped<PinterestService>();
             services.AddScoped<SeoKeywordService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IGoogleSearchService, GoogleSearchService>();
@@ -183,7 +182,6 @@ namespace WorldNewzWebAPI.Extensions
             // Singletons
             services.AddSingleton<IFacebookPostQueue, FacebookPostQueue>();
             services.AddSingleton<ISitemapPingService, SitemapPingService>();
-            services.AddSingleton<SitemapPingService>();
 
             // Hosted Services
             services.AddHostedService<FacebookWorkerService>();
@@ -191,6 +189,30 @@ namespace WorldNewzWebAPI.Extensions
 
             // Http Clients
             services.AddHttpClient();
+            services.AddHttpClient("AmazonScraper", client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(8);
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36");
+                client.DefaultRequestHeaders.Accept.ParseAdd("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+                client.DefaultRequestHeaders.AcceptLanguage.ParseAdd("en-IN,en;q=0.9");
+            }).ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+            {
+                AllowAutoRedirect = false,
+                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate,
+                PooledConnectionLifetime = TimeSpan.FromMinutes(5),
+                ConnectTimeout = TimeSpan.FromSeconds(5)
+            });
+            services.AddHttpClient("ImageProbe", client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(6);
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewzs.in)");
+            }).ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+            {
+                AllowAutoRedirect = true,
+                MaxAutomaticRedirections = 3,
+                PooledConnectionLifetime = TimeSpan.FromMinutes(5),
+                ConnectTimeout = TimeSpan.FromSeconds(4)
+            });
             services.AddHttpClient<AmazonCreatorApiService>(client =>
             {
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("WorldNewzApp/1.0 (+https://worldnewzs.in)");

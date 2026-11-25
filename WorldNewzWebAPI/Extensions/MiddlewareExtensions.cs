@@ -29,18 +29,29 @@ namespace WorldNewzWebAPI.Extensions
                     var path = context.Request.Path.Value ?? "";
                     if (path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase))
                     {
-                        if (path.Contains("polls", StringComparison.OrdinalIgnoreCase) || 
-                            path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase) ||
-                            path.Contains("amazonproducts", StringComparison.OrdinalIgnoreCase))
+                        context.Response.OnStarting(() =>
                         {
-                            context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
-                            context.Response.Headers["Pragma"] = "no-cache";
-                            context.Response.Headers["Expires"] = "0";
-                        }
-                        else if (!path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
-                        {
-                            context.Response.Headers["Cache-Control"] = "public, max-age=300, s-maxage=600, stale-while-revalidate=60";
-                        }
+                            // Respect explicit Cache-Control headers set by controller actions
+                            if (context.Response.Headers.ContainsKey("Cache-Control"))
+                            {
+                                return Task.CompletedTask;
+                            }
+
+                            if (path.Contains("polls", StringComparison.OrdinalIgnoreCase) ||
+                                path.Contains("facebooksettings", StringComparison.OrdinalIgnoreCase) ||
+                                path.Contains("/admin", StringComparison.OrdinalIgnoreCase))
+                            {
+                                context.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+                                context.Response.Headers["Pragma"] = "no-cache";
+                                context.Response.Headers["Expires"] = "0";
+                            }
+                            else if (!path.Contains("swagger", StringComparison.OrdinalIgnoreCase))
+                            {
+                                context.Response.Headers["Cache-Control"] = "public, max-age=300, s-maxage=600, stale-while-revalidate=60";
+                            }
+
+                            return Task.CompletedTask;
+                        });
                     }
                 }
                 await next();

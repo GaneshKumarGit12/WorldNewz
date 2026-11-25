@@ -25,6 +25,11 @@
       "permanent": true
     },
     {
+      "source": "/amazon-proudcts",
+      "destination": "https://worldnewzs.in/amazon-products",
+      "permanent": true
+    },
+    {
       "source": "/deals",
       "destination": "https://worldnewzs.in/amazon-products",
       "permanent": true

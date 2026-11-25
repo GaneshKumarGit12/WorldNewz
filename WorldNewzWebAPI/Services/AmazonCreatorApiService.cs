@@ -175,9 +175,9 @@ namespace WorldNewzWebAPI.Services
                     new KeyValuePair<string, string>("scope", scopeToUse)
                 };
 
-                var requestBody = new FormUrlEncodedContent(formParams);
+                using var requestBody = new FormUrlEncodedContent(formParams);
 
-                var response = await _httpClient.PostAsync(_tokenEndpoint, requestBody);
+                using var response = await _httpClient.PostAsync(_tokenEndpoint, requestBody);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -206,10 +206,15 @@ namespace WorldNewzWebAPI.Services
                 int effectiveTtlSeconds = Math.Max((int)(expiresInSeconds * 0.90), 60);
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromSeconds(effectiveTtlSeconds));
+                    .SetAbsoluteExpiration(TimeSpan.FromSeconds(effectiveTtlSeconds))
+                    .SetSize(1);
+
+                var lastGoodOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromHours(24))
+                    .SetSize(1);
 
                 _cache.Set(TokenCacheKey, accessToken, cacheEntryOptions);
-                _cache.Set(LastGoodTokenCacheKey, accessToken, TimeSpan.FromHours(24)); // Keep fallback token for 24 hours
+                _cache.Set(LastGoodTokenCacheKey, accessToken, lastGoodOptions); // Keep fallback token for 24 hours
 
                 _logger.LogInformation($"[AmazonCreatorApiService] Successfully cached Amazon OAuth token. Expires in {effectiveTtlSeconds}s (90% of {expiresInSeconds}s).");
                 return accessToken;
@@ -283,7 +288,7 @@ namespace WorldNewzWebAPI.Services
                     };
 
                     string jsonBody = JsonSerializer.Serialize(requestPayload);
-                    var request = new HttpRequestMessage(HttpMethod.Post, targetEndpoint)
+                    using var request = new HttpRequestMessage(HttpMethod.Post, targetEndpoint)
                     {
                         Content = new StringContent(jsonBody, Encoding.UTF8, "application/json")
                     };
@@ -296,7 +301,7 @@ namespace WorldNewzWebAPI.Services
                         request.Headers.Add("X-Amz-Target", "com.amazon.paapi5.v1.ProductAdvertisingAPIv1.GetItems");
                     }
 
-                    var response = await _httpClient.SendAsync(request);
+                    using var response = await _httpClient.SendAsync(request);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -407,7 +412,8 @@ namespace WorldNewzWebAPI.Services
 
                         if (dto.OriginalPrice < dto.Price || dto.OriginalPrice == 0)
                         {
-                            dto.OriginalPrice = Math.Round(dto.Price * 1.15m, 2);
+                            // Zero Synthetic Pricing: never fabricate an artificial MRP when savingBasis is absent
+                            dto.OriginalPrice = dto.Price;
                         }
 
                         // Reviews

@@ -215,6 +215,10 @@ const App: React.FC = () => {
   }, []);
 
   const isDark = mode === "dark";
+  const hideAmazonStrip =
+    location.pathname === "/amazon-products" ||
+    location.pathname === "/amazon-proudcts" ||
+    location.pathname === "/deals";
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh", bgcolor: "background.default" }}>
@@ -237,8 +241,8 @@ const App: React.FC = () => {
       <JSONLDWebSite />
       <JSONLDOrganization />
 
-      {/* Deals Strip */}
-      <AmazonStrip />
+      {/* Deals Strip (hidden on the Deals Hub itself to avoid redundant banner chrome) */}
+      {!hideAmazonStrip && <AmazonStrip />}
 
       {/* Header AppBar */}
       <Header

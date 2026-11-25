@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Card, Box, Typography, Button, Chip } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
-import { fetchAmazonProducts } from "../api/apiClient";
 import type { AmazonProduct } from "../api/apiClient";
+import { getCachedWidgetDeals, getCurrentFourHourBlock } from "../api/dealsCache";
+import {
+  getBrandedCategoryPlaceholder,
+  getResponsiveAmazonImage,
+  getVerifiedDiscountPercent,
+} from "./deals/dealsUtils";
 
 interface AffiliateAdBannerProps {
   category?: string;
@@ -43,37 +48,34 @@ const fallbackProducts: Partial<AmazonProduct>[] = [
 
 export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category = "general" }) => {
   const [products, setProducts] = useState<Partial<AmazonProduct>[]>(fallbackProducts);
-  const [activeProduct, setActiveProduct] = useState<Partial<AmazonProduct>>(fallbackProducts[0]);
+  const [fourHourBlock] = useState<number>(() => getCurrentFourHourBlock());
 
   useEffect(() => {
-    fetchAmazonProducts()
-      .then((res) => {
-        if (res.data && res.data.products && res.data.products.length > 0) {
-          setProducts(res.data.products);
+    let active = true;
+    const queryCat = category && category.toLowerCase() !== "general" ? category : undefined;
+    getCachedWidgetDeals(queryCat, 6)
+      .then((data) => {
+        if (!active) return;
+        if (data && data.products && data.products.length > 0) {
+          setProducts(data.products);
         }
       })
       .catch(() => {
         // Fail silently to fallback deals
       });
-  }, []);
+    return () => {
+      active = false;
+    };
+  }, [category]);
 
-  useEffect(() => {
-    if (!products || products.length === 0) return;
-
-    const catKey = category.toLowerCase().trim();
-    const matching = products.filter((p) => {
-      const pCat = (p.category || "").toLowerCase();
-      return pCat === catKey || (catKey === "technology" && pCat === "electronics");
-    });
-
-    const pool = matching.length > 0 ? matching : products;
-    const randomPick = pool[Math.floor(Math.random() * pool.length)];
-    setActiveProduct(randomPick);
-  }, [category, products]);
+  const activeProduct = useMemo(() => {
+    if (!products || products.length === 0) return fallbackProducts[0];
+    return products[fourHourBlock % products.length] || products[0];
+  }, [products, fourHourBlock]);
 
   const price = activeProduct.price || 999;
-  const originalPrice = activeProduct.originalPrice || price * 1.5;
-  const discountPercent = Math.round(((originalPrice - price) / originalPrice) * 100);
+  const originalPrice = activeProduct.originalPrice || 0;
+  const discountPercent = getVerifiedDiscountPercent(price, originalPrice);
 
   return (
     <Card
@@ -116,7 +118,7 @@ export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category =
             border: "1px solid rgba(255, 153, 0, 0.3)",
           }}
         />
-        {discountPercent > 0 && (
+        {discountPercent !== null && discountPercent > 0 && (
           <Chip
             label={`${discountPercent}% OFF`}
             size="small"
@@ -141,14 +143,16 @@ export const AffiliateAdBanner: React.FC<AffiliateAdBannerProps> = ({ category =
       >
         <Box
           component="img"
-          src={activeProduct.imageUrl || "/images/amazon_placeholder.png"}
+          src={getResponsiveAmazonImage(activeProduct.imageUrl, "card")}
           alt={activeProduct.title || "Amazon Product"}
+          loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
           onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
             const target = e.currentTarget as HTMLImageElement;
             if (!target.dataset.hasFailed) {
               target.dataset.hasFailed = "true";
-              target.src = "/images/amazon_placeholder.png";
+              target.src = getBrandedCategoryPlaceholder(activeProduct.category);
             }
           }}
           sx={{

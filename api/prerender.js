@@ -368,7 +368,10 @@ export default async function handler(req, res) {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; connect-src 'self' https: wss:; img-src * data: blob: android-webview-video-poster:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; frame-src 'self' https:; object-src 'none'; media-src * data: blob:;");
 
-  const { id, page, jobSlug, authorSlug } = req.query;
+  const { id, page, path: queryPath, jobSlug, authorSlug } = req.query;
+  const normalizedPathPage = typeof queryPath === 'string'
+    ? queryPath.replace(/^\/+|\/+$/g, '').split('?')[0]
+    : '';
 
   // Load Built index.html template from Vercel's output
   const pathsToTry = [
@@ -425,7 +428,7 @@ export default async function handler(req, res) {
   let articleJsonLd = null;
   let richFallbackBody = '';
 
-  const activePage = page || 'home';
+  const activePage = page || normalizedPathPage || 'home';
 
   const fetchArticlesWithFallback = async (endpoint, categoryFilter) => {
     const fullUrl = `https://worldnewz.onrender.com/api${endpoint}`;
@@ -776,38 +779,158 @@ export default async function handler(req, res) {
         ])}
       `;
     }
-    // 5. Amazon Products / Deals Page
+    // 5. Amazon Products / Deals Page (Dynamic Live Top 12 Deals + Product JSON-LD)
     else if (activePage === 'amazon-products') {
+      const apiBase = (process.env.API_BASE_URL || 'https://worldnewz.onrender.com/api').replace(/\/$/, '');
+      let liveProducts = [];
+      let totalDeals = 0;
+      let maxDiscount = 0;
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
+      try {
+        const dealsRes = await fetch(`${apiBase}/amazonproducts?page=1&pageSize=12`, { signal: controller.signal });
+        if (dealsRes.ok) {
+          const payload = await dealsRes.json();
+          if (Array.isArray(payload.products) && payload.products.length > 0) {
+            liveProducts = payload.products.slice(0, 12);
+          }
+          totalDeals = Number(payload.catalogTotal || payload.totalResults || liveProducts.length);
+          maxDiscount = Number(payload.maxDiscountByCategory?.All || 0);
+        }
+      } catch {
+        // Graceful fallback to static metadata below
+      } finally {
+        clearTimeout(timeoutId);
+      }
+
+      if (maxDiscount <= 0 && liveProducts.length > 0) {
+        for (const p of liveProducts) {
+          if (p.originalPrice > p.price && p.price > 0) {
+            const pct = Math.min(95, Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100));
+            if (pct > maxDiscount) maxDiscount = pct;
+          }
+        }
+      }
+
+      const discountText = maxDiscount > 0 ? ` — Up to ${maxDiscount}% Off` : '';
+      const countText = totalDeals > 0 ? `${totalDeals.toLocaleString('en-IN')} Verified Offers` : 'Daily Verified Offers';
+      title = `Amazon India Deals Hub${discountText} | WorldNewzs`;
+      description = `Shop ${countText} on Amazon India${discountText} across electronics, home & kitchen, fashion, and lifestyle. Verified daily by WorldNewzs.`;
+      if (liveProducts[0]?.imageUrl && /^https?:\/\//i.test(liveProducts[0].imageUrl)) {
+        imageUrl = liveProducts[0].imageUrl;
+      }
+
+      if (liveProducts.length > 0) {
+        const validUntil = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+        articleJsonLd = {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": title,
+          "description": description,
+          "url": canonical,
+          "publisher": {
+            "@type": "Organization",
+            "name": "WorldNewzs",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://worldnewzs.in/logo.svg"
+            }
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "name": "Amazon India Deals of the Day",
+            "numberOfItems": liveProducts.length,
+            "itemListElement": liveProducts.map((prod, idx) => ({
+              "@type": "ListItem",
+              "position": idx + 1,
+              "item": {
+                "@type": "Product",
+                "name": prod.title,
+                "description": prod.description || prod.title,
+                "image": prod.imageUrl,
+                "sku": prod.asin || undefined,
+                "category": prod.category || "Shopping",
+                "aggregateRating": prod.rating > 0 ? {
+                  "@type": "AggregateRating",
+                  "ratingValue": Number(Number(prod.rating).toFixed(1)),
+                  "reviewCount": Math.max(1, Number(prod.reviewCount) || 100),
+                  "bestRating": 5,
+                  "worstRating": 1
+                } : undefined,
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "INR",
+                  "price": prod.price,
+                  "priceValidUntil": validUntil,
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "availability": "https://schema.org/InStock",
+                  "seller": {
+                    "@type": "Organization",
+                    "name": "Amazon India"
+                  },
+                  "url": prod.productUrl
+                }
+              }
+            }))
+          }
+        };
+      }
+
+      const liveDealsHtml = liveProducts.length > 0
+        ? `
+          <section style="margin-top: 24px; margin-bottom: 32px;">
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin-bottom: 16px;">Today's Top Verified Amazon India Deals (${escapeHtml(countText)})</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;">
+              ${liveProducts.map((p) => {
+                const disc = p.originalPrice > p.price && p.price > 0
+                  ? Math.min(95, Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100))
+                  : 0;
+                return `
+                  <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px;">
+                    <a href="${escapeHtml(p.productUrl)}" rel="noopener noreferrer sponsored" style="color: #0f172a; text-decoration: none;">
+                      <h3 style="font-size: 0.96rem; margin: 0 0 8px 0; line-height: 1.35;">${escapeHtml(p.title)}</h3>
+                    </a>
+                    <p style="margin: 0 0 6px 0; font-size: 1.05rem; font-weight: 800; color: #e02b20;">
+                      &#8377;${escapeHtml(Number(p.price || 0).toLocaleString('en-IN'))}
+                      ${disc > 0 ? `<span style="font-size: 0.82rem; color: #64748b; text-decoration: line-through; margin-left: 6px;">&#8377;${escapeHtml(Number(p.originalPrice).toLocaleString('en-IN'))}</span> <span style="font-size: 0.78rem; color: #16a34a;">(-${disc}%)</span>` : ''}
+                    </p>
+                    <p style="margin: 0; font-size: 0.82rem; color: #64748b;">Category: ${escapeHtml(p.category || 'Shopping')}</p>
+                  </article>
+                `;
+              }).join('')}
+            </div>
+          </section>
+        `
+        : '';
+
       pageContent = `
-        <h1>Deals Hub – Curated Product Savings, Buying Guides & Reviews</h1>
+        <h1>Amazon India Deals Hub – Verified Product Savings &amp; Buying Guides</h1>
         <p style="font-size: 1.1rem; line-height: 1.8; color: #334155;">
-          Explore verified e-commerce discounts, handpicked shopping deals, and comprehensive consumer buying guides in the WorldNewzs Deals Hub. Our shopping editorial team monitors leading digital retail platforms around the clock to highlight genuine price drops on consumer electronics, smart home gadgets, productivity accessories, and lifestyle essentials.
+          ${escapeHtml(description)} Our shopping editorial team monitors Amazon India around the clock to highlight genuine price drops across electronics, home &amp; kitchen, fashion, beauty, sports, and daily essentials.
         </p>
 
-        <h2>Our Deal Verification & Price Tracking Standards</h2>
+        ${liveDealsHtml}
+
+        <h2>Our Deal Verification &amp; Price Tracking Standards</h2>
         <p style="line-height: 1.75; color: #334155;">
           In an online retail environment frequently cluttered with artificial discounts and inflated list prices, WorldNewzs applies rigorous vetting standards before featuring any product deal:
         </p>
         <ul>
-          <li><strong>Historical Price Validation:</strong> We verify historical pricing averages to ensure every featured deal represents a genuine discount below normal retail levels.</li>
-          <li><strong>Customer Review Vetting:</strong> Products must maintain a verified buyer rating of 4.0 stars or higher with substantiated user feedback.</li>
-          <li><strong>Manufacturer Warranty:</strong> We prioritize items backed by official brand warranties, reliable customer support, and standard return policies.</li>
+          <li><strong>Verified MRP Validation:</strong> Discount percentages are displayed strictly when authentic M.R.P. exceeds the live Amazon India offer price.</li>
+          <li><strong>Customer Review Vetting:</strong> Products are evaluated for verified buyer ratings and substantiated customer feedback.</li>
+          <li><strong>Manufacturer Warranty:</strong> We prioritize items backed by official brand warranties, Amazon Fulfilled shipping, and standard return policies.</li>
         </ul>
-
-        <h2>Consumer Electronics & Smart Home Buying Guide</h2>
-        <p style="line-height: 1.75; color: #334155;">
-          When investing in premium electronics like noise-canceling headphones, 4K HDR displays, ergonomic mechanical keyboards, or automated robotic vacuums, prioritizing energy efficiency, repairability ratings, and long-term firmware support ensures maximum value per dollar spent.
-        </p>
 
         <h2>Affiliate Advertising Transparency Disclosure</h2>
         <p style="line-height: 1.75; color: #64748b; font-size: 0.95rem;">
-          WorldNewzs is a participant in the Amazon Services LLC Associates Program, an affiliate advertising initiative designed to provide a means for websites to earn advertising fees by linking to Amazon. When you click on product links and complete a purchase, we may receive a modest commission at no additional expense to you.
+          WorldNewzs participates in the Amazon Services LLC Associates Program. When you click on verified product links and complete a purchase on Amazon India, we may earn a modest commission at no additional expense to you.
         </p>
 
         ${buildFaqSection([
-          { q: "How frequently are product deals and coupon codes updated?", a: "Our deals desk updates active deals multiple times each day, immediately removing out-of-stock items and expired coupon promotions." },
-          { q: "Are sponsored products clearly distinguished from editorial reviews?", a: "Yes, all affiliate and sponsored links are clearly labeled to ensure strict separation between commercial features and independent editorial reporting." },
-          { q: "How can readers report an expired deal or request a product review?", a: "You can send product feedback or report pricing changes directly through our Contact Us page." }
+          { q: "How frequently are product deals updated?", a: "Our deals desk updates active Amazon India deals daily at 12:00 AM IST, automatically removing expired or out-of-stock listings." },
+          { q: "Are sponsored or affiliate links clearly disclosed?", a: "Yes, all affiliate links are clearly labeled with rel='sponsored' and FTC disclosures to ensure full editorial transparency." },
+          { q: "How can readers report an expired deal or request a product check?", a: "Use the Amazon Deal Checker widget on the Deals Hub or contact our editorial desk via the Contact Us page." }
         ])}
       `;
     }
@@ -1135,9 +1258,10 @@ export default async function handler(req, res) {
   html = replaceMeta(html, 'name', 'twitter:description', description);
   html = replaceMeta(html, 'name', 'twitter:image', imageUrl);
 
-  // 6. Inject Schema if present
+  // 6. Inject Schema if present (escape '<' and use callback replacer to prevent script breakout or '$' substitution)
   if (articleJsonLd) {
-    html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify(articleJsonLd)}</script>\n</head>`);
+    const safeJsonLd = JSON.stringify(articleJsonLd).replace(/</g, '\\u003c');
+    html = html.replace('</head>', () => `<script type="application/ld+json">${safeJsonLd}</script>\n</head>`);
   }
 
   // 7. Inject Rich Fallback Body into semantic-fallback-container
@@ -1146,7 +1270,7 @@ export default async function handler(req, res) {
     if (fallbackContainerRegex.test(html)) {
       html = html.replace(
         fallbackContainerRegex,
-        `<div id="semantic-fallback-container" style="padding: 24px; max-width: 900px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">\n${richFallbackBody}\n</div>\n</div>`
+        () => `<div id="semantic-fallback-container" style="padding: 24px; max-width: 900px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">\n${richFallbackBody}\n</div>\n</div>`
       );
     }
   }

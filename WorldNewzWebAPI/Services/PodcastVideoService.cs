@@ -1,10 +1,10 @@
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace WorldNewzWebAPI.Services
 {
@@ -36,32 +36,51 @@ namespace WorldNewzWebAPI.Services
     public class PodcastVideoService
     {
         private readonly HttpClient _httpClient;
+        private readonly IMemoryCache _cache;
         private readonly string _apiKey;
         private static bool _quotaExceededTripped = false;
         private static DateTime _quotaExceededTripTime = DateTime.MinValue;
-        private static readonly ConcurrentDictionary<string, (PodcastsVideosFeedResult result, DateTime expiresAt)> _feedCache = new();
 
-        public PodcastVideoService(HttpClient httpClient)
+        private static readonly HashSet<string> AllowedCategories = new(StringComparer.OrdinalIgnoreCase)
+        {
+            "All", "Politics", "Technology", "Business", "Science & Health", "Science-Health", "Sports", "Money"
+        };
+
+        public PodcastVideoService(HttpClient httpClient, IMemoryCache cache)
         {
             _httpClient = httpClient;
+            _cache = cache;
             _apiKey = Environment.GetEnvironmentVariable("WN_YOUTUBE_KEY") ?? "";
+        }
+
+        private static string NormalizeCategory(string? category)
+        {
+            if (string.IsNullOrWhiteSpace(category)) return "All";
+            var trimmed = category.Trim();
+            if (trimmed.Equals("science-health", StringComparison.OrdinalIgnoreCase) ||
+                trimmed.Equals("science", StringComparison.OrdinalIgnoreCase) ||
+                trimmed.Equals("health", StringComparison.OrdinalIgnoreCase))
+            {
+                return "Science & Health";
+            }
+            return AllowedCategories.FirstOrDefault(c => c.Equals(trimmed, StringComparison.OrdinalIgnoreCase)) ?? "All";
         }
 
         public async Task<PodcastsVideosFeedResult> GetPodcastsVideosFeedAsync(string? category = null)
         {
-            var normalizedCat = string.IsNullOrWhiteSpace(category) ? "All" : category.Trim();
-            var cacheKey = normalizedCat.ToLowerInvariant();
+            var normalizedCat = NormalizeCategory(category);
+            var cacheKey = $"podcast_video_feed_{normalizedCat.ToLowerInvariant()}";
 
-            if (_feedCache.TryGetValue(cacheKey, out var cacheEntry) && cacheEntry.expiresAt > DateTime.UtcNow)
+            if (_cache.TryGetValue<PodcastsVideosFeedResult>(cacheKey, out var cachedFeed) && cachedFeed != null)
             {
-                return cacheEntry.result;
+                return cachedFeed;
             }
 
             // Check if circuit breaker for quota is currently active (resets after 12 hours)
             if (_quotaExceededTripped && DateTime.UtcNow - _quotaExceededTripTime < TimeSpan.FromHours(12))
             {
                 var fallbackRes = GetFallbackFeed(normalizedCat);
-                _feedCache[cacheKey] = (fallbackRes, DateTime.UtcNow.AddHours(2));
+                _cache.Set(cacheKey, fallbackRes, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromHours(2)).SetSize(2));
                 return fallbackRes;
             }
 
@@ -74,7 +93,7 @@ namespace WorldNewzWebAPI.Services
                     if (liveFeed != null && liveFeed.Episodes.Count > 0)
                     {
                         _quotaExceededTripped = false;
-                        _feedCache[cacheKey] = (liveFeed, DateTime.UtcNow.AddHours(6));
+                        _cache.Set(cacheKey, liveFeed, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromHours(6)).SetSize(4));
                         return liveFeed;
                     }
                 }
@@ -86,7 +105,7 @@ namespace WorldNewzWebAPI.Services
 
             // Serve rich curated fallback seed store
             var fallback = GetFallbackFeed(normalizedCat);
-            _feedCache[cacheKey] = (fallback, DateTime.UtcNow.AddHours(1));
+            _cache.Set(cacheKey, fallback, new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromHours(1)).SetSize(2));
             return fallback;
         }
 
