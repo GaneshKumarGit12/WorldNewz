@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 
 export interface SEOMetaProps {
   title?: string;
@@ -17,7 +16,8 @@ export interface SEOMetaProps {
 const SITE_NAME = 'WorldNewzs';
 const SITE_URL = 'https://worldnewzs.in';
 const DEFAULT_OG = 'https://worldnewzs.in/og-image.png';
-const DEFAULT_DESCRIPTION = 'Stay updated with the latest breaking news in sports, business, technology, health, entertainment, and world events.';
+const DEFAULT_DESCRIPTION = 'Stay updated with the latest breaking news in sports, business, technology, health, and world events.';
+const ARTICLE_PUBLISHER_URL = 'https://www.facebook.com/profile.php?id=61589266599006';
 
 const DEFAULTS: SEOMetaProps = {
   title: 'WorldNewzs – Your World, Your News',
@@ -26,6 +26,48 @@ const DEFAULTS: SEOMetaProps = {
   ogType: 'website',
   ogImage: DEFAULT_OG,
 };
+
+function upsertMetaTag(
+  attr: 'name' | 'property',
+  key: string,
+  content: string,
+  extraAttr?: { name: string; value: string }
+): void {
+  const existing = document.head.querySelector(`meta[${attr}="${key}"]`);
+  if (existing) {
+    existing.setAttribute('content', content);
+    return;
+  }
+  const el = document.createElement('meta');
+  el.setAttribute(attr, key);
+  el.setAttribute('content', content);
+  el.setAttribute('data-wn-seo', 'true');
+  if (extraAttr) {
+    el.setAttribute(extraAttr.name, extraAttr.value);
+  }
+  document.head.appendChild(el);
+}
+
+function upsertLinkTag(rel: string, href: string, extraAttrs?: Record<string, string>): void {
+  const selector = extraAttrs?.type
+    ? `link[rel="${rel}"][type="${extraAttrs.type}"]`
+    : `link[rel="${rel}"]`;
+  const existing = document.head.querySelector(selector);
+  if (existing) {
+    existing.setAttribute('href', href);
+    return;
+  }
+  const link = document.createElement('link');
+  link.setAttribute('rel', rel);
+  link.setAttribute('href', href);
+  link.setAttribute('data-wn-seo', 'true');
+  if (extraAttrs) {
+    for (const [k, v] of Object.entries(extraAttrs)) {
+      link.setAttribute(k, v);
+    }
+  }
+  document.head.appendChild(link);
+}
 
 export const SEOMeta = (props: SEOMetaProps) => {
   const p = { ...DEFAULTS, ...props };
@@ -38,108 +80,86 @@ export const SEOMeta = (props: SEOMetaProps) => {
   const metaDescription = p.description?.trim() || DEFAULT_DESCRIPTION;
   const metaImage = p.ogImage || DEFAULT_OG;
   const robotsContent = p.noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+  const ogType = p.ogType || 'website';
+  const articlePublishedTime = p.articlePublishedTime;
+  const articleModifiedTime = p.articleModifiedTime || p.articlePublishedTime;
+  const articleSection = p.articleSection;
 
-  // Ensure live SPA document.head always reflects the active route's canonical and meta tags without duplicate static index.html tags
+  // Synchronize singleton <head> tags in place without mounting conflicting React 19 hoisted
+  // <Helmet> metadata nodes or removing React-managed DOM elements (prevents removeChild crashes on route unmount).
   useEffect(() => {
-    if (typeof document === 'undefined') return;
+    if (typeof document === 'undefined' || !document.head) return;
+
+    document.documentElement.lang = 'en';
     document.title = normalizedTitle;
 
-    const syncMeta = (attr: 'name' | 'property', key: string, content: string) => {
-      const nodes = Array.from(document.head.querySelectorAll(`meta[${attr}="${key}"]`));
-      if (nodes.length === 0) {
-        const el = document.createElement('meta');
-        el.setAttribute(attr, key);
-        el.setAttribute('content', content);
-        el.setAttribute('data-rh', 'true');
-        document.head.appendChild(el);
-        return;
-      }
-      nodes[0].setAttribute('content', content);
-      for (let i = 1; i < nodes.length; i++) {
-        nodes[i].remove();
-      }
-    };
+    upsertMetaTag('name', 'description', metaDescription);
+    upsertMetaTag('name', 'keywords', keywordsStr);
+    upsertMetaTag('name', 'author', 'WorldNewzs Editorial Team');
+    upsertMetaTag('name', 'language', 'en');
+    upsertMetaTag('name', 'format-detection', 'telephone=no');
+    upsertMetaTag('name', 'color-scheme', 'dark light');
+    upsertMetaTag('name', 'robots', robotsContent);
+    upsertMetaTag('name', 'theme-color', '#0f172a');
+    upsertMetaTag('name', 'apple-mobile-web-app-title', SITE_NAME);
 
-    syncMeta('name', 'description', metaDescription);
-    syncMeta('name', 'keywords', keywordsStr);
-    syncMeta('name', 'robots', robotsContent);
-    syncMeta('property', 'og:title', normalizedTitle);
-    syncMeta('property', 'og:description', metaDescription);
-    syncMeta('property', 'og:url', canonical);
-    syncMeta('property', 'og:type', p.ogType || 'website');
-    syncMeta('property', 'og:image', metaImage);
-    syncMeta('name', 'twitter:title', normalizedTitle);
-    syncMeta('name', 'twitter:description', metaDescription);
-    syncMeta('name', 'twitter:image', metaImage);
+    upsertLinkTag('canonical', canonical);
+    upsertLinkTag('alternate', `${SITE_URL}/rss/discover`, {
+      type: 'application/rss+xml',
+      title: 'WorldNewzs RSS Feed',
+    });
 
-    const canonicalNodes = Array.from(document.head.querySelectorAll('link[rel="canonical"]'));
-    if (canonicalNodes.length === 0) {
-      const link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      link.setAttribute('href', canonical);
-      link.setAttribute('data-rh', 'true');
-      document.head.appendChild(link);
-    } else {
-      canonicalNodes[0].setAttribute('href', canonical);
-      for (let i = 1; i < canonicalNodes.length; i++) {
-        canonicalNodes[i].remove();
+    upsertMetaTag('property', 'og:site_name', SITE_NAME);
+    upsertMetaTag('property', 'og:title', normalizedTitle);
+    upsertMetaTag('property', 'og:description', metaDescription);
+    upsertMetaTag('property', 'og:url', canonical);
+    upsertMetaTag('property', 'og:type', ogType);
+    upsertMetaTag('property', 'og:image', metaImage);
+    upsertMetaTag('property', 'og:image:alt', normalizedTitle);
+    upsertMetaTag('property', 'og:image:width', '1200');
+    upsertMetaTag('property', 'og:image:height', '630');
+    upsertMetaTag('property', 'og:locale', 'en_US');
+
+    upsertMetaTag('name', 'twitter:card', 'summary_large_image');
+    upsertMetaTag('name', 'twitter:site', '@WorldNewzs');
+    upsertMetaTag('name', 'twitter:creator', '@WorldNewzs');
+    upsertMetaTag('name', 'twitter:title', normalizedTitle);
+    upsertMetaTag('name', 'twitter:description', metaDescription);
+    upsertMetaTag('name', 'twitter:image', metaImage);
+
+    // Only remove article-specific tags that we imperatively created (never React-managed nodes)
+    const ownArticleTags = document.head.querySelectorAll('meta[data-wn-seo-article="true"]');
+    ownArticleTags.forEach((node) => {
+      if (node.parentNode) {
+        node.parentNode.removeChild(node);
       }
+    });
+
+    if (ogType === 'article') {
+      const articleMarker = { name: 'data-wn-seo-article', value: 'true' };
+      if (articlePublishedTime) {
+        upsertMetaTag('property', 'article:published_time', articlePublishedTime, articleMarker);
+      }
+      if (articleModifiedTime) {
+        upsertMetaTag('property', 'article:modified_time', articleModifiedTime, articleMarker);
+      }
+      if (articleSection) {
+        upsertMetaTag('property', 'article:section', articleSection, articleMarker);
+      }
+      upsertMetaTag('property', 'article:publisher', ARTICLE_PUBLISHER_URL, articleMarker);
     }
-  }, [normalizedTitle, metaDescription, keywordsStr, robotsContent, canonical, metaImage, p.ogType]);
+  }, [
+    normalizedTitle,
+    metaDescription,
+    keywordsStr,
+    robotsContent,
+    canonical,
+    metaImage,
+    ogType,
+    articlePublishedTime,
+    articleModifiedTime,
+    articleSection,
+  ]);
 
-  return (
-    <Helmet prioritizeSeoTags>
-      <html lang="en" />
-      <title>{normalizedTitle}</title>
-      <meta name="description" content={metaDescription} />
-      <meta name="keywords" content={keywordsStr} />
-      <meta name="author" content="WorldNewzs Editorial Team" />
-      <meta name="language" content="en" />
-      <meta name="format-detection" content="telephone=no" />
-      <meta name="color-scheme" content="dark light" />
-      <link rel="canonical" href={canonical} />
-      <link rel="alternate" type="application/rss+xml" title="WorldNewzs RSS Feed" href={`${SITE_URL}/rss/discover`} />
-      {p.noIndex ? (
-        <meta name="robots" content="noindex, nofollow" />
-      ) : (
-        <meta name="robots" content={robotsContent} />
-      )}
-
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:title" content={normalizedTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:type" content={p.ogType!} />
-      <meta property="og:image" content={metaImage} />
-      <meta property="og:image:alt" content={normalizedTitle} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:locale" content="en_US" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@WorldNewzs" />
-      <meta name="twitter:creator" content="@WorldNewzs" />
-      <meta name="twitter:title" content={normalizedTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={metaImage} />
-
-      {p.ogType === 'article' && p.articlePublishedTime && (
-        <meta property="article:published_time" content={p.articlePublishedTime} />
-      )}
-      {p.ogType === 'article' && (p.articleModifiedTime || p.articlePublishedTime) && (
-        <meta property="article:modified_time" content={p.articleModifiedTime || p.articlePublishedTime} />
-      )}
-      {p.ogType === 'article' && p.articleSection && (
-        <meta property="article:section" content={p.articleSection} />
-      )}
-      {p.ogType === 'article' && (
-        <meta property="article:publisher" content="https://www.facebook.com/profile.php?id=61589266599006" />
-      )}
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-      <meta name="theme-color" content="#0f172a" />
-      <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
-    </Helmet>
-  );
+  return null;
 };
