@@ -12,6 +12,7 @@ interface FlashDropsStripProps {
   isSaved: (asin: string) => boolean;
   onToggleSave: (product: AmazonProduct) => void;
   onQuickView: (product: AmazonProduct) => void;
+  onNotify?: (message: string) => void;
 }
 
 export const FlashDropsStrip: React.FC<FlashDropsStripProps> = ({
@@ -19,6 +20,7 @@ export const FlashDropsStrip: React.FC<FlashDropsStripProps> = ({
   isSaved,
   onToggleSave,
   onQuickView,
+  onNotify,
 }) => {
   if (!deals || deals.length === 0) return null;
 
@@ -85,6 +87,7 @@ export const FlashDropsStrip: React.FC<FlashDropsStripProps> = ({
               isSaved={isSaved(product.asin)}
               onToggleSave={onToggleSave}
               onQuickView={onQuickView}
+              onNotify={onNotify}
               variant="flash"
               idPrefix="flash"
             />

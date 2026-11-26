@@ -13,7 +13,6 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import ShareIcon from "@mui/icons-material/Share";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
@@ -24,6 +23,7 @@ import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 import type { AmazonProduct } from "../../api/apiClient";
+import { DealShareMenu } from "./DealShareMenu";
 import {
   formatCategoryLabel,
   formatINR,
@@ -40,7 +40,7 @@ interface DealHeroSpotlightProps {
   isSaved: (asin: string) => boolean;
   onToggleSave: (product: AmazonProduct) => void;
   onQuickView: (product: AmazonProduct) => void;
-  onShare: (product: AmazonProduct) => void;
+  onNotify?: (message: string) => void;
   onActiveDealChange?: (product: AmazonProduct) => void;
 }
 
@@ -58,7 +58,7 @@ export const DealHeroSpotlight: React.FC<DealHeroSpotlightProps> = ({
   isSaved,
   onToggleSave,
   onQuickView,
-  onShare,
+  onNotify,
   onActiveDealChange,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -589,24 +589,12 @@ export const DealHeroSpotlight: React.FC<DealHeroSpotlightProps> = ({
                 </IconButton>
               </Tooltip>
 
-              <Tooltip title="Share Deal">
-                <IconButton
-                  id={`btn-hero-share-${activeDeal.asin}`}
-                  aria-label="Share spotlight deal"
-                  onClick={() => onShare(activeDeal)}
-                  sx={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: "8px",
-                    border: "1px solid var(--color-border-divider)",
-                    color: "var(--color-ink-primary)",
-                    bgcolor: "var(--color-surface-container-low)",
-                    "&:hover": { borderColor: "var(--color-brand-accent)", color: "var(--color-brand-accent)" },
-                  }}
-                >
-                  <ShareIcon fontSize="small" />
-                </IconButton>
-              </Tooltip>
+              <DealShareMenu
+                product={activeDeal}
+                buttonId={`btn-hero-share-${activeDeal.asin}`}
+                variant="hero"
+                onNotify={onNotify}
+              />
             </Box>
           </Box>
         </Grid>

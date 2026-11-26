@@ -14,12 +14,12 @@ import CloseIcon from "@mui/icons-material/Close";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import ShareIcon from "@mui/icons-material/Share";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CheckIcon from "@mui/icons-material/Check";
 import VerifiedUserOutlinedIcon from "@mui/icons-material/VerifiedUserOutlined";
 
 import type { AmazonProduct } from "../../api/apiClient";
+import { DealShareMenu } from "./DealShareMenu";
 import {
   formatCategoryLabel,
   formatINR,
@@ -37,7 +37,7 @@ interface DealQuickViewModalProps {
   onClose: () => void;
   isSaved: boolean;
   onToggleSave: (product: AmazonProduct) => void;
-  onShare: (product: AmazonProduct) => void;
+  onNotify?: (message: string) => void;
 }
 
 export const DealQuickViewModal: React.FC<DealQuickViewModalProps> = ({
@@ -46,7 +46,7 @@ export const DealQuickViewModal: React.FC<DealQuickViewModalProps> = ({
   onClose,
   isSaved,
   onToggleSave,
-  onShare,
+  onNotify,
 }) => {
   const [copiedAsinValue, setCopiedAsinValue] = useState<string | null>(null);
   const copyTimerRef = useRef<number | null>(null);
@@ -392,20 +392,12 @@ export const DealQuickViewModal: React.FC<DealQuickViewModalProps> = ({
                 {isSaved ? "Saved" : "Save"}
               </Button>
 
-              <Button
-                id="btn-share-modal"
-                variant="outlined"
-                onClick={() => onShare(product)}
-                startIcon={<ShareIcon />}
-                sx={{
-                  borderRadius: "8px",
-                  borderColor: "var(--color-border-divider)",
-                  color: "var(--color-ink-primary)",
-                  fontWeight: 700,
-                }}
-              >
-                Share
-              </Button>
+              <DealShareMenu
+                product={product}
+                buttonId="btn-share-modal"
+                variant="modal"
+                onNotify={onNotify}
+              />
             </Box>
           </Grid>
         </Grid>

@@ -286,17 +286,8 @@ const AmazonProducts: React.FC = () => {
     setSearchParams({}, { replace: true });
   }, [setSearchParams]);
 
-  const handleShare = useCallback((product: AmazonProduct) => {
-    const shareUrl = getAffiliateUrl(product);
-    const shareText = `${product.title} — ₹${product.price.toLocaleString("en-IN")} on WorldNewzs Deals Hub`;
-    if (navigator.share) {
-      navigator.share({ title: product.title, text: shareText, url: shareUrl }).catch(() => {});
-    } else if (navigator.clipboard) {
-      navigator.clipboard
-        .writeText(`${shareText} ${shareUrl}`)
-        .then(() => setToastMsg("Deal link copied to clipboard!"))
-        .catch(() => setToastMsg("Ready to share!"));
-    }
+  const handleNotify = useCallback((message: string) => {
+    setToastMsg(message);
   }, []);
 
   const handleFocusUrlPreview = useCallback(() => {
@@ -500,7 +491,7 @@ const AmazonProducts: React.FC = () => {
                 isSaved={isSaved}
                 onToggleSave={toggleSave}
                 onQuickView={setQuickViewProduct}
-                onShare={handleShare}
+                onNotify={handleNotify}
                 onActiveDealChange={setActiveHeroProduct}
               />
             )
@@ -518,6 +509,7 @@ const AmazonProducts: React.FC = () => {
                 isSaved={isSaved}
                 onToggleSave={toggleSave}
                 onQuickView={setQuickViewProduct}
+                onNotify={handleNotify}
               />
             )
           ))}
@@ -609,6 +601,7 @@ const AmazonProducts: React.FC = () => {
                         isSaved={isSaved(product.asin)}
                         onToggleSave={toggleSave}
                         onQuickView={setQuickViewProduct}
+                        onNotify={handleNotify}
                         idPrefix="grid"
                       />
                     </Grid>
@@ -787,7 +780,7 @@ const AmazonProducts: React.FC = () => {
         onClose={() => setQuickViewProduct(null)}
         isSaved={quickViewProduct ? isSaved(quickViewProduct.asin) : false}
         onToggleSave={toggleSave}
-        onShare={handleShare}
+        onNotify={handleNotify}
       />
 
       {/* Saved Deals Drawer */}

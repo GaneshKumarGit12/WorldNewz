@@ -12,6 +12,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import BoltIcon from "@mui/icons-material/Bolt";
 
 import type { AmazonProduct } from "../../api/apiClient";
+import { DealShareMenu } from "./DealShareMenu";
 import {
   formatCategoryLabel,
   formatINR,
@@ -27,12 +28,13 @@ interface DealCardProps {
   isSaved: boolean;
   onToggleSave: (product: AmazonProduct) => void;
   onQuickView: (product: AmazonProduct) => void;
+  onNotify?: (message: string) => void;
   variant?: "catalog" | "flash";
   idPrefix?: string;
 }
 
 export const DealCard: React.FC<DealCardProps> = memo(
-  ({ product, isSaved, onToggleSave, onQuickView, variant = "catalog", idPrefix = "" }) => {
+  ({ product, isSaved, onToggleSave, onQuickView, onNotify, variant = "catalog", idPrefix = "" }) => {
     const affiliateUrl = getAffiliateUrl(product);
     const verifiedDiscount = getVerifiedDiscountPercent(product.price, product.originalPrice);
     const { brand, cleanTitle } = parseBrandAndTitle(product.title, product.category);
@@ -230,6 +232,13 @@ export const DealCard: React.FC<DealCardProps> = memo(
                 <VisibilityOutlinedIcon sx={{ fontSize: 17 }} />
               </IconButton>
             </Tooltip>
+
+            <DealShareMenu
+              product={product}
+              buttonId={`btn-share-${domSuffix}`}
+              variant="card"
+              onNotify={onNotify}
+            />
           </Box>
         </Box>
 
