@@ -155,7 +155,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="company/:entityName" element={<EntityHubPage />} />
                   <Route path="person/:entityName" element={<EntityHubPage />} />
                   <Route path="topic/:entityName" element={<EntityHubPage />} />
+                  <Route path="p" element={<Navigate to="/amazon-products" replace />} />
                   <Route path="p/:code" element={<ProductRedirect />} />
+                  <Route path="p/:code/*" element={<ProductRedirect />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

@@ -7,7 +7,24 @@ const ASIN_REGEX = /^[A-Z0-9]{10}$/;
 const RENDER_API_BASE = 'https://worldnewz.onrender.com';
 const DEFAULT_ASSOCIATE_TAG = 'ganeshd12-21';
 const DEFAULT_LINK_ID = '309384296fe1c1e72569a81c50402f7a';
-const ALLOWED_AMAZON_HOSTS = new Set(['amazon.in', 'www.amazon.in', 'amzn.to', 'amzn.in']);
+const ALLOWED_AMAZON_HOSTS = new Set([
+  'amazon.in',
+  'www.amazon.in',
+  'm.amazon.in',
+  'amazon.co.in',
+  'www.amazon.co.in',
+  'amzn.to',
+  'amzn.in',
+  'www.amzn.in',
+]);
+
+function normalizeAsinCandidate(raw: string | undefined): string {
+  return String(raw || '')
+    .trim()
+    .replace(/[.,;:!?)\]'"}>]+$/g, '')
+    .trim()
+    .toUpperCase();
+}
 
 function buildFallbackAmazonUrl(asin: string): string {
   return `https://www.amazon.in/dp/${asin}?tag=${encodeURIComponent(
@@ -25,7 +42,10 @@ function sanitizeAmazonUrl(rawUrl: string | undefined, asin: string): string {
     if ((parsed.protocol !== 'https:' && parsed.protocol !== 'http:') || !ALLOWED_AMAZON_HOSTS.has(host)) {
       return buildFallbackAmazonUrl(asin);
     }
-    if (host.endsWith('amazon.in') && !parsed.searchParams.has('tag')) {
+    if (
+      (host.endsWith('amazon.in') || host.endsWith('amazon.co.in')) &&
+      !(parsed.searchParams.get('tag') || '').trim()
+    ) {
       parsed.searchParams.set('tag', DEFAULT_ASSOCIATE_TAG);
       return parsed.toString();
     }
@@ -37,7 +57,7 @@ function sanitizeAmazonUrl(rawUrl: string | undefined, asin: string): string {
 
 const ProductRedirect: React.FC = () => {
   const { code } = useParams<{ code: string }>();
-  const asin = String(code || '').trim().toUpperCase();
+  const asin = normalizeAsinCandidate(code);
   const isValidAsin = ASIN_REGEX.test(asin);
   const [targetUrl, setTargetUrl] = useState<string>(
     isValidAsin ? buildFallbackAmazonUrl(asin) : 'https://worldnewzs.in/amazon-products'
@@ -66,7 +86,9 @@ const ProductRedirect: React.FC = () => {
             ? data
             : Array.isArray(data?.products)
               ? data.products
-              : [];
+              : Array.isArray(data?.items)
+                ? data.items
+                : [];
           const match = list.find(
             (p: { asin?: string }) => String(p?.asin || '').trim().toUpperCase() === asin
           );

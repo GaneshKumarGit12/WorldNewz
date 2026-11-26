@@ -27,8 +27,12 @@ const SOCIAL_BOT_REGEX =
 const ALLOWED_AMAZON_HOSTS = new Set([
   'amazon.in',
   'www.amazon.in',
+  'm.amazon.in',
+  'amazon.co.in',
+  'www.amazon.co.in',
   'amzn.to',
   'amzn.in',
+  'www.amzn.in',
 ]);
 
 // Warm serverless-instance cache: ASIN -> { productUrl, title, price, originalPrice, imageUrl, fromCatalog, expiresAt }
@@ -58,8 +62,11 @@ export function sanitizeAmazonAffiliateUrl(rawUrl, asin) {
       return buildFallbackAmazonUrl(asin);
     }
     // Preserve exact URL and all existing query parameters verbatim.
-    // Only ensure associate tag is present if missing on amazon.in URLs.
-    if (host.endsWith('amazon.in') && !parsed.searchParams.has('tag')) {
+    // Ensure a non-empty associate tag is present on amazon.in / amazon.co.in URLs.
+    if (
+      (host.endsWith('amazon.in') || host.endsWith('amazon.co.in')) &&
+      !(parsed.searchParams.get('tag') || '').trim()
+    ) {
       parsed.searchParams.set('tag', DEFAULT_ASSOCIATE_TAG);
       return parsed.toString();
     }
@@ -89,6 +96,23 @@ function formatPrice(val) {
   return s;
 }
 
+function escapeJsonForScript(value) {
+  return JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
+}
+
+export function normalizeAsinCandidate(raw) {
+  return String(raw || '')
+    .trim()
+    .replace(/[.,;:!?)\]'"}>]+$/g, '')
+    .trim()
+    .toUpperCase();
+}
+
 function extractAsinCode(req) {
   let rawCode = Array.isArray(req.query?.code)
     ? req.query.code[0]
@@ -97,13 +121,17 @@ function extractAsinCode(req) {
   // Defensive fallback: extract ASIN directly from request URL path if rewrite param is absent
   if (!rawCode && typeof req.url === 'string') {
     const pathOnly = req.url.split('?')[0];
-    const match = pathOnly.match(/\/p\/([A-Za-z0-9]{10})\/?$/i);
+    const match = pathOnly.match(/\/p\/([^/?#]+)/i);
     if (match) {
-      rawCode = match[1];
+      try {
+        rawCode = decodeURIComponent(match[1]);
+      } catch {
+        rawCode = match[1];
+      }
     }
   }
 
-  return String(rawCode).trim().toUpperCase();
+  return normalizeAsinCandidate(rawCode);
 }
 
 async function lookupProductByAsin(asin) {
@@ -113,9 +141,9 @@ async function lookupProductByAsin(asin) {
     return cached;
   }
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 3000);
   try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000);
     const url = `${RENDER_API_BASE}/api/amazonproducts?search=${encodeURIComponent(
       asin
     )}&pageSize=5`;
@@ -127,7 +155,6 @@ async function lookupProductByAsin(asin) {
         Accept: 'application/json',
       },
     });
-    clearTimeout(timeoutId);
 
     if (response.ok) {
       const payload = await response.json();
@@ -166,6 +193,8 @@ async function lookupProductByAsin(asin) {
     }
   } catch {
     // Graceful fallback below if Render is cold-starting or timed out
+  } finally {
+    clearTimeout(timeoutId);
   }
 
   return {
@@ -197,19 +226,21 @@ export default async function handler(req, res) {
   const destinationUrl = sanitizeAmazonAffiliateUrl(product.productUrl, asin);
   const userAgent = String(req.headers?.['user-agent'] || '');
 
-  // Serve crisp Open Graph card metadata for social preview crawlers when metadata is available.
+  // Serve crisp Open Graph card metadata for social preview crawlers on every valid ASIN
+  // (including graceful fallback metadata during Render cold starts so crawlers don't hit Amazon's bot wall).
   // Cache-Control: private, no-store ensures Vercel Edge CDN never caches bot HTML for human clicks.
-  if (SOCIAL_BOT_REGEX.test(userAgent) && product.title) {
+  if (SOCIAL_BOT_REGEX.test(userAgent)) {
+    const baseTitle = product.title || `Verified Amazon.in Deal (${asin})`;
     const ogTitle = product.price
-      ? `${product.title.slice(0, 90)} — ${product.price} | Amazon.in Deal`
-      : `${product.title.slice(0, 100)} | Amazon.in Deal`;
+      ? `${baseTitle.slice(0, 90)} — ${product.price} | Amazon.in Deal`
+      : `${baseTitle.slice(0, 100)} | Amazon.in Deal`;
     const mrpPart =
       product.originalPrice && product.originalPrice !== product.price
         ? ` (MRP ${product.originalPrice})`
         : '';
     const ogDesc = product.price
       ? `Check out this Amazon India deal: ${product.price}${mrpPart}. Tap to view directly on Amazon.in via WorldNewzs.`
-      : `Tap to view this Amazon India product deal directly on Amazon.in via WorldNewzs.`;
+      : `Tap to view this verified Amazon India product deal directly on Amazon.in via WorldNewzs.`;
     const shortCanonical = `https://worldnewzs.in/p/${asin}`;
     const ogImage =
       product.imageUrl ||
@@ -238,11 +269,11 @@ export default async function handler(req, res) {
   <meta name="twitter:title" content="${escapeHtml(ogTitle)}" />
   <meta name="twitter:description" content="${escapeHtml(ogDesc)}" />
   <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
-  <meta http-equiv="refresh" content="0;url=${escapeHtml(destinationUrl)}" />
+  <noscript><meta http-equiv="refresh" content="2;url=${escapeHtml(destinationUrl)}" /></noscript>
 </head>
 <body>
   <p>Redirecting to Amazon.in... <a href="${escapeHtml(destinationUrl)}" rel="nofollow sponsored">Click here if not redirected</a>.</p>
-  <script>window.location.replace(${JSON.stringify(destinationUrl)});</script>
+  <script>window.location.replace(${escapeJsonForScript(destinationUrl)});</script>
 </body>
 </html>`;
 
