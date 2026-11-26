@@ -60,6 +60,7 @@ const BadgeQuiz = React.lazy(() => import("./pages/BadgeQuiz"));
 const QuizHistory = React.lazy(() => import("./pages/QuizHistory"));
 const Movies = React.lazy(() => import("./pages/Movies"));
 const AmazonProducts = React.lazy(() => import("./pages/AmazonProducts"));
+const ProductRedirect = React.lazy(() => import("./pages/ProductRedirect"));
 const Jobs = React.lazy(() => import("./pages/Jobs"));
 const JobDetails = React.lazy(() => import("./pages/JobDetails"));
 const PostJob = React.lazy(() => import("./pages/PostJob"));
@@ -154,6 +155,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <Route path="company/:entityName" element={<EntityHubPage />} />
                   <Route path="person/:entityName" element={<EntityHubPage />} />
                   <Route path="topic/:entityName" element={<EntityHubPage />} />
+                  <Route path="p/:code" element={<ProductRedirect />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

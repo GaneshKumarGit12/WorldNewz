@@ -209,6 +209,10 @@
       "destination": "https://worldnewz.onrender.com/api/pinterest/:path*"
     },
     {
+      "source": "/p/:code",
+      "destination": "/api/product-redirect?code=:code"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
